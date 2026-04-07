@@ -6,61 +6,44 @@
 <title>DCL Monitor · Lisa's Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root { --navy:#1a2744;--teal:#2196a6;--teal-light:#e8f6f8;--cream:#f8f4ee;--muted:#7a8499;--border:#e8e2d9;--card-bg:#ffffff;--gold:#c9a84c; }
-  * { margin:0;padding:0;box-sizing:border-box; }
-  body { font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy); }
-  nav { background:var(--navy);padding:0.9rem 1.5rem;display:flex;align-items:center;gap:1rem; }
-  nav a { color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.82rem;letter-spacing:0.08em;transition:color 0.2s; }
-  nav a:hover { color:var(--gold); }
-  nav .sep { color:rgba(255,255,255,0.2);font-size:0.75rem; }
-  nav .current { color:#fff;font-weight:500; }
-  header { background:linear-gradient(135deg,#0d3b4a 0%,#1a5c6e 50%,#2196a6 100%);padding:2.5rem 1.5rem 1.5rem;color:white; }
-  .page-label { font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.5rem; }
-  h1 { font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;margin-bottom:0.5rem; }
-  .header-meta { display:flex;flex-wrap:wrap;gap:0.8rem;align-items:center;margin-top:0.3rem; }
-  .datestamp { font-size:0.78rem;color:rgba(255,255,255,0.6); }
-  .updated-badge { font-size:0.7rem;background:rgba(255,255,255,0.15);padding:0.25rem 0.7rem;border-radius:20px;color:rgba(255,255,255,0.8); }
-  main { max-width:720px;margin:0 auto;padding:1.5rem; }
-  .status-banner { display:flex;gap:1rem;align-items:flex-start;padding:1.3rem 1.5rem;border-radius:10px;margin-bottom:2rem;font-size:0.88rem;line-height:1.6; }
-  .status-banner.not-available { background:linear-gradient(135deg,#fff8e1,#fff3cd);border:1px solid #f0d060; }
-  .status-banner.available { background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:1px solid #66bb6a; }
-  .status-icon { font-size:1.5rem;flex-shrink:0;margin-top:0.1rem; }
-  .status-title { font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;margin-bottom:0.4rem; }
-  .status-detail { color:#555;font-size:0.85rem; }
-  .badge { display:inline-block;background:var(--teal);color:white;font-size:0.65rem;padding:0.15rem 0.5rem;border-radius:10px;margin-left:0.5rem;vertical-align:middle;font-weight:500; }
-  .section { margin-bottom:2rem; }
-  .section-title { font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--teal-light); }
-  .card { background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1.3rem 1.5rem;margin-bottom:0.8rem;font-size:0.88rem;line-height:1.6; }
-  .timeline { list-style:none;padding:0; }
-  .timeline li { display:flex;gap:1rem;align-items:flex-start;padding:0.7rem 0;border-bottom:1px solid var(--border);font-size:0.87rem; }
-  .timeline li:last-child { border-bottom:none; }
-  .tl-year { font-weight:600;color:var(--teal);min-width:90px;font-size:0.83rem; }
-  .tl-detail { color:#555; }
-  .tip-box { background:var(--teal-light);border:1px solid var(--teal);border-radius:10px;padding:1.2rem 1.5rem;font-size:0.86rem;line-height:1.6;color:var(--navy); }
-  .tip-box strong { color:var(--teal); }
-  footer { text-align:center;padding:2rem;color:var(--muted);font-size:0.75rem;letter-spacing:0.03em; }
-</style>
-<style>
-  @keyframes porthole-glow {
-    0% {
-      box-shadow:
-        inset 0 0 10px rgba(217, 119, 87, 0.5),
-        inset 0 0 20px rgba(217, 119, 87, 0.3),
-        inset 0 0 30px rgba(217, 119, 87, 0.1);
-    }
-    50% {
-      box-shadow:
-        inset 0 0 15px rgba(217, 119, 87, 0.7),
-        inset 0 0 25px rgba(217, 119, 87, 0.5),
-        inset 0 0 35px rgba(217, 119, 87, 0.2);
-    }
-    100% {
-      box-shadow:
-        inset 0 0 10px rgba(217, 119, 87, 0.5),
-        inset 0 0 20px rgba(217, 119, 87, 0.3),
-        inset 0 0 30px rgba(217, 119, 87, 0.1);
-    }
-  }
+:root { --navy:#1a2744;--teal:#2196a6;--teal-light:#e8f6f8;--cream:#f8f4ee;--muted:#7a8499;--border:#e8e2d9;--card-bg:#ffffff;--gold:#c9a84c; }
+* { margin:0;padding:0;box-sizing:border-box; }
+body { font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy); }
+nav { background:var(--navy);padding:0.9rem 1.5rem;display:flex;align-items:center;gap:1rem; }
+nav a { color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.82rem;letter-spacing:0.08em;transition:color 0.2s; }
+nav a:hover { color:var(--gold); }
+nav .sep { color:rgba(255,255,255,0.2);font-size:0.75rem; }
+nav .current { color:#fff;font-weight:500; }
+header { background:linear-gradient(135deg,#0d3b4a 0%,#1a5c6e 50%,#2196a6 100%);padding:2.5rem 1.5rem 1.5rem;color:white; }
+.page-label { font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.5rem; }
+h1 { font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;margin-bottom:0.5rem; }
+.header-meta { display:flex;flex-wrap:wrap;gap:0.8rem;align-items:center;margin-top:0.3rem; }
+.datestamp { font-size:0.78rem;color:rgba(255,255,255,0.6); }
+.updated-badge { font-size:0.7rem;background:rgba(255,255,255,0.15);padding:0.25rem 0.7rem;border-radius:20px;color:rgba(255,255,255,0.8); }
+main { max-width:720px;margin:0 auto;padding:1.5rem; }
+.status-banner { display:flex;gap:1rem;align-items:flex-start;padding:1.3rem 1.5rem;border-radius:10px;margin-bottom:2rem;font-size:0.88rem;line-height:1.6; }
+.status-banner.not-available { background:linear-gradient(135deg,#fff8e1,#fff3cd);border:1px solid #f0d060; }
+.status-banner.available { background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:1px solid #66bb6a; }
+.status-icon { font-size:1.5rem;flex-shrink:0;margin-top:0.1rem; }
+.status-title { font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;margin-bottom:0.4rem; }
+.status-detail { color:#555;font-size:0.85rem; }
+.badge { display:inline-block;background:var(--teal);color:white;font-size:0.65rem;padding:0.15rem 0.5rem;border-radius:10px;margin-left:0.5rem;vertical-align:middle;font-weight:500; }
+.section { margin-bottom:2rem; }
+.section-title { font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--teal-light); }
+.card { background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1.3rem 1.5rem;margin-bottom:0.8rem;font-size:0.88rem;line-height:1.6; }
+.timeline { list-style:none;padding:0; }
+.timeline li { display:flex;gap:1rem;align-items:flex-start;padding:0.7rem 0;border-bottom:1px solid var(--border);font-size:0.87rem; }
+.timeline li:last-child { border-bottom:none; }
+.tl-year { font-weight:600;color:var(--teal);min-width:90px;font-size:0.83rem; }
+.tl-detail { color:#555; }
+.tip-box { background:var(--teal-light);border:1px solid var(--teal);border-radius:10px;padding:1.2rem 1.5rem;font-size:0.86rem;line-height:1.6;color:var(--navy); }
+.tip-box strong { color:var(--teal); }
+footer { text-align:center;padding:2rem;color:var(--muted);font-size:0.75rem;letter-spacing:0.03em; }
+@keyframes porthole-glow {
+  0% { box-shadow: inset 0 0 10px rgba(217,119,87,0.5), inset 0 0 20px rgba(217,119,87,0.3), inset 0 0 30px rgba(217,119,87,0.1); }
+  50% { box-shadow: inset 0 0 15px rgba(217,119,87,0.7), inset 0 0 25px rgba(217,119,87,0.5), inset 0 0 35px rgba(217,119,87,0.2); }
+  100% { box-shadow: inset 0 0 10px rgba(217,119,87,0.5), inset 0 0 20px rgba(217,119,87,0.3), inset 0 0 30px rgba(217,119,87,0.1); }
+}
 </style>
 </head>
 <body>
@@ -73,12 +56,11 @@
   <div class="page-label">Disney Cruise Line · Availability Monitor</div>
   <h1>🚢 October 2027 Update</h1>
   <div class="header-meta">
-    <span class="datestamp">Checked: April 7, 2026 at 6:29 PM EDT</span>
-    <span class="updated-badge">Last updated: April 7, 2026 at 6:29 PM EDT</span>
+    <span class="datestamp">Checked: Tue, Apr 7 at 6:39 PM ET</span>
+    <span class="updated-badge">Last updated: Tue, Apr 7 at 6:39 PM ET</span>
   </div>
 </header>
 <main>
-
   <div class="status-banner not-available">
     <div class="status-icon">🟡</div>
     <div>
@@ -86,30 +68,26 @@
       <div class="status-detail">Disney Cruise Line has not yet announced itineraries for October 2027. The most recently released sailings cover <strong>Summer 2027 (May–September 2027)</strong>, announced on <strong>February 10, 2026</strong>. Bookings are currently open through September 2027.</div>
     </div>
   </div>
-
   <div class="section">
     <div class="section-title">📅 When to Expect Fall 2027</div>
-    <div class="card">Based on Disney's consistent historical release pattern, Fall itineraries (September–December) are typically announced roughly <strong>12–15 months in advance</strong>. The estimated announcement window for Fall 2027 is <strong>June–August 2026</strong>. This dashboard will update automatically each week.</div>
+    <div class="card">Based on Disney's consistent historical release pattern, Fall itineraries (September–December) are typically announced roughly <strong>12–15 months in advance</strong>. The estimated announcement window for Fall 2027 is <strong>June–August 2026</strong>. This dashboard updates automatically each week.</div>
     <ul class="timeline">
       <li><span class="tl-year">Summer 2027</span><span class="tl-detail">Announced February 10, 2026 (covering May–Sep 2027) <span class="badge">Most Recent</span></span></li>
-      <li><span class="tl-year">Fall 2026</span><span class="tl-detail">Announced August 2025</span></li>
+      <li><span class="tl-year">Fall 2026</span><span class="tl-detail">Announced August 2025 (Sep 2026–May 2027)</span></li>
+      <li><span class="tl-year">Summer 2026</span><span class="tl-detail">Announced ~February 2025</span></li>
       <li><span class="tl-year">Fall 2025</span><span class="tl-detail">Announced June 2024</span></li>
       <li><span class="tl-year">Fall 2024</span><span class="tl-detail">Announced June 2023</span></li>
-      <li><span class="tl-year">Fall 2023</span><span class="tl-detail">Announced July 2022</span></li>
     </ul>
   </div>
-
   <div class="section">
     <div class="section-title">🌊 What Was Just Announced (Summer 2027)</div>
-    <div class="card">The Summer 2027 release on February 10, 2026 included sailings from May through September 2027 across all eight Disney ships — Magic, Wonder, Dream, Fantasy, Wish, Treasure, Destiny, and Adventure. Highlights include the Disney Wish's first-ever European sailings, Alaska itineraries from the Magic and Wonder, and the Disney Adventure continuing from Singapore. Marvel Day at Sea and Pixar Day at Sea return on select sailings.</div>
+    <div class="card">The Summer 2027 release on February 10, 2026 included sailings from May through September 2027 across all eight Disney ships — Magic, Wonder, Dream, Fantasy, Wish, Treasure, Destiny, and Adventure. Highlights include the Disney Wish's first-ever European sailings, Alaska itineraries aboard the Magic and Wonder, and the Disney Adventure continuing from Singapore. Marvel Day at Sea and Pixar Day at Sea return on select sailings.</div>
   </div>
-
   <div class="section">
     <div class="section-title">⚓ Castaway Club Booking Tip</div>
-    <div class="tip-box">Book early with your Castaway Club tier! When Fall 2027 itineraries are announced, <strong>Pearl members</strong> typically get first access (roughly 6 days before general public). Set a reminder for the announcement and have your stateroom preferences ready. Port-intensive October sailings — especially <strong>Halloween on the High Seas</strong> — tend to fill extremely fast.</div>
+    <div class="tip-box">Book early with your Castaway Club tier! When Fall 2027 itineraries drop, <strong>Pearl members</strong> typically get first access — roughly 6 days before the general public. Set a reminder for June–August 2026 and have your stateroom preferences ready. Port-intensive October sailings — especially <strong>Halloween on the High Seas</strong> — tend to fill extremely fast.</div>
   </div>
-
 </main>
-<footer>DCL Monitor · Auto-updated April 7, 2026 at 6:29 PM EDT · Part of Lisa's Hub</footer>
+<footer>DCL Monitor · Auto-updated Tue, Apr 7 at 6:39 PM ET · Part of Lisa's Hub</footer>
 </body>
 </html>
