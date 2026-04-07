@@ -6,152 +6,64 @@
 <title>Philly & AC Concerts · Lisa's Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy: #1a2744;
-    --purple: #6d3fa8;
-    --purple-light: #f0eaf8;
-    --cream: #f8f4ee;
-    --muted: #7a8499;
-    --border: #e8e2d9;
-    --card-bg: #ffffff;
-    --gold: #c9a84c;
-    --star: #f59e0b;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--navy); }
-
-  nav {
-    background: var(--navy);
-    padding: 0.9rem 1.5rem;
-    display: flex; align-items: center; gap: 1rem;
-  }
-  nav a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.08em; transition: color 0.2s; }
-  nav a:hover { color: var(--gold); }
-  nav .sep { color: rgba(255,255,255,0.2); font-size: 0.75rem; }
-  nav .current { color: #fff; font-weight: 500; }
-
-  header {
-    background: linear-gradient(135deg, #2d1564 0%, #5a2d91 50%, #8b5cf6 100%);
-    padding: 2.5rem 1.5rem 2rem;
-    color: white;
-  }
-  .page-label { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 0.5rem; }
-  h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 900; line-height: 1.15; }
-  .datestamp { margin-top: 0.5rem; font-size: 0.82rem; color: rgba(255,255,255,0.55); }
-
-  main { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
-
-  .star-track {
-    background: linear-gradient(135deg, #fff8e1, #fff3cd);
-    border: 2px solid var(--star);
-    border-radius: 12px;
-    padding: 1.4rem 1.6rem;
-    margin-bottom: 2rem;
-  }
-  .star-label {
-    font-size: 0.72rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--star);
-    font-weight: 600;
-    margin-bottom: 0.8rem;
-  }
-  .star-event {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 0.6rem;
-  }
-  .star-dates { display: flex; flex-direction: column; gap: 0.35rem; }
-  .star-date {
-    font-size: 0.87rem;
-    color: #555;
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-  .star-date::before { content: '📍'; flex-shrink: 0; }
-
-  .venue-section { margin-bottom: 2.2rem; }
-  .venue-header {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--navy);
-    background: var(--purple-light);
-    padding: 0.65rem 1rem;
-    border-radius: 8px 8px 0 0;
-    border: 1px solid #ddd5f0;
-    border-bottom: none;
-  }
-  .venue-city {
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--purple);
-    font-weight: 500;
-    margin-left: 0.5rem;
-    font-family: 'DM Sans', sans-serif;
-  }
-  .shows-list {
-    background: var(--card-bg);
-    border: 1px solid #ddd5f0;
-    border-radius: 0 0 8px 8px;
-    overflow: hidden;
-  }
-  .show-row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 1rem;
-    align-items: center;
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.87rem;
-    transition: background 0.15s;
-  }
-  .show-row:last-child { border-bottom: none; }
-  .show-row:hover { background: #fafafa; }
-  .show-row.featured { background: #fff9f0; }
-  .show-name { font-weight: 500; color: var(--navy); }
-  .show-support { font-size: 0.78rem; color: var(--muted); margin-top: 0.15rem; }
-  .show-date { font-size: 0.82rem; color: var(--purple); font-weight: 500; text-align: right; white-space: nowrap; }
-  .star-icon { color: var(--star); margin-right: 0.3rem; }
-
-  .note-box {
-    background: var(--purple-light);
-    border-left: 3px solid var(--purple);
-    border-radius: 0 8px 8px 0;
-    padding: 0.9rem 1.2rem;
-    font-size: 0.84rem;
-    color: #555;
-    margin-top: 1rem;
-    line-height: 1.55;
-  }
-
-  footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.78rem; border-top: 1px solid var(--border); }
+  :root { --navy:#1a2744;--purple:#6d3fa8;--purple-light:#f0eaf8;--cream:#f8f4ee;--muted:#7a8499;--border:#e8e2d9;--card-bg:#ffffff;--gold:#c9a84c;--star:#f59e0b; }
+  * { margin:0;padding:0;box-sizing:border-box; }
+  body { font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy); }
+  nav { background:var(--navy);padding:0.9rem 1.5rem;display:flex;align-items:center;gap:1rem; }
+  nav a { color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.82rem;letter-spacing:0.08em;transition:color 0.2s; }
+  nav a:hover { color:var(--gold); }
+  nav .sep { color:rgba(255,255,255,0.2);font-size:0.75rem; }
+  nav .current { color:#fff;font-weight:500; }
+  header { background:linear-gradient(135deg,#2d1564 0%,#5a2d91 50%,#8b5cf6 100%);padding:2.5rem 1.5rem 1.5rem;color:white; }
+  .page-label { font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.5rem; }
+  h1 { font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;line-height:1.15; }
+  .header-meta { margin-top:0.8rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap; }
+  .datestamp { font-size:0.82rem;color:rgba(255,255,255,0.5); }
+  .updated-badge { background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:0.25rem 0.85rem;font-size:0.76rem;color:rgba(255,255,255,0.85);display:inline-flex;align-items:center;gap:0.4rem; }
+  .updated-badge::before { content:'🕐'; }
+  main { max-width:860px;margin:0 auto;padding:2rem 1.5rem 4rem; }
+  .star-track { background:linear-gradient(135deg,#fff8e1,#fff3cd);border:2px solid var(--star);border-radius:12px;padding:1.4rem 1.6rem;margin-bottom:2rem; }
+  .star-label { font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--star);font-weight:600;margin-bottom:0.8rem; }
+  .star-event { font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem; }
+  .star-dates { display:flex;flex-direction:column;gap:0.35rem; }
+  .star-date { font-size:0.87rem;color:#555;display:flex;align-items:flex-start;gap:0.5rem; }
+  .star-date::before { content:'📍';flex-shrink:0; }
+  .venue-section { margin-bottom:2.2rem; }
+  .venue-header { font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--navy);background:var(--purple-light);padding:0.65rem 1rem;border-radius:8px 8px 0 0;border:1px solid #ddd5f0;border-bottom:none; }
+  .venue-city { font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple);font-weight:500;margin-left:0.5rem;font-family:'DM Sans',sans-serif; }
+  .shows-list { background:var(--card-bg);border:1px solid #ddd5f0;border-radius:0 0 8px 8px;overflow:hidden; }
+  .show-row { display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;padding:0.75rem 1rem;border-bottom:1px solid var(--border);font-size:0.87rem;transition:background 0.15s; }
+  .show-row:last-child { border-bottom:none; }
+  .show-row:hover { background:#fafafa; }
+  .show-row.featured { background:#fff9f0; }
+  .show-name { font-weight:500;color:var(--navy); }
+  .show-support { font-size:0.78rem;color:var(--muted);margin-top:0.15rem; }
+  .show-date { font-size:0.82rem;color:var(--purple);font-weight:500;text-align:right;white-space:nowrap; }
+  .star-icon { color:var(--star);margin-right:0.3rem; }
+  .note-box { background:var(--purple-light);border-left:3px solid var(--purple);border-radius:0 8px 8px 0;padding:0.9rem 1.2rem;font-size:0.84rem;color:#555;margin-top:1rem;line-height:1.55; }
+  footer { text-align:center;padding:2rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border); }
 </style>
 </head>
 <body>
-
 <nav>
   <a href="index.html">Lisa's Hub</a>
   <span class="sep">›</span>
   <span class="current">Philly & AC Concerts</span>
 </nav>
-
 <header>
   <div class="page-label">Live Music · Philadelphia & Atlantic City</div>
   <h1>🎵 Concert Guide</h1>
-  <div class="datestamp">Updated: April 6, 2026</div>
+  <div class="header-meta">
+    <span class="datestamp">Compiled: <!-- CONCERT_DATE --></span>
+    <span class="updated-badge">Last updated: <!-- CONCERT_FULL_TIMESTAMP --></span>
+  </div>
 </header>
-
 <main>
 
   <div class="star-track">
     <div class="star-label">⭐ Specially Tracked Show</div>
     <div class="star-event">Happy Together Tour 2026</div>
-    <div style="font-size:0.82rem; color: var(--muted); margin-bottom:0.7rem;">The Association · The Troggs · Jason Scheff · Gary Puckett · The Fortunes · Ron Dante · The Vogues · The Cowsills</div>
+    <div style="font-size:0.82rem;color:var(--muted);margin-bottom:0.7rem;">The Association · The Troggs · Jason Scheff · Gary Puckett · The Fortunes · Ron Dante · The Vogues · The Cowsills</div>
     <div class="star-dates">
       <div class="star-date"><strong>Keswick Theatre</strong>, Glenside, PA — Sun, June 14, 2026 at 8:00 PM</div>
       <div class="star-date"><strong>Ovation Hall, Ocean Casino Resort</strong>, AC — Fri, June 12, 2026</div>
@@ -159,16 +71,14 @@
     </div>
   </div>
 
-  <div class="star-track" style="background: linear-gradient(135deg,#f0f4ff,#e8f0fe); border-color: #6b8fd8;">
+  <div class="star-track" style="background:linear-gradient(135deg,#f0f4ff,#e8f0fe);border-color:#6b8fd8;">
     <div class="star-label" style="color:#3b5bdb;">🎤 Also Tracking: Pub Choir USA Tour 2026</div>
-    <div style="font-size:0.86rem; color:#444; line-height:1.6;">
+    <div style="font-size:0.86rem;color:#444;line-height:1.6;">
       <strong>No Philadelphia date currently listed.</strong><br>
       Nearest dates: <strong>New York City</strong> — May 11 · <strong>Washington, DC</strong> — May 13<br>
-      <a href="https://www.pubchoir.com.au/usa" target="_blank" style="color:#3b5bdb; font-size:0.82rem;">Check pubchoir.com/usa for new additions →</a>
+      <a href="https://www.pubchoir.com.au/usa" target="_blank" style="color:#3b5bdb;font-size:0.82rem;">Check pubchoir.com/usa for new additions →</a>
     </div>
   </div>
-
-  <!-- PHILADELPHIA VENUES -->
 
   <div class="venue-section">
     <div class="venue-header">Lincoln Financial Field <span class="venue-city">Philadelphia</span></div>
@@ -233,8 +143,6 @@
     </div>
   </div>
 
-  <!-- ATLANTIC CITY VENUES -->
-
   <div class="venue-section">
     <div class="venue-header">Hard Rock Live at Etess Arena <span class="venue-city">Atlantic City</span></div>
     <div class="shows-list">
@@ -281,15 +189,9 @@
     </div>
   </div>
 
-  <div class="note-box">
-    ⚠️ Dates and lineups are subject to change — always confirm on the venue or ticketing site before purchasing.
-  </div>
+  <div class="note-box">⚠️ Dates and lineups subject to change — always confirm on venue or ticketing site before purchasing.</div>
 
 </main>
-
-<footer>
-  🤖 Compiled automatically by Claude · Lisa's Hub · Updated weekly
-</footer>
-
+<footer>🤖 Compiled automatically by Claude · Lisa's Hub · Last updated: <!-- CONCERT_FULL_TIMESTAMP --></footer>
 </body>
 </html>

@@ -10,18 +10,12 @@
     --navy: #1a2744;
     --gold: #c9a84c;
     --cream: #f8f4ee;
-    --soft-blue: #4a6fa5;
     --muted: #7a8499;
     --card-bg: #ffffff;
     --border: #e8e2d9;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--navy);
-    min-height: 100vh;
-  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--navy); min-height: 100vh; }
   header {
     background: var(--navy);
     padding: 2.5rem 2rem 2rem;
@@ -32,67 +26,24 @@
   header::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -10%;
-    width: 120%;
-    height: 200%;
+    top: -50%; left: -10%;
+    width: 120%; height: 200%;
     background: radial-gradient(ellipse at 60% 40%, rgba(201,168,76,0.12) 0%, transparent 60%);
     pointer-events: none;
   }
-  .hub-label {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    font-size: 0.75rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.6rem;
-  }
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 5vw, 3.2rem);
-    color: #ffffff;
-    font-weight: 900;
-    letter-spacing: -0.01em;
-    line-height: 1.1;
-  }
+  .hub-label { font-weight: 300; font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.2rem); color: #fff; font-weight: 900; line-height: 1.1; }
   h1 span { color: var(--gold); }
-  .subtitle {
-    color: rgba(255,255,255,0.5);
-    font-size: 0.85rem;
-    margin-top: 0.6rem;
-    letter-spacing: 0.05em;
-  }
-  .gold-line {
-    width: 60px;
-    height: 2px;
-    background: var(--gold);
-    margin: 1.2rem auto 0;
-    opacity: 0.7;
-  }
-  main {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 2.5rem 1.5rem 4rem;
-  }
-  .section-label {
-    font-size: 0.72rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 1.2rem;
-    padding-left: 0.2rem;
-  }
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.2rem;
-  }
+  .subtitle { color: rgba(255,255,255,0.4); font-size: 0.82rem; margin-top: 0.5rem; letter-spacing: 0.05em; }
+  .gold-line { width: 60px; height: 2px; background: var(--gold); margin: 1.2rem auto 0; opacity: 0.7; }
+  main { max-width: 960px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+  .section-label { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.2rem; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; }
   .card {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 1.5rem 1.6rem 1.6rem;
+    padding: 1.5rem 1.6rem 1.4rem;
     text-decoration: none;
     color: inherit;
     display: block;
@@ -100,65 +51,23 @@
     position: relative;
     overflow: hidden;
   }
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 3px;
-    background: var(--accent, var(--gold));
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-  .card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 32px rgba(26,39,68,0.1);
-    border-color: transparent;
-  }
+  .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--accent, var(--gold)); opacity: 0; transition: opacity 0.2s; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(26,39,68,0.1); border-color: transparent; }
   .card:hover::before { opacity: 1; }
-  .card-icon {
-    font-size: 1.8rem;
-    margin-bottom: 0.8rem;
-    display: block;
-  }
-  .card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.12rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 0.4rem;
-    line-height: 1.3;
-  }
-  .card-desc {
-    font-size: 0.83rem;
-    color: var(--muted);
-    line-height: 1.55;
-  }
-  .card-freq {
-    margin-top: 1rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent, var(--gold));
-    font-weight: 500;
-  }
+  .card-icon { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
+  .card-title { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; line-height: 1.3; }
+  .card-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.55; }
+  .card-footer { margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-end; gap: 0.5rem; }
+  .card-freq { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent, var(--gold)); font-weight: 500; }
+  .last-updated { font-size: 0.73rem; color: var(--muted); text-align: right; line-height: 1.4; }
+  .last-updated .lu-label { display: block; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: #bbb; margin-bottom: 0.1rem; }
+  .last-updated .lu-time { font-weight: 500; color: #888; }
   .card-dcl { --accent: #2196a6; }
   .card-concert { --accent: #8b5cf6; }
   .card-primary { --accent: #2563eb; }
   .card-disney { --accent: #e05b9b; }
-
-  footer {
-    text-align: center;
-    padding: 2rem;
-    color: var(--muted);
-    font-size: 0.78rem;
-    border-top: 1px solid var(--border);
-    letter-spacing: 0.05em;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.78rem; border-top: 1px solid var(--border); }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
   .card { animation: fadeUp 0.4s ease both; }
   .card:nth-child(1) { animation-delay: 0.05s; }
   .card:nth-child(2) { animation-delay: 0.12s; }
@@ -170,10 +79,9 @@
 <header>
   <div class="hub-label">Personal Dashboard</div>
   <h1>Lisa's <span>Hub</span></h1>
-  <div class="subtitle">Updated automatically · Southampton, PA</div>
+  <div class="subtitle">Southampton, PA · Updated automatically by Claude</div>
   <div class="gold-line"></div>
 </header>
-
 <main>
   <div class="section-label">Your live dashboards</div>
   <div class="cards">
@@ -182,35 +90,82 @@
       <span class="card-icon">🚢</span>
       <div class="card-title">Disney Cruise Line Monitor</div>
       <div class="card-desc">October 2027 availability tracker. Monitors when Fall 2027 itineraries are released for booking.</div>
-      <div class="card-freq">Updated daily</div>
+      <div class="card-footer">
+        <div class="card-freq">Updated daily</div>
+        <div class="last-updated">
+          <span class="lu-label">Last updated</span>
+          <span class="lu-time" id="dcl-ts">Not yet updated</span>
+        </div>
+      </div>
     </a>
 
     <a href="concerts.html" class="card card-concert">
       <span class="card-icon">🎵</span>
       <div class="card-title">Philly & AC Concerts</div>
       <div class="card-desc">Upcoming shows at Philadelphia and Atlantic City venues, with special tracking for your favorites.</div>
-      <div class="card-freq">Updated weekly</div>
+      <div class="card-footer">
+        <div class="card-freq">Updated weekly</div>
+        <div class="last-updated">
+          <span class="lu-label">Last updated</span>
+          <span class="lu-time" id="concert-ts">Not yet updated</span>
+        </div>
+      </div>
     </a>
 
     <a href="primary.html" class="card card-primary">
       <span class="card-icon">🗳️</span>
       <div class="card-title">Bucks County Primary</div>
       <div class="card-desc">Daily media scan for the 2026 Bucks County Democratic Primary. Candidates, coverage, key races.</div>
-      <div class="card-freq">Updated daily</div>
+      <div class="card-footer">
+        <div class="card-freq">Updated daily</div>
+        <div class="last-updated">
+          <span class="lu-label">Last updated</span>
+          <span class="lu-time" id="primary-ts">Not yet updated</span>
+        </div>
+      </div>
     </a>
 
     <a href="disney-news.html" class="card card-disney">
       <span class="card-icon">✨</span>
       <div class="card-title">Disney Daily Briefing</div>
       <div class="card-desc">Parks news, DVC updates, cruise fleet highlights, dining, and upcoming events — all in one place.</div>
-      <div class="card-freq">Updated daily · Noon edition</div>
+      <div class="card-footer">
+        <div class="card-freq">Updated daily · Noon</div>
+        <div class="last-updated">
+          <span class="lu-label">Last updated</span>
+          <span class="lu-time" id="disney-ts">Not yet updated</span>
+        </div>
+      </div>
     </a>
 
   </div>
 </main>
+<footer>Lisa's Hub · Powered by Claude · All pages updated automatically</footer>
 
-<footer>
-  Lisa's Hub · Powered by Claude · Last generated automatically
-</footer>
+<script>
+// Each scheduled task updates timestamps.json in the repo with its page key and timestamp.
+// This script fetches that file and populates the cards.
+async function loadTimestamps() {
+  try {
+    const res = await fetch('timestamps.json?nocache=' + Date.now());
+    if (!res.ok) return;
+    const data = await res.json();
+    const ids = {
+      dcl: 'dcl-ts',
+      concert: 'concert-ts',
+      primary: 'primary-ts',
+      disney: 'disney-ts'
+    };
+    for (const [key, elId] of Object.entries(ids)) {
+      if (data[key]) {
+        document.getElementById(elId).textContent = data[key];
+      }
+    }
+  } catch(e) {
+    // timestamps.json not yet created — silently ignore
+  }
+}
+loadTimestamps();
+</script>
 </body>
 </html>

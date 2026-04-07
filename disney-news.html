@@ -6,163 +6,70 @@
 <title>Disney Daily Briefing · Lisa's Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy: #1a2744;
-    --pink: #c0297a;
-    --pink-light: #fdf0f7;
-    --purple: #7c3aed;
-    --cream: #f8f4ee;
-    --muted: #7a8499;
-    --border: #e8e2d9;
-    --card-bg: #ffffff;
-    --gold: #c9a84c;
-    --green: #16a34a;
-    --amber: #d97706;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--navy); }
-
-  nav { background: var(--navy); padding: 0.9rem 1.5rem; display: flex; align-items: center; gap: 1rem; }
-  nav a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.08em; transition: color 0.2s; }
-  nav a:hover { color: var(--gold); }
-  nav .sep { color: rgba(255,255,255,0.2); font-size: 0.75rem; }
-  nav .current { color: #fff; font-weight: 500; }
-
-  header {
-    background: linear-gradient(135deg, #6b1e6e 0%, #a0277a 40%, #d4569e 100%);
-    padding: 2.5rem 1.5rem 2rem;
-    color: white;
-    position: relative;
-    overflow: hidden;
-  }
-  header::after {
-    content: '✨';
-    position: absolute;
-    right: 2rem;
-    top: 1.5rem;
-    font-size: 3rem;
-    opacity: 0.2;
-  }
-  .page-label { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 0.5rem; }
-  h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 900; line-height: 1.15; }
-  .datestamp { margin-top: 0.5rem; font-size: 0.82rem; color: rgba(255,255,255,0.6); }
-
-  main { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
-
-  .section { margin-bottom: 2.2rem; }
-  .section-header {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--navy);
-    padding: 0.6rem 1rem;
-    border-radius: 8px 8px 0 0;
-    border: 1px solid var(--border);
-    border-bottom: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .section-body {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 0 0 8px 8px;
-    overflow: hidden;
-  }
-  .news-item {
-    padding: 0.95rem 1.1rem;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.87rem;
-    line-height: 1.6;
-  }
-  .news-item:last-child { border-bottom: none; }
-  .news-item:hover { background: #fafafa; }
-  .news-title { font-weight: 600; color: var(--navy); margin-bottom: 0.3rem; display: flex; align-items: flex-start; gap: 0.5rem; flex-wrap: wrap; }
-  .news-text { color: #555; }
-  .badge {
-    font-size: 0.66rem;
-    padding: 0.15rem 0.5rem;
-    border-radius: 20px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    white-space: nowrap;
-    flex-shrink: 0;
-    margin-top: 0.1rem;
-  }
-  .badge-new { background: #dcfce7; color: var(--green); }
-  .badge-alert { background: #fef3c7; color: var(--amber); }
-  .badge-major { background: #fce7f3; color: var(--pink); }
-  .badge-coming { background: #ede9fe; color: var(--purple); }
-
-  .cal-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 0.6rem;
-    padding: 1rem;
-  }
-  .cal-item {
-    display: flex;
-    gap: 0.8rem;
-    align-items: flex-start;
-    font-size: 0.84rem;
-  }
-  .cal-date {
-    background: var(--pink);
-    color: white;
-    border-radius: 6px;
-    padding: 0.25rem 0.5rem;
-    font-size: 0.72rem;
-    font-weight: 600;
-    white-space: nowrap;
-    flex-shrink: 0;
-    min-width: 52px;
-    text-align: center;
-  }
-  .cal-event { color: #444; line-height: 1.4; }
-
-  .section-header.parks { background: #fff9f0; }
-  .section-header.dvc { background: #f0fdf4; }
-  .section-header.dcl { background: #e8f6f8; }
-  .section-header.dining { background: #fff0f3; }
-  .section-header.calendar { background: #fdf0f7; }
-  .section-header.streaming { background: #f5f0ff; }
-
-  .closure-list {
-    padding: 0.8rem 1.1rem;
-  }
-  .closure-row {
-    display: flex;
-    gap: 0.6rem;
-    align-items: flex-start;
-    padding: 0.45rem 0;
-    font-size: 0.85rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .closure-row:last-child { border-bottom: none; }
-  .closure-icon { flex-shrink: 0; }
-  .closure-text { color: #555; }
-  .closure-text strong { color: var(--navy); }
-
-  footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.78rem; border-top: 1px solid var(--border); }
+  :root { --navy:#1a2744;--pink:#c0297a;--pink-light:#fdf0f7;--purple:#7c3aed;--cream:#f8f4ee;--muted:#7a8499;--border:#e8e2d9;--card-bg:#ffffff;--gold:#c9a84c;--green:#16a34a;--amber:#d97706; }
+  * { margin:0;padding:0;box-sizing:border-box; }
+  body { font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy); }
+  nav { background:var(--navy);padding:0.9rem 1.5rem;display:flex;align-items:center;gap:1rem; }
+  nav a { color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.82rem;letter-spacing:0.08em;transition:color 0.2s; }
+  nav a:hover { color:var(--gold); }
+  nav .sep { color:rgba(255,255,255,0.2);font-size:0.75rem; }
+  nav .current { color:#fff;font-weight:500; }
+  header { background:linear-gradient(135deg,#6b1e6e 0%,#a0277a 40%,#d4569e 100%);padding:2.5rem 1.5rem 1.5rem;color:white;position:relative;overflow:hidden; }
+  header::after { content:'✨';position:absolute;right:2rem;top:1.5rem;font-size:3rem;opacity:0.2; }
+  .page-label { font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.5rem; }
+  h1 { font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;line-height:1.15; }
+  .header-meta { margin-top:0.8rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap; }
+  .datestamp { font-size:0.82rem;color:rgba(255,255,255,0.55); }
+  .updated-badge { background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:0.25rem 0.85rem;font-size:0.76rem;color:rgba(255,255,255,0.85);display:inline-flex;align-items:center;gap:0.4rem; }
+  .updated-badge::before { content:'🕐'; }
+  main { max-width:860px;margin:0 auto;padding:2rem 1.5rem 4rem; }
+  .section { margin-bottom:2.2rem; }
+  .section-header { font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--navy);padding:0.6rem 1rem;border-radius:8px 8px 0 0;border:1px solid var(--border);border-bottom:none;display:flex;align-items:center;gap:0.5rem; }
+  .section-body { background:var(--card-bg);border:1px solid var(--border);border-radius:0 0 8px 8px;overflow:hidden; }
+  .news-item { padding:0.95rem 1.1rem;border-bottom:1px solid var(--border);font-size:0.87rem;line-height:1.6; }
+  .news-item:last-child { border-bottom:none; }
+  .news-item:hover { background:#fafafa; }
+  .news-title { font-weight:600;color:var(--navy);margin-bottom:0.3rem;display:flex;align-items:flex-start;gap:0.5rem;flex-wrap:wrap; }
+  .news-text { color:#555; }
+  .badge { font-size:0.66rem;padding:0.15rem 0.5rem;border-radius:20px;font-weight:600;letter-spacing:0.04em;white-space:nowrap;flex-shrink:0;margin-top:0.1rem; }
+  .badge-new { background:#dcfce7;color:var(--green); }
+  .badge-alert { background:#fef3c7;color:var(--amber); }
+  .badge-major { background:#fce7f3;color:var(--pink); }
+  .badge-coming { background:#ede9fe;color:var(--purple); }
+  .cal-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:0.6rem;padding:1rem; }
+  .cal-item { display:flex;gap:0.8rem;align-items:flex-start;font-size:0.84rem; }
+  .cal-date { background:var(--pink);color:white;border-radius:6px;padding:0.25rem 0.5rem;font-size:0.72rem;font-weight:600;white-space:nowrap;flex-shrink:0;min-width:52px;text-align:center; }
+  .cal-event { color:#444;line-height:1.4; }
+  .section-header.parks { background:#fff9f0; }
+  .section-header.dvc { background:#f0fdf4; }
+  .section-header.dcl { background:#e8f6f8; }
+  .section-header.dining { background:#fff0f3; }
+  .section-header.calendar { background:#fdf0f7; }
+  .section-header.streaming { background:#f5f0ff; }
+  .closure-list { padding:0.8rem 1.1rem; }
+  .closure-row { display:flex;gap:0.6rem;align-items:flex-start;padding:0.45rem 0;font-size:0.85rem;border-bottom:1px solid var(--border); }
+  .closure-row:last-child { border-bottom:none; }
+  .closure-text { color:#555; }
+  .closure-text strong { color:var(--navy); }
+  footer { text-align:center;padding:2rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border); }
 </style>
 </head>
 <body>
-
 <nav>
   <a href="index.html">Lisa's Hub</a>
   <span class="sep">›</span>
   <span class="current">Disney Daily Briefing</span>
 </nav>
-
 <header>
   <div class="page-label">Disney · Parks · Cruise Line · Dining · Streaming</div>
   <h1>✨ Disney Daily Briefing</h1>
-  <div class="datestamp">Tuesday, April 7, 2026 · Noon Edition</div>
+  <div class="header-meta">
+    <span class="datestamp"><!-- DISNEY_DATE --> · Noon Edition</span>
+    <span class="updated-badge">Last updated: <!-- DISNEY_FULL_TIMESTAMP --></span>
+  </div>
 </header>
-
 <main>
 
-  <!-- DISNEY WORLD -->
   <div class="section">
     <div class="section-header parks">🏰 Disney World — Orlando</div>
     <div class="section-body">
@@ -172,104 +79,84 @@
       </div>
       <div class="news-item">
         <div class="news-title">🎨 Cinderella Castle Repaint — Nearly Complete</div>
-        <div class="news-text">Returning to its classic look — softer grays, creams, and deep blues with subtle gold accents, trading the bold 50th Anniversary colors.</div>
+        <div class="news-text">Returning to classic look — softer grays, creams, and deep blues with subtle gold accents, trading the bold 50th Anniversary colors.</div>
       </div>
       <div class="news-item">
         <div class="news-title"><span class="badge badge-alert">Happening Now</span> EPCOT Flower & Garden Festival — through June 1</div>
-        <div class="news-text">60+ topiaries (31 new!), 20+ outdoor food booths, brand-new outdoor kitchen <strong>Nectar</strong>, and the Garden Rocks Concert Series every weekend. New prize for Spike's Pollen-Nation Exploration Scavenger Hunt: mini ceramic flower pot with solar-powered moving flowers!</div>
+        <div class="news-text">60+ topiaries (31 new!), 20+ outdoor food booths, brand-new outdoor kitchen <strong>Nectar</strong>, and the Garden Rocks Concert Series every weekend.</div>
       </div>
       <div class="news-item">
         <div class="news-title"><span class="badge badge-coming">Coming May 26</span> 🐨 Bluey's Wild World — Animal Kingdom</div>
-        <div class="news-text">Opens at Conservation Station (Rafiki's Planet Watch). Meet Bluey and Bingo, play interactive games, explore Australian animal exhibits, and visit the new Jumping Junction petting area.</div>
+        <div class="news-text">Opens at Conservation Station. Meet Bluey and Bingo, play interactive games, explore Australian animal exhibits, and visit the new Jumping Junction petting area.</div>
       </div>
       <div class="news-item">
         <div class="news-title"><span class="badge badge-coming">Summer 2026</span> 🎸 Rock 'n' Roller Coaster → The Muppets!</div>
-        <div class="news-text">Closed March 2 and being transformed into <strong>Rock 'n' Roller Coaster Starring The Muppets</strong> at Hollywood Studios. The Electric Mayhem are headlining Hollywood's biggest concert. New stretch limo outside already sports a wild red, orange, and mint green design.</div>
+        <div class="news-text">Closed March 2 and being transformed into <strong>Rock 'n' Roller Coaster Starring The Muppets</strong> at Hollywood Studios. The Electric Mayhem are headlining Hollywood's biggest concert.</div>
       </div>
       <div class="news-item">
         <div class="news-title">⚠️ April 2026 Ride Closures</div>
-        <div class="closure-list" style="padding: 0.3rem 0 0;">
-          <div class="closure-row"><span class="closure-icon">🔴</span><div class="closure-text"><strong>Big Thunder Mountain Railroad</strong> (Magic Kingdom) — Still closed; reopening pushed to early May</div></div>
-          <div class="closure-row"><span class="closure-icon">🔴</span><div class="closure-text"><strong>Rock 'n' Roller Coaster</strong> (Hollywood Studios) — Closed for Muppets retheme; Summer 2026</div></div>
-          <div class="closure-row"><span class="closure-icon">🟡</span><div class="closure-text"><strong>Wildlife Express Train to Rafiki's Planet Watch</strong> (Animal Kingdom) — Reopens May 26</div></div>
-          <div class="closure-row"><span class="closure-icon">🔴</span><div class="closure-text"><strong>Palais du Cinema / Impressions de France</strong> (EPCOT France Pavilion) — Closed through May</div></div>
+        <div class="closure-list" style="padding:0.3rem 0 0;">
+          <div class="closure-row"><span>🔴</span><div class="closure-text"><strong>Big Thunder Mountain Railroad</strong> — Still closed; reopening pushed to early May</div></div>
+          <div class="closure-row"><span>🔴</span><div class="closure-text"><strong>Rock 'n' Roller Coaster</strong> — Closed for Muppets retheme; Summer 2026</div></div>
+          <div class="closure-row"><span>🟡</span><div class="closure-text"><strong>Wildlife Express Train</strong> — Reopens May 26</div></div>
+          <div class="closure-row"><span>🔴</span><div class="closure-text"><strong>Palais du Cinema / Impressions de France</strong> (EPCOT) — Closed through May</div></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- DVC -->
   <div class="section">
     <div class="section-header dvc">🏡 Disney Vacation Club</div>
     <div class="section-body">
       <div class="news-item">
         <div class="news-title"><span class="badge badge-major">MAJOR</span> New DVC Rental Rules in Effect (March 31, 2026)</div>
-        <div class="news-text">Disney formalized its Commercial Use Policy for DVC Point Rentals. "Commercial use" triggers include: majority of reservations used by non-Members, booking overlapping reservations, regular advertising of rentals, making <strong>more than 20 reservations/year</strong> where most aren't used personally. <em>Occasional renters using brokerages like DVC Rental Store are generally unaffected.</em></div>
+        <div class="news-text">Disney formalized its Commercial Use Policy for DVC Point Rentals. Triggers include: majority of reservations used by non-Members, booking overlapping reservations, more than <strong>20 reservations/year</strong> where most aren't used personally. <em>Occasional renters using brokerages like DVC Rental Store are generally unaffected.</em></div>
       </div>
       <div class="news-item">
         <div class="news-title">💰 Resale Market Updates</div>
-        <div class="news-text">The <strong>$500 Contract Administration Fee</strong> for resale contracts is in full effect (since Jan 1, 2026). One-time-use points quietly increased to <strong>$22.50/point</strong> (up from ~$20). Inventory remains tight with fewer contract options.</div>
-      </div>
-      <div class="news-item">
-        <div class="news-title">🔨 Resort Refurbishments — April 2026</div>
-        <div class="closure-list" style="padding: 0.3rem 0 0;">
-          <div class="closure-row"><span class="closure-icon">🟡</span><div class="closure-text"><strong>Bay Lake Tower</strong> — Skyway Bridge closed daytime hours throughout April</div></div>
-          <div class="closure-row"><span class="closure-icon">🔴</span><div class="closure-text"><strong>Aulani (Hawaii)</strong> — Waikolohe pool, whirlpool, Volcanic Vertical slide closed Apr 13–May 8</div></div>
-          <div class="closure-row"><span class="closure-icon">🔴</span><div class="closure-text"><strong>Saratoga Springs</strong> — Turf Club Bar & Grill closed April–September 2026</div></div>
-          <div class="closure-row"><span class="closure-icon">🔴</span><div class="closure-text"><strong>Jambo House</strong> — Guest room refurb begins May 2026 through January 2027</div></div>
-        </div>
+        <div class="news-text">The <strong>$500 Contract Administration Fee</strong> for resale contracts is in full effect. One-time-use points quietly increased to <strong>$22.50/point</strong> (up from ~$20). Inventory remains tight.</div>
       </div>
     </div>
   </div>
 
-  <!-- DCL -->
   <div class="section">
     <div class="section-header dcl">⚓ Disney Cruise Line</div>
     <div class="section-body">
       <div class="news-item">
         <div class="news-title"><span class="badge badge-new">NOW SAILING</span> Disney Adventure — Singapore</div>
-        <div class="news-text">The Disney Adventure officially began revenue operations in March 2026, homeporting year-round in Singapore in partnership with Singapore Tourism.</div>
+        <div class="news-text">Officially began revenue operations in March 2026, homeporting year-round in Singapore.</div>
       </div>
       <div class="news-item">
         <div class="news-title"><span class="badge badge-major">CONFIRMED</span> Disney Believe — 4th WISH-Class Ship (2027)</div>
         <div class="news-text">Disney confirmed the name of its fourth WISH-class vessel: <strong>Disney Believe</strong>, debuting in 2027. Could be part of the Fall 2027 lineup!</div>
       </div>
       <div class="news-item">
-        <div class="news-title">🚢 Fleet Highlights — Spring/Summer 2026</div>
-        <div class="news-text">Disney Magic completing Pacific Coast cruises; Disney Magic + Wonder both offering Alaskan cruises this summer for the first time; Disney Dream returning to Europe for Mediterranean cruises in Summer 2026.<br><br><em>📋 Note: Tasting seminars including Mixology Class have increased from $25 to $45/person as of April 2026.</em></div>
+        <div class="news-title">📋 Note: Tasting seminar prices up</div>
+        <div class="news-text">Tasting seminars including the Mixology Class have increased from $25 to <strong>$45/person</strong> as of April 2026.</div>
       </div>
     </div>
   </div>
 
-  <!-- DINING -->
   <div class="section">
     <div class="section-header dining">🍽️ Dining & Deals</div>
     <div class="section-body">
       <div class="news-item">
         <div class="news-title"><span class="badge badge-alert">DEADLINE APR 30</span> 🎉 FREE Dining Offer — Book by April 30!</div>
-        <div class="news-text">Purchase a non-discounted 4-night/4-day vacation package and receive a complimentary Disney Dining Plan.<br><br>
-          Value/Moderate → Free Quick-Service Dining Plan<br>
-          Deluxe/Deluxe Villa → Free Standard Dining Plan<br>
-          <strong>Travel windows:</strong> Jun 28–Oct 3 · Oct 19–31 · Dec 6–21, 2026</div>
+        <div class="news-text">Purchase a non-discounted 4-night/4-day package and receive a complimentary Disney Dining Plan.<br>Value/Moderate → Free Quick-Service · Deluxe/Deluxe Villa → Free Standard<br><strong>Travel windows:</strong> Jun 28–Oct 3 · Oct 19–31 · Dec 6–21, 2026</div>
       </div>
       <div class="news-item">
         <div class="news-title">🎁 Disney Gift Card Best Deals</div>
-        <div class="news-text">
-          🎯 <strong>Target</strong> — 5% off with Target Circle Card (most reliable ongoing discount)<br>
-          🏪 <strong>Sam's Club</strong> — $500 Disney eGift cards at ~$479.99 (~4% discount)<br>
-          💡 <strong>Pro tip:</strong> Stack Target Circle 5% + Disney Premier Visa 5% back on groceries (April–June) for maximum savings
-        </div>
+        <div class="news-text">🎯 <strong>Target</strong> — 5% off with Target Circle Card (most reliable ongoing discount)<br>🏪 <strong>Sam's Club</strong> — $500 Disney eGift cards at ~$479.99<br>💡 <strong>Pro tip:</strong> Stack Target Circle 5% + Disney Premier Visa 5% back on groceries (April–June)</div>
       </div>
     </div>
   </div>
 
-  <!-- STREAMING -->
   <div class="section">
     <div class="section-header streaming">🎬 Disney+ & Theaters</div>
     <div class="section-body">
       <div class="news-item">
         <div class="news-title"><span class="badge badge-new">NEW</span> Star Wars: Maul – Shadow Lord (premiered April 6)</div>
-        <div class="news-text">10-episode animated series, 2 episodes/week through May 4. Maul plots to rebuild his criminal syndicate while crossing paths with a young Jedi Padawan.</div>
+        <div class="news-text">10-episode animated series, 2 episodes/week through May 4.</div>
       </div>
       <div class="news-item">
         <div class="news-title"><span class="badge badge-new">NEW</span> Daredevil: Born Again — Season 2 (new episodes Tuesdays)</div>
@@ -277,15 +164,11 @@
       </div>
       <div class="news-item">
         <div class="news-title">🎭 Coming to Theaters</div>
-        <div class="news-text">
-          <strong>The Devil Wears Prada 2</strong> — May 1, 2026<br>
-          ⭐ <strong>The Mandalorian & Grogu</strong> — May 22, 2026 🌟
-        </div>
+        <div class="news-text"><strong>The Devil Wears Prada 2</strong> — May 1, 2026<br>⭐ <strong>The Mandalorian & Grogu</strong> — May 22, 2026 🌟</div>
       </div>
     </div>
   </div>
 
-  <!-- CALENDAR -->
   <div class="section">
     <div class="section-header calendar">🗓️ Coming Up — Mark Your Calendar</div>
     <div class="section-body">
@@ -294,8 +177,7 @@
         <div class="cal-item"><div class="cal-date">Apr 13</div><div class="cal-event">Aulani pool/slides close for refurb (through May 8)</div></div>
         <div class="cal-item"><div class="cal-date">Apr 16–20</div><div class="cal-event">runDisney Springtime Surprise Weekend</div></div>
         <div class="cal-item"><div class="cal-date">Apr 22</div><div class="cal-event">Disneynature: Orangutan on Disney+ (Earth Day!)</div></div>
-        <div class="cal-item"><div class="cal-date">Apr 26</div><div class="cal-event">Last day: 20% off DisneyStore.com (Disney Visa)</div></div>
-        <div class="cal-item" style="background:#fff8e1; border-radius:6px; padding:0.3rem;"><div class="cal-date" style="background:var(--amber);">Apr 30</div><div class="cal-event"><strong>DEADLINE: Book Free Dining 2026 offer!</strong></div></div>
+        <div class="cal-item" style="background:#fff8e1;border-radius:6px;padding:0.3rem;"><div class="cal-date" style="background:var(--amber);">Apr 30</div><div class="cal-event"><strong>DEADLINE: Book Free Dining 2026!</strong></div></div>
         <div class="cal-item"><div class="cal-date">May 1</div><div class="cal-event">The Devil Wears Prada 2 in theaters</div></div>
         <div class="cal-item"><div class="cal-date">May 13</div><div class="cal-event">Disney Q2 FY2026 Earnings Report</div></div>
         <div class="cal-item"><div class="cal-date">May 22</div><div class="cal-event">⭐ The Mandalorian & Grogu in theaters!</div></div>
@@ -306,10 +188,6 @@
   </div>
 
 </main>
-
-<footer>
-  ✨ Have a magical day! · Generated automatically · Lisa's Hub · Prices and availability subject to change
-</footer>
-
+<footer>✨ Have a magical day! · Generated automatically · Lisa's Hub · Last updated: <!-- DISNEY_FULL_TIMESTAMP --></footer>
 </body>
 </html>
