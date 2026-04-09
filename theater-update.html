@@ -16,6 +16,10 @@
   .card strong { display: block; }
   .card .sub { color: #aaa; font-size: 0.82em; }
   .card .note { color: #999; font-size: 0.84em; }
+  /* Seen-show styling */
+  .card[data-seen="true"] { background: #f0f5f0; opacity: 0.82; }
+  .card[data-seen="true"] strong { color: #555; }
+  .seen-badge { display: inline-block; background: #2e7d32; color: #fff; font-size: 0.68em; font-weight: 700; padding: 1px 6px; border-radius: 10px; margin-left: 6px; vertical-align: middle; letter-spacing: 0.03em; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; }
   .section-header { color: #fff; padding: 10px 18px; border-radius: 8px 8px 0 0; font-size: 1.05em; font-weight: bold; }
   .section-body { background: #fff; border: 1px solid #e0ddd6; border-top: none; border-radius: 0 0 8px 8px; padding: 16px 18px; }
@@ -248,6 +252,39 @@
   var min = now.getMinutes().toString().padStart(2,'0');
   var ts = days[now.getDay()] + ', ' + months[now.getMonth()] + ' ' + now.getDate() + ' at ' + h + ':' + min + ' ' + ampm + ' ET';
   document.body.innerHTML = document.body.innerHTML.replaceAll('DYNAMIC_TIMESTAMP', ts);
+})();
+</script>
+
+<script>
+// Seen-shows: fetch list from GitHub and highlight matching cards
+(function() {
+  var SEEN_URL = 'https://raw.githubusercontent.com/lisaprocz-rgb/crispy-octo-goggles/main/seen-shows.json';
+  function normalize(str) {
+    return str.replace(/^[\u{1F300}-\u{1FFFF}\u{2600}-\u{27FF}\s🎵🎭📍🚀📰🏆✓]+/gu, '').trim().toLowerCase();
+  }
+  fetch(SEEN_URL + '?_=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var seen = (data.seen || []).map(function(s) { return s.toLowerCase().trim(); });
+      if (!seen.length) return;
+      document.querySelectorAll('.card').forEach(function(card) {
+        var strongEl = card.querySelector('strong');
+        if (!strongEl) return;
+        var title = normalize(strongEl.textContent);
+        var matched = seen.some(function(s) {
+          var ns = s.toLowerCase().trim();
+          return title === ns || title.startsWith(ns) || ns.startsWith(title);
+        });
+        if (matched) {
+          card.setAttribute('data-seen', 'true');
+          var badge = document.createElement('span');
+          badge.className = 'seen-badge';
+          badge.textContent = '✓ seen';
+          strongEl.appendChild(badge);
+        }
+      });
+    })
+    .catch(function() {}); // silently fail if file unreachable
 })();
 </script>
 
