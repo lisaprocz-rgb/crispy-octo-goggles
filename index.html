@@ -71,6 +71,7 @@
   .card-primary { --accent: #2563eb; }
   .card-disney { --accent: #e05b9b; }
   .card-theater { --accent: #9b59b6; }
+  .card-movies { --accent: #e8423a; }
   footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.78rem; border-top: 1px solid var(--border); }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
   .card { animation: fadeUp 0.4s ease both; }
@@ -79,6 +80,7 @@
   .card:nth-child(3) { animation-delay: 0.19s; }
   .card:nth-child(4) { animation-delay: 0.26s; }
   .card:nth-child(5) { animation-delay: 0.33s; }
+  .card:nth-child(6) { animation-delay: 0.40s; }
 </style>
 </head>
 <body>
@@ -158,6 +160,19 @@
       </div>
     </a>
 
+        <a href="movies.html" class="card card-movies">
+          <span class="card-icon">🎬</span>
+          <div class="card-title">Movies</div>
+          <div class="card-desc">Daily showtimes for Penn Cinema &amp; Regal theaters, new releases, upcoming films, and entertainment news.</div>
+          <div class="card-footer">
+            <div class="card-freq">Updated 11:30 AM</div>
+            <div class="last-updated">
+              <span class="lu-label">Last updated</span>
+              <span class="lu-time" id="movies-ts">Loading…</span>
+            </div>
+          </div>
+        </a>
+
   </div>
 </main>
 <footer>
@@ -195,7 +210,8 @@ async function loadTimestamps() {
       concert: 'concert-ts',
       primary: 'primary-ts',
       disney: 'disney-ts',
-      theater: 'theater-ts'
+      theater: 'theater-ts',
+      movies: 'movies-ts'
     };
     for (const [key, elId] of Object.entries(ids)) {
       if (data[key]) {
