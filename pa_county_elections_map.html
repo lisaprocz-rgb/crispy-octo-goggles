@@ -14,6 +14,12 @@
   .hub-link{position:absolute;top:10px;right:10px;z-index:1001;pointer-events:auto;background:#1a2744;color:#c9a84c;text-decoration:none;padding:8px 14px;border-radius:6px;font-size:13px;font-weight:600;letter-spacing:0.04em;box-shadow:0 2px 6px rgba(0,0,0,0.15);transition:background 0.15s ease;}
   .hub-link:hover{background:#2a3a5f;}
   .hub-link::before{content:'← ';}
+  .view-toggle{position:absolute;top:54px;right:10px;z-index:1001;pointer-events:auto;display:flex;background:#fff;border:1px solid #ccc;border-radius:6px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.12);font-size:12px;}
+  .view-toggle a{padding:7px 12px;text-decoration:none;color:#333;font-weight:500;transition:background 0.15s ease;}
+  .view-toggle a:hover{background:#f0f0f0;}
+  .view-toggle a.active{background:#1a2744;color:#c9a84c;cursor:default;}
+  .view-toggle a.active:hover{background:#1a2744;}
+  .view-toggle .vt-sep{width:1px;background:#ccc;}
   .legend{background:rgba(255,255,255,0.95);padding:8px 12px;border-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,0.2);font-size:12px;line-height:1.5;}
   .legend i{display:inline-block;width:14px;height:14px;margin-right:6px;vertical-align:middle;opacity:0.85;}
   .county-label{background:transparent;border:none;box-shadow:none;color:#222;font-size:11px;font-weight:600;text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff;pointer-events:none;}
@@ -47,6 +53,11 @@
   <p>Click a county for Board of Elections contact info, office head, and voter registration. Data: PA Dept. of State, April 2026.</p>
 </div>
 <a href="index.html" class="hub-link">Lisa's Hub</a>
+<div class="view-toggle">
+  <a href="pa-elections-map.html">View by Registration</a>
+  <span class="vt-sep"></span>
+  <a class="active">View by Trump +/−</a>
+</div>
 <div id="map"></div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
