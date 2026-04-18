@@ -73,51 +73,6 @@
   .card-theater { --accent: #9b59b6; }
   .card-movies { --accent: #e8423a; }
   .card-pamap { --accent: #2e7d32; }
-  /* ── DCL status indicators ───────────────────────────────────────────────── */
-  .status-badge {
-    position: absolute;
-    top: 0.75rem;
-    right: 0.85rem;
-    font-size: 1.15rem;
-    line-height: 1;
-    z-index: 2;
-    filter: grayscale(0.15);
-    opacity: 0.85;
-  }
-  /* Not announced yet — subdued thumbs down */
-  .card.status-down { border-color: #d9cbb6; background: linear-gradient(180deg, #fdfaf3 0%, #ffffff 45%); }
-  .card.status-down .status-badge { font-size: 1.25rem; opacity: 0.9; }
-  .card.status-down .card-title::after { content: ' 👎🏼'; font-size: 0.95em; }
-  /* Announced — BIG celebration: gold glow, stars, thumbs up */
-  @keyframes sparklePulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.45), 0 8px 32px rgba(26,39,68,0.1); }
-    50% { box-shadow: 0 0 0 8px rgba(201,168,76,0), 0 12px 40px rgba(201,168,76,0.35); }
-  }
-  @keyframes twinkle {
-    0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
-    50% { opacity: 0.6; transform: scale(1.15) rotate(8deg); }
-  }
-  .card.status-up {
-    background: linear-gradient(135deg, #fffbe8 0%, #fff5d0 50%, #ffeab0 100%);
-    border: 2px solid var(--gold);
-    animation: fadeUp 0.4s ease both, sparklePulse 2.2s ease-in-out infinite 0.6s;
-    transform: scale(1.02);
-  }
-  .card.status-up::before { opacity: 1 !important; height: 5px; background: linear-gradient(90deg, #c9a84c, #ffd86b, #c9a84c); }
-  .card.status-up .card-title { color: #8a6c1f; font-weight: 900; }
-  .card.status-up .card-title::after { content: ' 👍🏼'; font-size: 1em; }
-  .card.status-up .card-desc { color: #6b5a2a; }
-  .card.status-up .stars-burst {
-    position: absolute;
-    pointer-events: none;
-    font-size: 1.1rem;
-    filter: drop-shadow(0 1px 2px rgba(201,168,76,0.4));
-  }
-  .card.status-up .stars-tl { top: 0.5rem; left: 0.6rem; animation: twinkle 1.8s ease-in-out infinite; }
-  .card.status-up .stars-tr { top: 0.55rem; right: 0.6rem; animation: twinkle 1.6s ease-in-out 0.3s infinite; }
-  .card.status-up .stars-bl { bottom: 0.6rem; left: 0.7rem; animation: twinkle 2.0s ease-in-out 0.6s infinite; }
-  .card.status-up .stars-br { bottom: 0.6rem; right: 0.7rem; animation: twinkle 1.7s ease-in-out 0.9s infinite; }
-  .card.status-up .status-badge { font-size: 1.6rem; opacity: 1; filter: none; }
   footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.78rem; border-top: 1px solid var(--border); }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
   .card { animation: fadeUp 0.4s ease both; }
@@ -142,8 +97,7 @@
   <div class="section-label">Your live dashboards</div>
   <div class="cards">
 
-    <a href="dcl-monitor.html" class="card card-dcl status-down" id="dcl-card">
-      <span class="status-badge" id="dcl-status-badge">👎🏼</span>
+    <a href="dcl-monitor.html" class="card card-dcl">
       <span class="card-icon">🚢</span>
       <div class="card-title">Disney Cruise Line Monitor</div>
       <div class="card-desc">October 2027 availability tracker. Monitors when Fall 2027 itineraries are released for booking.</div>
@@ -151,7 +105,7 @@
         <div class="card-freq">Updated Daily</div>
         <div class="last-updated">
           <span class="lu-label">Last updated</span>
-          <span class="lu-time" id="dcl-ts">Sat, Apr 18 at 07:26 PM ET</span>
+          <span class="lu-time" id="dcl-ts">Thu, Apr 16 at 09:57 PM ET</span>
         </div>
       </div>
     </a>
@@ -164,7 +118,7 @@
         <div class="card-freq">Updated Daily</div>
         <div class="last-updated">
           <span class="lu-label">Last updated</span>
-          <span class="lu-time" id="concert-ts">Sat, Apr 18 at 7:04 PM ET</span>
+          <span class="lu-time" id="concert-ts">Thu, Apr 16 at 7:16 PM ET</span>
         </div>
       </div>
     </a>
@@ -177,7 +131,7 @@
         <div class="card-freq">Updated Daily</div>
         <div class="last-updated">
           <span class="lu-label">Last updated</span>
-          <span class="lu-time" id="primary-ts">Sat, Apr 18 at 7:03 PM ET</span>
+          <span class="lu-time" id="primary-ts">Thu, Apr 16 at 9:03 PM ET</span>
         </div>
       </div>
     </a>
@@ -199,7 +153,7 @@
         <div class="card-freq">Updated Daily</div>
         <div class="last-updated">
           <span class="lu-label">Last updated</span>
-          <span class="lu-time" id="disney-ts">Fri, Apr 17 at 8:04 AM ET</span>
+          <span class="lu-time" id="disney-ts">Thu, Apr 16 at 8:01 PM ET</span>
         </div>
       </div>
     </a>
@@ -212,7 +166,7 @@
         <div class="card-freq">Updated Daily</div>
         <div class="last-updated">
           <span class="lu-label">Last updated</span>
-          <span class="lu-time" id="theater-ts">Fri, Apr 17 at 10:13 AM ET</span>
+          <span class="lu-time" id="theater-ts">Thu, Apr 16 at 10:16 AM ET</span>
         </div>
       </div>
     </a>
@@ -225,7 +179,7 @@
             <div class="card-freq">Updated Daily</div>
             <div class="last-updated">
               <span class="lu-label">Last updated</span>
-              <span class="lu-time" id="movies-ts">Fri, Apr 17 at 11:40 AM ET</span>
+              <span class="lu-time" id="movies-ts">Thu, Apr 16 at 11:41 AM ET</span>
             </div>
           </div>
         </a>
