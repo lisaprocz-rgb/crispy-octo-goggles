@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TV &amp; Streaming — Lisa's Hub</title>
+<style>
+  :root {
+    --navy: #1a2744;
+    --gold: #c9a84c;
+    --cream: #faf8f4;
+    --muted: #7a8499;
+    --border: #e8e2d9;
+    --accent: #0891b2;
+    --accent-dark: #0e7490;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:20px; font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height:1.55; background: var(--cream); color:#333; }
+  nav.top { background: var(--navy); padding:14px 20px; display:flex; align-items:center; gap:1rem; margin:-20px -20px 0 -20px; }
+  nav.top a { color: rgba(255,255,255,0.6); text-decoration:none; font-size:0.82rem; letter-spacing:0.08em; }
+  nav.top a:hover { color:#fff; }
+  nav.top span.chev { color: rgba(255,255,255,0.2); font-size:0.75rem; }
+  nav.top span.current { color:#fff; font-weight:500; font-size:0.82rem; }
+  .banner { background: linear-gradient(135deg, #083344 0%, #0e7490 50%, #06b6d4 100%); color:#fff; padding:40px 20px 34px; margin:0 -20px 0 -20px; }
+  .banner-inner { max-width:1000px; margin:0 auto; }
+  .banner .eyebrow { text-transform:uppercase; letter-spacing:3px; font-size:12px; color: rgba(255,255,255,0.7); margin-bottom:8px; }
+  .banner h1 { font-size:38px; margin:0 0 12px 0; font-weight:700; }
+  .banner .sub { font-size:14px; color: rgba(255,255,255,0.85); }
+  .banner .chips { margin-top:14px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+  .banner .chips .live { font-size:14px; color: rgba(255,255,255,0.9); }
+  .banner .chips .updated { background: rgba(0,0,0,0.25); padding:4px 12px; border-radius:12px; font-size:13px; }
+  main { max-width:1000px; margin:0 auto; padding: 28px 0 40px; }
+  .quicknav { display:flex; flex-wrap:wrap; gap:8px; margin: 0 0 28px 0; padding: 14px 18px; background:#fff; border:1px solid var(--border); border-radius:10px; }
+  .quicknav span.label { font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color: var(--muted); align-self:center; margin-right:6px; }
+  .quicknav a { font-size:13px; color: var(--navy); text-decoration:none; padding:4px 10px; border-radius:14px; background: #f1f5f9; border:1px solid #e2e8f0; transition: all 0.15s; }
+  .quicknav a:hover { background: var(--accent); color:#fff; border-color: var(--accent); }
+  h2.section { font-size:22px; padding-bottom:8px; margin: 32px 0 18px 0; border-bottom: 3px solid var(--accent); display:flex; align-items:center; gap:10px; }
+  h2.section .service-badge { display:inline-block; padding:3px 10px; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; border-radius:4px; font-weight:700; color:#fff; vertical-align:middle; }
+  h3.sub { font-size:15px; color: var(--navy); margin: 18px 0 10px 0; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; border-left: 4px solid var(--accent); padding-left:10px; }
+  .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-bottom: 14px; }
+  .card { background:#fff; border:1px solid var(--border); border-radius:8px; padding:14px 16px; border-top:3px solid var(--accent); }
+  .card .ctitle { font-weight:700; font-size:14.5px; margin-bottom:4px; color: var(--navy); line-height:1.3; }
+  .card .cmeta { font-size:11.5px; color: var(--accent-dark); font-weight:600; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.05em; }
+  .card .cdesc { font-size:13px; color:#555; line-height:1.5; }
+  .service-block { background:#fff; border:1px solid var(--border); border-radius:12px; padding: 20px 22px 26px; margin-bottom: 26px; border-left: 6px solid var(--accent); }
+  .service-header { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:4px; }
+  .service-title { font-size:26px; font-weight:700; color: var(--navy); margin:0; }
+  .service-tag { font-size:12px; color: var(--muted); font-style:italic; }
+  .award-list { list-style:none; padding:0; margin:0; }
+  .award-item { background:#fff; border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:8px; padding:14px 18px; margin-bottom:12px; display:grid; grid-template-columns: 90px 1fr auto; gap:14px; align-items:center; }
+  .award-date { background: var(--accent); color:#fff; border-radius:6px; padding:8px 4px; text-align:center; font-weight:700; }
+  .award-date .m { display:block; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; }
+  .award-date .d { display:block; font-size:22px; line-height:1; margin:2px 0; }
+  .award-date .y { display:block; font-size:11px; opacity:0.8; }
+  .award-body h4 { margin:0 0 4px 0; font-size:16px; color: var(--navy); }
+  .award-body .award-meta { font-size:13px; color:#555; }
+  .award-body .award-meta strong { color: var(--navy); }
+  .award-body a { color: var(--accent-dark); font-weight:600; }
+  .award-where { font-size:12px; color: var(--muted); text-align:right; }
+  .news-card { background:#fff; border:1px solid var(--border); border-radius:8px; padding:14px 18px; margin-bottom:10px; border-left:4px solid var(--accent); }
+  .news-date { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color: var(--accent-dark); font-weight:700; margin-bottom:4px; }
+  .news-headline { font-weight:700; color: var(--navy); font-size:15px; margin-bottom:4px; line-height:1.35; }
+  .news-sum { font-size:13px; color:#555; }
+  .news-sum a { color: var(--accent-dark); font-weight:600; }
+  .note { font-size:12.5px; color: var(--muted); font-style:italic; padding: 6px 0 0; }
+  footer { text-align:center; padding: 28px 20px 20px; margin-top: 24px; color: var(--muted); font-size:12.5px; border-top:1px solid var(--border); }
+  /* Service brand accents (left border + sub-heading stripe) */
+  .svc-netflix   { border-left-color:#e50914; }
+  .svc-netflix h2.section  { border-bottom-color:#e50914; }
+  .svc-netflix h3.sub      { border-left-color:#e50914; }
+  .svc-netflix .card       { border-top-color:#e50914; }
+  .svc-netflix .service-badge { background:#e50914; }
+  .svc-max       { border-left-color:#a259ff; }
+  .svc-max h2.section      { border-bottom-color:#a259ff; }
+  .svc-max h3.sub          { border-left-color:#a259ff; }
+  .svc-max .card           { border-top-color:#a259ff; }
+  .svc-max .service-badge  { background:#a259ff; }
+  .svc-disney    { border-left-color:#0063e5; }
+  .svc-disney h2.section   { border-bottom-color:#0063e5; }
+  .svc-disney h3.sub       { border-left-color:#0063e5; }
+  .svc-disney .card        { border-top-color:#0063e5; }
+  .svc-disney .service-badge { background:#0063e5; }
+  .svc-hulu      { border-left-color:#1ce783; }
+  .svc-hulu h2.section     { border-bottom-color:#1ce783; }
+  .svc-hulu h3.sub         { border-left-color:#1ce783; }
+  .svc-hulu .card          { border-top-color:#1ce783; }
+  .svc-hulu .service-badge { background:#1ce783; color:#0d1a12; }
+  .svc-apple     { border-left-color:#222; }
+  .svc-apple h2.section    { border-bottom-color:#222; }
+  .svc-apple h3.sub        { border-left-color:#222; }
+  .svc-apple .card         { border-top-color:#222; }
+  .svc-apple .service-badge { background:#222; }
+  .svc-prime     { border-left-color:#00a8e1; }
+  .svc-prime h2.section    { border-bottom-color:#00a8e1; }
+  .svc-prime h3.sub        { border-left-color:#00a8e1; }
+  .svc-prime .card         { border-top-color:#00a8e1; }
+  .svc-prime .service-badge { background:#00a8e1; }
+  .svc-paramount { border-left-color:#0064ff; }
+  .svc-paramount h2.section{ border-bottom-color:#0064ff; }
+  .svc-paramount h3.sub    { border-left-color:#0064ff; }
+  .svc-paramount .card     { border-top-color:#0064ff; }
+  .svc-paramount .service-badge { background:#0064ff; }
+  .svc-peacock   { border-left-color:#f7a823; }
+  .svc-peacock h2.section  { border-bottom-color:#f7a823; }
+  .svc-peacock h3.sub      { border-left-color:#f7a823; }
+  .svc-peacock .card       { border-top-color:#f7a823; }
+  .svc-peacock .service-badge { background:#f7a823; color:#1a2744; }
+  .svc-britbox   { border-left-color:#c8102e; }
+  .svc-britbox h2.section  { border-bottom-color:#c8102e; }
+  .svc-britbox h3.sub      { border-left-color:#c8102e; }
+  .svc-britbox .card       { border-top-color:#c8102e; }
+  .svc-britbox .service-badge { background:#c8102e; }
+  @media (max-width: 640px) {
+    .award-item { grid-template-columns: 80px 1fr; }
+    .award-where { grid-column: 2; text-align:left; margin-top:4px; }
+    .banner h1 { font-size:30px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <a href="index.html">Lisa's Hub</a>
+  <span class="chev">&#8250;</span>
+  <span class="current">TV &amp; Streaming</span>
+</nav>
+
+<div class="banner">
+  <div class="banner-inner">
+    <div class="eyebrow">Entertainment · Streaming Guide</div>
+    <h1>📺 TV &amp; Streaming</h1>
+    <div class="sub">What to watch across nine streaming services · Upcoming awards · Industry news</div>
+    <div class="chips">
+      <span id="tv-checked" class="live">Checked: Fri, Apr 24 at 12:00 PM ET</span>
+      <span id="tv-updated" class="updated">Last updated: Fri, Apr 24 at 12:00 PM ET</span>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- Quick Nav -->
+  <nav class="quicknav">
+    <span class="label">Jump to</span>
+    <a href="#awards">🏆 Awards</a>
+    <a href="#news">📰 News</a>
+    <a href="#netflix">Netflix</a>
+    <a href="#max">Max</a>
+    <a href="#disney">Disney+</a>
+    <a href="#hulu">Hulu</a>
+    <a href="#apple">Apple TV+</a>
+    <a href="#prime">Prime Video</a>
+    <a href="#paramount">Paramount+</a>
+    <a href="#peacock">Peacock</a>
+    <a href="#britbox">BritBox &amp; Acorn</a>
+  </nav>
+
+  <!-- ═════════════════════ AWARDS CALENDAR ═════════════════════ -->
+  <section id="awards">
+    <h2 class="section">🏆 Upcoming Awards Calendar</h2>
+    <p class="note">Ordered by next-up. As nominees are announced, each item links to the official nominees page.</p>
+
+    <ul class="award-list">
+
+      <li class="award-item">
+        <div class="award-date"><span class="m">Jun</span><span class="d">7</span><span class="y">2026</span></div>
+        <div class="award-body">
+          <h4>79th Tony Awards</h4>
+          <div class="award-meta"><strong>Broadway theater.</strong> Host: P!nk · Radio City Music Hall · Nominations announced <strong>Tuesday, May 5, 2026</strong>. <a href="https://www.tonyawards.com/nominees/" target="_blank" rel="noopener">Nominees page →</a> (populates on May 5)</div>
+        </div>
+        <div class="award-where">CBS<br>8–11 PM ET<br>Paramount+ w/ Showtime</div>
+      </li>
+
+      <li class="award-item">
+        <div class="award-date"><span class="m">Sep</span><span class="d">14</span><span class="y">2026</span></div>
+        <div class="award-body">
+          <h4>78th Primetime Emmy Awards</h4>
+          <div class="award-meta"><strong>Television.</strong> Peacock Theater, LA · Creative Arts Emmys Sep 5–6 · Nominations announced <strong>Wednesday, July 8, 2026</strong> (artisan categories July 15). Predicted heavyweights: <em>The Pitt, Hacks, Pluribus, Shrinking, Paradise, Abbott Elementary</em>. <a href="https://www.emmys.com/shows/nominees-winners" target="_blank" rel="noopener">Nominees page →</a> (populates July 8)</div>
+        </div>
+        <div class="award-where">NBC + Peacock<br>8 PM ET / 5 PM PT</div>
+      </li>
+
+      <li class="award-item">
+        <div class="award-date"><span class="m">Sep</span><span class="d">27</span><span class="y">2026</span></div>
+        <div class="award-body">
+          <h4>MTV Video Music Awards</h4>
+          <div class="award-meta"><strong>Music videos.</strong> Live from Los Angeles — first time in LA since 2017. <a href="https://www.mtv.com/vma" target="_blank" rel="noopener">Nominees page →</a></div>
+        </div>
+        <div class="award-where">CBS + MTV<br>Simulcast</div>
+      </li>
+
+      <li class="award-item">
+        <div class="award-date"><span class="m">Oct</span><span class="d">30</span><span class="y">2026</span></div>
+        <div class="award-body">
+          <h4>53rd Daytime Emmy Awards</h4>
+          <div class="award-meta"><strong>Daytime TV.</strong> Los Angeles · Nominations announced in July 2026. <a href="https://theemmys.tv/daytime/" target="_blank" rel="noopener">Nominees page →</a> (populates July)</div>
+        </div>
+        <div class="award-where">CBS<br>TBA</div>
+      </li>
+
+      <li class="award-item">
+        <div class="award-date"><span class="m">Jan</span><span class="d">3</span><span class="y">2027</span></div>
+        <div class="award-body">
+          <h4>32nd Critics Choice Awards</h4>
+          <div class="award-meta"><strong>Film &amp; TV critics.</strong> Barker Hangar, Santa Monica · Live on both coasts. <a href="https://www.criticschoice.com/critics-choice-awards/" target="_blank" rel="noopener">Nominees page →</a></div>
+        </div>
+        <div class="award-where">USA Network<br>7–10 PM ET / PT</div>
+      </li>
+
+      <li class="award-item">
+        <div class="award-date"><span class="m">Jan</span><span class="d">10</span><span class="y">2027</span></div>
+        <div class="award-body">
+          <h4>84th Golden Globe Awards</h4>
+          <div class="award-meta"><strong>Film &amp; TV.</strong> Host: Nikki Glaser (three-peat) · Beverly Hilton. <a href="https://goldenglobes.com/nominations/" target="_blank" rel="noopener">Nominees page →</a></div>
+        </div>
+        <div class="award-where">CBS<br>Paramount+</div>
+      </li>
+
+      <li class="award-item">
+        <div class="award-date"><span class="m">Feb</span><span class="d">14</span><span class="y">2027</span></div>
+        <div class="award-body">
+          <h4>80th BAFTA Film Awards</h4>
+          <div class="award-meta"><strong>British film.</strong> Royal Festival Hall, London · 7:00 PM GMT. <a href="https://www.bafta.org/awards/film" target="_blank" rel="noopener">Nominees page →</a></div>
+        </div>
+        <div class="award-where">BBC One (UK)<br>BritBox (US, delayed)</div>
+      </li>
+
+      <li class="award-item">
+        <div class="award-date"><span class="m">Feb</span><span class="d">28</span><span class="y">2027</span></div>
+        <div class="award-body">
+          <h4>33rd Actor Awards (formerly SAG)</h4>
+          <div class="award-meta"><strong>Screen actors.</strong> Rebranded from SAG Awards to "The Actor Awards" — exclusive streaming deal with Netflix. <a href="https://www.sagawards.org/nominees" target="_blank" rel="noopener">Nominees page →</a></div>
+        </div>
+        <div class="award-where">Netflix<br>8 PM ET / 5 PM PT</div>
+      </li>
+
+      <li class="award-item">
+        <div class="award-date"><span class="m">Mar</span><span class="d">14</span><span class="y">2027</span></div>
+        <div class="award-body">
+          <h4>99th Academy Awards (Oscars)</h4>
+          <div class="award-meta"><strong>Film.</strong> Dolby Theatre — final Oscars at this venue before the 2029 move to the Peacock Theater · Nominations announced <strong>Thursday, January 21, 2027</strong>. <a href="https://www.oscars.org/oscars/ceremonies/2027" target="_blank" rel="noopener">Nominees page →</a> (populates Jan 21, 2027)</div>
+        </div>
+        <div class="award-where">ABC<br>7 PM ET / 4 PM PT</div>
+      </li>
+
+      <li class="award-item">
+        <div class="award-date"><span class="m">TBA</span><span class="d">—</span><span class="y">2027</span></div>
+        <div class="award-body">
+          <h4>69th Grammy Awards</h4>
+          <div class="award-meta"><strong>Music.</strong> Expected late January/early February 2027 · Typically broadcast on CBS + Paramount+. <a href="https://www.grammy.com/awards" target="_blank" rel="noopener">Nominees page →</a></div>
+        </div>
+        <div class="award-where">CBS<br>Paramount+</div>
+      </li>
+
+    </ul>
+
+    <p class="note">68th Grammy Awards already held on February 1, 2026 — Bad Bunny (<em>Debí Tirar Más Fotos</em>) won Album of the Year; Kendrick Lamar swept Record of the Year with "Luther."</p>
+  </section>
+
+  <!-- ═════════════════════ NEWS ═════════════════════ -->
+  <section id="news">
+    <h2 class="section">📰 TV &amp; Streaming News</h2>
+    <p class="note">Industry headlines from the past two weeks.</p>
+
+    <div class="news-card">
+      <div class="news-date">Apr 22, 2026</div>
+      <div class="news-headline">Euphoria returns for Season 3 on HBO Max — five years later, out of high school</div>
+      <div class="news-sum">HBO's zeitgeist drama returns April 12 with a huge cast shakeup: Rosalía, Marshawn Lynch, Sharon Stone, Trisha Paytas, Danielle Deadwyler &amp; Natasha Lyonne all join. The show has jumped forward in time, leaving the high-school setting behind. <a href="https://www.hollywoodreporter.com/tv/tv-news/" target="_blank" rel="noopener">Details →</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-date">Apr 21, 2026</div>
+      <div class="news-headline">Critics Choice Awards sets January 3, 2027 date; renews two-year deal with Versant</div>
+      <div class="news-sum">The 32nd ceremony returns to Barker Hangar in Santa Monica and airs live on USA Network. <a href="https://deadline.com/2026/04/critics-choice-awards-sets-date-for-2027-ceremony-renewed-e-1236865814/" target="_blank" rel="noopener">Deadline →</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-date">Apr 18, 2026</div>
+      <div class="news-headline">Apple TV+ renews three hits, cancels one</div>
+      <div class="news-sum">Apple locks in three more seasons of its anchor originals while trimming a lower-performer. Part of a broader slate audit as <em>Severance</em>, <em>Slow Horses</em> and <em>Shrinking</em> continue to drive subscriber growth. <a href="https://www.justjared.com/2026/04/18/apple-tv-cancels-1-tv-show-renews-3-hits-2026-renewal-cancellation-recap/" target="_blank" rel="noopener">Just Jared →</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-date">Apr 12, 2026</div>
+      <div class="news-headline">Paramount+ renews <em>The Madison</em> for Season 3 — Taylor Sheridan's biggest debut ever</div>
+      <div class="news-sum">Season 2 is in the can; the Sheridan-verse keeps expanding post-Yellowstone, alongside <em>1923</em>, <em>Landman</em>, and <em>Tulsa King</em>. <a href="https://www.tvguide.com/news/canceled-renewed-tv-shows-april-2026/" target="_blank" rel="noopener">TV Guide →</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-date">Apr 10, 2026</div>
+      <div class="news-headline">MGM+ renews <em>From</em> for fifth and final season ahead of S4 premiere</div>
+      <div class="news-sum">Harold Perrineau's sci-fi horror series gets a proper landing — S5 will wrap the mystery. S4 debuts April 19. <a href="https://www.tvline.com/lists/cancelled-renewed-tv-shows-2026-scorecard/" target="_blank" rel="noopener">TVLine →</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-date">Apr 8, 2026</div>
+      <div class="news-headline">NBC/Peacock cancels <em>Law &amp; Order: Organized Crime</em>; SVU extends record-breaking run</div>
+      <div class="news-sum">The Christopher Meloni spinoff is done, but the Dick Wolf flagship keeps rolling. Peacock also cut <em>The Copenhagen Test</em>, which failed to secure a second season. <a href="https://www.justjared.com/2026/04/08/nbc-nbcuniversal-cancel-5-tv-shows-in-2026-renew-several-hit-series-full-recap/" target="_blank" rel="noopener">Just Jared →</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-date">Apr 7, 2026</div>
+      <div class="news-headline">SAG Awards rebranded as "The Actor Awards," stay on Netflix through 2028</div>
+      <div class="news-sum">SAG-AFTRA announced a refreshed identity — the award is now formally called <em>The Actor Awards</em>, framing it as an honor given to actors, by actors. Netflix holds exclusive streaming for 2027 (Feb 28) and 2028 (Feb 20). <a href="https://www.netflix.com/tudum/articles/actor-awards-sag-aftra-2027-2028-date-time" target="_blank" rel="noopener">Netflix Tudum →</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-date">Apr 6, 2026</div>
+      <div class="news-headline">Academy sets Oscars 2027 (Mar 14) and 2028 ceremony dates</div>
+      <div class="news-sum">The 99th Oscars will be the last held at the Dolby Theatre before a 2029 move to the Peacock Theater in downtown LA. Nominations announced January 21, 2027. <a href="https://press.oscars.org/news/academy-and-abc-announce-show-dates-99th-and-100th-oscarsr" target="_blank" rel="noopener">Academy press →</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-date">Apr 4, 2026</div>
+      <div class="news-headline">ABC renews The Rookie, Will Trent, and Dancing with the Stars</div>
+      <div class="news-sum">ABC locks in its drama anchors and the reality staple, confirming the Tuesday/Wednesday/Monday primetime spine for fall 2026. <a href="https://www.hollywoodreporter.com/tv/tv-news/network-tv-shows-2026-renewed-canceled-1236523651/" target="_blank" rel="noopener">Hollywood Reporter →</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-date">Apr 2, 2026</div>
+      <div class="news-headline">Netflix renews <em>Love on the Spectrum</em>; Prime Video brings back <em>Young Sherlock</em></div>
+      <div class="news-sum">Feel-good reality stays alive at Netflix, while Prime Video gives its teen Doyle adaptation a second season. <a href="https://www.tvguide.com/news/canceled-renewed-tv-shows-april-2026/" target="_blank" rel="noopener">TV Guide →</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-date">Apr 1, 2026</div>
+      <div class="news-headline">Nikki Glaser returns to host the 84th Golden Globes — a three-peat</div>
+      <div class="news-sum">Paramount announced Glaser's return for the January 10, 2027 ceremony, making her the first host in the modern Globes era to helm three consecutive shows. <a href="https://www.paramountpressexpress.com/cbs-entertainment/shows/84th-annual-golden-globes/" target="_blank" rel="noopener">Paramount press →</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-date">Mar 28, 2026</div>
+      <div class="news-headline">2026 Tony Awards confirm P!nk as host; nominations drop May 5</div>
+      <div class="news-sum">The 79th Tonys return to Radio City Music Hall June 7 with P!nk hosting. 33 shows are eligible from the 2025–26 Broadway season. <a href="https://www.broadway.com/buzz/206805/2026-tony-awards-calendar-announced-key-dates-nominations-ceremony-details/" target="_blank" rel="noopener">Broadway.com →</a></div>
+    </div>
+
+  </section>
+
+  <!-- ═════════════════════ NETFLIX ═════════════════════ -->
+  <section id="netflix" class="service-block svc-netflix">
+    <div class="service-header">
+      <h2 class="section"><span class="service-badge">Netflix</span> Netflix</h2>
+      <span class="service-tag">The biggest library · Ad-supported &amp; Premium tiers</span>
+    </div>
+
+    <h3 class="sub">✨ Not to Be Missed</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Stranger Things</div><div class="cmeta">Completed · Sci-Fi Drama</div><div class="cdesc">All five seasons available. The final season wrapped in 2025 — a complete binge is now possible for the first time. Still the service's flagship original.</div></div>
+      <div class="card"><div class="ctitle">Adolescence</div><div class="cmeta">Limited Series · 4 episodes</div><div class="cdesc">2025's most-discussed limited series, shot entirely in single takes. A 13-year-old is accused of murdering a classmate — each episode is a real-time chamber piece.</div></div>
+      <div class="card"><div class="ctitle">Squid Game</div><div class="cmeta">Completed · Korean thriller</div><div class="cdesc">The cultural phenomenon that defined Netflix's global era. All three seasons available.</div></div>
+      <div class="card"><div class="ctitle">Wednesday</div><div class="cmeta">Series · Gothic comedy</div><div class="cdesc">Jenna Ortega's Addams Family revival. Seasons 1 and 2 streaming, with a third expected.</div></div>
+      <div class="card"><div class="ctitle">The Crown</div><div class="cmeta">Completed · Historical drama</div><div class="cdesc">All six seasons · Peter Morgan's prestige chronicle of Queen Elizabeth II's reign — a cornerstone binge.</div></div>
+      <div class="card"><div class="ctitle">Ripley</div><div class="cmeta">Limited Series · Black &amp; white</div><div class="cdesc">Andrew Scott as Patricia Highsmith's con man. Eight episodes of gorgeous, slow-burn suspense.</div></div>
+    </div>
+
+    <h3 class="sub">🔥 Most Popular Right Now</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Beef: Season 2</div><div class="cmeta">Series · A24 · Premiered April 16</div><div class="cdesc">The Emmy-winning anthology returns with Oscar Isaac &amp; Carey Mulligan leading a new road-rage descent. Showrunner Lee Sung Jin returns.</div></div>
+      <div class="card"><div class="ctitle">Thrash</div><div class="cmeta">Film · #1 English · 37.7M views</div><div class="cdesc">A shark-infested disaster movie that floated to the top of Netflix's English film list earlier this month.</div></div>
+      <div class="card"><div class="ctitle">Bloodhounds: Season 2</div><div class="cmeta">Series · Korean · 7.4M views</div><div class="cdesc">The #1 non-English TV series on Netflix — underground boxers take on a predatory loan shark in Seoul.</div></div>
+      <div class="card"><div class="ctitle">Heartbreak High: Season 3</div><div class="cmeta">Series · Australian teen drama</div><div class="cdesc">The Aussie reboot's third season is a global Netflix hit — sharp, inclusive, and very online.</div></div>
+      <div class="card"><div class="ctitle">XO, Kitty: Season 3</div><div class="cmeta">Series · Teen romance</div><div class="cdesc">Anna Cathcart's spin-off from <em>To All the Boys</em> returns — continued strong showing on the Top 10.</div></div>
+      <div class="card"><div class="ctitle">Eat Pray Bark</div><div class="cmeta">Film · #1 non-English · 6.3M views</div><div class="cdesc">The top non-English film this month — a German comedy about a woman's dog-led soul search.</div></div>
+    </div>
+
+    <h3 class="sub">🆕 What's New (April 2026)</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Stranger Things: Tales from '85</div><div class="cmeta">Animated Series · April 23</div><div class="cdesc">Saturday-morning-cartoon-style prequel set between Seasons 2 and 3. Designed as a nostalgic companion piece.</div></div>
+      <div class="card"><div class="ctitle">Apex</div><div class="cmeta">Film · April 24</div><div class="cdesc">Charlize Theron plays a rock climber hunted by Taron Egerton across remote wilderness.</div></div>
+      <div class="card"><div class="ctitle">Running Point: Season 2</div><div class="cmeta">Series · April 23</div><div class="cdesc">Kate Hudson returns as Isla Gordon, president of the LA Waves. From Mindy Kaling &amp; Ike Barinholtz.</div></div>
+      <div class="card"><div class="ctitle">Man on Fire</div><div class="cmeta">Series · April 30</div><div class="cdesc">Yahya Abdul-Mateen II stars as John Creasy in the book-faithful adaptation of the A.J. Quinnell novel.</div></div>
+      <div class="card"><div class="ctitle">KYLIE</div><div class="cmeta">Documentary · April 22</div><div class="cdesc">An intimate documentary profile of Kylie Minogue — four decades of pop reinvention.</div></div>
+      <div class="card"><div class="ctitle">Funny AF with Kevin Hart</div><div class="cmeta">Competition Series · April 20</div><div class="cdesc">Kevin Hart hosts a stand-up comedy competition with rotating guest judges.</div></div>
+      <div class="card"><div class="ctitle">XO, Kitty: Season 3</div><div class="cmeta">Series · April 2</div><div class="cdesc">Anna Cathcart returns for a third season of Kitty's continuing adventures.</div></div>
+    </div>
+
+    <h3 class="sub">🔜 Coming Soon</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Temptation Island</div><div class="cmeta">Reality · April 10 (rolling episodes)</div><div class="cdesc">Netflix's reality pickup of the format — weekly episode drops through May.</div></div>
+      <div class="card"><div class="ctitle">The Night Agent: Season 3</div><div class="cmeta">Series · Expected mid-2026</div><div class="cdesc">Gabriel Basso's political thriller has been renewed — production wrapping earlier this year.</div></div>
+      <div class="card"><div class="ctitle">Bridgerton: Season 4</div><div class="cmeta">Series · Later in 2026</div><div class="cdesc">Benedict's romance arc — release window widely expected summer 2026.</div></div>
+      <div class="card"><div class="ctitle">33rd Actor Awards (live)</div><div class="cmeta">Awards · Feb 28, 2027</div><div class="cdesc">Netflix now exclusively streams the rebranded SAG Awards — mark your calendar.</div></div>
+    </div>
+
+    <h3 class="sub">💎 Hidden Gems</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Jo Nesbø's Detective Hole</div><div class="cmeta">Series · Norwegian noir</div><div class="cdesc">Moody Scandinavian crime adaptation from the bestselling Harry Hole novelist — arriving under-the-radar but high quality.</div></div>
+      <div class="card"><div class="ctitle">Something Very Bad Is Going to Happen</div><div class="cmeta">Series · Dark comedy</div><div class="cdesc">A cultish, slow-burn dread-comedy that's building word-of-mouth even without heavy marketing.</div></div>
+      <div class="card"><div class="ctitle">Beef: Season 1</div><div class="cmeta">Limited · Rewatch before S2</div><div class="cdesc">If you haven't, go back. Steven Yeun &amp; Ali Wong swept the 2024 Emmys. Season 2 is standalone but watching S1 first rewards you.</div></div>
+      <div class="card"><div class="ctitle">This Is a Gardening Show</div><div class="cmeta">Comedy · 6-ep binge</div><div class="cdesc">Zach Galifianakis interviews eccentric horticulturalists and curious kids. Exactly as strange and charming as it sounds.</div></div>
+    </div>
+
+    <h3 class="sub">👋 Leaving Soon (May 2026)</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Mission: Impossible franchise</div><div class="cmeta">Leaving May 1 · after one month</div><div class="cdesc">The Ethan Hunt catalog exits after a short run on Netflix — no better time to binge.</div></div>
+      <div class="card"><div class="ctitle">Jaws</div><div class="cmeta">Leaving May 1</div><div class="cdesc">Spielberg's 1975 classic. Watch before it swims off.</div></div>
+      <div class="card"><div class="ctitle">Your Honor</div><div class="cmeta">Leaving mid-May</div><div class="cdesc">Bryan Cranston's Showtime legal thriller is getting yanked — one of several high-profile licensed exits.</div></div>
+      <div class="card"><div class="ctitle">Train to Busan</div><div class="cmeta">Leaving May</div><div class="cdesc">The 2016 Korean zombie masterpiece — arguably the best zombie movie of the 2010s.</div></div>
+      <div class="card"><div class="ctitle">Whiplash</div><div class="cmeta">Leaving May 1</div><div class="cdesc">Damien Chazelle's J.K. Simmons/Miles Teller drum-and-blood drama. Essential.</div></div>
+      <div class="card"><div class="ctitle">How to Train Your Dragon (trilogy)</div><div class="cmeta">Leaving May</div><div class="cdesc">All three films are going. A good family-binge weekend.</div></div>
+      <div class="card"><div class="ctitle">Moonrise Kingdom</div><div class="cmeta">Leaving May 1</div><div class="cdesc">Wes Anderson's twee Rhode Island summer.</div></div>
+      <div class="card"><div class="ctitle">Erin Brockovich</div><div class="cmeta">Leaving May 1</div><div class="cdesc">Julia Roberts' Oscar-winning true-story drama.</div></div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════ MAX ═════════════════════ -->
+  <section id="max" class="service-block svc-max">
+    <div class="service-header">
+      <h2 class="section"><span class="service-badge">Max</span> HBO Max</h2>
+      <span class="service-tag">Premium HBO originals · Warner Bros films · DC · Studio Ghibli</span>
+    </div>
+
+    <h3 class="sub">✨ Not to Be Missed</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">The Last of Us</div><div class="cmeta">Series · Seasons 1–2 · HBO</div><div class="cdesc">Pedro Pascal &amp; Bella Ramsey in the post-apocalyptic adaptation — Season 2 just wrapped its devastating run.</div></div>
+      <div class="card"><div class="ctitle">The Penguin</div><div class="cmeta">Limited Series · HBO</div><div class="cdesc">Colin Farrell's Emmy-nominated Oswald Cobb reinvention. A taut mob drama in Gotham's aftermath.</div></div>
+      <div class="card"><div class="ctitle">Succession</div><div class="cmeta">Completed · 4 seasons</div><div class="cdesc">The undisputed modern classic. If you haven't, start now. If you have, rewatch.</div></div>
+      <div class="card"><div class="ctitle">The White Lotus</div><div class="cmeta">Series · Seasons 1–3</div><div class="cdesc">Mike White's darkly comic vacation-goes-wrong anthology — Thailand was the latest destination.</div></div>
+      <div class="card"><div class="ctitle">House of the Dragon</div><div class="cmeta">Series · Ongoing</div><div class="cdesc">Game of Thrones prequel, now fully engaged in the Dance of the Dragons civil war.</div></div>
+      <div class="card"><div class="ctitle">The Pitt</div><div class="cmeta">Series · Predicted Emmy heavyweight</div><div class="cdesc">Noah Wyle returns to a hospital drama — real-time episodes track a single 15-hour ER shift. Critical favorite of 2025–26.</div></div>
+    </div>
+
+    <h3 class="sub">🔥 Most Popular Right Now</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Euphoria: Season 3</div><div class="cmeta">Series · Premiered April 12</div><div class="cdesc">Five-year time jump. New cast members Rosalía, Marshawn Lynch, Sharon Stone, Trisha Paytas, Danielle Deadwyler, Natasha Lyonne join the returning cast. Weekly drops through the month.</div></div>
+      <div class="card"><div class="ctitle">Hacks: Season 5 (Final)</div><div class="cmeta">Series · Premiered April 9</div><div class="cdesc">Jean Smart's Deborah Vance takes her final bow. Max's best original comedy for a reason.</div></div>
+      <div class="card"><div class="ctitle">Marty Supreme</div><div class="cmeta">Film · Added April 24</div><div class="cdesc">Timothée Chalamet in the Oscar-nominated drama that became one of the most-talked-about films of 2025.</div></div>
+      <div class="card"><div class="ctitle">Christy</div><div class="cmeta">Film · Added April 10</div><div class="cdesc">Sydney Sweeney as boxing legend Christy Martin. Biopic drama, hard-hitting (literally).</div></div>
+    </div>
+
+    <h3 class="sub">🆕 What's New (April 2026)</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Dust Bunny</div><div class="cmeta">Film · April 17</div><div class="cdesc">Bryan Fuller's fantasy-action picture with Mads Mikkelsen and Sigourney Weaver.</div></div>
+      <div class="card"><div class="ctitle">Half Man</div><div class="cmeta">Limited Series · Late April</div><div class="cdesc">Richard Gadd's follow-up to Netflix's <em>Baby Reindeer</em>. Gadd writes and stars.</div></div>
+      <div class="card"><div class="ctitle">Smiling Friends: Final Season</div><div class="cmeta">Adult animation · Ending</div><div class="cdesc">The cult-favorite Adult Swim animated comedy wraps its third and final season this month.</div></div>
+      <div class="card"><div class="ctitle">Be My Guest with Ina Garten: S7</div><div class="cmeta">Food Network · April 12</div><div class="cdesc">Ina's hosting chats continue — a warm, Sunday-night-friendly pick.</div></div>
+      <div class="card"><div class="ctitle">Building Back America's Trades</div><div class="cmeta">Magnolia Network · April 12</div><div class="cdesc">New Chip &amp; Joanna Gaines-adjacent series focused on skilled trades revival.</div></div>
+      <div class="card"><div class="ctitle">Alien: Romulus</div><div class="cmeta">Film · Library add</div><div class="cdesc">Fede Álvarez's 2024 Alien franchise return — newly on Max.</div></div>
+    </div>
+
+    <h3 class="sub">🔜 Coming Soon</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">The Gilded Age: Season 3</div><div class="cmeta">Series · Expected 2026</div><div class="cdesc">Julian Fellowes' Manhattan costume drama is set to return with new episodes later in the year.</div></div>
+      <div class="card"><div class="ctitle">Peacemaker: Season 2</div><div class="cmeta">Series · DC</div><div class="cdesc">John Cena returns under James Gunn's new DC slate.</div></div>
+      <div class="card"><div class="ctitle">The Last of Us: Season 3</div><div class="cmeta">Series · Future</div><div class="cdesc">Already confirmed — S3 will adapt material from the second game plus new original story beats.</div></div>
+    </div>
+
+    <h3 class="sub">💎 Hidden Gems</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Somebody Somewhere</div><div class="cmeta">Series · Completed</div><div class="cdesc">Bridget Everett's quiet, miraculous three-season comedy about friendship in Manhattan, Kansas. One of the best shows almost nobody talked about.</div></div>
+      <div class="card"><div class="ctitle">Tokyo Vice</div><div class="cmeta">Series · 2 seasons</div><div class="cdesc">Ansel Elgort as a real-life American reporter on the Tokyo yakuza beat. Gorgeous, intense.</div></div>
+      <div class="card"><div class="ctitle">Dune: Prophecy</div><div class="cmeta">Series · S1 complete</div><div class="cdesc">The Bene Gesserit origin story 10,000 years before the movies. Legitimately great if you liked the films.</div></div>
+      <div class="card"><div class="ctitle">Game Night (2018)</div><div class="cmeta">Film</div><div class="cdesc">Jason Bateman &amp; Rachel McAdams in what many critics call the best studio comedy of the past decade.</div></div>
+    </div>
+
+    <h3 class="sub">👋 Leaving Soon</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Max's catalog rotates</div><div class="cmeta">Check listings</div><div class="cdesc">HBO's permanent originals stay, but the Warner Bros/TCM library rotates. Expiration dates are posted in the app — check the "Last Chance" row on your Max home screen for titles leaving this month.</div></div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════ DISNEY+ ═════════════════════ -->
+  <section id="disney" class="service-block svc-disney">
+    <div class="service-header">
+      <h2 class="section"><span class="service-badge">Disney+</span> Disney+</h2>
+      <span class="service-tag">Marvel · Star Wars · Pixar · Disney · Nat Geo</span>
+    </div>
+
+    <h3 class="sub">✨ Not to Be Missed</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Andor</div><div class="cmeta">Series · Completed · Star Wars</div><div class="cdesc">The adult, John le Carré-style Star Wars spy drama — widely considered the best thing in the franchise. Both seasons available.</div></div>
+      <div class="card"><div class="ctitle">Shōgun</div><div class="cmeta">Limited Series · FX</div><div class="cdesc">2024's Emmy sweeper. A richly historical feudal Japan epic. Technically the FX/Disney+ bundle — watch on Disney+ or Hulu.</div></div>
+      <div class="card"><div class="ctitle">The Mandalorian</div><div class="cmeta">Series · Seasons 1–3</div><div class="cdesc">Din Djarin &amp; Grogu's adventures — the series that proved Star Wars streaming could work.</div></div>
+      <div class="card"><div class="ctitle">Loki</div><div class="cmeta">Series · Completed · Marvel</div><div class="cdesc">Two seasons that nail time-bending weirdness. Some of the best MCU TV.</div></div>
+      <div class="card"><div class="ctitle">WandaVision</div><div class="cmeta">Limited · Marvel</div><div class="cdesc">Still the most inventive Marvel series — sitcom pastiche that reveals a grief story.</div></div>
+      <div class="card"><div class="ctitle">Bluey</div><div class="cmeta">Animated Series</div><div class="cdesc">The Australian heeler family that adults secretly love more than kids do. A true global phenomenon.</div></div>
+    </div>
+
+    <h3 class="sub">🔥 Most Popular Right Now</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Daredevil: Born Again S2</div><div class="cmeta">Marvel · Weekly</div><div class="cdesc">The Netflix-era Daredevil returns — Season 2 is mid-run with new episodes each Wednesday.</div></div>
+      <div class="card"><div class="ctitle">Star Wars: Maul — Shadow Lord</div><div class="cmeta">Animated · Premiered April 6</div><div class="cdesc">Maul rebuilds his criminal empire and takes on a young Padawan. 10-episode animated series, 2 eps weekly through May 4.</div></div>
+      <div class="card"><div class="ctitle">American Idol: Season 9</div><div class="cmeta">Live · Returned April 13</div><div class="cdesc">Carrie Underwood, Luke Bryan, Lionel Richie &amp; Ryan Seacrest for a high-stakes season.</div></div>
+    </div>
+
+    <h3 class="sub">🆕 What's New (April 2026)</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Disneynature: Orangutan</div><div class="cmeta">Documentary · April 22 (Earth Day)</div><div class="cdesc">Following a young ape named Indah as she braves the rainforest on her own.</div></div>
+      <div class="card"><div class="ctitle">Secrets of the Bees</div><div class="cmeta">Nat Geo · Series</div><div class="cdesc">National Geographic Explorer Bertie Gregory on the extraordinary lives of bees.</div></div>
+      <div class="card"><div class="ctitle">Star Wars: Maul — Shadow Lord</div><div class="cmeta">Animated · Begins April 6</div><div class="cdesc">10-episode animated series — first two drop April 6, then weekly.</div></div>
+    </div>
+
+    <h3 class="sub">🔜 Coming Soon</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Star Wars: Maul — Shadow Lord (finale)</div><div class="cmeta">May 4 (May the 4th!)</div><div class="cdesc">The animated series finale lands on Star Wars Day itself.</div></div>
+      <div class="card"><div class="ctitle">Daredevil: Born Again S2 finale</div><div class="cmeta">Marvel · Later this spring</div><div class="cdesc">Season 2 is playing out weekly — expect resolution heading into summer.</div></div>
+      <div class="card"><div class="ctitle">Ironheart</div><div class="cmeta">Marvel · Expected</div><div class="cdesc">Dominique Thorne's post-<em>Wakanda Forever</em> spinoff is on the upcoming Disney+ slate.</div></div>
+    </div>
+
+    <h3 class="sub">💎 Hidden Gems</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Moon Knight</div><div class="cmeta">Limited · Marvel</div><div class="cdesc">Oscar Isaac in the underrated, weirder MCU series. A solid one-season binge.</div></div>
+      <div class="card"><div class="ctitle">Monsters at Work</div><div class="cmeta">Pixar Animated Series</div><div class="cdesc">A legitimate continuation of the <em>Monsters, Inc.</em> world. Better than you'd expect.</div></div>
+      <div class="card"><div class="ctitle">The Beatles: Get Back</div><div class="cmeta">Peter Jackson Documentary</div><div class="cdesc">Eight hours of restored 1969 footage. If you love the Beatles, this is holy text.</div></div>
+      <div class="card"><div class="ctitle">Light &amp; Magic</div><div class="cmeta">Docuseries</div><div class="cdesc">The history of ILM. A love letter to movie special effects.</div></div>
+    </div>
+
+    <h3 class="sub">👋 Leaving Soon</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Disney+ catalog is near-permanent</div><div class="cmeta">Low rotation</div><div class="cdesc">Disney+ almost never rotates its core library — Disney/Pixar/Marvel/Star Wars/Nat Geo are all owned. Third-party licensed titles are the exception; watch for "Last Chance" badges in the app.</div></div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════ HULU ═════════════════════ -->
+  <section id="hulu" class="service-block svc-hulu">
+    <div class="service-header">
+      <h2 class="section"><span class="service-badge">Hulu</span> Hulu</h2>
+      <span class="service-tag">FX originals · Next-day network TV · Hulu originals</span>
+    </div>
+
+    <h3 class="sub">✨ Not to Be Missed</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">The Bear</div><div class="cmeta">Series · FX on Hulu</div><div class="cdesc">Jeremy Allen White's Chicago kitchen drama. Still one of the best shows on TV.</div></div>
+      <div class="card"><div class="ctitle">Only Murders in the Building</div><div class="cmeta">Series · Hulu Original</div><div class="cdesc">Steve Martin, Martin Short &amp; Selena Gomez as amateur true-crime podcasters. Cozy-prestige comfort.</div></div>
+      <div class="card"><div class="ctitle">The Handmaid's Tale</div><div class="cmeta">Series · Completed</div><div class="cdesc">Elisabeth Moss's era-defining dystopian drama. All six seasons streaming.</div></div>
+      <div class="card"><div class="ctitle">Shōgun</div><div class="cmeta">Limited Series · FX</div><div class="cdesc">Available via the Hulu/Disney+ bundle. Essential.</div></div>
+      <div class="card"><div class="ctitle">What We Do in the Shadows</div><div class="cmeta">Series · Completed · FX</div><div class="cdesc">Staten Island vampires, six perfect seasons. Funniest show of its decade.</div></div>
+      <div class="card"><div class="ctitle">Reservation Dogs</div><div class="cmeta">Series · Completed · FX</div><div class="cdesc">Sterlin Harjo &amp; Taika Waititi's Oklahoma teen comedy-drama. Three flawless seasons.</div></div>
+    </div>
+
+    <h3 class="sub">🔥 Most Popular Right Now</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">The Testaments</div><div class="cmeta">Series · Premiered April 8</div><div class="cdesc">The Handmaid's Tale spinoff launches with a three-episode premiere, adapting Margaret Atwood's sequel novel.</div></div>
+      <div class="card"><div class="ctitle">Malcolm in the Middle: Life's Still Unfair</div><div class="cmeta">Series · April 10</div><div class="cdesc">The Fox original cast reunion — Frankie Muniz, Bryan Cranston, Jane Kaczmarek and more return.</div></div>
+      <div class="card"><div class="ctitle">Pizza Movie</div><div class="cmeta">Film · Hulu Original · April 3</div><div class="cdesc">Gaten Matarazzo (Stranger Things) in a college roommate comedy about a pizza run gone cosmically wrong.</div></div>
+    </div>
+
+    <h3 class="sub">🆕 What's New (April 2026)</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">The Devil Wears Prada</div><div class="cmeta">Film · Library · April 1</div><div class="cdesc">Hulu added 40+ classics April 1 — this is one of the highlights. Timely before the sequel.</div></div>
+      <div class="card"><div class="ctitle">Shrek</div><div class="cmeta">Film · Library · April 1</div><div class="cdesc">The original 2001 DreamWorks classic is back.</div></div>
+      <div class="card"><div class="ctitle">Hunger Games: All 5 Films</div><div class="cmeta">Film Collection · April 14</div><div class="cdesc">The complete Panem catalog — original trilogy plus both prequels — in one place.</div></div>
+      <div class="card"><div class="ctitle">Night at the Museum</div><div class="cmeta">Film · Library · April 1</div><div class="cdesc">Ben Stiller family comedy — a welcome classic-binge pickup.</div></div>
+      <div class="card"><div class="ctitle">50 First Dates</div><div class="cmeta">Film · Library · April 1</div><div class="cdesc">The Sandler/Barrymore rom-com, back on a major streamer.</div></div>
+      <div class="card"><div class="ctitle">21 Jump Street &amp; Neighbors</div><div class="cmeta">Films · Library · April 1</div><div class="cdesc">Two more comedy staples added this month.</div></div>
+      <div class="card"><div class="ctitle">Surviving My Father: The Rachel Jeffs Story</div><div class="cmeta">Docuseries · April 30</div><div class="cdesc">Rachel Jeffs on growing up in the FLDS under Warren Jeffs.</div></div>
+    </div>
+
+    <h3 class="sub">🔜 Coming Soon</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">The Bear: Season 5</div><div class="cmeta">FX on Hulu · Expected summer 2026</div><div class="cdesc">The Berzatto family keeps cooking — a fifth season has been confirmed.</div></div>
+      <div class="card"><div class="ctitle">Only Murders in the Building: S6</div><div class="cmeta">Hulu · Later 2026</div><div class="cdesc">The Arconia podcast trio returns.</div></div>
+      <div class="card"><div class="ctitle">Welcome to Wrexham: S5</div><div class="cmeta">Docuseries · FX</div><div class="cdesc">Ryan Reynolds and Rob McElhenney's Welsh football club doc continues.</div></div>
+    </div>
+
+    <h3 class="sub">💎 Hidden Gems</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Under the Banner of Heaven</div><div class="cmeta">Limited · FX</div><div class="cdesc">Andrew Garfield's true-crime Dustin Lance Black series about the murder of a young Mormon mother.</div></div>
+      <div class="card"><div class="ctitle">Rivals</div><div class="cmeta">Series · British</div><div class="cdesc">Jilly Cooper's bonkbuster 1980s novel adapted for TV. Glorious.</div></div>
+      <div class="card"><div class="ctitle">Interior Chinatown</div><div class="cmeta">Limited · Hulu</div><div class="cdesc">Based on Charles Yu's National Book Award-winning novel — an under-seen, genre-bending LA mystery.</div></div>
+      <div class="card"><div class="ctitle">Welcome to Wrexham</div><div class="cmeta">Documentary Series</div><div class="cdesc">The heart-warming football docuseries is still one of the best things on any service.</div></div>
+    </div>
+
+    <h3 class="sub">👋 Leaving Soon</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Licensed library titles rotate monthly</div><div class="cmeta">Check app</div><div class="cdesc">Hulu's third-party films rotate often — new arrivals April 1 include titles that will cycle out. Use Hulu's "Leaving Soon" section in-app for current-month expirations.</div></div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════ APPLE TV+ ═════════════════════ -->
+  <section id="apple" class="service-block svc-apple">
+    <div class="service-header">
+      <h2 class="section"><span class="service-badge">Apple TV+</span> Apple TV+</h2>
+      <span class="service-tag">Premium originals only — no licensed library</span>
+    </div>
+
+    <h3 class="sub">✨ Not to Be Missed</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Severance</div><div class="cmeta">Series · Seasons 1–2</div><div class="cdesc">Ben Stiller's mind-bending corporate dystopia is the defining Apple TV+ show. Season 2 wrapped 2025 — a 3rd is in production.</div></div>
+      <div class="card"><div class="ctitle">Slow Horses</div><div class="cmeta">Series · Ongoing · Seasons 1–4</div><div class="cdesc">Gary Oldman's brilliant, drunken MI5 reject leads a motley crew of disgraced spies. Every season a gem.</div></div>
+      <div class="card"><div class="ctitle">Ted Lasso</div><div class="cmeta">Series · Completed</div><div class="cdesc">Three feel-good seasons of Emmy-sweeping comedy. The service's original breakout hit.</div></div>
+      <div class="card"><div class="ctitle">Shrinking</div><div class="cmeta">Series · Seasons 1–2</div><div class="cdesc">Jason Segel, Jessica Williams, Harrison Ford. Grief-therapy comedy that gets better every episode.</div></div>
+      <div class="card"><div class="ctitle">Silo</div><div class="cmeta">Series · Seasons 1–2</div><div class="cdesc">Rebecca Ferguson in Hugh Howey's post-apocalyptic sci-fi. Gripping, gorgeous.</div></div>
+      <div class="card"><div class="ctitle">The Morning Show</div><div class="cmeta">Series · Seasons 1–4</div><div class="cdesc">Reese Witherspoon &amp; Jennifer Aniston as morning-TV anchors navigating scandal after scandal.</div></div>
+    </div>
+
+    <h3 class="sub">🔥 Most Popular Right Now</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Your Friends &amp; Neighbors S2</div><div class="cmeta">Series · Premiered April 3</div><div class="cdesc">Jon Hamm as Andrew Cooper — suburban wealth manager turned casual thief. Season 2 leans harder into the double-life tension.</div></div>
+      <div class="card"><div class="ctitle">Margo's Got Money Troubles</div><div class="cmeta">Limited Series</div><div class="cdesc">Elle Fanning headlines David E. Kelley's adaptation of the Rufi Thorpe novel. Michelle Pfeiffer &amp; Nick Offerman play her unconventional parents.</div></div>
+      <div class="card"><div class="ctitle">Criminal Record</div><div class="cmeta">Series · Premiered April 22</div><div class="cdesc">A new crime thriller — released on Wednesday, April 22.</div></div>
+    </div>
+
+    <h3 class="sub">🆕 What's New (April 2026)</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Outcome</div><div class="cmeta">Film · April</div><div class="cdesc">Keanu Reeves as a Hollywood star blackmailed by a career-destroying video. Cameron Diaz and Matt Bomer co-star, with a nearly unrecognizable Jonah Hill as his crisis lawyer.</div></div>
+      <div class="card"><div class="ctitle">My Brother the Minotaur</div><div class="cmeta">New Original Series · April 24</div><div class="cdesc">A fresh Apple original making its debut Friday, April 24.</div></div>
+      <div class="card"><div class="ctitle">Widow's Bay</div><div class="cmeta">New Original Series · April 29</div><div class="cdesc">A suspenseful new setting full of unfolding mysteries. Premieres Wednesday, April 29.</div></div>
+    </div>
+
+    <h3 class="sub">🔜 Coming Soon</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Foundation: Season 3</div><div class="cmeta">Series · Summer 2026</div><div class="cdesc">The Isaac Asimov space-epic returns for a third season.</div></div>
+      <div class="card"><div class="ctitle">Severance: Season 3</div><div class="cmeta">Series · 2026 later</div><div class="cdesc">Currently in production — an Apple priority.</div></div>
+      <div class="card"><div class="ctitle">Slow Horses: Season 5</div><div class="cmeta">Series · Confirmed</div><div class="cdesc">Mick Herron's Slough House keeps adapting — S5 already renewed before S4 premiered.</div></div>
+    </div>
+
+    <h3 class="sub">💎 Hidden Gems</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Pachinko</div><div class="cmeta">Series · Seasons 1–2</div><div class="cdesc">A multi-generational Korean family epic spanning Japan's colonial era into the 1980s. Criminally under-watched.</div></div>
+      <div class="card"><div class="ctitle">Bad Sisters</div><div class="cmeta">Series · Seasons 1–2</div><div class="cdesc">Sharon Horgan's Irish dark comedy about five sisters and one very dead brother-in-law.</div></div>
+      <div class="card"><div class="ctitle">Lessons in Chemistry</div><div class="cmeta">Limited</div><div class="cdesc">Brie Larson in the 1950s-set adaptation of Bonnie Garmus's bestseller. Sweet, sharp, and unexpectedly moving.</div></div>
+      <div class="card"><div class="ctitle">Palm Royale</div><div class="cmeta">Series · Seasons 1–2</div><div class="cdesc">Kristen Wiig as a 1969 Palm Beach social climber. Gloriously pastel soap.</div></div>
+    </div>
+
+    <h3 class="sub">👋 Leaving Soon</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Apple TV+ is originals-only</div><div class="cmeta">Permanent library</div><div class="cdesc">Apple TV+ doesn't license; nearly every title is an original that stays. Nothing notable leaves month-to-month.</div></div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════ PRIME VIDEO ═════════════════════ -->
+  <section id="prime" class="service-block svc-prime">
+    <div class="service-header">
+      <h2 class="section"><span class="service-badge">Prime Video</span> Prime Video</h2>
+      <span class="service-tag">Amazon originals · Rotating library · NBA · NFL Thursday Night</span>
+    </div>
+
+    <h3 class="sub">✨ Not to Be Missed</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Fallout</div><div class="cmeta">Series · Seasons 1–2</div><div class="cdesc">The video-game adaptation that actually works. Ella Purnell, Walton Goggins, Aaron Moten in post-nuclear wasteland.</div></div>
+      <div class="card"><div class="ctitle">Reacher</div><div class="cmeta">Series · Seasons 1–3</div><div class="cdesc">Alan Ritchson IS Jack Reacher. Lee Child's novels in pulpy, beautiful live action.</div></div>
+      <div class="card"><div class="ctitle">The Boys</div><div class="cmeta">Series · Seasons 1–5</div><div class="cdesc">Still the best "anti-superhero" show. Starts April 8 for the final season.</div></div>
+      <div class="card"><div class="ctitle">The Marvelous Mrs. Maisel</div><div class="cmeta">Series · Completed</div><div class="cdesc">Rachel Brosnahan as a 1950s stand-up. Five seasons of sharp dialogue and gorgeous costumes.</div></div>
+      <div class="card"><div class="ctitle">Fleabag</div><div class="cmeta">Series · Completed</div><div class="cdesc">Phoebe Waller-Bridge's two-season masterpiece. Still unmatched.</div></div>
+      <div class="card"><div class="ctitle">Mr. &amp; Mrs. Smith (2024)</div><div class="cmeta">Series · 1 season</div><div class="cdesc">Donald Glover &amp; Maya Erskine. Loose Brad-and-Angelina riff, wildly inventive.</div></div>
+    </div>
+
+    <h3 class="sub">🔥 Most Popular Right Now</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">The Boys: Final Season</div><div class="cmeta">Series · Premiered April 8</div><div class="cdesc">Two-episode drop to kick off Season 5, then weekly through the May 20 finale. The end of Homelander.</div></div>
+      <div class="card"><div class="ctitle">American Gladiators</div><div class="cmeta">Series · April 17</div><div class="cdesc">The revival — first three episodes April 17, next three April 24.</div></div>
+      <div class="card"><div class="ctitle">NBA Playoffs</div><div class="cmeta">Sports · Started April 18</div><div class="cdesc">Prime's first NBA Playoffs under the new rights deal — first round coverage runs through month's end.</div></div>
+    </div>
+
+    <h3 class="sub">🆕 What's New (April 2026)</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">House of the Spirits</div><div class="cmeta">Limited Series</div><div class="cdesc">An 8-episode adaptation of Isabel Allende's novel — three generations of women in a magical-realist South America.</div></div>
+      <div class="card"><div class="ctitle">Nippon Sangoku</div><div class="cmeta">Series · Japanese</div><div class="cdesc">Post-apocalyptic Japan, a former government official fighting to reunify three warring kingdoms.</div></div>
+      <div class="card"><div class="ctitle">Kevin</div><div class="cmeta">New Prime Original</div><div class="cdesc">New original series launching this month.</div></div>
+      <div class="card"><div class="ctitle">American Fiction</div><div class="cmeta">Film · Library</div><div class="cdesc">Cord Jefferson's Oscar-winning (Adapted Screenplay) Jeffrey Wright satire joins Prime.</div></div>
+      <div class="card"><div class="ctitle">The Menu</div><div class="cmeta">Film · Library</div><div class="cdesc">Ralph Fiennes &amp; Anya Taylor-Joy's chef-horror satire added this month.</div></div>
+      <div class="card"><div class="ctitle">NBA Play-In Tournament</div><div class="cmeta">Sports · April 14–17</div><div class="cdesc">All six Play-In games exclusive to Prime Video under the new deal.</div></div>
+    </div>
+
+    <h3 class="sub">🔜 Coming Soon</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">The Boys: Series Finale</div><div class="cmeta">May 20, 2026</div><div class="cdesc">After five seasons, Homelander's arc wraps May 20. Prime's biggest-ever original ending live.</div></div>
+      <div class="card"><div class="ctitle">Étoile</div><div class="cmeta">Series · 2026</div><div class="cdesc">The Sherman-Palladinos' ballet-company dramedy starring Luke Kirby and Charlotte Gainsbourg is on the upcoming slate.</div></div>
+      <div class="card"><div class="ctitle">Fallout: Season 3</div><div class="cmeta">Future season</div><div class="cdesc">Already greenlit — no air date yet but the writers are back in the vault.</div></div>
+    </div>
+
+    <h3 class="sub">💎 Hidden Gems</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">The Traitors: UK</div><div class="cmeta">Reality · BBC/Prime (US)</div><div class="cdesc">The original and the best. Claudia Winkleman's Scottish-castle mind game is far superior to the US version.</div></div>
+      <div class="card"><div class="ctitle">Deadloch</div><div class="cmeta">Series · Australian</div><div class="cdesc">A Tasmanian crime comedy that's somehow both wickedly funny and a serious mystery.</div></div>
+      <div class="card"><div class="ctitle">Citadel</div><div class="cmeta">Series · Sci-fi spy</div><div class="cdesc">Richard Madden &amp; Priyanka Chopra Jonas in a globetrotting spy thriller with global spinoffs. Underrated.</div></div>
+      <div class="card"><div class="ctitle">The Terminal List</div><div class="cmeta">Series</div><div class="cdesc">Chris Pratt in a stripped-down Navy SEAL revenge thriller. Gritty and effective.</div></div>
+    </div>
+
+    <h3 class="sub">👋 Leaving Soon</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Check MGM+ transition dates</div><div class="cmeta">Licensed content</div><div class="cdesc">MGM-originals now appear on Prime + MGM+ add-on. Some legacy licensed films rotate in May — check "Leaving Soon" in the Prime app for specifics.</div></div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════ PARAMOUNT+ ═════════════════════ -->
+  <section id="paramount" class="service-block svc-paramount">
+    <div class="service-header">
+      <h2 class="section"><span class="service-badge">Paramount+</span> Paramount+</h2>
+      <span class="service-tag">Taylor Sheridan empire · Star Trek · Showtime · CBS · SHO</span>
+    </div>
+
+    <h3 class="sub">✨ Not to Be Missed</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Yellowstone &amp; the Sheridan-verse</div><div class="cmeta">Series collection</div><div class="cdesc">Yellowstone, 1883, 1923, Landman, Tulsa King, The Madison, Mayor of Kingstown, Lioness — all under Taylor Sheridan.</div></div>
+      <div class="card"><div class="ctitle">Star Trek: Strange New Worlds</div><div class="cmeta">Series · Ongoing</div><div class="cdesc">The cozy, episodic Star Trek many fans have been waiting for. Anson Mount as Captain Pike.</div></div>
+      <div class="card"><div class="ctitle">The Madison</div><div class="cmeta">Series · Paramount's biggest debut ever</div><div class="cdesc">Michelle Pfeiffer, Kurt Russell, Patrick J. Adams, Matthew Fox in the New York-set Sheridan drama. Renewed for S3.</div></div>
+      <div class="card"><div class="ctitle">Landman</div><div class="cmeta">Series · Sheridan</div><div class="cdesc">Billy Bob Thornton in the Texas oil-fields drama — massive hit.</div></div>
+      <div class="card"><div class="ctitle">Tulsa King</div><div class="cmeta">Series · Sheridan</div><div class="cdesc">Sylvester Stallone as a mobster starting over in Oklahoma. Increasingly beloved.</div></div>
+      <div class="card"><div class="ctitle">Evil</div><div class="cmeta">Series · Completed · Paramount+</div><div class="cdesc">Robert &amp; Michelle King's modern-day-Catholic-priest-investigating-the-supernatural show. Four seasons of pure fun.</div></div>
+    </div>
+
+    <h3 class="sub">🔥 Most Popular Right Now</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">The Masters</div><div class="cmeta">Sports · CBS simulcast</div><div class="cdesc">The year's biggest golf tournament aired on CBS and streams on Paramount+.</div></div>
+      <div class="card"><div class="ctitle">Cheech &amp; Chong's Last Movie</div><div class="cmeta">Documentary · April 20</div><div class="cdesc">Cheech &amp; Chong on a final road trip reliving past adventures.</div></div>
+      <div class="card"><div class="ctitle">Made for March</div><div class="cmeta">Sports Docuseries · April 4</div><div class="cdesc">Kansas Jayhawks &amp; Michigan Wolverines through their national-championship seasons.</div></div>
+    </div>
+
+    <h3 class="sub">🆕 What's New (April 2026)</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">You Don't Know Where I'm From, Dawg</div><div class="cmeta">Docuseries · April 14</div><div class="cdesc">Clint Dempsey's 5-part journey from a Nacogdoches trailer park to the USMNT World Cup squad.</div></div>
+      <div class="card"><div class="ctitle">My Killer Father: The Green Hollow Murders</div><div class="cmeta">True Crime · April 28</div><div class="cdesc">Lucy Studey on the claims she made against her late father, Iowa mechanic Donald Dean Studey.</div></div>
+      <div class="card"><div class="ctitle">Wayne's World 1 &amp; 2</div><div class="cmeta">Films · Library · April 1</div><div class="cdesc">Schwing! Both Wayne's Worlds added April 1.</div></div>
+      <div class="card"><div class="ctitle">Jackass Franchise</div><div class="cmeta">Films · Library · April 1</div><div class="cdesc">All installments landed April 1 — weirdly comforting rewatch.</div></div>
+      <div class="card"><div class="ctitle">UFC 327: Procházka vs. Ulberg</div><div class="cmeta">Sports · April 11</div><div class="cdesc">Light heavyweight title bout on Paramount+.</div></div>
+      <div class="card"><div class="ctitle">UEFA Champions League Quarterfinals</div><div class="cmeta">Sports · Ongoing</div><div class="cdesc">Europe's biggest club competition streams on Paramount+.</div></div>
+    </div>
+
+    <h3 class="sub">🔜 Coming Soon</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">The Madison: Season 2</div><div class="cmeta">Series · Production wrapped</div><div class="cdesc">Season 2 is in the can; Season 3 already greenlit. Expect S2 in late 2026.</div></div>
+      <div class="card"><div class="ctitle">Yellowstone: 6666 spinoff</div><div class="cmeta">Series · Upcoming</div><div class="cdesc">The long-teased Texas-ranch spinoff is on the slate.</div></div>
+      <div class="card"><div class="ctitle">Star Trek: Starfleet Academy</div><div class="cmeta">Series · Expected</div><div class="cdesc">The Holly Hunter-led Trek spinoff is in post.</div></div>
+    </div>
+
+    <h3 class="sub">💎 Hidden Gems</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Star Trek: Lower Decks</div><div class="cmeta">Animated · Completed</div><div class="cdesc">The funniest thing Star Trek has ever produced. All five seasons available.</div></div>
+      <div class="card"><div class="ctitle">The Man Who Fell to Earth</div><div class="cmeta">Limited · SHO</div><div class="cdesc">Chiwetel Ejiofor as Bowie's iconic alien. Slow-burn sci-fi prestige.</div></div>
+      <div class="card"><div class="ctitle">Mayor of Kingstown</div><div class="cmeta">Series · Sheridan</div><div class="cdesc">Jeremy Renner &amp; Hugh Dillon's Michigan prison-town thriller. Dark but gripping.</div></div>
+      <div class="card"><div class="ctitle">The Good Fight</div><div class="cmeta">Series · Completed</div><div class="cdesc">The Good Wife's sharper, angrier successor. Six seasons, all terrific.</div></div>
+    </div>
+
+    <h3 class="sub">👋 Leaving Soon</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">SHO-licensed library rotates</div><div class="cmeta">Showtime content</div><div class="cdesc">Paramount+ with Showtime subscribers: SHO originals and films cycle regularly. Check the "Last Chance" row in-app.</div></div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════ PEACOCK ═════════════════════ -->
+  <section id="peacock" class="service-block svc-peacock">
+    <div class="service-header">
+      <h2 class="section"><span class="service-badge">Peacock</span> Peacock</h2>
+      <span class="service-tag">NBC · Bravo · Universal · Olympics · NFL · Premier League</span>
+    </div>
+
+    <h3 class="sub">✨ Not to Be Missed</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">The Traitors (US)</div><div class="cmeta">Reality · Alan Cumming</div><div class="cdesc">Alan Cumming in tartan. Reality TV royalty — genuinely one of the best reality shows ever made.</div></div>
+      <div class="card"><div class="ctitle">Poker Face</div><div class="cmeta">Series · Seasons 1–2</div><div class="cdesc">Rian Johnson's Natasha Lyonne Columbo-style mystery-of-the-week show. A total delight.</div></div>
+      <div class="card"><div class="ctitle">Bel-Air</div><div class="cmeta">Series · Seasons 1–3</div><div class="cdesc">The dramatic Fresh Prince reimagining — way better than it has any right to be.</div></div>
+      <div class="card"><div class="ctitle">The Office (US)</div><div class="cmeta">Series · Completed</div><div class="cdesc">Back home on Peacock. Still streaming's #1 rewatch.</div></div>
+      <div class="card"><div class="ctitle">Parks and Recreation</div><div class="cmeta">Series · Completed</div><div class="cdesc">Leslie Knope's Pawnee, Indiana. Perfect comfort TV.</div></div>
+      <div class="card"><div class="ctitle">Oppenheimer</div><div class="cmeta">Film · Universal</div><div class="cdesc">Christopher Nolan's Best Picture winner lives here.</div></div>
+    </div>
+
+    <h3 class="sub">🔥 Most Popular Right Now</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">The Miniature Wife</div><div class="cmeta">Series · All 10 eps April 9</div><div class="cdesc">Elizabeth Banks is shrunken to Barbie size by a husband's (Matthew Macfadyen) lab experiment gone wrong. Full-season drop.</div></div>
+      <div class="card"><div class="ctitle">Love Island: Beyond the Villa S2</div><div class="cmeta">Reality · April 15</div><div class="cdesc">Follow-up reality — former Love Island participants back home. Season 2 is more chaotic than S1.</div></div>
+      <div class="card"><div class="ctitle">Five Nights at Freddy's 2</div><div class="cmeta">Film · Peacock exclusive</div><div class="cdesc">The horror-game sequel streams exclusively on Peacock early in April.</div></div>
+    </div>
+
+    <h3 class="sub">🆕 What's New (April 2026)</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">If I Can't Have You</div><div class="cmeta">Peacock Exclusive · April 10</div><div class="cdesc">A new Peacock exclusive debuting mid-month.</div></div>
+      <div class="card"><div class="ctitle">The Heartbreak Kid: Becoming Shawn Michaels</div><div class="cmeta">Documentary</div><div class="cdesc">Profile of the former wrestler and NXT developer. A must for wrestling fans.</div></div>
+      <div class="card"><div class="ctitle">The Valley: Season 3</div><div class="cmeta">Bravo · Premiered April 2</div><div class="cdesc">The Vanderpump Rules spin-off about the early-parenthood years.</div></div>
+      <div class="card"><div class="ctitle">The Real Housewives of Rhode Island</div><div class="cmeta">Bravo · Premiered April 3</div><div class="cdesc">Franchise expansion — the tiniest state gets the biggest drama.</div></div>
+      <div class="card"><div class="ctitle">House of Villains: Season 3 Finale</div><div class="cmeta">Reality · Concluding April</div><div class="cdesc">The reality-TV hall of infamy wraps its third season mid-month.</div></div>
+    </div>
+
+    <h3 class="sub">🔜 Coming Soon</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Twisted Metal: Season 2</div><div class="cmeta">Series · 2026</div><div class="cdesc">Anthony Mackie's video-game car-combat comedy returns.</div></div>
+      <div class="card"><div class="ctitle">The 'Burbs</div><div class="cmeta">Series · Renewed</div><div class="cdesc">Peacock is "moving back into" The 'Burbs with a renewal this month.</div></div>
+      <div class="card"><div class="ctitle">WWE Premium Live Events</div><div class="cmeta">Sports/Entertainment · Ongoing</div><div class="cdesc">All WWE PLEs (Backlash, SummerSlam, WrestleMania) stream here.</div></div>
+    </div>
+
+    <h3 class="sub">💎 Hidden Gems</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Based on a True Story</div><div class="cmeta">Series · Seasons 1–2</div><div class="cdesc">Kaley Cuoco &amp; Chris Messina's true-crime-podcast-gone-wrong dark comedy. Underwatched, addictive.</div></div>
+      <div class="card"><div class="ctitle">The Tattooist of Auschwitz</div><div class="cmeta">Limited Series</div><div class="cdesc">The devastating true story adaptation. Harvey Keitel, Jonah Hauer-King.</div></div>
+      <div class="card"><div class="ctitle">Apples Never Fall</div><div class="cmeta">Limited · Liane Moriarty</div><div class="cdesc">Annette Bening and Sam Neill lead the tennis-family mystery adaptation.</div></div>
+      <div class="card"><div class="ctitle">Dateline archive</div><div class="cmeta">Long-form journalism</div><div class="cdesc">Decades of Keith Morrison murmur. The deepest true-crime well on any service.</div></div>
+    </div>
+
+    <h3 class="sub">👋 Leaving Soon</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Peacock library rotates monthly</div><div class="cmeta">Check app</div><div class="cdesc">Universal's licensed films cycle each month. Notable recent/ongoing note: <em>Law &amp; Order: Organized Crime</em> wrapped its run after Peacock's April cancellation, but all prior seasons remain.</div></div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════ BRITBOX / ACORN TV ═════════════════════ -->
+  <section id="britbox" class="service-block svc-britbox">
+    <div class="service-header">
+      <h2 class="section"><span class="service-badge">BritBox · Acorn</span> BritBox &amp; Acorn TV</h2>
+      <span class="service-tag">British &amp; Commonwealth TV · Cozy mysteries · Period dramas</span>
+    </div>
+
+    <h3 class="sub">✨ Not to Be Missed</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Death in Paradise</div><div class="cmeta">BritBox · Series · Ongoing</div><div class="cdesc">The Caribbean cozy-mystery staple. Detective changes, beaches don't.</div></div>
+      <div class="card"><div class="ctitle">Father Brown</div><div class="cmeta">BritBox · Series · 13 seasons</div><div class="cdesc">Mark Williams's priestly sleuth. The coziest of cozies.</div></div>
+      <div class="card"><div class="ctitle">Line of Duty</div><div class="cmeta">BritBox · Completed</div><div class="cdesc">AC-12's epic anti-corruption manhunt. Peak British thriller.</div></div>
+      <div class="card"><div class="ctitle">Silent Witness</div><div class="cmeta">BritBox · Ongoing</div><div class="cdesc">Forensic pathology since 1996. A reliable long-running ride.</div></div>
+      <div class="card"><div class="ctitle">Murdoch Mysteries</div><div class="cmeta">Acorn · 19 seasons</div><div class="cdesc">The Canadian-set Victorian detective series. A comfort-watch with hundreds of episodes.</div></div>
+      <div class="card"><div class="ctitle">Vera</div><div class="cmeta">BritBox · Completed</div><div class="cdesc">Brenda Blethyn as the Northumberland DCI. Gruff, great, now complete.</div></div>
+    </div>
+
+    <h3 class="sub">🔥 Most Popular Right Now</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">A Taste for Murder</div><div class="cmeta">BritBox Original · Premiered April 7</div><div class="cdesc">New BritBox-original mystery — two-episode premiere, weekly through May 5.</div></div>
+      <div class="card"><div class="ctitle">SisterS: Season 2</div><div class="cmeta">Acorn/IFC · April 22</div><div class="cdesc">The Irish-Canadian sisters comedy returns — six-episode streaming binge on Acorn, weekly on IFC.</div></div>
+      <div class="card"><div class="ctitle">Murdoch Mysteries: S19</div><div class="cmeta">Acorn · Ongoing</div><div class="cdesc">New episodes weekly — one of the longest-running dramas on TV.</div></div>
+    </div>
+
+    <h3 class="sub">🆕 What's New (April 2026)</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">After the Flood: Season 2</div><div class="cmeta">BritBox · April 23</div><div class="cdesc">Sophie Rundle returns in the Yorkshire detective drama. Through end of May.</div></div>
+      <div class="card"><div class="ctitle">Attenborough: Behind the Lens</div><div class="cmeta">Acorn · April 27</div><div class="cdesc">Sir David with a camera — a look at the moments the cameras almost missed.</div></div>
+      <div class="card"><div class="ctitle">Father Brown: S13 finale episodes</div><div class="cmeta">BritBox · Ongoing</div><div class="cdesc">Wrapping up Season 13.</div></div>
+      <div class="card"><div class="ctitle">Hope Street: Season 5</div><div class="cmeta">BritBox · Ongoing</div><div class="cdesc">Northern Irish coastal cop drama continues.</div></div>
+      <div class="card"><div class="ctitle">Mudtown (Ar y Ffin)</div><div class="cmeta">BritBox · Welsh-language</div><div class="cdesc">A dual-language Welsh crime drama — subtitles on, instantly transporting.</div></div>
+      <div class="card"><div class="ctitle">Mystery Road: Origin S2</div><div class="cmeta">Acorn · Australian</div><div class="cdesc">Mark Coles Smith's prequel series returns — Australian outback noir.</div></div>
+    </div>
+
+    <h3 class="sub">🔜 Coming Soon</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Death in Paradise: Summer run</div><div class="cmeta">BritBox · Annual</div><div class="cdesc">Saint Marie cycles through its summer episodes as they air on BBC.</div></div>
+      <div class="card"><div class="ctitle">80th BAFTA Film Awards (delayed)</div><div class="cmeta">BritBox · Feb 14, 2027</div><div class="cdesc">BritBox typically carries the BAFTA Film Awards for US viewers after the UK broadcast.</div></div>
+      <div class="card"><div class="ctitle">Shetland, Endeavour reruns</div><div class="cmeta">Rotating</div><div class="cdesc">The ITV/BBC back-catalog drama classics continue to cycle in and out.</div></div>
+    </div>
+
+    <h3 class="sub">💎 Hidden Gems</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Mr Bates vs the Post Office</div><div class="cmeta">Limited · BritBox</div><div class="cdesc">Toby Jones in the ITV drama that changed UK politics. Riveting.</div></div>
+      <div class="card"><div class="ctitle">Signora Volpe</div><div class="cmeta">Acorn · Italian-set</div><div class="cdesc">Emilia Fox as a retired British spy in Umbria. Effortlessly watchable.</div></div>
+      <div class="card"><div class="ctitle">Whitstable Pearl</div><div class="cmeta">Acorn · Kentish noir</div><div class="cdesc">Kerry Godliman as a Kent seafood-restaurateur-turned-PI. Deliciously low-stakes.</div></div>
+      <div class="card"><div class="ctitle">The Feud on Shelbury Drive</div><div class="cmeta">Acorn · Recent arrival</div><div class="cdesc">British suburban feud drama — sharp, under-the-radar.</div></div>
+    </div>
+
+    <h3 class="sub">👋 Leaving Soon</h3>
+    <div class="grid">
+      <div class="card"><div class="ctitle">Ongoing series rotate</div><div class="cmeta">Check apps</div><div class="cdesc">BritBox and Acorn license from BBC, ITV, Channel 4 — licenses rotate regularly. Both apps have "Last Chance" sections worth checking.</div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Lisa's Hub · TV &amp; Streaming · Updated daily
+  <div id="footer-clock" style="margin-top:6px;"></div>
+</footer>
+
+<script>
+  // Live clock in the banner + footer
+  function updateClock() {
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-US', { weekday:'short', month:'short', day:'numeric' });
+    const timeStr = now.toLocaleTimeString('en-US', { hour:'numeric', minute:'2-digit', hour12:true, timeZone:'America/New_York' });
+    const stamp = dateStr + ' at ' + timeStr + ' ET';
+    const checkedEl = document.getElementById('tv-checked');
+    if (checkedEl) checkedEl.textContent = 'Checked: ' + stamp;
+    const fc = document.getElementById('footer-clock');
+    if (fc) {
+      const fullDate = now.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric', year:'numeric' });
+      const fullTime = now.toLocaleTimeString('en-US', { hour:'numeric', minute:'2-digit', second:'2-digit', hour12:true, timeZone:'America/New_York' });
+      fc.textContent = fullDate + ' · ' + fullTime + ' ET';
+    }
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+</script>
+
+</body>
+</html>
