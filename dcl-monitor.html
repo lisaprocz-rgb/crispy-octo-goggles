@@ -6,48 +6,279 @@
 <title>DCL Monitor</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <style>
-:root { --navy:#1a2744;--teal:#2196a6;--teal-light:#e8f6f8;--cream:#f8f4ee;--muted:#7a8499;--border:#e8e2d9;--card-bg:#ffffff;--gold:#c9a84c; }
-* { margin:0;padding:0;box-sizing:border-box; }
-body { font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy); }
-nav { background:var(--navy);padding:0.9rem 1.5rem;display:flex;align-items:center;gap:1rem; }
-nav a { color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.82rem;letter-spacing:0.08em;transition:color 0.2s; }
+:root {
+  --navy:#1a2744;
+  --navy-deep:#0d1828;
+  --teal:#2196a6;
+  --teal-deep:#147485;
+  --teal-light:#e8f6f8;
+  --cream:#f8f4ee;
+  --muted:#7a8499;
+  --border:#e8e2d9;
+  --card-bg:#ffffff;
+  --gold:#c9a84c;
+  --amber:#e89b3c;
+  --amber-light:#fff4e0;
+  --amber-deep:#7a4a10;
+  --green:#3aa064;
+  --green-light:#e3f6ea;
+  --green-deep:#1e5c34;
+  --red:#c0392b;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--navy); line-height:1.5; }
+a { color:var(--teal); }
+nav { background:var(--navy); padding:0.9rem 1.5rem; display:flex; align-items:center; gap:1rem; }
+nav a { color:rgba(255,255,255,0.6); text-decoration:none; font-size:0.82rem; letter-spacing:0.08em; transition:color 0.2s; }
 nav a:hover { color:var(--gold); }
-nav .sep { color:rgba(255,255,255,0.2);font-size:0.75rem; }
-nav .current { color:#fff;font-weight:500; }
-header { background:linear-gradient(135deg,#0d3b4a 0%,#1a5c6e 50%,#2196a6 100%);padding:2.5rem 1.5rem 1.5rem;color:white; }
-.page-label { font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.5rem; }
-h1 { font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;margin-bottom:0.5rem; }
-.header-meta { display:flex;flex-wrap:wrap;gap:0.6rem;align-items:center;margin-top:0.5rem; }
-.updated-badge { font-size:0.7rem;background:rgba(255,255,255,0.15);padding:0.25rem 0.7rem;border-radius:20px;color:rgba(255,255,255,0.85); }
-.utc-badge { font-size:0.68rem;background:rgba(0,0,0,0.25);padding:0.25rem 0.7rem;border-radius:20px;color:rgba(255,255,255,0.75);letter-spacing:0.04em; }
-main { max-width:760px;margin:0 auto;padding:1.5rem; }
-.intro { font-size:0.9rem;line-height:1.6;color:#444;margin-bottom:1.6rem;padding:1rem 1.2rem;background:var(--teal-light);border-left:4px solid var(--teal);border-radius:6px; }
-.intro strong { color:var(--teal); }
-.ship-section { margin-bottom:2.4rem; }
-.ship-title { font-family:'Playfair Display',serif;font-weight:900;font-size:1.45rem;color:var(--navy);margin-bottom:0.3rem; }
-.ship-subtitle { font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-bottom:0.9rem;font-weight:600; }
-.ship-section .ship-divider { border:none;border-top:2px solid var(--border);margin-bottom:1rem; }
-.news-list { list-style:none;padding:0;margin:0; }
-.news-item { background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;margin-bottom:0.7rem;font-size:0.88rem;line-height:1.55; }
-.news-headline { font-weight:700;color:var(--navy);display:block;margin-bottom:0.3rem; }
-.news-summary { color:#444;margin-bottom:0.4rem; }
-.news-meta { font-size:0.78rem;color:var(--muted);font-style:italic; }
-.news-link { display:inline-block;margin-top:0.35rem;font-size:0.8rem;color:var(--teal);text-decoration:none;font-weight:600;letter-spacing:0.03em; }
-.news-link:hover { text-decoration:underline; }
-.no-news { background:#fff8e8;border:1px dashed #d4b96a;border-radius:8px;padding:0.9rem 1.2rem;font-size:0.86rem;color:#7a6020; }
-.fall-section { margin-top:2.6rem;padding:1.6rem 1.6rem 1.4rem;background:#fffaf3;border:1px solid #f0d895;border-radius:12px; }
-.fall-title { font-family:'Playfair Display',serif;font-weight:900;font-size:1.35rem;color:var(--navy);margin-bottom:0.4rem; }
-.fall-status { display:inline-block;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:700;padding:0.3rem 0.8rem;border-radius:20px;margin-bottom:1rem; }
-.fall-status.not-announced { background:#fff3cd;color:#7a6020;border:1px solid #d4b96a; }
-.fall-status.announced { background:#d4edda;color:#1e6b3a;border:1px solid #66bb6a; }
-.fall-status.partial { background:#ffe5cc;color:#7a4520;border:1px solid #e2964c; }
-.fall-body { font-size:0.9rem;line-height:1.65;color:#3a3a3a; }
-.fall-body p { margin-bottom:0.7rem; }
-.fall-body strong { color:var(--navy); }
-.signal-list { list-style:none;padding:0;margin:0.5rem 0; }
-.signal-list li { padding:0.5rem 0.8rem;background:#fff;border:1px solid var(--border);border-radius:6px;margin-bottom:0.4rem;font-size:0.85rem; }
-.verified-stamp { margin-top:1rem;padding-top:0.8rem;border-top:1px dashed #d4b96a;font-size:0.75rem;color:var(--muted);font-style:italic; }
-footer { text-align:center;padding:1.8rem 1rem;color:var(--muted);font-size:0.75rem;letter-spacing:0.03em; }
+nav .sep { color:rgba(255,255,255,0.2); font-size:0.75rem; }
+nav .current { color:#fff; font-weight:500; font-size:0.82rem; letter-spacing:0.08em; }
+header { background:linear-gradient(135deg,#0d3b4a 0%,#1a5c6e 50%,#2196a6 100%); padding:2.5rem 1.5rem 1.6rem; color:white; position:relative; overflow:hidden; }
+header::after { content:""; position:absolute; right:-30px; bottom:-30px; width:180px; height:180px; background:radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%); pointer-events:none; }
+.page-label { font-size:0.72rem; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.55); margin-bottom:0.5rem; }
+h1 { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,4vw,2.4rem); font-weight:900; margin-bottom:0.5rem; line-height:1.1; }
+.header-meta { display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; margin-top:0.6rem; }
+.updated-badge { font-size:0.72rem; background:rgba(255,255,255,0.18); padding:0.3rem 0.8rem; border-radius:20px; color:rgba(255,255,255,0.9); font-weight:500; }
+.utc-badge { font-size:0.68rem; background:rgba(0,0,0,0.28); padding:0.3rem 0.8rem; border-radius:20px; color:rgba(255,255,255,0.78); letter-spacing:0.05em; font-family:ui-monospace,'SF Mono',Menlo,monospace; }
+main { max-width:780px; margin:0 auto; padding:1.5rem 1.5rem 2rem; }
+
+/* ===== TOP STATUS BLOCK (Fall 2027) ===== */
+.status-hero {
+  position:relative;
+  border-radius:14px;
+  padding:1.6rem 1.8rem 1.5rem;
+  margin-bottom:2rem;
+  background:linear-gradient(135deg,#fffaf3 0%,#fff4dc 100%);
+  border:2px solid var(--amber);
+  box-shadow:0 6px 20px rgba(192,135,30,0.12);
+  overflow:hidden;
+}
+.status-hero::before {
+  content:"";
+  position:absolute; top:0; right:0;
+  width:160px; height:160px;
+  background:radial-gradient(circle at 70% 30%, rgba(232,155,60,0.18), transparent 60%);
+  pointer-events:none;
+}
+.status-hero.announced { background:linear-gradient(135deg,#f0fbf4 0%,#d9f2e2 100%); border-color:var(--green); box-shadow:0 6px 20px rgba(58,160,100,0.15); }
+.status-hero.partial   { background:linear-gradient(135deg,#fff4e8 0%,#ffe4c8 100%); border-color:var(--amber); box-shadow:0 6px 20px rgba(232,155,60,0.18); }
+
+.status-eyebrow { font-size:0.72rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--amber-deep); font-weight:700; margin-bottom:0.5rem; }
+.status-hero.announced .status-eyebrow { color:var(--green-deep); }
+
+.status-headline {
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  margin-bottom:0.8rem;
+  flex-wrap:wrap;
+}
+.status-icon {
+  flex-shrink:0;
+  width:62px; height:62px;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:2.1rem;
+  font-weight:900;
+  background:#fff;
+  border:3px solid var(--amber);
+  color:var(--amber-deep);
+  box-shadow:0 3px 8px rgba(0,0,0,0.08);
+}
+.status-hero.announced .status-icon { border-color:var(--green); color:var(--green-deep); }
+.status-hero.partial .status-icon   { border-color:var(--amber); color:var(--amber-deep); }
+.status-text-wrap { flex:1; min-width:240px; }
+.status-text-wrap h2 {
+  font-family:'Playfair Display',serif;
+  font-weight:900;
+  font-size:clamp(1.5rem,4vw,2rem);
+  color:var(--navy);
+  line-height:1.15;
+  margin-bottom:0.2rem;
+}
+.status-pill {
+  display:inline-block;
+  margin-top:0.3rem;
+  font-size:0.72rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  font-weight:700;
+  padding:0.4rem 0.9rem;
+  border-radius:20px;
+  background:var(--amber);
+  color:#fff;
+  box-shadow:0 2px 5px rgba(232,155,60,0.35);
+}
+.status-hero.announced .status-pill { background:var(--green); box-shadow:0 2px 5px rgba(58,160,100,0.35); }
+
+.status-explainer {
+  font-size:0.95rem;
+  line-height:1.6;
+  color:#3a3a3a;
+  margin-top:0.8rem;
+  padding-top:0.9rem;
+  border-top:1px dashed rgba(0,0,0,0.12);
+}
+.status-explainer strong { color:var(--navy); }
+.status-explainer p { margin-bottom:0.6rem; }
+.status-explainer p:last-child { margin-bottom:0; }
+
+.facts-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+  gap:0.6rem;
+  margin:1rem 0 0.6rem;
+}
+.fact-card {
+  background:rgba(255,255,255,0.7);
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:8px;
+  padding:0.7rem 0.9rem;
+  font-size:0.8rem;
+  color:#3a3a3a;
+}
+.fact-label { font-size:0.66rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:0.25rem; }
+.fact-value { font-size:0.92rem; font-weight:600; color:var(--navy); line-height:1.3; }
+
+.signal-list { list-style:none; padding:0; margin:0.7rem 0 0; }
+.signal-list li {
+  padding:0.65rem 0.9rem;
+  background:rgba(255,255,255,0.85);
+  border:1px solid rgba(0,0,0,0.07);
+  border-radius:8px;
+  margin-bottom:0.5rem;
+  font-size:0.85rem;
+  line-height:1.5;
+}
+.signal-list strong { color:var(--navy); }
+.signal-list a { font-weight:600; }
+.verified-stamp {
+  margin-top:1rem;
+  padding:0.55rem 0.85rem;
+  background:rgba(13,40,55,0.85);
+  color:#fff;
+  border-radius:8px;
+  font-size:0.74rem;
+  letter-spacing:0.04em;
+  font-family:ui-monospace,'SF Mono',Menlo,monospace;
+  display:inline-block;
+}
+
+/* ===== SHIP SECTIONS ===== */
+.section-divider {
+  display:flex; align-items:center; gap:0.8rem;
+  margin:2.4rem 0 1.4rem;
+}
+.section-divider::before, .section-divider::after {
+  content:""; flex:1; height:1px; background:linear-gradient(90deg, transparent, var(--border), transparent);
+}
+.section-divider .label {
+  font-size:0.72rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--muted); font-weight:600;
+}
+
+.ship-card {
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:1.3rem 1.4rem 1.1rem;
+  margin-bottom:1.4rem;
+  box-shadow:0 2px 8px rgba(13,40,55,0.04);
+  position:relative;
+  overflow:hidden;
+}
+.ship-card::before {
+  content:""; position:absolute; left:0; top:0; bottom:0; width:5px;
+}
+.ship-card.destiny::before  { background:linear-gradient(180deg, #c0392b 0%, #6b1b14 100%); }
+.ship-card.believe::before  { background:linear-gradient(180deg, #6b4ec4 0%, #3a2a6b 100%); }
+.ship-card.treasure::before { background:linear-gradient(180deg, #c9a84c 0%, #7a5d10 100%); }
+
+.ship-head { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; flex-wrap:wrap; margin-bottom:0.3rem; padding-left:0.6rem; }
+.ship-name {
+  font-family:'Playfair Display',serif;
+  font-weight:900;
+  font-size:1.55rem;
+  color:var(--navy);
+  margin-bottom:0.15rem;
+  line-height:1.1;
+}
+.ship-tag {
+  font-size:0.7rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  font-weight:700;
+  padding:0.3rem 0.7rem;
+  border-radius:14px;
+  white-space:nowrap;
+}
+.ship-card.destiny  .ship-tag { background:#fbe5e2; color:#8b1f14; }
+.ship-card.believe  .ship-tag { background:#e9e2f7; color:#3a2a6b; }
+.ship-card.treasure .ship-tag { background:#f6ecc8; color:#7a5d10; }
+.ship-subtitle {
+  font-size:0.78rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+  font-weight:600;
+  padding-left:0.6rem;
+  margin-bottom:1rem;
+}
+
+.news-list { list-style:none; padding-left:0.6rem; margin:0; }
+.news-item {
+  border-top:1px solid var(--border);
+  padding:0.85rem 0;
+}
+.news-item:first-child { border-top:none; padding-top:0.4rem; }
+.news-item:last-child { padding-bottom:0.2rem; }
+.news-headline {
+  font-weight:700;
+  color:var(--navy);
+  font-size:0.96rem;
+  display:block;
+  margin-bottom:0.35rem;
+  line-height:1.3;
+}
+.news-summary { color:#3a3a3a; font-size:0.88rem; margin-bottom:0.45rem; line-height:1.55; }
+.news-footer { display:flex; justify-content:space-between; align-items:center; gap:0.8rem; flex-wrap:wrap; }
+.news-meta {
+  font-size:0.76rem;
+  color:var(--muted);
+  letter-spacing:0.02em;
+}
+.news-meta .pub { font-weight:600; color:var(--navy); font-style:normal; }
+.news-meta .date { font-family:ui-monospace,'SF Mono',Menlo,monospace; font-size:0.72rem; }
+.news-link {
+  font-size:0.78rem;
+  color:var(--teal);
+  text-decoration:none;
+  font-weight:600;
+  letter-spacing:0.04em;
+  white-space:nowrap;
+  background:var(--teal-light);
+  padding:0.32rem 0.7rem;
+  border-radius:14px;
+  transition:background 0.2s, color 0.2s;
+}
+.news-link:hover { background:var(--teal); color:#fff; }
+
+footer {
+  text-align:center;
+  padding:1.8rem 1rem;
+  color:var(--muted);
+  font-size:0.75rem;
+  letter-spacing:0.03em;
+  background:linear-gradient(180deg, transparent, rgba(13,40,55,0.04));
+  margin-top:2rem;
+}
+
+@media (max-width:540px) {
+  main { padding:1rem; }
+  .status-hero { padding:1.3rem 1.2rem 1.2rem; }
+  .status-icon { width:54px; height:54px; font-size:1.7rem; }
+  .ship-card { padding:1.1rem 1.1rem 1rem; }
+  .ship-name { font-size:1.35rem; }
+}
 </style>
 </head>
 <body>
@@ -56,6 +287,7 @@ footer { text-align:center;padding:1.8rem 1rem;color:var(--muted);font-size:0.75
   <span class="sep">&#9657;</span>
   <span class="current">DCL Monitor</span>
 </nav>
+
 <header>
   <div class="page-label">Disney Cruise Line &middot; Fleet Update</div>
   <h1>Disney Cruise Line Monitor &#x1F6A2;</h1>
@@ -64,118 +296,174 @@ footer { text-align:center;padding:1.8rem 1rem;color:var(--muted);font-size:0.75
     <span class="utc-badge">2026-04-28 16:14 UTC</span>
   </div>
 </header>
+
 <main>
 
-  <div class="intro">
-    Live ship news for the three newest Wish-class vessels &mdash; <strong>Disney Destiny</strong>, the upcoming <strong>Disney Believe</strong>, and <strong>Disney Treasure</strong> &mdash; followed by a fresh check on whether <strong>Fall 2027</strong> itineraries have been announced. Only items published in the last 30 days are listed below; nothing older is included.
+  <!-- ===== FALL 2027 STATUS HERO (TOP OF PAGE) ===== -->
+  <section class="status-hero" aria-labelledby="fall2027-title">
+    <div class="status-eyebrow">Fall 2027 Itineraries &middot; Live Status Check</div>
+
+    <div class="status-headline">
+      <div class="status-icon" aria-hidden="true">&#x231B;</div>
+      <div class="status-text-wrap">
+        <h2 id="fall2027-title">Fall 2027 cruises: <span style="color:var(--amber-deep);">NOT yet announced</span></h2>
+        <span class="status-pill">Not Announced &middot; Verified Live</span>
+      </div>
+    </div>
+
+    <div class="facts-grid">
+      <div class="fact-card">
+        <div class="fact-label">Currently Bookable Through</div>
+        <div class="fact-value">Summer 2027<br><span style="font-weight:400;font-size:0.82rem;color:#555;">(May &ndash; early/mid Sep 2027)</span></div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-label">Sep / Oct / Nov 2027</div>
+        <div class="fact-value" style="color:var(--amber-deep);">Not on sale<br><span style="font-weight:400;font-size:0.82rem;color:#555;">No itineraries published</span></div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-label">Last DCL Itinerary Release</div>
+        <div class="fact-value">Feb 10, 2026<br><span style="font-weight:400;font-size:0.82rem;color:#555;">Summer 2027 sailings</span></div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-label">Expected Release Window</div>
+        <div class="fact-value">Late Jun &ndash; Aug 2026<br><span style="font-weight:400;font-size:0.82rem;color:#555;">Per historical pattern</span></div>
+      </div>
+    </div>
+
+    <div class="status-explainer">
+      <p>As of this refresh, <strong>Disney Cruise Line has not released any Fall 2027 (September, October, or November 2027) itineraries</strong>, sail dates, or destinations. The published booking calendar still extends only through Summer 2027 (May through early/mid September 2027), which was announced February 10, 2026 and opened to the general public on February 23, 2026.</p>
+      <p>The disneycruise.disney.go.com booking flow, the Disney Parks Blog, the Disney Cruise Line newsroom (PRNewswire), The Disney Cruise Line Blog, and the major DCL fan outlets (WDWNT, AllEars, DCL Fan, MouseSavers) all show no Fall 2027 release at the verification time below. The most recent DCL press release on PRNewswire is the March 18, 2026 Disney Believe announcement.</p>
+      <p style="font-weight:600;color:var(--navy);margin-top:0.9rem;margin-bottom:0.3rem;">Most credible signals on timing:</p>
+      <ul class="signal-list">
+        <li><strong>MouseSavers &mdash; 2027 Disney Cruise Schedule:</strong> notes Fall 2027 dates &ldquo;are expected to be released around June&ndash;August 2026,&rdquo; consistent with DCL&rsquo;s 12&ndash;15 month-out cadence. <a href="https://www.mousesavers.com/disney-cruise-tips/2027-disney-cruise-schedule-sail-dates-ports-more/" target="_blank" rel="noopener">mousesavers.com &rsaquo;</a></li>
+        <li><strong>The Disney Cruise Line Blog &mdash; Itinerary Announcement History:</strong> shows the prior pattern (Fall 2024 on Jun 13, 2023; Fall 2025 in May 2024; Fall 2026 in Aug 2025), pointing to a likely Fall 2027 announcement window of <strong>late June through August 2026</strong>. <a href="https://disneycruiselineblog.com/cruise-planning/itineraries/itinerary-announcement-history/" target="_blank" rel="noopener">disneycruiselineblog.com &rsaquo;</a></li>
+      </ul>
+      <span class="verified-stamp">Verified at: Tue, Apr 28, 2026 at 12:14 PM ET / 2026-04-28 16:14 UTC</span>
+    </div>
+  </section>
+
+  <!-- ===== SHIP NEWS DIVIDER ===== -->
+  <div class="section-divider">
+    <span class="label">Ship News &middot; Last 30 Days</span>
   </div>
 
-  <!-- DISNEY DESTINY -->
-  <div class="ship-section">
-    <div class="ship-subtitle">Ship A &middot; Heroes &amp; Villains</div>
-    <h2 class="ship-title">Disney Destiny</h2>
-    <hr class="ship-divider">
+  <!-- ===== DISNEY DESTINY ===== -->
+  <article class="ship-card destiny">
+    <div class="ship-head">
+      <div>
+        <h3 class="ship-name">Disney Destiny</h3>
+      </div>
+      <span class="ship-tag">In Service &middot; Fort Lauderdale</span>
+    </div>
+    <div class="ship-subtitle">Heroes &amp; Villains &middot; 7th DCL ship</div>
     <ul class="news-list">
 
       <li class="news-item">
         <span class="news-headline">Quickie review of a 4-Night Disney Destiny April 16 sailing posts to DISboards</span>
         <div class="news-summary">A returning guest grades the Heroes &amp; Villains ship&rsquo;s entertainment (Storytellers, Cruella&rsquo;s &ldquo;Treble Making,&rdquo; Hercules) as &ldquo;miles better and more varied&rdquo; than the Wish, while flagging the underused diamond/watch retail footprint and the lack of a true wraparound deck.</div>
-        <div class="news-meta">DISboards (DIS Disney Discussion Forums), 2026-04-20</div>
-        <a class="news-link" href="https://www.disboards.com/threads/quickie-review-of-disney-destiny-4-night-april-16-2026.3981324/" target="_blank" rel="noopener">Read more &rsaquo;</a>
+        <div class="news-footer">
+          <span class="news-meta"><span class="pub">DISboards</span> &middot; <span class="date">2026-04-20</span></span>
+          <a class="news-link" href="https://www.disboards.com/threads/quickie-review-of-disney-destiny-4-night-april-16-2026.3981324/" target="_blank" rel="noopener">Read more &rsaquo;</a>
+        </div>
       </li>
 
       <li class="news-item">
         <span class="news-headline">First-ever inside-the-engine-room tour of a DCL ship spotlights Disney Destiny</span>
         <div class="news-summary">Chief Engineer Johan Blokstra walks media through Disney Destiny&rsquo;s back-of-house, including how the ship makes its own fresh water and DCL&rsquo;s push to eliminate single-use plastics fleet-wide and send zero waste to landfill.</div>
-        <div class="news-meta">WDW News Today, 2026-04-13</div>
-        <a class="news-link" href="https://wdwnt.com/2026/04/first-ever-tour-of-inner-workings-of-a-disney-cruise-line-ship-including-water-creation/" target="_blank" rel="noopener">Read more &rsaquo;</a>
+        <div class="news-footer">
+          <span class="news-meta"><span class="pub">WDW News Today</span> &middot; <span class="date">2026-04-13</span></span>
+          <a class="news-link" href="https://wdwnt.com/2026/04/first-ever-tour-of-inner-workings-of-a-disney-cruise-line-ship-including-water-creation/" target="_blank" rel="noopener">Read more &rsaquo;</a>
+        </div>
       </li>
 
       <li class="news-item">
         <span class="news-headline">Disney Destiny gets its first-ever round of special offers</span>
         <div class="news-summary">DCL discounts inventory on Disney Destiny for the first time, headlined by Kids Sail Free / 50%-off-kids deals on select Bahamian and Caribbean sailings &mdash; a notable pricing shift for the brand-new ship.</div>
-        <div class="news-meta">The Disney Cruise Line Blog, 2026-04-13</div>
-        <a class="news-link" href="https://disneycruiselineblog.com/2026/04/special-offers-on-disney-cruise-line-sailings-as-of-april-13-2026-disney-destinys-first-special-offers/" target="_blank" rel="noopener">Read more &rsaquo;</a>
+        <div class="news-footer">
+          <span class="news-meta"><span class="pub">The Disney Cruise Line Blog</span> &middot; <span class="date">2026-04-13</span></span>
+          <a class="news-link" href="https://disneycruiselineblog.com/2026/04/special-offers-on-disney-cruise-line-sailings-as-of-april-13-2026-disney-destinys-first-special-offers/" target="_blank" rel="noopener">Read more &rsaquo;</a>
+        </div>
       </li>
 
     </ul>
-  </div>
+  </article>
 
-  <!-- DISNEY BELIEVE -->
-  <div class="ship-section">
-    <div class="ship-subtitle">Ship B &middot; Promise &amp; Possibilities &middot; 2027 Debut</div>
-    <h2 class="ship-title">Disney Believe</h2>
-    <hr class="ship-divider">
+  <!-- ===== DISNEY BELIEVE ===== -->
+  <article class="ship-card believe">
+    <div class="ship-head">
+      <div>
+        <h3 class="ship-name">Disney Believe</h3>
+      </div>
+      <span class="ship-tag">Late 2027 Debut</span>
+    </div>
+    <div class="ship-subtitle">Promise &amp; Possibilities &middot; 4th Wish-class ship</div>
     <ul class="news-list">
 
       <li class="news-item">
         <span class="news-headline">Caribbean Journal lays out the Encanto, Frozen, Moana &amp; Little Mermaid lineup for Disney Believe</span>
-        <div class="news-summary">Industry coverage of DCL&rsquo;s ninth ship, expected late 2027, focusing on the &ldquo;promise and possibility&rdquo; motif and confirming featured stories &mdash; Encanto, Frozen, Moana, The Little Mermaid, and Snow White and the Seven Dwarfs &mdash; will shape entertainment, dining, and decor.</div>
-        <div class="news-meta">Caribbean Journal, 2026-04-21</div>
-        <a class="news-link" href="https://www.caribjournal.com/2026/04/21/disney-believe-cruise-ship/" target="_blank" rel="noopener">Read more &rsaquo;</a>
+        <div class="news-summary">Industry coverage of DCL&rsquo;s ninth ship, expected late 2027, focuses on the &ldquo;promise and possibility&rdquo; motif and confirms featured stories &mdash; Encanto, Frozen, Moana, The Little Mermaid, and Snow White and the Seven Dwarfs &mdash; will shape entertainment, dining, and decor.</div>
+        <div class="news-footer">
+          <span class="news-meta"><span class="pub">Caribbean Journal</span> &middot; <span class="date">2026-04-21</span></span>
+          <a class="news-link" href="https://www.caribjournal.com/2026/04/21/disney-believe-cruise-ship/" target="_blank" rel="noopener">Read more &rsaquo;</a>
+        </div>
       </li>
 
       <li class="news-item">
         <span class="news-headline">Cyprus Shipping News re-publishes the Disney Believe announcement for the maritime trade</span>
         <div class="news-summary">Trade-press write-up of the Believe reveal positions her as the fourth Wish-class ship in the Disney Cruise Line fleet, with delivery still expected in late 2027 from the Meyer Werft yard in Papenburg, Germany.</div>
-        <div class="news-meta">Cyprus Shipping News, 2026-04-16</div>
-        <a class="news-link" href="https://cyprusshippingnews.com/2026/04/16/disney-believe-announced-as-next-disney-cruise-line-ship/" target="_blank" rel="noopener">Read more &rsaquo;</a>
+        <div class="news-footer">
+          <span class="news-meta"><span class="pub">Cyprus Shipping News</span> &middot; <span class="date">2026-04-16</span></span>
+          <a class="news-link" href="https://cyprusshippingnews.com/2026/04/16/disney-believe-announced-as-next-disney-cruise-line-ship/" target="_blank" rel="noopener">Read more &rsaquo;</a>
+        </div>
       </li>
 
     </ul>
-  </div>
+  </article>
 
-  <!-- DISNEY TREASURE -->
-  <div class="ship-section">
-    <div class="ship-subtitle">Ship C &middot; Adventure &middot; Port Canaveral</div>
-    <h2 class="ship-title">Disney Treasure</h2>
-    <hr class="ship-divider">
+  <!-- ===== DISNEY TREASURE ===== -->
+  <article class="ship-card treasure">
+    <div class="ship-head">
+      <div>
+        <h3 class="ship-name">Disney Treasure</h3>
+      </div>
+      <span class="ship-tag">In Service &middot; Port Canaveral</span>
+    </div>
+    <div class="ship-subtitle">Adventure &middot; 6th DCL ship</div>
     <ul class="news-list">
+
+      <li class="news-item">
+        <span class="news-headline">DCL adds 50%-off kids fares on Oct&nbsp;2026&ndash;Mar&nbsp;2027 sailings &mdash; Treasure inventory included</span>
+        <div class="news-summary">Disney Cruise Line opens a Together-at-Sea promotion knocking 50% off kids&rsquo; fares (with two full-fare adults) on most non-discounted voyages between October 2026 and March 2027, applied across the fleet including Disney Treasure&rsquo;s Eastern and Western Caribbean weeks.</div>
+        <div class="news-footer">
+          <span class="news-meta"><span class="pub">WDW News Today</span> &middot; <span class="date">2026-04-21</span></span>
+          <a class="news-link" href="https://wdwnt.com/2026/04/disney-cruise-line-offering-50-off-kids-fare-2026-2027/" target="_blank" rel="noopener">Read more &rsaquo;</a>
+        </div>
+      </li>
 
       <li class="news-item">
         <span class="news-headline">Personal Navigators from a 7-Night Western Caribbean Disney Treasure sailing posted online</span>
         <div class="news-summary">Daily Personal Navigators from the Apr&nbsp;4, 2026 Western Caribbean sailing (Cozumel, Grand Cayman, Falmouth, Castaway Cay) are published as a planning resource &mdash; useful for upcoming Treasure guests trying to map out activities and dining.</div>
-        <div class="news-meta">SightswithSara, 2026-04-15</div>
-        <a class="news-link" href="https://www.sightswithsara.com/check-out-see-how-take-a-look-personal-navigators-disney-treasure-7-night-western-caribbean-cruise-from-port-canaveral-april-4-2026/" target="_blank" rel="noopener">Read more &rsaquo;</a>
+        <div class="news-footer">
+          <span class="news-meta"><span class="pub">SightswithSara</span> &middot; <span class="date">2026-04-15</span></span>
+          <a class="news-link" href="https://www.sightswithsara.com/check-out-see-how-take-a-look-personal-navigators-disney-treasure-7-night-western-caribbean-cruise-from-port-canaveral-april-4-2026/" target="_blank" rel="noopener">Read more &rsaquo;</a>
+        </div>
       </li>
 
       <li class="news-item">
         <span class="news-headline">Family-cruise review and tips: &ldquo;Sea You on Deck&rdquo; aboard Disney Treasure</span>
         <div class="news-summary">A full first-time-cruisers review of Disney Treasure with embarkation tips, dining notes on Plaza de Coco / Worlds of Marvel / 1923, and impressions of the Skipper Society and Haunted Mansion Parlor lounges.</div>
-        <div class="news-meta">Kiddo Adventures, 2026-04-11</div>
-        <a class="news-link" href="https://kiddoadventures.com/2026/04/11/sea-you-on-deck-our-disney-treasure-cruise-review-and-tips/" target="_blank" rel="noopener">Read more &rsaquo;</a>
-      </li>
-
-      <li class="news-item">
-        <span class="news-headline">DCL adds 50%-off kids fares on Oct&nbsp;2026&ndash;Mar&nbsp;2027 sailings &mdash; Treasure inventory included</span>
-        <div class="news-summary">Disney Cruise Line opens a Together-at-Sea promotion knocking 50% off kids&rsquo; fares (with two full-fare adults) on most non-discounted voyages between October 2026 and March 2027, applied across the fleet including Disney Treasure&rsquo;s Eastern and Western Caribbean weeks.</div>
-        <div class="news-meta">WDW News Today, 2026-04-21</div>
-        <a class="news-link" href="https://wdwnt.com/2026/04/disney-cruise-line-offering-50-off-kids-fare-2026-2027/" target="_blank" rel="noopener">Read more &rsaquo;</a>
+        <div class="news-footer">
+          <span class="news-meta"><span class="pub">Kiddo Adventures</span> &middot; <span class="date">2026-04-11</span></span>
+          <a class="news-link" href="https://kiddoadventures.com/2026/04/11/sea-you-on-deck-our-disney-treasure-cruise-review-and-tips/" target="_blank" rel="noopener">Read more &rsaquo;</a>
+        </div>
       </li>
 
     </ul>
-  </div>
-
-  <!-- FALL 2027 STATUS -->
-  <div class="fall-section">
-    <h2 class="fall-title">Fall 2027 Itineraries &mdash; Live Status</h2>
-    <span class="fall-status not-announced">Not Yet Announced</span>
-    <div class="fall-body">
-      <p>As of this refresh, Disney Cruise Line has <strong>not</strong> released any Fall 2027 (September, October, or November 2027) itineraries, sail dates, or destinations. The currently published booking calendar extends only through <strong>Summer 2027</strong> (May through early/mid September 2027), which was announced February 10, 2026 and opened to the general public on February 23, 2026.</p>
-      <p>The disneycruise.disney.go.com booking flow, the Disney Parks Blog, the Disney Cruise Line newsroom (PRNewswire), The Disney Cruise Line Blog, and the major DCL fan outlets (WDWNT, AllEars, DCL Fan, MouseSavers) all show no Fall 2027 release as of the verification time below.</p>
-      <p><strong>Most recent credible signal on timing</strong> (oldest news older than 30 days, surfaced here only because no in-window announcement exists):</p>
-      <ul class="signal-list">
-        <li><strong>MouseSavers &mdash; 2027 Disney Cruise Schedule</strong>: notes Fall 2027 dates &ldquo;are expected to be released around June&ndash;August 2026,&rdquo; consistent with DCL&rsquo;s historical 12&ndash;15-month-out release cadence. <a href="https://www.mousesavers.com/disney-cruise-tips/2027-disney-cruise-schedule-sail-dates-ports-more/" target="_blank" rel="noopener" style="color:var(--teal);">mousesavers.com</a></li>
-        <li><strong>The Disney Cruise Line Blog &mdash; Itinerary Announcement History</strong>: shows the prior pattern (e.g., Fall 2024 itineraries on Jun 13, 2023; Fall 2025 itineraries in May 2024; Fall 2026 itineraries in Aug 2025), pointing to a likely Fall 2027 announcement window of <strong>late June through August 2026</strong>. <a href="https://disneycruiselineblog.com/cruise-planning/itineraries/itinerary-announcement-history/" target="_blank" rel="noopener" style="color:var(--teal);">disneycruiselineblog.com</a></li>
-      </ul>
-      <p style="font-size:0.83rem;color:#5a5a5a;margin-top:0.6rem;">No press release from Disney Cruise Line on Fall 2027 has been found on PRNewswire, the Disney Experiences press room, or the Disney Parks Blog. The most recent DCL press release on PRNewswire is the March 18, 2026 Disney Believe announcement.</p>
-      <div class="verified-stamp">Verified at: Tue, Apr 28, 2026 at 12:14 PM ET / 2026-04-28 16:14 UTC</div>
-    </div>
-  </div>
+  </article>
 
 </main>
 <footer>
-  Refreshed Tue, Apr 28, 2026 at 12:14 PM ET (2026-04-28 16:14 UTC) &middot; Live web check; cache-busted; only items from the last 30 days are listed.
+  Refreshed Tue, Apr 28, 2026 at 12:14 PM ET (2026-04-28 16:14 UTC) &middot; Live web check, cache-busted &middot; Only items from the last 30 days are listed.
 </footer>
 </body>
 </html>
