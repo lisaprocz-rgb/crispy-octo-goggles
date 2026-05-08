@@ -5,14 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Disney Daily Briefing</title>
 <style>
+  * { box-sizing: border-box; }
   body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #faf8f4;
-    color: #222;
     margin: 0;
     padding: 20px;
-    line-height: 1.6;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #faf8f4;
+    color: #2b2b2b;
     font-size: 16px;
+    line-height: 1.6;
   }
   .container {
     max-width: 800px;
@@ -20,24 +21,32 @@
   }
   h2.section-header {
     font-size: 22px;
+    font-weight: bold;
     color: #1F4E79;
     border-bottom: 2px solid #1F4E79;
     padding-bottom: 6px;
     margin-top: 36px;
     margin-bottom: 16px;
   }
-  h2.section-header.alert {
+  h2.alert-header {
+    font-size: 22px;
+    font-weight: bold;
     color: #C0392B;
     border-bottom: 2px solid #C0392B;
+    padding-bottom: 6px;
+    margin-top: 30px;
+    margin-bottom: 16px;
   }
-  h3.cat-header {
+  h3.category-header {
     font-size: 18px;
+    font-weight: bold;
     color: #2E75B6;
     margin-top: 24px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
   .item {
     margin-bottom: 18px;
+    padding-left: 4px;
   }
   .source {
     font-weight: bold;
@@ -47,50 +56,40 @@
     font-weight: bold;
   }
   .date {
-    color: #888;
-    font-style: italic;
+    color: #777;
+    font-size: 0.92em;
   }
   .summary {
-    margin-left: 12px;
-    margin-top: 4px;
+    margin: 4px 0 0 16px;
     color: #333;
   }
+  .divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ccc, transparent);
+    margin: 30px 0;
+  }
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    color: #888;
+    font-size: 14px;
+    text-align: center;
+  }
   .freshness-note {
-    background: #eef6f3;
-    border-left: 4px solid #5bb5a2;
+    background: #eef7f3;
+    border-left: 4px solid #2d6b7a;
     padding: 10px 14px;
     margin: 0 0 24px 0;
     font-size: 14px;
-    color: #2d6b7a;
+    color: #2d4a4a;
     border-radius: 4px;
   }
-  .alert-section {
-    background: #fdf3f1;
-    border-left: 4px solid #C0392B;
-    padding: 14px 18px;
-    border-radius: 4px;
-    margin-bottom: 28px;
-  }
-  hr.divider {
-    border: 0;
-    border-top: 1px solid #d8d2c5;
-    margin: 28px 0;
-  }
-  footer {
-    margin-top: 40px;
-    padding-top: 16px;
-    border-top: 1px solid #d8d2c5;
-    color: #777;
-    font-size: 13px;
-    text-align: center;
-  }
-  a { color: #2E75B6; text-decoration: none; }
-  a:hover { text-decoration: underline; }
   @media (max-width: 600px) {
-    body { padding: 12px; font-size: 15px; }
-    h1 { font-size: 28px !important; }
-    h2.section-header { font-size: 19px; }
-    h3.cat-header { font-size: 16px; }
+    body { padding: 12px; }
+    h2.section-header, h2.alert-header { font-size: 19px; }
+    h3.category-header { font-size: 16px; }
   }
 </style>
 </head>
@@ -109,202 +108,275 @@
     <div style="text-transform: uppercase; letter-spacing: 3px; font-size: 12px; color: rgba(255,255,255,0.7); margin-bottom: 8px;">Disney News &middot; Daily Briefing</div>
     <h1 style="font-size: 36px; margin: 0 0 12px 0; font-weight: 700;">🏰 Disney Daily Briefing</h1>
     <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
-      <span style="font-size: 14px; color: rgba(255,255,255,0.8);">Checked: Thu, May 7 at 7:31 AM ET</span>
-      <span style="background: rgba(0,0,0,0.25); padding: 4px 12px; border-radius: 12px; font-size: 13px;">Last updated: Thu, May 7 at 7:31 AM ET</span>
+      <span style="font-size: 14px; color: rgba(255,255,255,0.8);">Checked: Fri, May 8 at 10:08 AM ET</span>
+      <span style="background: rgba(0,0,0,0.25); padding: 4px 12px; border-radius: 12px; font-size: 13px;">Last updated: Fri, May 8 at 10:08 AM ET</span>
     </div>
   </div>
 </div>
 
 <div class="container">
 
-  <div class="freshness-note">
-    All content fetched live this run — no cached data used. Generated at 2026-05-07 11:31 UTC / Thu, May 7 at 7:31 AM ET.
-  </div>
-
-  <!-- BIG STORY: Q2 EARNINGS + LAYOFFS / CORPORATE -->
-  <div class="alert-section">
-    <h2 class="section-header alert" style="margin-top: 0;">🚨 Top Story: D'Amaro's First Earnings &amp; "Culture of Efficiency" Layoffs</h2>
-
-    <div class="item">
-      <span class="source">CNBC</span> — <span class="headline">Disney pops 7% after streaming, parks drive revenue beat in Josh D'Amaro's first earnings call</span> <span class="date">(May 6, 2026)</span>
-      <div class="summary">Disney reported Q2 FY26 revenue of $25.17 billion, beating Wall Street's $24.85B estimate, with adjusted EPS of $1.57 (up 8%). Experiences (parks + cruises) brought in nearly $9.5B, up 7% YoY. Global park and cruise attendance rose 2% and per-capita domestic spending was up 5%. The stock jumped roughly 7% after the print — D'Amaro's debut as CEO.</div>
-    </div>
-
-    <div class="item">
-      <span class="source">Variety</span> — <span class="headline">Streaming operating income surges 88% to $582M; first quarter at double-digit margins</span> <span class="date">(May 6, 2026)</span>
-      <div class="summary">Disney+ and Hulu pulled in $5.49B in revenue (up 13%), with streaming operating income of $582M — a record 10.6% margin, driven by fall 2025 price hikes. Disney guided to ~12% adjusted EPS growth for FY26 and double-digit growth for FY27.</div>
-    </div>
-
-    <div class="item">
-      <span class="source">Deadline</span> — <span class="headline">Disney's recent layoffs may not be a one-off as company touts "culture of efficiency"</span> <span class="date">(May 6, 2026)</span>
-      <div class="summary">On the earnings call, D'Amaro and CFO Hugh Johnston fielded analyst questions about staffing, AI, and ongoing cost takeout. Disney cut roughly 1,000 jobs in April, primarily tied to consolidating marketing under chief marketing &amp; brand officer Asad Ayaz. Execs signaled more efficiency moves are likely as the company integrates AI and rationalizes overlapping teams.</div>
-    </div>
-
-    <div class="item">
-      <span class="source">Hollywood Reporter</span> — <span class="headline">Disney rules out a Warner Bros. bid; hints at expanded AI plans</span> <span class="date">(May 6, 2026)</span>
-      <div class="summary">Asked directly about M&amp;A, leadership shut the door on a Warner Bros. Discovery offer. Separately, execs hinted at broader AI deployment across studios, marketing, and parks operations — framed as productivity, not headcount-driven.</div>
-    </div>
-
-    <div class="item">
-      <span class="source">CNBC</span> — <span class="headline">ESPN revenue up 6% to $4.61B; NFL Network deal contributing</span> <span class="date">(May 6, 2026)</span>
-      <div class="summary">ESPN's January NFL Network acquisition added 3 points to subscription/affiliate growth, but operating income slipped 5% to $652M as ad sales fell 2% on a lighter NBA slate. The DTC ESPN service is still ramping, but digital subs are now offsetting linear declines for the segment overall.</div>
-    </div>
-  </div>
-
-  <hr class="divider">
-
-  <h2 class="section-header">🎢 Walt Disney World — Park Updates</h2>
-
-  <div class="item">
-    <span class="source">Undercover Tourist</span> — <span class="headline">Big Thunder Mountain reopens May 3 after 16-month closure</span> <span class="date">(May 4, 2026)</span>
-    <div class="summary">Big Thunder is back in service at Magic Kingdom after a full track replacement and what Imagineering teased as "a little bit of new magic." It had been down since January 2025.</div>
-  </div>
-
-  <div class="item">
-    <span class="source">WDW Magazine</span> — <span class="headline">Rock 'n' Roller Coaster Muppets retheme opens May 26</span> <span class="date">(Apr 2026)</span>
-    <div class="summary">Hollywood Studios' Rock 'n' Roller Coaster has been closed since March 2 for a Muppets-themed overhaul. Disney has confirmed a May 26, 2026 reopening — same day as Bluey's Wild World debut and Cool Kids' Summer kickoff.</div>
-  </div>
-
-  <div class="item">
-    <span class="source">Disney Tourist Blog</span> — <span class="headline">Soarin' Across America debuts May 26 for U.S. 250th</span> <span class="date">(May 2026)</span>
-    <div class="summary">EPCOT's Soarin' relaunches as Soarin' Across America on May 26, 2026 with a new film celebrating the U.S. semiquincentennial. Expect cityscape and natural-landmark sequences including the Grand Canyon.</div>
-  </div>
-
-  <div class="item">
-    <span class="source">WDW News Today</span> — <span class="headline">Fire weather watch in effect for Walt Disney World May 7–8</span> <span class="date">(May 6, 2026)</span>
-    <div class="summary">Orange and Osceola counties are under a fire weather watch starting noon May 7, with conditions favorable for fast-spreading fires across east central Florida. Park operations are not expected to be impacted, but outdoor smoke smell is possible.</div>
-  </div>
-
-  <div class="item">
-    <span class="source">Disney Food Blog</span> — <span class="headline">Six Disney World rides closed for refurbishment in May 2026</span> <span class="date">(Apr 26, 2026)</span>
-    <div class="summary">Impressions de France and Beauty &amp; the Beast Sing-Along reopen May 10. The remaining four closures are short-term and won't materially affect a typical mid-May trip.</div>
-  </div>
-
-  <hr class="divider">
-
-  <h2 class="section-header">🌷 EPCOT International Flower &amp; Garden Festival</h2>
-
-  <div class="item">
-    <span class="source">Disney Food Blog</span> — <span class="headline">Springtime menu rotation at Farmers Feast booth runs through May 10</span> <span class="date">(Apr 6, 2026)</span>
-    <div class="summary">Festival runs March 4 – June 1, 2026. Farmers Feast is the rotating booth this year — its current "Springtime" menu drops on May 10, so this weekend is the last chance for those items.</div>
-  </div>
-
-  <div class="item">
-    <span class="source">Practically Perfect Pixie Dust</span> — <span class="headline">Standout new items: Tuna Poke Bowl at Nectar, Florida Strawberry Shortcake</span> <span class="date">(Spring 2026)</span>
-    <div class="summary">Nectar (hosted by AdventHealth) is featuring a new Tuna Poke Bowl ($8.79) and Plant-based Poke Bowl ($6.29). Festival sweets like Florida Strawberry Shortcake ($4.99) and Blueberry Crumble Cake with blueberry-lemon zest soft serve ($4.79) have been crowd favorites.</div>
-  </div>
-
-  <div class="item">
-    <span class="source">WDW Prep School</span> — <span class="headline">Garden Graze plant-based scavenger hunt still active</span> <span class="date">(May 2026)</span>
-    <div class="summary">Buy any five eligible plant-based items, collect stamps in your Festival Passport at each booth, and earn the completion reward. Good way to sample widely without committing to large portions.</div>
-  </div>
-
-  <hr class="divider">
-
-  <h2 class="section-header">🍽️ Disney Dining</h2>
-
-  <div class="item">
-    <span class="source">AllEars.Net</span> — <span class="headline">Crew's Cup Lounge reopens this month at Yacht Club</span> <span class="date">(May 4, 2026)</span>
-    <div class="summary">The classic nautical lounge at Disney's Yacht Club Resort reopened in May 2026 and is participating in the Disney Dining Plan.</div>
-  </div>
-
-  <div class="item">
-    <span class="source">Disney Tourist Blog</span> — <span class="headline">Tiffins offers Annual Passholder 40% off dinner May 1 – July 31</span> <span class="date">(May 2026)</span>
-    <div class="summary">Animal Kingdom's Tiffins is running a meaningful V.I.PASSHOLDER deal: 40% off the dinner menu through July 31, 2026, paired with a refreshed Spring 2026 menu.</div>
-  </div>
-
-  <div class="item">
-    <span class="source">Disney Food Blog</span> — <span class="headline">Three-tier Disney Dining Plan structure now live for 2026</span> <span class="date">(2026)</span>
-    <div class="summary">The lineup is now Quick-Service, Table-Service (formerly the standard Disney Dining Plan), and a new Deluxe Table-Service tier — a structural shift worth pricing out before booking your fall stay.</div>
-  </div>
-
-  <hr class="divider">
-
-  <h2 class="section-header">🏝️ Disney Vacation Club</h2>
-
-  <div class="item">
-    <span class="source">DVC Resale Market</span> — <span class="headline">2026 annual dues up a blended 6.38% — biggest increase at Bay Lake Tower (+9.06%)</span> <span class="date">(2026)</span>
-    <div class="summary">Increases run between 3% and 9% across resorts and are well above the historic 3–5% range. Bay Lake Tower's 9.06% jump is tied to its refurbishment and repositioning; even after the hike, it remains one of the lower per-point dues at $8.7415.</div>
-  </div>
-
-  <div class="item">
-    <span class="source">DVC News</span> — <span class="headline">$500 Contract Administration Fee on resale transfers in effect</span> <span class="date">(Eff. Jan 1, 2026)</span>
-    <div class="summary">Disney's new $500 fee on all resale contract transfers continues to be a drag on the resale market in 2026 alongside the steeper dues. Owners considering offloading contracts should price accordingly.</div>
-  </div>
-
-  <hr class="divider">
-
-  <h2 class="section-header">🚢 Disney Cruise Line</h2>
-
-  <div class="item">
-    <span class="source">Disney Cruise Line</span> — <span class="headline">Disney Destiny currently sailing 5-night Bahamas from Fort Lauderdale</span> <span class="date">(May 4–9, 2026)</span>
-    <div class="summary">Destiny — DCL's newest U.S.-based ship since its November 2025 maiden voyage — is mid-cruise this week on a 5-night Bahamian itinerary out of Port Everglades, with stops at Castaway Cay and Lookout Cay.</div>
-  </div>
-
-  <div class="item">
-    <span class="source">Undercover Tourist</span> — <span class="headline">Fall 2026 / Spring 2027 itineraries on sale</span> <span class="date">(2026)</span>
-    <div class="summary">DCL's late-2026 and early-2027 schedule is open for booking. Destiny continues 4- and 5-night Bahamas/Western Caribbean runs out of Fort Lauderdale; Treasure handles the longer 7-night Caribbean rotation from Port Canaveral.</div>
-  </div>
-
-  <div class="item">
-    <span class="source">Wikipedia / DCL</span> — <span class="headline">Disney Adventure (Singapore-based) sailing since March 2026</span> <span class="date">(2026)</span>
-    <div class="summary">Disney Adventure — DCL's first Asia-based ship — has been running short "at sea" sailings out of Singapore since its March debut. Worth flagging for international fans, though not directly relevant to U.S. itineraries.</div>
-  </div>
-
-  <hr class="divider">
-
-  <h2 class="section-header">🎬 Movies &amp; Disney+</h2>
-
-  <div class="item">
-    <span class="source">Rotten Tomatoes</span> — <span class="headline">The Mandalorian and Grogu hits theaters May 22</span> <span class="date">(May 22, 2026)</span>
-    <div class="summary">Originally drafted as Mandalorian Season 4, Lucasfilm pivoted to a theatrical release. Watch for opening-weekend numbers as a barometer for the Star Wars film franchise post-2024 reset.</div>
-  </div>
-
-  <div class="item">
-    <span class="source">IMDb</span> — <span class="headline">The Devil Wears Prada 2 already in theaters as of May 1</span> <span class="date">(May 1, 2026)</span>
-    <div class="summary">20th Century Studios' sequel released last week — opening box office becomes Disney's first major release datapoint of the summer corridor.</div>
-  </div>
-
-  <div class="item">
-    <span class="source">Wikipedia</span> — <span class="headline">Toy Story 5 opens June 19 — Pixar's tentpole of the summer</span> <span class="date">(Jun 19, 2026)</span>
-    <div class="summary">Andrew Stanton and McKenna Jean Harris co-direct, with Tom Hanks, Tim Allen, Joan Cusack, and a new villain "technology" angle that Pixar has been teasing.</div>
-  </div>
-
-  <div class="item">
-    <span class="source">Disney+</span> — <span class="headline">Daredevil: Born Again Season 2 finale lands in May; Punisher special en route</span> <span class="date">(May 2026)</span>
-    <div class="summary">Marvel TV closes out Daredevil's second season this month, followed by "The Punisher: One Last Kill" special. Sofia the First: Royal Magic premieres May 26.</div>
-  </div>
-
-  <hr class="divider">
-
-  <h2 class="section-header">💰 Deals &amp; Discounts</h2>
-
-  <div class="item">
-    <span class="source">Disney Tourist Blog</span> — <span class="headline">"Stay Longer &amp; Save More" — up to 30% off rooms through Oct 4</span> <span class="date">(2026)</span>
-    <div class="summary">Save up to 30% on stays of 5+ consecutive nights, or up to 25% on 1–4 nights, at select WDW resort hotels through the summer/fall window. Stackable with the kids-eat-free dining offer.</div>
-  </div>
-
-  <div class="item">
-    <span class="source">Disney Tourist Blog</span> — <span class="headline">2026 Free Dining now open to general public — but watch the math</span> <span class="date">(2026)</span>
-    <div class="summary">Free Dining requires a non-discounted 4-night/4-day Walt Disney Travel Company package with Park Hopper. It cannot be combined with any other discount — meaning room and tickets are full price. For many stays the room discount + dining plan a-la-carte beats it; run both quotes.</div>
-  </div>
-
-  <div class="item">
-    <span class="source">Disney Tourist Blog</span> — <span class="headline">Kids-eat-free dining plan stackable with room discount through 2026</span> <span class="date">(2026)</span>
-    <div class="summary">Free dining plan for kids ages 3–9 when paired with a paid adult dining plan and a Disney resort booking. Stacks with room-only discounts, which makes this the better deal for most families with young kids.</div>
-  </div>
-
-  <hr class="divider">
-
-  <p style="font-size: 13px; color: #666; margin-top: 24px;">
-    <strong>DVC banking note:</strong> Sep 30, 2026 banking deadline is 146 days away — too far out to act on this morning. This briefing will surface the reminder again in early July.
-  </p>
-
-  <footer>
-    Generated on Thursday, May 7, 2026 at 7:31 AM ET. All content was pulled live this run.
-  </footer>
-
+<div class="freshness-note">
+  All content fetched live this run &mdash; no cached data used. Sources reviewed across the past 7 days, with priority on the last 48 hours.
 </div>
+
+<!-- ========== CORPORATE / BUSINESS (TOP) ========== -->
+<h2 class="alert-header">⚠ Corporate &amp; Business Spotlight</h2>
+
+<div class="item">
+  <span class="source">CNBC / Variety / Deadline:</span>
+  <span class="headline">Disney rolls out ~1,000 layoffs under new CEO Josh D'Amaro; "culture of efficiency" signals more cuts ahead</span>
+  <span class="date">(memo April 14; reaffirmed early May)</span>
+  <div class="summary">D'Amaro's first major restructuring move eliminates roles in marketing &amp; brand, plus pockets of studio, TV, ESPN, Product &amp; Technology, and corporate functions. About 8% of Marvel Entertainment's workforce was hit. Asked this week if more rounds are coming, executives said the company is "exploring all options" as it builds a "culture of efficiency."</div>
+</div>
+
+<div class="item">
+  <span class="source">Walt Disney Co. (NYSE: DIS):</span>
+  <span class="headline">Q2 FY2026 earnings beat &mdash; $1.57 EPS vs. $1.49 expected; revenue $25.17B</span>
+  <span class="date">(reported Wed, May 6)</span>
+  <div class="summary">Disney topped Wall Street on both lines and reaffirmed FY2026 guidance of $6.64 EPS. Domestic park attendance showed pockets of softness even as park revenue held, a watch-item analysts flagged as a potential cap on upside if trends persist into summer.</div>
+</div>
+
+<div class="item">
+  <span class="source">Variety:</span>
+  <span class="headline">Bob Iger officially out; Josh D'Amaro takes the helm</span>
+  <span class="date">(transition completed March 18; confirmed in May coverage)</span>
+  <div class="summary">Iger ended his second CEO run after 52 years at the company and is staying on as senior adviser through the end of 2026. D'Amaro &mdash; long Disney's parks chief &mdash; was named CEO Feb 3 and has moved quickly on cost cuts and restructuring.</div>
+</div>
+
+<div class="item">
+  <span class="source">Deadline / Sportico:</span>
+  <span class="headline">Dish countersues Disney; antitrust fight over ESPN/Fox bundle and Fubo deal widens</span>
+  <span class="date">(latest filings active in early May)</span>
+  <div class="summary">Dish is seeking damages and a court order to unwind Disney's Fubo acquisition and the ESPN-Fox One bundle, alleging antitrust violations and breach of contract. Disney previously settled with Fubo by acquiring it; the Dish suit keeps the legal cloud over Disney's sports-streaming consolidation.</div>
+</div>
+
+<div class="item">
+  <span class="source">ESPN Press Room / Variety:</span>
+  <span class="headline">ESPN on Disney+ expands to Europe and Asia-Pacific &mdash; 53 countries</span>
+  <span class="date">(announced late April; rolling through 2026-27 season)</span>
+  <div class="summary">Disney is using its Disney+ footprint to globalize ESPN ahead of the U.S. direct-to-consumer push. Initial regional offering will scale to thousands of live events including NBA, NHL, NCAA championships, College Football Playoff, Little League World Series, and KeSPA esports for APAC.</div>
+</div>
+
+<hr class="divider">
+
+<!-- ========== DISNEY CRUISE LINE ========== -->
+<h2 class="section-header">🚢 Disney Cruise Line</h2>
+
+<div class="item">
+  <span class="source">WDW News Today:</span>
+  <span class="headline">Disney Adventure May 7 sailing from Singapore canceled over mechanical issue</span>
+  <span class="date">(May 7&ndash;8)</span>
+  <div class="summary">The 4-night sailing was scrapped while crews work on the issue in port. Disney is offering full refunds for the cruise and booked amenities, a 50% discount on a future sailing, and a complimentary hotel night. The next scheduled departure on Monday, May 11 is still expected to sail.</div>
+</div>
+
+<div class="item">
+  <span class="source">Disney Cruise Line:</span>
+  <span class="headline">Two ships in Alaska this summer for the first time</span>
+  <span class="date">(summer 2026 deployment)</span>
+  <div class="summary">Disney Magic joins Disney Wonder on 7-night roundtrips out of Vancouver, BC, with Skagway, Juneau, Ketchikan, and Hoonah/Icy Strait Point on the lineup plus scenic cruising through Endicott Arm Fjord and Dawes Glacier. Disney Dream returns to Europe for Mediterranean sailings.</div>
+</div>
+
+<div class="item">
+  <span class="source">Disney Cruise Line:</span>
+  <span class="headline">Disney Adventure resumes 3- and 4-night Singapore sailings Oct&ndash;Dec 2026</span>
+  <span class="date">(future itinerary)</span>
+  <div class="summary">After this season, the Global-class ship returns to Marina Bay this fall with seven themed areas including Disney Imagination Garden, Marvel Landing, and San Fransokyo Street.</div>
+</div>
+
+<hr class="divider">
+
+<!-- ========== WALT DISNEY WORLD ========== -->
+<h2 class="section-header">🎢 Walt Disney World &mdash; What's Closing &amp; Reopening</h2>
+
+<div class="item">
+  <span class="source">Disney Tourist Blog / Undercover Tourist:</span>
+  <span class="headline">Big Thunder Mountain Railroad reopened Sunday, May 3 after a full track replacement</span>
+  <span class="date">(May 3)</span>
+  <div class="summary">The Magic Kingdom classic is back online after closing in January 2025. Disney teased "a little bit of new magic" alongside the rebuilt track &mdash; expect heavy crowds and standby lines through the rest of May.</div>
+</div>
+
+<div class="item">
+  <span class="source">WDW News Today:</span>
+  <span class="headline">Big May 22 update at Hollywood Studios: Smugglers Run gets a Mando &amp; Grogu story overhaul</span>
+  <span class="date">(opens Fri, May 22)</span>
+  <div class="summary">Millennium Falcon: Smugglers Run swaps in a new mission with Mando and Grogu chasing ex-Imperial officers on Tatooine. The crew picks the destination &mdash; Bespin, Endor, or Coruscant &mdash; for a branching ride experience.</div>
+</div>
+
+<div class="item">
+  <span class="source">Disney Parks Blog / WDWNT:</span>
+  <span class="headline">May 26 trio: Rock 'n' Roller Coaster Starring The Muppets, Soarin' Across America, and Bluey's Wild World all debut</span>
+  <span class="date">(Tue, May 26)</span>
+  <div class="summary">Hollywood Studios' refurbished coaster comes back as a Muppets concert-themed experience with the Electric Mayhem, celebrity cameos, and a Scooter Audio-Animatronic. EPCOT swaps in a new "Soarin' Across America" film for the U.S. semiquincentennial. At Animal Kingdom, Rafiki's Planet Watch reopens as the Bluey's Wild World experience.</div>
+</div>
+
+<div class="item">
+  <span class="source">WDW Magic / Disney Tourist Blog:</span>
+  <span class="headline">Other key dates to know in May</span>
+  <span class="date">(this month)</span>
+  <div class="summary">May 10: Palais du Cinema reopens at EPCOT's France pavilion with Impressions de France and the Beauty &amp; the Beast Sing-Along. May 12: Both water parks (Typhoon Lagoon and Blizzard Beach) open for the season. Pete's Silly Sideshow at Magic Kingdom remains closed with no announced reopening date through June 22.</div>
+</div>
+
+<hr class="divider">
+
+<!-- ========== EPCOT FESTIVAL ========== -->
+<h2 class="section-header">🌷 EPCOT Flower &amp; Garden Festival</h2>
+
+<div class="item">
+  <span class="source">Disney Food Blog:</span>
+  <span class="headline">Festival is in its final stretch &mdash; runs through June 1</span>
+  <span class="date">(March 4 &ndash; June 1, 2026)</span>
+  <div class="summary">More than 20 Outdoor Kitchens and 75+ menu items are still active. Crowds tend to spike on weekends in May; weekday evenings remain the easiest path through the booths.</div>
+</div>
+
+<div class="item">
+  <span class="source">Disney Food Blog:</span>
+  <span class="headline">Springtime Farmers Feast menu rotates out May 10</span>
+  <span class="date">(through Sun, May 10)</span>
+  <div class="summary">The Farmers Feast booth's seasonal Spring rotation (April 6 &ndash; May 10) ends this weekend; a new rotation takes over the booth heading into the festival's home stretch. Standout: Heirloom Tomatoes &amp; Fresh Mozzarella with shallot vinaigrette, sourdough croutons, pesto, and balsamic pearls ($5.19).</div>
+</div>
+
+<hr class="divider">
+
+<!-- ========== DINING ========== -->
+<h2 class="section-header">🍽 Dining News</h2>
+
+<div class="item">
+  <span class="source">AllEars / Disney Tourist Blog:</span>
+  <span class="headline">Tiffins (Animal Kingdom) launches V.I.PASSHOLDER Days with 40% off dinner</span>
+  <span class="date">(May 1 &ndash; July 31)</span>
+  <div class="summary">Annual Passholders get 40% off the dinner menu at one of the park's best signature restaurants. This is in addition to the broader Passholder dining 40%-off promo running Monday&ndash;Thursday at participating locations.</div>
+</div>
+
+<div class="item">
+  <span class="source">WDW News Today:</span>
+  <span class="headline">Crew's Cup Lounge at the Yacht Club returns this month</span>
+  <span class="date">(May 2026)</span>
+  <div class="summary">One of the last-to-return post-pandemic lounges is reopening in May, restoring a popular nautical-themed bar option for Yacht/Beach Club guests.</div>
+</div>
+
+<div class="item">
+  <span class="source">Disney Tourist Blog:</span>
+  <span class="headline">Harambe Market refreshed menu still drawing reactions</span>
+  <span class="date">(reopened Feb 2026, ongoing)</span>
+  <div class="summary">Animal Kingdom's quick-service market returned with hamburgers, fries, and chicken strips, replacing its African-inspired cuisine. Reviews remain mixed; AllEars and DFB note the streamlined menu has speeded up service but disappointed fans of the original.</div>
+</div>
+
+<hr class="divider">
+
+<!-- ========== DVC ========== -->
+<h2 class="section-header">🏠 Disney Vacation Club</h2>
+
+<div class="item">
+  <span class="source">DVC Fan / DVCNews:</span>
+  <span class="headline">2026 dues come in at a 6.38% blended increase &mdash; Bay Lake Tower up 9.06%</span>
+  <span class="date">(billed Jan 15; grace period ended Feb 15)</span>
+  <div class="summary">This year's dues increase ran higher than the historical 3&ndash;5% range across nearly every resort. Bay Lake Tower took the biggest hit, likely tied to its refurbishment timeline. Resale buyers should price the steeper trajectory into ROI calculations going forward.</div>
+</div>
+
+<div class="item">
+  <span class="source">DVC Fan:</span>
+  <span class="headline">Latest DVC Show: 10 Must-Do Tips for New DVC Members</span>
+  <span class="date">(recent video)</span>
+  <div class="summary">DVC Fan's weekly podcast/video continues to cover member onboarding, points strategy, and refurb news. Worth a watch for anyone planning bookings into the late 2026 / early 2027 window.</div>
+</div>
+
+<hr class="divider">
+
+<!-- ========== MOVIES & STREAMING ========== -->
+<h2 class="section-header">🎬 Movies, Disney+ &amp; Streaming</h2>
+
+<div class="item">
+  <span class="source">Disney+ Press:</span>
+  <span class="headline">May headliners: The Punisher: One Last Kill, Star Wars: Maul finale, Daredevil: Born Again S2 finale</span>
+  <span class="date">(May 12 + rolling through month)</span>
+  <div class="summary">The Punisher: One Last Kill premieres May 12. Star Wars: Maul &ndash; Shadow Lord and Daredevil: Born Again Season 2 both wrap up their runs this month. Other notables: Travis Japan Summer Vacation!! in the USA (May 1, 3 episodes), Battle of Fates (Korean, May 13), and We Bought a Zoo (early May).</div>
+</div>
+
+<div class="item">
+  <span class="source">Disney+ Press:</span>
+  <span class="headline">Messi documentary short and Hannah Berner comedy special added</span>
+  <span class="date">(announced this week)</span>
+  <div class="summary">"Messi: The Forgotten Tape / Messi: La Cinta Olvidada" is a new short doc; first-look images dropped for the upcoming Hannah Berner: None of My Business comedy special.</div>
+</div>
+
+<hr class="divider">
+
+<!-- ========== DEALS ========== -->
+<h2 class="section-header">💰 Deals &amp; Discounts</h2>
+
+<div class="item">
+  <span class="source">Disney World / WDWInfo:</span>
+  <span class="headline">Annual Passholder room offer: up to 40% off</span>
+  <span class="date">(travel May 1 &ndash; July 29)</span>
+  <div class="summary">Save up to 40% on rooms at select Disney Resorts Collection hotels for stays of 4+ nights, or up to 35% for 1&ndash;3 nights. Valid pass required at check-in.</div>
+</div>
+
+<div class="item">
+  <span class="source">Disney World:</span>
+  <span class="headline">Passholder Lounge returns to EPCOT (Restaurant Marrakesh)</span>
+  <span class="date">(May 1 &ndash; July 31, 11am&ndash;7pm daily)</span>
+  <div class="summary">Free A/C respite, drinks, and seating for passholders inside the Morocco pavilion's former Restaurant Marrakesh space. A nice tactical perk for anyone doing a long Flower &amp; Garden day.</div>
+</div>
+
+<div class="item">
+  <span class="source">Disney Rewards:</span>
+  <span class="headline">Disney Visa: Disneyland Resort hotel premium room savings</span>
+  <span class="date">(travel May 22 &ndash; Sept 7)</span>
+  <div class="summary">Cardmember-only discount on premium Disneyland Resort hotel rooms across the summer travel window. WDW visa offers continue to include 10% merch/dining at select locations and 0% promo APR on vacation packages.</div>
+</div>
+
+<div class="item">
+  <span class="source">Disney Tourist Blog:</span>
+  <span class="headline">Sam's Club ran 10% off Disney gift cards in late April / early May</span>
+  <span class="date">(recent promotion)</span>
+  <div class="summary">A recurring Sam's Club deal ran Disney gift cards at 10% off. Worth watching for the next iteration before booking dining or shopping spend on a trip.</div>
+</div>
+
+<hr class="divider">
+
+<!-- ========== LEGAL / OTHER ========== -->
+<h2 class="section-header">⚖ Legal &amp; Other Notable Items</h2>
+
+<div class="item">
+  <span class="source">Yahoo Finance / Hollywood Reporter:</span>
+  <span class="headline">Avatar copyright suit amended &mdash; plaintiff seeks $1B+ damages</span>
+  <span class="date">(amended April 2026)</span>
+  <div class="summary">Former 3-D animator Eric Ryder filed an amended copyright complaint against James Cameron, Lightstorm, and several Walt Disney subsidiaries alleging unauthorized use of his "KRZ" story across the Avatar franchise. He's seeking damages exceeding $1B plus injunctive relief.</div>
+</div>
+
+<div class="item">
+  <span class="source">ClassAction.org:</span>
+  <span class="headline">$50M proposed streaming antitrust settlement awaiting court approval</span>
+  <span class="date">(filed March 5, 2026)</span>
+  <div class="summary">Plaintiffs filed a $50M proposed settlement with Disney over alleged antitrust violations tied to live-streaming pricing. Preliminary court approval still pending.</div>
+</div>
+
+<hr class="divider">
+
+<!-- ========== YOUTUBE / COMMUNITY ========== -->
+<h2 class="section-header">📺 Disney YouTube &amp; Community</h2>
+
+<div class="item">
+  <span class="source">DFB Guide:</span>
+  <span class="headline">Recent ULTIMATE Guide videos for Disney Springs, Disney California Adventure, and Universal Orlando</span>
+  <span class="date">(rolling 2026 series)</span>
+  <div class="summary">DFB's deep-dive guide format is ongoing &mdash; useful evergreen content if you're prepping a summer trip.</div>
+</div>
+
+<div class="item">
+  <span class="source">DVC Fan:</span>
+  <span class="headline">DVC Show keeps cadence on member news, refurb updates, and bookings strategy</span>
+  <span class="date">(weekly)</span>
+  <div class="summary">Worth a subscribe if banking, point rentals, or 2026 dues fallout are on your radar.</div>
+</div>
+
+<div class="footer">
+  Generated on Friday, May 8, 2026 at 10:08 AM ET.<br>
+  All news pulled live this run. Sources include WDW News Today, Disney Tourist Blog, AllEars, DFB Guide, CNBC, Variety, Deadline, Hollywood Reporter, Disney Parks Blog, Disney+ Press, ESPN Press Room, DVC Fan, DVCNews, ClassAction.org, and Disney's official channels.
+</div>
+
+</div><!-- /container -->
 
 </body>
 </html>
