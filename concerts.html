@@ -2,399 +2,326 @@
 
 <html lang="en">
 <head>
-<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Concert Guide · Lisa's Hub</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&amp;family=Playfair+Display:wght@700;900&amp;display=swap" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Philly &amp; AC Concerts · Lisa's Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&amp;family=Nunito:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <style>
-:root { --navy:#1a2744;--purple:#6d3fa8;--purple-light:#f0eaf8;--cream:#f8f4ee;--muted:#7a8499;--border:#e8e2d9;--card-bg:#ffffff;--gold:#c9a84c;--star:#f59e0b; }
-* { margin:0;padding:0;box-sizing:border-box; }
-body { font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy); }
-nav { background:var(--navy);padding:0.9rem 1.5rem;display:flex;align-items:center;gap:1rem; }
-nav a { color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.82rem;letter-spacing:0.08em;transition:color 0.2s; }
-nav a:hover { color:var(--gold); }
-nav .sep { color:rgba(255,255,255,0.2);font-size:0.75rem; }
-nav .current { color:#fff;font-weight:500; }
-header { background:linear-gradient(135deg,#2d1564 0%,#5a2d91 50%,#8b5cf6 100%);padding:2.5rem 1.5rem 1.5rem;color:white; }
-.page-label { font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.5rem; }
-h1 { font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;line-height:1.1;margin-bottom:0.4rem; }
-.header-meta { display:flex;flex-direction:column;gap:0.35rem; }
-.compiled-note { font-size:0.75rem;color:rgba(255,255,255,0.65); }
-.update-badge { display:inline-flex;align-items:center;gap:0.4rem;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:0.25rem 0.75rem;font-size:0.72rem;margin-top:0.2rem;width:fit-content; }
-.content { max-width:860px;margin:0 auto;padding:1.5rem 1.5rem 3rem; }
-.show-title { font-weight:600;color:var(--navy); }
-.show-sub { color:var(--muted);font-size:0.82rem;margin-top:0.1rem; }
-.show-date { font-size:0.82rem;color:var(--muted);white-space:nowrap;font-weight:500; }
-.star-row { background:linear-gradient(135deg,#fffbeb,#fff);border-left:3px solid var(--star); }
-.star-row .show-title { color:#92400e; }
-.star-row .show-date { color:var(--star);font-weight:600; }
-.star-date { font-size:0.87rem;color:#555;display:flex;align-items:flex-start;gap:0.5rem; }
-.star-date::before { content:'\1F4CD';flex-shrink:0; }
-.venue-section { margin-bottom:2.2rem; }
-.venue-header { font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--navy);background:var(--purple-light);padding:0.65rem 1rem;border-radius:8px 8px 0 0;border:1px solid #ddd5f0;border-bottom:none; }
-.venue-city { font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple);font-weight:500;margin-left:0.5rem;font-family:'DM Sans',sans-serif; }
-.shows-list { border:1px solid #ddd5f0;border-radius:0 0 8px 8px;background:var(--card-bg); }
-.show-row { display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;padding:0.7rem 1rem;border-bottom:1px solid #f0ece4;transition:background 0.15s; }
-.show-row:last-child { border-bottom:none; }
-.show-row:hover { background:var(--purple-light); }
-.tip-box { border-left:3px solid var(--purple);border-radius:0 8px 8px 0;padding:0.9rem 1.2rem;font-size:0.84rem;color:#555;margin-top:1rem;line-height:1.55; }
-footer { text-align:center;padding:2rem;color:var(--muted);font-size:0.78rem;border-top:1px solid var(--border); }
-footer a { color:var(--muted);text-decoration:none; }
-footer a:hover { color:var(--purple); }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;min-height:100vh;color:#1f2440;
+  background:#fff8f0;
+  background-image:radial-gradient(#ffd23f 2px,transparent 2px),
+                   radial-gradient(#ff5c8a 2px,transparent 2px);
+  background-size:60px 60px;background-position:0 0,30px 30px}
+header{text-align:center;padding:2.6rem 1.5rem 1.8rem;position:relative}
+.hub-label{font-family:'Baloo 2';font-weight:700;font-size:.78rem;letter-spacing:.28em;
+  text-transform:uppercase;color:#ff5c8a;margin-bottom:.6rem}
+.hub-label a{color:#ff5c8a;text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:2px}
+.hub-label a:hover{color:#1f2440;border-bottom-color:#1f2440}
+h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;color:#1f2440;
+  line-height:1;text-shadow:4px 4px 0 #a78bfa}
+.subtitle{font-size:.95rem;margin-top:.75rem;color:#6b6f8c;font-weight:700}
+.gold-line{width:120px;height:8px;margin:1.1rem auto 0;border-radius:8px;
+  background:repeating-linear-gradient(90deg,#ff5c8a 0 16px,#3ec6e0 16px 32px,#ffd23f 32px 48px)}
+.live-clock{margin-top:1.1rem;display:inline-block;background:#1f2440;color:#fff;
+  padding:.5rem 1.3rem;border-radius:14px;font-family:'Baloo 2';font-weight:600;
+  font-size:.92rem;box-shadow:4px 4px 0 #ff5c8a}
+.live-clock .clock-date{color:#ffd23f}.live-clock .clock-time{color:#fff}
+main{max-width:1080px;margin:0 auto;padding:1rem 1.4rem 4rem}
+.section-divider{display:flex;align-items:center;gap:.9rem;margin:2.4rem 0 1.2rem}
+section:first-of-type .section-divider, .section-group:first-child .section-divider{margin-top:.4rem}
+.divider-accent{width:22px;height:22px;background:#ffd23f;border:3px solid #1f2440;
+  border-radius:6px;transform:rotate(45deg);flex-shrink:0}
+.divider-label{font-family:'Baloo 2';font-size:1.4rem;font-weight:800;color:#1f2440;
+  background:#fff;padding:.1rem .9rem;border:3px solid #1f2440;border-radius:14px;
+  box-shadow:3px 3px 0 #3ec6e0}
+.divider-line{flex:1;height:4px;border-radius:4px;background:#1f2440;opacity:.15}
+.sub-label{font-family:'Baloo 2';font-weight:700;font-size:.95rem;color:#1f2440;
+  margin:1.2rem 0 .6rem;text-transform:uppercase;letter-spacing:.06em}
+.card{position:relative;display:block;background:#fff;color:#1f2440;text-decoration:none;
+  border:3px solid #1f2440;border-radius:18px;padding:1.2rem 1.4rem;
+  box-shadow:6px 6px 0 var(--accent,#ff5c8a);margin-bottom:1rem;
+  transition:transform .16s ease,box-shadow .16s ease}
+.card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--accent,#ff5c8a)}
+.card strong, .card .card-title{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;
+  display:block;margin-bottom:.3rem;color:#1f2440}
+.card .sub{display:block;color:#6b6f8c;font-size:.86rem;font-weight:600;line-height:1.5;margin-top:.15rem}
+.card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
+  background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
+  border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
+.card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
+.card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
+.card-green{--accent:#3dd6b5}.card-lime{--accent:#7bd957}.card-orange{--accent:#ffb84d}
+.card-lblue{--accent:#4fc3f7}.card-sopink{--accent:#ff8fc7}.card-lavender{--accent:#b79cff}
+.back-to-hub{display:inline-block;font-family:'Baloo 2';font-size:.85rem;font-weight:700;
+  background:#fff;color:#1f2440;text-decoration:none;padding:.45rem 1.1rem;border-radius:999px;
+  border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem;
+  transition:transform .16s ease,box-shadow .16s ease}
+.back-to-hub:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #ffd23f}
+table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;
+  border:3px solid #1f2440;border-radius:14px;overflow:hidden;margin:.8rem 0 1.4rem;
+  font-size:.9rem}
+th{background:#1f2440;color:#fff;font-family:'Baloo 2';font-weight:700;text-align:left;
+  padding:.55rem .85rem;font-size:.85rem;letter-spacing:.03em}
+td{padding:.5rem .85rem;border-top:2px dotted #e6e2d8;font-weight:600}
+tr:first-child td{border-top:none}
+ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
+li{margin-bottom:.25rem}
+p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
+a:not(.card):not(.back-to-hub):not(.hub-label a){color:#1f2440;font-weight:700;
+  text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
+a:not(.card):not(.back-to-hub):not(.hub-label a):hover{color:#ff5c8a;border-bottom-color:#1f2440}
+.callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
+  box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
+.callout strong{font-family:'Baloo 2'}
+footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
+.footer-clock{margin-top:.4rem;color:#ff5c8a}
+.timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
+  font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
+@media (max-width:600px){
+  h1{font-size:2.4rem}
+  main{padding:1rem .9rem 3rem}
+  .card{padding:1rem 1.1rem}
+}
 </style>
 </head>
 <body>
-<nav>
-<a href="index.html">Lisa's Hub</a>
-<span class="sep">›</span>
-<a class="current" href="concerts.html">Concerts</a>
-</nav>
 <header>
-<div class="page-label">Live Music · Philadelphia, Atlantic City &amp; NYC</div>
-<h1>🎵 Concert Guide</h1>
-<div class="header-meta">
-<div class="compiled-note">Compiled: Sun, May 17 at 7:12 AM ET</div>
-<div class="update-badge">Last updated: Sun, May 17 at 7:12 AM ET</div>
-</div>
+<div class="hub-label"><a href="index.html">← Lisa's Hub</a></div>
+<h1>🎵 Philly &amp; AC Concerts</h1>
+<div class="subtitle">Upcoming shows at Philadelphia, Atlantic City &amp; NYC venues</div>
+<div class="gold-line"></div>
+<div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
 </header>
-<main class="content">
-<!-- Lincoln Financial Field -->
-<div class="venue-section">
-<div class="venue-header">Lincoln Financial Field <span class="venue-city">Philadelphia</span></div>
-<div class="shows-list">
-<div class="show-row"><div><div class="show-title">Foo Fighters — Take Cover Tour 2026</div><div class="show-sub">with Queens of the Stone Age, Mannequin Pussy &amp; Gouge Away</div></div><div class="show-date">Aug 13 · 5:30 PM</div></div>
-<div class="show-row star-row"><div><div class="show-title">Bruno Mars — The Romantic Tour</div><div class="show-sub">Two-night stand · with RAYE &amp; DJ Pee.Wee</div></div><div class="show-date">Sep 1 &amp; 2 · 7 PM</div></div>
-<div class="show-row"><div><div class="show-title">Ed Sheeran — LOOP Tour</div><div class="show-sub">with Macklemore, Lukas Graham &amp; Aaron Rowe</div></div><div class="show-date">Sep 19 · 5:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">AC/DC — Power Up Tour 2026</div><div class="show-sub">with The Pretty Reckless</div></div><div class="show-date">Sep 29 · 7 PM</div></div>
+<main>
+<a class="back-to-hub" href="index.html">← Back to Hub</a>
+<div class="callout"><strong>Heads up:</strong> Major touring acts at Philadelphia-area, Atlantic City &amp; NYC venues. Auto-refreshed from live searches; verify show details on the venue site before buying tickets.</div>
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Xfinity Mobile Arena</span><span class="divider-line"></span></div>
+<p style="margin-top:0;color:#6b6f8c;font-weight:700;font-size:.88rem">Philadelphia, PA · formerly Wells Fargo Center</p>
+<div class="cards-grid">
+
+<div class="card card-pink"><strong>Noah Cyrus</strong><span class="sub">Fri, Jul 10, 2026</span></div>
+<div class="card card-cyan"><strong>JP Saxe &amp; Solon Holt</strong><span class="sub">Sat, Jul 11, 2026</span></div>
+<div class="card card-magenta"><strong>Djo</strong><span class="sub">Wed, Jul 15, 2026</span></div>
+<div class="card card-blue"><strong>Earth, Wind &amp; Fire</strong><span class="sub">Thu, Jul 16, 2026</span></div>
+
+<div class="card card-orange"><strong>Kacey Musgraves w/ Flatland Cavalry</strong><span class="sub">Fri, Sep 4, 2026 · 7:30 PM</span></div>
+<div class="card card-green"><strong>Lily Allen</strong><span class="sub">Sun, Sep 6, 2026 · 8:00 PM</span></div>
+<div class="card card-lime"><strong>Weezer w/ The Shins &amp; Silversun Pickups</strong><span class="sub">Tue, Sep 29, 2026</span></div>
+<div class="card card-lblue"><strong>Teddy Swims</strong><span class="sub">Sat, Oct 10, 2026</span></div>
+
 </div>
+</section>
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">The Met Philadelphia</span><span class="divider-line"></span></div>
+<p style="margin-top:0;color:#6b6f8c;font-weight:700;font-size:.88rem">North Broad St · Live Nation</p>
+<div class="cards-grid">
+
+
+
+
+
+
+<div class="card card-yellow"><strong>Tori Amos — In Times Of Dragons (WXPN)</strong><span class="sub">Sat, Aug 1, 2026 · 8:00 PM</span></div>
+
+
+
+<div class="card card-lblue"><strong>Pop Evil w/ Wings of Steel</strong><span class="sub">Wed, Dec 2, 2026</span></div>
 </div>
-<!-- Citizens Bank Park -->
-<div class="venue-section">
-<div class="venue-header">Citizens Bank Park <span class="venue-city">Philadelphia</span></div>
-<div class="shows-list">
-<div class="show-row"><div><div class="show-title">Nelly — Postgame Concert</div><div class="show-sub">After Phillies vs Boston Red Sox</div></div><div class="show-date">Jul 22 · Postgame</div></div>
-<div class="show-row"><div><div class="show-title">Kaskade — Postgame Concert</div><div class="show-sub">After Phillies vs Cleveland Guardians</div></div><div class="show-date">Jul 27 · Postgame</div></div>
-<div class="show-row"><div><div class="show-title">Flo Rida — Postgame Concert</div><div class="show-sub">After Phillies vs Miami Marlins</div></div><div class="show-date">Aug 18 · Postgame</div></div>
-<div class="show-row"><div><div class="show-title">Postgame Concert Series — additional dates</div><div class="show-sub">Theme nights · check phillies.com for full lineup</div></div><div class="show-date">Various dates</div></div>
+</section>
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Kimmel Center · Marian Anderson Hall &amp; Academy of Music</span><span class="divider-line"></span></div>
+<p style="margin-top:0;color:#6b6f8c;font-weight:700;font-size:.88rem">Ensemble Arts Philly</p>
+<div class="cards-grid">
+
+
+<div class="card card-purple"><strong>Broadway Season at Academy of Music</strong><span class="sub">Jul 21 – Aug 2, 2026</span></div>
+
 </div>
+</section>
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">TD Pavilion &amp; Skyline Stage at Highmark Mann</span><span class="divider-line"></span></div>
+<p style="margin-top:0;color:#6b6f8c;font-weight:700;font-size:.88rem">Fairmount Park, Philadelphia</p>
+<div class="cards-grid">
+<div class="card card-cyan"><strong>Lauv</strong><span class="sub">Sun, Jun 7, 2026 · Skyline Stage</span></div>
+<div class="card card-magenta"><strong>Hovvdy</strong><span class="sub">Sat, Jun 13, 2026 · TD Pavilion</span></div>
+<div class="card card-blue"><strong>Almost Monday</strong><span class="sub">Sun, Jun 14, 2026 · Skyline Stage</span></div>
+<div class="card card-yellow"><strong>Thrice &amp; Hey Mercedes</strong><span class="sub">Fri, Jun 19, 2026 · Skyline Stage</span></div>
+<div class="card card-orange"><strong>Thundercat &amp; Hamilton Leithauser</strong><span class="sub">Fri, Jun 26, 2026 · TD Pavilion</span></div>
+<div class="card card-green"><strong>Hermanos Gutiérrez</strong><span class="sub">Sat, Jun 27, 2026 · TD Pavilion</span></div>
+<div class="card card-lime"><strong>Paul Simon</strong><span class="sub">Sun, Jul 5, 2026</span></div>
+<div class="card card-lblue"><strong>Sarah McLachlan w/ Allison Russell</strong><span class="sub">Tue, Jul 7, 2026</span></div>
+<div class="card card-sopink"><strong>Bob Dylan</strong><span class="sub">Tue, Jul 14, 2026</span></div>
+
+
+<div class="card card-pink"><strong>Hilary Duff w/ La Roux &amp; Jade LeMac</strong><span class="sub">Sun, Aug 9, 2026 · 7:00 PM</span></div>
+<div class="card card-cyan"><strong>Jon Batiste</strong><span class="sub">Fri, Aug 14, 2026 · 7:30 PM</span></div>
+
+<div class="card card-blue"><strong>Zac Brown Band w/ Grace Potter</strong><span class="sub">Sat, Aug 29, 2026 · 7:00 PM</span></div>
+
+<div class="card card-orange"><strong>Boyz II Men w/ The Philly POPS</strong><span class="sub">Fri, Sep 18, 2026 · 8:00 PM</span></div>
+<div class="card card-green"><strong>Kirk Whalum w/ Gerald Veasley</strong><span class="sub">Wed, Sep 30, 2026 · 8:00 PM</span></div>
 </div>
-<!-- Xfinity Mobile Arena -->
-<div class="venue-section">
-<div class="venue-header">Xfinity Mobile Arena (Wells Fargo Center) <span class="venue-city">Philadelphia</span></div>
-<div class="shows-list">
-<div class="show-row star-row"><div><div class="show-title">Bruce Springsteen &amp; The E Street Band — Land of Hope &amp; Dreams Tour</div><div class="show-sub">New date · rescheduled</div></div><div class="show-date">May 30 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Monaleo &amp; Odeal</div></div><div class="show-date">Jun 5 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Josh Groban</div><div class="show-sub">with Jennifer Hudson</div></div><div class="show-date">Jun 7 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Brandi Carlile</div></div><div class="show-date">Jun 18 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Noah Cyrus</div></div><div class="show-date">Jul 10 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">JP Saxe &amp; Solon Holt</div></div><div class="show-date">Jul 11 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Djo</div></div><div class="show-date">Jul 15 · 8 PM</div></div>
-<div class="show-row star-row"><div><div class="show-title">Lionel Richie &amp; Earth, Wind and Fire — Sing a Song All Night Long</div></div><div class="show-date">Jul 16 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Meghan Trainor — The Get In Girl Tour</div></div><div class="show-date">Jul 18 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Zayn</div></div><div class="show-date">Jul 19 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">RUSH — Fifty Something Tour</div><div class="show-sub">Two-night stand</div></div><div class="show-date">Aug 21 &amp; 23 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Hot Wheels Monster Trucks Live: Glow-N-Fire 2026 Tour</div><div class="show-sub">Family event · multiple performances</div></div><div class="show-date">Aug 29 &amp; 30</div></div>
-<div class="show-row"><div><div class="show-title">Kacey Musgraves — Middle Of Nowhere Tour</div><div class="show-sub">with Flatland Cavalry</div></div><div class="show-date">Sep 4 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Lily Allen — West End Girl Tour</div></div><div class="show-date">Sep 6 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Weezer — The Gathering</div><div class="show-sub">with The Shins &amp; Silversun Pickups</div></div><div class="show-date">Sep 29 · 7 PM</div></div>
-<div class="show-row"><div><div class="show-title">Demi Lovato</div></div><div class="show-date">Oct 3 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Teddy Swims — The UGLY Tour</div><div class="show-sub">with Freak Freely</div></div><div class="show-date">Oct 10 · 7 PM</div></div>
-<div class="show-row"><div><div class="show-title">Johnny Blue Skies &amp; Sturgill Simpson — Dark Clouds Tour</div></div><div class="show-date">Oct 15 · 8 PM</div></div>
-<div class="show-row star-row"><div><div class="show-title">Journey — Final Frontier Tour (Extended)</div><div class="show-sub">Tour extension</div></div><div class="show-date">Oct 28 · 7:30 PM</div></div>
-<div class="show-row star-row"><div><div class="show-title">Olivia Rodrigo — The Unraveled Tour</div><div class="show-sub">Two-night stand · with Devon Again</div></div><div class="show-date">Nov 7 &amp; 8 · 7 PM</div></div>
-<div class="show-row star-row"><div><div class="show-title">Cardi B — Little Miss Drama Tour</div></div><div class="show-date">Nov 14 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Andrea Bocelli — Romanza 30th Anniversary World Tour</div></div><div class="show-date">Dec 22 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Olivia Rodrigo — The Unraveled Tour (2027 leg)</div><div class="show-sub">Spring 2027 North American extension</div></div><div class="show-date">Mar 26 – 29, 2027</div></div>
+</section>
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Lincoln Financial Field</span><span class="divider-line"></span></div>
+<p style="margin-top:0;color:#6b6f8c;font-weight:700;font-size:.88rem">South Philly · Stadium</p>
+<div class="cards-grid">
+
+
+
+<div class="card card-lavender"><strong>Foo Fighters — Take Cover Tour 2026</strong><span class="sub">Thu, Aug 13, 2026 · 5:30 PM</span></div>
+<div class="card card-purple"><strong>Bruno Mars — The Romantic Tour</strong><span class="sub">Tue, Sep 1, 2026 · 7:00 PM</span></div>
 </div>
+</section>
+
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Freedom Mortgage Pavilion</span><span class="divider-line"></span></div>
+<p style="margin-top:0;color:#6b6f8c;font-weight:700;font-size:.88rem">Camden, NJ</p>
+<div class="cards-grid">
+<div class="card card-cyan"><strong>WMMR Presents: Triumph — Rock &amp; Roll Machine Reloaded</strong><span class="sub">Thu, May 28, 2026 · 8:00 PM</span></div>
+
+<div class="card card-blue"><strong>Evanescence 2026 World Tour w/ Spiritbox &amp; Nova Twins</strong><span class="sub">Sat, Jun 20, 2026 · 7:00 PM</span></div>
+
+<div class="card card-orange"><strong>Dave Matthews Band</strong><span class="sub">Fri, Jul 10, 2026 · 7:30 PM</span></div>
+
+<div class="card card-lime"><strong>Lynyrd Skynyrd × Foreigner — Double Trouble Double Vision</strong><span class="sub">Thu, Aug 20, 2026</span></div>
+
 </div>
-<!-- Freedom Mortgage Pavilion -->
-<div class="venue-section">
-<div class="venue-header">Freedom Mortgage Pavilion <span class="venue-city">Camden, NJ</span></div>
-<div class="shows-list">
-<div class="show-row"><div><div class="show-title">WMMR Presents: TRIUMPH — The Rock &amp; Roll Machine Reloaded Tour</div><div class="show-sub">with April Wine</div></div><div class="show-date">May 28 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">The Black Crowes — Southern Hospitality Tour</div><div class="show-sub">with Whiskey Myers &amp; Southall</div></div><div class="show-date">Jun 12 · 7 PM</div></div>
-<div class="show-row"><div><div class="show-title">Evanescence — 2026 World Tour</div><div class="show-sub">with Spiritbox &amp; Nova Twins</div></div><div class="show-date">Jun 20 · 7 PM</div></div>
-<div class="show-row star-row"><div><div class="show-title">Dave Matthews Band</div><div class="show-sub">Two-night stand</div></div><div class="show-date">Jul 10 &amp; 11 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Chicago &amp; Styx — The Windy Cities Tour</div></div><div class="show-date">Jul 21 · 7 PM</div></div>
-<div class="show-row"><div><div class="show-title">Tim McGraw — Pawn Shop Guitar Tour 2026</div><div class="show-sub">with 49 Winchester</div></div><div class="show-date">Jul 23 · 7 PM</div></div>
-<div class="show-row"><div><div class="show-title">Train — Drops of Jupiter: 25 Years in the Atmosphere</div><div class="show-sub">with Barenaked Ladies &amp; Matt Nathanson</div></div><div class="show-date">Jul 26 · 6:45 PM</div></div>
-<div class="show-row"><div><div class="show-title">Mötley Crüe — WMGK Big Gig 2026 / Return of the Carnival of Sin</div><div class="show-sub">with Tesla &amp; Extreme</div></div><div class="show-date">Jul 27 · 6:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Muse — The Wow! Signal Tour</div><div class="show-sub">with Bloc Party &amp; The Temper Trap</div></div><div class="show-date">Jul 29 · 7 PM</div></div>
-<div class="show-row star-row"><div><div class="show-title">Lynyrd Skynyrd &amp; Foreigner — Double Trouble Double Vision Tour</div><div class="show-sub">with Six Gun Sally</div></div><div class="show-date">Aug 20 · 6:30 PM</div></div>
-<div class="show-row star-row"><div><div class="show-title">Chris Stapleton's All-American Road Show</div><div class="show-sub">Two-night stand · with Carter Faith</div></div><div class="show-date">Aug 28 &amp; 29 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Lil Wayne — 20 Years of Carter Classics</div><div class="show-sub">with 2 Chainz</div></div><div class="show-date">Sep 11 · 7 PM</div></div>
-<div class="show-row"><div><div class="show-title">TLC, Salt-N-Pepa &amp; En Vogue — It's Iconic</div></div><div class="show-date">Sep 13 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Staind, Seether, Hoobastank &amp; Hinder — Break The Cycle 25th Anniversary Tour</div></div><div class="show-date">Sep 16 · 6 PM</div></div>
+</section>
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Keswick Theatre</span><span class="divider-line"></span></div>
+<p style="margin-top:0;color:#6b6f8c;font-weight:700;font-size:.88rem">Glenside, PA</p>
+<div class="cards-grid">
+<div class="card card-sopink"><strong>KISS Alive!</strong><span class="sub">Thu, May 14, 2026 · 8:00 PM</span></div>
+<div class="card card-lavender"><strong>David Lee Roth</strong><span class="sub">Tue, May 19, 2026 · 8:00 PM</span></div>
+
+
+
+<div class="card card-magenta"><strong>Jason Scheff, The Vogues &amp; The Cowsills</strong><span class="sub">Sun, Jun 14, 2026</span></div>
+
 </div>
+</section>
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Xcite Center at Parx Casino</span><span class="divider-line"></span></div>
+<p style="margin-top:0;color:#6b6f8c;font-weight:700;font-size:.88rem">Bensalem, PA</p>
+<div class="cards-grid">
+<div class="card card-yellow"><strong>Neil Diamond</strong><span class="sub">Sat, May 30, 2026 · 8:00 PM</span></div>
+<div class="card card-orange"><strong>Theresa Caputo</strong><span class="sub">Sat, Jun 6, 2026 · 8:00 PM</span></div>
+<div class="card card-green"><strong>Prince Again — Tribute to Prince</strong><span class="sub">Fri, Jun 12, 2026</span></div>
+
+<div class="card card-lblue"><strong>Marcello Hernández (21+)</strong><span class="sub">Fri–Sun, Jul 10–12, 2026</span></div>
+<div class="card card-sopink"><strong>Wayne Brady</strong><span class="sub">Sat, Jul 18, 2026</span></div>
+<div class="card card-lavender"><strong>George Thorogood &amp; The Destroyers</strong><span class="sub">Fri, Aug 28, 2026</span></div>
 </div>
-<!-- TD Pavilion at Highmark Mann -->
-<div class="venue-section">
-<div class="venue-header">TD Pavilion &amp; Skyline Stage at Highmark Mann <span class="venue-city">Philadelphia</span></div>
-<div class="shows-list">
-<div class="show-row"><div><div class="show-title">Khalid — It's Always Summer Somewhere Tour</div><div class="show-sub">with Lauv · Skyline Stage</div></div><div class="show-date">Jun 7</div></div>
-<div class="show-row"><div><div class="show-title">Voices of Hope</div><div class="show-sub">An Event in Celebration of Black Excellence · TD Pavilion · Free</div></div><div class="show-date">Jun 23</div></div>
-<div class="show-row"><div><div class="show-title">The Strokes — Reality Awaits</div><div class="show-sub">with Thundercat &amp; Hamilton Leithauser · TD Pavilion</div></div><div class="show-date">Jun 26 · 7 PM</div></div>
-<div class="show-row star-row"><div><div class="show-title">Paul Simon — A Quiet Celebration Tour</div><div class="show-sub">TD Pavilion</div></div><div class="show-date">Jul 5 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Sarah McLachlan — Better Broken Tour</div><div class="show-sub">with Allison Russell · TD Pavilion</div></div><div class="show-date">Jul 7 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Louis Tomlinson — How Did We Get Here? World Tour 2026</div><div class="show-sub">with The Beaches · Skyline Stage</div></div><div class="show-date">Jul 11</div></div>
-<div class="show-row"><div><div class="show-title">Bob Dylan — Live on Stage</div><div class="show-sub">with Jimmie Vaughan &amp; Brittney Spencer · TD Pavilion</div></div><div class="show-date">Jul 14 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Coltrane 100: Legacy featuring Ravi Coltrane</div><div class="show-sub">with The Philadelphia Orchestra · TD Pavilion</div></div><div class="show-date">Jul 22</div></div>
-<div class="show-row"><div><div class="show-title">Gavin DeGraw &amp; Lisa Loeb</div><div class="show-sub">TD Pavilion</div></div><div class="show-date">Jul 25</div></div>
-<div class="show-row"><div><div class="show-title">TOTO</div><div class="show-sub">with Christopher Cross &amp; The Romantics · TD Pavilion</div></div><div class="show-date">Jul 26 · 6:45 PM</div></div>
-<div class="show-row"><div><div class="show-title">Hilary Duff — the lucky me tour</div><div class="show-sub">with La Roux &amp; Jade LeMac · TD Pavilion</div></div><div class="show-date">Aug 9</div></div>
-<div class="show-row"><div><div class="show-title">Jon Batiste Live</div><div class="show-sub">TD Pavilion</div></div><div class="show-date">Aug 14 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Highmark Mann Milestone Mashup</div><div class="show-sub">Free community expo</div></div><div class="show-date">Aug 22</div></div>
-<div class="show-row star-row"><div><div class="show-title">Zac Brown Band — Love &amp; Fear Tour</div><div class="show-sub">with Grace Potter · TD Pavilion</div></div><div class="show-date">Aug 29</div></div>
-<div class="show-row"><div><div class="show-title">Boyz II Men</div><div class="show-sub">with the Philly Pops · TD Pavilion</div></div><div class="show-date">Sep 18</div></div>
-<div class="show-row"><div><div class="show-title">MUNA — Gets So Hot Tour</div><div class="show-sub">Skyline Stage</div></div><div class="show-date">Sep 25</div></div>
-<div class="show-row"><div><div class="show-title">Logic &amp; G-Eazy — The Endless Summer Tour Part II</div><div class="show-sub">with Juicy J · TD Pavilion</div></div><div class="show-date">Oct 1</div></div>
-<div class="show-row"><div><div class="show-title">Shaboozey — Outlaws Never Die Tour</div><div class="show-sub">with Kashus Culpepper · Skyline Stage</div></div><div class="show-date">Oct 6</div></div>
-<div class="show-row"><div><div class="show-title">A Taste of Home with Chef Mike Solomonov</div><div class="show-sub">featuring live music by Polyphony · TD Pavilion</div></div><div class="show-date">Oct 8</div></div>
-<div class="show-row"><div><div class="show-title">Foster The People — Good Mourning Sunshine</div><div class="show-sub">with Goth Babe · Skyline Stage</div></div><div class="show-date">Oct 11</div></div>
+</section>
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">The Fillmore Philadelphia</span><span class="divider-line"></span></div>
+<p style="margin-top:0;color:#6b6f8c;font-weight:700;font-size:.88rem">Fishtown · Live Nation</p>
+<div class="cards-grid">
+
+<div class="card card-pink"><strong>Ben Folds &amp; A Piano Tour (WXPN)</strong><span class="sub">Sun, May 31, 2026</span></div>
+
+
+
+
+
+<div class="card card-green"><strong>Jack Harlow — Monica Tour</strong><span class="sub">Sat, Aug 15, 2026</span></div>
 </div>
+</section>
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Hard Rock Live at Etess Arena</span><span class="divider-line"></span></div>
+<p style="margin-top:0;color:#6b6f8c;font-weight:700;font-size:.88rem">Atlantic City, NJ</p>
+<div class="cards-grid">
+
+<div class="card card-lblue"><strong>Darius Rucker w/ Austin Williams</strong><span class="sub">Fri, Jun 12, 2026</span></div>
+<div class="card card-sopink"><strong>Nick Jonas</strong><span class="sub">Sat, Jun 13, 2026</span></div>
+
+
+<div class="card card-pink"><strong>James Taylor &amp; His All-Star Band</strong><span class="sub">Sat, Jun 27, 2026</span></div>
+
+<div class="card card-magenta"><strong>The Guess Who w/ Don Felder</strong><span class="sub">Sat, Jul 11, 2026</span></div>
+
+<div class="card card-yellow"><strong>Buju Banton w/ Stephen Marley</strong><span class="sub">Sun, Jul 19, 2026</span></div>
+<div class="card card-orange"><strong>The Chicks</strong><span class="sub">Fri, Jul 31, 2026</span></div>
 </div>
-<!-- The Met Philadelphia -->
-<div class="venue-section">
-<div class="venue-header">The Met Philadelphia <span class="venue-city">Philadelphia</span></div>
-<div class="shows-list">
-<div class="show-row"><div><div class="show-title">The Human League</div><div class="show-sub">with Soft Cell &amp; Alison Moyet</div></div><div class="show-date">Jun 28 · 8 PM</div></div>
-<div class="show-row star-row"><div><div class="show-title">Tori Amos — In Times of Dragons Tour</div><div class="show-sub">WXPN Welcomes · with Bartees Strange</div></div><div class="show-date">Aug 1 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Ray LaMontagne — Trouble 20th Anniversary Tour</div><div class="show-sub">with The Weather Station</div></div><div class="show-date">Sep 12 · 7 PM</div></div>
-<div class="show-row"><div><div class="show-title">Chelsea Handler</div></div><div class="show-date">Sep 26 · 8 PM</div></div>
+</section>
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Sound Waves at Hard Rock Hotel &amp; Casino</span><span class="divider-line"></span></div>
+<p style="margin-top:0;color:#6b6f8c;font-weight:700;font-size:.88rem">Atlantic City, NJ</p>
+<div class="cards-grid">
+
+
+
+<div class="card card-sopink"><strong>Zarna Garg — Million Dollar Excuses</strong><span class="sub">Fri, Sep 4, 2026 · 9:00 PM</span></div>
+
 </div>
+</section>
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Borgata Event Center</span><span class="divider-line"></span></div>
+<p style="margin-top:0;color:#6b6f8c;font-weight:700;font-size:.88rem">Atlantic City, NJ</p>
+<div class="cards-grid">
+<div class="card card-purple"><strong>Jason Mraz — Still Yours 2026 Tour</strong><span class="sub">Sat, May 30, 2026 · 7:00 PM</span></div>
+<div class="card card-pink"><strong>Oz "The Mentalist" Pearlman</strong><span class="sub">Fri, Jun 5, 2026</span></div>
+<div class="card card-cyan"><strong>DEVO — Mutate Don't Stagnate</strong><span class="sub">Fri, Jun 12, 2026</span></div>
+<div class="card card-magenta"><strong>"Weird Al" Yankovic — Bigger and Weirder 2026</strong><span class="sub">Fri, Jul 17, 2026</span></div>
+
+<div class="card card-yellow"><strong>Harry Connick Jr. In Concert</strong><span class="sub">Fri, Jul 24, 2026</span></div>
 </div>
-<!-- Marian Anderson Hall -->
-<div class="venue-section">
-<div class="venue-header">Marian Anderson Hall · Kimmel Center <span class="venue-city">Philadelphia</span></div>
-<div class="shows-list">
-<div class="show-row"><div><div class="show-title">Yannick Nézet-Séguin — Beethoven &amp; Marsalis</div><div class="show-sub">Philadelphia Orchestra · Multi-night stand</div></div><div class="show-date">May 28, 30 &amp; 31</div></div>
-<div class="show-row"><div><div class="show-title">Gershwin and Bernstein</div><div class="show-sub">Philadelphia Orchestra · Four performances</div></div><div class="show-date">Jun 4 – 7</div></div>
-<div class="show-row star-row"><div><div class="show-title">Opening Night Celebration — Beethoven's Ninth</div><div class="show-sub">Yannick Nézet-Séguin · 2026-27 season opener</div></div><div class="show-date">Sep 24 · 7 PM</div></div>
-<div class="show-row"><div><div class="show-title">Harry Potter and the Chamber of Secrets — In Concert</div><div class="show-sub">Philadelphia Orchestra · live to film</div></div><div class="show-date">Sep 26 – 28</div></div>
-<div class="show-row"><div><div class="show-title">Bernstein's MASS — Symphonic Rituals Premiere</div><div class="show-sub">Philadelphia Orchestra · 2026-27 season · Yannick leads new arrangement</div></div><div class="show-date">Oct 1 – 3</div></div>
-<div class="show-row"><div><div class="show-title">Jeff Goldblum and The Mildred Snitzer Orchestra</div><div class="show-sub">Ensemble Arts Philly Jazz Series opener</div></div><div class="show-date">Oct 7</div></div>
-<div class="show-row"><div><div class="show-title">Broadway à la Nero</div><div class="show-sub">Philly Pops 2026/2027 season opener</div></div><div class="show-date">Oct 24 · 3 PM</div></div>
-<div class="show-row"><div><div class="show-title">Yo-Yo Ma &amp; Emanuel Ax — Duet Concert</div><div class="show-sub">Spotlight recital series</div></div><div class="show-date">Dec 6 · 8 PM</div></div>
-<div class="show-row star-row"><div><div class="show-title">Sir Simon Rattle — Adams, Debussy &amp; Ravel</div><div class="show-sub">Philadelphia Orchestra · return after a decade</div></div><div class="show-date">Jan 28 – 30, 2027</div></div>
-<div class="show-row"><div><div class="show-title">Gregory Porter</div><div class="show-sub">Ensemble Arts Philly Jazz Series</div></div><div class="show-date">Feb 15, 2027 · 7 PM</div></div>
-<div class="show-row"><div><div class="show-title">Marin Alsop — World Premiere of "The Party"</div><div class="show-sub">Philadelphia Orchestra · multidisciplinary stop-motion opera</div></div><div class="show-date">Feb 25 – 27, 2027</div></div>
+</section>
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Music Box at the Borgata</span><span class="divider-line"></span></div>
+<p style="margin-top:0;color:#6b6f8c;font-weight:700;font-size:.88rem">Atlantic City, NJ</p>
+<div class="cards-grid">
+
+<div class="card card-green"><strong>Jeff Ross</strong><span class="sub">Sat, Jun 6, 2026</span></div>
+<div class="card card-lime"><strong>Lewis Black</strong><span class="sub">Sat, Jun 13, 2026</span></div>
+<div class="card card-lblue"><strong>Rolling Together Revue: G. Love &amp; Special Sauce · Donavon Frankenreiter · Moon Taxi</strong><span class="sub">Fri, Jun 19, 2026</span></div>
+
+<div class="card card-lavender"><strong>The Police Experience — Police Tribute</strong><span class="sub">Sat, Jun 27, 2026</span></div>
+
+<div class="card card-pink"><strong>Marshall Tucker Band</strong><span class="sub">Fri, Aug 14, 2026</span></div>
 </div>
+</section>
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Ocean Casino Resort · Ovation Hall</span><span class="divider-line"></span></div>
+<p style="margin-top:0;color:#6b6f8c;font-weight:700;font-size:.88rem">Atlantic City, NJ</p>
+<div class="cards-grid">
+
+
+
+<div class="card card-yellow"><strong>Lenny Kravitz</strong><span class="sub">Sat, May 16, 2026 · 8:00 PM</span></div>
+
+<div class="card card-green"><strong>Happy Together Tour</strong><span class="sub">Fri, Jun 12, 2026 · 8:00 PM</span></div>
+
+
 </div>
-<!-- Miller Theater -->
-<div class="venue-section">
-<div class="venue-header">Miller Theater · Kimmel Center <span class="venue-city">Philadelphia</span></div>
-<div class="shows-list">
-<div class="show-row"><div><div class="show-title">Opera Philadelphia: The Black Clown</div></div><div class="show-date">May 30 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Airplane! Live</div><div class="show-sub">with Julie Hagerty &amp; Robert Hays</div></div><div class="show-date">Jun 9 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">A Conversation with Dr. Jill Biden</div></div><div class="show-date">Jun 20 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Comedy Bang! Bang! — Ground Beefing Tour 2026</div></div><div class="show-date">Jun 25 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">The Wiggles</div></div><div class="show-date">Sep 18</div></div>
-<div class="show-row"><div><div class="show-title">Brad Williams</div></div><div class="show-date">Sep 19 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Pat Metheny</div></div><div class="show-date">Oct 2 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">STOMP</div><div class="show-sub">Broadway Series</div></div><div class="show-date">Dec 28 – Jan 3, 2027</div></div>
-<div class="show-row"><div><div class="show-title">Riverdance 30 — The New Generation</div><div class="show-sub">Broadway Series</div></div><div class="show-date">Mar 4 – 7, 2027</div></div>
-<div class="show-row"><div><div class="show-title">Maria Bamford</div></div><div class="show-date">Mar 9, 2027 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Oh, Mary!</div><div class="show-sub">Broadway Series</div></div><div class="show-date">Mar 10 – 14, 2027</div></div>
+</section>
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Madison Square Garden</span><span class="divider-line"></span></div>
+<p style="margin-top:0;color:#6b6f8c;font-weight:700;font-size:.88rem">New York, NY</p>
+<div class="cards-grid">
+
+
+
+<div class="card card-pink"><strong>Bon Jovi — Forever Tour (Residency, multiple nights)</strong><span class="sub">Jul 7, 9, 12, 14, 16, 19, 21, 23 &amp; 26, 2026</span></div>
+<div class="card card-cyan"><strong>Louis Tomlinson w/ The Beaches</strong><span class="sub">Wed, Jul 8, 2026</span></div>
+<div class="card card-magenta"><strong>Lionel Richie + Earth, Wind &amp; Fire</strong><span class="sub">Sat, Jul 11, 2026</span></div>
+
+<div class="card card-yellow"><strong>Noah Cyrus</strong><span class="sub">Wed, Jul 15, 2026</span></div>
+<div class="card card-orange"><strong>Phish</strong><span class="sub">Mon, Jul 27, 2026</span></div>
+<div class="card card-green"><strong>Hilary Duff — The Lucky Me Tour (Night 1)</strong><span class="sub">Wed, Aug 5, 2026</span></div>
+<div class="card card-lime"><strong>Hilary Duff — The Lucky Me Tour (Night 2)</strong><span class="sub">Thu, Aug 6, 2026</span></div>
+<div class="card card-lblue"><strong>Harry Styles — Together, Together residency</strong><span class="sub">Aug–Oct 2026 · 30 dates</span></div>
 </div>
-</div>
-<!-- Academy of Music -->
-<div class="venue-section">
-<div class="venue-header">Academy of Music · Kimmel Center <span class="venue-city">Philadelphia</span></div>
-<div class="shows-list">
-<div class="show-row"><div><div class="show-title">The Outsiders</div><div class="show-sub">Broadway Series</div></div><div class="show-date">May 26 – Jun 7</div></div>
-<div class="show-row"><div><div class="show-title">The Notebook</div><div class="show-sub">Broadway Series</div></div><div class="show-date">Jul 21 – Aug 2</div></div>
-<div class="show-row"><div><div class="show-title">Mamma Mia!</div><div class="show-sub">2026-27 Broadway Series opener</div></div><div class="show-date">Sep 29 – Oct 4</div></div>
-<div class="show-row"><div><div class="show-title">The Great Gatsby</div><div class="show-sub">Tony Award-winning · 2026-27 Broadway Series</div></div><div class="show-date">Oct 20 – Nov 1</div></div>
-<div class="show-row"><div><div class="show-title">BOOP! The Musical</div><div class="show-sub">2026-27 Broadway Series</div></div><div class="show-date">Nov 17 – 29</div></div>
-<div class="show-row"><div><div class="show-title">Operation Mincemeat: A New Musical</div><div class="show-sub">at The Forrest Theatre · 2026-27 Broadway Series</div></div><div class="show-date">Dec 15 – 20</div></div>
-<div class="show-row"><div><div class="show-title">Hell's Kitchen</div><div class="show-sub">Alicia Keys musical · 2026-27 Broadway Series</div></div><div class="show-date">Jan 5 – 17, 2027</div></div>
-<div class="show-row"><div><div class="show-title">Waitress — 10th Anniversary Tour</div><div class="show-sub">2026-27 Broadway Series</div></div><div class="show-date">Feb 9 – 14, 2027</div></div>
-<div class="show-row star-row"><div><div class="show-title">Maybe Happy Ending</div><div class="show-sub">2025 Tony Award Best Musical · 2026-27 Broadway Series</div></div><div class="show-date">Mar 23 – Apr 4, 2027</div></div>
-<div class="show-row"><div><div class="show-title">The Phantom of the Opera</div><div class="show-sub">2026-27 Broadway Series</div></div><div class="show-date">Jun 9 – 20, 2027</div></div>
-<div class="show-row star-row"><div><div class="show-title">Harry Potter and the Cursed Child</div><div class="show-sub">2026-27 Broadway Series</div></div><div class="show-date">Jul 28 – Aug 8, 2027</div></div>
-</div>
-</div>
-<!-- The Fillmore Philadelphia -->
-<div class="venue-section">
-<div class="venue-header">The Fillmore Philadelphia <span class="venue-city">Philadelphia</span></div>
-<div class="shows-list">
-<div class="show-row"><div><div class="show-title">WXPN Welcomes: Ben Folds &amp; A Piano Tour</div></div><div class="show-date">May 31 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Larkin Poe</div></div><div class="show-date">Jul 17</div></div>
-<div class="show-row"><div><div class="show-title">PJ Morton — Saturday Night Sunday Morning Tour</div></div><div class="show-date">Jul 31</div></div>
-<div class="show-row"><div><div class="show-title">Darren Kiely</div></div><div class="show-date">Aug 5</div></div>
-<div class="show-row star-row"><div><div class="show-title">Jack Harlow</div></div><div class="show-date">Aug 15 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Sex Pistols (Steve Jones, Paul Cook &amp; Glen Matlock)</div></div><div class="show-date">Sep 25 · 8:30 PM</div></div>
-</div>
-</div>
-<!-- Keswick Theatre -->
-<div class="venue-section">
-<div class="venue-header">Keswick Theatre <span class="venue-city">Glenside, PA</span></div>
-<div class="shows-list">
-<div class="show-row"><div><div class="show-title">David Lee Roth — A Night With</div></div><div class="show-date">May 19 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Pinkalicious The Musical</div></div><div class="show-date">May 30 · 3 PM</div></div>
-<div class="show-row"><div><div class="show-title">That Motown Band feat. Garfield Flemming — Motown In Your Town</div></div><div class="show-date">Jun 6 · 7 PM</div></div>
-<div class="show-row"><div><div class="show-title">Let's Sing Taylor</div><div class="show-sub">Taylor Swift live band experience</div></div><div class="show-date">Jun 7 · 3:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Kiefer Sutherland — Love Will Bring You Home</div><div class="show-sub">with Rocco DeLuca</div></div><div class="show-date">Jun 11 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Get The Led Out</div><div class="show-sub">Led Zeppelin tribute · two-night stand</div></div><div class="show-date">Jun 12 &amp; 13 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Happy Together Tour 2026</div><div class="show-sub">The Association, The Troggs, Jason Scheff, Gary Puckett, The Fortunes, Ron Dante, The Vogues &amp; The Cowsills</div></div><div class="show-date">Jun 14 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Dion</div></div><div class="show-date">Jun 18 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Ray Andersen's Bowie &amp; Beyond Celebration Show</div></div><div class="show-date">Jun 19 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">I Love The 80's</div><div class="show-sub">with A Flock of Seagulls, Bow Wow Wow feat. Annabella &amp; Animotion</div></div><div class="show-date">Jul 10 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Todd Rundgren — Damned If I Do Tour</div><div class="show-sub">Two-night stand</div></div><div class="show-date">Jul 11 &amp; 12 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Amy Grant — Me That Remains Tour</div></div><div class="show-date">Aug 1 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">The Concert: A Tribute to ABBA</div></div><div class="show-date">Aug 4 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">SABBATH — Long Live Ozzy Tribute</div></div><div class="show-date">Aug 20 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Yellow Brick Joel</div><div class="show-sub">Billy Joel &amp; Elton John tribute</div></div><div class="show-date">Aug 21 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">So Good! The Neil Diamond Experience</div><div class="show-sub">Starring Robert Neary</div></div><div class="show-date">Aug 27 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Beatles vs Stones</div><div class="show-sub">with Abbey Road &amp; Satisfaction</div></div><div class="show-date">Sep 10 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Justin Hayward — The Story In Your Eyes Tour</div></div><div class="show-date">Sep 15 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Yachtley Crew</div></div><div class="show-date">Oct 2 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">ButtTootKing</div><div class="show-sub">with Lydia Kollins, Suzie Toot &amp; Kori King</div></div><div class="show-date">Oct 4 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Gladys Knight</div></div><div class="show-date">Oct 7 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Kathy Griffin — New Face, New Tour</div></div><div class="show-date">Oct 15 · 7 PM</div></div>
-<div class="show-row"><div><div class="show-title">Glenn Miller Orchestra</div></div><div class="show-date">Oct 26 · 7 PM</div></div>
-<div class="show-row"><div><div class="show-title">Punch Brothers</div><div class="show-sub">WXPN Welcomes · Unsung North American Expedition</div></div><div class="show-date">Nov 5 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">The Machine performs Pink Floyd</div><div class="show-sub">Two-night stand</div></div><div class="show-date">Nov 27 &amp; 28 · 8 PM</div></div>
-</div>
-</div>
-<!-- Xcite Center at Parx Casino -->
-<div class="venue-section">
-<div class="venue-header">Xcite Center at Parx Casino <span class="venue-city">Bensalem, PA</span></div>
-<div class="shows-list">
-<div class="show-row"><div><div class="show-title">Ambrosia &amp; Pablo Cruise — Yacht Rock Celebration</div><div class="show-sub">21+ event</div></div><div class="show-date">May 29 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Neil Diamond Legacy Tribute</div></div><div class="show-date">May 30 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Theresa Caputo Live</div><div class="show-sub">21+ event</div></div><div class="show-date">Jun 6 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Prince Again — A Tribute to Prince</div><div class="show-sub">21+ event</div></div><div class="show-date">Jun 12 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">All McCartney LIVE</div></div><div class="show-date">Jun 20 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Marcello Hernandez</div><div class="show-sub">Three-night stand · 21+ event</div></div><div class="show-date">Jul 10, 11 &amp; 12</div></div>
-<div class="show-row"><div><div class="show-title">Wayne Brady</div></div><div class="show-date">Jul 18 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">The Psychedelic Furs</div><div class="show-sub">with Living Colour · 21+ event</div></div><div class="show-date">Aug 21 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">George Thorogood and The Destroyers</div></div><div class="show-date">Aug 28 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">The Australian Pink Floyd Show</div><div class="show-sub">21+ event</div></div><div class="show-date">Aug 29 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Michael Carbonaro</div><div class="show-sub">21+ event</div></div><div class="show-date">Sep 19 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Sebastian Bach</div></div><div class="show-date">Oct 23 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Grand Funk Railroad</div></div><div class="show-date">Nov 13 · 8 PM</div></div>
-</div>
-</div>
-<!-- Madison Square Garden -->
-<div class="venue-section">
-<div class="venue-header">Madison Square Garden <span class="venue-city">New York, NY</span></div>
-<div class="shows-list">
-<div class="show-row"><div><div class="show-title">Charlie Puth — Whatever's Clever! World Tour</div><div class="show-sub">with Daniel Seavey &amp; Ally Salort</div></div><div class="show-date">May 29 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Josh Groban</div><div class="show-sub">with Jennifer Hudson</div></div><div class="show-date">Jun 12 · 8 PM</div></div>
-<div class="show-row star-row"><div><div class="show-title">Bon Jovi — Forever Tour</div><div class="show-sub">Nine-night MSG residency · only 2026 North American dates</div></div><div class="show-date">Jul 7, 9, 12, 14, 16, 19, 21, 23 &amp; 26 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Louis Tomlinson — How Did We Get Here? World Tour</div><div class="show-sub">with The Beaches</div></div><div class="show-date">Jul 8 · 7 PM</div></div>
-<div class="show-row"><div><div class="show-title">Meghan Trainor — The Get In Girl Tour</div></div><div class="show-date">Jul 10 · 7:30 PM</div></div>
-<div class="show-row star-row"><div><div class="show-title">Lionel Richie &amp; Earth, Wind and Fire — Sing a Song All Night Long</div></div><div class="show-date">Jul 11 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Noah Cyrus</div></div><div class="show-date">Jul 15 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Pussycat Dolls — PCD Forever Tour</div><div class="show-sub">with Lil Kim &amp; Mya</div></div><div class="show-date">Jul 20 · 6:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Phish</div></div><div class="show-date">Jul 27 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">RUSH — Fifty Something Tour</div><div class="show-sub">Four-night stand</div></div><div class="show-date">Jul 28, 30 &amp; Aug 1, 3 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Hilary Duff — The Lucky Me Tour</div><div class="show-sub">Two-night stand · with La Roux</div></div><div class="show-date">Aug 5 &amp; 6 · 7 PM</div></div>
-<div class="show-row star-row"><div><div class="show-title">Harry Styles — Together, Together</div><div class="show-sub">30-night MSG residency · Wed/Fri/Sat · with Jamie xx · ends with Harryween Oct 30 &amp; 31</div></div><div class="show-date">Aug 26 – Oct 31 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Kacey Musgraves</div><div class="show-sub">with Flatland Cavalry</div></div><div class="show-date">Aug 31 · 8 PM</div></div>
-<div class="show-row star-row"><div><div class="show-title">Lady Gaga — The MAYHEM Ball</div><div class="show-sub">Multi-night MSG residency announced for 2027</div></div><div class="show-date">Mar 19 – Apr 13, 2027</div></div>
-</div>
-</div>
-<!-- Theater at MSG -->
-<div class="venue-section">
-<div class="venue-header">The Theater at MSG <span class="venue-city">New York, NY</span></div>
-<div class="shows-list">
-<div class="show-row"><div><div class="show-title">The Rose — Rosetopia Tour</div></div><div class="show-date">Jun 5 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">bet365 U.S. Darts Masters</div></div><div class="show-date">Jun 25 · 7 PM</div></div>
-<div class="show-row"><div><div class="show-title">bet365 North American Championship</div></div><div class="show-date">Jun 26 · 1 PM</div></div>
-</div>
-</div>
-<!-- Hard Rock Live at Etess Arena -->
-<div class="venue-section">
-<div class="venue-header">Hard Rock Live at Etess Arena <span class="venue-city">Atlantic City, NJ</span></div>
-<div class="shows-list">
-<div class="show-row"><div><div class="show-title">The Beach Boys</div></div><div class="show-date">May 29 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Charlie Puth — Whatever's Clever! World Tour</div><div class="show-sub">with Lawrence &amp; Ally Salort</div></div><div class="show-date">May 30 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Darius Rucker — Songs of Summer Tour 2026</div><div class="show-sub">with Austin Williams</div></div><div class="show-date">Jun 12 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Nick Jonas — A Night with Nick Tour</div></div><div class="show-date">Jun 13 · 8 PM</div></div>
-<div class="show-row star-row"><div><div class="show-title">James Taylor &amp; His All-Star Band</div></div><div class="show-date">Jun 27 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">The Guess Who — Takin' It Back Tour 2026</div><div class="show-sub">with Don Felder</div></div><div class="show-date">Jul 11 · 7:30 PM</div></div>
-<div class="show-row star-row"><div><div class="show-title">The Chicks</div></div><div class="show-date">Jul 31 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Nikki Glaser — The Stunning Tour</div></div><div class="show-date">Aug 1 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Totally Tubular Festival</div><div class="show-sub">Thomas Dolby, A Flock of Seagulls, The Motels, Animotion, The Escape Club &amp; Tommy Tutone</div></div><div class="show-date">Aug 8 · 7 PM</div></div>
-<div class="show-row"><div><div class="show-title">Gwen Stefani</div></div><div class="show-date">Aug 9 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Taking Back Sunday</div><div class="show-sub">with Thrice &amp; Saves The Day</div></div><div class="show-date">Sep 25 · 7 PM</div></div>
-<div class="show-row star-row"><div><div class="show-title">The Doobie Brothers</div></div><div class="show-date">Oct 2 · 8 PM</div></div>
-</div>
-</div>
-<!-- Sound Waves -->
-<div class="venue-section">
-<div class="venue-header">Sound Waves — Hard Rock Hotel &amp; Casino <span class="venue-city">Atlantic City, NJ</span></div>
-<div class="shows-list">
-<div class="show-row"><div><div class="show-title">My Big Gay Italian Funeral</div></div><div class="show-date">Jun 6 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">My Big Gay Italian Casino Adventure</div></div><div class="show-date">Oct 24 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Howie Mandel's Comedy Club</div><div class="show-sub">Tue – Thu · 6:00 PM – 8:30 PM</div></div><div class="show-date">Recurring</div></div>
-</div>
-</div>
-<!-- Borgata Event Center -->
-<div class="venue-section">
-<div class="venue-header">Borgata Event Center <span class="venue-city">Atlantic City, NJ</span></div>
-<div class="shows-list">
-<div class="show-row"><div><div class="show-title">Jason Mraz — Still Yours 2026 Tour</div><div class="show-sub">with Gregory Page</div></div><div class="show-date">May 30 · 7 PM</div></div>
-<div class="show-row"><div><div class="show-title">DEVO — Mutate Don't Stagnate</div></div><div class="show-date">Jun 12 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">"Weird Al" Yankovic — Bigger &amp; Weirder Tour</div><div class="show-sub">with Puddles Pity Party</div></div><div class="show-date">Jul 17 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Harry Connick Jr.</div></div><div class="show-date">Jul 24 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Men At Work &amp; Toad the Wet Sprocket</div></div><div class="show-date">Jul 31 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Howard Jones — Things Can Only Get Better Tour</div><div class="show-sub">with Wang Chung, The English Beat, Modern English &amp; Richard Blade</div></div><div class="show-date">Aug 14 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">The Price Is Right Live</div><div class="show-sub">Two-day stand</div></div><div class="show-date">Oct 30 &amp; 31</div></div>
-</div>
-</div>
-<!-- Music Box at Borgata -->
-<div class="venue-section">
-<div class="venue-header">Music Box at Borgata <span class="venue-city">Atlantic City, NJ</span></div>
-<div class="shows-list">
-<div class="show-row"><div><div class="show-title">Celebrating Celine</div></div><div class="show-date">May 24 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Jeff Ross Roasts You</div></div><div class="show-date">Jun 6 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Lewis Black Live</div></div><div class="show-date">Jun 13 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">The Police Experience</div></div><div class="show-date">Jun 27 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">The Marshall Tucker Band</div></div><div class="show-date">Aug 14 · 7:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Sheena Easton</div></div><div class="show-date">Sep 26 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">John Oates</div></div><div class="show-date">Oct 17 · 8 PM</div></div>
-</div>
-</div>
-<!-- Ovation Hall -->
-<div class="venue-section">
-<div class="venue-header">Ovation Hall — Ocean Casino Resort <span class="venue-city">Atlantic City, NJ</span></div>
-<div class="shows-list">
-<div class="show-row"><div><div class="show-title">America — Happy Trails Tour</div><div class="show-sub">Rescheduled from May 16</div></div><div class="show-date">May 17 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Happy Together Tour 2026</div><div class="show-sub">The Association, The Troggs, Jason Scheff, Gary Puckett, The Fortunes, The Cowsills &amp; more</div></div><div class="show-date">Jun 12 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Jeff Dunham — Artificial Intelligence Tour</div></div><div class="show-date">Jul 12 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Matt Rife</div><div class="show-sub">Two-night stand · two shows each night</div></div><div class="show-date">Jul 24 &amp; 25 · 7 PM &amp; 10:30 PM</div></div>
-<div class="show-row"><div><div class="show-title">Blues Traveler, Gin Blossoms &amp; Spin Doctors</div></div><div class="show-date">Aug 1 · 6 PM</div></div>
-<div class="show-row"><div><div class="show-title">Stray Cats</div></div><div class="show-date">Aug 15 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Diana Ross</div></div><div class="show-date">Aug 21 · 9 PM</div></div>
-<div class="show-row"><div><div class="show-title">Collective Soul</div></div><div class="show-date">Aug 29 · 8 PM</div></div>
-<div class="show-row star-row"><div><div class="show-title">John Fogerty &amp; Steve Winwood</div></div><div class="show-date">Sep 10 · 7 PM</div></div>
-<div class="show-row"><div><div class="show-title">John Mulaney</div></div><div class="show-date">Oct 22 · 7 PM</div></div>
-<div class="show-row"><div><div class="show-title">Steve Martin &amp; Martin Short</div></div><div class="show-date">Nov 7 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Paul Anka</div></div><div class="show-date">Nov 10 · 9 PM</div></div>
-<div class="show-row"><div><div class="show-title">Chicago — 55th Anniversary Tour</div><div class="show-sub">Two-night stand</div></div><div class="show-date">Nov 17 &amp; 18 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Sarah Brightman</div></div><div class="show-date">Nov 25 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Il Divo — The Christmas Collection</div></div><div class="show-date">Dec 9 · 8 PM</div></div>
-</div>
-</div>
-<!-- Resorts -->
-<div class="venue-section">
-<div class="venue-header">Resorts Casino Hotel — Superstar Theater <span class="venue-city">Atlantic City, NJ</span></div>
-<div class="shows-list">
-<div class="show-row"><div><div class="show-title">Let's Groove Tonight — Earth, Wind &amp; Fire Ultimate Tribute</div></div><div class="show-date">Jul 4 · 8 PM</div></div>
-<div class="show-row"><div><div class="show-title">Check venue for full calendar</div><div class="show-sub">resortsac.com/entertainment-and-shows/headliners</div></div><div class="show-date">Ongoing</div></div>
-</div>
-</div>
-<div class="tip-box">
-💡 <strong>Tip:</strong> Shows at Freedom Mortgage Pavilion (Camden) are accessible via the RiverLine or PATCO from Philadelphia. Atlantic City venues are reachable via the Atlantic City Rail Line from 30th Street Station. Madison Square Garden is directly above Penn Station — Amtrak's Northeast Regional and Acela run Philly → NYC in ~75–90 minutes. Always verify dates and times at the venue website before purchasing tickets.
-</div>
+</section>
 </main>
-<footer>
-<p>Concert Guide · Philadelphia, Atlantic City &amp; NYC Region · <a href="index.html">Lisa's Hub</a></p>
-<p style="margin-top:0.4rem">Last refreshed: Sun, May 17 at 7:12 AM ET · Listings sourced from venue websites &amp; Ticketmaster</p>
-</footer>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Sun, May 17 at 2:09 PM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<script>
+function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
+updateClock();setInterval(updateClock,1000);
+</script>
 </body>
 </html>
