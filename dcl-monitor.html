@@ -27,7 +27,7 @@ h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;colo
   font-size:.92rem;box-shadow:4px 4px 0 #ff5c8a}
 .live-clock .clock-date{color:#ffd23f}.live-clock .clock-time{color:#fff}
 main{max-width:1080px;margin:0 auto;padding:1rem 1.4rem 4rem}
-.section-divider{display:flex;align-items:center;gap:.9rem;margin:2.4rem 0 1.2rem;flex-wrap:wrap}
+.section-divider{display:flex;align-items:center;gap:.9rem;margin:2.4rem 0 1.2rem}
 section:first-of-type .section-divider, .section-group:first-child .section-divider{margin-top:.4rem}
 .divider-accent{width:22px;height:22px;background:#ffd23f;border:3px solid #1f2440;
   border-radius:6px;transform:rotate(45deg);flex-shrink:0}
@@ -53,12 +53,6 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 .card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
 .card-green{--accent:#3dd6b5}.card-lime{--accent:#7bd957}.card-orange{--accent:#ffb84d}
 .card-lblue{--accent:#4fc3f7}.card-sopink{--accent:#ff8fc7}.card-lavender{--accent:#b79cff}
-.read-more{display:inline-block;margin-top:.7rem;font-family:'Baloo 2';font-weight:800;
-  font-size:.82rem;color:#0a6fa8;text-decoration:underline;text-underline-offset:3px;
-  border-bottom:none;padding:0}
-.read-more:hover{color:#ff5c8a}
-.card-headline-link{color:#0a6fa8;text-decoration:underline;text-underline-offset:3px}
-.card-headline-link:hover{color:#ff5c8a}
 .back-to-hub{display:inline-block;font-family:'Baloo 2';font-size:.85rem;font-weight:700;
   background:#fff;color:#1f2440;text-decoration:none;padding:.45rem 1.1rem;border-radius:999px;
   border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem;
@@ -74,16 +68,17 @@ tr:first-child td{border-top:none}
 ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
 li{margin-bottom:.25rem}
 p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
-a:not(.card):not(.back-to-hub):not(.hub-label a):not(.read-more):not(.card-headline-link){color:#1f2440;font-weight:700;
+a:not(.card):not(.back-to-hub):not(.hub-label a){color:#1f2440;font-weight:700;
   text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
-a:not(.card):not(.back-to-hub):not(.hub-label a):not(.read-more):not(.card-headline-link):hover{color:#ff5c8a;border-bottom-color:#1f2440}
+a:not(.card):not(.back-to-hub):not(.hub-label a):hover{color:#ff5c8a;border-bottom-color:#1f2440}
 .callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
   box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
 .callout strong{font-family:'Baloo 2'}
-footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
-.footer-clock{margin-top:.4rem;color:#ff5c8a}
-.timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
-  font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
+.read-more{display:inline-block;margin-top:.6rem;font-family:'Baloo 2';font-weight:700;
+  font-size:.84rem;color:#1f6fae;text-decoration:underline;text-underline-offset:2px}
+.read-more:hover{color:#ff5c8a}
+.card a.headline-link{text-decoration:underline;text-underline-offset:2px;color:#1f6fae}
+.card a.headline-link:hover{color:#ff5c8a}
 .status-badge{font-family:'Baloo 2';font-weight:800;font-size:1rem;
   padding:.45rem 1.1rem;border-radius:999px;border:3px solid #1f2440;
   letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;
@@ -92,6 +87,10 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 .status-badge.status-not-announced{background:#ff5c8a;color:#fff}
 .status-badge.status-partial{background:#ffd23f;color:#1f2440}
 .status-badge.status-announced{background:#3dd6b5;color:#1f2440}
+footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
+.footer-clock{margin-top:.4rem;color:#ff5c8a}
+.timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
+  font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
 @media (max-width:600px){
   h1{font-size:2.4rem}
   main{padding:1rem .9rem 3rem}
@@ -109,14 +108,14 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 <div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
 </header>
 <main>
-<a href="index.html" class="back-to-hub">← Back to Hub</a>
+
+<a class="back-to-hub" href="index.html">← Back to Lisa's Hub</a>
 
 <div class="callout">
-  <strong>🔄 Last refreshed:</strong> Monday, May 25, 2026 at 11:38 AM ET&nbsp;/&nbsp;2026-05-25 15:38 UTC.<br>
-  All content fetched live this run — no cached data used. News window: stories published on or after <strong>2026-04-25</strong> (last 30 days). Items older than the window are excluded.
+  <strong>🕒 Last refreshed:</strong> Tue, May 26, 2026 at 4:07 PM ET&nbsp;/&nbsp;2026-05-26 20:07 UTC<br>
+  <span style="font-size:.85rem;color:#3d8b6f;font-weight:700">✅ All content fetched live this run — no cached data used. Every story below was published within the last 30 days (since Apr 26, 2026) and links to its original source.</span>
 </div>
 
-<!-- ============ FALL 2027 AVAILABILITY WATCH ============ -->
 <section class="section-group">
   <div class="section-divider">
     <span class="divider-accent"></span>
@@ -126,119 +125,89 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
   </div>
 
   <div data-fall-2027-status="NOT YET ANNOUNCED">
-    <div class="cards-grid">
-
-      <div class="card card-lblue">
-        <strong>⏳ Fall 2027 (Oct–Nov 2027): NOT YET ANNOUNCED</strong>
-        <span class="sub">Disney Cruise Line has <strong>not</strong> officially released its October or November 2027 sailings — the window Lisa is tracking for the Oct 2027 cruise. Booking for those dates is not yet open on disneycruise.disney.go.com.</span>
-        <span class="note">Watching</span>
-      </div>
-
-      <div class="card card-cyan">
-        <strong>✅ What IS open: Summer 2027 (through Sept 2027)</strong>
-        <span class="sub">DCL announced Summer 2027 itineraries (May–September 2027) on Feb 10, 2026. Some early-September 2027 dates are bookable as part of that release, but it does not extend into October/November.</span>
-        <a class="read-more" href="https://disneyparksblog.com/dcl/new-disney-cruise-line-itineraries-summer-2027/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a>
-      </div>
-
-      <div class="card card-blue">
-        <strong>📅 When to expect the Fall 2027 announcement</strong>
-        <span class="sub">Based on DCL's historical release cadence, the late-2027 / fall itineraries are anticipated to be announced around mid-to-late 2026 (the Summer 2027 batch dropped in Feb 2026). No firm date has been published. This page checks live every run; an SMS fires the moment status flips.</span>
-        <a class="read-more" href="https://www.mousesavers.com/disney-cruise-tips/2027-disney-cruise-schedule-sail-dates-ports-more/" target="_blank" rel="noopener">Read more at MouseSavers →</a>
-      </div>
-
-    </div>
-  </div>
-  <p style="font-size:.82rem;color:#6b6f8c;font-weight:700;margin-top:.4rem">Verified at: Monday, May 25, 2026 at 11:38 AM ET / 2026-05-25 15:38 UTC — checked live against disneycruise.disney.go.com, Disney Parks Blog, The DCL Blog, and MouseSavers.</p>
-</section>
-
-<!-- ============ NEWS BY SHIP ============ -->
-
-<!-- Disney Destiny -->
-<section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Destiny</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-
     <div class="card card-lblue">
-      <strong><a class="card-headline-link" href="https://dclfan.com/news/disney-cruise-line-disney-destiny-get-2-episode-disney-special/" target="_blank" rel="noopener">Disney Destiny featured in a 2-episode Disney+ "Behind the Attraction" special</a></strong>
-      <span class="sub">Disney Cruise Line gets its own two-part "Behind the Attraction" feature premiering June 24 on Disney+, covering the fleet's history through its newest ships — Disney Destiny among them. <em>DCL Fan, 2026-05-18.</em></span>
-      <a class="read-more" href="https://dclfan.com/news/disney-cruise-line-disney-destiny-get-2-episode-disney-special/" target="_blank" rel="noopener">Read more at DCL Fan →</a>
+      <strong>⏳ Fall 2027 sailings: NOT YET ANNOUNCED</strong>
+      <span class="sub">As of this run, Disney Cruise Line has <b>not</b> released a dedicated Fall 2027 itinerary batch. Booking is currently open only through the <b>Summer 2027</b> season (roughly May–early September 2027). October and November 2027 sail dates are not yet loaded in the booking flow.</span>
+      <span class="note">Watching</span>
     </div>
-
     <div class="card card-cyan">
-      <strong><a class="card-headline-link" href="https://dclfan.com/disney-cruise-ships/disney-destiny/a-deck-by-deck-tour-of-the-disney-destiny-cruise-ship/" target="_blank" rel="noopener">A deck-by-deck tour of the Disney Destiny</a></strong>
-      <span class="sub">A fresh photo walk-through of the heroes-and-villains ship deck by deck — the Wakanda-inspired Grand Hall, Worlds of Marvel, the Hercules stage show, and Pride Lands dining. <em>DCL Fan, 2026-05-14.</em></span>
-      <a class="read-more" href="https://dclfan.com/disney-cruise-ships/disney-destiny/a-deck-by-deck-tour-of-the-disney-destiny-cruise-ship/" target="_blank" rel="noopener">Read more at DCL Fan →</a>
+      <strong>📅 What IS on sale right now</strong>
+      <span class="sub">Summer 2027 itineraries (May–September 2027) were announced Feb 10, 2026 and have been on sale to the general public since Feb 23, 2026 — covering Alaska, Europe, the Caribbean and beyond across all active ships.</span>
+      <a class="read-more" href="https://disneycruiselineblog.com/2026/02/disney-cruise-line-announces-summer-2027-itineraries-may-september/" target="_blank" rel="noopener">Read more at The Disney Cruise Line Blog →</a>
     </div>
-
+    <div class="card card-blue">
+      <strong>🔮 When to expect the Fall 2027 announcement</strong>
+      <span class="sub">Based on DCL's historical release cadence (the next batch after Summer is typically opened mid-year), a Fall 2027 itinerary release is most likely to land sometime between late spring and the end of summer <b>2027</b>. No firmer date has been published yet.</span>
+      <a class="read-more" href="https://www.mousesavers.com/disney-cruise-tips/2027-disney-cruise-schedule-sail-dates-ports-more/" target="_blank" rel="noopener">Read more at MouseSavers →</a>
+    </div>
+  </div>
+  <p style="font-size:.82rem;color:#6b6f8c;margin-top:.4rem"><b>Verified at:</b> Tue, May 26, 2026 at 4:07 PM ET / 2026-05-26 20:07 UTC — live check of the DCL booking flow, Disney Parks Blog, and reputable DCL news outlets. Status string for machine parsing: <b>NOT YET ANNOUNCED</b>.</p>
   </div>
 </section>
 
-<!-- Disney Believe -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Believe</span><span class="divider-line"></span></div>
-  <div class="cards-grid">
-
-    <div class="card card-lavender">
-      <strong>No news in the last 30 days.</strong>
-      <span class="sub">No Disney Believe–specific announcements were published on or after 2026-04-25 this run. The ship remains on track to debut in late 2027 as the fourth Wish-class vessel.</span>
-      <span class="note">Quiet</span>
-    </div>
-
-    <div class="card card-magenta">
-      <strong>Background (older than 30-day window — for orientation only)</strong>
-      <span class="sub">The most recent Believe milestone was the March 18, 2026 name &amp; theme reveal ("promise and possibility," featuring Encanto, Frozen, Moana, The Little Mermaid &amp; Snow White) at Disney's annual shareholders meeting. That predates the freshness window and is shown only as context.</span>
-      <a class="read-more" href="https://disneyparksblog.com/dcl/meet-the-disney-believe-the-next-disney-cruise-line-ship/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a>
-    </div>
-
+  <div class="section-divider">
+    <span class="divider-accent"></span>
+    <span class="divider-label">News · Disney Destiny</span>
+    <span class="divider-line"></span>
   </div>
-</section>
-
-<!-- Disney Treasure -->
-<section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Treasure</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-
     <div class="card card-lblue">
-      <strong><a class="card-headline-link" href="https://www.cruisehive.com/key-attraction-temporarily-unavailable-on-disney-treasure/210061" target="_blank" rel="noopener">AquaMouse waterslide closed for maintenance on current Treasure sailing</a></strong>
-      <span class="sub">The signature AquaMouse was shut for the first two days of the May 23 Eastern Caribbean sailing, with a crane and scaffolding brought aboard at Port Canaveral. The ship's departure was delayed roughly 3.5 hours (left ~7:30 PM instead of 3:45 PM); no port calls were affected. Crew told guests it should reopen Monday, May 25, pending safety testing. <em>Cruise Hive, 2026-05-24.</em></span>
+      <strong>No news in the last 30 days</strong>
+      <span class="sub">No Disney Destiny-specific news articles published since Apr 26, 2026 were found this run. (The ship's TIME "World's Greatest Places 2026" and Travel + Leisure honors were from March 2026 — outside the 30-day freshness window, so they are not listed here.) Destiny continues year-round 4- and 5-night Bahamian/Caribbean sailings from Port Everglades.</span>
+      <span class="note">No fresh news</span>
+    </div>
+  </div>
+</section>
+
+<section class="section-group">
+  <div class="section-divider">
+    <span class="divider-accent"></span>
+    <span class="divider-label">News · Disney Believe</span>
+    <span class="divider-line"></span>
+  </div>
+  <div class="cards-grid">
+    <div class="card card-cyan">
+      <strong><a class="headline-link" href="https://www.disneyfoodblog.com/2026/05/08/disneys-latest-announcements-made-one-thing-abundantly-clear/" target="_blank" rel="noopener">Disney reaffirms Disney Believe will debut late 2027</a></strong>
+      <span class="sub">In its latest round of company announcements, Disney reiterated that its next cruise ship — the <b>Disney Believe</b>, the fourth Wish-class vessel — is still on track to debut in late 2027, as part of growing the fleet from 8 ships today to 13 by 2031. <i>The Disney Food Blog, 2026-05-08.</i></span>
+      <a class="read-more" href="https://www.disneyfoodblog.com/2026/05/08/disneys-latest-announcements-made-one-thing-abundantly-clear/" target="_blank" rel="noopener">Read more at The Disney Food Blog →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-group">
+  <div class="section-divider">
+    <span class="divider-accent"></span>
+    <span class="divider-label">News · Disney Treasure</span>
+    <span class="divider-line"></span>
+  </div>
+  <div class="cards-grid">
+    <div class="card card-blue">
+      <strong><a class="headline-link" href="https://www.cruisehive.com/key-attraction-temporarily-unavailable-on-disney-treasure/210061" target="_blank" rel="noopener">AquaMouse waterslide closed for maintenance on Treasure</a></strong>
+      <span class="sub">Guests on Disney Treasure's May 23, 2026 7-night Eastern Caribbean sailing found the AquaMouse waterslide closed for the first part of the cruise while crews addressed reported leaks; the work pushed departure from Port Canaveral back several hours but did not affect any port calls, with the slide expected back in service around May 25. <i>Cruise Hive, 2026-05-24.</i></span>
       <a class="read-more" href="https://www.cruisehive.com/key-attraction-temporarily-unavailable-on-disney-treasure/210061" target="_blank" rel="noopener">Read more at Cruise Hive →</a>
     </div>
-
   </div>
 </section>
 
-<!-- ============ GENERAL FLEET NEWS ============ -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">General Fleet News</span><span class="divider-line"></span></div>
+  <div class="section-divider">
+    <span class="divider-accent"></span>
+    <span class="divider-label">General Fleet News</span>
+    <span class="divider-line"></span>
+  </div>
   <div class="cards-grid">
-
-    <div class="card card-orange">
-      <strong><a class="card-headline-link" href="https://disneycruiselineblog.com/2026/05/disney-adventure-technical-issue-results-in-cancellation-of-may-7th-4-night-singapore-cruise/" target="_blank" rel="noopener">Disney Adventure cancels May 7 Singapore sailing after guests boarded</a></strong>
-      <span class="sub">A propulsion/technical issue forced cancellation of the 4-night Singapore voyage after embarkation, with ~6,700 guests disembarked. Disney offered full refunds, 50% off a future cruise, complimentary hotel stays, and incidental coverage. <em>The Disney Cruise Line Blog, 2026-05.</em></span>
-      <a class="read-more" href="https://disneycruiselineblog.com/2026/05/disney-adventure-technical-issue-results-in-cancellation-of-may-7th-4-night-singapore-cruise/" target="_blank" rel="noopener">Read more at The DCL Blog →</a>
+    <div class="card card-lblue">
+      <strong><a class="headline-link" href="https://wdwnt.com/2026/05/disney-cruise-line-expansion-tapping-into-international-demand/" target="_blank" rel="noopener">Disney CFO: a new cruise ship every year through 2031</a></strong>
+      <span class="sub">Speaking at the MoffettNathanson media conference, Disney CFO Hugh Johnston said DCL will add roughly one new ship per year until 2031 — Destiny and Adventure launched recently, Believe is next in 2027, followed by another Wish-class ship and a new class of three smaller vessels, for a fleet of 13. He noted fill rates have stayed high with little cannibalization of older ships. <i>WDW News Today, 2026-05-14.</i></span>
+      <a class="read-more" href="https://wdwnt.com/2026/05/disney-cruise-line-expansion-tapping-into-international-demand/" target="_blank" rel="noopener">Read more at WDW News Today →</a>
     </div>
-
-    <div class="card card-green">
-      <strong><a class="card-headline-link" href="https://www.cruisehive.com/disney-adventure-resumes-sailings-following-technical-issues/209081" target="_blank" rel="noopener">Disney Adventure resumes sailings after technical issues</a></strong>
-      <span class="sub">The Singapore-based ship returned to service on May 11, 2026, departing Marina Bay Cruise Centre on a three-night Southeast Asia itinerary following the propulsion repairs. <em>Cruise Hive, 2026-05.</em></span>
-      <a class="read-more" href="https://www.cruisehive.com/disney-adventure-resumes-sailings-following-technical-issues/209081" target="_blank" rel="noopener">Read more at Cruise Hive →</a>
-    </div>
-
-    <div class="card card-purple">
-      <strong><a class="card-headline-link" href="https://dclfan.com/news/new-disney-cruise-entertainment-debuts-this-summer-including-broadway-stars-series/" target="_blank" rel="noopener">New fleetwide entertainment debuts this summer, including a Broadway Stars series</a></strong>
-      <span class="sub">Disney Cruise Line is rolling out new summer entertainment across the fleet, headlined by a Broadway Stars concert series on Disney Magic and Disney Wonder. <em>DCL Fan, 2026-05-14.</em></span>
-      <a class="read-more" href="https://dclfan.com/news/new-disney-cruise-entertainment-debuts-this-summer-including-broadway-stars-series/" target="_blank" rel="noopener">Read more at DCL Fan →</a>
-    </div>
-
   </div>
 </section>
-
-<div class="callout">
-  <strong>ℹ️ About this page:</strong> Rebuilt from scratch every run with live web data — no cached content. Each news card links to its original source. The Fall 2027 status badge updates automatically and triggers a one-time text to Lisa the moment fall sailings flip from "not yet" to "available."
-</div>
 
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Mon, May 25 at 11:38 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Tue, May 26 at 4:07 PM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
 <script>
 function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
 updateClock();setInterval(updateClock,1000);
