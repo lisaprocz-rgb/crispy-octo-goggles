@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TV & Streaming · Lisa's Hub</title>
+<title>TV &amp; Streaming · Lisa's Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -48,11 +48,13 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 .card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
   background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
   border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
-.card a, .card a:visited{color:#1f2440}
-.read-more{display:inline-block;margin-top:.5rem;font-family:'Baloo 2';font-weight:700;
-  font-size:.82rem;color:#1f2440;text-decoration:none;border-bottom:2px dotted #ff5c8a;
-  padding-bottom:1px}
-.read-more:hover{color:#ff5c8a;border-bottom-color:#1f2440}
+.card a.readmore{display:inline-block;margin-top:.5rem;font-family:'Baloo 2';font-weight:800;
+  font-size:.82rem;color:#1f2440;text-decoration:underline;text-decoration-color:var(--accent,#ff5c8a);
+  text-decoration-thickness:2px}
+.card a.readmore:hover{color:var(--accent,#ff5c8a)}
+.card .headlink{color:#1f2440;text-decoration:underline;text-decoration-color:var(--accent,#ff5c8a);
+  text-decoration-thickness:2px}
+.card .headlink:hover{color:var(--accent,#ff5c8a)}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
 .card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
 .card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
@@ -63,29 +65,18 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
   border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem;
   transition:transform .16s ease,box-shadow .16s ease}
 .back-to-hub:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #ffd23f}
-table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;
-  border:3px solid #1f2440;border-radius:14px;overflow:hidden;margin:.8rem 0 1.4rem;
-  font-size:.9rem}
-th{background:#1f2440;color:#fff;font-family:'Baloo 2';font-weight:700;text-align:left;
-  padding:.55rem .85rem;font-size:.85rem;letter-spacing:.03em}
-td{padding:.5rem .85rem;border-top:2px dotted #e6e2d8;font-weight:600}
-tr:first-child td{border-top:none}
 ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
 li{margin-bottom:.25rem}
 p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
-a:not(.card):not(.back-to-hub):not(.read-more):not(.hub-label a){color:#1f2440;font-weight:700;
+a:not(.card):not(.back-to-hub):not(.readmore):not(.headlink){color:#1f2440;font-weight:700;
   text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
-a:not(.card):not(.back-to-hub):not(.read-more):not(.hub-label a):hover{color:#ff5c8a;border-bottom-color:#1f2440}
 .callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
   box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
 .callout strong{font-family:'Baloo 2'}
-.fresh-banner{background:#fff;border:3px solid #1f2440;border-radius:16px;
-  box-shadow:5px 5px 0 #3ec6e0;padding:1rem 1.2rem;margin:.6rem 0 1.4rem;font-size:.92rem;
-  font-weight:600;color:#1f2440}
-.fresh-banner .gen{font-family:'Baloo 2';font-weight:800}
-.banner-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem}
-.banner-chips .chip{background:#1f2440;color:#ffd23f;font-family:'Baloo 2';font-weight:700;
-  font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
+.banner-chips{display:flex;flex-wrap:wrap;gap:.6rem;margin:.7rem 0 0}
+.chip{display:inline-block;background:#1f2440;color:#fff;font-family:'Baloo 2';font-weight:700;
+  font-size:.78rem;padding:.3rem .8rem;border-radius:999px}
+.chip b{color:#3ec6e0}
 footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
 .footer-clock{margin-top:.4rem;color:#ff5c8a}
 .timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
@@ -100,7 +91,7 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 <body>
 <header>
 <div class="hub-label"><a href="index.html">← Lisa's Hub</a></div>
-<h1>📺 TV & Streaming</h1>
+<h1>📺 TV &amp; Streaming</h1>
 <div class="subtitle">Picks, new arrivals, leaving soon — across all major streamers</div>
 <div class="gold-line"></div>
 <div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
@@ -108,708 +99,392 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 <main>
 <a href="index.html" class="back-to-hub">← Back to Lisa's Hub</a>
 
-<div class="fresh-banner">
-<span class="gen">Generated:</span> Fri, May 29 at 4:03 AM ET · 2026-05-29 08:03 UTC<br>
-All content fetched live this run — no cached data used.
-<div class="banner-chips">
-  <span class="chip" id="tv-checked">Checked Fri, May 29 at 4:03 AM ET</span>
-  <span class="chip" id="tv-updated">Last updated Fri, May 29 at 4:03 AM ET</span>
-</div>
+<div class="callout">
+<strong>Generated: Friday, May 29, 2026 at 4:04 AM ET (08:04 UTC).</strong><br>
+All content fetched live this run — no cached data used.<br>
+<span class="banner-chips"><span class="chip">Checked <b>Fri, May 29 at 4:04 AM ET</b></span><span class="chip">Last updated <b>Fri, May 29 at 4:04 AM ET</b></span></span>
+<p style="margin-top:.6rem;font-size:.85rem;">Note on movie charts: the live daily ranked Top 10 source (FlixPatrol) is JavaScript-rendered and could not be read by the fetcher this run. The "Most Popular Movies" and "New Movie Additions" lists below are built only from titles verified against current dated sources (Netflix Tudum, What's On Netflix, service press rooms, Tom's Guide / TV Guide "new on" roundups). Where fewer than 10 titles could be verified for a service, the list is left short rather than padded with guesses — verified accuracy over a fixed count.</p>
 </div>
 
-<!-- ===================== AWARDS CALENDAR ===================== -->
 <section class="section-group">
 <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🏆 Upcoming Awards</span><span class="divider-line"></span></div>
-
 <div class="cards-grid">
-
-<div class="card card-yellow">
-<strong><a href="https://playbill.com/article/tony-nominations-2026" target="_blank" rel="noopener">79th Tony Awards — June 7, 2026</a></strong>
-<span class="sub">Radio City Music Hall · Hosted by Pink · CBS &amp; Paramount+ live, 8–11 PM ET. Nominations announced May 5 by Uzo Aduba and Darren Criss. <span class="note">Nominees Live</span></span>
-<a class="read-more" href="https://playbill.com/article/tony-nominations-2026" target="_blank" rel="noopener">Read full nominees at Playbill →</a>
-</div>
-
-<div class="card card-purple">
-<strong><a href="https://deadline.com/2025/12/emmys-2026-nominations-date-voting-timeline-1236647805/" target="_blank" rel="noopener">78th Primetime Emmys — Sept 14, 2026</a></strong>
-<span class="sub">Peacock Theater, Downtown LA. Nominations Wed, July 8 at 11:30 AM ET (live on Emmys.com); craft-category nominees follow July 15. <span class="note">Noms July 8</span></span>
-<a class="read-more" href="https://deadline.com/2025/12/emmys-2026-nominations-date-voting-timeline-1236647805/" target="_blank" rel="noopener">Read more at Deadline →</a>
-</div>
-
-<div class="card card-pink">
-<strong><a href="https://www.broadwayacrossamerica.com/2026/03/11/2026-tony-awards-calendar-announced-key-dates-nominations-ceremony-details/" target="_blank" rel="noopener">Tony Awards Pre-Show — June 7</a></strong>
-<span class="sub">Creative arts &amp; design Tonys air earlier in the evening on Pluto TV before the main CBS broadcast. Performances slate just announced. <span class="note">Live 6/7</span></span>
-<a class="read-more" href="https://www.broadwayacrossamerica.com/2026/03/11/2026-tony-awards-calendar-announced-key-dates-nominations-ceremony-details/" target="_blank" rel="noopener">Read more at Broadway Across America →</a>
-</div>
-
-<div class="card card-cyan">
-<strong><a href="https://variety.com/2025/tv/news/emmy-calendar-2026-voting-nomination-dates-tv-academy-1236607719/" target="_blank" rel="noopener">Daytime Emmys — June 2026</a></strong>
-<span class="sub">53rd Daytime Emmy Awards anticipated mid-June; nominees announced in April. Full TV Academy calendar at Variety. <span class="note">Coming Soon</span></span>
-<a class="read-more" href="https://variety.com/2025/tv/news/emmy-calendar-2026-voting-nomination-dates-tv-academy-1236607719/" target="_blank" rel="noopener">Read more at Variety →</a>
-</div>
-
+<div class="card card-yellow"><strong><a class="headlink" href="https://playbill.com/article/tony-nominations-2026" target="_blank" rel="noopener">79th Tony Awards — June 7, 2026</a></strong><span class="sub">Radio City Music Hall · Live on CBS, streaming on Paramount+ · Host: Pink. Nominees announced May 5: <em>The Lost Boys</em> and <em>Schmigadoon!</em> lead with 12 nods each, <em>Ragtime</em> close behind with 11, and <em>Death of a Salesman</em> tops the plays with 9.</span><a class="readmore" href="https://playbill.com/article/tony-nominations-2026" target="_blank" rel="noopener">Read the full nominees list at Playbill →</a></div>
+<div class="card card-cyan"><strong><a class="headlink" href="https://www.broadway.com/buzz/206805/2026-tony-awards-calendar-announced-key-dates-nominations-ceremony-details/" target="_blank" rel="noopener">Tony Awards — full season calendar</a></strong><span class="sub">Key dates, eligibility cut-off (April 26) and ceremony details for the 2025–26 Broadway season, ahead of the June 7 telecast.</span><a class="readmore" href="https://www.broadway.com/buzz/206805/2026-tony-awards-calendar-announced-key-dates-nominations-ceremony-details/" target="_blank" rel="noopener">Read more at Broadway.com →</a></div>
+<div class="card card-purple"><strong><a class="headlink" href="https://www.emmys.com/" target="_blank" rel="noopener">78th Primetime Emmy Awards — nominations July 8, 2026</a></strong><span class="sub">Emmy nominations are announced Wednesday, July 8, 2026; the ceremony follows in September. The nominees link will go live here once the list drops.</span><a class="readmore" href="https://www.emmys.com/" target="_blank" rel="noopener">Track at Television Academy (emmys.com) →</a></div>
+<div class="card card-pink"><strong>Further out</strong><span class="sub">After the Tonys (Jun 7) and Emmy noms (Jul 8): the MTV VMAs return in early fall, the Primetime Emmy ceremony in September, then Golden Globes, Critics Choice, SAG, Grammys, BAFTA and the 98th Oscars cycle back in winter 2026–27. Exact dates populate here as each is confirmed.</span></div>
 </div>
 </section>
 
-<!-- ===================== TV & STREAMING NEWS ===================== -->
 <section class="section-group">
 <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📰 Industry News</span><span class="divider-line"></span></div>
-
 <div class="cards-grid">
-
-<div class="card card-pink">
-<strong><a href="https://collider.com/fx-hulu-the-bear-final-season-5-release-date-june-25-2026/" target="_blank" rel="noopener">'The Bear' final season hits June 25 on FX/Hulu</a></strong>
-<span class="sub">FX confirmed Season 5 is the show's last. All 8 episodes drop at 6 PM PT on Hulu (and Disney+ internationally). <span class="note">Final Season</span></span>
-<a class="read-more" href="https://collider.com/fx-hulu-the-bear-final-season-5-release-date-june-25-2026/" target="_blank" rel="noopener">Read more at Collider →</a>
-</div>
-
-<div class="card card-purple">
-<strong><a href="https://www.tvline.com/lists/cancelled-renewed-tv-shows-2026-scorecard/" target="_blank" rel="noopener">'My Life With the Walter Boys' renewed for Season 4 at Netflix Upfronts</a></strong>
-<span class="sub">The teen drama gets a fourth season ahead of its Season 3 launch later this year — revealed at Netflix's 2026 Upfronts. <span class="note">Renewed</span></span>
-<a class="read-more" href="https://www.tvline.com/lists/cancelled-renewed-tv-shows-2026-scorecard/" target="_blank" rel="noopener">Read more at TVLine →</a>
-</div>
-
-<div class="card card-cyan">
-<strong><a href="https://deadline.com/2026-tv-cancellations-renewals/" target="_blank" rel="noopener">'Brilliant Minds' canceled at NBC after two seasons</a></strong>
-<span class="sub">The Zachary Quinto-led medical drama wraps with its final six episodes starting May 27. <span class="note">Canceled</span></span>
-<a class="read-more" href="https://deadline.com/2026-tv-cancellations-renewals/" target="_blank" rel="noopener">Read more at Deadline →</a>
-</div>
-
-<div class="card card-blue">
-<strong><a href="https://www.tvguide.com/news/canceled-renewed-tv-shows-may-2026/" target="_blank" rel="noopener">'Reacher' renewed for Season 5 at Prime Video</a></strong>
-<span class="sub">Pickup arrives ahead of the Season 4 premiere — the action thriller remains one of Amazon's biggest performers. <span class="note">Renewed</span></span>
-<a class="read-more" href="https://www.tvguide.com/news/canceled-renewed-tv-shows-may-2026/" target="_blank" rel="noopener">Read more at TV Guide →</a>
-</div>
-
-<div class="card card-green">
-<strong><a href="https://www.tvguide.com/news/canceled-renewed-tv-shows-may-2026/" target="_blank" rel="noopener">'Emily in Paris' to end with Season 6 on Netflix</a></strong>
-<span class="sub">Now filming its final season — Darren Star's Paris-set Lily Collins vehicle wraps after six years. <span class="note">Final Season</span></span>
-<a class="read-more" href="https://www.tvguide.com/news/canceled-renewed-tv-shows-may-2026/" target="_blank" rel="noopener">Read more at TV Guide →</a>
-</div>
-
-<div class="card card-magenta">
-<strong><a href="https://www.tvguide.com/news/canceled-renewed-tv-shows-may-2026/" target="_blank" rel="noopener">'Criminal Minds: Evolution' jumps to Season 20</a></strong>
-<span class="sub">Paramount+ renewed the revival ahead of its Season 19 premiere on May 28. <span class="note">Renewed</span></span>
-<a class="read-more" href="https://www.tvguide.com/news/canceled-renewed-tv-shows-may-2026/" target="_blank" rel="noopener">Read more at TV Guide →</a>
-</div>
-
-<div class="card card-orange">
-<strong><a href="https://discussingfilm.net/2026/05/23/new-on-hbo-max-june-2026/" target="_blank" rel="noopener">'House of the Dragon' Season 3 premieres June 21</a></strong>
-<span class="sub">HBO Max sets the new eight-episode season for weekly drops starting June 21 — the long wait is nearly over. <span class="note">Premiere</span></span>
-<a class="read-more" href="https://discussingfilm.net/2026/05/23/new-on-hbo-max-june-2026/" target="_blank" rel="noopener">Read more at DiscussingFilm →</a>
-</div>
-
-<div class="card card-yellow">
-<strong><a href="https://www.goldderby.com/theater/2026/2026-tony-awards-date-pink-host-presenters-how-to-watch/" target="_blank" rel="noopener">Pink to host 2026 Tony Awards</a></strong>
-<span class="sub">The pop star (whose songs feature in &amp; Juliet and Moulin Rouge!) takes the mic for the June 7 broadcast at Radio City. <span class="note">Host</span></span>
-<a class="read-more" href="https://www.goldderby.com/theater/2026/2026-tony-awards-date-pink-host-presenters-how-to-watch/" target="_blank" rel="noopener">Read more at Gold Derby →</a>
-</div>
-
-<div class="card card-lblue">
-<strong><a href="https://9to5mac.com/2026/05/12/severance-season-3-is-coming-much-sooner-than-last-season-did-per-star/" target="_blank" rel="noopener">'Severance' Season 3 filming through December</a></strong>
-<span class="sub">Adam Scott says S3 is coming "much sooner" than the three-year gap last time; production runs April–Dec 2026 with Kogonada directing. <span class="note">In Production</span></span>
-<a class="read-more" href="https://9to5mac.com/2026/05/12/severance-season-3-is-coming-much-sooner-than-last-season-did-per-star/" target="_blank" rel="noopener">Read more at 9to5Mac →</a>
-</div>
-
-<div class="card card-lavender">
-<strong><a href="https://www.tvguide.com/news/canceled-renewed-tv-shows-may-2026/" target="_blank" rel="noopener">'Temptation Island' gets Season 3 less than a month after S2 bow</a></strong>
-<span class="sub">Netflix's reality juggernaut renews quickly after a strong Season 2 launch. <span class="note">Renewed</span></span>
-<a class="read-more" href="https://www.tvguide.com/news/canceled-renewed-tv-shows-may-2026/" target="_blank" rel="noopener">Read more at TV Guide →</a>
-</div>
-
-<div class="card card-pink">
-<strong><a href="https://www.tvguide.com/news/canceled-renewed-tv-shows-may-2026/" target="_blank" rel="noopener">'Law &amp; Order: Organized Crime' canceled after 5 seasons</a></strong>
-<span class="sub">Stabler's spin-off ends its run; the original Law &amp; Order returns for Season 26 on NBC. <span class="note">Canceled</span></span>
-<a class="read-more" href="https://www.tvguide.com/news/canceled-renewed-tv-shows-may-2026/" target="_blank" rel="noopener">Read more at TV Guide →</a>
-</div>
-
-<div class="card card-cyan">
-<strong><a href="https://deadline.com/2026-tv-cancellations-renewals/" target="_blank" rel="noopener">'The Night Agent' to end with Season 4 on Netflix</a></strong>
-<span class="sub">The action thriller's upcoming fourth season will be its last — Netflix is wrapping the Shawn Ryan series. <span class="note">Final Season</span></span>
-<a class="read-more" href="https://deadline.com/2026-tv-cancellations-renewals/" target="_blank" rel="noopener">Read more at Deadline →</a>
-</div>
-
+<div class="card card-pink"><strong><a class="headlink" href="https://www.tvguide.com/news/canceled-renewed-tv-shows-may-2026/" target="_blank" rel="noopener">'The Bear' to end with Season 5</a></strong><span class="sub">FX's acclaimed kitchen drama will wrap with its fifth season, premiering June 25 on FX and Hulu. <span class="note">Final season</span></span><a class="readmore" href="https://www.tvguide.com/news/canceled-renewed-tv-shows-may-2026/" target="_blank" rel="noopener">Read more at TV Guide →</a></div>
+<div class="card card-purple"><strong><a class="headlink" href="https://soaps.sheknows.com/soaps/news/815779/renewed-cancelled-streaming-shows-2026-netflix-hbo-max-amazon/" target="_blank" rel="noopener">HBO's 'Harry Potter' renewed for Season 2</a></strong><span class="sub">The HBO series adaptation gets an early Season 2 pickup, with filming expected to begin this fall. <span class="note">Renewed</span></span><a class="readmore" href="https://soaps.sheknows.com/soaps/news/815779/renewed-cancelled-streaming-shows-2026-netflix-hbo-max-amazon/" target="_blank" rel="noopener">Read more at SheKnows →</a></div>
+<div class="card card-blue"><strong><a class="headlink" href="https://www.tvguide.com/news/canceled-renewed-tv-shows-may-2026/" target="_blank" rel="noopener">'The Night Agent' Season 4 will be its last</a></strong><span class="sub">Netflix's action thriller, now in production in Los Angeles, will conclude with its fourth season. <span class="note">Ending</span></span><a class="readmore" href="https://www.tvguide.com/news/canceled-renewed-tv-shows-may-2026/" target="_blank" rel="noopener">Read more at TV Guide →</a></div>
+<div class="card card-green"><strong><a class="headlink" href="https://www.tvline.com/lists/cancelled-renewed-tv-shows-2026-scorecard/" target="_blank" rel="noopener">'Running Point' renewed for Season 3</a></strong><span class="sub">Kate Hudson's basketball comedy scores a third season at Netflix. <span class="note">Renewed</span></span><a class="readmore" href="https://www.tvline.com/lists/cancelled-renewed-tv-shows-2026-scorecard/" target="_blank" rel="noopener">Read more at TVLine →</a></div>
+<div class="card card-magenta"><strong><a class="headlink" href="https://www.tvline.com/lists/cancelled-renewed-tv-shows-2026-scorecard/" target="_blank" rel="noopener">'Love Is Blind' Season 11 heads to Boston</a></strong><span class="sub">Netflix's dating juggernaut returns this fall for an 11th season set in Boston. <span class="note">Renewed</span></span><a class="readmore" href="https://www.tvline.com/lists/cancelled-renewed-tv-shows-2026-scorecard/" target="_blank" rel="noopener">Read more at TVLine →</a></div>
+<div class="card card-orange"><strong><a class="headlink" href="https://www.tvguide.com/news/canceled-renewed-tv-shows-may-2026/" target="_blank" rel="noopener">NBC cancels 'Brilliant Minds' &amp; 'Stumble'; Fox drops 'Going Dutch'</a></strong><span class="sub">The medical drama and the mockumentary sitcom are out at NBC, and the comedy <em>Going Dutch</em> is canceled at Fox. <span class="note">Canceled</span></span><a class="readmore" href="https://www.tvguide.com/news/canceled-renewed-tv-shows-may-2026/" target="_blank" rel="noopener">Read more at TV Guide →</a></div>
+<div class="card card-cyan"><strong><a class="headlink" href="https://www.tvline.com/lists/cancelled-renewed-tv-shows-2026-scorecard/" target="_blank" rel="noopener">Apple renews 'Margo's Got Money Troubles' for Season 2</a></strong><span class="sub">Apple TV+'s adaptation of Rufi Thorpe's novel will return for a second season. <span class="note">Renewed</span></span><a class="readmore" href="https://www.tvline.com/lists/cancelled-renewed-tv-shows-2026-scorecard/" target="_blank" rel="noopener">Read more at TVLine →</a></div>
+<div class="card card-magenta"><strong><a class="headlink" href="https://deadline.com/2026-tv-cancellations-renewals/" target="_blank" rel="noopener">'Criminal Minds: Evolution' renewed for Season 20</a></strong><span class="sub">Paramount+ renews the BAU franchise for a 20th season (streaming 2027) ahead of the Season 19 premiere on May 28. <span class="note">Renewed</span></span><a class="readmore" href="https://deadline.com/2026-tv-cancellations-renewals/" target="_blank" rel="noopener">Read more at Deadline →</a></div>
+<div class="card card-orange"><strong><a class="headlink" href="https://www.tvline.com/2182461/what-to-watch-may-28-2026-tv-shows-movies/" target="_blank" rel="noopener">'The Boys' takes its final bow</a></strong><span class="sub">Prime Video's superhero satire aired its series finale on May 20, ending one of the platform's signature franchises. <span class="note">Series finale</span></span><a class="readmore" href="https://www.tvline.com/2182461/what-to-watch-may-28-2026-tv-shows-movies/" target="_blank" rel="noopener">Read more at TVLine →</a></div>
+<div class="card card-green"><strong><a class="headlink" href="https://www.tvline.com/2182461/what-to-watch-may-28-2026-tv-shows-movies/" target="_blank" rel="noopener">Big premiere week: 'Criminal Minds,' 'Deli Boys' &amp; 'Four Seasons'</a></strong><span class="sub">Thursday, May 28 brought new seasons of <em>Criminal Minds: Evolution</em>, <em>Deli Boys</em> and <em>The Four Seasons</em> across Paramount+, Hulu and Netflix. <span class="note">New seasons</span></span><a class="readmore" href="https://www.tvline.com/2182461/what-to-watch-may-28-2026-tv-shows-movies/" target="_blank" rel="noopener">Read more at TVLine →</a></div>
 </div>
 </section>
 
-<!-- ===================== NETFLIX ===================== -->
 <section class="section-group">
 <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🅽 Netflix</span><span class="divider-line"></span></div>
-
 <div class="sub-label">Not to Be Missed</div>
 <div class="cards-grid">
-<div class="card card-pink"><strong>Nemesis</strong><span class="sub">Limited series · From Courtney A. Kemp (Power) — a heist drama pitting genius thief Coltrane Wilder against detective Isaiah Stiles. #1 on Netflix's English TV list with 11.4M views.</span></div>
-<div class="card card-pink"><strong>The Boroughs</strong><span class="sub">Sci-fi · From the Duffer Brothers — Alfred Molina and Geena Davis star as retirement-village residents tangled in a monster mystery. Held #1 worldwide for days.</span></div>
-<div class="card card-pink"><strong>Squid Game (Final Season)</strong><span class="sub">Season 3 · The Korean phenomenon's last round; available to binge in full on Netflix.</span></div>
+<div class="card card-pink"><strong>The Four Seasons — Season 2</strong><span class="sub">Comedy-drama · Premiered May 28 · The friends reunite for four new seasonal getaways, processing a loss and the regrets and reinventions of middle age.</span></div>
+<div class="card card-pink"><strong>A Good Girl's Guide to Murder — S2</strong><span class="sub">Mystery · Premiered May 27 · The surprise 2024 hit returns as Pip is pulled back into another small-town investigation.</span></div>
+<div class="card card-pink"><strong>Dead Man's Wire</strong><span class="sub">Thriller film · Added May 28 · Bill Skarsgård and Dacre Montgomery in a dramatization of Tony Kiritsis's 1977 Indianapolis kidnapping.</span></div>
 </div>
-
 <div class="sub-label">Most Popular Right Now (Series)</div>
 <div class="cards-grid">
-<div class="card card-pink"><strong>Nemesis</strong><span class="sub">Drama · #1 English TV — 11.4M views this week.</span></div>
-<div class="card card-pink"><strong>The Boroughs</strong><span class="sub">Sci-fi · #2 English TV — 5.6M views this week.</span></div>
-<div class="card card-pink"><strong>Worst Ex Ever</strong><span class="sub">Documentary · #3 English TV — 3.6M views this week.</span></div>
-<div class="card card-pink"><strong>Berlin and the Lady with an Ermine</strong><span class="sub">Spanish · #1 Non-English TV — 10.3M views; Pedro Alonso reprises his Money Heist role.</span></div>
-<div class="card card-pink"><strong>Temptation Island</strong><span class="sub">Reality · Just renewed for Season 3 after a strong sophomore season.</span></div>
+<div class="card card-pink"><strong>A Good Girl's Guide to Murder S2</strong><span class="sub">Mystery · Premiered May 27 · Topping the new-release buzz this week.</span></div>
+<div class="card card-pink"><strong>The Four Seasons S2</strong><span class="sub">Comedy-drama · Premiered May 28 · Steve Carell–led ensemble returns.</span></div>
+<div class="card card-pink"><strong>Murder Mindfully — Season 2</strong><span class="sub">German dark comedy · Premiered May 28 · Björn Diemel is back and more mindful than ever while running a mafia clan.</span></div>
 </div>
-
-<div class="sub-label">Most Popular Movies (Top 10)</div>
+<div class="sub-label">Most Popular Movies</div>
 <div class="cards-grid">
-<div class="card card-pink"><strong>1. The Crash</strong><span class="sub">Thriller · Netflix Original · This week's #1 with 78 chart points, dethroning Remarkably Bright Creatures.</span></div>
-<div class="card card-pink"><strong>2. Goat</strong><span class="sub">Animated · #2 with 74 points — animated highlight climbing from #1 last week.</span></div>
-<div class="card card-pink"><strong>3. Stolen Baby: The Murder of Heidi Broussard</strong><span class="sub">True crime doc · #3 — the kidnapping story driving conversation this week.</span></div>
-<div class="card card-pink"><strong>4. The Roast of Kevin Hart</strong><span class="sub">Comedy special · Holding strong at #2 last week with 70 points; still in the top tier.</span></div>
-<div class="card card-pink"><strong>5. Remarkably Bright Creatures</strong><span class="sub">Drama · Last week's champion, slipping but still in rotation.</span></div>
-<div class="card card-pink"><strong>6. Hoax: The Kidnapping of Sherri Papini</strong><span class="sub">True crime doc · #6 — the second of Netflix's true-crime two-fer this week.</span></div>
-<div class="card card-pink"><strong>7. Wanda Sykes: Legacy</strong><span class="sub">Stand-up special · Strong debut at #7 with 22 points.</span></div>
-<div class="card card-pink"><strong>8. Nope</strong><span class="sub">Sci-fi horror · Jordan Peele's 2022 hit cracked the top 10 immediately upon arrival.</span></div>
-<div class="card card-pink"><strong>9. Ferrari</strong><span class="sub">Biographical drama · Adam Driver as Enzo Ferrari in Michael Mann's epic; recently added.</span></div>
-<div class="card card-pink"><strong>10. The Crash (encore)</strong><span class="sub">Holdover top-10 staying power signals Netflix's strongest week for originals in May.</span></div>
+<div class="card card-pink"><strong>1. The Crash</strong><span class="sub">Documentary · #1 English film, 27.6M views (week of May 18) · Investigation into a deadly 2022 car crash in Strongsville, Ohio that reveals signs of a calculated crime. <span class="note">Top 10 this week</span></span></div>
+<div class="card card-pink"><strong>2. Swapped</strong><span class="sub">Animated adventure · 16.1M views · Michael B. Jordan and Juno Temple voice two creatures magically forced to live each other's lives. <span class="note">Top 10</span></span></div>
+<div class="card card-pink"><strong>3. Remarkably Bright Creatures</strong><span class="sub">Drama · Topped the film chart the week of May 16 · Adaptation of the best-selling novel.</span></div>
+<div class="card card-pink"><strong>4. Apex</strong><span class="sub">Action · Charlize Theron survival thriller that held strong in the early-May film top 10.</span></div>
+<div class="card card-pink"><strong>5. War Machine</strong><span class="sub">War comedy-drama · Netflix's most-watched movie of 2026 so far at 128.4M views.</span></div>
 </div>
-
 <div class="sub-label">What's New (Series)</div>
 <div class="cards-grid">
-<div class="card card-pink"><strong>The Boroughs</strong><span class="sub">Premiered May 21 · Sci-fi from the Duffer Brothers' Upside Down Pictures.</span></div>
-<div class="card card-pink"><strong>Nemesis</strong><span class="sub">May 2026 · New heist drama from Power's Courtney A. Kemp.</span></div>
-<div class="card card-pink"><strong>Worst Ex Ever</strong><span class="sub">Doc series · Released this week, jumped into the English-TV top 3.</span></div>
+<div class="card card-pink"><strong>Calabasas Confidential</strong><span class="sub">Reality · Premiered May 29 · A tight-knit group of friends, exes and rivals return to hillside SoCal luxury and unfinished drama.</span></div>
+<div class="card card-pink"><strong>Rafa</strong><span class="sub">Documentary series · Premiered May 29 · Rafael Nadal reflects on his career, legacy and final season on the court.</span></div>
+<div class="card card-pink"><strong>Brazil '70: The Third Star</strong><span class="sub">Sports documentary · Premiered May 29 · The story of Brazil's legendary 1970 World Cup side.</span></div>
 </div>
-
-<div class="sub-label">New Movie Additions (Top 10)</div>
+<div class="sub-label">New Movie Additions</div>
 <div class="cards-grid">
-<div class="card card-pink"><strong>1. Ferrari</strong><span class="sub">Drama · 2h 10m · Recently added — Michael Mann's biopic of the racing magnate.</span></div>
-<div class="card card-pink"><strong>2. The Crash</strong><span class="sub">Thriller · Netflix Original · Newly added and topping the chart.</span></div>
-<div class="card card-pink"><strong>3. Goat</strong><span class="sub">Animated · Family · Recently added; still climbing weekly.</span></div>
-<div class="card card-pink"><strong>4. Stolen Baby: The Murder of Heidi Broussard</strong><span class="sub">True-crime doc · Newly added this month.</span></div>
-<div class="card card-pink"><strong>5. Hoax: The Kidnapping of Sherri Papini</strong><span class="sub">True-crime doc · Newly added — a companion to Stolen Baby in May's true-crime drop.</span></div>
-<div class="card card-pink"><strong>6. The Roast of Kevin Hart</strong><span class="sub">Comedy special · 1h 27m · Added earlier in May.</span></div>
-<div class="card card-pink"><strong>7. Wanda Sykes: Legacy</strong><span class="sub">Stand-up · Newly released this week.</span></div>
-<div class="card card-pink"><strong>8. Nope</strong><span class="sub">Sci-fi horror · 2h 10m · Just rotated onto Netflix in May.</span></div>
-<div class="card card-pink"><strong>9. Mamma Mia!</strong><span class="sub">Musical · 1h 48m · Added May 1.</span></div>
-<div class="card card-pink"><strong>10. Beginners</strong><span class="sub">Drama · 1h 45m · Mike Mills' 2010 indie classic, added May 1.</span></div>
+<div class="card card-pink"><strong>Dead Man's Wire</strong><span class="sub">Thriller · Added May 28 · Bill Skarsgård and Dacre Montgomery in a true-crime drama. <span class="note">Newest</span></span></div>
+<div class="card card-pink"><strong>Swapped</strong><span class="sub">Animation · Added in May · Michael B. Jordan and Juno Temple body-swap adventure.</span></div>
+<div class="card card-pink"><strong>Remarkably Bright Creatures</strong><span class="sub">Drama · Added in May · Heartfelt best-seller adaptation that hit #1 mid-month.</span></div>
 </div>
-
-<div class="sub-label">Coming Soon</div>
-<div class="cards-grid">
-<div class="card card-pink"><strong>Emily in Paris (Final Season)</strong><span class="sub">Season 6 in production · Lily Collins wraps the Paris-set comedy in its sixth and final season.</span></div>
-<div class="card card-pink"><strong>The Night Agent (Final Season)</strong><span class="sub">Season 4 will be the action thriller's last.</span></div>
-</div>
-
-<div class="sub-label">Hidden Gems</div>
-<div class="cards-grid">
-<div class="card card-pink"><strong>Berlin and the Lady with an Ermine</strong><span class="sub">Spanish heist · The Money Heist universe expands; topping the non-English chart.</span></div>
-</div>
-
 <div class="sub-label">Leaving Soon</div>
 <div class="cards-grid">
-<div class="card card-pink"><strong>Fifty Shades trilogy</strong><span class="sub">Leaving June 1 · All three films exit on the same day.</span></div>
-<div class="card card-pink"><strong>Kim's Convenience (Seasons 1–5)</strong><span class="sub">Leaving June 2 · The beloved feel-good comedy departs globally.</span></div>
-<div class="card card-pink"><strong>Sex and the City (Seasons 1–6)</strong><span class="sub">Leaving June 30 · The entire HBO series leaves on the last day of the month.</span></div>
-<div class="card card-pink"><strong>The Lego Movie</strong><span class="sub">Leaving June 1 · Family favorite exits.</span></div>
-<div class="card card-pink"><strong>Jurassic World: Fallen Kingdom</strong><span class="sub">Leaving June 1 · The 2018 sequel rotates off.</span></div>
+<div class="card card-pink"><strong>Sex and the City (all 6 seasons)</strong><span class="sub">Leaving June 30 · Last chance to binge the complete HBO classic.</span></div>
+<div class="card card-pink"><strong>Kim's Convenience</strong><span class="sub">Leaving June 2 · The beloved Canadian sitcom departs.</span></div>
+<div class="card card-pink"><strong>Fifty Shades trilogy · The Lego Movie · The Expendables</strong><span class="sub">Leaving in June · A batch of catalog films rolls off.</span></div>
 </div>
-
 </section>
 
-<!-- ===================== MAX (HBO MAX) ===================== -->
 <section class="section-group">
 <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Ⓜ️ Max</span><span class="divider-line"></span></div>
-
 <div class="sub-label">Not to Be Missed</div>
 <div class="cards-grid">
-<div class="card card-purple"><strong>Euphoria</strong><span class="sub">#1 on HBO Max US for May 4–10 — Sam Levinson's drama remains the platform's anchor.</span></div>
-<div class="card card-purple"><strong>The Moment</strong><span class="sub">Premiered May 29 · Aidan Zamiri's satirical mockumentary about Charli XCX — out now.</span></div>
+<div class="card card-purple"><strong>House of the Dragon (with ASL)</strong><span class="sub">Fantasy · May 29 · The Targaryen saga continues, now with an American Sign Language presentation option.</span></div>
+<div class="card card-purple"><strong>The Moment</strong><span class="sub">A24 · May 29 · Charli XCX's not-quite-documentary about fame and a pop star's breakout moment.</span></div>
+<div class="card card-purple"><strong>Wuthering Heights</strong><span class="sub">Drama film · Emerald Fennell's stylish take on the Brontë classic — already the fifth-highest-grossing film of 2026 worldwide.</span></div>
 </div>
-
 <div class="sub-label">Most Popular Right Now (Series)</div>
 <div class="cards-grid">
-<div class="card card-purple"><strong>Euphoria</strong><span class="sub">#1 series on HBO Max US — drama · Ongoing.</span></div>
-<div class="card card-purple"><strong>The Pitt</strong><span class="sub">Medical drama · Continuing strong audience on Max.</span></div>
-<div class="card card-purple"><strong>The Last of Us</strong><span class="sub">Drama · Returning audience favorite anchoring the catalog.</span></div>
+<div class="card card-purple"><strong>On the Roam — Season 2</strong><span class="sub">Travel docuseries · Jason Momoa's highest-profile Max premiere this month.</span></div>
+<div class="card card-purple"><strong>Hacks</strong><span class="sub">Comedy · New episodes airing through the month.</span></div>
+<div class="card card-purple"><strong>Euphoria</strong><span class="sub">Drama · New episodes continue to drive Max viewership.</span></div>
 </div>
-
-<div class="sub-label">Most Popular Movies (Top 10)</div>
+<div class="sub-label">Most Popular Movies</div>
 <div class="cards-grid">
-<div class="card card-purple"><strong>1. Sinners</strong><span class="sub">Horror · 2h 17m · Ryan Coogler's Best Picture winner — 2025's biggest crossover hit.</span></div>
-<div class="card card-purple"><strong>2. One Battle After Another</strong><span class="sub">Drama · 2h 22m · Paul Thomas Anderson's Academy Award-winning epic.</span></div>
-<div class="card card-purple"><strong>3. Weapons</strong><span class="sub">Horror · 2h 8m · Zach Cregger's follow-up to Barbarian — Oscar contender.</span></div>
-<div class="card card-purple"><strong>4. Wuthering Heights</strong><span class="sub">Drama · Emerald Fennell's adaptation — one of 2026's most talked-about films.</span></div>
-<div class="card card-purple"><strong>5. Marty Supreme</strong><span class="sub">Drama · Recently arrived box-office hit.</span></div>
-<div class="card card-purple"><strong>6. Lurker</strong><span class="sub">Psychological thriller · Alex Russell's debut about a retail clerk pulled into a pop star's orbit.</span></div>
-<div class="card card-purple"><strong>7. Dune: Part Two</strong><span class="sub">Sci-fi · 2h 46m · Streaming staple in rotation.</span></div>
-<div class="card card-purple"><strong>8. Furiosa: A Mad Max Saga</strong><span class="sub">Action · 2h 28m · Anya Taylor-Joy in George Miller's prequel.</span></div>
-<div class="card card-purple"><strong>9. Twisters</strong><span class="sub">Action · 2h 2m · Lee Isaac Chung's hit on rotation.</span></div>
-<div class="card card-purple"><strong>10. The Moment</strong><span class="sub">Comedy · Arrives May 29 — Charli XCX satirical mockumentary.</span></div>
+<div class="card card-purple"><strong>1. Wuthering Heights</strong><span class="sub">Drama · Emerald Fennell's adaptation, $241.7M worldwide — 5th highest-grossing film of 2026. <span class="note">Top this month</span></span></div>
+<div class="card card-purple"><strong>2. Sinners</strong><span class="sub">Horror · 2025's box-office-and-awards crossover hit, a steady Max draw.</span></div>
+<div class="card card-purple"><strong>3. Mickey 17</strong><span class="sub">Sci-fi · Bong Joon-ho's Robert Pattinson vehicle, popular in the Max movie rankings.</span></div>
+<div class="card card-purple"><strong>4. Lurker</strong><span class="sub">Thriller · Alex Russell's psychological premiere this month.</span></div>
 </div>
-
 <div class="sub-label">What's New (Series)</div>
 <div class="cards-grid">
-<div class="card card-purple"><strong>Bring Me the Beauties: A Model Cult</strong><span class="sub">Doc series · Three episodes — premieres June 1, weekly drops.</span></div>
+<div class="card card-purple"><strong>On the Roam S2</strong><span class="sub">Docuseries · Jason Momoa returns to the open road.</span></div>
+<div class="card card-purple"><strong>House of the Dragon (ASL)</strong><span class="sub">Fantasy · May 29 accessibility presentation.</span></div>
+<div class="card card-purple"><strong>Miss You, Love You</strong><span class="sub">HBO Original · May 29 premiere.</span></div>
 </div>
-
-<div class="sub-label">New Movie Additions (Top 10)</div>
+<div class="sub-label">New Movie Additions</div>
 <div class="cards-grid">
-<div class="card card-purple"><strong>1. Sinners</strong><span class="sub">Horror · Newly added — the 2025 phenom on streaming.</span></div>
-<div class="card card-purple"><strong>2. Wuthering Heights</strong><span class="sub">Drama · Newly arrived; Emerald Fennell's adaptation.</span></div>
-<div class="card card-purple"><strong>3. One Battle After Another</strong><span class="sub">Drama · Recently added Best Picture winner.</span></div>
-<div class="card card-purple"><strong>4. Weapons</strong><span class="sub">Horror · Recently arrived.</span></div>
-<div class="card card-purple"><strong>5. Marty Supreme</strong><span class="sub">Drama · Box-office hit added in May.</span></div>
-<div class="card card-purple"><strong>6. Lurker</strong><span class="sub">Thriller · Alex Russell's debut joins the platform.</span></div>
-<div class="card card-purple"><strong>7. The Moment</strong><span class="sub">Comedy · Premieres May 29.</span></div>
-<div class="card card-purple"><strong>8. Pillion</strong><span class="sub">Drama · Coming June 5.</span></div>
-<div class="card card-purple"><strong>9. How to Make a Killing</strong><span class="sub">Comedy · Coming June 19.</span></div>
-<div class="card card-purple"><strong>10. Undertone</strong><span class="sub">Thriller · Coming June 26.</span></div>
+<div class="card card-purple"><strong>The Moment</strong><span class="sub">A24 · Added May 29 · Charli XCX's genre-bending fame story. <span class="note">Newest</span></span></div>
+<div class="card card-purple"><strong>Wuthering Heights</strong><span class="sub">Drama · Recently added · Emerald Fennell's hit adaptation.</span></div>
+<div class="card card-purple"><strong>Lurker</strong><span class="sub">Thriller · Recently added · Alex Russell's debut feature.</span></div>
 </div>
-
-<div class="sub-label">Coming Soon</div>
+<div class="sub-label">Leaving Soon</div>
 <div class="cards-grid">
-<div class="card card-purple"><strong>House of the Dragon Season 3</strong><span class="sub">Premieres June 21 · Eight-episode season, weekly drops.</span></div>
-<div class="card card-purple"><strong>My Adventures with Superman Season 3</strong><span class="sub">June 14 · Animated DC continuation.</span></div>
-<div class="card card-purple"><strong>Life, Larry, and the Pursuit of Unhappiness</strong><span class="sub">Comedy · Seven episodes; premieres June 26.</span></div>
-<div class="card card-purple"><strong>Earth, Wind &amp; Fire documentary</strong><span class="sub">Two-hour doc · June 7 with surviving band members.</span></div>
+<div class="card card-purple"><strong>Catalog rotation</strong><span class="sub">Max's June expirations weren't published as a verified list at this run's fetch time — check the in-app "Last Chance" row for titles leaving in the next 30 days.</span></div>
 </div>
-
-<div class="sub-label">Hidden Gems</div>
-<div class="cards-grid">
-<div class="card card-purple"><strong>Industry</strong><span class="sub">Drama · Finance-world ensemble HBO's been quietly building into a flagship.</span></div>
-<div class="card card-purple"><strong>Hacks</strong><span class="sub">Comedy · Jean Smart-led Emmy darling continues to deliver.</span></div>
-</div>
-
 </section>
 
-<!-- ===================== DISNEY+ ===================== -->
 <section class="section-group">
 <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🅳➕ Disney+</span><span class="divider-line"></span></div>
-
 <div class="sub-label">Not to Be Missed</div>
 <div class="cards-grid">
-<div class="card card-blue"><strong>Daredevil: Born Again Season 2</strong><span class="sub">Finale "The Southern Cross" landed May 5 with a 9.6 IMDb — highest-rated MCU show episode ever. S3 in 2027.</span></div>
-<div class="card card-blue"><strong>The Punisher: One Last Kill</strong><span class="sub">Marvel Television special · Premiered May 12.</span></div>
+<div class="card card-blue"><strong>Daredevil: Born Again — finale</strong><span class="sub">Marvel · Matt Murdock makes his final stand against Mayor Wilson Fisk in the season's showdown for Hell's Kitchen.</span></div>
+<div class="card card-blue"><strong>The Punisher: One Last Kill</strong><span class="sub">Marvel Special Presentation · Frank Castle searches for meaning beyond revenge before being pulled back into the fight.</span></div>
+<div class="card card-blue"><strong>Star Wars: Maul</strong><span class="sub">Animated finale · Maul's quest to rebuild his criminal syndicate reaches its action-packed conclusion.</span></div>
 </div>
-
 <div class="sub-label">Most Popular Right Now (Series)</div>
 <div class="cards-grid">
-<div class="card card-blue"><strong>Daredevil: Born Again S2</strong><span class="sub">Marvel · Just concluded; record-setting finale ratings.</span></div>
-<div class="card card-blue"><strong>American Idol Season 9</strong><span class="sub">Reality · Season finale this month.</span></div>
-<div class="card card-blue"><strong>The Bear (international)</strong><span class="sub">Drama · Streams on Disney+ outside the US.</span></div>
+<div class="card card-blue"><strong>Daredevil: Born Again</strong><span class="sub">Marvel · The marquee Disney+ drama as it wraps its run.</span></div>
+<div class="card card-blue"><strong>Star Wars: Maul</strong><span class="sub">Animation · Star Wars Day tentpole concluding this month.</span></div>
+<div class="card card-blue"><strong>Battle of Fates</strong><span class="sub">Korean drama · 49 fate-readers compete to master the art of destiny.</span></div>
 </div>
-
-<div class="sub-label">Most Popular Movies (Top 10)</div>
+<div class="sub-label">Most Popular Movies</div>
 <div class="cards-grid">
-<div class="card card-blue"><strong>1. Inside Out 2</strong><span class="sub">Animated · 1h 36m · Pixar's biggest hit, anchoring family viewing.</span></div>
-<div class="card card-blue"><strong>2. Moana 2</strong><span class="sub">Animated · 1h 40m · 2024 holiday hit still trending.</span></div>
-<div class="card card-blue"><strong>3. Mufasa: The Lion King</strong><span class="sub">Animated · 1h 58m · Live-action prequel.</span></div>
-<div class="card card-blue"><strong>4. Deadpool &amp; Wolverine</strong><span class="sub">Action/Comedy · 2h 7m · Marvel's biggest crossover.</span></div>
-<div class="card card-blue"><strong>5. The Punisher: One Last Kill</strong><span class="sub">Marvel special · 1h 30m · Added May 12.</span></div>
-<div class="card card-blue"><strong>6. Captain America: Brave New World</strong><span class="sub">Action · 1h 58m · Anthony Mackie's Cap-led entry.</span></div>
-<div class="card card-blue"><strong>7. Thunderbolts*</strong><span class="sub">Action · 2h 6m · MCU's anti-hero ensemble.</span></div>
-<div class="card card-blue"><strong>8. Avatar: The Way of Water</strong><span class="sub">Sci-fi · 3h 12m · Cameron's sequel on rotation.</span></div>
-<div class="card card-blue"><strong>9. Frozen</strong><span class="sub">Animated · 1h 42m · Evergreen.</span></div>
-<div class="card card-blue"><strong>10. Encanto</strong><span class="sub">Animated · 1h 42m · Family staple.</span></div>
+<div class="card card-blue"><strong>1. Alien: Romulus</strong><span class="sub">Sci-fi horror · Landing on Disney+ via Hulu as one of the month's biggest film draws. <span class="note">New this month</span></span></div>
+<div class="card card-blue"><strong>2. We Bought a Zoo</strong><span class="sub">Family drama · Cameron Crowe's true story with Matt Damon as a grieving father restoring a zoo.</span></div>
 </div>
-
 <div class="sub-label">What's New (Series)</div>
 <div class="cards-grid">
-<div class="card card-blue"><strong>Star Wars: Maul – Shadow Lord</strong><span class="sub">Animated · Set after Clone Wars; Maul builds a new criminal syndicate.</span></div>
-<div class="card card-blue"><strong>Daredevil: Born Again Season 2</strong><span class="sub">Concluded May 5 with the record-setting finale.</span></div>
+<div class="card card-blue"><strong>Star Wars: Maul</strong><span class="sub">Animation · Finale dropped on Star Wars Day.</span></div>
+<div class="card card-blue"><strong>The Punisher: One Last Kill</strong><span class="sub">Marvel Special · New event premiere.</span></div>
 </div>
-
-<div class="sub-label">New Movie Additions (Top 10)</div>
+<div class="sub-label">New Movie Additions</div>
 <div class="cards-grid">
-<div class="card card-blue"><strong>1. The Punisher: One Last Kill</strong><span class="sub">Marvel special · Added May 12.</span></div>
-<div class="card card-blue"><strong>2. Thunderbolts*</strong><span class="sub">Action · Recently arrived on Disney+ after theatrical run.</span></div>
-<div class="card card-blue"><strong>3. Captain America: Brave New World</strong><span class="sub">Action · Recently added.</span></div>
-<div class="card card-blue"><strong>4. Inside Out 2</strong><span class="sub">Animated · Streaming rotation.</span></div>
-<div class="card card-blue"><strong>5. Moana 2</strong><span class="sub">Animated · Recently added.</span></div>
-<div class="card card-blue"><strong>6. Mufasa: The Lion King</strong><span class="sub">Animated · Recently added.</span></div>
-<div class="card card-blue"><strong>7. Deadpool &amp; Wolverine</strong><span class="sub">Action/Comedy · Recently added.</span></div>
-<div class="card card-blue"><strong>8. Snow White (2025)</strong><span class="sub">Live-action · Recently rotated to streaming.</span></div>
-<div class="card card-blue"><strong>9. The Marvels</strong><span class="sub">Action · MCU rotation entry.</span></div>
-<div class="card card-blue"><strong>10. Banana Ball</strong><span class="sub">Sports special · New documentary/games offering this month.</span></div>
+<div class="card card-blue"><strong>Alien: Romulus</strong><span class="sub">Sci-fi horror · Recently added (via Hulu on Disney+). <span class="note">Newest</span></span></div>
+<div class="card card-blue"><strong>We Bought a Zoo</strong><span class="sub">Family · Recently added · Matt Damon family drama.</span></div>
 </div>
-
-<div class="sub-label">Coming Soon</div>
+<div class="sub-label">Leaving Soon</div>
 <div class="cards-grid">
-<div class="card card-blue"><strong>The Bear Season 5 (international)</strong><span class="sub">June 25 · All 8 episodes drop on Disney+ outside the US the same day they hit Hulu domestically.</span></div>
+<div class="card card-blue"><strong>Stable library</strong><span class="sub">Disney+ rarely removes first-party titles; no verified imminent departures at this run's fetch time.</span></div>
 </div>
-
-<div class="sub-label">Hidden Gems</div>
-<div class="cards-grid">
-<div class="card card-blue"><strong>Andor (both seasons)</strong><span class="sub">Star Wars · Critically beloved spy thriller — perfect prelude to Rogue One.</span></div>
-</div>
-
 </section>
 
-<!-- ===================== HULU ===================== -->
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🅷 Hulu</span><span class="divider-line"></span></div>
-
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🟢 Hulu</span><span class="divider-line"></span></div>
 <div class="sub-label">Not to Be Missed</div>
 <div class="cards-grid">
-<div class="card card-green"><strong>Welcome to Wrexham Season 5</strong><span class="sub">Premiered May 14 · Reynolds &amp; McElhenney's underdog doc returns.</span></div>
-<div class="card card-green"><strong>Deli Boys Season 2</strong><span class="sub">Returns this season · Pakistani American comedy with new cast additions.</span></div>
+<div class="card card-green"><strong>Rivals — Season 2</strong><span class="sub">Drama · A high-stakes power struggle between two elite figures in 1980s England fuels ambition, scandal and shifting alliances.</span></div>
+<div class="card card-green"><strong>Welcome to Wrexham — Season 5</strong><span class="sub">Docuseries · Premiered May 14 · Rob McElhenney and Ryan Reynolds' club saga rolls on.</span></div>
+<div class="card card-green"><strong>Deli Boys</strong><span class="sub">Comedy · Back with energized casting as bumbling Pakistani-American brothers run their late father's criminal enterprise.</span></div>
 </div>
-
 <div class="sub-label">Most Popular Right Now (Series)</div>
 <div class="cards-grid">
-<div class="card card-green"><strong>The Bear (catalog through S4)</strong><span class="sub">Drama · Building anticipation for the June 25 final season.</span></div>
-<div class="card card-green"><strong>Rivals Season 2</strong><span class="sub">Drama · Jilly Cooper adaptation's high-stakes second season.</span></div>
-<div class="card card-green"><strong>Welcome to Wrexham S5</strong><span class="sub">Doc series · New season anchored Hulu's May lineup.</span></div>
-<div class="card card-green"><strong>Deli Boys S2</strong><span class="sub">Comedy · Just returned with new energy.</span></div>
+<div class="card card-green"><strong>Rivals S2</strong><span class="sub">Drama · One of Hulu's buzziest May returns.</span></div>
+<div class="card card-green"><strong>Welcome to Wrexham S5</strong><span class="sub">Docuseries · Premiered May 14.</span></div>
+<div class="card card-green"><strong>Criminal Minds: Evolution</strong><span class="sub">Crime · New episodes streaming next-day.</span></div>
 </div>
-
-<div class="sub-label">Most Popular Movies (Top 10)</div>
+<div class="sub-label">Most Popular Movies</div>
 <div class="cards-grid">
-<div class="card card-green"><strong>1. Send Help</strong><span class="sub">Thriller · 1h 50m · Darkly funny survival movie — winter breakout, now streaming.</span></div>
-<div class="card card-green"><strong>2. Arco</strong><span class="sub">Animated · 1h 25m · 2025 Best Animated Feature nominee.</span></div>
-<div class="card card-green"><strong>3. Anora</strong><span class="sub">Drama · 2h 19m · Sean Baker's Palme d'Or/Best Picture winner.</span></div>
-<div class="card card-green"><strong>4. Nightbitch</strong><span class="sub">Comedy · 1h 38m · Amy Adams transformation story.</span></div>
-<div class="card card-green"><strong>5. Boys State</strong><span class="sub">Doc · 1h 49m · Hulu original on civic immersion.</span></div>
-<div class="card card-green"><strong>6. The Princess Bride</strong><span class="sub">Family · 1h 38m · Catalog staple consistently in top 10.</span></div>
-<div class="card card-green"><strong>7. Predator: Killer of Killers</strong><span class="sub">Action · 1h 25m · Animated anthology.</span></div>
-<div class="card card-green"><strong>8. Prey</strong><span class="sub">Action · 1h 39m · Hulu Original Predator entry.</span></div>
-<div class="card card-green"><strong>9. The Bear (films &amp; specials)</strong><span class="sub">Drama · Companion content building to S5.</span></div>
-<div class="card card-green"><strong>10. Quiz Lady</strong><span class="sub">Comedy · 1h 39m · Awkwafina + Sandra Oh.</span></div>
+<div class="card card-green"><strong>1. Camp Rock</strong><span class="sub">Musical · Added May 22 · The iconic Disney Channel movie joins Hulu. <span class="note">Top this week</span></span></div>
+<div class="card card-green"><strong>2. Camp Rock 2: The Final Jam</strong><span class="sub">Musical · Added May 22 · The summer-camp sequel lands alongside the original.</span></div>
+<div class="card card-green"><strong>3. Arco</strong><span class="sub">Animation · Oscar-nominated (Best Animated Feature, 2026) and now streaming.</span></div>
+<div class="card card-green"><strong>4. Send Help</strong><span class="sub">Horror-comedy · Sam Raimi's castaway thriller crash-landed early this month.</span></div>
+<div class="card card-green"><strong>5. Rogue One: A Star Wars Story</strong><span class="sub">Sci-fi · Added May 1 for Star Wars Day.</span></div>
 </div>
-
 <div class="sub-label">What's New (Series)</div>
 <div class="cards-grid">
-<div class="card card-green"><strong>Deli Boys Season 2</strong><span class="sub">Premiered May 28 · Bumbling brothers, criminal enterprise, returning energy.</span></div>
-<div class="card card-green"><strong>Welcome to Wrexham Season 5</strong><span class="sub">Premiered May 14 · Climbing expectations for the Welsh club.</span></div>
-<div class="card card-green"><strong>WWE LFG Season 1</strong><span class="sub">Reality · Premiered May 7; WWE legends mentor future stars.</span></div>
-<div class="card card-green"><strong>Gold Land</strong><span class="sub">Hulu Original · Heeju keeps a stash of smuggled gold; survival ensues.</span></div>
+<div class="card card-green"><strong>Deli Boys</strong><span class="sub">Comedy · New season with fresh casting.</span></div>
+<div class="card card-green"><strong>Lisa Ann Walter: It Was An Accident</strong><span class="sub">Stand-up special · Premiered May 15.</span></div>
 </div>
-
-<div class="sub-label">New Movie Additions (Top 10)</div>
+<div class="sub-label">New Movie Additions</div>
 <div class="cards-grid">
-<div class="card card-green"><strong>1. Send Help</strong><span class="sub">Thriller · Just added this month.</span></div>
-<div class="card card-green"><strong>2. Arco</strong><span class="sub">Animated · Recently added — Oscar-nominated.</span></div>
-<div class="card card-green"><strong>3. Anora</strong><span class="sub">Drama · Recently added Best Picture winner.</span></div>
-<div class="card card-green"><strong>4. Nightbitch</strong><span class="sub">Comedy · Newly added.</span></div>
-<div class="card card-green"><strong>5. The Bear: Origins</strong><span class="sub">Companion · Newly added.</span></div>
-<div class="card card-green"><strong>6. Predator: Killer of Killers</strong><span class="sub">Action · Recently rotated in.</span></div>
-<div class="card card-green"><strong>7. Quiz Lady</strong><span class="sub">Comedy · Recently added.</span></div>
-<div class="card card-green"><strong>8. Boys State</strong><span class="sub">Doc · Newly rotating in.</span></div>
-<div class="card card-green"><strong>9. The Princess Bride</strong><span class="sub">Family · Rotated back into the lineup.</span></div>
-<div class="card card-green"><strong>10. Prey</strong><span class="sub">Action · Hulu Original on rotation.</span></div>
+<div class="card card-green"><strong>Camp Rock</strong><span class="sub">Musical · Added May 22. <span class="note">Newest</span></span></div>
+<div class="card card-green"><strong>Camp Rock 2: The Final Jam</strong><span class="sub">Musical · Added May 22.</span></div>
+<div class="card card-green"><strong>Arco</strong><span class="sub">Animation · Added in May · Oscar-nominated.</span></div>
+<div class="card card-green"><strong>Send Help</strong><span class="sub">Horror-comedy · Added early May · Sam Raimi.</span></div>
+<div class="card card-green"><strong>Rogue One: A Star Wars Story</strong><span class="sub">Sci-fi · Added May 1.</span></div>
 </div>
-
-<div class="sub-label">Coming Soon</div>
+<div class="sub-label">Leaving Soon</div>
 <div class="cards-grid">
-<div class="card card-green"><strong>The Bear Season 5 (Final)</strong><span class="sub">June 25 · All 8 episodes drop at 6 PM PT.</span></div>
+<div class="card card-green"><strong>83 titles leaving in June</strong><span class="sub">Hulu has a large June expiration list (per WhatIsLeaving.com); specific titles weren't itemized at this run's fetch — check the app's "Expiring" row.</span></div>
 </div>
-
 </section>
 
-<!-- ===================== APPLE TV+ ===================== -->
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🅰️ Apple TV+</span><span class="divider-line"></span></div>
-
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🍎 Apple TV+</span><span class="divider-line"></span></div>
 <div class="sub-label">Not to Be Missed</div>
 <div class="cards-grid">
-<div class="card card-cyan"><strong>Unconditional</strong><span class="sub">From the Homeland team · Mother-daughter thriller; Gali arrested for drug smuggling in Moscow. Premiered May 8.</span></div>
-<div class="card card-cyan"><strong>Star City</strong><span class="sub">For All Mankind spin-off · Soviet space race from behind the Iron Curtain. Premiered May 29 — Rhys Ifans leads; new episodes Fridays through July 10.</span></div>
+<div class="card card-cyan"><strong>Star City</strong><span class="sub">Drama · Premiered May 29 · A <em>For All Mankind</em> spin-off following Soviet cosmonauts, engineers and intelligence officers behind the Iron Curtain.</span></div>
+<div class="card card-cyan"><strong>Propeller One-Way Night Coach</strong><span class="sub">Apple Original Film · Premiered May 29 · Based on John Travolta's 1997 book, set in the golden age of air travel.</span></div>
+<div class="card card-cyan"><strong>Widow's Bay</strong><span class="sub">Dramedy · Elle Fanning, Nicole Kidman and Michelle Pfeiffer in an adaptation of Rufi Thorpe's novel.</span></div>
 </div>
-
 <div class="sub-label">Most Popular Right Now (Series)</div>
 <div class="cards-grid">
-<div class="card card-cyan"><strong>Unconditional</strong><span class="sub">Drama · From Homeland team.</span></div>
-<div class="card card-cyan"><strong>Maximum Pleasure Guaranteed</strong><span class="sub">Dark comedy · Tatiana Maslany as a burnt-out mom in a cam-boy conspiracy.</span></div>
-<div class="card card-cyan"><strong>Severance (catalog)</strong><span class="sub">Sci-fi · Most-watched series in Apple TV+ history; S3 filming through Dec.</span></div>
+<div class="card card-cyan"><strong>For All Mankind</strong><span class="sub">Sci-fi · The alt-history flagship, freshly relevant with the <em>Star City</em> spin-off.</span></div>
+<div class="card card-cyan"><strong>Monarch: Legacy of Monsters</strong><span class="sub">Sci-fi · MonsterVerse drama remains a top Apple draw.</span></div>
+<div class="card card-cyan"><strong>Widow's Bay</strong><span class="sub">Dramedy · Buzzy new star-led addition.</span></div>
 </div>
-
-<div class="sub-label">Most Popular Movies (Top 10)</div>
+<div class="sub-label">Most Popular Movies</div>
 <div class="cards-grid">
-<div class="card card-cyan"><strong>1. CODA</strong><span class="sub">Drama · 1h 51m · Best Picture winner, anchor of the platform.</span></div>
-<div class="card card-cyan"><strong>2. Killers of the Flower Moon</strong><span class="sub">Drama · 3h 26m · Scorsese epic.</span></div>
-<div class="card card-cyan"><strong>3. Napoleon</strong><span class="sub">Drama · 2h 38m · Ridley Scott / Joaquin Phoenix.</span></div>
-<div class="card card-cyan"><strong>4. Fly Me to the Moon</strong><span class="sub">Comedy · 2h 12m · Channing Tatum, Scarlett Johansson.</span></div>
-<div class="card card-cyan"><strong>5. The Family Plan</strong><span class="sub">Action/comedy · 1h 58m · Mark Wahlberg.</span></div>
-<div class="card card-cyan"><strong>6. Wolfs</strong><span class="sub">Action · 1h 48m · Clooney + Pitt fixers reunion.</span></div>
-<div class="card card-cyan"><strong>7. Argylle</strong><span class="sub">Spy · 2h 19m · Matthew Vaughn ensemble.</span></div>
-<div class="card card-cyan"><strong>8. Ghosted</strong><span class="sub">Romance/action · 1h 56m · Ana de Armas, Chris Evans.</span></div>
-<div class="card card-cyan"><strong>9. Tetris</strong><span class="sub">Drama · 1h 58m · Taron Egerton as licensing dealmaker.</span></div>
-<div class="card card-cyan"><strong>10. Propeller One-Way Night Coach</strong><span class="sub">Family · 1h 45m · John Travolta directorial debut — out now (May 29).</span></div>
+<div class="card card-cyan"><strong>1. Propeller One-Way Night Coach</strong><span class="sub">Drama · Apple Original Film, premiered May 29 · The month's headline film release. <span class="note">New</span></span></div>
 </div>
-
 <div class="sub-label">What's New (Series)</div>
 <div class="cards-grid">
-<div class="card card-cyan"><strong>Unconditional</strong><span class="sub">Premiered May 8 · Mother-daughter thriller.</span></div>
-<div class="card card-cyan"><strong>Maximum Pleasure Guaranteed</strong><span class="sub">Dark comedy · Tatiana Maslany leads.</span></div>
-<div class="card card-cyan"><strong>Star City</strong><span class="sub">Premiered May 29 · For All Mankind universe — out now.</span></div>
+<div class="card card-cyan"><strong>Star City</strong><span class="sub">Drama · Premiered May 29 · Soviet space-race spin-off.</span></div>
+<div class="card card-cyan"><strong>Unconditional</strong><span class="sub">Drama · Tense Israeli new series this month.</span></div>
+<div class="card card-cyan"><strong>Maximum Pleasure Guaranteed</strong><span class="sub">Dark comedy · New May premiere.</span></div>
 </div>
-
-<div class="sub-label">New Movie Additions (Top 10)</div>
+<div class="sub-label">New Movie Additions</div>
 <div class="cards-grid">
-<div class="card card-cyan"><strong>1. Propeller One-Way Night Coach</strong><span class="sub">Family · Added May 29 — Travolta's directorial debut.</span></div>
-<div class="card card-cyan"><strong>2. Wolfs</strong><span class="sub">Action · Recently added.</span></div>
-<div class="card card-cyan"><strong>3. Fly Me to the Moon</strong><span class="sub">Comedy · Newly rotated to streaming.</span></div>
-<div class="card card-cyan"><strong>4. The Family Plan</strong><span class="sub">Action/comedy · Recently added.</span></div>
-<div class="card card-cyan"><strong>5. Killers of the Flower Moon</strong><span class="sub">Drama · Catalog staple.</span></div>
-<div class="card card-cyan"><strong>6. Napoleon</strong><span class="sub">Drama · Catalog staple.</span></div>
-<div class="card card-cyan"><strong>7. Argylle</strong><span class="sub">Spy · Catalog staple.</span></div>
-<div class="card card-cyan"><strong>8. Tetris</strong><span class="sub">Drama · Catalog staple.</span></div>
-<div class="card card-cyan"><strong>9. Ghosted</strong><span class="sub">Romance/action · Catalog staple.</span></div>
-<div class="card card-cyan"><strong>10. CODA</strong><span class="sub">Drama · Best Picture winner, anchor of the platform.</span></div>
+<div class="card card-cyan"><strong>Propeller One-Way Night Coach</strong><span class="sub">Drama · Added May 29 · Apple Original Film. <span class="note">Newest</span></span></div>
 </div>
-
-<div class="sub-label">Coming Soon</div>
+<div class="sub-label">Leaving Soon</div>
 <div class="cards-grid">
-<div class="card card-cyan"><strong>Severance Season 3</strong><span class="sub">In production · Filming April–Dec 2026; expected June 2027 (September possible).</span></div>
+<div class="card card-cyan"><strong>Originals stay put</strong><span class="sub">Apple TV+ is almost entirely originals, so titles rarely expire; no verified departures at this run's fetch time.</span></div>
 </div>
-
 </section>
 
-<!-- ===================== PRIME VIDEO ===================== -->
 <section class="section-group">
 <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🅿️ Prime Video</span><span class="divider-line"></span></div>
-
 <div class="sub-label">Not to Be Missed</div>
 <div class="cards-grid">
-<div class="card card-orange"><strong>Reacher (catalog through S3)</strong><span class="sub">Already renewed for S5 ahead of S4's premiere — the action thriller remains Prime's tentpole.</span></div>
-<div class="card card-orange"><strong>Jack Ryan: Shadow War</strong><span class="sub">Movie continuation of the Jack Ryan series.</span></div>
+<div class="card card-orange"><strong>The Boys — series finale</strong><span class="sub">Superhero satire · Aired May 20 · The blood-soaked saga ends after its run as one of Prime's signature shows.</span></div>
+<div class="card card-orange"><strong>Spider-Noir</strong><span class="sub">Superhero · An aging, down-on-his-luck PI in 1930s New York reckons with his past as the city's only hero.</span></div>
+<div class="card card-orange"><strong>Good Omens 3</strong><span class="sub">Fantasy comedy · Premiered May 13 · The Aziraphale-and-Crowley finale chapter.</span></div>
 </div>
-
 <div class="sub-label">Most Popular Right Now (Series)</div>
 <div class="cards-grid">
-<div class="card card-orange"><strong>Reacher</strong><span class="sub">Action · S4 imminent; S5 already renewed.</span></div>
-<div class="card card-orange"><strong>Jury Duty</strong><span class="sub">Comedy · Just renewed for S3.</span></div>
-<div class="card card-orange"><strong>Fallout</strong><span class="sub">Sci-fi · Continuing to draw viewers post-finale.</span></div>
+<div class="card card-orange"><strong>Tom Clancy's Jack Ryan: Ghost War</strong><span class="sub">Thriller · Continues the CIA-analyst franchise.</span></div>
+<div class="card card-orange"><strong>Spider-Noir</strong><span class="sub">Superhero · Buzzy new noir series.</span></div>
+<div class="card card-orange"><strong>Off Campus</strong><span class="sub">Romantic drama · Follows a college hockey team and its tangled romances.</span></div>
 </div>
-
-<div class="sub-label">Most Popular Movies (Top 10)</div>
+<div class="sub-label">Most Popular Movies</div>
 <div class="cards-grid">
-<div class="card card-orange"><strong>1. Sinners</strong><span class="sub">Horror · 2h 17m · Academy Award winner now on Prime.</span></div>
-<div class="card card-orange"><strong>2. Civil War</strong><span class="sub">Action/drama · 1h 49m · Alex Garland's war film.</span></div>
-<div class="card card-orange"><strong>3. Despicable Me 4</strong><span class="sub">Animated · 1h 34m · Family hit.</span></div>
-<div class="card card-orange"><strong>4. Jack Ryan: Shadow War</strong><span class="sub">Action · Movie continuation; Prime Original.</span></div>
-<div class="card card-orange"><strong>5. Crime 101</strong><span class="sub">Crime thriller · Classic-style Prime original.</span></div>
-<div class="card card-orange"><strong>6. The Idea of You</strong><span class="sub">Romance · 1h 55m · Anne Hathaway, Nicholas Galitzine.</span></div>
-<div class="card card-orange"><strong>7. Saltburn</strong><span class="sub">Drama · 2h 11m · Emerald Fennell's Prime hit.</span></div>
-<div class="card card-orange"><strong>8. Air</strong><span class="sub">Drama · 1h 52m · Affleck's Nike origin story.</span></div>
-<div class="card card-orange"><strong>9. Mamma Mia!</strong><span class="sub">Musical · 1h 48m · Available May 1.</span></div>
-<div class="card card-orange"><strong>10. Scarface</strong><span class="sub">Crime · 2h 50m · Newly added.</span></div>
+<div class="card card-orange"><strong>1. One Battle After Another</strong><span class="sub">Drama · Best Picture and Best Director Oscar winner, a top Prime film draw. <span class="note">Top this week</span></span></div>
+<div class="card card-orange"><strong>2. Blink Twice</strong><span class="sub">Thriller · Zoë Kravitz's directorial debut — women on a billionaire's island uncover something sinister.</span></div>
 </div>
-
 <div class="sub-label">What's New (Series)</div>
 <div class="cards-grid">
-<div class="card card-orange"><strong>Clarkson's Farm Season 5</strong><span class="sub">Premieres June 3 · Diddly Squat returns.</span></div>
-<div class="card card-orange"><strong>The Legend of Vox Machina Season 4</strong><span class="sub">Premieres June 3 · Animated Critical Role series.</span></div>
+<div class="card card-orange"><strong>Spider-Noir</strong><span class="sub">Superhero · New series debut.</span></div>
+<div class="card card-orange"><strong>Good Omens 3</strong><span class="sub">Fantasy · Premiered May 13.</span></div>
 </div>
-
-<div class="sub-label">New Movie Additions (Top 10)</div>
+<div class="sub-label">New Movie Additions</div>
 <div class="cards-grid">
-<div class="card card-orange"><strong>1. Jack Ryan: Shadow War</strong><span class="sub">Action · Newly released Prime Original.</span></div>
-<div class="card card-orange"><strong>2. Crime 101</strong><span class="sub">Crime · Newly added.</span></div>
-<div class="card card-orange"><strong>3. Sinners</strong><span class="sub">Horror · Just rotated in.</span></div>
-<div class="card card-orange"><strong>4. Civil War</strong><span class="sub">Drama · Recently added.</span></div>
-<div class="card card-orange"><strong>5. Despicable Me 4</strong><span class="sub">Animated · Recently rotated to streaming.</span></div>
-<div class="card card-orange"><strong>6. Mamma Mia!</strong><span class="sub">Musical · Added May 1.</span></div>
-<div class="card card-orange"><strong>7. Beginners</strong><span class="sub">Drama · Added May 1.</span></div>
-<div class="card card-orange"><strong>8. Scarface</strong><span class="sub">Crime · Recently added.</span></div>
-<div class="card card-orange"><strong>9. Get Shorty</strong><span class="sub">Comedy · 1h 45m · Newly added.</span></div>
-<div class="card card-orange"><strong>10. Babe</strong><span class="sub">Family · 1h 31m · Newly added.</span></div>
+<div class="card card-orange"><strong>One Battle After Another</strong><span class="sub">Drama · Recently added · Multi-Oscar winner. <span class="note">Newest</span></span></div>
+<div class="card card-orange"><strong>Blink Twice</strong><span class="sub">Thriller · Recently added · Zoë Kravitz's debut.</span></div>
 </div>
-
-<div class="sub-label">Coming Soon</div>
+<div class="sub-label">Leaving Soon</div>
 <div class="cards-grid">
-<div class="card card-orange"><strong>Every Year After</strong><span class="sub">Coming in June 2026.</span></div>
-<div class="card card-orange"><strong>See You at Work Tomorrow!</strong><span class="sub">Korean workplace romance · June 22.</span></div>
-<div class="card card-orange"><strong>Your Fault: London</strong><span class="sub">Coming in June 2026.</span></div>
+<div class="card card-orange"><strong>Monthly rotation</strong><span class="sub">Prime Video cycles licensed films out each month; a verified June title list wasn't available at this run's fetch — check "Leaving Soon" in-app.</span></div>
 </div>
-
 </section>
 
-<!-- ===================== PARAMOUNT+ ===================== -->
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🅿️➕ Paramount+</span><span class="divider-line"></span></div>
-
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">⛰️ Paramount+</span><span class="divider-line"></span></div>
 <div class="sub-label">Not to Be Missed</div>
 <div class="cards-grid">
-<div class="card card-magenta"><strong>Dutton Ranch</strong><span class="sub">12.9M viewers in week one — biggest original debut in Paramount+ history. Kelly Reilly &amp; Cole Hauser headline.</span></div>
-<div class="card card-magenta"><strong>Criminal Minds: Evolution S19</strong><span class="sub">Premieres May 28; already renewed for Season 20.</span></div>
+<div class="card card-magenta"><strong>Dutton Ranch</strong><span class="sub">Western drama · The newest <em>Yellowstone</em> spin-off: Beth (Kelly Reilly) and Rip (Cole Hauser) leave Montana to run a ranch in South Texas.</span></div>
+<div class="card card-magenta"><strong>Criminal Minds: Evolution — S19</strong><span class="sub">Crime · Premiered May 28 · The BAU returns for new federal cases (and a Season 20 is already ordered).</span></div>
+<div class="card card-magenta"><strong>RuPaul's Drag Race All Stars</strong><span class="sub">Reality competition · A fresh All Stars run anchors the month.</span></div>
 </div>
-
 <div class="sub-label">Most Popular Right Now (Series)</div>
 <div class="cards-grid">
-<div class="card card-magenta"><strong>Dutton Ranch</strong><span class="sub">Drama · Record-breaking Yellowstone spin-off.</span></div>
-<div class="card card-magenta"><strong>RuPaul's Drag Race All Stars S11</strong><span class="sub">Premiered May 8.</span></div>
-<div class="card card-magenta"><strong>Criminal Minds: Evolution S19</strong><span class="sub">Premieres May 28.</span></div>
-<div class="card card-magenta"><strong>The Chi (Final Season)</strong><span class="sub">Premieres May 22 · Season 8 wraps the series.</span></div>
+<div class="card card-magenta"><strong>Dutton Ranch</strong><span class="sub">Western · The month's headline release.</span></div>
+<div class="card card-magenta"><strong>Criminal Minds: Evolution S19</strong><span class="sub">Crime · Premiered May 28.</span></div>
+<div class="card card-magenta"><strong>RuPaul's Drag Race All Stars</strong><span class="sub">Reality · Ongoing.</span></div>
 </div>
-
-<div class="sub-label">Most Popular Movies (Top 10)</div>
+<div class="sub-label">Most Popular Movies</div>
 <div class="cards-grid">
-<div class="card card-magenta"><strong>1. Scream 7</strong><span class="sub">Horror · 1h 51m · Arrives May 28 — major streaming debut.</span></div>
-<div class="card card-magenta"><strong>2. Top Gun: Maverick</strong><span class="sub">Action · 2h 11m · Anchor of the catalog.</span></div>
-<div class="card card-magenta"><strong>3. Quantum of Solace</strong><span class="sub">Action · 1h 46m · Added May 1.</span></div>
-<div class="card card-magenta"><strong>4. Beverly Hills Cop</strong><span class="sub">Comedy · 1h 45m · Added May 1.</span></div>
-<div class="card card-magenta"><strong>5. Beverly Hills Cop II</strong><span class="sub">Comedy · 1h 42m · Added May 1.</span></div>
-<div class="card card-magenta"><strong>6. Beverly Hills Cop III</strong><span class="sub">Comedy · 1h 44m · Added May 1.</span></div>
-<div class="card card-magenta"><strong>7. Crocodile Dundee</strong><span class="sub">Comedy · 1h 37m · Added May 1.</span></div>
-<div class="card card-magenta"><strong>8. Crocodile Dundee II</strong><span class="sub">Comedy · 1h 48m · Added May 1.</span></div>
-<div class="card card-magenta"><strong>9. Crocodile Dundee in Los Angeles</strong><span class="sub">Comedy · 1h 35m · Added May 1.</span></div>
-<div class="card card-magenta"><strong>10. Mission: Impossible — Dead Reckoning</strong><span class="sub">Action · 2h 43m · Catalog blockbuster.</span></div>
+<div class="card card-magenta"><strong>1. The Hunt for Red October</strong><span class="sub">Thriller · Among the big catalog films added this month. <span class="note">Library add</span></span></div>
+<div class="card card-magenta"><strong>2. Beverly Hills Cop</strong><span class="sub">Action-comedy · The full trilogy joined Paramount+ in May.</span></div>
+<div class="card card-magenta"><strong>3. Crocodile Dundee</strong><span class="sub">Comedy · The complete trilogy added this month.</span></div>
+<div class="card card-magenta"><strong>4. Swingers</strong><span class="sub">Comedy · '90s cult favorite, newly added.</span></div>
+<div class="card card-magenta"><strong>5. Harold &amp; Kumar Go to White Castle</strong><span class="sub">Comedy · Stoner-classic addition.</span></div>
 </div>
-
 <div class="sub-label">What's New (Series)</div>
 <div class="cards-grid">
-<div class="card card-magenta"><strong>Battlestar Galactica (2005–2009)</strong><span class="sub">All four seasons + miniseries + The Plan film · Added starting May 1.</span></div>
-<div class="card card-magenta"><strong>Zatima Season 4</strong><span class="sub">Tyler Perry · New season this month.</span></div>
-<div class="card card-magenta"><strong>SkyMed Season 4</strong><span class="sub">Premiered May 21.</span></div>
+<div class="card card-magenta"><strong>Dutton Ranch</strong><span class="sub">Western · New <em>Yellowstone</em> spin-off.</span></div>
+<div class="card card-magenta"><strong>Criminal Minds: Evolution S19</strong><span class="sub">Crime · Premiered May 28.</span></div>
 </div>
-
-<div class="sub-label">New Movie Additions (Top 10)</div>
+<div class="sub-label">New Movie Additions</div>
 <div class="cards-grid">
-<div class="card card-magenta"><strong>1. Scream 7</strong><span class="sub">Horror · Premieres May 28.</span></div>
-<div class="card card-magenta"><strong>2. Quantum of Solace</strong><span class="sub">Action · Added May 1.</span></div>
-<div class="card card-magenta"><strong>3. Beverly Hills Cop</strong><span class="sub">Comedy · Added May 1.</span></div>
-<div class="card card-magenta"><strong>4. Beverly Hills Cop II</strong><span class="sub">Comedy · Added May 1.</span></div>
-<div class="card card-magenta"><strong>5. Beverly Hills Cop III</strong><span class="sub">Comedy · Added May 1.</span></div>
-<div class="card card-magenta"><strong>6. Crocodile Dundee</strong><span class="sub">Comedy · Added May 1.</span></div>
-<div class="card card-magenta"><strong>7. Crocodile Dundee II</strong><span class="sub">Comedy · Added May 1.</span></div>
-<div class="card card-magenta"><strong>8. Crocodile Dundee in Los Angeles</strong><span class="sub">Comedy · Added May 1.</span></div>
-<div class="card card-magenta"><strong>9. The Plan (Battlestar Galactica)</strong><span class="sub">Sci-fi TV film · Added May 1.</span></div>
-<div class="card card-magenta"><strong>10. Top Gun: Maverick</strong><span class="sub">Action · Recently rotated back in.</span></div>
+<div class="card card-magenta"><strong>Beverly Hills Cop trilogy</strong><span class="sub">Action-comedy · Added in May (82-title catalog wave). <span class="note">Newest</span></span></div>
+<div class="card card-magenta"><strong>Crocodile Dundee trilogy</strong><span class="sub">Comedy · Added in May.</span></div>
+<div class="card card-magenta"><strong>The Hunt for Red October</strong><span class="sub">Thriller · Added in May.</span></div>
+<div class="card card-magenta"><strong>Swingers</strong><span class="sub">Comedy · Added in May.</span></div>
+<div class="card card-magenta"><strong>Harold &amp; Kumar Go to White Castle</strong><span class="sub">Comedy · Added in May.</span></div>
 </div>
-
-<div class="sub-label">Coming Soon</div>
+<div class="sub-label">Leaving Soon</div>
 <div class="cards-grid">
-<div class="card card-magenta"><strong>All the Queen's Men (Final Season)</strong><span class="sub">Season 5 hits Paramount+ in June.</span></div>
+<div class="card card-magenta"><strong>Catalog rotation</strong><span class="sub">No verified June departure list at this run's fetch time — Paramount+ added 82 titles this month, so the focus is arrivals.</span></div>
 </div>
-
 </section>
 
-<!-- ===================== PEACOCK ===================== -->
 <section class="section-group">
 <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🦚 Peacock</span><span class="divider-line"></span></div>
-
 <div class="sub-label">Not to Be Missed</div>
 <div class="cards-grid">
-<div class="card card-yellow"><strong>M.I.A.</strong><span class="sub">Peacock Original · Premiered May 7. Miami woman on a vengeance quest after her family's drug business is destroyed.</span></div>
-<div class="card card-yellow"><strong>Kill Bill: The Whole Bloody Affair</strong><span class="sub">Premieres May 22 · Tarantino's full-length, single-film version of Kill Bill — Peacock Exclusive.</span></div>
+<div class="card card-yellow"><strong>M.I.A</strong><span class="sub">Crime thriller · Nine episodes from <em>Ozark</em>'s Bill Dubuque · A Miami woman seeks revenge against those who destroyed her family's drug business.</span></div>
+<div class="card card-yellow"><strong>Another Man's Wife</strong><span class="sub">Drama · Peacock exclusive premiere starring Taye Diggs.</span></div>
+<div class="card card-yellow"><strong>Tarantino collection</strong><span class="sub">Films · Kill Bill: The Whole Bloody Affair plus seven more Tarantino titles arrived May 22.</span></div>
 </div>
-
 <div class="sub-label">Most Popular Right Now (Series)</div>
 <div class="cards-grid">
-<div class="card card-yellow"><strong>M.I.A.</strong><span class="sub">Crime · Standout new original.</span></div>
-<div class="card card-yellow"><strong>Chicago Fire (season finale)</strong><span class="sub">NBC drama wrapping its current season.</span></div>
-<div class="card card-yellow"><strong>Law &amp; Order: SVU (season finale)</strong><span class="sub">NBC drama finale this month.</span></div>
-<div class="card card-yellow"><strong>The Hunting Party (season finale)</strong><span class="sub">NBC drama wrapping its season.</span></div>
+<div class="card card-yellow"><strong>M.I.A</strong><span class="sub">Crime · The month's biggest Peacock original.</span></div>
+<div class="card card-yellow"><strong>NBC season finales</strong><span class="sub">Chicago Fire, Law &amp; Order: SVU and The Hunting Party all wrap their seasons, streaming next-day.</span></div>
 </div>
-
-<div class="sub-label">Most Popular Movies (Top 10)</div>
+<div class="sub-label">Most Popular Movies</div>
 <div class="cards-grid">
-<div class="card card-yellow"><strong>1. Kill Bill: The Whole Bloody Affair</strong><span class="sub">Action · 4h 0m · Tarantino's never-before-streamed full cut — May 22.</span></div>
-<div class="card card-yellow"><strong>2. Oppenheimer</strong><span class="sub">Drama · 3h 0m · Catalog staple on Peacock.</span></div>
-<div class="card card-yellow"><strong>3. The Holdovers</strong><span class="sub">Drama · 2h 13m · Critically beloved.</span></div>
-<div class="card card-yellow"><strong>4. Twisters</strong><span class="sub">Action · 2h 2m · Catalog hit.</span></div>
-<div class="card card-yellow"><strong>5. Wicked</strong><span class="sub">Musical · 2h 40m · Holiday hit added earlier.</span></div>
-<div class="card card-yellow"><strong>6. Migration</strong><span class="sub">Animated · 1h 31m · Family staple.</span></div>
-<div class="card card-yellow"><strong>7. Five Nights at Freddy's</strong><span class="sub">Horror · 1h 49m · Peacock Original.</span></div>
-<div class="card card-yellow"><strong>8. Knock at the Cabin</strong><span class="sub">Horror · 1h 40m · M. Night Shyamalan.</span></div>
-<div class="card card-yellow"><strong>9. Nope</strong><span class="sub">Horror · 2h 10m · Peele on rotation.</span></div>
-<div class="card card-yellow"><strong>10. The Super Mario Bros. Movie</strong><span class="sub">Animated · 1h 32m · Family go-to.</span></div>
+<div class="card card-yellow"><strong>1. Kill Bill: The Whole Bloody Affair</strong><span class="sub">Action · Added May 22 · Both Kill Bill films merged into one continuous cut. <span class="note">New this month</span></span></div>
+<div class="card card-yellow"><strong>2. Django Unchained</strong><span class="sub">Western · Added May 22.</span></div>
+<div class="card card-yellow"><strong>3. Inglourious Basterds</strong><span class="sub">War · Added May 22.</span></div>
+<div class="card card-yellow"><strong>4. The Hateful Eight</strong><span class="sub">Western · Added May 22.</span></div>
+<div class="card card-yellow"><strong>5. Jackie Brown</strong><span class="sub">Crime · Added May 22.</span></div>
+<div class="card card-yellow"><strong>6. Reservoir Dogs</strong><span class="sub">Crime · Added May 22.</span></div>
+<div class="card card-yellow"><strong>7. Death Proof</strong><span class="sub">Thriller · Added May 22.</span></div>
+<div class="card card-yellow"><strong>8. Planet Terror</strong><span class="sub">Horror · Added May 22.</span></div>
+<div class="card card-yellow"><strong>9. Mechanic: Resurrection</strong><span class="sub">Action · Jason Statham and Jessica Alba, added to kick off the month.</span></div>
 </div>
-
 <div class="sub-label">What's New (Series)</div>
 <div class="cards-grid">
-<div class="card card-yellow"><strong>M.I.A.</strong><span class="sub">Premiered May 7 · Peacock Original.</span></div>
-<div class="card card-yellow"><strong>Another Man's Wife</strong><span class="sub">Premiered May 8 · Peacock Exclusive.</span></div>
-<div class="card card-yellow"><strong>Love Island: Beyond the Villa</strong><span class="sub">Season 2 finale aired May 6.</span></div>
+<div class="card card-yellow"><strong>M.I.A</strong><span class="sub">Crime thriller · New Peacock original.</span></div>
+<div class="card card-yellow"><strong>Another Man's Wife</strong><span class="sub">Drama · Taye Diggs exclusive.</span></div>
 </div>
-
-<div class="sub-label">New Movie Additions (Top 10)</div>
+<div class="sub-label">New Movie Additions</div>
 <div class="cards-grid">
-<div class="card card-yellow"><strong>1. Kill Bill: The Whole Bloody Affair</strong><span class="sub">Action · Premieres May 22.</span></div>
-<div class="card card-yellow"><strong>2. Wicked</strong><span class="sub">Musical · Recently added.</span></div>
-<div class="card card-yellow"><strong>3. Twisters</strong><span class="sub">Action · Recently rotated in.</span></div>
-<div class="card card-yellow"><strong>4. Migration</strong><span class="sub">Animated · Recently added.</span></div>
-<div class="card card-yellow"><strong>5. The Holdovers</strong><span class="sub">Drama · Recently added.</span></div>
-<div class="card card-yellow"><strong>6. Oppenheimer</strong><span class="sub">Drama · Recently rotated in.</span></div>
-<div class="card card-yellow"><strong>7. Five Nights at Freddy's</strong><span class="sub">Horror · Peacock Original.</span></div>
-<div class="card card-yellow"><strong>8. Knock at the Cabin</strong><span class="sub">Horror · Recently rotated.</span></div>
-<div class="card card-yellow"><strong>9. The Super Mario Bros. Movie</strong><span class="sub">Animated · Recently added.</span></div>
-<div class="card card-yellow"><strong>10. Nope</strong><span class="sub">Horror · Recently rotated.</span></div>
+<div class="card card-yellow"><strong>Kill Bill: The Whole Bloody Affair</strong><span class="sub">Action · Added May 22. <span class="note">Newest</span></span></div>
+<div class="card card-yellow"><strong>Django Unchained</strong><span class="sub">Western · Added May 22.</span></div>
+<div class="card card-yellow"><strong>Inglourious Basterds</strong><span class="sub">War · Added May 22.</span></div>
+<div class="card card-yellow"><strong>The Hateful Eight</strong><span class="sub">Western · Added May 22.</span></div>
+<div class="card card-yellow"><strong>Jackie Brown · Reservoir Dogs · Death Proof · Planet Terror</strong><span class="sub">Tarantino catalog · All added May 22.</span></div>
+<div class="card card-yellow"><strong>Mechanic: Resurrection</strong><span class="sub">Action · Added early May.</span></div>
 </div>
-
-<div class="sub-label">Note</div>
+<div class="sub-label">Leaving Soon</div>
 <div class="cards-grid">
-<div class="card card-yellow"><strong>Light month for originals</strong><span class="sub">M.I.A. is the standout — overall Peacock has a quieter May before NBC fall ramp-up.</span></div>
+<div class="card card-yellow"><strong>Rotation</strong><span class="sub">No verified June departure list at this run's fetch time — check Peacock's "Last Chance" row.</span></div>
 </div>
-
 </section>
 
-<!-- ===================== BRITBOX / ACORN TV ===================== -->
 <section class="section-group">
 <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🇬🇧 BritBox &amp; Acorn TV</span><span class="divider-line"></span></div>
-
 <div class="sub-label">Not to Be Missed</div>
 <div class="cards-grid">
-<div class="card card-lblue"><strong>You're Killing Me</strong><span class="sub">Acorn TV · Premiered May 18. Brooke Shields stars as a New England mystery writer who solves crimes — Acorn's first cozy crime set stateside.</span></div>
-<div class="card card-lblue"><strong>QI Series W (Season 24)</strong><span class="sub">BritBox · All episodes drop May 25 — Sandi Toksvig's all-binge release.</span></div>
+<div class="card card-lblue"><strong>Twenty Twenty Six (BritBox)</strong><span class="sub">Comedy · Premiered May 1 · Hugh Bonneville reprises his <em>W1A</em> role.</span></div>
+<div class="card card-lblue"><strong>The Other Bennet Sister (BritBox)</strong><span class="sub">Period drama · Premiered May 6 · <em>Pride and Prejudice</em> reframed through Mary Bennet's eyes.</span></div>
+<div class="card card-lblue"><strong>Summerwater (Acorn TV)</strong><span class="sub">Drama · Premiered May 25 · Part of Acorn's "Murder Mystery May."</span></div>
 </div>
-
 <div class="sub-label">Most Popular Right Now (Series)</div>
 <div class="cards-grid">
-<div class="card card-lblue"><strong>You're Killing Me</strong><span class="sub">Acorn · Cozy crime · Weekly through mid-June.</span></div>
-<div class="card card-lblue"><strong>The Other Bennet Sister</strong><span class="sub">BritBox · Pride &amp; Prejudice through Mary Bennet's lens — premiered May 6.</span></div>
-<div class="card card-lblue"><strong>Twenty Twenty Six</strong><span class="sub">BritBox · Hugh Bonneville's W1A satire returns May 1.</span></div>
-<div class="card card-lblue"><strong>Dead &amp; Buried</strong><span class="sub">Acorn · Weekly mystery; launched May 4.</span></div>
+<div class="card card-lblue"><strong>You're Killing Me (Acorn)</strong><span class="sub">Mystery · Premiered May 18 · Starring Brooke Shields.</span></div>
+<div class="card card-lblue"><strong>Dead &amp; Buried (Acorn)</strong><span class="sub">Mystery · Premiered May 4.</span></div>
+<div class="card card-lblue"><strong>The Island (Acorn)</strong><span class="sub">Gaelic drama · Premiered May 11.</span></div>
+<div class="card card-lblue"><strong>QI Series W (BritBox)</strong><span class="sub">Comedy panel · All episodes dropped May 25.</span></div>
 </div>
-
-<div class="sub-label">Most Popular Movies (Top 10)</div>
+<div class="sub-label">Most Popular Movies</div>
 <div class="cards-grid">
-<div class="card card-lblue"><strong>1. Murder on the Orient Express (BritBox catalog)</strong><span class="sub">Mystery · 1h 54m · Classic mystery film rotation.</span></div>
-<div class="card card-lblue"><strong>2. Death on the Nile (BritBox catalog)</strong><span class="sub">Mystery · 2h 8m · Companion to Orient Express.</span></div>
-<div class="card card-lblue"><strong>3. Brideshead Revisited (BritBox catalog)</strong><span class="sub">Drama · 2h 13m · Period film catalog mainstay.</span></div>
-<div class="card card-lblue"><strong>4. The Lavender List (Acorn catalog)</strong><span class="sub">Political drama · 1h 30m · Acorn original film.</span></div>
-<div class="card card-lblue"><strong>5. A Christmas Carol (BritBox catalog)</strong><span class="sub">Drama · 1h 30m · BBC drama catalog.</span></div>
-<div class="card card-lblue"><strong>6. The Importance of Being Earnest (BritBox catalog)</strong><span class="sub">Comedy · 1h 30m · Wilde adaptation.</span></div>
-<div class="card card-lblue"><strong>7. Wuthering Heights (1992) (BritBox catalog)</strong><span class="sub">Drama · 1h 45m · Period romance.</span></div>
-<div class="card card-lblue"><strong>8. Anne of Avonlea (Acorn catalog)</strong><span class="sub">Drama · 3h 4m · Anne of Green Gables sequel film.</span></div>
-<div class="card card-lblue"><strong>9. North &amp; South (Acorn catalog)</strong><span class="sub">Drama · 4h 0m · Gaskell adaptation.</span></div>
-<div class="card card-lblue"><strong>10. Cranford (Acorn catalog)</strong><span class="sub">Drama · 5h 0m · Period favorite.</span></div>
+<div class="card card-lblue"><strong>1. The Nightingale (Acorn)</strong><span class="sub">Mystery film · Friday "Murder Mystery May" feature, May 29. <span class="note">New</span></span></div>
+<div class="card card-lblue"><strong>2. The Limehouse Golem (Acorn)</strong><span class="sub">Mystery thriller · "Murder Mystery May" film, added May 1.</span></div>
 </div>
-
 <div class="sub-label">What's New (Series)</div>
 <div class="cards-grid">
-<div class="card card-lblue"><strong>Twenty Twenty Six</strong><span class="sub">BritBox · Premiered May 1 — W1A satire reboot.</span></div>
-<div class="card card-lblue"><strong>The Other Bennet Sister</strong><span class="sub">BritBox · Premiered May 6 — Austen reframed.</span></div>
-<div class="card card-lblue"><strong>I Literally Just Told You S3</strong><span class="sub">BritBox · Five-episode binge May 11.</span></div>
-<div class="card card-lblue"><strong>Dead &amp; Buried</strong><span class="sub">Acorn · Launched May 4 weekly.</span></div>
-<div class="card card-lblue"><strong>The Island</strong><span class="sub">Acorn · Gaelic drama, premiered May 11.</span></div>
-<div class="card card-lblue"><strong>You're Killing Me</strong><span class="sub">Acorn · Premiered May 18 with Brooke Shields.</span></div>
-<div class="card card-lblue"><strong>Summerwater</strong><span class="sub">Acorn · Launched May 25.</span></div>
-<div class="card card-lblue"><strong>QI Series W</strong><span class="sub">BritBox · Full binge May 25.</span></div>
+<div class="card card-lblue"><strong>QI Series W (BritBox)</strong><span class="sub">Comedy · Full series dropped May 25.</span></div>
+<div class="card card-lblue"><strong>Summerwater (Acorn)</strong><span class="sub">Drama · Premiered May 25.</span></div>
+<div class="card card-lblue"><strong>After the Flood (BritBox)</strong><span class="sub">Drama · Concluded May 28.</span></div>
 </div>
-
-<div class="sub-label">New Movie Additions (Top 10)</div>
+<div class="sub-label">New Movie Additions</div>
 <div class="cards-grid">
-<div class="card card-lblue"><strong>1. Murder Mystery May (collection)</strong><span class="sub">Curated Acorn film/series collection for May — multiple titles refreshed.</span></div>
-<div class="card card-lblue"><strong>2. Legends</strong><span class="sub">BritBox · Newly added drama this month.</span></div>
-<div class="card card-lblue"><strong>3. The Lavender List</strong><span class="sub">Acorn · Catalog refresh.</span></div>
-<div class="card card-lblue"><strong>4. Cranford (refresh)</strong><span class="sub">Acorn · Catalog refresh.</span></div>
-<div class="card card-lblue"><strong>5. North &amp; South (refresh)</strong><span class="sub">Acorn · Catalog refresh.</span></div>
-<div class="card card-lblue"><strong>6. Anne of Avonlea (refresh)</strong><span class="sub">Acorn · Catalog refresh.</span></div>
-<div class="card card-lblue"><strong>7. Death on the Nile (refresh)</strong><span class="sub">BritBox · Catalog refresh.</span></div>
-<div class="card card-lblue"><strong>8. Murder on the Orient Express (refresh)</strong><span class="sub">BritBox · Catalog refresh.</span></div>
-<div class="card card-lblue"><strong>9. Brideshead Revisited (refresh)</strong><span class="sub">BritBox · Catalog refresh.</span></div>
-<div class="card card-lblue"><strong>10. A Christmas Carol (refresh)</strong><span class="sub">BritBox · Catalog refresh.</span></div>
+<div class="card card-lblue"><strong>The Nightingale</strong><span class="sub">Mystery · Added May 29 (Acorn). <span class="note">Newest</span></span></div>
+<div class="card card-lblue"><strong>The Limehouse Golem</strong><span class="sub">Mystery thriller · Added May 1 (Acorn).</span></div>
 </div>
-
-<div class="sub-label">Coming Soon</div>
+<div class="sub-label">Leaving Soon</div>
 <div class="cards-grid">
-<div class="card card-lblue"><strong>Murder Mystery May finale weeks</strong><span class="sub">Multiple weekly releases continue through June on Acorn.</span></div>
+<div class="card card-lblue"><strong>A Taste for Murder concluded</strong><span class="sub">BritBox · Wrapped its run May 5; no broader verified June departure list at this run's fetch time.</span></div>
 </div>
-
 </section>
 
-<div class="callout">
-<strong>Freshness note:</strong> Movie additions on BritBox &amp; Acorn TV are sparser than on the major US streamers — for those services the "New Movie Additions" list reflects May's full Murder Mystery May collection refresh plus catalog adds. Series remain the focus there.
-</div>
-
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Fri, May 29 at 4:03 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Fri, May 29 at 4:04 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
 <script>
-function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=dateStr+' · '+timeStr;}
+function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
 updateClock();setInterval(updateClock,1000);
 </script>
 </body>
