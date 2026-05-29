@@ -48,10 +48,6 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 .card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
   background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
   border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
-.card .readmore{display:inline-block;margin-top:.55rem;font-family:'Baloo 2';font-weight:700;
-  font-size:.85rem;color:#1f2440;text-decoration:underline;text-decoration-color:var(--accent,#ff5c8a);
-  text-decoration-thickness:2px;text-underline-offset:3px}
-.card .readmore:hover{color:#ff5c8a}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
 .card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
 .card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
@@ -82,6 +78,12 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 .footer-clock{margin-top:.4rem;color:#ff5c8a}
 .timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
   font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
+.read-more{font-weight:800;color:#ff5c8a !important;border-bottom:2px solid #ff5c8a !important}
+@media (max-width:600px){
+  h1{font-size:2.4rem}
+  main{padding:1rem .9rem 3rem}
+  .card{padding:1rem 1.1rem}
+}
 .day-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;}
 .day-tab{cursor:pointer;padding:8px 14px;border-radius:12px;border:2px solid #ffd1df;background:#fff;font:inherit;font-size:0.95rem;line-height:1.2;text-align:center;color:#333;}
 .day-tab span{display:block;font-size:0.72rem;opacity:.7;}
@@ -89,12 +91,7 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 .day-tab.active span{opacity:.95;}
 .day-pane{display:none;}
 .day-pane.active{display:block;}
-.day-empty{padding:12px 14px;border:2px dashed #ffd1df;border-radius:12px;color:#666;font-size:0.95rem;margin-bottom:1rem;}
-@media (max-width:600px){
-  h1{font-size:2.4rem}
-  main{padding:1rem .9rem 3rem}
-  .card{padding:1rem 1.1rem}
-}
+.day-empty{padding:12px 14px;border:2px dashed #ffd1df;border-radius:12px;color:#666;font-size:0.95rem;}
 </style>
 </head>
 <body>
@@ -107,11 +104,7 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 </header>
 <main>
 
-<div class="callout">
-<strong>Generated:</strong> Friday, May 29, 2026 at 8:52 AM ET · <strong>UTC:</strong> 2026-05-29 12:52.<br>
-All content fetched live this run — no cached data used.<br>
-<strong>Note on showtimes:</strong> Live, date-specific showtimes for the next 7 days could not be retrieved this run. The theater ticketing sites are JavaScript-rendered (they don't return listings to a direct fetch), the showtime aggregators that <em>are</em> readable (Moviefone, CinemaClock) were serving weeks-old cached data, and no live browser session was available to render the real pages. Per Lisa's strict freshness rule, no stale or guessed showtimes are shown below — instead each day links straight to the theater's official "Get Tickets" page for live times. Everything else on this page (now-playing films, streaming picks, and news) was pulled fresh this run.
-</div>
+<div class="callout"><strong>Generated:</strong> Fri, May 29 at 12:08 PM ET · 2026-05-29 16:08 UTC. All content fetched live this run — no cached data used. <em>Penn Cinema posted a full schedule for today; the two Regal theaters use JavaScript-rendered pages that couldn't be read live this unattended run, and the theaters haven't published days 2–7 this far ahead.</em></div>
 
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🎟️ Now Playing</span><span class="divider-line"></span></div>
@@ -127,74 +120,35 @@ All content fetched live this run — no cached data used.<br>
   </div>
 
   <div class="day-pane active" id="day0">
-    <div class="day-empty">Live showtimes for <strong>Fri, May 29</strong> couldn't be pulled this run (see note above). Tap a theater's <strong>Get Tickets</strong> link for current times.</div>
     <div class="sub-label">Penn Cinema Huntingdon Valley</div>
-    <p>2068 County Line Road, Huntingdon Valley, PA 19006 · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets →</a></p>
+    <p>2385 Heston Rd, Huntingdon Valley, PA · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets</a></p>
+    <table>
+      <tr><th>Movie</th><th>Rating</th><th>Runtime</th><th>Showtimes</th></tr>
+      <tr><td>The Sheep Detectives</td><td>PG-13</td><td>—</td><td>12:00, 2:20, 4:40, 6:40 PM</td></tr>
+      <tr><td>Billie Eilish – Hit Me Hard and Soft: The Tour (Live in 3D)</td><td>PG-13</td><td>—</td><td>12:10, 4:50, 7:20 PM</td></tr>
+      <tr><td>The Devil Wears Prada 2</td><td>PG-13</td><td>—</td><td>12:20, 1:30, 3:00, 4:10, 5:40, 6:50 PM</td></tr>
+      <tr><td>Michael</td><td>PG-13</td><td>—</td><td>12:30, 3:40, 7:00 PM</td></tr>
+      <tr><td>Mortal Kombat II</td><td>R</td><td>—</td><td>1:10, 4:00, 7:10 PM</td></tr>
+      <tr><td>The Super Mario Galaxy Movie</td><td>PG</td><td>—</td><td>1:20, 4:20 PM</td></tr>
+      <tr><td>Shrek: 25th Anniversary</td><td>PG</td><td>—</td><td>2:30 PM</td></tr>
+      <tr><td>That They May Be One</td><td>NR</td><td>—</td><td>7:00 PM</td></tr>
+    </table>
+
     <div class="sub-label">Regal Cinemas Warrington Crossing</div>
-    <p>104 Easton Rd, Warrington, PA 18976 · <a href="https://www.regmovies.com/theatres" target="_blank" rel="noopener">Get Tickets →</a></p>
+    <p>104 Easton Rd, Warrington, PA · <a href="https://www.regmovies.com/theatres" target="_blank" rel="noopener">Get Tickets</a> · <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">Theater page</a></p>
+    <div class="day-empty">Showtimes for this theater couldn't be retrieved live this run (the ticketing page is JavaScript-rendered). Tap the theater page above for today's full schedule.</div>
+
     <div class="sub-label">Regal Cinemas UA Oxford Valley</div>
-    <p>403 Middletown Blvd, Langhorne, PA 19047 · <a href="https://www.regmovies.com/theatres" target="_blank" rel="noopener">Get Tickets →</a></p>
+    <p>403 Middletown Blvd, Langhorne, PA · <a href="https://www.regmovies.com/theatres" target="_blank" rel="noopener">Get Tickets</a> · <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Theater page</a></p>
+    <div class="day-empty">Showtimes for this theater couldn't be retrieved live this run (the ticketing page is JavaScript-rendered). Tap the theater page above for today's full schedule.</div>
   </div>
 
-  <div class="day-pane" id="day1">
-    <div class="day-empty">Live showtimes for <strong>Sat, May 30</strong> couldn't be pulled this run. Tap a theater's <strong>Get Tickets</strong> link for current times.</div>
-    <div class="sub-label">Penn Cinema Huntingdon Valley</div>
-    <p>2068 County Line Road, Huntingdon Valley, PA 19006 · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets →</a></p>
-    <div class="sub-label">Regal Cinemas Warrington Crossing</div>
-    <p>104 Easton Rd, Warrington, PA 18976 · <a href="https://www.regmovies.com/theatres" target="_blank" rel="noopener">Get Tickets →</a></p>
-    <div class="sub-label">Regal Cinemas UA Oxford Valley</div>
-    <p>403 Middletown Blvd, Langhorne, PA 19047 · <a href="https://www.regmovies.com/theatres" target="_blank" rel="noopener">Get Tickets →</a></p>
-  </div>
-
-  <div class="day-pane" id="day2">
-    <div class="day-empty">Live showtimes for <strong>Sun, May 31</strong> couldn't be pulled this run. Tap a theater's <strong>Get Tickets</strong> link for current times.</div>
-    <div class="sub-label">Penn Cinema Huntingdon Valley</div>
-    <p>2068 County Line Road, Huntingdon Valley, PA 19006 · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets →</a></p>
-    <div class="sub-label">Regal Cinemas Warrington Crossing</div>
-    <p>104 Easton Rd, Warrington, PA 18976 · <a href="https://www.regmovies.com/theatres" target="_blank" rel="noopener">Get Tickets →</a></p>
-    <div class="sub-label">Regal Cinemas UA Oxford Valley</div>
-    <p>403 Middletown Blvd, Langhorne, PA 19047 · <a href="https://www.regmovies.com/theatres" target="_blank" rel="noopener">Get Tickets →</a></p>
-  </div>
-
-  <div class="day-pane" id="day3">
-    <div class="day-empty">Showtimes for <strong>Mon, Jun 1</strong> haven't been published by the theaters yet — and couldn't be pulled live this run. Check back closer to the day, or tap <strong>Get Tickets</strong> below.</div>
-    <div class="sub-label">Penn Cinema Huntingdon Valley</div>
-    <p>2068 County Line Road, Huntingdon Valley, PA 19006 · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets →</a></p>
-    <div class="sub-label">Regal Cinemas Warrington Crossing</div>
-    <p>104 Easton Rd, Warrington, PA 18976 · <a href="https://www.regmovies.com/theatres" target="_blank" rel="noopener">Get Tickets →</a></p>
-    <div class="sub-label">Regal Cinemas UA Oxford Valley</div>
-    <p>403 Middletown Blvd, Langhorne, PA 19047 · <a href="https://www.regmovies.com/theatres" target="_blank" rel="noopener">Get Tickets →</a></p>
-  </div>
-
-  <div class="day-pane" id="day4">
-    <div class="day-empty">Showtimes for <strong>Tue, Jun 2</strong> haven't been published by the theaters yet — and couldn't be pulled live this run. Check back closer to the day, or tap <strong>Get Tickets</strong> below.</div>
-    <div class="sub-label">Penn Cinema Huntingdon Valley</div>
-    <p>2068 County Line Road, Huntingdon Valley, PA 19006 · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets →</a></p>
-    <div class="sub-label">Regal Cinemas Warrington Crossing</div>
-    <p>104 Easton Rd, Warrington, PA 18976 · <a href="https://www.regmovies.com/theatres" target="_blank" rel="noopener">Get Tickets →</a></p>
-    <div class="sub-label">Regal Cinemas UA Oxford Valley</div>
-    <p>403 Middletown Blvd, Langhorne, PA 19047 · <a href="https://www.regmovies.com/theatres" target="_blank" rel="noopener">Get Tickets →</a></p>
-  </div>
-
-  <div class="day-pane" id="day5">
-    <div class="day-empty">Showtimes for <strong>Wed, Jun 3</strong> haven't been published by the theaters yet — and couldn't be pulled live this run. Check back closer to the day, or tap <strong>Get Tickets</strong> below.</div>
-    <div class="sub-label">Penn Cinema Huntingdon Valley</div>
-    <p>2068 County Line Road, Huntingdon Valley, PA 19006 · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets →</a></p>
-    <div class="sub-label">Regal Cinemas Warrington Crossing</div>
-    <p>104 Easton Rd, Warrington, PA 18976 · <a href="https://www.regmovies.com/theatres" target="_blank" rel="noopener">Get Tickets →</a></p>
-    <div class="sub-label">Regal Cinemas UA Oxford Valley</div>
-    <p>403 Middletown Blvd, Langhorne, PA 19047 · <a href="https://www.regmovies.com/theatres" target="_blank" rel="noopener">Get Tickets →</a></p>
-  </div>
-
-  <div class="day-pane" id="day6">
-    <div class="day-empty">Showtimes for <strong>Thu, Jun 4</strong> haven't been published by the theaters yet — and couldn't be pulled live this run. Check back closer to the day, or tap <strong>Get Tickets</strong> below.</div>
-    <div class="sub-label">Penn Cinema Huntingdon Valley</div>
-    <p>2068 County Line Road, Huntingdon Valley, PA 19006 · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets →</a></p>
-    <div class="sub-label">Regal Cinemas Warrington Crossing</div>
-    <p>104 Easton Rd, Warrington, PA 18976 · <a href="https://www.regmovies.com/theatres" target="_blank" rel="noopener">Get Tickets →</a></p>
-    <div class="sub-label">Regal Cinemas UA Oxford Valley</div>
-    <p>403 Middletown Blvd, Langhorne, PA 19047 · <a href="https://www.regmovies.com/theatres" target="_blank" rel="noopener">Get Tickets →</a></p>
-  </div>
+  <div class="day-pane" id="day1"><div class="day-empty">Showtimes for this date haven't been published by the theaters yet — check back closer to the day.</div></div>
+  <div class="day-pane" id="day2"><div class="day-empty">Showtimes for this date haven't been published by the theaters yet — check back closer to the day.</div></div>
+  <div class="day-pane" id="day3"><div class="day-empty">Showtimes for this date haven't been published by the theaters yet — check back closer to the day.</div></div>
+  <div class="day-pane" id="day4"><div class="day-empty">Showtimes for this date haven't been published by the theaters yet — check back closer to the day.</div></div>
+  <div class="day-pane" id="day5"><div class="day-empty">Showtimes for this date haven't been published by the theaters yet — check back closer to the day.</div></div>
+  <div class="day-pane" id="day6"><div class="day-empty">Showtimes for this date haven't been published by the theaters yet — check back closer to the day.</div></div>
 
   <script>
   (function(){
@@ -213,91 +167,66 @@ All content fetched live this run — no cached data used.<br>
 
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🍿 Now in Theaters</span><span class="divider-line"></span></div>
-  <p>Films broadly playing in the Bucks County area this week (pulled live this run from Fandango &amp; Rotten Tomatoes). Tap a title for full details and tickets.</p>
   <div class="cards-grid">
 
-    <div class="card card-pink"><strong><a href="https://www.rottentomatoes.com/m/star_wars_the_mandalorian_and_grogu" target="_blank" rel="noopener">Star Wars: The Mandalorian and Grogu</a></strong><span class="sub">PG-13 · Sci-fi adventure · <span class="note">#1 box office</span></span><span class="sub">Bounty hunter Din Djarin and his pint-sized companion Grogu navigate a galaxy still recovering from the fall of the Empire, in Jon Favreau's first Star Wars feature. Opened May 22 to a ~$98M domestic Memorial Day debut.</span></div>
+    <div class="card card-pink"><strong><a href="https://www.fandango.com/the-sheep-detectives-2026-236788/movie-overview" target="_blank" rel="noopener" style="color:inherit;border:none">🐑 The Sheep Detectives</a></strong><span class="sub">PG-13 · Mystery Comedy<br>In the village of Denbrook, a flock of sheep set out to solve the murder of their beloved shepherd — a Kyle Balda comedy based on the novel <em>Three Bags Full</em>, with Hugh Jackman.</span></div>
 
-    <div class="card card-purple"><strong><a href="https://en.wikipedia.org/wiki/The_Devil_Wears_Prada_2" target="_blank" rel="noopener">The Devil Wears Prada 2</a></strong><span class="sub">PG-13 · 1h59m · Comedy-drama</span><span class="sub">Two decades on, Andy Sachs (Anne Hathaway) is hired as features editor at a fading Runway — much to Miranda Priestly's (Meryl Streep) annoyance — as the magazine fights for survival against a former-assistant rival.</span></div>
+    <div class="card card-purple"><strong><a href="https://www.fandango.com/billie-eilish-hit-me-hard-and-soft-the-tour-2026-244882/movie-overview" target="_blank" rel="noopener" style="color:inherit;border:none">🎤 Billie Eilish – Hit Me Hard and Soft: The Tour (Live in 3D)</a></strong><span class="sub">PG-13 · Concert Film<br>James Cameron directs this 3D concert film capturing Eilish's Manchester stop on her seventh headlining tour.</span></div>
 
-    <div class="card card-cyan"><strong><a href="https://www.fandango.com/mortal-kombat-ii-2026-241451/movie-overview" target="_blank" rel="noopener">Mortal Kombat II</a></strong><span class="sub">R · 1h56m · Fantasy action</span><span class="sub">The video-game saga continues as Earthrealm's fighters face a new wave of Outworld threats, with Karl Urban joining the cast as Johnny Cage.</span></div>
+    <div class="card card-cyan"><strong>👜 The Devil Wears Prada 2</strong><span class="sub">PG-13 · Comedy/Drama<br>The blockbuster sequel reunites the <em>Runway</em> crew, opening to a career-best $77M (A- CinemaScore). Meryl Streep and Anne Hathaway return.</span></div>
 
-    <div class="card card-yellow"><strong><a href="https://www.fandango.com/michael-2026-243301/movie-overview" target="_blank" rel="noopener">Michael</a></strong><span class="sub">PG-13 · 2h07m · Musical biopic</span><span class="sub">The long-awaited Michael Jackson biopic, with Jaafar Jackson portraying the King of Pop across the highs and controversies of his career.</span></div>
+    <div class="card card-yellow"><strong>🕺 Michael</strong><span class="sub">PG-13 · Biography<br>A biopic tracing Michael Jackson's life from the Jackson 5 to global superstardom and the height of his fame.</span></div>
 
-    <div class="card card-green"><strong><a href="https://www.moviefone.com/movie/untitled-the-super-mario-bros-movie-sequel/scNm2cdIP2SiSm2TtS8Op3/main/" target="_blank" rel="noopener">The Super Mario Galaxy Movie</a></strong><span class="sub">PG · 1h38m · Animation</span><span class="sub">Mario, Peach and friends rocket beyond the Mushroom Kingdom into the cosmos in this animated sequel. Voice cast includes Chris Pratt and Anya Taylor-Joy.</span></div>
+    <div class="card card-orange"><strong>🐉 Mortal Kombat II</strong><span class="sub">R · Action Fantasy<br>Johnny Cage joins Earthrealm's fighters in an interdimensional tournament against Outworld to stop the tyrannical Shao Kahn.</span></div>
 
-    <div class="card card-magenta"><strong><a href="https://www.rottentomatoes.com/m/obsession_2025" target="_blank" rel="noopener">Obsession</a></strong><span class="sub">R · Horror · <span class="note">95% critics</span></span><span class="sub">In Curry Barker's Blumhouse/Focus chiller, a lovestruck young man breaks a novelty "One Wish Willow" wishing his crush would love him — and a volatile entity takes her place.</span></div>
+    <div class="card card-green"><strong>🍄 The Super Mario Galaxy Movie</strong><span class="sub">PG · Animation<br>Mario and Luigi race across the cosmos after Bowser Jr. kidnaps Princess Rosalina to power a universe-destroying cannon.</span></div>
 
-    <div class="card card-blue"><strong><a href="https://www.rottentomatoes.com/m/tuner" target="_blank" rel="noopener">Tuner</a></strong><span class="sub">R · Thriller · <span class="note">96% critics</span></span><span class="sub">A gifted-musician-turned-piano-tuner with hyperacusis discovers his hypersensitive hearing makes him a natural safecracker, pulling him into a criminal world. Stars Leo Woodall and Dustin Hoffman.</span></div>
+    <div class="card card-lime"><strong>🟢 Shrek: 25th Anniversary</strong><span class="sub">PG · Re-release<br>The beloved DreamWorks fairy-tale comedy returns to the big screen for its 25th anniversary.</span></div>
 
-    <div class="card card-orange"><strong><a href="https://www.moviefone.com/movie/project-hail-mary/BCcUFMWbBHOY3zv0jhK5J4/main/" target="_blank" rel="noopener">Project Hail Mary</a></strong><span class="sub">PG-13 · 2h36m · Sci-fi</span><span class="sub">Adapted from Andy Weir's novel, a lone astronaut wakes on a deep-space mission with no memory — and slowly realizes he's humanity's last hope to stop an extinction-level threat.</span></div>
+    <div class="card card-lavender"><strong>🙏 That They May Be One</strong><span class="sub">NR · Faith / Special Event<br>A special-event faith film screening for a limited engagement. (A full synopsis wasn't available live this run.)</span></div>
 
-    <div class="card card-lblue"><strong><a href="https://www.moviefone.com/movie/ready-or-not-2/9ex41i6jFFWasC73zhYRQ7/main/" target="_blank" rel="noopener">Ready or Not: Here I Come</a></strong><span class="sub">R · 1h48m · Horror</span><span class="sub">The deadly hide-and-seek franchise returns for another night of survival against a family that plays for keeps.</span></div>
+    <div class="card card-magenta"><strong>🚪 Backrooms</strong><span class="sub">R · Horror · <em>New May 29</em><br>After a therapist's patient disappears into a dimension beyond reality, she must venture into the unknown to save him. With Chiwetel Ejiofor, Renate Reinsve.</span></div>
 
-    <div class="card card-sopink"><strong><a href="https://www.moviefone.com/movie/reminders-of-him/waUc5sSW6qRzTYs69tETO2/main/" target="_blank" rel="noopener">Reminders of Him</a></strong><span class="sub">PG-13 · 1h54m · Romantic drama</span><span class="sub">Adapted from Colleen Hoover's bestseller: a young mother returns home after years away, fighting to reconnect with her daughter and rebuild a life weighed down by her past.</span></div>
+    <div class="card card-blue"><strong>👨‍👧‍👧 The Breadwinner</strong><span class="sub">PG · Comedy · <em>New May 29</em><br>A supermom lands a Shark Tank deal and swaps roles with her breadwinner husband, who scrambles as a first-time stay-at-home dad. With Nate Bargatze, Mandy Moore.</span></div>
 
-    <div class="card card-lavender"><strong><a href="https://www.moviefone.com/movie/hoppers/DZ1BT5xvdfCstd2yeeaem5/main/" target="_blank" rel="noopener">Hoppers</a></strong><span class="sub">PG · 1h45m · Animation</span><span class="sub">An animated adventure ("Act natural.") about crossing into the world of animals — family-friendly fun now on screens.</span></div>
+    <div class="card card-sopink"><strong>🎖️ Pressure</strong><span class="sub">PG-13 · War Drama · <em>New May 29</em><br>In the tense 72 hours before D-Day, Eisenhower and meteorologist Capt. James Stagg face an impossible choice. With Andrew Scott, Brendan Fraser, Kerry Condon.</span></div>
 
-    <div class="card card-pink"><strong><a href="https://www.movieinsider.com/movies/may/2026/29" target="_blank" rel="noopener">Backrooms</a></strong><span class="sub">Horror · <span class="note">New May 29</span></span><span class="sub">A24's feature expansion of Kane Parsons' viral found-footage series, with Chiwetel Ejiofor and Renate Reinsve drawn into an endless, uncanny maze of empty rooms.</span></div>
+    <div class="card card-lblue"><strong>🎹 Tuner</strong><span class="sub">R · Thriller · <em>New May 29</em><br>A gifted piano tuner with hyperacusis discovers an unexpected talent for cracking safes — and his life turns upside down. With Leo Woodall, Dustin Hoffman.</span></div>
 
-    <div class="card card-cyan"><strong><a href="https://www.movieinsider.com/movies/may/2026/29" target="_blank" rel="noopener">Pressure</a></strong><span class="sub">Drama · <span class="note">New May 29</span></span><span class="sub">In the tense 72 hours before D-Day, General Eisenhower and meteorologist Captain James Stagg face an impossible call on when to launch the invasion. Stars Andrew Scott and Damian Lewis.</span></div>
-
-    <div class="card card-yellow"><strong><a href="https://www.movieinsider.com/movies/may/2026/29" target="_blank" rel="noopener">The Breadwinner</a></strong><span class="sub">Comedy · <span class="note">New May 29</span></span><span class="sub">Nate Bargatze's feature comedy follows a husband whose wife (Mandy Moore) lands a life-changing deal — with Will Forte, Colin Jost and Kumail Nanjiani along for the ride.</span></div>
-
-  </div>
-</section>
-
-<section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🎬 Coming Soon</span><span class="divider-line"></span></div>
-  <div class="cards-grid">
-    <div class="card card-green"><strong><a href="https://www.movieinsider.com/movies/june/2026" target="_blank" rel="noopener">Toy Story 5</a></strong><span class="sub">June 2026 · Animation</span><span class="sub">Woody, Buzz and the gang face their biggest challenge yet when a brand-new tablet device named Lilypad turns playtime upside down.<br><a class="readmore" href="https://www.movieinsider.com/movies/june/2026" target="_blank" rel="noopener">Read more at Movie Insider →</a></span></div>
-    <div class="card card-purple"><strong><a href="https://www.movieinsider.com/movies/june/2026" target="_blank" rel="noopener">Masters of the Universe</a></strong><span class="sub">June 2026 · Fantasy action</span><span class="sub">He-Man and Skeletor clash for the fate of Eternia in the long-gestating live-action adaptation.<br><a class="readmore" href="https://www.movieinsider.com/movies/june/2026" target="_blank" rel="noopener">Read more at Movie Insider →</a></span></div>
-    <div class="card card-orange"><strong><a href="https://www.movieinsider.com/movies/june/2026" target="_blank" rel="noopener">The Death of Robin Hood</a></strong><span class="sub">June 2026 · Drama</span><span class="sub">Gravely wounded and haunted by his violent past, Robin Hood is offered a chance at salvation by a mysterious woman.<br><a class="readmore" href="https://www.movieinsider.com/movies/june/2026" target="_blank" rel="noopener">Read more at Movie Insider →</a></span></div>
-    <div class="card card-magenta"><strong><a href="https://www.movieinsider.com/movies/june/2026" target="_blank" rel="noopener">Scary Movie 6</a></strong><span class="sub">June 2026 · Comedy</span><span class="sub">The spoof franchise returns to skewer the latest crop of horror hits.<br><a class="readmore" href="https://www.movieinsider.com/movies/june/2026" target="_blank" rel="noopener">Read more at Movie Insider →</a></span></div>
   </div>
 </section>
 
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📺 Streaming Picks</span><span class="divider-line"></span></div>
-  <p>What's worth watching at home this week (May 29–31), pulled live this run.</p>
   <div class="cards-grid">
-    <div class="card card-pink"><strong><a href="https://www.gamesradar.com/entertainment/streaming-services/new-shows-movies-to-stream-may-29-31/" target="_blank" rel="noopener">Spider-Noir</a> — Prime Video</strong><span class="sub">Nicolas Cage's first TV-lead role anchors this stylish 1930s-set Spider-Man series, drawing strong early reviews.<br><a class="readmore" href="https://www.gamesradar.com/entertainment/streaming-services/new-shows-movies-to-stream-may-29-31/" target="_blank" rel="noopener">Read more at GamesRadar+ →</a></span></div>
-    <div class="card card-cyan"><strong><a href="https://www.gamesradar.com/entertainment/streaming-services/new-shows-movies-to-stream-may-29-31/" target="_blank" rel="noopener">The Four Seasons: Season 2</a> — Netflix</strong><span class="sub">Netflix's hit ensemble comedy returns for a second outing, with all eight episodes streaming now.<br><a class="readmore" href="https://www.gamesradar.com/entertainment/streaming-services/new-shows-movies-to-stream-may-29-31/" target="_blank" rel="noopener">Read more at GamesRadar+ →</a></span></div>
-    <div class="card card-purple"><strong><a href="https://www.tomsguide.com/entertainment/hulu/3-new-hulu-shows-you-need-to-binge-watch-this-weekend-may-29-31-2026" target="_blank" rel="noopener">Deli Boys: Season 2</a> — Hulu</strong><span class="sub">The well-reviewed crime comedy is back, alongside new Hulu arrivals to binge this weekend.<br><a class="readmore" href="https://www.tomsguide.com/entertainment/hulu/3-new-hulu-shows-you-need-to-binge-watch-this-weekend-may-29-31-2026" target="_blank" rel="noopener">Read more at Tom's Guide →</a></span></div>
-    <div class="card card-yellow"><strong><a href="https://www.gamesradar.com/entertainment/streaming-services/new-shows-movies-to-stream-may-29-31/" target="_blank" rel="noopener">The Bride</a> — HBO Max</strong><span class="sub">Maggie Gyllenhaal's monster reimagining, starring Oscar winner Jessie Buckley, lands on streaming.<br><a class="readmore" href="https://www.gamesradar.com/entertainment/streaming-services/new-shows-movies-to-stream-may-29-31/" target="_blank" rel="noopener">Read more at GamesRadar+ →</a></span></div>
-    <div class="card card-green"><strong><a href="https://www.tomsguide.com/entertainment/hulu/3-new-to-hulu-movies-you-need-to-stream-this-weekend-may-29-31-2026" target="_blank" rel="noopener">New to Hulu Movies</a></strong><span class="sub">"Descendent" (sci-fi thriller), "Afraid" and the Oscar-nominated Ghibli-inspired "Arco" all just landed on Hulu.<br><a class="readmore" href="https://www.tomsguide.com/entertainment/hulu/3-new-to-hulu-movies-you-need-to-stream-this-weekend-may-29-31-2026" target="_blank" rel="noopener">Read more at Tom's Guide →</a></span></div>
-    <div class="card card-lblue"><strong><a href="https://editorial.rottentomatoes.com/article/new-movies-and-shows-streaming-in-may-2026-what-to-watch-on-netflix-prime-video-hbo-max-disney-and-more/" target="_blank" rel="noopener">Full May Streaming Guide</a> — RT</strong><span class="sub">Rotten Tomatoes' running roundup of everything new on Netflix, Prime Video, HBO Max, Disney+ and more this month.<br><a class="readmore" href="https://editorial.rottentomatoes.com/article/new-movies-and-shows-streaming-in-may-2026-what-to-watch-on-netflix-prime-video-hbo-max-disney-and-more/" target="_blank" rel="noopener">Read more at Rotten Tomatoes →</a></span></div>
+    <div class="card card-pink"><strong>🔪 A Good Girl's Guide to Murder — S2</strong><span class="sub">Netflix · from May 27<br>Six new episodes of the hit crime mystery, starring Emma Myers.</span><a class="read-more" href="https://www.tomsguide.com/entertainment/netflix/5-new-netflix-movies-and-shows-you-need-to-stream-this-week-may-25-31-2026" target="_blank" rel="noopener">Read more at Tom's Guide →</a></div>
+    <div class="card card-cyan"><strong>🎾 Rafa</strong><span class="sub">Netflix · May 29<br>A 4-part docuseries on tennis legend Rafael Nadal.</span><a class="read-more" href="https://www.tomsguide.com/entertainment/netflix/5-new-netflix-movies-and-shows-you-need-to-stream-this-week-may-25-31-2026" target="_blank" rel="noopener">Read more at Tom's Guide →</a></div>
+    <div class="card card-yellow"><strong>🌿 The Four Seasons — S2</strong><span class="sub">Netflix<br>Tina Fey, Will Forte and Colman Domingo return for more seasonal getaways.</span><a class="read-more" href="https://www.tvguide.com/news/ultimate-guide-what-to-watch-netflix-hulu-prime-video-hbo-max-more-may-2026/" target="_blank" rel="noopener">Read more at TV Guide →</a></div>
   </div>
 </section>
 
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🎞️ Now &amp; Upcoming Movie News</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🎬 Now &amp; Upcoming Movie News</span><span class="divider-line"></span></div>
 
-  <div class="card card-pink"><strong><a href="https://deadline.com/2026/05/box-office-mandalorian-and-grogu-1236918713/" target="_blank" rel="noopener">'Mandalorian and Grogu' tops Memorial Day box office with ~$98M</a></strong><span class="sub">The first Star Wars movie in seven years launched to roughly $98M domestic over the four-day holiday (~$168M global), with notably strong word-of-mouth. "Obsession" overperformed with a $32M four-day second frame.<br><a class="readmore" href="https://deadline.com/2026/05/box-office-mandalorian-and-grogu-1236918713/" target="_blank" rel="noopener">Read more at Deadline →</a></span></div>
+  <div class="card card-purple"><strong><a href="https://variety.com/2026/film/news/disclosure-day-first-reactions-spielberg-emily-blunt-praise-1236760402/" target="_blank" rel="noopener" style="color:inherit;border:none">🛸 Spielberg's "Disclosure Day" draws rave first reactions</a></strong><span class="sub">Critics call the Emily Blunt–led first-contact sci-fi epic Spielberg's best film in 20 years, ahead of its June 12 IMAX release.</span><a class="read-more" href="https://variety.com/2026/film/news/disclosure-day-first-reactions-spielberg-emily-blunt-praise-1236760402/" target="_blank" rel="noopener">Read more at Variety →</a></div>
 
-  <div class="card card-cyan"><strong><a href="https://variety.com/2026/film/box-office/mandalorian-and-grogu-box-office-opening-memorial-day-weekend-1236757827/" target="_blank" rel="noopener">Variety: 'Mandalorian and Grogu' lifts off; 'Obsession' scores big second weekend</a></strong><span class="sub">Variety's holiday box-office breakdown on the Star Wars spinoff's launch and the continued strength of Blumhouse horror hit "Obsession."<br><a class="readmore" href="https://variety.com/2026/film/box-office/mandalorian-and-grogu-box-office-opening-memorial-day-weekend-1236757827/" target="_blank" rel="noopener">Read more at Variety →</a></span></div>
+  <div class="card card-cyan"><strong><a href="https://popculthq.com/movie-news-in-theaters-this-week-may-29-2026/" target="_blank" rel="noopener" style="color:inherit;border:none">🍿 Four new films open this weekend</a></strong><span class="sub">Summer season rolls on with <em>Backrooms</em>, <em>The Breadwinner</em>, <em>Pressure</em>, and <em>Tuner</em> all hitting theaters May 29.</span><a class="read-more" href="https://popculthq.com/movie-news-in-theaters-this-week-may-29-2026/" target="_blank" rel="noopener">Read more at PopCultHQ →</a></div>
 
-  <div class="card card-yellow"><strong><a href="https://editorial.rottentomatoes.com/article/spider-noir-first-reviews/" target="_blank" rel="noopener">'Spider-Noir' first reviews: a bold experiment led by a gonzo Nic Cage</a></strong><span class="sub">Critics weigh in on the new black-and-white-tinged Spider-Man series now streaming, praising Cage's go-for-broke lead performance.<br><a class="readmore" href="https://editorial.rottentomatoes.com/article/spider-noir-first-reviews/" target="_blank" rel="noopener">Read more at Rotten Tomatoes →</a></span></div>
-
-  <div class="card card-purple"><strong><a href="https://www.movieinsider.com/movies/june/2026" target="_blank" rel="noopener">June 2026 release slate: Toy Story 5, Masters of the Universe &amp; more</a></strong><span class="sub">A look ahead at the month's wide releases, including Pixar's Toy Story 5, the Masters of the Universe live-action film, The Death of Robin Hood and Scary Movie 6.<br><a class="readmore" href="https://www.movieinsider.com/movies/june/2026" target="_blank" rel="noopener">Read more at Movie Insider →</a></span></div>
-
+  <div class="card card-pink"><strong><a href="https://variety.com/2026/film/box-office/devil-wears-prada-2-box-office-opening-weekend-michael-1236732410/" target="_blank" rel="noopener" style="color:inherit;border:none">👜 "Devil Wears Prada 2" dazzles with $77M debut</a></strong><span class="sub">One of 2026's biggest openings ($233.6M worldwide) and a career-best launch for Meryl Streep.</span><a class="read-more" href="https://variety.com/2026/film/box-office/devil-wears-prada-2-box-office-opening-weekend-michael-1236732410/" target="_blank" rel="noopener">Read more at Variety →</a></div>
 </section>
 
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📰 Celebrity &amp; Entertainment News</span><span class="divider-line"></span></div>
 
-  <div class="card card-magenta"><strong><a href="https://editorial.rottentomatoes.com/article/memorial-day-weekend-movie-stars-ranked/" target="_blank" rel="noopener">Who's the king of Memorial Day weekend movies?</a></strong><span class="sub">Rotten Tomatoes ranks the biggest stars in the history of the holiday box office — a timely read as Pedro Pascal's Mandalorian rules this year's frame.<br><a class="readmore" href="https://editorial.rottentomatoes.com/article/memorial-day-weekend-movie-stars-ranked/" target="_blank" rel="noopener">Read more at Rotten Tomatoes →</a></span></div>
+  <div class="card card-magenta"><strong><a href="https://www.goldderby.com/tv/2026/hacks-series-finale-ending-explained-creators-jean-smart/" target="_blank" rel="noopener" style="color:inherit;border:none">📺 "Hacks" ends after 5 seasons</a></strong><span class="sub">Jean Smart and Hannah Einbinder said an emotional goodbye as the series finale aired May 28 on HBO Max.</span><a class="read-more" href="https://www.goldderby.com/tv/2026/hacks-series-finale-ending-explained-creators-jean-smart/" target="_blank" rel="noopener">Read more at Gold Derby →</a></div>
 
-  <div class="card card-orange"><strong><a href="https://www.npr.org/2026/05/01/nx-s1-5798608/the-devil-wears-prada-2-review" target="_blank" rel="noopener">NPR review: 'The Devil Wears Prada 2' — this time, the devil's cutting jobs</a></strong><span class="sub">NPR digs into the sequel's take on a fashion-media world in decline, and whether Streep and Hathaway still have the magic.<br><a class="readmore" href="https://www.npr.org/2026/05/01/nx-s1-5798608/the-devil-wears-prada-2-review" target="_blank" rel="noopener">Read more at NPR →</a></span></div>
+  <div class="card card-orange"><strong><a href="https://www.eonline.com/news" target="_blank" rel="noopener" style="color:inherit;border:none">👗 Megan Thee Stallion walks Miami Swim Week</a></strong><span class="sub">The rapper hit the runway at Paraiso Miami Swim Week 2026 on May 28.</span><a class="read-more" href="https://www.eonline.com/news" target="_blank" rel="noopener">Read more at E! Online →</a></div>
 
-  <div class="card card-blue"><strong><a href="https://www.yahoo.com/entertainment/movies/article/obsession-ending-explained-the-shocking-twist-who-dies-and-whether-a-sequel-is-coming-234315311.html" target="_blank" rel="noopener">'Obsession' ending explained — the twist and whether a sequel is coming</a></strong><span class="sub">A spoiler-filled breakdown of the horror hit's shocking finale, for anyone who's already seen this month's breakout chiller.<br><a class="readmore" href="https://www.yahoo.com/entertainment/movies/article/obsession-ending-explained-the-shocking-twist-who-dies-and-whether-a-sequel-is-coming-234315311.html" target="_blank" rel="noopener">Read more at Yahoo Entertainment →</a></span></div>
-
-  <div class="card card-green"><strong><a href="https://www.sundance.org/blogs/dustin-hoffman-and-leo-woodall-bring-the-noise-in-daniel-rohers-tuner/" target="_blank" rel="noopener">Leo Woodall &amp; Dustin Hoffman strike a chord in 'Tuner'</a></strong><span class="sub">A feature on the festival-favorite thriller — now in theaters — about a piano tuner whose ear pulls him into safecracking.<br><a class="readmore" href="https://www.sundance.org/blogs/dustin-hoffman-and-leo-woodall-bring-the-noise-in-daniel-rohers-tuner/" target="_blank" rel="noopener">Read more at Sundance.org →</a></span></div>
-
+  <div class="card card-green"><strong><a href="https://variety.com/2026/film/news/disclosure-day-first-reactions-spielberg-emily-blunt-praise-1236760402/" target="_blank" rel="noopener" style="color:inherit;border:none">🌟 Summer blockbuster buzz builds</a></strong><span class="sub">With Spielberg's sci-fi return weeks away and the box office surging, Hollywood's summer season is officially in full swing.</span><a class="read-more" href="https://variety.com/2026/film/news/disclosure-day-first-reactions-spielberg-emily-blunt-praise-1236760402/" target="_blank" rel="noopener">Read more at Variety →</a></div>
 </section>
 
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Fri, May 29 at 8:52 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Fri, May 29 at 12:08 PM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
 <script>
 function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
 updateClock();setInterval(updateClock,1000);
