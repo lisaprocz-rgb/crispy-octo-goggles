@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bucks County Primary · Lisa's Hub</title>
+<title>Bucks County General Election · Lisa's Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -26,7 +26,7 @@ h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;colo
   background:repeating-linear-gradient(90deg,#ff5c8a 0 16px,#3ec6e0 16px 32px,#ffd23f 32px 48px)}
 .live-clock{margin-top:1.1rem;display:inline-block;background:#1f2440;color:#fff;
   padding:.5rem 1.3rem;border-radius:14px;font-family:'Baloo 2';font-weight:600;
-  font-size:.92rem;box-shadow:4px 4px 0 #5b9dff}
+  font-size:.92rem;box-shadow:4px 4px 0 #ff5c8a}
 .live-clock .clock-date{color:#ffd23f}.live-clock .clock-time{color:#fff}
 main{max-width:1080px;margin:0 auto;padding:1rem 1.4rem 4rem}
 .section-divider{display:flex;align-items:center;gap:.9rem;margin:2.4rem 0 1.2rem}
@@ -41,7 +41,8 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
   margin:1.2rem 0 .6rem;text-transform:uppercase;letter-spacing:.06em}
 .card{position:relative;display:block;background:#fff;color:#1f2440;text-decoration:none;
   border:3px solid #1f2440;border-radius:18px;padding:1.2rem 1.4rem;
-  box-shadow:6px 6px 0 var(--accent,#ff5c8a);margin-bottom:1rem}
+  box-shadow:6px 6px 0 var(--accent,#ff5c8a);margin-bottom:1rem;
+  transition:transform .16s ease,box-shadow .16s ease}
 .card strong, .card .card-title{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;
   display:block;margin-bottom:.3rem;color:#1f2440}
 .card .sub{display:block;color:#6b6f8c;font-size:.86rem;font-weight:600;line-height:1.5;margin-top:.15rem}
@@ -49,16 +50,16 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
   background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
   border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
-.countdown-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin:1.2rem 0}
 .card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
 .card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
 .card-green{--accent:#3dd6b5}.card-lime{--accent:#7bd957}.card-orange{--accent:#ffb84d}
 .card-lblue{--accent:#4fc3f7}.card-sopink{--accent:#ff8fc7}.card-lavender{--accent:#b79cff}
-.countdown-grid .card{text-align:center;margin-bottom:0}
-.countdown-num{font-family:'Baloo 2';font-size:2.6rem;line-height:1;display:block;font-weight:800;color:#1f2440}
 .back-to-hub{display:inline-block;font-family:'Baloo 2';font-size:.85rem;font-weight:700;
   background:#fff;color:#1f2440;text-decoration:none;padding:.45rem 1.1rem;border-radius:999px;
-  border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem}
+  border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem;
+  transition:transform .16s ease,box-shadow .16s ease}
+ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
+li{margin-bottom:.25rem}
 p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
 a:not(.card):not(.back-to-hub):not(.hub-label a){color:#1f2440;font-weight:700;
   text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
@@ -66,8 +67,6 @@ a:not(.card):not(.back-to-hub):not(.hub-label a):hover{color:#ff5c8a;border-bott
 .callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
   box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
 .callout strong{font-family:'Baloo 2'}
-.article-entry{margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8}
-.article-src{font-family:'Baloo 2';font-weight:800;color:#1f2440}
 footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
 .footer-clock{margin-top:.4rem;color:#ff5c8a}
 .timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
@@ -76,230 +75,280 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
   h1{font-size:2.4rem}
   main{padding:1rem .9rem 3rem}
   .card{padding:1rem 1.1rem}
-  .countdown-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 <header>
 <div class="hub-label"><a href="index.html">← Lisa's Hub</a></div>
-<h1>🗳️ Bucks County Primary</h1>
-<div class="subtitle">Daily media scan · 2026 Bucks County Democratic Primary · <a href="https://docs.google.com/spreadsheets/d/13dlIwZXuBE_63o5Du_OedctyXROkLbQ8ukTN_ttuWIc/edit?usp=sharing" target="_blank" rel="noopener">📊 Campaign Finance</a></div>
+<h1>🗳️ Bucks County General Election</h1>
+<div class="subtitle">Daily media scan · 2026 Bucks County General Election · <a href="https://docs.google.com/spreadsheets/d/13dlIwZXuBE_63o5Du_OedctyXROkLbQ8ukTN_ttuWIc/edit?usp=sharing" target="_blank" rel="noopener">📊 Campaign Finance</a></div>
 <div class="gold-line"></div>
 <div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
 </header>
 <main>
 
-<div class="callout">
-<strong>Generated:</strong> Saturday, May 30, 2026 at 2:27 PM ET · 2026-05-30 18:25 UTC<br>
-All content fetched live this run — no cached data used.
+<div class="callout" style="margin-bottom:1.4rem;">
+<strong>Generated:</strong> Sun, May 31, 2026 · 6:07 AM ET (10:07 UTC).<br>
+All content fetched live this run — no cached data used. Freshness window: items published on or after May 1, 2026.
 </div>
 
-<div class="countdown-grid">
-  <div class="card card-blue">
-    <span class="countdown-num">✓</span>
-    <span class="sub">PA Primary complete · May 19, 2026</span>
-  </div>
-  <div class="card card-cyan">
-    <span class="countdown-num">✓</span>
-    <span class="sub">Mail-In deadline passed · May 12, 2026 · 5pm</span>
-  </div>
-  <div class="card card-purple">
-    <span class="countdown-num">157</span>
+<!-- COUNTDOWN -->
+<div class="cards-grid" style="grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:1.4rem;">
+  <div class="card card-purple" style="text-align:center;margin-bottom:0;">
+    <strong style="font-family:'Baloo 2';font-size:2.6rem;line-height:1;display:block;">156</strong>
     <span class="sub">Days to PA General · Nov 3, 2026</span>
   </div>
+  <div class="card card-cyan" style="text-align:center;margin-bottom:0;">
+    <strong style="font-family:'Baloo 2';font-size:2.6rem;line-height:1;display:block;">141</strong>
+    <span class="sub">Days to Register · Oct 19, 2026</span>
+  </div>
+  <div class="card card-blue" style="text-align:center;margin-bottom:0;">
+    <strong style="font-family:'Baloo 2';font-size:2.6rem;line-height:1;display:block;">149</strong>
+    <span class="sub">Days to Mail-In Request · Oct 27, 2026</span>
+  </div>
 </div>
 
+<!-- EXEC SUMMARY -->
 <div class="callout">
-<strong>Executive summary.</strong> The May 19 primary is decided and the focus has shifted to the November general election. <strong>Bob Harvie</strong> won the PA-01 Democratic nomination (65% to Lucia Simonelli's 35%) and now faces five-term Republican Brian Fitzpatrick in what is one of four Pennsylvania seats that could decide control of the U.S. House. The freshest item this run is a May 29 Philadelphia Inquirer report that Fitzpatrick is already funding early attack ads against Harvie. In the state Senate, <strong>Mark Pinsley</strong> took the contested 16th District Democratic primary, while Santarsiero (10th) and Albillar (6th) advance unopposed. <em>Most coverage below is post-primary general-election framing; only the May 29 Inquirer piece falls inside a strict 48-hour window.</em>
+<strong>Executive Summary.</strong> With the May 19 Democratic primary settled, the general-election field is locked: Bob Harvie (D) vs. Rep. Brian Fitzpatrick (R) headlines PA-01, and the Inquirer reports Fitzpatrick has already helped fund early attack ads against Harvie (May 29). Democrats are targeting three Bucks-area state Senate seats — most notably Eileen Hartnett Albillar's challenge to Sen. Frank Farry in the 6th and Mark Pinsley's confirmed nomination to face Sen. Jarrett Coleman in the 16th. Eleven state House matchups across Bucks are now set with no contested primaries, several rated among the state's most competitive.
 </div>
 
+<!-- ============ CONGRESS ============ -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">U.S. Congress — 1st District</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">U.S. Congress</span><span class="divider-line"></span></div>
 
   <div class="card card-blue">
-    <strong>Bob Harvie — PA-01 (Falls Township)</strong>
-    <span class="sub"><em>Bucks County Commissioner who announced his congressional bid in April 2025. Lifelong Bucks resident born in Bristol Borough, magna cum laude from George Washington University, and a 20-year Social Studies teacher and department chair at Bucks County Technical High School. Elected commissioner in 2019, board chair in 2022, re-elected in 2023. Won the Democratic nomination and now faces Rep. Brian Fitzpatrick in November.</em></span>
+    <strong>Bob Harvie (D) vs. Rep. Brian Fitzpatrick (R, incumbent) — 1st Congressional District</strong>
+    <span class="sub"><em>Bucks County Commissioner and Falls Township resident who announced his congressional bid in April 2025. Born in Bristol Borough, graduated magna cum laude from George Washington University, and spent 20 years as a teacher and Social Studies Department chair at Bucks County Technical High School. Elected Commissioner in 2019, named board chair in 2022, re-elected in 2023. Won the Democratic primary ~65%–35% and is on the DCCC's "Red to Blue" list; campaign centers on economic fairness and kitchen-table issues. The top race in Bucks this fall — one of four marquee Pennsylvania contests that could decide control of the U.S. House.</em></span>
 
-    <div class="article-entry">
-      <span class="article-src">Philadelphia Inquirer</span> —
+    <div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
+      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">Philadelphia Inquirer</span> —
       <a href="https://www.inquirer.com/politics/nation/bucks-county-attack-ads-brian-fitzpatrick-bob-harvie-20260529.html" target="_blank" rel="noopener">Why Brian Fitzpatrick helped fund an early offense against Bob Harvie in key Bucks County congressional race</a>
       <span class="note">May 29, 2026</span>
-      <div style="margin-top:.3rem;font-weight:500;">Attack ads are already circulating in Bucks County as the general-election battle begins. Fitzpatrick's roughly $7 million war chest has let him start spending early against Harvie ahead of November.</div>
+      <div style="margin-top:.3rem;font-weight:500;">Fitzpatrick's campaign moved early to bankroll attack ads against Harvie, an unusual offensive posture for an incumbent and a sign of how seriously the GOP is treating the PA-01 challenge.</div>
       <div style="margin-top:.3rem;"><a href="https://www.inquirer.com/politics/nation/bucks-county-attack-ads-brian-fitzpatrick-bob-harvie-20260529.html" target="_blank" rel="noopener" style="font-weight:700;">Read more at the Philadelphia Inquirer →</a></div>
     </div>
 
-    <div class="article-entry">
-      <span class="article-src">WHYY</span> —
-      <a href="https://whyy.org/articles/election-2026-pennsylvania-primary-first-district-bucks-county-winner/" target="_blank" rel="noopener">Bob Harvie wins Democratic primary for Pa.'s 1st Congressional District</a>
-      <span class="note">May 19, 2026</span>
-      <div style="margin-top:.3rem;font-weight:500;">Harvie won the PA-01 Democratic primary with about 65% of the vote to Lucia Simonelli's 35%, setting up a November matchup with Republican incumbent Brian Fitzpatrick.</div>
-      <div style="margin-top:.3rem;"><a href="https://whyy.org/articles/election-2026-pennsylvania-primary-first-district-bucks-county-winner/" target="_blank" rel="noopener" style="font-weight:700;">Read more at WHYY →</a></div>
-    </div>
-
-    <div class="article-entry">
-      <span class="article-src">Bucks County Beacon</span> —
+    <div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
+      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">Bucks County Beacon</span> —
       <a href="https://buckscountybeacon.com/2026/05/dccc-adds-bob-harvies-campaign-to-unseat-pa-01-republican-brian-fitzpatrick-to-its-red-to-blue-program/" target="_blank" rel="noopener">DCCC Adds Bob Harvie's Campaign to Unseat PA-01 Republican Brian Fitzpatrick to Its 'Red to Blue' Program</a>
       <span class="note">May 2026</span>
-      <div style="margin-top:.3rem;font-weight:500;">The Democratic Congressional Campaign Committee added Harvie to its 2026 "Red to Blue" program, signaling national investment in the race to flip the seat.</div>
-      <div style="margin-top:.3rem;"><a href="https://buckscountybeacon.com/2026/05/dccc-adds-bob-harvies-campaign-to-unseat-pa-01-republican-brian-fitzpatrick-to-its-red-to-blue-program/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Bucks County Beacon →</a></div>
+      <div style="margin-top:.3rem;font-weight:500;">The DCCC added Harvie to its top-tier "Red to Blue" program, unlocking fundraising, training and strategic support, and launched its first general-election digital ad buy targeting Fitzpatrick.</div>
+      <div style="margin-top:.3rem;"><a href="https://buckscountybeacon.com/2026/05/dccc-adds-bob-harvies-campaign-to-unseat-pa-01-republican-brian-fitzpatrick-to-its-red-to-blue-program/" target="_blank" rel="noopener" style="font-weight:700;">Read more at the Bucks County Beacon →</a></div>
     </div>
 
-    <div class="article-entry">
-      <span class="article-src">Philadelphia Inquirer</span> —
-      <a href="https://www.inquirer.com/politics/nation/josh-shapiro-bob-harvie-brian-fitzpatrick-bucks-county-20260510.html" target="_blank" rel="noopener">Josh Shapiro endorses Bob Harvie's campaign to oust Brian Fitzpatrick in Bucks County congressional seat</a>
-      <span class="note">May 10, 2026</span>
-      <div style="margin-top:.3rem;font-weight:500;">Gov. Josh Shapiro threw his support behind Harvie's campaign, a notable boost heading into the general election.</div>
-      <div style="margin-top:.3rem;"><a href="https://www.inquirer.com/politics/nation/josh-shapiro-bob-harvie-brian-fitzpatrick-bucks-county-20260510.html" target="_blank" rel="noopener" style="font-weight:700;">Read more at the Philadelphia Inquirer →</a></div>
-    </div>
-  </div>
-
-  <div class="card card-blue">
-    <strong>Lucia Simonelli — PA-01 (Quakertown Borough)</strong>
-    <span class="sub"><em>Holds a PhD in mathematics and served as a scientific advisor in the U.S. Senate. Born in Lansdale, settled in Quakertown, and directs clean-air technology programs for a nonprofit. Ran as a progressive focused on universal healthcare and Medicare for All.</em></span>
-
-    <div class="article-entry">
-      <span class="article-src">Bucks County Herald</span> —
-      <a href="https://www.buckscountyherald.com/news/election/bob-harvie-wins-pa-01-primary-lucia-simonelli-concedes/article_18f41d6c-509b-4d14-9d91-18a399b1c79b.html" target="_blank" rel="noopener">Bob Harvie wins PA-01 Primary; Lucia Simonelli concedes</a>
-      <span class="note">May 2026</span>
-      <div style="margin-top:.3rem;font-weight:500;">Simonelli conceded the PA-01 Democratic primary to Harvie after the May 19 vote.</div>
-      <div style="margin-top:.3rem;"><a href="https://www.buckscountyherald.com/news/election/bob-harvie-wins-pa-01-primary-lucia-simonelli-concedes/article_18f41d6c-509b-4d14-9d91-18a399b1c79b.html" target="_blank" rel="noopener" style="font-weight:700;">Read more at the Bucks County Herald →</a></div>
+    <div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
+      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">WHYY</span> —
+      <a href="https://whyy.org/articles/election-2026-pennsylvania-primary-first-district-bucks-county-winner/" target="_blank" rel="noopener">Bob Harvie wins Democratic primary for Pa.'s 1st Congressional District</a>
+      <span class="note">May 19, 2026</span>
+      <div style="margin-top:.3rem;font-weight:500;">Harvie won the Democratic nomination, setting up the November matchup against Fitzpatrick; Cook Political Report still rates PA-01 as likely Republican, making it the toughest of the four PA target seats.</div>
+      <div style="margin-top:.3rem;"><a href="https://whyy.org/articles/election-2026-pennsylvania-primary-first-district-bucks-county-winner/" target="_blank" rel="noopener" style="font-weight:700;">Read more at WHYY →</a></div>
     </div>
   </div>
 </section>
 
+<!-- ============ STATE SENATE ============ -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Pennsylvania State Senate</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">PA State Senate</span><span class="divider-line"></span></div>
 
-  <div class="card card-cyan">
-    <strong>Steve Santarsiero — 10th District (Incumbent)</strong>
-    <span class="sub"><em>Has represented the 10th District since 2019 and chairs the Bucks County Democrats. Ran unopposed in the primary; active on minimum wage, PECO rate increases, and other legislative issues.</em></span>
+  <div class="card card-green">
+    <strong>Steve Santarsiero (D, incumbent) vs. Greg Bankos (R) — 10th Senatorial District</strong>
+    <span class="sub"><em>Has represented the 10th District since 2019 and chairs the Bucks County Democrats. Ran unopposed in the primary. Faces Republican Greg Bankos, a Plumstead Township supervisor, in November. Active on minimum wage, PECO rate increases, and other legislative issues.</em></span>
 
-    <div class="article-entry">
-      <span class="article-src">LevittownNow</span> —
+    <div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
+      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">New Hope Free Press</span> —
+      <a href="https://www.newhopefreepress.com/2026/05/20/steve-santarsiero-greg-bankos-vie-for-state-senate-seat/" target="_blank" rel="noopener">Steve Santarsiero & Greg Bankos Vie For State Senate Seat</a>
+      <span class="note">May 20, 2026</span>
+      <div style="margin-top:.3rem;font-weight:500;">The 10th District race pits incumbent Democrat Santarsiero against Plumstead supervisor Greg Bankos, who highlights his township service, youth-sports coaching and faith background.</div>
+      <div style="margin-top:.3rem;"><a href="https://www.newhopefreepress.com/2026/05/20/steve-santarsiero-greg-bankos-vie-for-state-senate-seat/" target="_blank" rel="noopener" style="font-weight:700;">Read more at the New Hope Free Press →</a></div>
+    </div>
+  </div>
+
+  <div class="card card-green">
+    <strong>Eileen Hartnett Albillar (D) vs. Sen. Frank Farry (R, incumbent) — 6th Senatorial District</strong>
+    <span class="sub"><em>Bucks County Clerk of Courts who launched her bid in January 2026 to unseat Republican Frank Farry. Former Warrington Township supervisor with a background in social work and nonprofit leadership. Endorsed by Senate Democratic Leader Jay Costa, Sen. Santarsiero, and Commissioners Harvie and Ellis-Marseglia. Focuses on affordability, SEPTA funding, and working families — a top Democratic flip target, noting Shapiro and Fetterman both carried the district in 2022.</em></span>
+
+    <div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
+      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">LevittownNow</span> —
       <a href="https://levittownnow.com/2026/05/19/frank-farry-steve-santarsiero-draw-challengers-for-pa-senate-seats/" target="_blank" rel="noopener">Frank Farry, Steve Santarsiero Draw Challengers For PA Senate Seats</a>
       <span class="note">May 19, 2026</span>
-      <div style="margin-top:.3rem;font-weight:500;">Santarsiero advances to the general election; the piece lays out the Bucks state Senate matchups for November.</div>
+      <div style="margin-top:.3rem;font-weight:500;">With both running unopposed in the primary, Albillar and Farry are now the confirmed November candidates in the 6th, one of three Bucks-area Senate seats Democrats see as a path to the majority.</div>
       <div style="margin-top:.3rem;"><a href="https://levittownnow.com/2026/05/19/frank-farry-steve-santarsiero-draw-challengers-for-pa-senate-seats/" target="_blank" rel="noopener" style="font-weight:700;">Read more at LevittownNow →</a></div>
     </div>
-  </div>
 
-  <div class="card card-cyan">
-    <strong>Eileen Hartnett Albillar — 6th District</strong>
-    <span class="sub"><em>Bucks County Clerk of Courts who launched her bid in January 2026 to unseat Republican Frank Farry. Former Warrington Township supervisor with 25+ years in social work and nonprofit leadership. Focuses on affordability, SEPTA funding, and working families. Calls the 6th "the path to flipping the Senate."</em></span>
-
-    <div class="article-entry">
-      <span class="article-src">NewtownPANow</span> —
-      <a href="https://newtownpanow.com/2026/05/20/frank-farry-steve-santarsiero-draw-challengers-for-state-senate-seats/" target="_blank" rel="noopener">Frank Farry, Steve Santarsiero Draw Challengers For State Senate Seats</a>
-      <span class="note">May 20, 2026</span>
-      <div style="margin-top:.3rem;font-weight:500;">Albillar and Farry run unopposed in their primaries and are the presumed November candidates in the 6th District.</div>
-      <div style="margin-top:.3rem;"><a href="https://newtownpanow.com/2026/05/20/frank-farry-steve-santarsiero-draw-challengers-for-state-senate-seats/" target="_blank" rel="noopener" style="font-weight:700;">Read more at NewtownPANow →</a></div>
+    <div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
+      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">Bucks County Beacon</span> —
+      <a href="https://buckscountybeacon.com/2026/01/long-time-bucks-county-public-servant-eileen-hartnett-albillar-wants-to-help-democrats-flip-pennsylvanias-state-senate/" target="_blank" rel="noopener">Long-Time Bucks County Public Servant Eileen Hartnett Albillar Wants to Help Democrats Flip Pennsylvania's State Senate</a>
+      <span class="note">Jan 2026 (background)</span>
+      <div style="margin-top:.3rem;font-weight:500;">Profile of Albillar's launch, in which she argues "the path to flipping the Senate runs right through Bucks County" and lays out her affordability and working-families platform.</div>
+      <div style="margin-top:.3rem;"><a href="https://buckscountybeacon.com/2026/01/long-time-bucks-county-public-servant-eileen-hartnett-albillar-wants-to-help-democrats-flip-pennsylvanias-state-senate/" target="_blank" rel="noopener" style="font-weight:700;">Read more at the Bucks County Beacon →</a></div>
     </div>
   </div>
 
-  <div class="card card-cyan">
-    <strong>16th District — Pinsley vs. Merkl-Gump (Primary)</strong>
-    <span class="sub"><em>A contested Democratic primary between Mark Pinsley (Lehigh County Controller) and Bradley Merkl-Gump (Pennridge School Board) — a key race in the fight to flip the state Senate.</em></span>
+  <div class="card card-green">
+    <strong>Mark Pinsley (D) vs. Sen. Jarrett Coleman (R, incumbent) — 16th Senatorial District</strong>
+    <span class="sub"><em>Lehigh County Controller and Democratic nominee in the 16th, which spans parts of Bucks and Lehigh counties. Won the contested primary and now faces Republican incumbent Jarrett Coleman in a top target race for flipping the GOP-held state Senate.</em></span>
 
-    <div class="article-entry">
-      <span class="article-src">LehighValleyNews</span> —
-      <a href="https://www.lehighvalleynews.com/elections/homefield-advantage-weighed-heavy-as-pinsley-won-democratic-primary-for-state-senates-16th-district" target="_blank" rel="noopener">Homefield advantage weighed heavy as Pinsley won Democratic primary for state Senate's 16th District</a>
-      <span class="note">May 2026</span>
-      <div style="margin-top:.3rem;font-weight:500;">Pinsley took about 54.2% and swept all 57 Lehigh County precincts; Merkl-Gump carried Bucks precincts but Lehigh's larger share decided it. Pinsley faces Republican Sen. Jarrett Coleman in November.</div>
-      <div style="margin-top:.3rem;"><a href="https://www.lehighvalleynews.com/elections/homefield-advantage-weighed-heavy-as-pinsley-won-democratic-primary-for-state-senates-16th-district" target="_blank" rel="noopener" style="font-weight:700;">Read more at LehighValleyNews →</a></div>
-    </div>
-
-    <div class="article-entry">
-      <span class="article-src">WFMZ</span> —
+    <div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
+      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">WFMZ</span> —
       <a href="https://www.wfmz.com/news/area/southeastern-pa/central-bucks-county/mark-pinsley-declares-victory-in-democratic-primary-in-pa-s-16th-district-senate-race/article_97ac4c1b-c319-483e-82d8-a1d54f5f8def.html" target="_blank" rel="noopener">Mark Pinsley declares victory in Democratic primary in Pa.'s 16th District Senate race</a>
       <span class="note">May 2026</span>
-      <div style="margin-top:.3rem;font-weight:500;">Pinsley declared victory in the contested 16th District Democratic primary, advancing to a general-election contest framed around skill-games taxation.</div>
+      <div style="margin-top:.3rem;font-weight:500;">Pinsley took 11,771 votes to win the Democratic nod across Lehigh and Bucks counties, setting up a November contest against Republican incumbent Jarrett Coleman.</div>
       <div style="margin-top:.3rem;"><a href="https://www.wfmz.com/news/area/southeastern-pa/central-bucks-county/mark-pinsley-declares-victory-in-democratic-primary-in-pa-s-16th-district-senate-race/article_97ac4c1b-c319-483e-82d8-a1d54f5f8def.html" target="_blank" rel="noopener" style="font-weight:700;">Read more at WFMZ →</a></div>
     </div>
+
+    <div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
+      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">LehighValleyNews</span> —
+      <a href="https://www.lehighvalleynews.com/elections/homefield-advantage-weighed-heavy-as-pinsley-won-democratic-primary-for-state-senates-16th-district" target="_blank" rel="noopener">Homefield advantage weighed heavy as Pinsley won Democratic primary for state Senate's 16th District</a>
+      <span class="note">May 2026</span>
+      <div style="margin-top:.3rem;font-weight:500;">Analysis crediting Pinsley's Lehigh County base for his primary win and framing the November race against Coleman as part of the statewide fight for the Senate majority.</div>
+      <div style="margin-top:.3rem;"><a href="https://www.lehighvalleynews.com/elections/homefield-advantage-weighed-heavy-as-pinsley-won-democratic-primary-for-state-senates-16th-district" target="_blank" rel="noopener" style="font-weight:700;">Read more at LehighValleyNews →</a></div>
+    </div>
   </div>
 </section>
 
+<!-- ============ STATE HOUSE ============ -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Pennsylvania State House</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">PA State House</span><span class="divider-line"></span></div>
 
-  <div class="card card-blue">
-    <strong>Kristin Egan — 142nd District (Langhorne)</strong>
-    <span class="sub"><em>Neshaminy School Board director and 20-year public school teacher challenging Republican Joe Hogan. First state candidate to publicly oppose the $227M PennDOT US-1 (RC3) reconstruction project. Platform: education funding reform, public safety, cost of living.</em></span>
+  <div class="card card-orange">
+    <strong>Bryan Allen (D) vs. Rep. K.C. Tomlinson (R, incumbent) — 18th District (Bensalem)</strong>
+    <span class="sub"><em>Former Bensalem Township council member and chief of staff for State Rep. Tina Davis. Introduced the first casino tax rebate for Bensalem residents. Vice chair of the Bucks County Water and Sewer Authority Board. One of the state's most competitive legislative races.</em></span>
 
-    <div class="article-entry">
-      <span class="article-src">Bucks County Beacon</span> —
-      <a href="https://buckscountybeacon.com/2026/04/democratic-state-house-candidate-kristin-egan-goes-on-record-to-oppose-controversial-us-1-project-in-lower-bucks-county/" target="_blank" rel="noopener">Democratic State House Candidate Kristin Egan Goes on Record to Oppose Controversial US 1 Project in Lower Bucks County</a>
-      <span class="note">April 2026</span>
-      <div style="margin-top:.3rem;font-weight:500;">Egan publicly opposed the PennDOT US-1 reconstruction project, making it a centerpiece of her challenge to Rep. Joe Hogan in HD-142.</div>
-      <div style="margin-top:.3rem;"><a href="https://buckscountybeacon.com/2026/04/democratic-state-house-candidate-kristin-egan-goes-on-record-to-oppose-controversial-us-1-project-in-lower-bucks-county/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Bucks County Beacon →</a></div>
+    <div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
+      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">Bucks County Beacon</span> —
+      <a href="https://buckscountybeacon.com/2026/02/bensalems-bryan-allen-wants-to-help-democrats-expand-their-majority-in-the-pennsylvania-state-house/" target="_blank" rel="noopener">Bensalem's Bryan Allen Wants to Help Democrats Expand Their Majority in the Pennsylvania State House</a>
+      <span class="note">Feb 2026 (background)</span>
+      <div style="margin-top:.3rem;font-weight:500;">Profile of Allen's challenge to Rep. Tomlinson in the 18th, framing it as central to Democrats' bid to grow their narrow state House majority.</div>
+      <div style="margin-top:.3rem;"><a href="https://buckscountybeacon.com/2026/02/bensalems-bryan-allen-wants-to-help-democrats-expand-their-majority-in-the-pennsylvania-state-house/" target="_blank" rel="noopener" style="font-weight:700;">Read more at the Bucks County Beacon →</a></div>
     </div>
   </div>
 
-  <div class="cards-grid">
-    <div class="card card-blue"><strong>Bryan Allen — 18th (Bensalem)</strong><span class="sub"><em>Former Bensalem council member and chief of staff for Rep. Tina Davis; introduced the first casino tax rebate for Bensalem residents. Challenging Republican K.C. Tomlinson.</em></span><span class="sub">No new coverage in the last 48 hours.</span></div>
-    <div class="card card-blue"><strong>Tim Brennan — 29th (Doylestown), Inc.</strong><span class="sub"><em>Incumbent, unopposed in the primary.</em></span><span class="sub">No new coverage in the last 48 hours.</span></div>
-    <div class="card card-blue"><strong>Perry Warren — 31st (Newtown), Inc.</strong><span class="sub"><em>Incumbent, unopposed.</em></span><span class="sub">No new coverage in the last 48 hours.</span></div>
-    <div class="card card-blue"><strong>Jim Prokopiak — 140th (Falls Twp.), Inc.</strong><span class="sub"><em>Won his seat in a February 2024 special election; former Falls Township supervisor and Temple Law graduate. Sole Democrat on the ballot.</em></span><span class="sub">No new coverage in the last 48 hours.</span></div>
-    <div class="card card-blue"><strong>Tina Davis — 141st (Bristol Twp.), Inc.</strong><span class="sub"><em>Has represented Bristol Township and Borough since 2010. Priorities: economic development, pay equity, property tax reform.</em></span><span class="sub">No new coverage in the last 48 hours.</span></div>
-    <div class="card card-blue"><strong>Tim Hayes — 143rd (Dublin)</strong><span class="sub"><em>Dublin Borough Council president and Army National Guard veteran running against Republican Shelby Labs. Priorities: alternative energy, regulating AI data farms, affordability, education.</em></span><span class="sub">No new coverage in the last 48 hours.</span></div>
-    <div class="card card-blue"><strong>Brian Munroe — 144th (Warminster), Inc.</strong><span class="sub"><em>Former Radnor Township police officer and Warminster supervisor. Unseated a Republican in 2022 by 515 votes, re-elected in 2024 by 1,065. Faces Republican Michael J. Murphy in November in a swing district.</em></span><span class="sub">See "Key Races to Watch" below.</span></div>
-    <div class="card card-blue"><strong>Les Mavus — 145th (Nockamixon)</strong><span class="sub"><em>Nockamixon Township resident and inspector of elections challenging Republican Craig Staats.</em></span><span class="sub">No new coverage in the last 48 hours.</span></div>
-    <div class="card card-blue"><strong>Monica Weninger — 178th (Warwick)</strong><span class="sub"><em>25-year public school science teacher and department chair at Wissahickon; auditor in Warwick Township. Challenging Republican Kristin Marcell.</em></span><span class="sub">No new coverage in the last 48 hours.</span></div>
+  <div class="card card-orange">
+    <strong>Tim Brennan (D, incumbent) vs. Sean Patrick Duffy (R) — 29th District (Doylestown)</strong>
+    <span class="sub"><em>Incumbent Democrat, unopposed in the primary, now in a general-election contest against Republican Sean Patrick Duffy.</em></span>
+    <span class="sub"><em>No new coverage in the last 48 hours.</em></span>
+  </div>
+
+  <div class="card card-orange">
+    <strong>Perry Warren (D, incumbent) — 31st District (Newtown)</strong>
+    <span class="sub"><em>Incumbent Democrat; appears unopposed in the general election as of the latest filings. No Republican challenger has been confirmed in this run's sources.</em></span>
+    <span class="sub"><em>No new coverage in the last 48 hours.</em></span>
+  </div>
+
+  <div class="card card-orange">
+    <strong>Jim Prokopiak (D, incumbent) vs. Michael Gettis (R) — 140th District (Falls Township)</strong>
+    <span class="sub"><em>Won the seat in a February 2024 special election. Former Falls Township supervisor and Temple University law graduate.</em></span>
+
+    <div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
+      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">LevittownNow</span> —
+      <a href="https://levittownnow.com/2026/05/19/levittown-area-state-house-races-lined-up-for-general-election/" target="_blank" rel="noopener">Levittown-Area State House Races Lined Up For General Election</a>
+      <span class="note">May 19, 2026</span>
+      <div style="margin-top:.3rem;font-weight:500;">Rundown of the lower-Bucks House matchups now set for November, including Prokopiak's defense of the 140th against Republican Michael Gettis.</div>
+      <div style="margin-top:.3rem;"><a href="https://levittownnow.com/2026/05/19/levittown-area-state-house-races-lined-up-for-general-election/" target="_blank" rel="noopener" style="font-weight:700;">Read more at LevittownNow →</a></div>
+    </div>
+  </div>
+
+  <div class="card card-orange">
+    <strong>Tina Davis (D, incumbent) vs. Ken Velez (R) — 141st District (Bristol Township)</strong>
+    <span class="sub"><em>Has represented Bristol Township and Bristol Borough since 2010. Priorities include economic development, pay equity, and property tax reform.</em></span>
+
+    <div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
+      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">LevittownNow</span> —
+      <a href="https://levittownnow.com/2026/05/19/levittown-area-state-house-races-lined-up-for-general-election/" target="_blank" rel="noopener">Levittown-Area State House Races Lined Up For General Election</a>
+      <span class="note">May 19, 2026</span>
+      <div style="margin-top:.3rem;font-weight:500;">Confirms Davis's 141st-District matchup against Republican Ken Velez among the lower-Bucks general-election contests.</div>
+      <div style="margin-top:.3rem;"><a href="https://levittownnow.com/2026/05/19/levittown-area-state-house-races-lined-up-for-general-election/" target="_blank" rel="noopener" style="font-weight:700;">Read more at LevittownNow →</a></div>
+    </div>
+  </div>
+
+  <div class="card card-orange">
+    <strong>Kristin Egan (D) vs. Rep. Joe Hogan (R, incumbent) — 142nd District (Langhorne)</strong>
+    <span class="sub"><em>Neshaminy School Board director and 20-year public school teacher. First state candidate to publicly oppose the $227M PennDOT US-1 reconstruction project. Platform: education funding reform, public safety, and cost of living.</em></span>
+    <span class="sub"><em>No new coverage in the last 48 hours.</em></span>
+  </div>
+
+  <div class="card card-orange">
+    <strong>Tim Hayes (D) vs. Rep. Shelby Labs (R, incumbent) — 143rd District (Dublin)</strong>
+    <span class="sub"><em>Dublin Borough Council president, Army National Guard veteran, and environmental policy expert. Priorities include alternative energy, regulating AI data farms, affordability, and education.</em></span>
+
+    <div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
+      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">Bucks County Herald</span> —
+      <a href="https://www.buckscountyherald.com/news/election/nominating-petitions-show-no-contested-pa-house-primaries-in-bucks-county/article_bb90defc-97c5-40fd-ab42-af9d6a215a77.html" target="_blank" rel="noopener">Nominating petitions show no contested Pa. House primaries in Bucks County</a>
+      <span class="note">Spring 2026 (background)</span>
+      <div style="margin-top:.3rem;font-weight:500;">Confirms the 143rd as a set general-election matchup — Dublin council president Tim Hayes against Republican incumbent Shelby Labs — with no contested House primaries countywide.</div>
+      <div style="margin-top:.3rem;"><a href="https://www.buckscountyherald.com/news/election/nominating-petitions-show-no-contested-pa-house-primaries-in-bucks-county/article_bb90defc-97c5-40fd-ab42-af9d6a215a77.html" target="_blank" rel="noopener" style="font-weight:700;">Read more at the Bucks County Herald →</a></div>
+    </div>
+  </div>
+
+  <div class="card card-orange">
+    <strong>Brian Munroe (D, incumbent) vs. Michael J. Murphy (R) — 144th District (Warminster)</strong>
+    <span class="sub"><em>Former Radnor Township police officer and Warminster Township supervisor. Unseated Republican Todd Polinchock in 2022 by 515 votes and was re-elected in 2024 by 1,065 votes. Endorsed by Conservation Voters of PA; a DLCC-targeted swing district. Murphy is a Warrington Republican who works as a nurse.</em></span>
+    <span class="sub"><em>No new coverage in the last 48 hours.</em></span>
+  </div>
+
+  <div class="card card-orange">
+    <strong>Les Mavus (D) vs. Rep. Craig Staats (R, incumbent) — 145th District (Nockamixon)</strong>
+    <span class="sub"><em>Nockamixon Township resident and inspector of elections.</em></span>
+    <span class="sub"><em>No new coverage in the last 48 hours.</em></span>
+  </div>
+
+  <div class="card card-orange">
+    <strong>Monica Weninger (D) vs. Rep. Kristin Marcell (R, incumbent) — 178th District (Warwick)</strong>
+    <span class="sub"><em>25-year public school science teacher and Science Department Chair at Wissahickon School District. Auditor in Warwick Township — the first Democrat elected to that office in decades.</em></span>
+
+    <div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
+      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">Bucks Independence</span> —
+      <a href="https://www.bucksindependence.com/several-democrats-declare-candidacies-against-gop-incumbent-state-lawmakers-bucks-round-up-february-10-2026/" target="_blank" rel="noopener">Several Democrats declare candidacies against GOP incumbent state lawmakers</a>
+      <span class="note">Feb 10, 2026 (background)</span>
+      <div style="margin-top:.3rem;font-weight:500;">Round-up confirming Weninger's challenge to Rep. Kristin Marcell in the 178th among a wave of Democratic challengers to GOP incumbents across Bucks.</div>
+      <div style="margin-top:.3rem;"><a href="https://www.bucksindependence.com/several-democrats-declare-candidacies-against-gop-incumbent-state-lawmakers-bucks-round-up-february-10-2026/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Bucks Independence →</a></div>
+    </div>
   </div>
 </section>
 
+<!-- ============ KEY RACES TO WATCH ============ -->
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Key Races to Watch</span><span class="divider-line"></span></div>
 
   <div class="cards-grid">
-    <div class="card card-purple">
-      <strong>Bucks at the center</strong>
-      <div class="article-entry" style="border-top:none;padding-top:0;margin-top:.2rem;">
-        <span class="article-src">Philadelphia Inquirer</span> —
-        <a href="https://www.inquirer.com/politics/nation/bucks-county-2026-midterms-competitive-races-20260521.html" target="_blank" rel="noopener">Bucks County is about to be the center of Pennsylvania's political universe until the 2026 midterms</a>
-        <span class="note">May 21, 2026</span>
-        <div style="margin-top:.3rem;font-weight:500;">Gov. Shapiro kicked off Pennsylvania Democrats' general-election campaign in Bucks, where key Congress and state Senate races will be decided in the fall.</div>
-        <div style="margin-top:.3rem;"><a href="https://www.inquirer.com/politics/nation/bucks-county-2026-midterms-competitive-races-20260521.html" target="_blank" rel="noopener" style="font-weight:700;">Read more at the Philadelphia Inquirer →</a></div>
-      </div>
+    <div class="card card-lavender">
+      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">Philadelphia Inquirer</span> —
+      <a href="https://www.inquirer.com/politics/nation/bucks-county-2026-midterms-competitive-races-20260521.html" target="_blank" rel="noopener">Bucks County is about to be the center of Pennsylvania's political universe until the 2026 midterms</a>
+      <span class="note">May 21, 2026</span>
+      <div style="margin-top:.3rem;font-weight:500;">Overview of why Bucks is pivotal in 2026: the PA-01 House race plus three competitive state Senate seats that could decide the GOP-held chamber. Shapiro kicked off the Democrats' general-election campaign in the county.</div>
+      <div style="margin-top:.3rem;"><a href="https://www.inquirer.com/politics/nation/bucks-county-2026-midterms-competitive-races-20260521.html" target="_blank" rel="noopener" style="font-weight:700;">Read more at the Philadelphia Inquirer →</a></div>
     </div>
 
-    <div class="card card-purple">
-      <strong>One of four for House control</strong>
-      <div class="article-entry" style="border-top:none;padding-top:0;margin-top:.2rem;">
-        <span class="article-src">PhillyVoice</span> —
-        <a href="https://www.phillyvoice.com/pennsylvania-congress-2026-midterms-house-seats-fitzpatrick-mackenzie-bresnahan-perry/" target="_blank" rel="noopener">Rep. Fitzpatrick's Bucks County seat one of four races in Pa. that could decide control of Congress</a>
-        <span class="note">May 2026</span>
-        <div style="margin-top:.3rem;font-weight:500;">Fitzpatrick's PA-01 is one of four Pennsylvania seats — with the 7th, 8th and 10th — that could tip control of the U.S. House.</div>
-        <div style="margin-top:.3rem;"><a href="https://www.phillyvoice.com/pennsylvania-congress-2026-midterms-house-seats-fitzpatrick-mackenzie-bresnahan-perry/" target="_blank" rel="noopener" style="font-weight:700;">Read more at PhillyVoice →</a></div>
-      </div>
+    <div class="card card-lavender">
+      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">Philadelphia Inquirer</span> —
+      <a href="https://www.inquirer.com/politics/nation/pennsylvania-primary-election-swing-district-results-20260519.html" target="_blank" rel="noopener">Bucks County's Bob Harvie will face Brian Fitzpatrick in the fall as Democrats choose nominees for key Pa. swing seats</a>
+      <span class="note">May 19, 2026</span>
+      <div style="margin-top:.3rem;font-weight:500;">Primary-night wrap confirming the marquee fall matchups across Pennsylvania's swing seats, led by Harvie vs. Fitzpatrick in PA-01.</div>
+      <div style="margin-top:.3rem;"><a href="https://www.inquirer.com/politics/nation/pennsylvania-primary-election-swing-district-results-20260519.html" target="_blank" rel="noopener" style="font-weight:700;">Read more at the Philadelphia Inquirer →</a></div>
     </div>
 
-    <div class="card card-purple">
-      <strong>Legislative primary fallout</strong>
-      <div class="article-entry" style="border-top:none;padding-top:0;margin-top:.2rem;">
-        <span class="article-src">Spotlight PA</span> —
-        <a href="https://www.spotlightpa.org/news/2026/05/pennsylvania-primary-election-results-legislature-2026-elections/" target="_blank" rel="noopener">Pennsylvania primary battles see some legislative incumbents fall while gaming-targeted senators hold on</a>
-        <span class="note">May 2026</span>
-        <div style="margin-top:.3rem;font-weight:500;">Statewide recap of the May 19 legislative primaries, including which incumbents lost and how gaming-targeted senators fared — useful context for the Bucks-area state races.</div>
-        <div style="margin-top:.3rem;"><a href="https://www.spotlightpa.org/news/2026/05/pennsylvania-primary-election-results-legislature-2026-elections/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Spotlight PA →</a></div>
-      </div>
+    <div class="card card-lavender">
+      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">NewtownPANow</span> —
+      <a href="https://newtownpanow.com/2026/05/20/frank-farry-steve-santarsiero-draw-challengers-for-state-senate-seats/" target="_blank" rel="noopener">Frank Farry, Steve Santarsiero Draw Challengers For State Senate Seats</a>
+      <span class="note">May 20, 2026</span>
+      <div style="margin-top:.3rem;font-weight:500;">Local rundown of the Bucks-area Senate matchups now locked for November — Albillar vs. Farry (6th) and Santarsiero vs. Bankos (10th).</div>
+      <div style="margin-top:.3rem;"><a href="https://newtownpanow.com/2026/05/20/frank-farry-steve-santarsiero-draw-challengers-for-state-senate-seats/" target="_blank" rel="noopener" style="font-weight:700;">Read more at NewtownPANow →</a></div>
     </div>
 
-    <div class="card card-purple">
-      <strong>Primary results overview</strong>
-      <div class="article-entry" style="border-top:none;padding-top:0;margin-top:.2rem;">
-        <span class="article-src">Bucks County Beacon</span> —
-        <a href="https://buckscountybeacon.com/2026/05/bucks-county-primary-election-results-who-will-face-off-against-republican-congressman-brian-fitzpatrick-in-november/" target="_blank" rel="noopener">Bucks County Primary Election Results: Democrat Bob Harvie to Face Off Against Republican Brian Fitzpatrick in November</a>
-        <span class="note">May 2026</span>
-        <div style="margin-top:.3rem;font-weight:500;">County-wide rundown of who advanced from the May 19 Democratic primary into the November general election.</div>
-        <div style="margin-top:.3rem;"><a href="https://buckscountybeacon.com/2026/05/bucks-county-primary-election-results-who-will-face-off-against-republican-congressman-brian-fitzpatrick-in-november/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Bucks County Beacon →</a></div>
-      </div>
+    <div class="card card-lavender">
+      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">Spotlight PA</span> —
+      <a href="https://www.spotlightpa.org/news/2026/05/pennsylvania-primary-election-results-legislature-2026-elections/" target="_blank" rel="noopener">PA primary election results: Gaming-targeted senators win</a>
+      <span class="note">May 2026</span>
+      <div style="margin-top:.3rem;font-weight:500;">Statewide legislative primary results, including the 16th Senate outcome that sends Pinsley to a November race against Coleman.</div>
+      <div style="margin-top:.3rem;"><a href="https://www.spotlightpa.org/news/2026/05/pennsylvania-primary-election-results-legislature-2026-elections/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Spotlight PA →</a></div>
     </div>
   </div>
 </section>
 
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Sat, May 30 at 2:27 PM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Sun, May 31 at 6:07 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
 <script>
 function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
 updateClock();setInterval(updateClock,1000);
