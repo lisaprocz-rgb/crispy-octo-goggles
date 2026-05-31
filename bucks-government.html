@@ -24,7 +24,7 @@ h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;colo
   background:repeating-linear-gradient(90deg,#ff5c8a 0 16px,#3ec6e0 16px 32px,#ffd23f 32px 48px)}
 .live-clock{margin-top:1.1rem;display:inline-block;background:#1f2440;color:#fff;
   padding:.5rem 1.3rem;border-radius:14px;font-family:'Baloo 2';font-weight:600;
-  font-size:.92rem;box-shadow:4px 4px 0 #3dd6b5}
+  font-size:.92rem;box-shadow:4px 4px 0 #ff5c8a}
 .live-clock .clock-date{color:#ffd23f}.live-clock .clock-time{color:#fff}
 main{max-width:1080px;margin:0 auto;padding:1rem 1.4rem 4rem}
 .section-divider{display:flex;align-items:center;gap:.9rem;margin:2.4rem 0 1.2rem}
@@ -41,6 +41,7 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
   border:3px solid #1f2440;border-radius:18px;padding:1.2rem 1.4rem;
   box-shadow:6px 6px 0 var(--accent,#ff5c8a);margin-bottom:1rem;
   transition:transform .16s ease,box-shadow .16s ease}
+.card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--accent,#ff5c8a)}
 .card strong, .card .card-title{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;
   display:block;margin-bottom:.3rem;color:#1f2440}
 .card .sub{display:block;color:#6b6f8c;font-size:.86rem;font-weight:600;line-height:1.5;margin-top:.15rem}
@@ -52,14 +53,11 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 .card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
 .card-green{--accent:#3dd6b5}.card-lime{--accent:#7bd957}.card-orange{--accent:#ffb84d}
 .card-lblue{--accent:#4fc3f7}.card-sopink{--accent:#ff8fc7}.card-lavender{--accent:#b79cff}
-.card ul{margin:.5rem 0 .2rem 1.2rem}
-.card ul li{margin-bottom:.5rem;font-weight:600;font-size:.9rem;line-height:1.5}
-.readmore{display:inline-block;margin-top:.2rem;font-size:.82rem;font-weight:800;
-  color:#1f2440;border-bottom:2px dotted #0d9488}
-.readmore:hover{color:#0d9488;border-bottom-color:#1f2440}
 .back-to-hub{display:inline-block;font-family:'Baloo 2';font-size:.85rem;font-weight:700;
   background:#fff;color:#1f2440;text-decoration:none;padding:.45rem 1.1rem;border-radius:999px;
-  border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem}
+  border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem;
+  transition:transform .16s ease,box-shadow .16s ease}
+.back-to-hub:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #ffd23f}
 table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;
   border:3px solid #1f2440;border-radius:14px;overflow:hidden;margin:.8rem 0 1.4rem;
   font-size:.9rem}
@@ -67,27 +65,34 @@ th{background:#1f2440;color:#fff;font-family:'Baloo 2';font-weight:700;text-alig
   padding:.55rem .85rem;font-size:.85rem;letter-spacing:.03em}
 td{padding:.5rem .85rem;border-top:2px dotted #e6e2d8;font-weight:600}
 tr:first-child td{border-top:none}
-tr.highlight td{background:#FFF4D6}
-tr.election td{background:#FCE4D6}
-tr.passed td{background:#F2F2F2;color:#888}
+tr.row-highlight td{background:#fff7d6}
+tr.row-election td{background:#ffe0d0}
+tr.row-passed td{background:#f0f0f0;color:#8a8a8a}
 ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
 li{margin-bottom:.25rem}
 p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
-a:not(.card):not(.back-to-hub):not(.readmore):not(.hub-label a){color:#1f2440;font-weight:700;
+a:not(.card):not(.back-to-hub):not(.hub-label a){color:#1f2440;font-weight:700;
   text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
-a:not(.card):not(.back-to-hub):not(.readmore):not(.hub-label a):hover{color:#ff5c8a;border-bottom-color:#1f2440}
+a:not(.card):not(.back-to-hub):not(.hub-label a):hover{color:#ff5c8a;border-bottom-color:#1f2440}
+.readmore{font-family:'Baloo 2';font-weight:700;font-size:.85rem;display:inline-block;margin-top:.3rem}
 .callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
   box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
 .callout strong{font-family:'Baloo 2'}
-.pill-d{background:#5b9dff;color:#1f2440;font-size:.7rem;font-weight:800;padding:.15rem .55rem;
-  border-radius:999px;border:2px solid #1f2440;text-transform:uppercase;letter-spacing:.04em}
-.pill-r{background:#ff8fc7;color:#1f2440;font-size:.7rem;font-weight:800;padding:.15rem .55rem;
-  border-radius:999px;border:2px solid #1f2440;text-transform:uppercase;letter-spacing:.04em}
+.newsitem{margin:.5rem 0 .9rem}
+.newsitem .src{font-family:'Baloo 2';font-weight:700;font-size:.74rem;color:#1f2440;
+  background:#3dd6b5;border:2px solid #1f2440;border-radius:999px;padding:.1rem .55rem;
+  margin-right:.4rem;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap}
+.newsitem .date{color:#8a8a8a;font-size:.82rem;font-weight:600}
+.newsitem .summary{font-size:.9rem;font-weight:500;color:#3a3f5c;margin:.25rem 0 .15rem}
 footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
 .footer-clock{margin-top:.4rem;color:#ff5c8a}
 .timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
   font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
-@media (max-width:600px){h1{font-size:2.4rem}main{padding:1rem .9rem 3rem}.card{padding:1rem 1.1rem}}
+@media (max-width:600px){
+  h1{font-size:2.4rem}
+  main{padding:1rem .9rem 3rem}
+  .card{padding:1rem 1.1rem}
+}
 </style>
 </head>
 <body>
@@ -99,311 +104,321 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 <div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
 </header>
 <main>
-
 <a href="primary.html" class="back-to-hub">🗳️ Primary Briefing</a>
 
-<p style="font-family:'Baloo 2';font-size:1.05rem;font-weight:800;">Bucks County Government Briefing — Saturday, May 30, 2026</p>
-<p style="font-size:.85rem;color:#6b6f8c;">Reporting window: May 23–30, 2026 · Generated 2026-05-30 1:52 PM ET / 2026-05-30 17:52 UTC · All content fetched live this run — no cached data used.</p>
-
-<!-- THIS WEEK AT A GLANCE -->
 <div class="callout">
-<strong>This week at a glance:</strong>
-<ul>
-<li><strong>Post-primary:</strong> The May 19 primary is decided — Commissioner <strong>Bob Harvie (D)</strong> won the PA-1 Democratic congressional primary with ~65% over Lucia Simonelli (~35%) and will face GOP Rep. Brian Fitzpatrick in November.</li>
-<li><strong>Mail ballots:</strong> Bucks reported an unofficial <strong>51,452</strong> absentee/mail-in ballots received by the 8 PM Election Day deadline. Canvass/certification work continues.</li>
-<li><strong>May 26:</strong> Chair <strong>Diane Ellis-Marseglia</strong> spoke at the dedication of Bucks County Bridge #359 honoring U.S. Army Sgt. John R. Millikan (West Rockhill Twp).</li>
-<li><strong>School cellphones:</strong> Commissioners unanimously approved a <strong>$2,000 incentive</strong> for any Bucks school district that adopts a "bell-to-bell" phone ban.</li>
-<li><strong>Redistricting:</strong> Commissioners approved a resolution opposing any split of Bucks County across two congressional districts.</li>
-<li><strong>E-pollbook pilot — POSTPONED:</strong> PA Dept. of State delayed its internet-connected pollbook pilot until at least 2027. Bucks had not signed up; only Philadelphia, Lebanon and Delaware counties had.</li>
-<li><strong>Senior Games:</strong> The 43rd Annual Bucks County Senior Games run June 1–6, with a kickoff May 27.</li>
-</ul>
+<strong>Bucks County Government Briefing — Sunday, May 31, 2026</strong>
+<p style="margin:.4rem 0 0;">Reporting window: May 24–31, 2026 · Generated Sun, May 31 at 2:07 AM ET / 2026-05-31 06:07 UTC · <em>All content fetched live this run — no cached data used.</em></p>
 </div>
 
-<!-- PUBLIC MEETINGS -->
+<!-- ===================== THIS WEEK AT A GLANCE ===================== -->
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">This Week at a Glance</span><span class="divider-line"></span></div>
+<div class="callout">
+<strong>Top developments, May 24–31:</strong>
+<ul>
+<li><strong>ICE policy adopted (May 28 coverage; effective May 21):</strong> Commissioners passed a 6-page resolution on county-employee interactions with ICE in a 2-1 vote — Marseglia &amp; Harvie for, DiGirolamo against. County workers may not share resident personal information with ICE absent a judicial warrant.</li>
+<li><strong>Harvie wins PA-1 Democratic primary (May 19):</strong> Vice Chair Bob Harvie defeated Lucia Simonelli and will face GOP Rep. Brian Fitzpatrick in November. Harvie remains a sitting commissioner and Board of Elections chair.</li>
+<li><strong>2026 primary concluded:</strong> Unofficial mail/absentee ballots returned by the 8 PM May 19 deadline totaled 51,452. Canvass and certification by the Board of Elections is underway.</li>
+<li><strong>PA pollbook pilot postponed (May 12–13):</strong> The Department of State shelved its internet-connected e-pollbook pilot for 2026; only Philadelphia, Lebanon and Delaware had signed up. <strong>Bucks never registered</strong> — watch item resolved for this cycle.</li>
+<li><strong>DA Khan office honor (May):</strong> First Assistant DA Kristin M. McElroy named recipient of the 2026 Eugene Vittone Minister of Justice Award.</li>
+<li><strong>Commissioners' meetings resume:</strong> Next business meetings June 3 and June 17 at 55 E. Court St., Doylestown.</li>
+</ul>
+</div>
+</section>
+
+<!-- ===================== PUBLIC MEETINGS ===================== -->
 <section class="section-group">
 <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📅 Public Meetings</span><span class="divider-line"></span></div>
 
 <div class="sub-label">Board of Commissioners — schedule</div>
-<p style="font-size:.85rem;color:#6b6f8c;">1st & 3rd Wednesdays, 55 E. Court Street, 1st-Floor Commissioners' Meeting Room, Doylestown. Live-streamed via the CivicClerk portal. Next upcoming meeting highlighted.</p>
+<p>Business meetings are held the 1st and 3rd Wednesdays each month at 55 E. Court Street, 1st-Floor Commissioners' Meeting Room, Doylestown, PA 18901, and live-streamed via the <a href="https://buckscopa.portal.civicclerk.com/" target="_blank" rel="noopener">CivicClerk portal</a>.</p>
 <table>
-<tr><th>Date</th><th>Time</th><th>Type</th></tr>
-<tr class="highlight"><td>Wed, Jun 3, 2026</td><td>10:00 AM</td><td>Regular meeting (1st Wed)</td></tr>
-<tr><td>Wed, Jun 17, 2026</td><td>10:00 AM</td><td>Regular meeting (3rd Wed)</td></tr>
-<tr><td>Wed, Jul 1, 2026</td><td>10:00 AM</td><td>Regular meeting (1st Wed)</td></tr>
-<tr><td>Wed, Jul 15, 2026</td><td>10:00 AM</td><td>Regular meeting (3rd Wed)</td></tr>
+<tr><th>Date</th><th>Meeting</th><th>Time</th></tr>
+<tr class="row-highlight"><td>Wed, Jun 3, 2026</td><td>Commissioners' Business Meeting (next up)</td><td>10:00 AM</td></tr>
+<tr><td>Wed, Jun 17, 2026</td><td>Commissioners' Business Meeting</td><td>10:00 AM</td></tr>
+<tr><td>Wed, Jul 1, 2026</td><td>Commissioners' Business Meeting</td><td>10:00 AM</td></tr>
+<tr><td>Wed, Jul 15, 2026</td><td>Commissioners' Business Meeting</td><td>10:00 AM</td></tr>
 </table>
-<p style="font-size:.8rem;color:#888;">Confirm exact dates/times on the <a href="https://buckscopa.portal.civicclerk.com/" target="_blank" rel="noopener">CivicClerk portal</a> — schedule subject to change.</p>
 
 <div class="sub-label">Board of Elections — schedule</div>
-<p style="font-size:.85rem;color:#6b6f8c;">BOE meets ad-hoc, concentrated around elections, typically 3 PM in the same room.</p>
+<p>BOE meetings are ad-hoc and concentrated around elections, typically 3 PM in the same room. The 2026 primary is complete; the active focus now is post-primary canvass and certification. Confirm the next dates on the <a href="https://buckscopa.portal.civicclerk.com/" target="_blank" rel="noopener">CivicClerk portal</a>.</p>
 <table>
-<tr><th>Date</th><th>Type</th></tr>
-<tr class="election"><td>Tue, May 19, 2026</td><td>Primary Election Day (passed)</td></tr>
-<tr><td>Late May / early June 2026</td><td>Post-primary canvass / computation of returns (check CivicClerk for exact dates)</td></tr>
+<tr><th>Date</th><th>Meeting</th><th>Status</th></tr>
+<tr class="row-passed"><td>Tue, May 19, 2026</td><td>2026 Primary Election Day</td><td>Completed</td></tr>
+<tr class="row-highlight"><td>Late May / Early June 2026</td><td>Post-primary canvass &amp; certification of returns</td><td>In progress — check portal</td></tr>
 </table>
 </section>
 
-<!-- BOARD OF COMMISSIONERS -->
+<!-- ===================== BOARD OF COMMISSIONERS ===================== -->
 <section class="section-group">
 <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Board of Commissioners</span><span class="divider-line"></span></div>
 <table>
-<tr><th>Commissioner</th><th>Role</th><th>Party</th></tr>
-<tr><td>Diane Ellis-Marseglia</td><td>Chair</td><td><span class="pill-d">D</span></td></tr>
-<tr><td>Bob Harvie</td><td>Vice Chair (PA-1 nominee)</td><td><span class="pill-d">D</span></td></tr>
-<tr><td>Gene DiGirolamo</td><td>Secretary</td><td><span class="pill-r">R</span></td></tr>
+<tr><th>Commissioner</th><th>Role (2026)</th><th>Party</th></tr>
+<tr><td>Diane Ellis-Marseglia</td><td>Chair</td><td><span class="note" style="--accent:#5b9dff">D</span></td></tr>
+<tr><td>Bob Harvie</td><td>Vice Chair · BOE Chair · PA-1 nominee</td><td><span class="note" style="--accent:#5b9dff">D</span></td></tr>
+<tr><td>Gene DiGirolamo</td><td>Secretary</td><td><span class="note" style="--accent:#ff8fc7">R</span></td></tr>
 </table>
 
 <div class="card card-blue">
-<strong>Diane Ellis-Marseglia — Chair <span class="pill-d">D</span></strong>
-<span class="sub">Board Chair and longtime commissioner; presides over the Board of Elections alongside her colleagues.</span>
-<ul>
-<li>Spoke May 26 at the dedication of Bucks County Bridge #359 honoring U.S. Army Sgt. John R. Millikan — the 21st county bridge since 2022 named for a local Vietnam War casualty.
-<br><a class="readmore" href="https://www.buckscounty.gov/m/newsflash" target="_blank" rel="noopener">Read more at Bucks County News Flash →</a></li>
-<li>Joined the unanimous vote creating a $2,000 incentive for school districts adopting "bell-to-bell" cellphone bans.
-<br><a class="readmore" href="https://buckscountybeacon.com/2026/05/bucks-county-commissioners-encourage-school-districts-to-ban-student-cellphone-usage-during-school-hours/" target="_blank" rel="noopener">Read more at Bucks County Beacon →</a></li>
-</ul>
+<strong>Diane Ellis-Marseglia — Chair (D)</strong>
+<span class="sub">Longtime commissioner who, with Harvie, flipped the board to Democratic control in 2019. Chairs the 2026 board and sits on the Board of Elections.</span>
+<div class="newsitem">
+<span class="src">LevittownNow</span><span class="date">(May 28, 2026)</span>
+<div class="summary">Voted for the new ICE-interaction resolution, saying she "frequently" gets asked by employees how to handle such situations and that Bucks "is not a sanctuary county" but follows the law.</div>
+<a class="readmore" href="https://levittownnow.com/2026/05/28/bucks-county-approves-policy-on-employee-interactions-with-ice/" target="_blank" rel="noopener">Read more at LevittownNow →</a>
+</div>
 </div>
 
 <div class="card card-green">
-<strong>Bob Harvie — Vice Chair · BOE Chair <span class="pill-d">D</span></strong>
-<span class="sub">Vice Chair of the Commissioners and Chair of the Board of Elections; now the Democratic nominee for U.S. House PA-1. He retains his commissioner seat while campaigning.</span>
-<ul>
-<li>Won the PA-1 Democratic primary May 19 with about 65% (≈45,942 votes) to Lucia Simonelli's 35%; advances to face Rep. Brian Fitzpatrick in November.
-<br><a class="readmore" href="https://whyy.org/articles/election-2026-pennsylvania-primary-first-district-bucks-county-winner/" target="_blank" rel="noopener">Read more at WHYY →</a></li>
-<li>Simonelli conceded; the Bucks County Herald and 6abc reported the general-election matchup is set.
-<br><a class="readmore" href="https://www.buckscountyherald.com/news/election/bob-harvie-wins-pa-01-primary-lucia-simonelli-concedes/article_18f41d6c-509b-4d14-9d91-18a399b1c79b.html" target="_blank" rel="noopener">Read more at Bucks County Herald →</a></li>
-</ul>
+<strong>Bob Harvie — Vice Chair (D) · BOE Chair · PA-1 nominee</strong>
+<span class="sub">Bristol Borough native and former social-studies teacher; running for U.S. House PA-1 while holding his commissioner seat. Chairs the Board of Elections (distinct from his commissioners' Vice-Chair role).</span>
+<div class="newsitem">
+<span class="src">WHYY</span><span class="date">(May 19–20, 2026)</span>
+<div class="summary">Won the Democratic primary for Pennsylvania's 1st Congressional District over Lucia Simonelli; will face GOP incumbent Brian Fitzpatrick in November in a top Democratic target seat.</div>
+<a class="readmore" href="https://whyy.org/articles/election-2026-pennsylvania-primary-first-district-bucks-county-winner/" target="_blank" rel="noopener">Read more at WHYY →</a>
+</div>
+<div class="newsitem">
+<span class="src">LevittownNow</span><span class="date">(May 28, 2026)</span>
+<div class="summary">Voted for the ICE resolution, framing it as proactive guidance and criticizing federal inaction on comprehensive immigration reform.</div>
+<a class="readmore" href="https://levittownnow.com/2026/05/28/bucks-county-approves-policy-on-employee-interactions-with-ice/" target="_blank" rel="noopener">Read more at LevittownNow →</a>
+</div>
 </div>
 
 <div class="card card-pink">
-<strong>Gene DiGirolamo — Secretary <span class="pill-r">R</span></strong>
+<strong>Gene DiGirolamo — Secretary (R)</strong>
 <span class="sub">The board's lone Republican; former longtime state representative.</span>
-<ul>
-<li>Joined the unanimous board votes this period — the cellphone-ban incentive and the resolution opposing splitting Bucks across two congressional districts.
-<br><a class="readmore" href="https://www.buckscounty.gov/m/newsflash/home/detail/76" target="_blank" rel="noopener">Read more at Bucks County News Flash →</a></li>
-</ul>
+<div class="newsitem">
+<span class="src">LevittownNow</span><span class="date">(May 28, 2026)</span>
+<div class="summary">Cast the lone dissenting vote on the ICE resolution, citing concern the policy could lead to Bucks being labeled a "sanctuary county," though he said much of the language about following the law "seems pretty good."</div>
+<a class="readmore" href="https://levittownnow.com/2026/05/28/bucks-county-approves-policy-on-employee-interactions-with-ice/" target="_blank" rel="noopener">Read more at LevittownNow →</a>
+</div>
 </div>
 
 <div class="card card-yellow">
 <strong>County Solicitor — Dan Grieser</strong>
-<span class="sub">Serves as the county's chief legal officer advising the commissioners and county departments. No solicitor-specific news in the past week.</span>
+<span class="sub">County Solicitor advising the commissioners and county departments. No solicitor-specific news in the past week; the new ICE policy requires consultation with county lawyers before releasing personal information to federal authorities.</span>
 </div>
 </section>
 
-<!-- ROW OFFICES -->
+<!-- ===================== ROW OFFICES ===================== -->
 <section class="section-group">
 <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Row Offices</span><span class="divider-line"></span></div>
-<p>All nine Bucks County row offices are currently held by Democrats following the January 2026 "blue wave" inauguration. Two are filled in an acting capacity (Treasurer; Register of Wills).</p>
+<p>All nine Bucks County row offices are currently held by Democrats — the result of the 2025 "blue wave," with most officeholders sworn in January 5, 2026.</p>
 <table>
-<tr><th>Office</th><th>Officeholder</th><th>Party</th></tr>
-<tr><td>District Attorney</td><td>Joe Khan</td><td><span class="pill-d">D</span></td></tr>
-<tr><td>Sheriff</td><td>Danny Ceisler</td><td><span class="pill-d">D</span></td></tr>
-<tr><td>Prothonotary</td><td>Donna Petrecco</td><td><span class="pill-d">D</span></td></tr>
-<tr><td>Recorder of Deeds</td><td>Robin Robinson</td><td><span class="pill-d">D</span></td></tr>
-<tr><td>Controller</td><td>Neale Dougherty</td><td><span class="pill-d">D</span></td></tr>
-<tr><td>Clerk of Courts</td><td>Eileen Hartnett Albillar</td><td><span class="pill-d">D</span></td></tr>
-<tr><td>Treasurer</td><td>Mark Moffa (acting)</td><td><span class="pill-d">D</span></td></tr>
-<tr><td>Coroner</td><td>Patricia "Patti" Campi</td><td><span class="pill-d">D</span></td></tr>
-<tr><td>Register of Wills</td><td>Douglas Wayne (acting)</td><td><span class="pill-d">D</span></td></tr>
+<tr><th>Office</th><th>Officeholder</th><th>Party</th><th>Note</th></tr>
+<tr><td>District Attorney</td><td>Joe Khan</td><td><span class="note" style="--accent:#5b9dff">D</span></td><td>Sworn Jan 5, 2026</td></tr>
+<tr><td>Sheriff</td><td>Danny Ceisler</td><td><span class="note" style="--accent:#5b9dff">D</span></td><td>Sworn Jan 5, 2026</td></tr>
+<tr><td>Prothonotary</td><td>Donna Petrecco</td><td><span class="note" style="--accent:#5b9dff">D</span></td><td>Sworn Jan 5, 2026</td></tr>
+<tr><td>Recorder of Deeds</td><td>Robin Robinson</td><td><span class="note" style="--accent:#5b9dff">D</span></td><td>Sworn Jan 5, 2026</td></tr>
+<tr><td>Controller</td><td>Neale Dougherty</td><td><span class="note" style="--accent:#5b9dff">D</span></td><td>Sworn Jan 5, 2026</td></tr>
+<tr><td>Clerk of Courts</td><td>Eileen Hartnett Albillar</td><td><span class="note" style="--accent:#5b9dff">D</span></td><td>Term to Jan 2028; ran for PA Senate 6th</td></tr>
+<tr><td>Treasurer</td><td>Mark Moffa (Acting)</td><td><span class="note" style="--accent:#5b9dff">D</span></td><td>Senate confirmation pending</td></tr>
+<tr><td>Coroner</td><td>Patricia "Patti" Campi</td><td><span class="note" style="--accent:#5b9dff">D</span></td><td>Term to Jan 2028</td></tr>
+<tr><td>Register of Wills</td><td>Douglas Wayne (Acting)</td><td><span class="note" style="--accent:#5b9dff">D</span></td><td>First Deputy; Bobrin vacancy</td></tr>
 </table>
 
-<div class="card card-purple">
-<strong>District Attorney — Joe Khan <span class="pill-d">D</span></strong>
-<span class="sub">Sworn Jan 5, 2026; the 35th DA of Bucks County and the first Asian-American elected to a Pennsylvania row office. Oversees 100+ attorneys, detectives and staff.</span>
-<ul><li>No DA-specific news in the past week.</li></ul>
-</div>
-
 <div class="card card-cyan">
-<strong>Sheriff — Danny Ceisler <span class="pill-d">D</span></strong>
-<span class="sub">Sworn Jan 5, 2026; attorney and military officer. On Jan 14, 2026 he signed an order terminating the office's 287(g) ICE partnership.</span>
-<ul><li>No new sheriff-specific developments confirmed in the past week. (See Standing Watch for the ongoing ICE-agreement litigation.)</li></ul>
+<strong>District Attorney — Joe Khan (D)</strong>
+<span class="sub">First Asian-American elected to a PA row office; sworn Jan 5, 2026. Top priority is public safety, plus criminal and civil anti-corruption enforcement.</span>
+<div class="newsitem">
+<span class="src">Bucks County</span><span class="date">(May 2026)</span>
+<div class="summary">DA Khan's office announced First Assistant DA Kristin M. McElroy as the 2026 Eugene Vittone Minister of Justice Award recipient.</div>
+<a class="readmore" href="https://www.buckscounty.gov/775/District-Attorney-Joe-Khan" target="_blank" rel="noopener">Read more at Bucks County →</a>
+</div>
 </div>
 
-<div class="card card-lime">
-<strong>Prothonotary — Donna Petrecco <span class="pill-d">D</span></strong>
-<span class="sub">Sworn Jan 5, 2026; manages civil court records. No row-office-specific news in the past week.</span>
+<div class="card card-purple">
+<strong>Sheriff — Danny Ceisler (D)</strong>
+<span class="sub">Sworn Jan 5, 2026; withdrew the office from the 287(g) ICE task-force agreement Jan 14, fulfilling a campaign promise. The office still shares booking data with ICE and ICE retains access to the county jail.</span>
+<p style="margin:.4rem 0 0;font-size:.9rem;font-weight:500;color:#3a3f5c;">No sheriff-specific news in the past week. Background: the new countywide ICE-interaction policy reinforces existing practice; the sheriff's office continues routine information-sharing.</p>
 </div>
 
 <div class="card card-orange">
-<strong>Recorder of Deeds — Robin Robinson <span class="pill-d">D</span></strong>
-<span class="sub">Sworn Jan 5, 2026; oversees land and property records. No row-office-specific news in the past week.</span>
+<strong>Prothonotary — Donna Petrecco (D)</strong>
+<span class="sub">Civil-court records office; sworn Jan 5, 2026. No row-office-specific news in the past week.</span>
 </div>
 
-<div class="card card-lblue">
-<strong>Controller — Neale Dougherty <span class="pill-d">D</span></strong>
-<span class="sub">Sworn Jan 5, 2026; the county's chief fiscal watchdog. No row-office-specific news in the past week.</span>
-</div>
-
-<div class="card card-magenta">
-<strong>Clerk of Courts — Eileen Hartnett Albillar <span class="pill-d">D</span></strong>
-<span class="sub">Elected 2023 (term to Jan 2028); former Warrington Township supervisor with a social-work background. Running for the PA Senate 6th District against GOP incumbent Frank Farry.</span>
-<ul>
-<li>Ran unopposed in the May 19 Democratic primary for the 6th Senatorial District; advances to challenge Sen. Frank Farry in November. Backed by Senate Dem Leader Jay Costa, Sen. Steve Santarsiero, and Commissioners Harvie and Marseglia.
-<br><a class="readmore" href="https://levittownnow.com/2026/05/19/frank-farry-steve-santarsiero-draw-challengers-for-pa-senate-seats/" target="_blank" rel="noopener">Read more at LevittownNow →</a></li>
-</ul>
+<div class="card card-lime">
+<strong>Recorder of Deeds — Robin Robinson (D)</strong>
+<span class="sub">Land records and deeds; sworn Jan 5, 2026. No row-office-specific news in the past week.</span>
 </div>
 
 <div class="card card-blue">
-<strong>Treasurer — Mark Moffa (acting) <span class="pill-d">D</span></strong>
-<span class="sub">Acting treasurer since Kristian Ballerini resigned March 2025. To fill the term through Jan 2028 he must be nominated by the governor and confirmed by the PA Senate.</span>
-<ul><li>No confirmed change in confirmation status in the past week. (See Standing Watch.)</li></ul>
+<strong>Controller — Neale Dougherty (D)</strong>
+<span class="sub">Financial oversight of the county budget; previously served as Controller 2018–2022; sworn Jan 5, 2026. No row-office-specific news in the past week.</span>
+</div>
+
+<div class="card card-magenta">
+<strong>Clerk of Courts — Eileen Hartnett Albillar (D)</strong>
+<span class="sub">Criminal-court records office; term to Jan 2028. Ran for the PA Senate 6th District seat in the May 19 primary. No fresh clerk-office news in the past week.</span>
 </div>
 
 <div class="card card-green">
-<strong>Coroner — Patricia "Patti" Campi <span class="pill-d">D</span></strong>
-<span class="sub">Term to Jan 2028. No row-office-specific news in the past week.</span>
+<strong>Treasurer — Mark Moffa (Acting, D)</strong>
+<span class="sub">Acting treasurer since former Treasurer Kristian Ballerini resigned in March 2025. To be appointed for the term through Jan 2028, his name must be submitted to the Governor and confirmed by the PA Senate.</span>
+<p style="margin:.4rem 0 0;font-size:.9rem;font-weight:500;color:#3a3f5c;">No new confirmation news in the past week — see Standing Watch Items.</p>
 </div>
 
 <div class="card card-sopink">
-<strong>Register of Wills / Clerk of Orphans' Court — Douglas Wayne (acting) <span class="pill-d">D</span></strong>
-<span class="sub">Acting via First Deputy Douglas Wayne after elected officeholder Linda Bobrin resigned in January 2026 to take a Common Pleas judgeship. Permanent fill pending.</span>
-<ul><li>No update on a permanent appointment in the past week. (See Standing Watch.)</li></ul>
+<strong>Coroner — Patricia "Patti" Campi (D)</strong>
+<span class="sub">Term to Jan 2028. No coroner-office-specific news in the past week.</span>
+</div>
+
+<div class="card card-lavender">
+<strong>Register of Wills / Clerk of Orphans' Court — Douglas Wayne (Acting, D)</strong>
+<span class="sub">First Deputy Douglas Wayne is acting after elected officeholder Linda Bobrin resigned in January 2026 to take a Common Pleas judgeship. No new development on a permanent fill in the past week — see Standing Watch Items.</span>
 </div>
 </section>
 
-<!-- BOARD OF ELECTIONS -->
+<!-- ===================== BOARD OF ELECTIONS ===================== -->
 <section class="section-group">
 <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🗳️ Board of Elections</span><span class="divider-line"></span></div>
 
 <div class="sub-label">Composition (3 Commissioners, ex officio)</div>
 <table>
 <tr><th>Member</th><th>BOE Role</th><th>Party</th></tr>
-<tr><td>Bob Harvie</td><td>Chair</td><td><span class="pill-d">D</span></td></tr>
-<tr><td>Diane Ellis-Marseglia</td><td>Member</td><td><span class="pill-d">D</span></td></tr>
-<tr><td>Gene DiGirolamo</td><td>Member</td><td><span class="pill-r">R</span></td></tr>
+<tr><td>Bob Harvie</td><td>Chair</td><td><span class="note" style="--accent:#5b9dff">D</span></td></tr>
+<tr><td>Diane Ellis-Marseglia</td><td>Member</td><td><span class="note" style="--accent:#5b9dff">D</span></td></tr>
+<tr><td>Gene DiGirolamo</td><td>Member</td><td><span class="note" style="--accent:#ff8fc7">R</span></td></tr>
 </table>
-<p style="font-size:.82rem;color:#6b6f8c;">Note: Harvie's role as BOE Chair is separate from his Commissioners' Vice-Chair role.</p>
 
-<div class="sub-label">Key staff & contact</div>
+<div class="sub-label">Key staff &amp; contact</div>
 <ul>
-<li><strong>Crystal Winterbottom</strong> — Interim Voter Registration Director</li>
-<li><strong>Charlene Maloney</strong> — Election Coordinator</li>
-<li>Phone: <strong>215-348-6154</strong> · Address: 55 E. Court Street, Doylestown PA 18901</li>
+<li>Crystal Winterbottom — Interim Voter Registration Director</li>
+<li>Charlene Maloney — Election Coordinator</li>
+<li>Phone: 215-348-6154 · Address: 55 E. Court Street, Doylestown, PA 18901</li>
 </ul>
 
 <div class="sub-label">Voting infrastructure</div>
 <ul>
-<li><strong>Clear Ballot</strong> voting machines (contract renewed Jan 2026).</li>
-<li><strong>KnowInk Poll Pad</strong> e-pollbooks operating on a closed network (not internet-connected).</li>
-<li>Drop boxes monitored and secured; chain-of-custody procedures in place.</li>
+<li>Clear Ballot voting machines (contract renewed Jan 2026)</li>
+<li>KnowInk Poll Pad e-pollbooks operating on a closed network (not internet-connected)</li>
+<li>Drop-box security: ballot drop boxes monitored and emptied on schedule by elections staff</li>
 </ul>
 
-<div class="sub-label">Key 2026 primary dates</div>
+<div class="sub-label">2026 primary — key dates</div>
 <table>
-<tr><th>Date</th><th>Milestone</th></tr>
-<tr class="passed"><td>May 12, 2026</td><td>Mail-ballot application deadline (passed)</td></tr>
-<tr class="passed"><td>May 19, 2026</td><td>Primary Election Day (passed)</td></tr>
-<tr class="passed"><td>May 19, 2026 · 8 PM</td><td>Mail-ballot return + cure deadline (passed)</td></tr>
+<tr><th>Date</th><th>Milestone</th><th>Status</th></tr>
+<tr class="row-passed"><td>Tue, May 12, 2026</td><td>Mail/absentee application deadline (5 PM)</td><td>Passed</td></tr>
+<tr class="row-passed"><td>Tue, May 19, 2026</td><td>Mail-ballot return deadline (8 PM)</td><td>Passed</td></tr>
+<tr class="row-election"><td>Tue, May 19, 2026</td><td>Primary Election Day</td><td>Completed</td></tr>
+<tr class="row-highlight"><td>Late May–June 2026</td><td>Canvass &amp; certification of returns</td><td>In progress</td></tr>
 </table>
 
 <div class="sub-label">Mail-in ballot data</div>
+<p>The 2026 primary has concluded, so the in-cycle mail-ballot tracker (bucksdemocrats.org/mailballotstatus) is no longer live for this race. The county's reported unofficial figure stands as follows:</p>
 <table>
-<tr><th>Metric</th><th>Value</th></tr>
-<tr><td>Unofficial mail/absentee ballots received by 8 PM deadline</td><td>51,452 (UNOFFICIAL)</td></tr>
-<tr><td>Ballots returned as of May 8, 2026 (earlier snapshot)</td><td>49,707</td></tr>
+<tr><th>Metric</th><th>Figure</th><th>As of</th></tr>
+<tr><td>Mail/absentee ballots returned (unofficial)</td><td>51,452</td><td>8 PM, May 19, 2026</td></tr>
 </table>
-<p style="font-size:.82rem;color:#6b6f8c;">As of this run, the live <a href="https://www.buckscounty.gov/186/Voter-Statistics" target="_blank" rel="noopener">county Voter Statistics page</a> and bucksdemocrats.org/mailballotstatus did not surface a fresh post-primary D-vs-R breakdown; the figures above are the latest available and are clearly dated. Final counts await certification.</p>
+<p style="font-size:.85rem;color:#6b6f8c;">Figure is unofficial pending the Board of Elections' canvass and certification. Pre-primary partisan breakdown (last known May 4, 2026: 43,314 D / 20,031 R approved; ~40.6% return rate) is now superseded by the final return count above.</p>
 
 <div class="sub-label">Mail-ballot cure policy</div>
-<p style="font-weight:700;margin-bottom:.2rem;">How Bucks notifies</p>
-<p>Bucks operates "notice and cure" — voters with a correctible defect are notified by postcard, phone, and/or email.</p>
-<p style="font-weight:700;margin-bottom:.2rem;">How to cure</p>
-<p>Cure in person at 55 E. Court St., Doylestown, OR vote a provisional ballot at the polls.</p>
-<p style="font-weight:700;margin-bottom:.2rem;">Standard correctible defects</p>
-<p>Missing signature, missing date, naked ballot (no secrecy envelope), or improperly opened/sealed envelope.</p>
-<p style="font-weight:700;margin-bottom:.2rem;">Cure deadline</p>
-<p>8 PM on Election Day — Bucks does not offer a post-Election-Day cure window.</p>
+<p style="font-weight:700;">How Bucks notifies</p>
+<p>Bucks operates a "notice and cure" process — voters with a correctible defect are notified by postcard, phone, and email.</p>
+<p style="font-weight:700;">How to cure</p>
+<p>Cure in person at the Board of Elections, 55 E. Court Street, Doylestown, OR vote a provisional ballot at the polls.</p>
+<p style="font-weight:700;">Standard correctible defects</p>
+<p>Missing signature, missing date, naked ballot (no secrecy envelope), and an improperly opened/sealed outer envelope.</p>
+<p style="font-weight:700;">Cure deadline + context</p>
+<p>The cure deadline is 8 PM on Election Day — Bucks does not offer a post-Election-Day cure window. Undated/incorrectly-dated mail ballots remain the subject of ongoing statewide litigation in Pennsylvania.</p>
 
-<div class="sub-label">Drop box locations & hours</div>
+<div class="sub-label">Drop box locations &amp; hours</div>
 <table>
 <tr><th>Location</th><th>Hours</th></tr>
-<tr><td>Doylestown — Administration Bldg, 55 E. Court St.</td><td>M–F 8–5; Election Day 8–8</td></tr>
-<tr><td>Levittown — Lower Bucks Government Services Center</td><td>M–F 8–4:30</td></tr>
-<tr><td>Quakertown — Upper Bucks Government Services Center</td><td>M–F 8–4:30</td></tr>
-<tr><td>Bensalem Library</td><td>Library hours</td></tr>
-<tr><td>Free Library of Northampton Twp (Richboro)</td><td>Library hours</td></tr>
-<tr><td>Margaret Grundy Memorial Library (Bristol)</td><td>Library hours</td></tr>
-<tr><td>Free Library of New Hope & Solebury</td><td>Library hours</td></tr>
+<tr class="row-highlight"><td>Doylestown — County Administration Bldg, 55 E. Court St.</td><td>M–F 8–5; Election Day 8–8 (extended)</td></tr>
+<tr><td>Levittown — Lower Bucks Government Service Center</td><td>M–F 8–4:30</td></tr>
+<tr><td>Quakertown — Upper Bucks Government Service Center</td><td>M–F 8–4:30</td></tr>
+<tr><td>Bensalem — Bensalem Branch Library</td><td>Library partner hours</td></tr>
+<tr><td>Richboro — Free Library of Northampton Twp.</td><td>Library partner hours</td></tr>
+<tr><td>Bristol — Margaret R. Grundy Memorial Library</td><td>Library partner hours</td></tr>
+<tr><td>New Hope — Free Library of New Hope &amp; Solebury</td><td>Library partner hours</td></tr>
 </table>
-<p style="font-size:.82rem;color:#6b6f8c;">Drop boxes operate during election cycles; confirm current availability with the BOE at 215-348-6154.</p>
+<p style="font-size:.85rem;color:#6b6f8c;">Drop boxes are deployed for active election cycles; with the primary concluded, confirm availability with the Board of Elections (215-348-6154) ahead of the November general.</p>
 
-<div class="card card-orange">
-<strong>PA internet-connected pollbook pilot — POSTPONED</strong>
-<span class="sub">The PA Department of State has delayed its internet-connected e-pollbook pilot until at least next year, citing unresolved technical questions and low county interest. Only Philadelphia, Lebanon and Delaware counties had signed up — Bucks did not. Bucks continues to use closed-network KnowInk Poll Pads.</span>
-<a class="readmore" href="https://www.spotlightpa.org/news/2026/05/internet-connected-electronic-pollbook-pilot-program-2026-primary-postponed-elections/" target="_blank" rel="noopener">Read more at Spotlight PA →</a>
-</div>
-</section>
-
-<!-- COMMON PLEAS -->
-<section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">⚖️ Court of Common Pleas</span><span class="divider-line"></span></div>
-<p>President Judge: <strong>Raymond F. McHugh</strong>. In a historic November 2025 sweep, four Democrats won open seats and were sworn in January 6, 2026.</p>
-<p style="background:#fff;border:3px solid #1f2440;border-radius:12px;padding:.6rem .9rem;box-shadow:3px 3px 0 #ffd23f;font-weight:700;font-size:.88rem;">⚠️ Disambiguation: Judge <strong>Amy M. Fitzpatrick</strong> (former County Solicitor) is NOT related to U.S. Rep. Brian Fitzpatrick.</p>
-
-<div class="cards-grid">
-<div class="card card-blue"><strong>Linda Bobrin <span class="pill-d">D</span></strong><span class="sub">Former Register of Wills / Clerk of Orphans' Court; resigned that office to take the bench.</span></div>
-<div class="card card-magenta"><strong>Dawn DiDonato Burke <span class="pill-d">D</span></strong><span class="sub">Three decades as an attorney, including as a Philadelphia DA's office prosecutor.</span></div>
-<div class="card card-green"><strong>Tiffany M. Thomas-Smith <span class="pill-d">D</span></strong><span class="sub">First Black woman on the Bucks bench; began as a Philadelphia public defender.</span></div>
-<div class="card card-purple"><strong>Amy M. Fitzpatrick <span class="pill-d">D</span></strong><span class="sub">Former County Solicitor; previously at national law firms. Not related to Rep. Brian Fitzpatrick.</span></div>
-</div>
-
-<p style="font-size:.88rem;color:#6b6f8c;">No individual sitting judge had newsworthy rulings verified within the past week. Other judges monitored: Stephen A. Corr, Charissa J. Liller, Jordan B. Yeager, Brian T. McGuffin, Wallace H. Bateman, Denise M. Bowman, Jeffrey L. Finley, C. Theodore Fritsch Jr., James M. McMaster, Jeffrey G. Trauger, and Matthew D. Weintraub.</p>
-</section>
-
-<!-- STANDING WATCH -->
-<section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📌 Standing Watch</span><span class="divider-line"></span></div>
-
-<div class="card card-green">
-<strong>1. PA internet-connected pollbook pilot</strong>
-<span class="sub"><strong>UPDATE:</strong> Statewide pilot postponed until at least 2027 (Dept. of State, mid-May). Bucks never signed up; only Philadelphia, Lebanon, Delaware did. Effectively resolved for the 2026 primary.</span>
+<div class="sub-label">PA internet-connected pollbook pilot — watch</div>
+<div class="newsitem">
+<span class="src">Votebeat / Spotlight PA</span><span class="date">(May 12–13, 2026)</span>
+<div class="summary">The PA Department of State postponed its internet-connected e-pollbook pilot, citing unresolved technical questions and low county interest. Only Philadelphia, Lebanon and Delaware signed up; Bucks was not among them. A fuller feasibility review is planned after the 2026 general election.</div>
 <a class="readmore" href="https://www.votebeat.org/pennsylvania/2026/05/12/internet-connected-electronic-pollbook-pilot-program-2026-primary-postponed/" target="_blank" rel="noopener">Read more at Votebeat →</a>
 </div>
+</section>
 
+<!-- ===================== COURT OF COMMON PLEAS ===================== -->
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">⚖️ Court of Common Pleas</span><span class="divider-line"></span></div>
+<p>President Judge Raymond F. McHugh leads the bench. In a historic Democratic sweep, four new judges were sworn in January 6, 2026.</p>
+
+<div class="cards-grid">
+<div class="card card-blue"><strong>Linda Bobrin</strong><span class="sub">New judge sworn Jan 6, 2026; previously the elected Register of Wills, which she resigned to take the bench.</span></div>
+<div class="card card-green"><strong>Dawn DiDonato Burke</strong><span class="sub">New judge sworn Jan 6, 2026.</span></div>
+<div class="card card-purple"><strong>Tiffany M. Thomas-Smith</strong><span class="sub">New judge sworn Jan 6, 2026 — the first Black woman on the Bucks County bench.</span></div>
+<div class="card card-orange"><strong>Amy M. Fitzpatrick</strong><span class="sub">New judge sworn Jan 6, 2026; former County Solicitor. <em>Not related to Rep. Brian Fitzpatrick.</em></span></div>
+</div>
+
+<p style="font-weight:700;margin-top:1rem;">Judges with notable activity in the past week</p>
+<p>No newsworthy rulings from individual sitting judges within the May 24–31 window. (The most recent court-watch item — AG David Sunday's May 1 amicus brief backing Judge Stephen Corr's climate-suit dismissal — predates this window and is tracked under Standing Watch Items.)</p>
+<p style="font-size:.9rem;color:#6b6f8c;">Other judges monitored: Stephen A. Corr, Charissa J. Liller, Jordan B. Yeager, Brian T. McGuffin, Wallace H. Bateman, Denise M. Bowman, Jeffrey L. Finley, C. Theodore Fritsch Jr., James M. McMaster, Jeffrey G. Trauger, Matthew D. Weintraub. Recent retirements: Gary B. Gilman, Robert J. Mellon, Robert O. Baldi.</p>
+</section>
+
+<!-- ===================== STANDING WATCH ITEMS ===================== -->
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📌 Standing Watch Items</span><span class="divider-line"></span></div>
+
+<div class="card card-green">
+<strong>1. PA internet-connected pollbook pilot — Bucks participation</strong>
+<span class="sub">RESOLVED for 2026: PA Department of State postponed the pilot (May 12–13). Bucks never registered; only Philadelphia, Lebanon and Delaware did. A feasibility review is planned after the 2026 general election.</span>
+</div>
 <div class="card card-green">
 <strong>2. Climate lawsuit appeal (Commonwealth Court)</strong>
-<span class="sub">Appeal of the Bucks climate-suit dismissal (Judge Stephen Corr) remains pending in Commonwealth Court. No new ruling surfaced this week.</span>
+<span class="sub">AG David Sunday filed an amicus brief (May 1) supporting Judge Stephen Corr's dismissal of the county's suit against oil companies. The county's appeal remains pending in Commonwealth Court. No update within May 24–31.</span>
 </div>
-
 <div class="card card-green">
-<strong>3. Sheriff / ICE agreement litigation</strong>
-<span class="sub">A Court of Common Pleas ruling (Judge Jeffrey Trauger) found the prior sheriff's ICE documents were not an enforceable contract requiring commissioner approval. Sheriff Ceisler separately terminated the 287(g) partnership in January. No new development confirmed this week.</span>
-<a class="readmore" href="https://whyy.org/articles/bucks-county-sheriff-ice-agreement-judge-ruling/" target="_blank" rel="noopener">Read more at WHYY →</a>
+<strong>3. Sheriff Ceisler ICE termination fallout</strong>
+<span class="sub">No new fallout this week. The countywide ICE-interaction resolution (May 28 coverage) reinforces — but does not govern — the sheriff's office, which keeps routine ICE information-sharing.</span>
 </div>
-
 <div class="card card-green">
 <strong>4. Treasurer Moffa Senate confirmation</strong>
-<span class="sub">Mark Moffa remains acting treasurer pending gubernatorial nomination and PA Senate confirmation. No confirmation reported this week.</span>
+<span class="sub">No update this week. Mark Moffa remains acting treasurer pending gubernatorial submission and PA Senate confirmation for the term to Jan 2028.</span>
 </div>
-
 <div class="card card-green">
 <strong>5. Register of Wills permanent fill (Bobrin vacancy)</strong>
-<span class="sub">First Deputy Douglas Wayne continues acting after Linda Bobrin's January resignation. No permanent appointment reported this week.</span>
+<span class="sub">No update this week. First Deputy Douglas Wayne continues as acting Register of Wills following Linda Bobrin's January resignation for the bench.</span>
 </div>
-
 <div class="card card-green">
-<strong>6. Marseglia/Harvie posture on cure / undated ballots</strong>
-<span class="sub">Bucks continues its notice-and-cure practice with an 8 PM Election Day deadline. No policy change reported this week.</span>
+<strong>6. Marseglia/Harvie posture on cure / undated-ballots policy</strong>
+<span class="sub">No new policy action this week. Both backed the existing notice-and-cure framework through the May 19 primary; statewide undated-ballot litigation continues.</span>
 </div>
 </section>
 
-<!-- SOURCES -->
+<!-- ===================== SOURCES ===================== -->
 <section class="section-group">
 <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Sources</span><span class="divider-line"></span></div>
-<div class="sub-label">Commissioners</div>
-<p><a href="https://www.buckscounty.gov/m/newsflash" target="_blank" rel="noopener">Bucks County News Flash</a> · <a href="https://buckscountybeacon.com/2026/05/bucks-county-commissioners-encourage-school-districts-to-ban-student-cellphone-usage-during-school-hours/" target="_blank" rel="noopener">Bucks County Beacon — cellphone ban incentive</a> · <a href="https://www.buckscounty.gov/m/newsflash/home/detail/76" target="_blank" rel="noopener">News Flash — single congressional district resolution</a></p>
-<div class="sub-label">Harvie / PA-1 primary</div>
-<p><a href="https://whyy.org/articles/election-2026-pennsylvania-primary-first-district-bucks-county-winner/" target="_blank" rel="noopener">WHYY</a> · <a href="https://www.buckscountyherald.com/news/election/bob-harvie-wins-pa-01-primary-lucia-simonelli-concedes/article_18f41d6c-509b-4d14-9d91-18a399b1c79b.html" target="_blank" rel="noopener">Bucks County Herald</a></p>
-<div class="sub-label">Row offices / DA / Sheriff</div>
-<p><a href="https://whyy.org/articles/election-2025-bucks-county-district-attorney/" target="_blank" rel="noopener">WHYY — Khan</a> · <a href="https://en.wikipedia.org/wiki/Danny_Ceisler" target="_blank" rel="noopener">Ceisler bio</a> · <a href="https://levittownnow.com/2026/05/19/frank-farry-steve-santarsiero-draw-challengers-for-pa-senate-seats/" target="_blank" rel="noopener">LevittownNow — Hartnett Albillar PA Senate</a> · <a href="https://www.buckscountyherald.com/news/election/bucks-county-s-acting-treasurer-to-remain-in-office-for-now/article_03981492-ff09-11ef-a2a8-ef14ef8ec504.html" target="_blank" rel="noopener">Herald — Treasurer Moffa</a></p>
-<div class="sub-label">Board of Elections / mail ballots</div>
-<p><a href="https://www.buckscounty.gov/186/Voter-Statistics" target="_blank" rel="noopener">County Voter Statistics</a> · <a href="https://www.spotlightpa.org/news/2026/05/internet-connected-electronic-pollbook-pilot-program-2026-primary-postponed-elections/" target="_blank" rel="noopener">Spotlight PA — pollbook pilot postponed</a> · <a href="https://www.votebeat.org/pennsylvania/2026/05/12/internet-connected-electronic-pollbook-pilot-program-2026-primary-postponed/" target="_blank" rel="noopener">Votebeat</a></p>
-<div class="sub-label">Common Pleas</div>
-<p><a href="https://buckscountybeacon.com/2026/01/bucks-countys-blue-wave-makes-a-splash-with-swearing-in-of-new-row-officers/" target="_blank" rel="noopener">Bucks County Beacon — blue wave</a> · <a href="https://whyy.org/articles/bucks-county-sheriff-ice-agreement-judge-ruling/" target="_blank" rel="noopener">WHYY — ICE ruling</a></p>
+<div class="callout">
+<p style="font-weight:700;margin:0;">Commissioners / ICE policy</p>
+<p style="margin:.2rem 0;"><a href="https://levittownnow.com/2026/05/28/bucks-county-approves-policy-on-employee-interactions-with-ice/" target="_blank" rel="noopener">LevittownNow — Bucks County Approves Policy On Employee Interactions With ICE (May 28, 2026)</a></p>
+<p style="font-weight:700;margin:.6rem 0 0;">Commissioners / PA-1 primary</p>
+<p style="margin:.2rem 0;"><a href="https://whyy.org/articles/election-2026-pennsylvania-primary-first-district-bucks-county-winner/" target="_blank" rel="noopener">WHYY — Bob Harvie wins Democratic primary for Pa.'s 1st Congressional District (May 19–20, 2026)</a></p>
+<p style="font-weight:700;margin:.6rem 0 0;">District Attorney / Sheriff</p>
+<p style="margin:.2rem 0;"><a href="https://www.buckscounty.gov/775/District-Attorney-Joe-Khan" target="_blank" rel="noopener">Bucks County — District Attorney Joe Khan</a></p>
+<p style="margin:.2rem 0;"><a href="https://whyy.org/articles/bucks-county-sheriff-ice-collaboration-ended/" target="_blank" rel="noopener">WHYY — Bucks County sheriff ends ICE collaboration agreement</a></p>
+<p style="font-weight:700;margin:.6rem 0 0;">Treasurer / Register of Wills</p>
+<p style="margin:.2rem 0;"><a href="https://www.buckscountyherald.com/news/election/bucks-county-s-acting-treasurer-to-remain-in-office-for-now/article_03981492-ff09-11ef-a2a8-ef14ef8ec504.html" target="_blank" rel="noopener">Bucks County Herald — Acting treasurer to remain in office for now</a></p>
+<p style="margin:.2rem 0;"><a href="https://www.buckscounty.gov/615/Register-of-Wills" target="_blank" rel="noopener">Bucks County — Register of Wills &amp; Clerk of Orphans' Court</a></p>
+<p style="font-weight:700;margin:.6rem 0 0;">Common Pleas</p>
+<p style="margin:.2rem 0;"><a href="https://centralbucksnews.com/news/2026/may/01/pa-attorney-general-weighs-in-on-bucks-climate-case/" target="_blank" rel="noopener">Central Bucks News — PA Attorney General weighs in on Bucks climate case (May 1, 2026)</a></p>
+<p style="margin:.2rem 0;"><a href="https://buckscountybeacon.com/2026/01/bucks-countys-blue-wave-makes-a-splash-with-swearing-in-of-new-row-officers/" target="_blank" rel="noopener">Bucks County Beacon — Blue Wave swearing-in of new row officers &amp; judges</a></p>
+<p style="font-weight:700;margin:.6rem 0 0;">Board of Elections / cure / drop boxes / pollbooks</p>
+<p style="margin:.2rem 0;"><a href="https://www.votebeat.org/pennsylvania/2026/05/12/internet-connected-electronic-pollbook-pilot-program-2026-primary-postponed/" target="_blank" rel="noopener">Votebeat — PA won't test internet-connected e-pollbooks in 2026 primary (May 12, 2026)</a></p>
+<p style="margin:.2rem 0;"><a href="https://www.spotlightpa.org/news/2026/05/internet-connected-electronic-pollbook-pilot-program-2026-primary-postponed-elections/" target="_blank" rel="noopener">Spotlight PA — PA won't test internet-connected e-pollbooks in 2026 primary</a></p>
+<p style="margin:.2rem 0;"><a href="https://www.buckscounty.gov/176/Board-of-Elections---General-Information" target="_blank" rel="noopener">Bucks County — Board of Elections General Information</a></p>
+<p style="margin:.2rem 0;"><a href="https://buckscopa.portal.civicclerk.com/" target="_blank" rel="noopener">Bucks County Meeting Portal (CivicClerk)</a></p>
+</div>
 </section>
 
 </main>
-<footer>Bucks Government Briefing — Updated daily at 2 PM ET by Claude · Source: <a href="https://github.com/lisaprocz-rgb/crispy-octo-goggles" target="_blank" rel="noopener">lisaprocz-rgb/crispy-octo-goggles</a><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Bucks Government Briefing — Updated daily at 2 PM ET by Claude — Source: <a href="https://github.com/lisaprocz-rgb/crispy-octo-goggles" target="_blank" rel="noopener">lisaprocz-rgb/crispy-octo-goggles</a><div class="footer-clock" id="footer-clock"></div></footer>
 <script>
 function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
 updateClock();setInterval(updateClock,1000);
