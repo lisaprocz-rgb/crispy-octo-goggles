@@ -37,7 +37,6 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 .divider-line{flex:1;height:4px;border-radius:4px;background:#1f2440;opacity:.15}
 .sub-label{font-family:'Baloo 2';font-weight:700;font-size:.95rem;color:#1f2440;
   margin:1.2rem 0 .6rem;text-transform:uppercase;letter-spacing:.06em}
-.sub-label a{color:#1f2440;border-bottom:2px dotted #ff5c8a;text-decoration:none}
 .card{position:relative;display:block;background:#fff;color:#1f2440;text-decoration:none;
   border:3px solid #1f2440;border-radius:18px;padding:1.2rem 1.4rem;
   box-shadow:6px 6px 0 var(--accent,#ff5c8a);margin-bottom:1rem;
@@ -49,9 +48,6 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 .card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
   background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
   border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
-.card .readmore{display:inline-block;margin-top:.6rem;font-family:'Baloo 2';font-weight:700;
-  font-size:.84rem;color:#1f2440;border-bottom:2px solid var(--accent,#ff5c8a);text-decoration:none}
-.card .readmore:hover{color:#ff5c8a}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
 .card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
 .card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
@@ -72,9 +68,14 @@ tr:first-child td{border-top:none}
 ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
 li{margin-bottom:.25rem}
 p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
-a:not(.card):not(.back-to-hub):not(.readmore):not(.hub-label a){color:#1f2440;font-weight:700;
+a:not(.card):not(.back-to-hub):not(.hub-label a){color:#1f2440;font-weight:700;
   text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
-a:not(.card):not(.back-to-hub):not(.readmore):not(.hub-label a):hover{color:#ff5c8a;border-bottom-color:#1f2440}
+a:not(.card):not(.back-to-hub):not(.hub-label a):hover{color:#ff5c8a;border-bottom-color:#1f2440}
+.card a.readmore{display:inline-block;margin-top:.5rem;color:#ff5c8a;font-weight:800;
+  font-family:'Baloo 2';font-size:.9rem;text-decoration:underline;border:none}
+.card a.readmore:hover{color:#1f2440}
+.card strong a{color:#1f2440;text-decoration:underline;text-decoration-color:#ff5c8a}
+.card strong a:hover{color:#ff5c8a}
 .callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
   box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
 .callout strong{font-family:'Baloo 2'}
@@ -83,13 +84,13 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 .timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
   font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
 .day-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;}
-.day-tab{cursor:pointer;padding:8px 14px;border-radius:12px;border:2px solid #ffd1df;background:#fff;font:inherit;font-size:0.95rem;line-height:1.2;text-align:center;color:#333;font-family:'Baloo 2';font-weight:700;}
+.day-tab{cursor:pointer;padding:8px 14px;border-radius:12px;border:2px solid #ffd1df;background:#fff;font:inherit;font-size:0.95rem;line-height:1.2;text-align:center;color:#333;}
 .day-tab span{display:block;font-size:0.72rem;opacity:.7;}
 .day-tab.active{background:#ff5c8a;border-color:#ff5c8a;color:#fff;}
 .day-tab.active span{opacity:.95;}
 .day-pane{display:none;}
 .day-pane.active{display:block;}
-.day-empty{padding:12px 14px;border:2px dashed #ffd1df;border-radius:12px;color:#666;font-size:0.95rem;}
+.day-empty{padding:12px 14px;border:2px dashed #ffd1df;border-radius:12px;color:#666;font-size:0.95rem;margin-bottom:1rem;}
 @media (max-width:600px){
   h1{font-size:2.4rem}
   main{padding:1rem .9rem 3rem}
@@ -107,280 +108,243 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 </header>
 <main>
 
+<div class="callout"><strong>Generated:</strong> Thu, Jun 4 at 7:06 AM ET (2026-06-04 11:06 UTC). All content fetched live this run — no cached data used. <em>Penn Cinema publishes ~4 days ahead (Jun 4–7 shown). The two Regal theaters render showtimes via JavaScript date tabs that didn't reliably swap this run, so today (Jun 4) is captured fully for all three theaters; later Regal dates show a "not yet captured" note rather than reusing another day's times.</em></div>
+
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🎟️ Now Playing</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🎟️ Now Playing</span><span class="divider-line"></span></div>
 
-<div class="day-tabs" role="tablist">
-  <button class="day-tab active" data-day="day0" role="tab">Today<span>Mon Jun 1</span></button>
-  <button class="day-tab" data-day="day1" role="tab">Tue<span>Jun 2</span></button>
-  <button class="day-tab" data-day="day2" role="tab">Wed<span>Jun 3</span></button>
-  <button class="day-tab" data-day="day3" role="tab">Thu<span>Jun 4</span></button>
-  <button class="day-tab" data-day="day4" role="tab">Fri<span>Jun 5</span></button>
-  <button class="day-tab" data-day="day5" role="tab">Sat<span>Jun 6</span></button>
-  <button class="day-tab" data-day="day6" role="tab">Sun<span>Jun 7</span></button>
-</div>
+  <div class="day-tabs" role="tablist">
+    <button class="day-tab active" data-day="day0" role="tab">Today<span>Thu Jun 4</span></button>
+    <button class="day-tab" data-day="day1" role="tab">Fri<span>Jun 5</span></button>
+    <button class="day-tab" data-day="day2" role="tab">Sat<span>Jun 6</span></button>
+    <button class="day-tab" data-day="day3" role="tab">Sun<span>Jun 7</span></button>
+    <button class="day-tab" data-day="day4" role="tab">Mon<span>Jun 8</span></button>
+    <button class="day-tab" data-day="day5" role="tab">Tue<span>Jun 9</span></button>
+    <button class="day-tab" data-day="day6" role="tab">Wed<span>Jun 10</span></button>
+  </div>
 
-<!-- DAY 0 -->
-<div class="day-pane active" id="day0">
-  <div class="sub-label"><a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Penn Cinema Huntingdon Valley</a> · 2068 County Line Rd · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets</a></div>
-  <table><tr><th>Movie</th><th>Run</th><th>Showtimes</th></tr>
-  <tr><td>Backrooms</td><td>1h50</td><td>1:00, 4:00, 7:10 PM</td></tr>
-  <tr><td>The Breadwinner</td><td>1h35</td><td>12:00, 2:20, 4:30, 6:50 PM</td></tr>
-  <tr><td>Passenger</td><td>1h34</td><td>12:10, 2:30, 4:50, 7:20 PM</td></tr>
-  <tr><td>Star Wars: The Mandalorian and Grogu</td><td>2h12</td><td>12:40, 3:40, 6:40 PM</td></tr>
-  <tr><td>The Sheep Detectives</td><td>1h49</td><td>1:20, 4:20 PM</td></tr>
-  <tr><td>The Devil Wears Prada 2</td><td>2h00</td><td>12:20, 3:20, 6:30 PM</td></tr>
-  <tr><td>Michael</td><td>2h07</td><td>12:30, 3:50, 7:00 PM</td></tr>
-  <tr><td>Revolutionary America</td><td>1h53</td><td>7:00 PM</td></tr>
-  </table>
-  <div class="sub-label"><a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">Regal Warrington Crossing</a> · 104 Easton Rd, Bldg F · <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">Get Tickets</a></div>
-  <table><tr><th>Movie</th><th>Run</th><th>Showtimes</th></tr>
-  <tr><td>The Super Mario Galaxy Movie</td><td>1h38</td><td>10:25 AM, 1:00, 3:45 PM</td></tr>
-  <tr><td>Star Wars: The Mandalorian &amp; Grogu</td><td>2h12</td><td>10:30, 11:10 AM, 12:10, 1:10, 2:20, 3:20 PM <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">+15 more</a></td></tr>
-  <tr><td>Tuner</td><td>1h49</td><td>10:35 AM, 1:20, 4:00, 6:50, 9:30 PM</td></tr>
-  <tr><td>Project Hail Mary</td><td>2h36</td><td>10:40 AM, 2:40, 6:20, 9:50 PM</td></tr>
-  <tr><td>Pressure</td><td>1h41</td><td>10:50 AM, 1:50, 4:30, 7:20, 10:00 PM</td></tr>
-  <tr><td>Mortal Kombat II</td><td>1h56</td><td>10:55 AM, 1:45, 4:45, 7:45, 10:35 PM</td></tr>
-  <tr><td>The Breadwinner</td><td>1h35</td><td>11:00 AM, 2:00, 4:40, 7:40, 10:30 PM</td></tr>
-  <tr><td>Backrooms</td><td>1h51</td><td>11:20 AM, 2:10, 3:00, 5:00, 5:30, 6:10 PM <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">+5 more</a></td></tr>
-  <tr><td>Obsession</td><td>1h48</td><td>11:30 AM, 2:30, 5:20, 8:10, 9:55, 11:00 PM</td></tr>
-  <tr><td>The Devil Wears Prada 2</td><td>2h00</td><td>12:00, 3:30, 6:40, 9:55 PM</td></tr>
-  <tr><td>Michael</td><td>2h10</td><td>12:20, 3:40, 7:10, 10:20 PM</td></tr>
-  <tr><td>Passenger</td><td>1h34</td><td>12:30, 3:10, 5:50, 8:20, 10:55 PM</td></tr>
-  <tr><td>The Sheep Detectives</td><td>1h49</td><td>12:55, 3:45, 6:25 PM</td></tr>
-  <tr><td>Drishyam 3 (Malayalam)</td><td>2h51</td><td>2:35, 9:15 PM</td></tr>
-  <tr><td>Revolutionary America</td><td>1h53</td><td>6:30 PM</td></tr>
-  <tr><td>Monday Mystery Movie</td><td>1h55</td><td>7:00 PM</td></tr>
-  <tr><td>Also playing</td><td>—</td><td>I Love Boosters, Phi Phong (Vietnamese), Hokum, SMX26: Sing, SMX26: TMNT Mutant Mayhem</td></tr>
-  </table>
-  <div class="sub-label"><a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Regal UA Oxford Valley</a> · 403 Middletown Blvd, Langhorne · <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Get Tickets</a></div>
-  <table><tr><th>Movie</th><th>Run</th><th>Showtimes</th></tr>
-  <tr><td>The Breadwinner</td><td>1h35</td><td>11:10 AM, 1:50, 4:30, 7:10, 9:50 PM</td></tr>
-  <tr><td>The Super Mario Galaxy Movie</td><td>1h38</td><td>11:20 AM</td></tr>
-  <tr><td>Michael</td><td>2h10</td><td>11:25 AM, 2:40, 6:00, 9:20 PM</td></tr>
-  <tr><td>The Sheep Detectives</td><td>1h49</td><td>11:30 AM, 2:30 PM</td></tr>
-  <tr><td>The Devil Wears Prada 2</td><td>2h00</td><td>11:55 AM, 3:05, 6:10, 9:15 PM</td></tr>
-  <tr><td>Star Wars: The Mandalorian &amp; Grogu</td><td>2h12</td><td>12:10, 1:20, 3:10, 4:50, 6:35, 8:10 PM <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">+1 more</a></td></tr>
-  <tr><td>Obsession</td><td>1h48</td><td>12:20, 3:20, 6:20, 9:10 PM</td></tr>
-  <tr><td>Pressure</td><td>1h41</td><td>12:30, 3:15, 6:05, 8:55 PM</td></tr>
-  <tr><td>Backrooms</td><td>1h51</td><td>1:10, 2:20, 3:30, 4:00, 5:40, 6:50 PM <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">+2 more</a></td></tr>
-  <tr><td>Project Hail Mary</td><td>2h36</td><td>1:30, 5:20, 9:00 PM</td></tr>
-  <tr><td>Mortal Kombat II</td><td>1h56</td><td>2:00, 5:10, 8:15 PM</td></tr>
-  <tr><td>Passenger</td><td>1h34</td><td>2:10, 5:30, 8:20, 9:30 PM</td></tr>
-  <tr><td>Revolutionary America</td><td>1h53</td><td>6:30 PM</td></tr>
-  <tr><td>Also playing</td><td>—</td><td>I Love Boosters, Monday Mystery Movie, SMX26: Sing, SMX26: TMNT</td></tr>
-  </table>
-</div>
+  <!-- DAY 0 — Thu Jun 4 -->
+  <div class="day-pane active" id="day0">
+    <div class="sub-label">Penn Cinema Huntingdon Valley · 2068 County Line Road, Huntingdon Valley, PA 19006 · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets</a></div>
+    <table>
+      <tr><th>Movie</th><th>Runtime</th><th>Showtimes</th></tr>
+      <tr><td>The Amazing Digital Circus: The Last Act</td><td>1h 38m</td><td>7:00 PM</td></tr>
+      <tr><td>Masters of the Universe</td><td>2h 21m</td><td>2:10, 4:20, 7:10 PM</td></tr>
+      <tr><td>Scary Movie</td><td>1h 36m</td><td>2:30, 4:40, 7:20 PM</td></tr>
+      <tr><td>Backrooms</td><td>1h 50m</td><td>11:50 AM, 5:00, 7:30 PM</td></tr>
+      <tr><td>The Breadwinner</td><td>1h 35m</td><td>12:10, 2:20, 4:30 PM</td></tr>
+      <tr><td>Passenger</td><td>1h 34m</td><td>2:30, 4:50 PM</td></tr>
+      <tr><td>Star Wars: The Mandalorian and Grogu</td><td>2h 12m</td><td>12:40, 4:00, 6:50 PM</td></tr>
+      <tr><td>The Sheep Detectives</td><td>1h 49m</td><td>12:00 PM</td></tr>
+      <tr><td>The Devil Wears Prada 2</td><td>2h 0m</td><td>1:10, 3:50, 6:30 PM</td></tr>
+      <tr><td>Michael</td><td>2h 7m</td><td>12:00, 6:40 PM</td></tr>
+    </table>
 
-<!-- DAY 1 -->
-<div class="day-pane" id="day1">
-  <div class="callout"><strong>Tue, June 2:</strong> All three theaters run essentially Monday's slate with shifted times — Star Wars: The Mandalorian &amp; Grogu, Backrooms, The Breadwinner, Passenger, Michael, The Devil Wears Prada 2, Obsession, Pressure, The Sheep Detectives, Mortal Kombat II, Project Hail Mary, Tuner and Revolutionary America, plus foreign/event titles.</div>
-  <div class="sub-label"><a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Penn Cinema Huntingdon Valley</a> · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets</a></div>
-  <table><tr><th>Movie</th><th>Run</th><th>Showtimes</th></tr>
-  <tr><td>Backrooms</td><td>1h50</td><td>1:00, 4:00, 7:00 PM</td></tr>
-  <tr><td>The Breadwinner</td><td>1h35</td><td>12:00, 2:20, 4:30, 7:10 PM</td></tr>
-  <tr><td>Passenger</td><td>1h34</td><td>12:10, 2:30, 4:50, 7:20 PM</td></tr>
-  <tr><td>Star Wars: The Mandalorian and Grogu</td><td>2h12</td><td>12:40, 3:40, 6:50 PM</td></tr>
-  <tr><td>The Devil Wears Prada 2 · Michael · Sheep Detectives</td><td>—</td><td>afternoon &amp; evening — see theater</td></tr>
-  </table>
-  <div class="sub-label"><a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">Regal Warrington Crossing</a> · <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">Get Tickets</a></div>
-  <table><tr><th>Movie</th><th>Run</th><th>Showtimes</th></tr>
-  <tr><td>The Super Mario Galaxy Movie</td><td>1h38</td><td>10:25 AM, 1:00, 3:45, 6:25 PM</td></tr>
-  <tr><td>Star Wars: The Mandalorian &amp; Grogu</td><td>2h12</td><td>10:30, 11:10 AM, 12:10, 1:10 PM <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">+17 more</a></td></tr>
-  <tr><td>Tuner</td><td>1h49</td><td>10:35 AM, 1:20, 4:00, 6:50, 9:30 PM</td></tr>
-  <tr><td>Pressure</td><td>1h41</td><td>10:50 AM, 1:50, 4:30, 7:20, 10:00 PM</td></tr>
-  <tr><td>Mortal Kombat II</td><td>1h56</td><td>10:55 AM, 1:45, 4:45, 7:45, 10:35 PM</td></tr>
-  <tr><td>The Breadwinner</td><td>1h35</td><td>11:00 AM, 2:00, 4:40, 7:40, 10:30 PM</td></tr>
-  <tr><td>Backrooms</td><td>1h51</td><td>11:20 AM, 2:10, 3:00, 5:00, 5:30, 6:10 PM <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">+5 more</a></td></tr>
-  <tr><td>Obsession</td><td>1h48</td><td>11:30 AM, 2:30, 5:20, 8:10, 9:55, 11:00 PM</td></tr>
-  <tr><td>The Devil Wears Prada 2</td><td>2h00</td><td>12:00, 3:30, 6:40, 9:45 PM</td></tr>
-  <tr><td>Michael</td><td>2h10</td><td>12:20, 3:40, 7:10, 10:20 PM</td></tr>
-  <tr><td>Passenger</td><td>1h34</td><td>12:30, 3:10, 5:50, 8:20, 10:55 PM</td></tr>
-  <tr><td>The Sheep Detectives</td><td>1h49</td><td>12:55, 3:45, 7:05 PM</td></tr>
-  <tr><td>Also playing</td><td>—</td><td>Project Hail Mary, Drishyam 3, Revolutionary America, I Love Boosters, Phi Phong, Hokum, SMX26 titles</td></tr>
-  </table>
-  <div class="sub-label"><a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Regal UA Oxford Valley</a> · <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Get Tickets</a></div>
-  <table><tr><th>Movie</th><th>Run</th><th>Showtimes</th></tr>
-  <tr><td>Michael</td><td>2h10</td><td>11:25 AM, 2:40, 6:00, 9:20 PM</td></tr>
-  <tr><td>The Sheep Detectives</td><td>1h49</td><td>11:30 AM, 2:30, 5:30, 8:30 PM</td></tr>
-  <tr><td>The Devil Wears Prada 2</td><td>2h00</td><td>11:55 AM, 3:05, 6:10, 9:15 PM</td></tr>
-  <tr><td>Star Wars: The Mandalorian &amp; Grogu</td><td>2h12</td><td>12:10, 1:20, 3:10, 4:50, 6:35, 8:10 PM <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">+1 more</a></td></tr>
-  <tr><td>Obsession</td><td>1h48</td><td>12:20, 3:20, 6:20, 9:10 PM</td></tr>
-  <tr><td>Pressure</td><td>1h41</td><td>12:30, 3:15, 6:00, 8:45 PM</td></tr>
-  <tr><td>The Breadwinner</td><td>1h35</td><td>1:20, 4:10, 7:00, 9:50 PM</td></tr>
-  <tr><td>Backrooms · Project Hail Mary · Mortal Kombat II · Passenger</td><td>—</td><td>afternoon &amp; evening — see theater</td></tr>
-  </table>
-</div>
+    <div class="sub-label">Regal Warrington Crossing · 104 Easton Rd., Bldg F, Warrington, PA 18976 · <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">Get Tickets</a></div>
+    <table>
+      <tr><th>Movie</th><th>Runtime</th><th>Showtimes</th></tr>
+      <tr><td>The Super Mario Galaxy Movie</td><td>1h 38m</td><td>10:25 AM</td></tr>
+      <tr><td>Star Wars: The Mandalorian &amp; Grogu</td><td>2h 12m</td><td>10:30, 11:10, 11:40 AM, 12:10, 12:40, 2:40, 3:20, 3:55, 6:30, 9:30, 9:40, 10:50 PM</td></tr>
+      <tr><td>Peddi (Telugu)</td><td>3h 17m</td><td>10:35 AM, 2:25, 6:15, 10:05 PM</td></tr>
+      <tr><td>Tuner</td><td>1h 49m</td><td>10:40 AM, 1:20, 4:10 PM</td></tr>
+      <tr><td>Hokum</td><td>1h 48m</td><td>10:50 AM</td></tr>
+      <tr><td>SMX26: Sing</td><td>1h 50m</td><td>11:00 AM</td></tr>
+      <tr><td>SMX26: TMNT: Mutant Mayhem</td><td>1h 39m</td><td>11:00 AM</td></tr>
+      <tr><td>Phi Phong: The Blood Demon (Vietnamese)</td><td>2h 0m</td><td>11:05 AM</td></tr>
+      <tr><td>The Breadwinner</td><td>1h 35m</td><td>11:15 AM, 1:55, 4:40, 7:35, 10:15 PM</td></tr>
+      <tr><td>Backrooms</td><td>1h 51m</td><td>11:20 AM, 2:10, 5:00, 6:10, 7:50, 9:20, 10:40 PM</td></tr>
+      <tr><td>Mortal Kombat II</td><td>1h 56m</td><td>11:25 AM</td></tr>
+      <tr><td>Obsession</td><td>1h 48m</td><td>11:30 AM, 2:30, 5:15, 8:00, 10:55 PM</td></tr>
+      <tr><td>The Devil Wears Prada 2</td><td>2h 0m</td><td>12:00, 3:25, 6:55, 9:45 PM</td></tr>
+      <tr><td>The Amazing Digital Circus: The Last Act</td><td>1h 35m</td><td>12:20, 1:10, 3:50, 6:30, 7:00, 9:10 PM</td></tr>
+      <tr><td>Michael</td><td>2h 10m</td><td>12:30, 3:40, 6:50, 10:20 PM</td></tr>
+      <tr><td>I Love Boosters</td><td>1h 54m</td><td>12:50 PM</td></tr>
+      <tr><td>The Sheep Detectives</td><td>1h 49m</td><td>1:00, 3:45 PM</td></tr>
+      <tr><td>Pressure</td><td>1h 41m</td><td>1:50, 4:30, 7:20 PM</td></tr>
+      <tr><td>Scary Movie</td><td>1h 36m</td><td>2:00, 2:30, 4:50, 5:20, 7:40, 8:10, 9:50, 10:10, 10:30, 11:00 PM</td></tr>
+      <tr><td>Masters of the Universe</td><td>2h 20m</td><td>2:00, 3:00, 3:30, 4:00, 5:30, 6:00, 6:30, 7:00, 7:30, 9:00, 11:00 PM</td></tr>
+      <tr><td>Drishyam 3 (Malayalam)</td><td>2h 51m</td><td>2:15 PM</td></tr>
+      <tr><td>Project Hail Mary</td><td>2h 36m</td><td>2:20, 9:55 PM</td></tr>
+      <tr><td>Power Ballad</td><td>1h 38m</td><td>6:00, 9:00 PM</td></tr>
+      <tr><td>Trainspotting 30th Anniversary</td><td>1h 33m</td><td>7:00, 9:30 PM</td></tr>
+      <tr><td>Scary Movie Opening Night Fan Event</td><td>1h 41m</td><td>7:10 PM</td></tr>
+      <tr><td>Passenger</td><td>1h 34m</td><td>10:00 PM</td></tr>
+    </table>
 
-<!-- DAY 2 -->
-<div class="day-pane" id="day2">
-  <div class="callout"><strong>Wed, June 3:</strong> Full slate continues at all three theaters. Penn Cinema adds <strong>The Metropolitan Opera: El Último Sueño de Frida y Diego</strong> (1:00 PM). Regal adds <strong>Peddi</strong> (Telugu). Same core lineup of Star Wars, Backrooms, The Breadwinner, Pressure, Tuner, Obsession, Michael, The Devil Wears Prada 2, Passenger, The Sheep Detectives and Project Hail Mary.</div>
-  <div class="sub-label">Penn Cinema · Regal Warrington · Regal Oxford Valley — 17–22 films each</div>
-  <table><tr><th>Highlights (Regal Warrington)</th><th>Run</th><th>Showtimes</th></tr>
-  <tr><td>The Super Mario Galaxy Movie</td><td>1h38</td><td>10:25 AM, 1:00, 3:45, 6:25 PM</td></tr>
-  <tr><td>Peddi</td><td>2h50</td><td>10:30 AM, 1:00, 2:25, 4:55, 6:20, 8:50 PM <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">+1 more</a></td></tr>
-  <tr><td>Star Wars: The Mandalorian &amp; Grogu</td><td>2h12</td><td>10:30, 11:40 AM, 12:10, 12:40 PM <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">+11 more</a></td></tr>
-  <tr><td>Tuner</td><td>1h49</td><td>10:35 AM, 1:20, 4:00, 6:50, 9:30 PM</td></tr>
-  <tr><td>The Sheep Detectives</td><td>1h49</td><td>10:45 AM, 1:30, 4:10, 7:05 PM</td></tr>
-  <tr><td>Pressure</td><td>1h41</td><td>10:50 AM, 1:50, 4:30, 7:20, 10:00 PM</td></tr>
-  <tr><td>Also playing</td><td>—</td><td>Backrooms, Breadwinner, Obsession, Devil Wears Prada 2, Michael, Passenger, Project Hail Mary, Mortal Kombat II + event titles</td></tr>
-  </table>
-</div>
+    <div class="sub-label">Regal UA Oxford Valley · Oxford Valley Mall area, Langhorne, PA · <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Get Tickets</a></div>
+    <table>
+      <tr><th>Movie</th><th>Runtime</th><th>Showtimes</th></tr>
+      <tr><td>SMX26: Sing</td><td>1h 50m</td><td>11:00 AM</td></tr>
+      <tr><td>SMX26: TMNT: Mutant Mayhem</td><td>1h 39m</td><td>11:00 AM</td></tr>
+      <tr><td>The Sheep Detectives</td><td>1h 49m</td><td>11:05 AM</td></tr>
+      <tr><td>Michael</td><td>2h 10m</td><td>11:25 AM, 2:40, 6:00, 9:20 PM</td></tr>
+      <tr><td>Peddi (Telugu)</td><td>3h 17m</td><td>11:30 AM, 7:30 PM</td></tr>
+      <tr><td>I Love Boosters</td><td>1h 54m</td><td>11:50 AM</td></tr>
+      <tr><td>Star Wars: The Mandalorian &amp; Grogu</td><td>2h 12m</td><td>12:05, 1:20, 3:35, 8:10 PM</td></tr>
+      <tr><td>The Amazing Digital Circus: The Last Act</td><td>1h 35m</td><td>12:30, 3:20, 4:40, 6:10, 6:30, 7:20, 9:00 PM</td></tr>
+      <tr><td>The Breadwinner</td><td>1h 35m</td><td>12:30, 3:10, 5:55, 8:40 PM</td></tr>
+      <tr><td>Pressure</td><td>1h 41m</td><td>12:30, 3:30 PM</td></tr>
+      <tr><td>The Super Mario Galaxy Movie</td><td>1h 38m</td><td>12:35 PM</td></tr>
+      <tr><td>The Devil Wears Prada 2</td><td>2h 0m</td><td>12:50 PM</td></tr>
+      <tr><td>Backrooms</td><td>1h 51m</td><td>1:10, 4:00, 6:50, 9:40 PM</td></tr>
+      <tr><td>Passenger</td><td>1h 34m</td><td>1:55, 9:45 PM</td></tr>
+      <tr><td>Masters of the Universe</td><td>2h 20m</td><td>2:00, 3:50, 5:30, 7:40, 9:00 PM</td></tr>
+      <tr><td>Scary Movie</td><td>1h 36m</td><td>2:00, 4:40, 5:20, 7:20, 10:00 PM</td></tr>
+      <tr><td>Project Hail Mary</td><td>2h 36m</td><td>2:55 PM</td></tr>
+      <tr><td>Mortal Kombat II</td><td>1h 56m</td><td>3:15 PM</td></tr>
+      <tr><td>Power Ballad</td><td>1h 38m</td><td>4:00, 6:40, 9:20 PM</td></tr>
+      <tr><td>Scary Movie Opening Night Fan Event</td><td>1h 41m</td><td>7:00 PM</td></tr>
+      <tr><td>Trainspotting 30th Anniversary</td><td>1h 33m</td><td>7:00, 9:30 PM</td></tr>
+      <tr><td>Obsession</td><td>1h 48m</td><td>9:15 PM</td></tr>
+    </table>
+  </div>
 
-<!-- DAY 3 -->
-<div class="day-pane" id="day3">
-  <div class="callout"><strong>Thu, June 4:</strong> New releases open early. All theaters begin showing <strong>Masters of the Universe</strong>, <strong>Scary Movie</strong> and <strong>The Amazing Digital Circus: The Last Act</strong>. Regal also adds <strong>Power Ballad</strong>, a <strong>Trainspotting 30th Anniversary</strong> and a <strong>Scary Movie Opening Night Fan Event</strong>. Holdovers continue.</div>
-  <div class="sub-label"><a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Regal UA Oxford Valley</a> · <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Get Tickets</a></div>
-  <table><tr><th>Movie</th><th>Run</th><th>Showtimes</th></tr>
-  <tr><td>Peddi</td><td>2h50</td><td>11:30 AM, 3:30, 7:30 PM</td></tr>
-  <tr><td>The Amazing Digital Circus: The Last Act</td><td>1h35</td><td>12:30, 3:20, 4:40, 6:10, 6:30, 7:20 PM <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">+1 more</a></td></tr>
-  <tr><td>The Breadwinner</td><td>1h35</td><td>12:30, 3:10, 5:55, 8:40 PM</td></tr>
-  <tr><td>Backrooms</td><td>1h51</td><td>1:10, 4:00, 6:50, 9:40 PM</td></tr>
-  <tr><td>Scary Movie</td><td>1h36</td><td>2:00, 4:40, 7:20, 10:00 PM</td></tr>
-  <tr><td>Masters of the Universe</td><td>2h20</td><td>2:00, 5:30, 9:00 PM</td></tr>
-  <tr><td>Power Ballad</td><td>1h38</td><td>4:00, 6:40, 9:20 PM</td></tr>
-  <tr><td>Trainspotting 30th Anniversary</td><td>1h33</td><td>7:00, 9:30 PM</td></tr>
-  <tr><td>Scary Movie Opening Night Fan Event</td><td>1h41</td><td>7:00 PM</td></tr>
-  </table>
-  <div class="callout">Regal Warrington runs a near-identical Thu slate (adds The Birdcage 30th Anniversary alongside Trainspotting). Penn Cinema shows Masters of the Universe (2:10, 4:20, 7:10), Scary Movie (2:30, 4:40, 7:20) and The Amazing Digital Circus (7:00) plus holdovers.</div>
-</div>
+  <!-- DAY 1 — Fri Jun 5 -->
+  <div class="day-pane" id="day1">
+    <div class="sub-label">Penn Cinema Huntingdon Valley · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets</a></div>
+    <table>
+      <tr><th>Movie</th><th>Runtime</th><th>Showtimes</th></tr>
+      <tr><td>The Amazing Digital Circus: The Last Act</td><td>1h 38m</td><td>7:00, 7:30 PM</td></tr>
+      <tr><td>Masters of the Universe</td><td>2h 21m</td><td>1:20, 4:20, 7:30, 8:40 PM</td></tr>
+      <tr><td>Scary Movie</td><td>1h 36m</td><td>12:10, 2:30, 4:30, 6:40, 8:50 PM</td></tr>
+      <tr><td>Backrooms</td><td>1h 50m</td><td>11:10 AM, 1:30, 3:50, 6:10, 9:00 PM</td></tr>
+      <tr><td>The Breadwinner</td><td>1h 35m</td><td>11:00 AM, 12:00, 2:20, 4:50 PM</td></tr>
+      <tr><td>Star Wars: The Mandalorian and Grogu</td><td>2h 12m</td><td>12:20, 3:10, 4:40, 6:00, 8:30 PM</td></tr>
+      <tr><td>The Sheep Detectives</td><td>1h 49m</td><td>1:40 PM</td></tr>
+      <tr><td>Michael</td><td>2h 7m</td><td>11:20 AM, 2:10, 5:20, 8:00 PM</td></tr>
+    </table>
+    <div class="day-empty">Regal Warrington Crossing &amp; Regal UA Oxford Valley: showtimes for this date weren't captured this run (their pages load via JavaScript date tabs that didn't reliably swap). Check the theater pages linked above closer to the day.</div>
+  </div>
 
-<!-- DAY 4 -->
-<div class="day-pane" id="day4">
-  <div class="callout"><strong>Fri, June 5 — wide release day.</strong> The Regal theaters post heavy slates for the new openers. Penn Cinema has not yet published June 5.</div>
-  <div class="sub-label"><a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Regal UA Oxford Valley</a> · <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Get Tickets</a></div>
-  <table><tr><th>Movie</th><th>Run</th><th>Showtimes</th></tr>
-  <tr><td>Masters of the Universe</td><td>2h20</td><td>10:00 AM, 12:00, 1:30, 3:30, 5:00, 7:00 PM <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">+2 more</a></td></tr>
-  <tr><td>Scary Movie</td><td>1h36</td><td>10:20, 11:00, 11:40 AM, 1:10, 1:40, 2:20 PM <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">+9 more</a></td></tr>
-  <tr><td>The Amazing Digital Circus: The Last Act</td><td>1h35</td><td>10:40 AM, 12:50, 3:40, 5:30, 6:30, 8:20 PM <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">+1 more</a></td></tr>
-  <tr><td>Power Ballad</td><td>1h38</td><td>11:00 AM, 1:40, 4:20, 7:00, 9:40 PM</td></tr>
-  <tr><td>Peddi</td><td>2h50</td><td>12:10, 4:10, 8:10 PM</td></tr>
-  </table>
-  <div class="sub-label">Regal Warrington Crossing — same five openers (Masters of the Universe, Scary Movie, The Amazing Digital Circus, Power Ballad, Peddi)</div>
-  <div class="sub-label">Penn Cinema Huntingdon Valley</div>
-  <div class="day-empty">Showtimes for this date haven't been published by Penn Cinema yet — check back closer to the day.</div>
-</div>
+  <!-- DAY 2 — Sat Jun 6 -->
+  <div class="day-pane" id="day2">
+    <div class="sub-label">Penn Cinema Huntingdon Valley · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets</a></div>
+    <table>
+      <tr><th>Movie</th><th>Runtime</th><th>Showtimes</th></tr>
+      <tr><td>The Amazing Digital Circus: The Last Act</td><td>1h 38m</td><td>4:00, 6:20 PM</td></tr>
+      <tr><td>Masters of the Universe</td><td>2h 21m</td><td>1:20, 4:20, 7:30, 8:40 PM</td></tr>
+      <tr><td>Scary Movie</td><td>1h 36m</td><td>11:20 AM, 1:30, 4:00, 6:40, 9:10 PM</td></tr>
+      <tr><td>Backrooms</td><td>1h 50m</td><td>11:10 AM, 1:30, 3:50, 6:30, 9:00 PM</td></tr>
+      <tr><td>The Breadwinner</td><td>1h 35m</td><td>11:30 AM, 1:40, 7:00 PM</td></tr>
+      <tr><td>Star Wars: The Mandalorian and Grogu</td><td>2h 12m</td><td>11:00 AM, 1:50, 4:40, 7:40, 8:30 PM</td></tr>
+      <tr><td>The Sheep Detectives</td><td>1h 49m</td><td>11:00 AM</td></tr>
+      <tr><td>Michael</td><td>2h 7m</td><td>11:20 AM, 2:10, 5:20, 8:00 PM</td></tr>
+    </table>
+    <div class="day-empty">Regal Warrington Crossing &amp; Regal UA Oxford Valley: showtimes for this date weren't captured this run. Check the theater pages linked above closer to the day.</div>
+  </div>
 
-<!-- DAY 5 -->
-<div class="day-pane" id="day5">
-  <div class="callout"><strong>Sat, June 6.</strong> Regal theaters show advance bookings for the new openers. Penn Cinema has not yet published June 6.</div>
-  <div class="sub-label"><a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">Regal Warrington / Oxford Valley</a> · advance bookings</div>
-  <table><tr><th>Movie</th><th>Run</th><th>Showtimes (sample)</th></tr>
-  <tr><td>Masters of the Universe</td><td>2h20</td><td>10:00 AM, 12:00, 1:30, 3:30, 5:00, 7:00 PM <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">+2 more</a></td></tr>
-  <tr><td>Scary Movie</td><td>1h36</td><td>10:20, 11:00, 11:40 AM, 1:10, 1:40, 2:20 PM <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">+9 more</a></td></tr>
-  <tr><td>The Amazing Digital Circus: The Last Act</td><td>1h35</td><td>10:40 AM, 1:30, 4:20, 5:30, 7:10, 8:10 PM <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">+1 more</a></td></tr>
-  <tr><td>Peddi</td><td>2h50</td><td>11:00 AM, 3:00, 7:00 PM</td></tr>
-  <tr><td>Power Ballad</td><td>1h38</td><td>11:00 AM, 1:40, 4:20, 7:00, 9:40 PM</td></tr>
-  </table>
-  <div class="sub-label">Penn Cinema Huntingdon Valley</div>
-  <div class="day-empty">Showtimes for this date haven't been published by Penn Cinema yet — check back closer to the day.</div>
-</div>
+  <!-- DAY 3 — Sun Jun 7 -->
+  <div class="day-pane" id="day3">
+    <div class="sub-label">Penn Cinema Huntingdon Valley · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets</a></div>
+    <table>
+      <tr><th>Movie</th><th>Runtime</th><th>Showtimes</th></tr>
+      <tr><td>The Amazing Digital Circus: The Last Act</td><td>1h 38m</td><td>4:00 PM</td></tr>
+      <tr><td>Masters of the Universe</td><td>2h 21m</td><td>1:10, 4:10, 6:50 PM</td></tr>
+      <tr><td>Scary Movie</td><td>1h 36m</td><td>11:30 AM, 2:00, 4:40, 7:20 PM</td></tr>
+      <tr><td>The Birdcage 30th Anniversary</td><td>2h 3m</td><td>1:00, 7:00 PM</td></tr>
+      <tr><td>Backrooms</td><td>1h 50m</td><td>11:10 AM, 1:30, 4:30, 7:10 PM</td></tr>
+      <tr><td>The Breadwinner</td><td>1h 35m</td><td>11:20 AM, 1:50, 3:50, 6:30 PM</td></tr>
+      <tr><td>Star Wars: The Mandalorian and Grogu</td><td>2h 12m</td><td>12:40, 3:40, 6:40 PM</td></tr>
+      <tr><td>The Sheep Detectives</td><td>1h 49m</td><td>11:00 AM</td></tr>
+      <tr><td>Michael</td><td>2h 7m</td><td>11:00 AM, 1:40, 4:20, 7:00 PM</td></tr>
+    </table>
+    <div class="day-empty">Regal Warrington Crossing &amp; Regal UA Oxford Valley: showtimes for this date weren't captured this run. Check the theater pages linked above closer to the day.</div>
+  </div>
 
-<!-- DAY 6 -->
-<div class="day-pane" id="day6">
-  <div class="callout"><strong>Sun, June 7.</strong> Regal theaters have advance bookings posted for the five new-release titles. The full holdover slate fills in closer to the date. Penn Cinema has not yet published June 7.</div>
-  <div class="sub-label">Regal Warrington / Oxford Valley · advance bookings</div>
-  <table><tr><th>Movie</th><th>Run</th><th>Showtimes (sample)</th></tr>
-  <tr><td>Masters of the Universe</td><td>2h20</td><td>10:00 AM, 12:00, 1:30, 3:30, 5:00, 7:00 PM <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">+more</a></td></tr>
-  <tr><td>Scary Movie</td><td>1h36</td><td>10:20, 11:00, 11:40 AM, 1:10 PM <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">+more</a></td></tr>
-  <tr><td>The Amazing Digital Circus: The Last Act</td><td>1h35</td><td>see theater</td></tr>
-  <tr><td>Power Ballad · Peddi</td><td>—</td><td>see theater</td></tr>
-  </table>
-  <div class="sub-label">Penn Cinema Huntingdon Valley</div>
-  <div class="day-empty">Showtimes for this date haven't been published by Penn Cinema yet — check back closer to the day.</div>
-</div>
+  <!-- DAY 4 — Mon Jun 8 -->
+  <div class="day-pane" id="day4">
+    <div class="day-empty">Showtimes for this date haven't been published by Penn Cinema yet (it posts ~4 days ahead), and Regal's per-day listings weren't captured this run — check back closer to the day on the theater pages: <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Penn Cinema</a> · <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">Regal Warrington</a> · <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Regal Oxford Valley</a>.</div>
+  </div>
 
-<script>
-(function(){
-  var tabs=[].slice.call(document.querySelectorAll('.day-tab'));
-  var panes=[].slice.call(document.querySelectorAll('.day-pane'));
-  tabs.forEach(function(t){t.addEventListener('click',function(){
-    tabs.forEach(function(x){x.classList.remove('active');});
-    panes.forEach(function(x){x.classList.remove('active');});
-    t.classList.add('active');
-    var p=document.getElementById(t.getAttribute('data-day'));
-    if(p)p.classList.add('active');
-  });});
-})();
-</script>
+  <!-- DAY 5 — Tue Jun 9 -->
+  <div class="day-pane" id="day5">
+    <div class="day-empty">Showtimes for this date haven't been published by Penn Cinema yet, and Regal's per-day listings weren't captured this run — check back closer to the day on the theater pages: <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Penn Cinema</a> · <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">Regal Warrington</a> · <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Regal Oxford Valley</a>.</div>
+  </div>
+
+  <!-- DAY 6 — Wed Jun 10 -->
+  <div class="day-pane" id="day6">
+    <div class="day-empty">Showtimes for this date haven't been published by Penn Cinema yet, and Regal's per-day listings weren't captured this run — check back closer to the day on the theater pages: <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Penn Cinema</a> · <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">Regal Warrington</a> · <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Regal Oxford Valley</a>.</div>
+  </div>
+
+  <script>
+  (function(){
+    var tabs=[].slice.call(document.querySelectorAll('.day-tab'));
+    var panes=[].slice.call(document.querySelectorAll('.day-pane'));
+    tabs.forEach(function(t){t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('active');});
+      panes.forEach(function(x){x.classList.remove('active');});
+      t.classList.add('active');
+      var p=document.getElementById(t.getAttribute('data-day'));
+      if(p)p.classList.add('active');
+    });});
+  })();
+  </script>
 </section>
 
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🍿 Now in Theaters</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-
-  <div class="card card-pink"><strong>🎹 Tuner</strong><span class="note">R · 1h49</span><span class="note">95% RT</span><span class="sub">A gifted young piano tuner (Leo Woodall) whose acute hearing draws criminals who want him to crack safes; Dustin Hoffman plays his mentor. A winning, twisty caper.</span><a class="readmore" href="https://www.rottentomatoes.com/m/tuner" target="_blank" rel="noopener">Read more at Rotten Tomatoes →</a></div>
-
-  <div class="card card-purple"><strong>👻 Backrooms</strong><span class="note">R · 1h45</span><span class="sub">Kane Parsons' A24 debut: a furniture-store owner (Chiwetel Ejiofor) and his therapist (Renate Reinsve) fall into an endless dimension of liminal spaces. A24's biggest-ever opening.</span><a class="readmore" href="https://variety.com/2026/film/features/backrooms-explained-director-kane-parsons-sequels-1236760780/" target="_blank" rel="noopener">Read more at Variety →</a></div>
-
-  <div class="card card-cyan"><strong>⛅ Pressure</strong><span class="note">1h41</span><span class="sub">Brendan Fraser as Eisenhower and Andrew Scott as meteorologist James Stagg in a gripping WWII drama about the 72-hour weather call behind the D-Day invasion.</span><a class="readmore" href="https://www.rogerebert.com/reviews/pressure-andrew-scott-brendan-fraser-film-review-2026" target="_blank" rel="noopener">Read more at RogerEbert.com →</a></div>
-
-  <div class="card card-yellow"><strong>🐑 The Sheep Detectives</strong><span class="note">PG · 1h49</span><span class="sub">A shepherd (Hugh Jackman) reads detective novels to his sheep — who must turn sleuth themselves when something goes wrong on the farm. A witty family mystery.</span><a class="readmore" href="https://www.yahoo.com/entertainment/movies/articles/sheep-detectives-movie-ok-kids-121507650.html" target="_blank" rel="noopener">Read more at Yahoo →</a></div>
-
-  <div class="card card-magenta"><strong>👹 Obsession</strong><span class="note">1h48</span><span class="sub">A Blumhouse/Focus chiller from Curry Barker: a music-store clerk buys a "One Wish Willow" charm and wishes his crush would love him — with horrifying results.</span><a class="readmore" href="https://www.rogerebert.com/reviews/obsession-curry-barker-movie-review-2026" target="_blank" rel="noopener">Read more at RogerEbert.com →</a></div>
-
-  <div class="card card-blue"><strong>👗 The Devil Wears Prada 2</strong><span class="note">2h00</span><span class="sub">Twenty years on, journalist Andy Sachs is hired as features editor at a struggling Runway, reuniting her with Miranda Priestly amid magazine-industry upheaval.</span><a class="readmore" href="https://www.wmagazine.com/culture/the-devil-wears-prada-sequel-explained-cast-plot-spoilers" target="_blank" rel="noopener">Read more at W Magazine →</a></div>
-
-  <div class="card card-green"><strong>🎤 Michael</strong><span class="note">2h07</span><span class="sub">The Michael Jackson biopic, tracing his rise from the Jackson Five to global superstardom and closing as the Bad World Tour begins.</span><a class="readmore" href="https://en.wikipedia.org/wiki/Michael_(2026_film)" target="_blank" rel="noopener">Read more at Wikipedia →</a></div>
-
-  <div class="card card-orange"><strong>🚀 Project Hail Mary</strong><span class="note">2h36</span><span class="sub">Ryan Gosling as a science teacher who wakes on an interstellar ship with no memory, tasked with saving a dying sun. From Lord &amp; Miller, based on Andy Weir's novel.</span><a class="readmore" href="https://www.rogerebert.com/reviews/project-hail-mary-ryan-gosling-movie-review-2026" target="_blank" rel="noopener">Read more at RogerEbert.com →</a></div>
-
-  <div class="card card-lavender"><strong>⭐ Star Wars: The Mandalorian and Grogu</strong><span class="note">2h12</span><span class="sub">Din Djarin and Grogu hunt neo-imperial warlords for the New Republic. Directed by Jon Favreau, written with Dave Filoni.</span><a class="readmore" href="https://www.starwars.com/films/star-wars-the-mandalorian-and-grogu" target="_blank" rel="noopener">Read more at StarWars.com →</a></div>
-
-  <div class="card card-lblue"><strong>🍄 The Super Mario Galaxy Movie</strong><span class="note">1h38</span><span class="sub">Mario and Luigi rocket into space to stop Bowser Jr. and rescue Princess Rosalina from a universe-destroying cannon.</span><a class="readmore" href="https://www.nintendo.com/us/movies/super-mario-galaxy/" target="_blank" rel="noopener">Read more at Nintendo →</a></div>
-
-  <div class="card card-pink"><strong>🐉 Mortal Kombat II</strong><span class="note">1h56</span><span class="sub">Johnny Cage joins Raiden's Earthrealm fighters in the decisive 10th tournament against Shao Kahn's Outworld forces.</span><a class="readmore" href="https://en.wikipedia.org/wiki/Mortal_Kombat_II_(film)" target="_blank" rel="noopener">Read more at Wikipedia →</a></div>
-
-  <div class="card card-sopink"><strong>🛍️ I Love Boosters</strong><span class="note">1h54</span><span class="sub">Boots Riley's absurdist crime comedy: a crew of inventive young women turn shoplifting into radical defiance against a cutthroat fashion empire.</span><a class="readmore" href="https://www.refinery29.com/en-us/2026/05/11983642/i-love-boosters-review-keke-palmer-interview-capitalism" target="_blank" rel="noopener">Read more at Refinery29 →</a></div>
-
-  <div class="card card-blue"><strong>🇺🇸 Revolutionary America</strong><span class="note">1h53</span><span class="sub">Hillsdale College's first feature documentary, narrated by Tom Selleck, on Americans between 1763–1791 and the principles behind independence (Fathom Events).</span><a class="readmore" href="https://www.fathomentertainment.com/releases/revolutionary-america/" target="_blank" rel="noopener">Read more at Fathom →</a></div>
-
-  <div class="card card-magenta"><strong>🚐 Passenger</strong><span class="note">1h34</span><span class="sub">After witnessing a fatal highway crash, a van-life couple realizes a demonic "Passenger" has followed them home and won't stop until it claims them both.</span><a class="readmore" href="https://www.movieinsider.com/movies-in-theaters" target="_blank" rel="noopener">Read more at Movie Insider →</a></div>
-
-  <div class="card card-green"><strong>👨‍👧‍👧 The Breadwinner</strong><span class="note">1h35</span><span class="sub">A family comedy: when his wife (Mandy Moore) lands a Shark Tank deal and hits the road, a lifelong breadwinner becomes a first-time stay-at-home dad to three daughters.</span><a class="readmore" href="https://www.movieinsider.com/movies-in-theaters" target="_blank" rel="noopener">Read more at Movie Insider →</a></div>
-
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🍿 Now in Theaters</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-pink"><strong><a href="https://www.fandango.com/masters-of-the-universe-2026/movie-overview" target="_blank" rel="noopener">Masters of the Universe</a></strong><span class="sub">NR · 2h 21m. After 15 years apart, the Sword of Power leads Prince Adam (Nicholas Galitzine) back to Eternia, now under Skeletor's (Jared Leto) rule. With Teela and Man-At-Arms, he must embrace his destiny as He-Man.</span></div>
+    <div class="card card-purple"><strong><a href="https://www.fandango.com/scary-movie-2026/movie-overview" target="_blank" rel="noopener">Scary Movie</a></strong><span class="sub">NR · 1h 36m. Twenty-six years after outrunning a familiar masked killer, the Core Four — the Wayans, Anna Faris, Regina Hall — reunite to skewer reboots, requels and every "final chapter" that isn't.</span></div>
+    <div class="card card-cyan"><strong><a href="https://www.fandango.com/the-devil-wears-prada-2-2026-243909/movie-overview" target="_blank" rel="noopener">The Devil Wears Prada 2</a></strong><span class="sub">NR · 2h 0m. Miranda Priestly navigates the decline of magazine publishing and faces off against former assistant Emily Charlton, now a luxury-group executive with ad dollars Priestly needs.</span></div>
+    <div class="card card-yellow"><strong><a href="https://www.fandango.com/the-breadwinner-2026-243767/movie-overview" target="_blank" rel="noopener">The Breadwinner</a></strong><span class="sub">NR · 1h 35m. Nate Bargatze's first feature: when his wife (Mandy Moore) lands a Shark Tank deal, the lifelong breadwinner becomes a first-time stay-at-home dad to three daughters.</span></div>
+    <div class="card card-green"><strong><a href="https://www.fandango.com/star-wars-the-mandalorian-and-grogu-2026/movie-overview" target="_blank" rel="noopener">Star Wars: The Mandalorian and Grogu</a></strong><span class="sub">NR · 2h 12m. With the Empire fallen, the New Republic enlists bounty hunter Din Djarin and his apprentice Grogu against scattered Imperial warlords.</span></div>
+    <div class="card card-magenta"><strong><a href="https://www.fandango.com/michael-2026-243301/movie-overview" target="_blank" rel="noopener">Michael</a></strong><span class="sub">NR · 2h 7m. The life and legacy of Michael Jackson, from the Jackson Five through his early solo career and most iconic performances.</span></div>
+    <div class="card card-blue"><strong><a href="https://www.fandango.com/backrooms-2026/movie-overview" target="_blank" rel="noopener">Backrooms</a></strong><span class="sub">NR · 1h 50m. A strange doorway appears in the basement of a furniture showroom — a horror built from the viral internet phenomenon.</span></div>
+    <div class="card card-orange"><strong><a href="https://www.fandango.com/passenger-2026/movie-overview" target="_blank" rel="noopener">Passenger</a></strong><span class="sub">NR · 1h 34m. A young couple on a van-life trip witnesses a fatal accident, then a demonic stalker who follows them wherever they go.</span></div>
+    <div class="card card-lavender"><strong><a href="https://www.fandango.com/the-sheep-detectives-2026-236788/movie-overview" target="_blank" rel="noopener">The Sheep Detectives</a></strong><span class="sub">NR · 1h 49m. George (Hugh Jackman) reads detective novels to his sheep — who, after a mysterious incident, become brilliant crime-solvers themselves.</span></div>
+    <div class="card card-sopink"><strong><a href="https://www.fandango.com/the-amazing-digital-circus-the-last-act-2026/movie-overview" target="_blank" rel="noopener">The Amazing Digital Circus: The Last Act</a></strong><span class="sub">NR · 1h 38m. The viral animated sensation reaches its feature-length conclusion, combining episodes 8 and 9 as the cast confronts the truth about the Digital Circus.</span></div>
+    <div class="card card-lblue"><strong><a href="https://www.fandango.com/the-super-mario-galaxy-movie-2026-242307/movie-overview" target="_blank" rel="noopener">The Super Mario Galaxy Movie</a></strong><span class="sub">NR · 1h 38m. Mario's animated adventure heads to the stars (Regal). Synopsis not posted on the theater page this run.</span></div>
+    <div class="card card-pink"><strong><a href="https://www.fandango.com/mortal-kombat-ii-2026-241451/movie-overview" target="_blank" rel="noopener">Mortal Kombat II</a></strong><span class="sub">NR · 1h 56m. The fighting-game saga continues (Regal). Synopsis not posted on the theater page this run.</span></div>
+    <div class="card card-purple"><strong><a href="https://www.fandango.com/obsession-2026-242812/movie-overview" target="_blank" rel="noopener">Obsession</a></strong><span class="sub">NR · 1h 48m. Thriller now playing at Regal Warrington &amp; Oxford Valley. Synopsis not posted on the theater page this run.</span></div>
+    <div class="card card-cyan"><strong><a href="https://www.fandango.com/pressure-2026/movie-overview" target="_blank" rel="noopener">Pressure</a></strong><span class="sub">NR · 1h 41m. Now playing at Regal. Synopsis not posted on the theater page this run.</span></div>
+    <div class="card card-yellow"><strong><a href="https://www.fandango.com/project-hail-mary-2026/movie-overview" target="_blank" rel="noopener">Project Hail Mary</a></strong><span class="sub">NR · 2h 36m. Sci-fi adaptation now at Regal. Synopsis not posted on the theater page this run.</span></div>
+    <div class="card card-green"><strong><a href="https://www.fandango.com/power-ballad-2026/movie-overview" target="_blank" rel="noopener">Power Ballad</a></strong><span class="sub">NR · 1h 38m. Music comedy now at Regal. Synopsis not posted on the theater page this run.</span></div>
+    <div class="card card-magenta"><strong><a href="https://www.fandango.com/tuner-2026/movie-overview" target="_blank" rel="noopener">Tuner</a></strong><span class="sub">NR · 1h 49m. Now playing at Regal Warrington. Synopsis not posted on the theater page this run.</span></div>
+    <div class="card card-blue"><strong><a href="https://www.fandango.com/i-love-boosters-2026/movie-overview" target="_blank" rel="noopener">I Love Boosters</a></strong><span class="sub">NR · 1h 54m. Now playing at Regal. Synopsis not posted on the theater page this run.</span></div>
+    <div class="card card-orange"><strong>Hokum</strong><span class="sub">NR · 1h 48m. Now playing at Regal Warrington. Synopsis not posted on the theater page this run.</span></div>
+    <div class="card card-lavender"><strong>Peddi (Telugu)</strong><span class="sub">NR · 3h 17m. Subtitled Telugu-language feature at Regal. Synopsis not posted on the theater page this run.</span></div>
+    <div class="card card-sopink"><strong>Drishyam 3 (Malayalam)</strong><span class="sub">NR · 2h 51m. Subtitled Malayalam-language feature at Regal Warrington. Synopsis not posted on the theater page this run.</span></div>
+    <div class="card card-lblue"><strong>Phi Phong: The Blood Demon (Vietnamese)</strong><span class="sub">NR · 2h 0m. Subtitled Vietnamese-language horror at Regal Warrington. Synopsis not posted on the theater page this run.</span></div>
+    <div class="card card-pink"><strong>The Birdcage 30th Anniversary</strong><span class="sub">NR · 2h 3m. A cabaret owner and his drag-queen partner feign a straight front to meet their son's fiancée's conservative parents. Special engagement (Penn Sun, Regal).</span></div>
+    <div class="card card-purple"><strong>Trainspotting 30th Anniversary</strong><span class="sub">NR · 1h 33m. Danny Boyle's landmark returns to theaters for its 30th anniversary (Regal).</span></div>
+  </div>
 </section>
 
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🎬 Coming Soon</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-  <div class="card card-orange"><strong>🗡️ Masters of the Universe</strong><span class="note">June 5</span><span class="sub">Travis Knight's He-Man reboot. Prince Adam (Nicholas Galitzine) returns to Eternia to reclaim his legacy from Skeletor; with Idris Elba, Camila Mendes and Jared Leto. Tracking ~$35M opening.</span><a class="readmore" href="https://deadline.com/2026/05/box-office-scary-movie-masters-of-the-universe-projection-1236905145/" target="_blank" rel="noopener">Read more at Deadline →</a></div>
-  <div class="card card-pink"><strong>🔪 Scary Movie</strong><span class="note">June 5</span><span class="sub">The Wayans brothers (Marlon, Shawn &amp; Keenen Ivory) reunite for the first time in 17 years to revive the parody franchise, with Anna Faris and Regina Hall returning.</span><a class="readmore" href="https://deadline.com/2026/04/scary-movie-cinemacon-marlon-wayans-anna-faris-1236863027/" target="_blank" rel="noopener">Read more at Deadline →</a></div>
-  <div class="card card-cyan"><strong>🛸 Disclosure Day</strong><span class="note">June 12</span><span class="sub">Steven Spielberg's UFO sci-fi with an A-list ensemble — Emily Blunt, Josh O'Connor and Colin Firth.</span><a class="readmore" href="https://www.movieinsider.com/movies/june/2026" target="_blank" rel="noopener">Read more at Movie Insider →</a></div>
-  <div class="card card-yellow"><strong>🧸 Toy Story 5</strong><span class="note">June 19</span><span class="sub">Buzz and Woody face a new threat when kids start replacing their toys with gadgets. Expected to top June's box office.</span><a class="readmore" href="https://www.movieinsider.com/movies/june/2026" target="_blank" rel="noopener">Read more at Movie Insider →</a></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📅 Coming Soon</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-blue"><strong><a href="https://movieweb.com/movies-new-theater-june-2026/" target="_blank" rel="noopener">Disclosure Day — June 12</a></strong><span class="sub">Steven Spielberg's return to original sci-fi, scripted with David Koepp (Jurassic Park).</span><a class="readmore" href="https://movieweb.com/movies-new-theater-june-2026/" target="_blank" rel="noopener">Read more at MovieWeb →</a></div>
+    <div class="card card-green"><strong><a href="https://www.fanbolt.com/175328/a-look-at-new-movies-coming-out-this-week-masters-of-the-universe-scary-movie-and-more/" target="_blank" rel="noopener">Jackass (new film) — June 26</a></strong><span class="sub">Paramount brings the stunt franchise back to the big screen.</span><a class="readmore" href="https://www.fanbolt.com/175328/a-look-at-new-movies-coming-out-this-week-masters-of-the-universe-scary-movie-and-more/" target="_blank" rel="noopener">Read more at FanBolt →</a></div>
+    <div class="card card-pink"><strong><a href="https://editorial.rottentomatoes.com/article/the-most-anticipated-movies-of-2026/" target="_blank" rel="noopener">Supergirl — June 26</a></strong><span class="sub">Milly Alcock (House of the Dragon) soars as Kara Zor-El; final trailer just dropped.</span><a class="readmore" href="https://editorial.rottentomatoes.com/article/the-most-anticipated-movies-of-2026/" target="_blank" rel="noopener">Read more at Rotten Tomatoes →</a></div>
+  </div>
 </section>
 
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📺 Streaming Picks</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-  <div class="card card-cyan"><strong>🥊 Rocky &amp; Creed Franchises</strong><span class="note">Netflix · Jun 1</span><span class="sub">All the Rocky films plus all three Creed movies land on Netflix, alongside Little Miss Sunshine, Runaway Bride and Rudy.</span><a class="readmore" href="https://www.comingsoon.net/movies/news/2138992-netflix-releases-this-week-new-june-1-7" target="_blank" rel="noopener">Read more at ComingSoon →</a></div>
-  <div class="card card-purple"><strong>🎣 Cape Fear</strong><span class="note">Apple TV+</span><span class="sub">Javier Bardem as Max Cady, newly freed and stalking the attorneys (Amy Adams, Patrick Wilson) who put him away. Two-episode premiere.</span><a class="readmore" href="https://www.tvinsider.com/1264594/june-2026-streaming-guide-netflix-hulu-paramount-more/" target="_blank" rel="noopener">Read more at TV Insider →</a></div>
-  <div class="card card-magenta"><strong>🐉 House of the Dragon</strong><span class="note">Max</span><span class="sub">Returns with weekly episode drops this month, plus a new Larry David comedy series.</span><a class="readmore" href="https://www.explosion.com/189897/whats-new-on-max-in-june-2026-6-must-watch-picks/" target="_blank" rel="noopener">Read more at Explosion →</a></div>
-  <div class="card card-lime"><strong>🔥 Adventure Time: Side Quests</strong><span class="note">Disney+/Hulu</span><span class="sub">A 20-episode binge following Finn and Jake across the land of Ooo.</span><a class="readmore" href="https://www.howtogeek.com/new-on-disney-plus-and-hulu-june-2026-what-to-watch-this-month/" target="_blank" rel="noopener">Read more at How-To Geek →</a></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📺 Streaming Picks</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-cyan"><strong><a href="https://www.whats-on-netflix.com/what-to-watch/best-new-movies-netflix-june-2026/" target="_blank" rel="noopener">Office Romance</a></strong><span class="sub">Netflix · Jennifer Lopez &amp; Brett Goldstein as rival execs forced to team up on a high-stakes corporate retreat.</span><a class="readmore" href="https://www.whats-on-netflix.com/what-to-watch/best-new-movies-netflix-june-2026/" target="_blank" rel="noopener">Read more at What's on Netflix →</a></div>
+    <div class="card card-yellow"><strong><a href="https://www.thewrap.com/creative-content/what-to-watch/everything-new-streaming-june-2026/" target="_blank" rel="noopener">Lightning and Thunder</a></strong><span class="sub">Netflix · Hugh Jackman &amp; Kate Hudson form a Neil Diamond tribute band; directed by Craig Brewer.</span><a class="readmore" href="https://www.thewrap.com/creative-content/what-to-watch/everything-new-streaming-june-2026/" target="_blank" rel="noopener">Read more at The Wrap →</a></div>
+    <div class="card card-magenta"><strong><a href="https://www.howtogeek.com/new-netflix-movies-to-watch-in-june-2026/" target="_blank" rel="noopener">Poor Things</a></strong><span class="sub">Netflix · Yorgos Lanthimos's wonderfully weird, visually stunning tale of Bella Baxter (now streaming).</span><a class="readmore" href="https://www.howtogeek.com/new-netflix-movies-to-watch-in-june-2026/" target="_blank" rel="noopener">Read more at How-To Geek →</a></div>
+  </div>
 </section>
 
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📰 Celebrity &amp; Entertainment News</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📰 Celebrity &amp; Entertainment News</span><span class="divider-line"></span></div>
 
-  <div class="card card-pink"><strong><a href="https://www.tmz.com/2026/05/31/handyman-negri-mister-rogers-neighborhood-dead/" target="_blank" rel="noopener">Joe Negri, 'Mister Rogers' Neighborhood' Handyman, Dies at 99</a></strong><span class="sub">The beloved Handyman Negri and acclaimed jazz guitarist died May 30, just days before his 100th birthday.</span><a class="readmore" href="https://www.tmz.com/2026/05/31/handyman-negri-mister-rogers-neighborhood-dead/" target="_blank" rel="noopener">Read more at TMZ →</a></div>
+  <div class="card card-pink"><strong><a href="https://deadline.com/2026/06/scary-movie-masters-of-universe-amazing-digital-circus-box-office-1236939469/" target="_blank" rel="noopener">'Scary Movie' eyes $45–50M, 'Masters of the Universe' ~$30M opening weekend</a></strong><span class="sub">The R-rated Wayans revival is projected to outpace the $200M He-Man epic at the domestic box office this weekend.</span><a class="readmore" href="https://deadline.com/2026/06/scary-movie-masters-of-universe-amazing-digital-circus-box-office-1236939469/" target="_blank" rel="noopener">Read more at Deadline →</a></div>
 
-  <div class="card card-purple"><strong><a href="https://variety.com/2026/film/features/marlon-wayans-scary-movie-dave-chappelle-transgender-harvey-weinstein-1236755195/" target="_blank" rel="noopener">Wayans Brothers Reunite for 'Scary Movie'</a></strong><span class="sub">Marlon, Shawn and Keenen Ivory Wayans collaborate for the first time in 17 years on the franchise revival, out June 5.</span><a class="readmore" href="https://variety.com/2026/film/features/marlon-wayans-scary-movie-dave-chappelle-transgender-harvey-weinstein-1236755195/" target="_blank" rel="noopener">Read more at Variety →</a></div>
+  <div class="card card-purple"><strong><a href="https://variety.com/2026/film/box-office/scary-movie-box-office-scary-opening-weekend-masters-of-the-universe-1236764859/" target="_blank" rel="noopener">'Masters of the Universe' lands soft reviews against a $200M budget</a></strong><span class="sub">Critics gave Travis Knight's He-Man film 74% on Rotten Tomatoes, but tracking raises questions about a movie that needs ~$425M worldwide to break even.</span><a class="readmore" href="https://variety.com/2026/film/box-office/scary-movie-box-office-scary-opening-weekend-masters-of-the-universe-1236764859/" target="_blank" rel="noopener">Read more at Variety →</a></div>
 
-  <div class="card card-cyan"><strong><a href="https://www.justjared.com/2026/05/31/anna-faris-says-wazzup-at-scary-movie-6-photo-call-with-marlon-shawn-wayans/" target="_blank" rel="noopener">Anna Faris Says 'Wazzup' at 'Scary Movie' Photo Call</a></strong><span class="sub">Faris reunited with Marlon &amp; Shawn Wayans for the film's press push ahead of release.</span><a class="readmore" href="https://www.justjared.com/2026/05/31/anna-faris-says-wazzup-at-scary-movie-6-photo-call-with-marlon-shawn-wayans/" target="_blank" rel="noopener">Read more at Just Jared →</a></div>
+  <div class="card card-cyan"><strong><a href="https://www.fanbolt.com/175328/a-look-at-new-movies-coming-out-this-week-masters-of-the-universe-scary-movie-and-more/" target="_blank" rel="noopener">A new 'Jackass' movie is officially headed to theaters June 26</a></strong><span class="sub">Johnny Knoxville teased the franchise's theatrical return with a cryptic Instagram post; Paramount has set the release.</span><a class="readmore" href="https://www.fanbolt.com/175328/a-look-at-new-movies-coming-out-this-week-masters-of-the-universe-scary-movie-and-more/" target="_blank" rel="noopener">Read more at FanBolt →</a></div>
 
-  <div class="card card-yellow"><strong><a href="https://film-book.com/box-office-may-29-31-2026-backrooms-obsession-the-mandalorian-grogu-more/" target="_blank" rel="noopener">Box Office: 'Obsession' Overtakes 'The Mandalorian and Grogu'</a></strong><span class="sub">The Blumhouse horror sleeper topped the Star Wars film over May 29–31; Backrooms led the chart with A24's biggest opening.</span><a class="readmore" href="https://film-book.com/box-office-may-29-31-2026-backrooms-obsession-the-mandalorian-grogu-more/" target="_blank" rel="noopener">Read more at Film-Book →</a></div>
+  <div class="card card-green"><strong><a href="https://editorial.rottentomatoes.com/article/the-most-anticipated-movies-of-2026/" target="_blank" rel="noopener">'Supergirl' final trailer drops — Milly Alcock soars June 26</a></strong><span class="sub">The final trailer for Craig Gillespie's adventure debuted this week ahead of the late-June release.</span><a class="readmore" href="https://editorial.rottentomatoes.com/article/the-most-anticipated-movies-of-2026/" target="_blank" rel="noopener">Read more at Rotten Tomatoes →</a></div>
 
-  <div class="card card-green"><strong><a href="https://www.npr.org/2026/05/01/nx-s1-5798608/the-devil-wears-prada-2-review" target="_blank" rel="noopener">'The Devil Wears Prada 2' Reviews Land</a></strong><span class="sub">NPR and critics weigh in on the long-awaited sequel — "this time, the devil's cutting jobs."</span><a class="readmore" href="https://www.npr.org/2026/05/01/nx-s1-5798608/the-devil-wears-prada-2-review" target="_blank" rel="noopener">Read more at NPR →</a></div>
-
-  <div class="card card-orange"><strong><a href="https://www.justjared.com/2026/05/20/netflix-is-removing-7-tv-shows-15-movies-in-june-2026-including-fifty-shades-sex-and-the-city/" target="_blank" rel="noopener">Netflix Drops 22 Titles in June, Including 'Fifty Shades' &amp; 'Sex and the City'</a></strong><span class="sub">Seven TV shows and 15 movies leave the streamer this month — the Fifty Shades trilogy exits June 1.</span><a class="readmore" href="https://www.justjared.com/2026/05/20/netflix-is-removing-7-tv-shows-15-movies-in-june-2026-including-fifty-shades-sex-and-the-city/" target="_blank" rel="noopener">Read more at Just Jared →</a></div>
-
+  <div class="card card-yellow"><strong><a href="https://www.hollywoodreporter.com/tv/tv-news/netflix-june-2026-new-releases-movies-tv-1236610298/" target="_blank" rel="noopener">Netflix's June slate: Office Romance, Avatar S2, The Bear returns</a></strong><span class="sub">A loaded June across streaming — including Avatar: The Last Airbender Season 2 (June 25) and The Bear's fifth course on Hulu (June 25).</span><a class="readmore" href="https://www.hollywoodreporter.com/tv/tv-news/netflix-june-2026-new-releases-movies-tv-1236610298/" target="_blank" rel="noopener">Read more at Hollywood Reporter →</a></div>
 </section>
 
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Mon, Jun 1 at 8:11 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Thu, Jun 4 at 7:06 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
 <script>
 function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
 updateClock();setInterval(updateClock,1000);
