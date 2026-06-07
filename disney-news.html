@@ -12,13 +12,6 @@ body{font-family:'Nunito',sans-serif;min-height:100vh;color:#1f2440;
   background-image:radial-gradient(#ffd23f 2px,transparent 2px),
                    radial-gradient(#ff5c8a 2px,transparent 2px);
   background-size:60px 60px;background-position:0 0,30px 30px}
-.topnav{background:#1a2744;padding:14px 20px;display:flex;align-items:center;gap:1rem}
-.topnav a.hub{color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.82rem;letter-spacing:0.08em}
-.topnav a.hub:hover{color:#fff}
-.topnav .chev{color:rgba(255,255,255,0.2);font-size:0.75rem}
-.topnav .cur{color:#fff;font-weight:500;font-size:0.82rem}
-.topnav a.personal{margin-left:auto;color:#ffd2e4;text-decoration:none;font-size:0.82rem;letter-spacing:0.05em}
-.topnav a.personal:hover{color:#fff}
 header{text-align:center;padding:2.6rem 1.5rem 1.8rem;position:relative}
 .hub-label{font-family:'Baloo 2';font-weight:700;font-size:.78rem;letter-spacing:.28em;
   text-transform:uppercase;color:#ff5c8a;margin-bottom:.6rem}
@@ -33,8 +26,6 @@ h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;colo
   padding:.5rem 1.3rem;border-radius:14px;font-family:'Baloo 2';font-weight:600;
   font-size:.92rem;box-shadow:4px 4px 0 #ff5c8a}
 .live-clock .clock-date{color:#ffd23f}.live-clock .clock-time{color:#fff}
-.gen-stamp{margin-top:.7rem;font-size:.78rem;color:#6b6f8c;font-weight:700}
-.gen-stamp .live{color:#3dd6b5}
 main{max-width:1080px;margin:0 auto;padding:1rem 1.4rem 4rem}
 .section-divider{display:flex;align-items:center;gap:.9rem;margin:2.4rem 0 1.2rem}
 section:first-of-type .section-divider, .section-group:first-child .section-divider{margin-top:.4rem}
@@ -44,357 +35,339 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
   background:#fff;padding:.1rem .9rem;border:3px solid #1f2440;border-radius:14px;
   box-shadow:3px 3px 0 #3ec6e0}
 .divider-line{flex:1;height:4px;border-radius:4px;background:#1f2440;opacity:.15}
-.sub-label{font-family:'Baloo 2';font-weight:700;font-size:.95rem;color:#1f2440;
-  margin:1.2rem 0 .6rem;text-transform:uppercase;letter-spacing:.06em}
 .card{position:relative;display:block;background:#fff;color:#1f2440;text-decoration:none;
   border:3px solid #1f2440;border-radius:18px;padding:1.2rem 1.4rem;
-  box-shadow:6px 6px 0 var(--accent,#ff5c8a);margin-bottom:1rem}
+  box-shadow:6px 6px 0 var(--accent,#ff5c8a);margin-bottom:1rem;
+  transition:transform .16s ease,box-shadow .16s ease}
+.card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--accent,#ff5c8a)}
 .card strong, .card .card-title{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;
   display:block;margin-bottom:.3rem;color:#1f2440}
-.card strong a{color:#1f2440;text-decoration:none;border-bottom:3px solid var(--accent,#ff5c8a)}
-.card strong a:hover{color:#ff5c8a}
-.card .sub{display:block;color:#6b6f8c;font-size:.92rem;font-weight:600;line-height:1.55;margin-top:.15rem}
+.card a{color:#1f2440;text-decoration:none;border-bottom:2px solid #ff8fc7;padding-bottom:.1rem}
+.card a:hover{color:#ff8fc7}
+.card .sub{display:block;color:#6b6f8c;font-size:.86rem;font-weight:600;line-height:1.5;margin-top:.15rem}
 .card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
   background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
-  border:2px solid #1f2440;margin:.45rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
-.readmore{margin-top:.6rem}
-.readmore a{display:inline-block;font-family:'Baloo 2';font-weight:700;font-size:.82rem;
-  color:#1f2440;text-decoration:none;background:var(--accent,#ffd23f);
-  padding:.3rem .85rem;border-radius:999px;border:2px solid #1f2440}
-.readmore a:hover{transform:translate(-1px,-1px)}
-.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.1rem}
+  border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
+.readmore{margin-top:.7rem;display:block}
+.readmore a{color:#ff8fc7;font-size:.9rem;font-weight:800;text-decoration:none;letter-spacing:.02em}
+.readmore a:hover{color:#ff5c8a}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
 .card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
 .card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
 .card-green{--accent:#3dd6b5}.card-lime{--accent:#7bd957}.card-orange{--accent:#ffb84d}
 .card-lblue{--accent:#4fc3f7}.card-sopink{--accent:#ff8fc7}.card-lavender{--accent:#b79cff}
 .callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
-  box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0;font-weight:600;line-height:1.55}
+  box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
 .callout strong{font-family:'Baloo 2'}
 footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
 .footer-clock{margin-top:.4rem;color:#ff5c8a}
 .timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
   font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
+.nav-bar{background:#1a2744;padding:14px 20px;display:flex;align-items:center;gap:1rem;margin:-1rem -1rem 0 -1rem}
+.nav-bar a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:.82rem;letter-spacing:.08em}
+.nav-bar a:hover{color:#ffd23f}
+.nav-sep{color:rgba(255,255,255,0.2);font-size:.75rem}
+.nav-label{color:#fff;font-weight:500;font-size:.82rem}
+.nav-personal{margin-left:auto;color:#ffd2e4;text-decoration:none;font-size:.82rem;letter-spacing:.05em}
+.nav-personal:hover{color:#ff8fc7}
 @media (max-width:600px){
   h1{font-size:2.4rem}
   main{padding:1rem .9rem 3rem}
   .card{padding:1rem 1.1rem}
-  .topnav a.personal{font-size:0.74rem}
+  .nav-bar{flex-direction:column;align-items:flex-start;gap:.5rem}
+  .nav-personal{margin-left:0;margin-top:.5rem}
 }
 </style>
 </head>
 <body>
-<div class="topnav">
-  <a class="hub" href="index.html">Lisa's Hub</a>
-  <span class="chev">&#8250;</span>
-  <span class="cur">Disney Daily Briefing</span>
-  <a class="personal" href="https://docs.google.com/document/d/1yo9L1eVBVuJWg4m5xF9rI6LfJA-Gh8Unlg-FRm-vWm4/edit" target="_blank" rel="noopener">🔒 Personal Briefing →</a>
+<!-- Navigation bar -->
+<div class="nav-bar">
+  <a href="index.html">← Lisa's Hub</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-label">Disney Daily Briefing</span>
+  <a href="https://docs.google.com/document/d/1yo9L1eVBVuJWg4m5xF9rI6LfJA-Gh8Unlg-FRm-vWm4/edit" target="_blank" rel="noopener" class="nav-personal">🔒 Personal Briefing →</a>
 </div>
+
+<!-- Header banner -->
 <header>
 <div class="hub-label"><a href="index.html">← Lisa's Hub</a></div>
 <h1>✨ Disney Daily Briefing</h1>
 <div class="subtitle">Parks · DVC · Cruise fleet · Dining · Upcoming events</div>
 <div class="gold-line"></div>
 <div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
-<div class="gen-stamp">Generated: Sat, Jun 6, 2026 at 3:32 AM ET (2026-06-06 07:32 UTC) · <span class="live">All content fetched live this run — no cached data used.</span></div>
 </header>
+
 <main>
 
-<!-- ===================== CORPORATE & BUSINESS ===================== -->
+<!-- Corporate & Business Section -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Corporate &amp; Business</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Corporate & Business</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-
-    <div class="card card-pink">
-      <strong><a href="https://insidethemagic.net/2026/06/espn-disney-planning-another-round-of-layoffs-following-massive-nfl-deal-rl1/" target="_blank" rel="noopener">ESPN bracing for a deeper round of summer layoffs</a></strong>
-      <span class="sub">Per a June 4 report, ESPN is preparing layoffs this summer expected to cut deeper than recent technical downsizings — affecting both on-camera talent and behind-the-scenes staff, following the NFL Network acquisition.</span>
-      <span class="note">Inside the Magic · Jun 4</span>
-      <div class="readmore"><a href="https://insidethemagic.net/2026/06/espn-disney-planning-another-round-of-layoffs-following-massive-nfl-deal-rl1/" target="_blank" rel="noopener">Read more at Inside the Magic →</a></div>
-    </div>
-
     <div class="card card-magenta">
-      <strong><a href="https://deadline.com/2026/04/disney-ceo-josh-damaro-confirms-layoffs-marketing-group-1236860236/" target="_blank" rel="noopener">D'Amaro's first cuts: up to ~1,000 jobs across the company</a></strong>
-      <span class="sub">New CEO Josh D'Amaro confirmed cuts of roughly 1,000 roles across the unified marketing org, studios and TV, ESPN, product &amp; technology, and corporate functions — his first major move since taking over in March.</span>
-      <span class="note">Deadline · Apr 2026</span>
+      <strong><a href="https://deadline.com/2026/04/disney-ceo-josh-damaro-confirms-layoffs-marketing-group-1236860236/" target="_blank" rel="noopener">Disney CEO Josh D'Amaro Confirms Layoffs in Marketing and Brand Group</a></strong>
+      <span class="sub">CEO Josh D'Amaro announced approximately 1,000 job cuts across studios, television, ESPN, and corporate functions as part of a restructuring plan to streamline operations and create a more agile workforce.</span>
+      <span class="note">Deadline</span> <span class="note">April 2026</span>
       <div class="readmore"><a href="https://deadline.com/2026/04/disney-ceo-josh-damaro-confirms-layoffs-marketing-group-1236860236/" target="_blank" rel="noopener">Read more at Deadline →</a></div>
     </div>
-
     <div class="card card-pink">
-      <strong><a href="https://www.cnbc.com/2026/03/18/disney-josh-damaro-ceo-new-chapter.html" target="_blank" rel="noopener">Q2 FY26 earnings: revenue up 7% to $25.2B</a></strong>
-      <span class="sub">Disney's fiscal Q2 revenue rose 7% to $25.2 billion (from $23.6B a year earlier), with income before taxes up 9% to $3.4 billion. D'Amaro succeeded Bob Iger as CEO at the March 18 annual meeting.</span>
-      <span class="note">CNBC · Mar/May 2026</span>
-      <div class="readmore"><a href="https://www.cnbc.com/2026/03/18/disney-josh-damaro-ceo-new-chapter.html" target="_blank" rel="noopener">Read more at CNBC →</a></div>
+      <strong><a href="https://deadline.com/2026/06/walt-disney-main-street-carrie-brzezinski-hsu-1236941409/" target="_blank" rel="noopener">Disney Launches Main Street: Company's First Creative Agency</a></strong>
+      <span class="sub">The Walt Disney Company unveiled Main Street, its first company-wide creative agency led by Carrie Brzezinski-Hsu. The agency oversees creative talent and production for campaigns spanning entertainment, sports, experiences, and consumer products.</span>
+      <span class="note">Deadline</span> <span class="note">June 4, 2026</span>
+      <div class="readmore"><a href="https://deadline.com/2026/06/walt-disney-main-street-carrie-brzezinski-hsu-1236941409/" target="_blank" rel="noopener">Read more at Deadline →</a></div>
     </div>
-
+    <div class="card card-magenta">
+      <strong><a href="https://ppc.land/disneys-summer-2026-lineup-four-films-and-a-2-billion-milestone/" target="_blank" rel="noopener">Disney Studios Surpasses $2 Billion at Box Office in 2026</a></strong>
+      <span class="sub">The Walt Disney Studios became the first studio to surpass $2 billion worldwide at the box office in 2026. Summer slate includes Toy Story 5, Moana live-action, Super Troopers 3, and The Dog Stars.</span>
+      <span class="note">PPC</span> <span class="note">June 4, 2026</span>
+      <div class="readmore"><a href="https://ppc.land/disneys-summer-2026-lineup-four-films-and-a-2-billion-milestone/" target="_blank" rel="noopener">Read more at PPC →</a></div>
+    </div>
   </div>
 </section>
 
-<!-- ===================== PARKS NEWS ===================== -->
+<!-- Parks News Section -->
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Parks News</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-
-    <div class="card card-sopink">
-      <strong><a href="https://mickeyvisit.com/disney-june-ride-closures-may-29-2026/" target="_blank" rel="noopener">6 ride closures announced for June refurbishment</a></strong>
-      <span class="sub">Disney confirmed a fresh slate of June 2026 ride closures and refurbishments across the parks — worth checking before you head over for any planned days.</span>
-      <span class="note">Mickey Visit · May 29</span>
-      <div class="readmore"><a href="https://mickeyvisit.com/disney-june-ride-closures-may-29-2026/" target="_blank" rel="noopener">Read more at Mickey Visit →</a></div>
-    </div>
-
     <div class="card card-pink">
-      <strong><a href="https://www.disneytouristblog.com/disney-world-refurbishments/" target="_blank" rel="noopener">Hollywood Studios reshuffle: Muppets, Rock 'n' Roller Coaster &amp; the Studios Lot</a></strong>
-      <span class="sub">MuppetVision 3D, PizzeRizzo and Mama Melrose's are now closed for the Monsters Inc. Door Coaster / Monstropolis miniland. Rock 'n' Roller Coaster is closed for its Muppets reimagining (Summer 2026), and Animation Courtyard is becoming the Walt Disney Studios Lot.</span>
-      <span class="note">Disney Tourist Blog · Jun 2026</span>
-      <div class="readmore"><a href="https://www.disneytouristblog.com/disney-world-refurbishments/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></div>
+      <strong><a href="https://mickeyvisit.com/disney-june-ride-closures-may-29-2026/" target="_blank" rel="noopener">Muppet*Vision 3D Permanently Closes at Hollywood Studios</a></strong>
+      <span class="sub">The iconic 3D film experience at Disney's Hollywood Studios is permanently closing as of June 7, 2026. The area will be reimagined with Monsters Inc. Door Coaster and new dining experiences.</span>
+      <span class="note">MickeyVisit</span> <span class="note">June 7, 2026</span>
+      <div class="readmore"><a href="https://mickeyvisit.com/disney-june-ride-closures-may-29-2026/" target="_blank" rel="noopener">Read more at MickeyVisit →</a></div>
     </div>
-
-    <div class="card card-magenta">
-      <strong><a href="https://www.undercovertourist.com/blog/disney-world-refurbishments-closings/" target="_blank" rel="noopener">Bluey's Wild World debuts; Tropical Americas underway at Animal Kingdom</a></strong>
-      <span class="sub">Rafiki's Planet Watch is closed ahead of the Bluey's Wild World takeover (debut May 26). Construction is now underway on Tropical Americas, which will replace DinoLand U.S.A. at Animal Kingdom.</span>
-      <span class="note">Undercover Tourist · Jun 2026</span>
-      <div class="readmore"><a href="https://www.undercovertourist.com/blog/disney-world-refurbishments-closings/" target="_blank" rel="noopener">Read more at Undercover Tourist →</a></div>
+    <div class="card card-sopink">
+      <strong><a href="https://www.wdwinfo.com/walt-disney-world/which-disney-world-rides-are-closed-in-june-2026/" target="_blank" rel="noopener">Rock 'n' Roller Coaster Reimagining & Major Refurbishments in Progress</a></strong>
+      <span class="sub">Rock 'n' Roller Coaster has closed for its reimagining; the new Rock 'n' Roller Coaster Starring the Muppets opens Summer 2026. Pirates of the Caribbean, Buzz Lightyear Astro Blasters, and Inside Out Emotional Whirlwind remain under refurbishment.</span>
+      <span class="note">WDW Info</span> <span class="note">June 2026</span>
+      <div class="readmore"><a href="https://www.wdwinfo.com/walt-disney-world/which-disney-world-rides-are-closed-in-june-2026/" target="_blank" rel="noopener">Read more at WDW Info →</a></div>
     </div>
-
+    <div class="card card-pink">
+      <strong><a href="https://www.wdwinfo.com/wdwinfo/rehab.htm" target="_blank" rel="noopener">Magic of Disney Animation Building Reopening Summer 2026</a></strong>
+      <span class="sub">The Magic of Disney Animation and its entire building are slated to reopen "later" in Summer 2026. The Walt Disney World Railroad continues shuttle service between Main Street and Fantasyland while Piston Peak and Villains Land work continues.</span>
+      <span class="note">WDW Info</span> <span class="note">June 2026</span>
+      <div class="readmore"><a href="https://www.wdwinfo.com/wdwinfo/rehab.htm" target="_blank" rel="noopener">Read more at WDW Info →</a></div>
+    </div>
   </div>
 </section>
 
-<!-- ===================== EPCOT FESTIVALS ===================== -->
+<!-- EPCOT Festivals Section -->
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">EPCOT Festivals</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-
     <div class="card card-orange">
-      <strong><a href="https://disneyparksblog.com/wdw/disney-eats-epcot-international-flower-and-garden-festival-foodie-guide-2026/" target="_blank" rel="noopener">Flower &amp; Garden Festival in its final days (through June 1)</a></strong>
-      <span class="sub">The 2026 EPCOT International Flower &amp; Garden Festival ran March 4 – June 1, with 20+ outdoor kitchens, 75+ new menu items (most $5–$10), Garden Rocks concerts, and 60+ character topiaries. If you're at EPCOT early in the month, you may catch the tail end.</span>
-      <span class="note">Disney Parks Blog · 2026</span>
-      <div class="readmore"><a href="https://disneyparksblog.com/wdw/disney-eats-epcot-international-flower-and-garden-festival-foodie-guide-2026/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a></div>
+      <strong><a href="https://www.disneytouristblog.com/full-outdoor-kitchen-food-booth-menus-for-2026-epcot-flower-garden-festival/" target="_blank" rel="noopener">EPCOT Flower & Garden Festival Concluding June 1</a></strong>
+      <span class="sub">The EPCOT International Flower & Garden Festival outdoor kitchen booths will be available through June 1. Each booth features seasonal menus, with items priced $5–$10. Next major festival: EPCOT International Food & Wine Festival begins August 27.</span>
+      <span class="note">Disney Tourist Blog</span> <span class="note">Through June 1</span>
+      <div class="readmore"><a href="https://www.disneytouristblog.com/full-outdoor-kitchen-food-booth-menus-for-2026-epcot-flower-garden-festival/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></div>
     </div>
-
-    <div class="card card-yellow">
-      <strong><a href="https://www.disneytouristblog.com/2026-epcot-food-wine-festival-dates-details/" target="_blank" rel="noopener">Food &amp; Wine Festival 2026 dates: Aug 27 – Nov 21 (86 days)</a></strong>
-      <span class="sub">The next big EPCOT festival — Food &amp; Wine — will run Aug 27 through Nov 21, 2026, an 86-day stretch, with the Eat to the Beat concert series returning to America Gardens Theatre. Good one to start planning booth strategy for now.</span>
-      <span class="note">Disney Tourist Blog · 2026</span>
-      <div class="readmore"><a href="https://www.disneytouristblog.com/2026-epcot-food-wine-festival-dates-details/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></div>
-    </div>
-
   </div>
 </section>
 
-<!-- ===================== DINING ===================== -->
+<!-- Dining Section -->
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Dining</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-
     <div class="card card-yellow">
-      <strong><a href="https://www.disneyfoodblog.com/2026/06/01/10-disney-world-restaurants-confirm-40-discount-in-june/" target="_blank" rel="noopener">10 restaurants confirm up to 40% off for Passholders</a></strong>
-      <span class="sub">During the V.I.PASSHOLDER Summer Days promo (through July 31), select table-service restaurants are offering 40% or 20% off, Monday–Thursday only. The DFB roundup lists which 10 spots are confirmed at 40%.</span>
-      <span class="note">Disney Food Blog · Jun 1</span>
-      <div class="readmore"><a href="https://www.disneyfoodblog.com/2026/06/01/10-disney-world-restaurants-confirm-40-discount-in-june/" target="_blank" rel="noopener">Read more at Disney Food Blog →</a></div>
+      <strong><a href="https://www.wdwmagic.com/dining/california-grill/news/03jun2026-california-grill-june-2026-menu-update-new-dishes-cocktails-and-pricing-at-disney-s-contemporary-resort.htm" target="_blank" rel="noopener">California Grill June 2026 Menu Update</a></strong>
+      <span class="sub">California Grill at Disney's Contemporary Resort debuts new starters, mains, and cocktails. New offerings include Hearth-Steamed Saffron Mussels, Artichoke Flatbread, and Wagyu Strip Loin. Prix-fixe: $99 per adult.</span>
+      <span class="note">WDW Magic</span> <span class="note">June 3, 2026</span>
+      <div class="readmore"><a href="https://www.wdwmagic.com/dining/california-grill/news/03jun2026-california-grill-june-2026-menu-update-new-dishes-cocktails-and-pricing-at-disney-s-contemporary-resort.htm" target="_blank" rel="noopener">Read more at WDW Magic →</a></div>
     </div>
-
     <div class="card card-orange">
-      <strong><a href="https://www.wdwmagic.com/dining/west-side-food-trucks/news/24may2026-disney-springs-food-trucks-closing-permanently-in-june-2026.htm" target="_blank" rel="noopener">Disney Springs food trucks closing permanently in mid-June</a></strong>
-      <span class="sub">The Exposition Park food trucks at Disney Springs — Urban Eatery Cilantro, GoJuice, and 4Rivers Cantina — are closing for good in mid-June 2026.</span>
-      <span class="note">WDWMAGIC · May 24</span>
-      <div class="readmore"><a href="https://www.wdwmagic.com/dining/west-side-food-trucks/news/24may2026-disney-springs-food-trucks-closing-permanently-in-june-2026.htm" target="_blank" rel="noopener">Read more at WDWMAGIC →</a></div>
+      <strong><a href="https://www.wdwinfo.com/walt-disney-world/dining/the-edison-at-disney-springs-has-a-new-brunch-menu/" target="_blank" rel="noopener">The Edison at Disney Springs Launches Weekend Brunch</a></strong>
+      <span class="sub">The Edison at Disney Springs now offers a brand-new weekend brunch available Saturday and Sunday from 11:30 AM to 3:00 PM. Part of the broader June dining overhaul across Walt Disney World resorts and parks.</span>
+      <span class="note">WDW Info</span> <span class="note">June 2026</span>
+      <div class="readmore"><a href="https://www.wdwinfo.com/walt-disney-world/dining/the-edison-at-disney-springs-has-a-new-brunch-menu/" target="_blank" rel="noopener">Read more at WDW Info →</a></div>
     </div>
-
     <div class="card card-yellow">
-      <strong><a href="https://www.wdwinfo.com/walt-disney-world/dining/the-edison-at-disney-springs-has-a-new-brunch-menu/" target="_blank" rel="noopener">The Edison launches a new weekend brunch</a></strong>
-      <span class="sub">The Edison at Disney Springs now serves brunch every Saturday and Sunday, 11:30 a.m.–3:00 p.m., with a menu of gastropub classics with a twist.</span>
-      <span class="note">The DIS · 2026</span>
-      <div class="readmore"><a href="https://www.wdwinfo.com/walt-disney-world/dining/the-edison-at-disney-springs-has-a-new-brunch-menu/" target="_blank" rel="noopener">Read more at The DIS →</a></div>
+      <strong><a href="https://www.disneyfanatic.com/disney-worlds-summer-dining-overhaul-impacts-more-than-20-restaurant-menus-bwb1/" target="_blank" rel="noopener">Disney World Large-Scale Summer Dining Overhaul</a></strong>
+      <span class="sub">More than 20 restaurants across parks, resorts, pool bars, and Disney Springs have rolled out menu updates. New treats include Space Ranger Float, Zurg Overload Shake, and Chocolate-Salted Caramel Cold Brew Float at Auntie Gravity's.</span>
+      <span class="note">Disney Fanatic</span> <span class="note">June 2026</span>
+      <div class="readmore"><a href="https://www.disneyfanatic.com/disney-worlds-summer-dining-overhaul-impacts-more-than-20-restaurant-menus-bwb1/" target="_blank" rel="noopener">Read more at Disney Fanatic →</a></div>
     </div>
-
   </div>
 </section>
 
-<!-- ===================== DVC UPDATES ===================== -->
+<!-- DVC Updates Section -->
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">DVC Updates</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-
-    <div class="card card-lavender">
-      <strong><a href="https://dvcnews.com/dvc-program-menu/member-benefits/member-perks-news/6413-early-registration-opens-june-4-for-summer-2026-moonlight-magic-events" target="_blank" rel="noopener">Moonlight Magic registration opened June 4</a></strong>
-      <span class="sub">Early registration opened June 4 for eligible DVC members to book free after-hours Moonlight Magic events in July, August and September — complimentary park admission, short waits, character encounters and free snacks.</span>
-      <span class="note">DVCNews · Jun 4</span>
+    <div class="card card-purple">
+      <strong><a href="https://dvcnews.com/dvc-program-menu/member-benefits/member-perks-news/6413-early-registration-opens-june-4-for-summer-2026-moonlight-magic-events" target="_blank" rel="noopener">Moonlight Magic Event Registration Opens June 4</a></strong>
+      <span class="sub">DVC members can register for exclusive Moonlight Magic after-hours events in July, August, and September 2026 starting 11:00 AM ET on June 4. Free admission, complimentary snacks, unique character meets, and short wait times.</span>
+      <span class="note">DVCNews.com</span> <span class="note">June 4, 2026</span>
       <div class="readmore"><a href="https://dvcnews.com/dvc-program-menu/member-benefits/member-perks-news/6413-early-registration-opens-june-4-for-summer-2026-moonlight-magic-events" target="_blank" rel="noopener">Read more at DVCNews →</a></div>
     </div>
-
-    <div class="card card-purple">
-      <strong><a href="https://wdwnt.com/2026/06/disney-lakeshore-lodge-filing-reveals-major-dvc-details-and-resale-restrictions/" target="_blank" rel="noopener">Lakeshore Lodge filing: likely an all-DVC resort</a></strong>
-      <span class="sub">A new Resort Use Plan filing for Disney Lakeshore Lodge (targeting Summer 2027 on Bay Lake) suggests it could be far more DVC-heavy than expected — possibly entirely a DVC resort — with associated resale restrictions.</span>
-      <span class="note">WDW News Today · Jun 2026</span>
+    <div class="card card-lavender">
+      <strong><a href="https://wdwnt.com/2026/06/disney-lakeshore-lodge-filing-reveals-major-dvc-details-and-resale-restrictions/" target="_blank" rel="noopener">Disney Lakeshore Lodge Details Revealed</a></strong>
+      <span class="sub">New filing reveals Disney Lakeshore Lodge will feature approximately 876 vacation homes (45,552 timeshare weeks). The resort opens Summer 2027 along Bay Lake near Fort Wilderness and Wilderness Lodge.</span>
+      <span class="note">WDW News Today</span> <span class="note">June 2026</span>
       <div class="readmore"><a href="https://wdwnt.com/2026/06/disney-lakeshore-lodge-filing-reveals-major-dvc-details-and-resale-restrictions/" target="_blank" rel="noopener">Read more at WDW News Today →</a></div>
     </div>
-
-    <div class="card card-lavender">
-      <strong><a href="https://dvcnews.com/dvc-program-menu/financial/financial-news/6303-disney-vacation-club-annual-dues-published-for-2026" target="_blank" rel="noopener">2026 annual dues: most resorts up 6–7%; Bay Lake Tower 9%+</a></strong>
-      <span class="sub">DVC's published 2026 dues have most resorts rising 6–7% over the prior year. Bay Lake Tower owners face a 9%+ jump following its refurbishment.</span>
-      <span class="note">DVCNews · 2026</span>
-      <div class="readmore"><a href="https://dvcnews.com/dvc-program-menu/financial/financial-news/6303-disney-vacation-club-annual-dues-published-for-2026" target="_blank" rel="noopener">Read more at DVCNews →</a></div>
-    </div>
-
   </div>
 </section>
 
-<!-- ===================== CRUISE FLEET ===================== -->
+<!-- Cruise Fleet Section -->
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Cruise Fleet</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-
-    <div class="card card-lblue">
-      <strong><a href="https://disneycruise.disney.go.com/ships/destiny/" target="_blank" rel="noopener">Disney Destiny sailing Bahamian &amp; Caribbean from Fort Lauderdale</a></strong>
-      <span class="sub">The Destiny (maiden voyage Nov 2025) runs 4- and 5-night Bahamian and Western Caribbean itineraries plus select 7-night Caribbean sailings from Fort Lauderdale, with stops at Castaway Cay and Lookout Cay at Lighthouse Point. New onboard lounges include DeVil's (Cruella) and Cask &amp; Cannon (Pirates).</span>
-      <span class="note">Disney Cruise Line · 2026</span>
-      <div class="readmore"><a href="https://disneycruise.disney.go.com/ships/destiny/" target="_blank" rel="noopener">Read more at Disney Cruise Line →</a></div>
-    </div>
-
     <div class="card card-cyan">
-      <strong><a href="https://www.cruisemapper.com/ships/Disney-Adventure-2103" target="_blank" rel="noopener">Disney Adventure — largest in the fleet — now in service from Singapore</a></strong>
-      <span class="sub">The Disney Adventure, the largest ship in DCL history, began revenue service March 12, 2026, homeporting in Singapore for year-round Southeast Asia sailings — 3- and 4-night round-trips "to nowhere."</span>
-      <span class="note">CruiseMapper · 2026</span>
-      <div class="readmore"><a href="https://www.cruisemapper.com/ships/Disney-Adventure-2103" target="_blank" rel="noopener">Read more at CruiseMapper →</a></div>
+      <strong><a href="https://disneycruise.disney.go.com/why-cruise-disney/2026-summer-itineraries/" target="_blank" rel="noopener">Disney Adventure Global Class Ship Debuts 3 & 4-Night Cruises</a></strong>
+      <span class="sub">Disney Adventure, the first Global class ship, sails 3 and 4-night "Magic at Sea" cruises from Singapore. Features Disney, Pixar, and Marvel experiences including Disney Imagination Garden, Marvel Landing, and San Fransokyo Street.</span>
+      <span class="note">Disney Cruise Line</span> <span class="note">2026</span>
+      <div class="readmore"><a href="https://disneycruise.disney.go.com/why-cruise-disney/2026-summer-itineraries/" target="_blank" rel="noopener">Read more at Disney Cruise Line →</a></div>
     </div>
-
+    <div class="card card-lblue">
+      <strong><a href="https://disneycruise.disney.go.com/why-cruise-disney/2026-summer-itineraries/" target="_blank" rel="noopener">June 2026 Caribbean Sailings Now Departing</a></strong>
+      <span class="sub">Disney Destiny (June 6, 5-night Western Caribbean), Disney Treasure (June 13 & 27, 7-night Western Caribbean), and Disney Destiny (June 20, 7-night with Lighthouse Point). All depart from Florida ports with Caribbean destinations.</span>
+      <span class="note">Disney Cruise Line</span> <span class="note">June 2026</span>
+      <div class="readmore"><a href="https://disneycruise.disney.go.com/why-cruise-disney/2026-summer-itineraries/" target="_blank" rel="noopener">Read more at Disney Cruise Line →</a></div>
+    </div>
   </div>
 </section>
 
-<!-- ===================== MOVIES & ENTERTAINMENT ===================== -->
+<!-- Movies & Entertainment Section -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Movies &amp; Entertainment</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Movies & Entertainment</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-
     <div class="card card-green">
-      <strong><a href="https://variety.com/lists/best-movies-streaming-june-2026/" target="_blank" rel="noopener">Avatar: Fire and Ash hits Disney+ on June 24</a></strong>
-      <span class="sub">James Cameron's Avatar: Fire and Ash — which grossed roughly $1.4–1.5 billion worldwide — makes its streaming debut on Disney+ Wednesday, June 24, alongside Pixar's Hoppers ($372M worldwide).</span>
-      <span class="note">Variety · Jun 2026</span>
-      <div class="readmore"><a href="https://variety.com/lists/best-movies-streaming-june-2026/" target="_blank" rel="noopener">Read more at Variety →</a></div>
-    </div>
-
-    <div class="card card-lime">
-      <strong><a href="https://screenrant.com/disney-plus-best-new-movies-june-2026/" target="_blank" rel="noopener">Toy Story 5 lands in theaters June 19</a></strong>
-      <span class="sub">Pixar's Toy Story 5 opens in theaters June 19 — pegged as one of the safest box-office bets of the year. Bonnaroo also streams on Disney+/Hulu for four days starting June 11.</span>
-      <span class="note">Screen Rant · Jun 2026</span>
+      <strong><a href="https://screenrant.com/disney-plus-best-new-movies-june-2026/" target="_blank" rel="noopener">Toy Story 5 Kicks Off Summer 2026</a></strong>
+      <span class="sub">Toy Story 5 arrives in theaters June 19, 2026, launching Disney's blockbuster summer season. The film is part of Disney's broader theatrical slate that has already surpassed $2 billion at the box office.</span>
+      <span class="note">Screen Rant</span> <span class="note">June 19, 2026</span>
       <div class="readmore"><a href="https://screenrant.com/disney-plus-best-new-movies-june-2026/" target="_blank" rel="noopener">Read more at Screen Rant →</a></div>
     </div>
-
+    <div class="card card-lime">
+      <strong><a href="https://www.newsweek.com/entertainment/tv/new-on-disney-june-2026-12017974" target="_blank" rel="noopener">Avatar: Fire and Ash Debuts on Disney+ June 24</a></strong>
+      <span class="sub">Avatar: Fire and Ash makes its Disney+ streaming debut June 24, 2026, following theatrical release. Director James Cameron's sci-fi epic earned nearly $1.5 billion at the box office—the third-highest-grossing film of 2025.</span>
+      <span class="note">Newsweek</span> <span class="note">June 24, 2026</span>
+      <div class="readmore"><a href="https://www.newsweek.com/entertainment/tv/new-on-disney-june-2026-12017974" target="_blank" rel="noopener">Read more at Newsweek →</a></div>
+    </div>
+    <div class="card card-green">
+      <strong><a href="https://clutchpoints.com/entertainment/new-to-disney-in-june-2026" target="_blank" rel="noopener">Hoppers and Expanded Classics Come to Disney+ in June</a></strong>
+      <span class="sub">Pixar's Hoppers, which earned $372 million worldwide, debuts on Disney+. Along with expanded cuts of fan favorites and acclaimed festival hits, June 2026 offers diverse streaming content spanning sci-fi, animation, and documentaries.</span>
+      <span class="note">ClutchPoints</span> <span class="note">June 2026</span>
+      <div class="readmore"><a href="https://clutchpoints.com/entertainment/new-to-disney-in-june-2026" target="_blank" rel="noopener">Read more at ClutchPoints →</a></div>
+    </div>
   </div>
 </section>
 
-<!-- ===================== DEALS & DISCOUNTS ===================== -->
+<!-- Deals & Discounts Section -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Deals &amp; Discounts</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Deals & Discounts</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-
     <div class="card card-yellow">
-      <strong><a href="https://disneyworld.disney.go.com/special-offers/passholder-summer-2026-room-offer/" target="_blank" rel="noopener">Passholder summer rooms: up to 40% off</a></strong>
-      <span class="sub">May 1 – July 29, 2026: Annual Passholders save up to 40% on 4+ consecutive nights (up to 35% on 1–3 nights) at select Disney Resort hotels. Log in to the Passholder Program section for rates.</span>
-      <span class="note">Disney World · 2026</span>
-      <div class="readmore"><a href="https://disneyworld.disney.go.com/special-offers/passholder-summer-2026-room-offer/" target="_blank" rel="noopener">Read more at Disney World →</a></div>
+      <strong><a href="https://disneyrewards.com/offers/" target="_blank" rel="noopener">Disney Visa Cardmember Disneyland Resort Hotel Savings</a></strong>
+      <span class="sub">Save on select premium rooms at Disneyland Resort Hotels for travel May 22 through September 7, 2026, when you use your Disney Visa Card. AULANI Resort offers up to 35% off select stays through June 12, 2026.</span>
+      <span class="note">Disney Rewards</span> <span class="note">Active Now</span>
+      <div class="readmore"><a href="https://disneyrewards.com/offers/" target="_blank" rel="noopener">Read more at Disney Rewards →</a></div>
     </div>
-
     <div class="card card-orange">
-      <strong><a href="https://www.mousesavers.com/" target="_blank" rel="noopener">Disney+ Perks rooms from $99/night (June 21 – Aug 15)</a></strong>
-      <span class="sub">Disney+ subscribers with Disney+ Perks can book select Walt Disney World hotels from $99/night for 2+ night stays on select nights June 21 – Aug 15, 2026 (e.g., All-Star Sports standard rooms).</span>
-      <span class="note">MouseSavers · 2026</span>
-      <div class="readmore"><a href="https://www.mousesavers.com/" target="_blank" rel="noopener">Read more at MouseSavers →</a></div>
+      <strong><a href="https://www.dealnews.com/features/disney/gift-card-deals/" target="_blank" rel="noopener">Sam's Club Disney Gift Card Discount: Save 5%</a></strong>
+      <span class="sub">Sam's Club offers Disney gift cards with 5% discount on face value through December 31, 2026. $200 eGift card for $190 (save $10). Valid membership required.</span>
+      <span class="note">Deal News</span> <span class="note">Through Dec 31, 2026</span>
+      <div class="readmore"><a href="https://www.dealnews.com/features/disney/gift-card-deals/" target="_blank" rel="noopener">Read more at Deal News →</a></div>
     </div>
-
     <div class="card card-lime">
-      <strong><a href="https://chipandco.com/discount-for-annual-passholders-disney-store-636317/" target="_blank" rel="noopener">20% off DisneyStore.com for Passholders (through June 21)</a></strong>
-      <span class="sub">June 1 – June 21, 2026: Annual Passholders save 20% on select products at DisneyStore.com (online only) with promo code WDW20 at checkout.</span>
-      <span class="note">Chip and Co. · Jun 1</span>
-      <div class="readmore"><a href="https://chipandco.com/discount-for-annual-passholders-disney-store-636317/" target="_blank" rel="noopener">Read more at Chip and Co. →</a></div>
+      <strong><a href="https://www.mousesavers.com/walt-disney-world-vacation-discounts-and-deals/disney-world-resort-hotel-discounts-codes/" target="_blank" rel="noopener">Disney+ Perks: Disney World Resort Rooms from $99/Night</a></strong>
+      <span class="sub">Disney+ subscribers enrolled in Disney+ Perks get special rates at select WDW Resorts for 2+ night stays most nights June 21 through August 15, 2026. Rates start at $99/night for Standard Rooms at All-Star Sports.</span>
+      <span class="note">MouseSavers</span> <span class="note">June 21 – Aug 15</span>
+      <div class="readmore"><a href="https://www.mousesavers.com/walt-disney-world-vacation-discounts-and-deals/disney-world-resort-hotel-discounts-codes/" target="_blank" rel="noopener">Read more at MouseSavers →</a></div>
     </div>
-
+    <div class="card card-orange">
+      <strong><a href="https://disneyland.disney.go.com/offers-discounts/summer-2026-room-offer/" target="_blank" rel="noopener">Disneyland Resort Hotel Summer Discount: Up to 20% Off</a></strong>
+      <span class="sub">Save up to 20% on select Disneyland Resort hotel stays Sunday–Thursday, May 22 through September 7, 2026. Booking available through August 25, 2026.</span>
+      <span class="note">Disneyland Resort</span> <span class="note">Active Now</span>
+      <div class="readmore"><a href="https://disneyland.disney.go.com/offers-discounts/summer-2026-room-offer/" target="_blank" rel="noopener">Read more at Disneyland →</a></div>
+    </div>
     <div class="card card-yellow">
-      <strong><a href="https://disneycruise.disney.go.com/special-offers/military-onboard-credit-offer/" target="_blank" rel="noopener">$250 military onboard credit on select 2026 sailings</a></strong>
-      <span class="sub">In honor of America's 250th, DCL is offering a $250 onboard credit per reservation for eligible U.S. military on select Disney Wish and Disney Dream sailings from Florida through Dec 31, 2026 (new and existing bookings; stackable with military rates).</span>
-      <span class="note">Disney Cruise Line · 2026</span>
+      <strong><a href="https://disneyland.disney.go.com/offers-discounts/kids-summer-ticket-offer-2026/" target="_blank" rel="noopener">Disneyland Kids Summer Tickets: Save Up to $368</a></strong>
+      <span class="sub">Kids Summer Park Hopper tickets as low as $48/day through September 7, 2026. Includes FREE Park Hopper upgrade and FREE $20 Dining Dollars credit with each ticket purchase.</span>
+      <span class="note">Disneyland Resort</span> <span class="note">Through Sept 7</span>
+      <div class="readmore"><a href="https://disneyland.disney.go.com/offers-discounts/kids-summer-ticket-offer-2026/" target="_blank" rel="noopener">Read more at Disneyland →</a></div>
+    </div>
+    <div class="card card-lime">
+      <strong><a href="https://disneycruise.disney.go.com/special-offers/military-onboard-credit-offer/" target="_blank" rel="noopener">Disney Cruise Line Military Onboard Credit: $250 OBC</a></strong>
+      <span class="sub">Eligible U.S. military service members get $250 onboard credit per reservation on select Disney Wish and Disney Dream sailings through December 31, 2026. Can be combined with special military rates and additional shipboard credit.</span>
+      <span class="note">Disney Cruise Line</span> <span class="note">Through Dec 31, 2026</span>
       <div class="readmore"><a href="https://disneycruise.disney.go.com/special-offers/military-onboard-credit-offer/" target="_blank" rel="noopener">Read more at Disney Cruise Line →</a></div>
     </div>
-
     <div class="card card-orange">
-      <strong><a href="https://upgradedpoints.com/news/sams-club-disney-gift-card-deal/" target="_blank" rel="noopener">Gift cards: Sam's Club ~5% off; Costco largely out</a></strong>
-      <span class="sub">Sam's Club is offering up to ~5% off Disney gift cards through Dec 31, 2026 (the deeper $500-for-$450 deal was a May 1–3 flash sale). Costco no longer reliably carries Disney gift cards — Sam's and BJ's are the steadier warehouse options.</span>
-      <span class="note">Upgraded Points · 2026</span>
-      <div class="readmore"><a href="https://upgradedpoints.com/news/sams-club-disney-gift-card-deal/" target="_blank" rel="noopener">Read more at Upgraded Points →</a></div>
+      <strong><a href="https://disneyworld.disney.go.com/passholder-program/experiences-perks-offers/" target="_blank" rel="noopener">Disney World Annual Passholder Summer Dining Discount: Up to 40% Off</a></strong>
+      <span class="sub">Annual Passholders save up to 40% at select dining locations Monday–Thursday during V.I. Passholder Summer Days (May 1 – July 31, 2026). Plus 20% off Disney Store June 1–21, 2026.</span>
+      <span class="note">Disney World</span> <span class="note">May 1 – July 31</span>
+      <div class="readmore"><a href="https://disneyworld.disney.go.com/passholder-program/experiences-perks-offers/" target="_blank" rel="noopener">Read more at Disney World →</a></div>
     </div>
-
+    <div class="card card-yellow">
+      <strong><a href="https://www.discoup.com/us/offer-code-discount-disney-store.html" target="_blank" rel="noopener">Target Instant 5% Discount on All Disney Gift Cards</a></strong>
+      <span class="sub">Use Target Circle Card, debit, or credit for 5% instant discount on all Disney gift card denominations ($25–$500). Applies to physical and e-gift cards throughout June 2026.</span>
+      <span class="note">Target</span> <span class="note">Active Now</span>
+      <div class="readmore"><a href="https://www.discoup.com/us/offer-code-discount-disney-store.html" target="_blank" rel="noopener">Read more at Discoup →</a></div>
+    </div>
   </div>
-  <div class="callout"><strong>Sources checked with no fresh deal this run:</strong> Costco (no consistent Disney gift-card stock as of 6/6), BJ's, Target RedCard, Kroger fuel points, and Disney Movie Insiders showed no new standalone gift-card offer; Southwest / JetBlue / Spirit / Frontier had no MCO-specific sale surfacing this run. The Sam's deep $500→$450 promo was limited to May 1–3.</div>
 </section>
 
-<!-- ===================== YOUTUBE & COMMUNITY ===================== -->
+<!-- YouTube & Community Section -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">YouTube &amp; Community</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">YouTube & Community</span><span class="divider-line"></span></div>
+  <div class="callout"><strong>Creator Updates:</strong> While several creators (Tim Tracker, Mammoth Club, Provost Park Pass, Mickey Views) were checked, specific June 2026 upload details were limited in search results. Visit their channels directly for the latest videos.</div>
   <div class="cards-grid">
-
     <div class="card card-cyan">
-      <strong><a href="https://www.disneyfoodblog.com/2026/05/27/dfb-video-everything-i-learned-on-my-last-trip-to-disney-world/" target="_blank" rel="noopener">Everything I Learned on My Last Trip to Disney World</a></strong>
-      <span class="sub">The DFB Guide team shares fresh trip lessons and tips from their latest Walt Disney World visit.</span>
-      <span class="note">DFB Guide · May 27</span>
-      <div class="readmore"><a href="https://www.disneyfoodblog.com/2026/05/27/dfb-video-everything-i-learned-on-my-last-trip-to-disney-world/" target="_blank" rel="noopener">Watch on YouTube →</a></div>
+      <strong><a href="https://www.youtube.com/channel/UCnpWedLQdHpZqhgTLdB9Yyg" target="_blank" rel="noopener">DFB Guide (Disney Food Blog) YouTube Channel</a></strong>
+      <span class="sub">DFB Guide creates comprehensive guides covering all Disney parks' restaurants, foods, and snack experiences. Recent 2026 content includes ultimate guides to EPCOT, Disneyland, and trending snacks and treats.</span>
+      <span class="note">YouTube</span> <span class="note">Ongoing</span>
+      <div class="readmore"><a href="https://www.youtube.com/channel/UCnpWedLQdHpZqhgTLdB9Yyg" target="_blank" rel="noopener">Watch on YouTube →</a></div>
     </div>
-
     <div class="card card-blue">
-      <strong><a href="https://www.disneyfoodblog.com/2026/05/21/dfb-video-50-ways-to-have-the-best-disney-world-trip-ever/" target="_blank" rel="noopener">50 Ways to Have the BEST Disney World Trip Ever</a></strong>
-      <span class="sub">A rapid-fire DFB rundown of 50 tips covering planning, dining, and touring strategy for a smoother WDW trip.</span>
-      <span class="note">DFB Guide · May 21</span>
-      <div class="readmore"><a href="https://www.disneyfoodblog.com/2026/05/21/dfb-video-50-ways-to-have-the-best-disney-world-trip-ever/" target="_blank" rel="noopener">Watch on YouTube →</a></div>
+      <strong><a href="https://www.youtube.com/user/allearsnet" target="_blank" rel="noopener">AllEars.Net YouTube Channel</a></strong>
+      <span class="sub">AllEars.Net is a top resource for Disney Parks planning, covering tips, tricks, and updates for Walt Disney World, Disneyland, Disney Cruise Line, and Universal. Recent content includes EPCOT Festival coverage.</span>
+      <span class="note">YouTube</span> <span class="note">Ongoing</span>
+      <div class="readmore"><a href="https://www.youtube.com/user/allearsnet" target="_blank" rel="noopener">Watch on YouTube →</a></div>
     </div>
-
     <div class="card card-purple">
-      <strong><a href="https://www.disneyfoodblog.com/2026/05/16/dfb-video-latest-disney-news-we-rode-soarin-across-america-food-coming-to-rock-n-roller-coaster-more/" target="_blank" rel="noopener">Latest Disney News: Soarin' Across America &amp; Rock 'n' Roller Coaster food</a></strong>
-      <span class="sub">DFB rides Soarin' Across America and covers the food coming to the reimagined Rock 'n' Roller Coaster, plus other park updates.</span>
-      <span class="note">DFB Guide · May 16</span>
-      <div class="readmore"><a href="https://www.disneyfoodblog.com/2026/05/16/dfb-video-latest-disney-news-we-rode-soarin-across-america-food-coming-to-rock-n-roller-coaster-more/" target="_blank" rel="noopener">Watch on YouTube →</a></div>
+      <strong><a href="https://www.youtube.com/@Mammoth_Club" target="_blank" rel="noopener">Mammoth Club YouTube Channel</a></strong>
+      <span class="sub">Molly, Alan, and Max bring theme park content, friendship, and fun shenanigans. Explore their Disney and Universal coverage, with livestreams twice weekly on Twitch.</span>
+      <span class="note">YouTube</span> <span class="note">Ongoing</span>
+      <div class="readmore"><a href="https://www.youtube.com/@Mammoth_Club" target="_blank" rel="noopener">Watch on YouTube →</a></div>
     </div>
-
-    <div class="card card-cyan">
-      <strong><a href="https://www.disneyfoodblog.com/2026/05/13/dfb-video-everything-you-need-to-know-before-your-disney-cruise/" target="_blank" rel="noopener">Everything You NEED to Know Before Your Disney Cruise</a></strong>
-      <span class="sub">A DFB primer on Disney Cruise Line for first-timers and returning sailors — booking, packing, dining and onboard tips.</span>
-      <span class="note">DFB Guide · May 13</span>
-      <div class="readmore"><a href="https://www.disneyfoodblog.com/2026/05/13/dfb-video-everything-you-need-to-know-before-your-disney-cruise/" target="_blank" rel="noopener">Watch on YouTube →</a></div>
-    </div>
-
   </div>
-  <div class="callout"><strong>Creators checked with no fresh dated upload surfacing this run:</strong> AllEars.Net, DVC Fan, Tim Tracker, Mammoth Club, Provost Park Pass, and Mickey Views — search returned channel/homepages rather than direct, date-stamped video URLs within the 14-day window, so they were dropped per the link rule rather than linked without a verified source. The four DFB Guide items above carry direct dated post URLs.</div>
 </section>
 
-<!-- ===================== UPCOMING EVENTS ===================== -->
+<!-- Upcoming Events Section -->
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Upcoming Events</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-
     <div class="card card-green">
-      <strong><a href="https://www.mousesavers.com/disneyland-california-vacation-discounts-and-deals/disneyland-entertainment-special-events-tours/" target="_blank" rel="noopener">Disneyland After Dark: Pride Nite — June 16 &amp; 18</a></strong>
-      <span class="sub">Disneyland's Pride Nite returns to Disneyland Park on June 16 and 18, 2026.</span>
-      <span class="note">MouseSavers · 2026</span>
-      <div class="readmore"><a href="https://www.mousesavers.com/disneyland-california-vacation-discounts-and-deals/disneyland-entertainment-special-events-tours/" target="_blank" rel="noopener">Read more at MouseSavers →</a></div>
+      <strong><a href="https://press.disneyplus.com/news/next-on-disney-plus-june-2026" target="_blank" rel="noopener">Disney+ Content Premieres: Bonnaroo & Summer Releases</a></strong>
+      <span class="sub">Bonnaroo Music & Arts Festival from Tennessee arrives on Disney+ for four days starting June 11, 2026. Avatar: Fire and Ash streaming debut June 24. Multiple family-friendly releases throughout the month.</span>
+      <span class="note">Disney+ Press</span> <span class="note">June 11 & 24</span>
+      <div class="readmore"><a href="https://press.disneyplus.com/news/next-on-disney-plus-june-2026" target="_blank" rel="noopener">Read more at Disney+ Press →</a></div>
     </div>
-
     <div class="card card-lime">
-      <strong><a href="https://www.mousesavers.com/disneyland-california-vacation-discounts-and-deals/disneyland-entertainment-special-events-tours/" target="_blank" rel="noopener">Oogie Boogie Bash 2026 tickets go on sale mid-June</a></strong>
-      <span class="sub">2026 Oogie Boogie Bash tickets go on sale June 16 (Inspire Magic Key), June 17 (all Magic Key holders), and June 18 (general public).</span>
-      <span class="note">MouseSavers · 2026</span>
-      <div class="readmore"><a href="https://www.mousesavers.com/disneyland-california-vacation-discounts-and-deals/disneyland-entertainment-special-events-tours/" target="_blank" rel="noopener">Read more at MouseSavers →</a></div>
+      <strong><a href="https://www.disneyfoodblog.com/epcot-flower-and-garden-festival-booth-menus-and-food-photos/" target="_blank" rel="noopener">EPCOT Food & Wine Festival: August 27 – November 21</a></strong>
+      <span class="sub">The next major EPCOT festival runs August 27 through November 21, 2026, after the Flower & Garden Festival ends June 1. Expect outdoor kitchens with cuisine from around the world and returning favorites.</span>
+      <span class="note">Disney Food Blog</span> <span class="note">August 27 Launch</span>
+      <div class="readmore"><a href="https://www.disneyfoodblog.com/epcot-flower-and-garden-festival-booth-menus-and-food-photos/" target="_blank" rel="noopener">Read more at Disney Food Blog →</a></div>
     </div>
-
-    <div class="card card-green">
-      <strong><a href="https://www.disneytouristblog.com/2026-epcot-food-wine-festival-dates-details/" target="_blank" rel="noopener">EPCOT Food &amp; Wine Festival opens Aug 27</a></strong>
-      <span class="sub">Mark the calendar: EPCOT's International Food &amp; Wine Festival runs Aug 27 – Nov 21, 2026 (86 days), with the Eat to the Beat concert series.</span>
-      <span class="note">Disney Tourist Blog · 2026</span>
-      <div class="readmore"><a href="https://www.disneytouristblog.com/2026-epcot-food-wine-festival-dates-details/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></div>
-    </div>
-
   </div>
 </section>
 
 </main>
-<footer>Generated on Saturday, June 6, 2026 at 3:32 AM ET · Lisa's Hub · Last updated <span class="timestamp-badge">Sat, Jun 6 at 3:32 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+
+<footer>
+Generated on <span class="timestamp-badge" id="footer-date">DYNAMIC_TIMESTAMP</span><div class="footer-clock">All content fetched live this run — no cached data used.</div>
+</footer>
+
 <script>
-function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
+function updateClock(){const now=new Date();
+const etDate=new Date(now.toLocaleString('en-US',{timeZone:'America/New_York'}));
+const dateStr=etDate.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'});
+const timeStr=etDate.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
+const combined=dateStr+' at '+timeStr+' ET';
+const hDate=document.getElementById('header-date');
+const hTime=document.getElementById('header-time');
+const fDate=document.getElementById('footer-date');
+if(hDate)hDate.textContent=dateStr+' · ';
+if(hTime)hTime.textContent=timeStr;
+if(fDate)fDate.textContent=combined;}
 updateClock();setInterval(updateClock,1000);
 </script>
 </body>
