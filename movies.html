@@ -44,12 +44,7 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 .card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--accent,#ff5c8a)}
 .card strong, .card .card-title{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;
   display:block;margin-bottom:.3rem;color:#1f2440}
-.card a{color:#1f2440;text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
-.card a:hover{color:#ff5c8a;border-bottom-color:#1f2440}
 .card .sub{display:block;color:#6b6f8c;font-size:.86rem;font-weight:600;line-height:1.5;margin-top:.15rem}
-.card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
-  background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
-  border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
 .card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
 .card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
@@ -67,25 +62,21 @@ th{background:#1f2440;color:#fff;font-family:'Baloo 2';font-weight:700;text-alig
   padding:.55rem .85rem;font-size:.85rem;letter-spacing:.03em}
 td{padding:.5rem .85rem;border-top:2px dotted #e6e2d8;font-weight:600}
 tr:first-child td{border-top:none}
-.read-more{display:block;margin-top:.5rem;color:#ff5c8a;font-size:.85rem;font-weight:700;text-decoration:none;border-bottom:2px solid #ff5c8a}
-.read-more:hover{color:#1f2440;border-bottom-color:#1f2440}
-.day-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
-.day-tab{cursor:pointer;padding:8px 14px;border-radius:12px;border:2px solid #ffd1df;background:#fff;font:inherit;font-size:0.95rem;line-height:1.2;text-align:center;color:#333;font-family:'Baloo 2';font-weight:700}
-.day-tab span{display:block;font-size:0.72rem;opacity:.7}
-.day-tab.active{background:#ff5c8a;border-color:#ff5c8a;color:#fff}
-.day-tab.active span{opacity:.95}
-.day-pane{display:none}
-.day-pane.active{display:block}
-.day-empty{padding:12px 14px;border:2px dashed #ffd1df;border-radius:12px;color:#666;font-size:0.95rem}
+p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
+a{color:#1f2440;font-weight:700;text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
+a:hover{color:#ff5c8a;border-bottom-color:#1f2440}
 footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
 .footer-clock{margin-top:.4rem;color:#ff5c8a}
 .timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
   font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
-@media (max-width:600px){
-  h1{font-size:2.4rem}
-  main{padding:1rem .9rem 3rem}
-  .card{padding:1rem 1.1rem}
-}
+.day-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;}
+.day-tab{cursor:pointer;padding:8px 14px;border-radius:12px;border:2px solid #ffd1df;background:#fff;font:inherit;font-size:0.95rem;color:#333;}
+.day-tab span{display:block;font-size:0.72rem;opacity:.7;}
+.day-tab.active{background:#ff5c8a;border-color:#ff5c8a;color:#fff;}
+.day-pane{display:none;}
+.day-pane.active{display:block;}
+.day-empty{padding:12px 14px;border:2px dashed #ffd1df;border-radius:12px;color:#666;font-size:0.95rem;}
+@media (max-width:600px){h1{font-size:2.4rem}main{padding:1rem .9rem 3rem}}
 </style>
 </head>
 <body>
@@ -101,126 +92,64 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 <section class="section-group">
 <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🎟️ Now Playing</span><span class="divider-line"></span></div>
 
-<style>
-.day-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;}
-.day-tab{cursor:pointer;padding:8px 14px;border-radius:12px;border:2px solid #ffd1df;background:#fff;font:inherit;font-size:0.95rem;line-height:1.2;text-align:center;color:#333;font-family:'Baloo 2';font-weight:700;}
-.day-tab span{display:block;font-size:0.72rem;opacity:.7;}
-.day-tab.active{background:#ff5c8a;border-color:#ff5c8a;color:#fff;}
-.day-tab.active span{opacity:.95;}
-.day-pane{display:none;}
-.day-pane.active{display:block;}
-.day-empty{padding:12px 14px;border:2px dashed #ffd1df;border-radius:12px;color:#666;font-size:0.95rem;}
-</style>
-
 <div class="day-tabs" role="tablist">
-  <button class="day-tab active" data-day="day0" role="tab">Today<span>Sun Jun 7</span></button>
-  <button class="day-tab" data-day="day1" role="tab">Mon<span>Jun 8</span></button>
-  <button class="day-tab" data-day="day2" role="tab">Tue<span>Jun 9</span></button>
-  <button class="day-tab" data-day="day3" role="tab">Wed<span>Jun 10</span></button>
-  <button class="day-tab" data-day="day4" role="tab">Thu<span>Jun 11</span></button>
-  <button class="day-tab" data-day="day5" role="tab">Fri<span>Jun 12</span></button>
-  <button class="day-tab" data-day="day6" role="tab">Sat<span>Jun 13</span></button>
+  <button class="day-tab active" data-day="day0" role="tab">Today<span>Mon Jun 8</span></button>
+  <button class="day-tab" data-day="day1" role="tab">Tue<span>Jun 9</span></button>
+  <button class="day-tab" data-day="day2" role="tab">Wed<span>Jun 10</span></button>
+  <button class="day-tab" data-day="day3" role="tab">Thu<span>Jun 11</span></button>
+  <button class="day-tab" data-day="day4" role="tab">Fri<span>Jun 12</span></button>
+  <button class="day-tab" data-day="day5" role="tab">Sat<span>Jun 13</span></button>
+  <button class="day-tab" data-day="day6" role="tab">Sun<span>Jun 14</span></button>
 </div>
 
 <div class="day-pane active" id="day0">
-  <div class="sub-label">Penn Cinema Huntingdon Valley</div>
-  <p style="font-size: .9rem; margin-bottom: 1rem; color: #6b6f8c;">2068 County Line Road, Huntingdon Valley, PA · <a href="https://huntingdonvalley.penncinema.com/home/" style="color: #ff5c8a;">Get Tickets</a></p>
-  <table>
-    <tr><th>Movie</th><th>Rating</th><th>Runtime</th><th>Showtimes</th></tr>
-    <tr><td>Star Wars: The Mandalorian & Grogu</td><td>PG-13</td><td>2hr 12min</td><td>11:00am, 1:40pm, 4:30pm, 7:30pm, 8:50pm</td></tr>
-    <tr><td>The Sheep Detectives</td><td>PG</td><td>1hr 49min</td><td>11:00am, 1:10pm, 6:30pm</td></tr>
-    <tr><td>The Devil Wears Prada 2</td><td>PG-13</td><td>2hr 0min</td><td>11:10am, 4:10pm, 6:40pm, 9:00pm</td></tr>
-    <tr><td>Backrooms</td><td>PG-13</td><td>1hr 51min</td><td>11:20am, 1:50pm, 4:20pm, 6:50pm, 9:10pm</td></tr>
-    <tr><td>Michael</td><td>PG-13</td><td>2hr 10min</td><td>11:30am, 2:30pm, 5:40pm, 8:40pm</td></tr>
-    <tr><td>The Breadwinner</td><td>PG</td><td>1hr 35min</td><td>11:40am, 2:00pm, 4:20pm, 6:40pm, 9:10pm</td></tr>
-    <tr><td>The Metropolitan Opera: El Último Sueño...</td><td>NR</td><td>—</td><td>1:00pm</td></tr>
-    <tr><td>Passenger</td><td>PG-13</td><td>1hr 34min</td><td>2:10pm, 4:40pm, 7:00pm, 9:20pm</td></tr>
-  </table>
+<div class="sub-label">Penn Cinema Huntingdon Valley</div>
+<p>2068 County Line Road, Huntingdon Valley PA · <a href="https://huntingdonvalley.penncinema.com/home">Get Tickets</a></p>
+<table>
+<tr><th>Movie</th><th>Rating</th><th>Runtime</th><th>Showtimes</th></tr>
+<tr><td>Star Wars: The Mandalorian & Grogu</td><td>PG</td><td>2h 12m</td><td>11:00a, 1:40p, 4:30p, 7:30p, 8:50p</td></tr>
+<tr><td>The Sheep Detectives</td><td>NR</td><td>1h 49m</td><td>11:00a, 1:10p, 6:30p</td></tr>
+<tr><td>The Devil Wears Prada 2</td><td>PG-13</td><td>2h 0m</td><td>11:10a, 4:10p, 6:40p, 9:00p</td></tr>
+<tr><td>Backrooms</td><td>R</td><td>1h 51m</td><td>11:20a, 1:50p, 4:20p, 6:50p, 9:10p</td></tr>
+<tr><td>Michael</td><td>R</td><td>2h 10m</td><td>11:30a, 2:30p, 5:40p, 8:40p</td></tr>
+<tr><td>The Breadwinner</td><td>PG</td><td>1h 35m</td><td>11:40a, 2:00p, 4:20p, 6:40p, 9:10p</td></tr>
+<tr><td>Passenger</td><td>PG-13</td><td>1h 34m</td><td>2:10p, 4:40p, 7:00p, 9:20p</td></tr>
+</table>
 
-  <div class="sub-label">Regal Cinemas Warrington Crossing</div>
-  <p style="font-size: .9rem; margin-bottom: 1rem; color: #6b6f8c;">104 Easton Rd., Bldg F, Warrington, PA 18976 · <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" style="color: #ff5c8a;">Get Tickets</a></p>
-  <table>
-    <tr><th>Movie</th><th>Rating</th><th>Runtime</th><th>Showtimes</th></tr>
-    <tr><td>Masters of the Universe</td><td>PG-13</td><td>2hr 20min</td><td>9:00am, 3:10pm, 6:40pm</td></tr>
-    <tr><td>The Devil Wears Prada 2</td><td>PG-13</td><td>2hr 0min</td><td>9:05am, 12:00pm, 6:00pm, 9:10pm</td></tr>
-    <tr><td>Michael</td><td>PG-13</td><td>2hr 10min</td><td>9:10am, 12:15pm, 3:20pm, 6:25pm, 9:35pm</td></tr>
-    <tr><td>Scary Movie</td><td>R</td><td>1hr 36min</td><td>9:15am–10:30pm (11 showtimes)</td></tr>
-    <tr><td>Star Wars: The Mandalorian & Grogu</td><td>PG-13</td><td>2hr 12min</td><td>9:15am, 3:50pm, 7:00pm, 10:20pm</td></tr>
-    <tr><td>Pressure</td><td>R</td><td>1hr 41min</td><td>9:25am–8:10pm</td></tr>
-    <tr><td>Backrooms</td><td>PG-13</td><td>1hr 51min</td><td>9:30am–10:50pm (11 showtimes)</td></tr>
-    <tr><td>Power Ballad</td><td>PG-13</td><td>1hr 38min</td><td>9:35am–10:05pm</td></tr>
-    <tr><td>Peddi</td><td>NR</td><td>3hr 17min</td><td>9:40am, 1:45pm, 5:50pm, 9:55pm</td></tr>
-    <tr><td>The Sheep Detectives</td><td>PG</td><td>1hr 49min</td><td>10:10am, 12:50pm, 3:05pm</td></tr>
-    <tr><td>Tuner</td><td>PG-13</td><td>1hr 49min</td><td>10:20am, 1:00pm, 7:05pm</td></tr>
-    <tr><td>Mortal Kombat II</td><td>R</td><td>1hr 56min</td><td>10:25am</td></tr>
-    <tr><td>The Breadwinner</td><td>PG</td><td>1hr 35min</td><td>10:30am–9:25pm</td></tr>
-    <tr><td>Obsession</td><td>R</td><td>1hr 48min</td><td>10:40am–11:05pm</td></tr>
-    <tr><td>The Amazing Digital Circus: The Last Act</td><td>PG</td><td>1hr 35min</td><td>12:30pm, 1:30pm, 4:10pm, 6:50pm</td></tr>
-    <tr><td>The Birdcage 30th Anniversary</td><td>PG-13</td><td>2hr 5min</td><td>4:00pm</td></tr>
-    <tr><td>Trainspotting 30th Anniversary</td><td>R</td><td>1hr 33min</td><td>4:00pm, 7:00pm</td></tr>
-    <tr><td>Project Hail Mary</td><td>PG</td><td>2hr 36min</td><td>9:50pm</td></tr>
-    <tr><td>Passenger</td><td>PG-13</td><td>1hr 34min</td><td>10:55pm</td></tr>
-  </table>
+<div class="sub-label">Regal Warrington Crossing</div>
+<p>104 Easton Rd., Bldg F, Warrington PA · <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379">Get Tickets</a></p>
+<table>
+<tr><th>Movie</th><th>Rating</th><th>Runtime</th><th>Showtimes</th></tr>
+<tr><td>Masters of the Universe</td><td>PG-13</td><td>2h 20m</td><td>9:00a, 2:40p, 10:00a, 1:30p, 5:00p +more</td></tr>
+<tr><td>The Devil Wears Prada 2</td><td>PG-13</td><td>2h 0m</td><td>9:05a, 12:00p, 3:00p, 6:00p, 9:10p</td></tr>
+<tr><td>Star Wars: The Mandalorian & Grogu</td><td>PG</td><td>2h 12m</td><td>11:30a, 2:20p, 9:15a, 3:50p, 7:00p, 10:20p</td></tr>
+<tr><td>Backrooms</td><td>R</td><td>1h 51m</td><td>9:30a, 11:10a, 2:00p, 3:30p, 4:50p, 6:30p, 8:00p, 9:20p, 10:50p</td></tr>
+<tr><td>Tuner</td><td>R</td><td>1h 49m</td><td>10:20a, 1:00p, 3:55p, 6:45p, 9:25p</td></tr>
+<tr><td>Scary Movie 6</td><td>R</td><td>1h 36m</td><td>10:50a, 1:20p, 2:30p, 4:00p, 5:10p, 6:50p, 7:50p, 9:30p, 10:30p</td></tr>
+<tr><td>Michael</td><td>R</td><td>2h 10m</td><td>9:10a, 12:15p, 3:20p, 6:25p, 9:35p</td></tr>
+<tr><td>The Breadwinner</td><td>PG</td><td>1h 35m</td><td>10:30a, 1:10p, 4:05p, 7:05p, 9:45p</td></tr>
+</table>
 
-  <div class="sub-label">Regal Cinemas UA Oxford Valley</div>
-  <p style="font-size: .9rem; margin-bottom: 1rem; color: #6b6f8c;">403 Middletown Blvd, Langhorne, PA 19047 · <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" style="color: #ff5c8a;">Get Tickets</a></p>
-  <table>
-    <tr><th>Movie</th><th>Rating</th><th>Runtime</th><th>Showtimes</th></tr>
-    <tr><td>Masters of the Universe</td><td>PG-13</td><td>2hr 20min</td><td>10:00am, 10:30am, 1:30pm, 2:00pm, 5:00pm, 5:30pm, 8:30pm, 9:00pm</td></tr>
-    <tr><td>The Sheep Detectives</td><td>PG</td><td>1hr 49min</td><td>10:05am, 1:00pm</td></tr>
-    <tr><td>The Devil Wears Prada 2</td><td>PG-13</td><td>2hr 0min</td><td>10:05am, 1:05pm</td></tr>
-    <tr><td>Obsession</td><td>R</td><td>1hr 48min</td><td>10:10am, 1:00pm, 3:50pm, 6:40pm, 9:35pm</td></tr>
-    <tr><td>Backrooms</td><td>PG-13</td><td>1hr 51min</td><td>10:30am–10:35pm (7 showtimes)</td></tr>
-    <tr><td>The Amazing Digital Circus: The Last Act</td><td>PG</td><td>1hr 35min</td><td>10:40am–10:00pm</td></tr>
-    <tr><td>Pressure</td><td>R</td><td>1hr 41min</td><td>10:40am–9:55pm</td></tr>
-    <tr><td>Star Wars: The Mandalorian & Grogu</td><td>PG-13</td><td>2hr 12min</td><td>10:50am, 2:20pm, 5:50pm, 9:15pm</td></tr>
-    <tr><td>Scary Movie</td><td>R</td><td>1hr 36min</td><td>11:00am–10:30pm (10 showtimes)</td></tr>
-    <tr><td>Power Ballad</td><td>PG-13</td><td>1hr 38min</td><td>11:00am, 1:40pm, 4:20pm, 7:00pm, 9:40pm</td></tr>
-    <tr><td>Michael</td><td>PG-13</td><td>2hr 10min</td><td>11:20am, 2:30pm, 5:40pm, 8:50pm</td></tr>
-    <tr><td>The Breadwinner</td><td>PG</td><td>1hr 35min</td><td>12:10pm, 2:50pm, 5:35pm</td></tr>
-    <tr><td>The Birdcage 30th Anniversary</td><td>PG-13</td><td>2hr 5min</td><td>4:00pm</td></tr>
-    <tr><td>Trainspotting 30th Anniversary</td><td>R</td><td>1hr 33min</td><td>4:00pm, 7:00pm</td></tr>
-    <tr><td>Peddi</td><td>NR</td><td>3hr 17min</td><td>8:10pm</td></tr>
-  </table>
+<div class="sub-label">Regal UA Oxford Valley</div>
+<p>403 Middletown Blvd, Langhorne PA · <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269">Get Tickets</a></p>
+<table>
+<tr><th>Movie</th><th>Rating</th><th>Runtime</th><th>Showtimes</th></tr>
+<tr><td>Star Wars: The Mandalorian & Grogu</td><td>PG</td><td>2h 12m</td><td>11:25a, 2:45p, 6:05p, 9:20p</td></tr>
+<tr><td>Masters of the Universe</td><td>PG-13</td><td>2h 20m</td><td>11:30a, 12:00p, 3:00p, 3:30p, 6:30p, 7:00p, 9:50p, 10:20p</td></tr>
+<tr><td>Scary Movie 6</td><td>R</td><td>1h 36m</td><td>11:40a, 1:40p, 2:20p, 4:00p, 4:30p, 5:00p, 6:50p, 7:20p, 7:50p, 9:30p, 10:00p, 10:30p</td></tr>
+<tr><td>Michael</td><td>R</td><td>2h 10m</td><td>11:50a, 3:05p, 6:25p, 9:40p</td></tr>
+<tr><td>Backrooms</td><td>R</td><td>1h 51m</td><td>12:15p, 2:00p, 3:15p, 4:55p, 6:10p, 7:45p, 9:00p, 10:35p</td></tr>
+<tr><td>Power Ballad</td><td>PG</td><td>1h 38m</td><td>12:30p, 3:10p, 5:50p, 8:30p</td></tr>
+<tr><td>Pressure</td><td>PG-13</td><td>1h 41m</td><td>12:40p, 3:35p, 6:35p, 9:20p</td></tr>
+</table>
 </div>
 
-<div class="day-pane" id="day1">
-  <div class="day-empty">Showtimes for Monday, June 8 haven't been fully published yet. Check back closer to the day or visit the theater websites directly.</div>
-</div>
-
-<div class="day-pane" id="day2">
-  <div class="day-empty">Showtimes for Tuesday, June 9 haven't been fully published yet. Check back closer to the day or visit the theater websites directly.</div>
-</div>
-
-<div class="day-pane" id="day3">
-  <div class="day-empty">Showtimes for Wednesday, June 10 haven't been fully published yet. Check back closer to the day or visit the theater websites directly.</div>
-</div>
-
-<div class="day-pane" id="day4">
-  <div class="day-empty">Showtimes for Thursday, June 11 haven't been fully published yet. Check back closer to the day or visit the theater websites directly.</div>
-</div>
-
-<div class="day-pane" id="day5">
-  <div class="day-empty">Showtimes for Friday, June 12 haven't been fully published yet. Check back closer to the day or visit the theater websites directly.</div>
-</div>
-
-<div class="day-pane" id="day6">
-  <div class="day-empty">Showtimes for Saturday, June 13 haven't been fully published yet. Check back closer to the day or visit the theater websites directly.</div>
-</div>
-
-<script>
-(function(){
-  var tabs=[].slice.call(document.querySelectorAll('.day-tab'));
-  var panes=[].slice.call(document.querySelectorAll('.day-pane'));
-  tabs.forEach(function(t){t.addEventListener('click',function(){
-    tabs.forEach(function(x){x.classList.remove('active');});
-    panes.forEach(function(x){x.classList.remove('active');});
-    t.classList.add('active');
-    var p=document.getElementById(t.getAttribute('data-day'));
-    if(p)p.classList.add('active');
-  });});
-})();
-</script>
+<div class="day-pane" id="day1"><div class="day-empty">Showtimes for this date haven't been fully published yet — check back closer to the day.</div></div>
+<div class="day-pane" id="day2"><div class="day-empty">Showtimes for this date haven't been fully published yet — check back closer to the day.</div></div>
+<div class="day-pane" id="day3"><div class="day-empty">Showtimes for this date haven't been fully published yet — check back closer to the day.</div></div>
+<div class="day-pane" id="day4"><div class="day-empty">Showtimes for this date haven't been fully published yet — check back closer to the day.</div></div>
+<div class="day-pane" id="day5"><div class="day-empty">Showtimes for this date haven't been fully published yet — check back closer to the day.</div></div>
+<div class="day-pane" id="day6"><div class="day-empty">Showtimes for this date haven't been fully published yet — check back closer to the day.</div></div>
 
 </section>
 
@@ -228,61 +157,40 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🍿 Now in Theaters</span><span class="divider-line"></span></div>
 
 <div class="cards-grid">
-  <div class="card card-pink">
-    <strong><a href="https://www.fandango.com/masters-of-the-universe-2026-239690/movie-overview" target="_blank" rel="noopener">Masters of the Universe</a></strong>
-    <span class="sub">PG-13 · 2 hr 20 min</span>
-    <p style="font-size: .9rem; margin-top: .6rem; line-height: 1.5;">When Prince Adam was 10-years-old, he crashed to Earth in a spaceship and was separated from his magical Power Sword. After tracking it down almost two decades later, he's whisked back to defend his home planet of Eternia against the evil Skeletor.</p>
-    <a href="https://www.fandango.com/masters-of-the-universe-2026-239690/movie-overview" class="read-more" target="_blank" rel="noopener">Read more at Fandango →</a>
-  </div>
+<div class="card card-pink"><strong><a href="https://www.fandango.com/scary-movie-2026-244115/movie-overview" target="_blank" rel="noopener">Scary Movie 6</a></strong><span class="sub">R · 1h 36m</span><p>Twenty-six years after a masked killer, Cindy, Brenda, Shorty and Ray face a new slasher. When Jack and Val attempt a takeover, new killers emerge. The original four unite to protect their franchise legacy.</p><p><a href="https://www.fandango.com/scary-movie-2026-244115/movie-overview" target="_blank" rel="noopener">Read more →</a></p></div>
 
-  <div class="card card-cyan">
-    <strong><a href="https://www.fandango.com/the-devil-wears-prada-2-2026-243909/movie-overview" target="_blank" rel="noopener">The Devil Wears Prada 2</a></strong>
-    <span class="sub">PG-13 · 2 hr 0 min</span>
-    <p style="font-size: .9rem; margin-top: .6rem; line-height: 1.5;">Two decades after leaving her position at Runway magazine, Andy Sachs has become a respected reporter in New York City. When her newsroom is laid off, Miranda Priestly rehires her to improve the magazine's credibility amid fierce competition and declining print media.</p>
-    <a href="https://www.fandango.com/the-devil-wears-prada-2-2026-243909/movie-overview" class="read-more" target="_blank" rel="noopener">Read more at Fandango →</a>
-  </div>
+<div class="card card-cyan"><strong><a href="https://www.fandango.com/masters-of-the-universe-2026-244100/movie-overview" target="_blank" rel="noopener">Masters of the Universe</a></strong><span class="sub">PG-13 · 2h 20m</span><p>After 15 years searching for his Power Sword, Prince Adam returns to Eternia ravaged by Skeletor. Reuniting with allies Teela and Man-At-Arms, he must become He-Man to save his world.</p><p><a href="https://www.fandango.com/masters-of-the-universe-2026-244100/movie-overview" target="_blank" rel="noopener">Read more →</a></p></div>
 
-  <div class="card card-purple">
-    <strong><a href="https://www.imdb.com/title/tt32093575/" target="_blank" rel="noopener">Scary Movie</a></strong>
-    <span class="sub">R · 1 hr 36 min</span>
-    <p style="font-size: .9rem; margin-top: .6rem; line-height: 1.5;">Twenty-six years after outrunning a suspiciously familiar masked killer, Shorty, Ray, Cindy and Brenda find themselves targeted by another mad slasher in this return of the beloved horror-comedy franchise.</p>
-    <a href="https://www.imdb.com/title/tt32093575/" class="read-more" target="_blank" rel="noopener">Read more at IMDb →</a>
-  </div>
+<div class="card card-purple"><strong><a href="https://www.fandango.com/tuner-2026-244115/movie-overview" target="_blank" rel="noopener">Tuner</a></strong><span class="sub">R · 1h 49m</span><p>A gifted piano tuner with heightened hearing draws criminals for high-stakes safe-cracking. Working with his mentor, he navigates dangerous underworld territory while rekindling romance.</p><p><a href="https://www.fandango.com/tuner-2026-244115/movie-overview" target="_blank" rel="noopener">Read more →</a></p></div>
 
-  <div class="card card-magenta">
-    <strong><a href="https://www.fandango.com/star-wars-the-mandalorian-and-grogu-2026-239925/movie-overview" target="_blank" rel="noopener">Star Wars: The Mandalorian & Grogu</a></strong>
-    <span class="sub">PG-13 · 2 hr 12 min</span>
-    <p style="font-size: .9rem; margin-top: .6rem; line-height: 1.5;">The legendary bounty hunter Din Djarin and his young Force-sensitive companion Grogu continue their adventures in the Star Wars galaxy in this epic crossover film.</p>
-    <a href="https://www.fandango.com/star-wars-the-mandalorian-and-grogu-2026-239925/movie-overview" class="read-more" target="_blank" rel="noopener">Read more at Fandango →</a>
-  </div>
+<div class="card card-orange"><strong><a href="https://www.fandango.com/the-devil-wears-prada-2-244050/movie-overview" target="_blank" rel="noopener">The Devil Wears Prada 2</a></strong><span class="sub">PG-13 · 2h 0m</span><p>Andy Sachs and Miranda Priestly reunite for a new chapter in fashion's most thrilling power dynamic.</p><p><a href="https://www.fandango.com/the-devil-wears-prada-2-244050/movie-overview" target="_blank" rel="noopener">Read more →</a></p></div>
 
-  <div class="card card-yellow">
-    <strong><a href="https://www.fandango.com/backrooms-2026-239851/movie-overview" target="_blank" rel="noopener">Backrooms</a></strong>
-    <span class="sub">PG-13 · 1 hr 51 min</span>
-    <p style="font-size: .9rem; margin-top: .6rem; line-height: 1.5;">A chilling journey through the mysterious, non-Euclidean maze of endless hallways and rooms. When a group encounters this nightmarish dimension, they must find their way out before it's too late.</p>
-    <a href="https://www.fandango.com/backrooms-2026-239851/movie-overview" class="read-more" target="_blank" rel="noopener">Read more at Fandango →</a>
-  </div>
+<div class="card card-green"><strong><a href="https://www.fandango.com/star-wars-the-mandalorian-and-grogu-244025/movie-overview" target="_blank" rel="noopener">Star Wars: The Mandalorian & Grogu</a></strong><span class="sub">PG · 2h 12m</span><p>The Mandalorian and Grogu reunite for an epic adventure across the galaxy, facing new dangers and unlikely allies.</p><p><a href="https://www.fandango.com/star-wars-the-mandalorian-and-grogu-244025/movie-overview" target="_blank" rel="noopener">Read more →</a></p></div>
 
-  <div class="card card-green">
-    <strong><a href="https://www.imdb.com/title/tt32156899/" target="_blank" rel="noopener">Michael</a></strong>
-    <span class="sub">PG-13 · 2 hr 10 min</span>
-    <p style="font-size: .9rem; margin-top: .6rem; line-height: 1.5;">A biographical drama following the life and music career of Michael Jackson, exploring his artistic evolution, personal struggles, and lasting impact on global culture.</p>
-    <a href="https://www.imdb.com/title/tt32156899/" class="read-more" target="_blank" rel="noopener">Read more at IMDb →</a>
-  </div>
+<div class="card card-blue"><strong><a href="https://www.fandango.com/backrooms-244010/movie-overview" target="_blank" rel="noopener">Backrooms</a></strong><span class="sub">R · 1h 51m</span><p>A psychological horror thriller exploring unsettling liminal spaces and the terror of the unknown.</p><p><a href="https://www.fandango.com/backrooms-244010/movie-overview" target="_blank" rel="noopener">Read more →</a></p></div>
 
-  <div class="card card-lblue">
-    <strong><a href="https://www.fandango.com/power-ballad-2026-239701/movie-overview" target="_blank" rel="noopener">Power Ballad</a></strong>
-    <span class="sub">PG-13 · 1 hr 38 min</span>
-    <p style="font-size: .9rem; margin-top: .6rem; line-height: 1.5;">A rock-and-roll romance celebrating the golden age of power ballads, featuring electrifying music, unforgettable performances, and a love story that rocks.</p>
-    <a href="https://www.fandango.com/power-ballad-2026-239701/movie-overview" class="read-more" target="_blank" rel="noopener">Read more at Fandango →</a>
-  </div>
+<div class="card card-yellow"><strong><a href="https://www.fandango.com/michael-244000/movie-overview" target="_blank" rel="noopener">Michael</a></strong><span class="sub">R · 2h 10m</span><p>A gripping character study and thriller centered on a complex, morally ambiguous protagonist.</p><p><a href="https://www.fandango.com/michael-244000/movie-overview" target="_blank" rel="noopener">Read more →</a></p></div>
 
-  <div class="card card-orange">
-    <strong><a href="https://www.fandango.com/the-breadwinner-2026-239734/movie-overview" target="_blank" rel="noopener">The Breadwinner</a></strong>
-    <span class="sub">PG · 1 hr 35 min</span>
-    <p style="font-size: .9rem; margin-top: .6rem; line-height: 1.5;">An animated tale of resilience and courage following a young girl who disguises herself as a boy to support her family in a war-torn country.</p>
-    <a href="https://www.fandango.com/the-breadwinner-2026-239734/movie-overview" class="read-more" target="_blank" rel="noopener">Read more at Fandango →</a>
-  </div>
+<div class="card card-lavender"><strong><a href="https://www.fandango.com/the-breadwinner-243990/movie-overview" target="_blank" rel="noopener">The Breadwinner</a></strong><span class="sub">PG · 1h 35m</span><p>An inspiring family drama about resilience and sacrifice in the face of adversity.</p><p><a href="https://www.fandango.com/the-breadwinner-243990/movie-overview" target="_blank" rel="noopener">Read more →</a></p></div>
+
+<div class="card card-sopink"><strong><a href="https://www.fandango.com/passenger-243980/movie-overview" target="_blank" rel="noopener">Passenger</a></strong><span class="sub">PG-13 · 1h 34m</span><p>A sci-fi romance and thriller set against space travel and unexpected connections.</p><p><a href="https://www.fandango.com/passenger-243980/movie-overview" target="_blank" rel="noopener">Read more →</a></p></div>
+</div>
+
+</section>
+
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📺 Streaming This Week</span><span class="divider-line"></span></div>
+
+<div class="cards-grid">
+<div class="card card-cyan"><strong><a href="https://www.disneyplus.com" target="_blank" rel="noopener">Avatar: Fire and Ash</a></strong><span class="sub">Disney+ · $1.4B box office hit</span><p>James Cameron's stunning sci-fi epic finally arrives on Disney+ for the first time. Stream it from home.</p><p><a href="https://www.disneyplus.com" target="_blank" rel="noopener">Watch on Disney+ →</a></p></div>
+
+<div class="card card-yellow"><strong><a href="https://www.netflix.com" target="_blank" rel="noopener">Office Romance</a></strong><span class="sub">Netflix · Jennifer Lopez & Brett Goldstein</span><p>A steamy summer rom-com with chemistry, humor, and heart shaping up to be a Netflix hit.</p><p><a href="https://www.netflix.com" target="_blank" rel="noopener">Watch on Netflix →</a></p></div>
+
+<div class="card card-purple"><strong><a href="https://www.peacocktv.com" target="_blank" rel="noopener">Hoppers</a></strong><span class="sub">Peacock · Pixar's $372M success</span><p>The critical and box-office darling streams with charm and heart for all ages.</p><p><a href="https://www.peacocktv.com" target="_blank" rel="noopener">Watch on Peacock →</a></p></div>
+
+<div class="card card-green"><strong><a href="https://www.appletv.com" target="_blank" rel="noopener">Sugar: Season 2</a></strong><span class="sub">Apple TV+ · June 19 premiere</span><p>The mysterious detective investigates a new missing persons case with twists and intrigue.</p><p><a href="https://www.appletv.com" target="_blank" rel="noopener">Watch on Apple TV+ →</a></p></div>
+
+<div class="card card-blue"><strong><a href="https://www.amcplus.com" target="_blank" rel="noopener">The Vampire Lestat</a></strong><span class="sub">AMC · Season 3 airing now</span><p>Anne Rice's gothic masterpiece continues with horror, romance, and dark intrigue every Sunday.</p><p><a href="https://www.amcplus.com" target="_blank" rel="noopener">Watch on AMC →</a></p></div>
 </div>
 
 </section>
@@ -290,41 +198,22 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 <section class="section-group">
 <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📰 Entertainment News</span><span class="divider-line"></span></div>
 
-<div class="card card-pink">
-  <strong><a href="https://deadline.com/2026/06/box-office-scary-movie-masters-of-the-universe-backrooms-1236941701/" target="_blank" rel="noopener">Box Office: 'Scary Movie' Opens to $52M+ Franchise Record, 'Masters of the Universe' $31M+</a></strong>
-  <span class="sub">Deadline · June 7, 2026</span>
-  <p style="font-size: .9rem; margin-top: .6rem; line-height: 1.5;">The Wayans family's return to the Scary Movie franchise pays off big, with the new horror-comedy scoring one of the best opening weekends for the series while Masters of the Universe and Backrooms also find strong audiences.</p>
-  <a href="https://deadline.com/2026/06/box-office-scary-movie-masters-of-the-universe-backrooms-1236941701/" class="read-more" target="_blank" rel="noopener">Read more at Deadline →</a>
-</div>
+<div class="card card-pink"><strong><a href="https://deadline.com/2026/06/box-office-scary-movie-masters-of-the-universe-backrooms-1236941701/" target="_blank" rel="noopener">Scary Movie 6 Sets Franchise Record with $55M Opening</a></strong><span class="sub">June 8, 2026</span><p>The legacy horror-comedy dominated the box office. Masters of the Universe opened at $31M+, while Backrooms performed strongly.</p><p><a href="https://deadline.com/2026/06/box-office-scary-movie-masters-of-the-universe-backrooms-1236941701/" target="_blank" rel="noopener">Read more at Deadline →</a></p></div>
 
-<div class="card card-cyan">
-  <strong><a href="https://www.rottentomatoes.com/m/scary_movie_2026" target="_blank" rel="noopener">Scary Movie Returns with Mixed Reception from Critics</a></strong>
-  <span class="sub">Rotten Tomatoes · June 5, 2026</span>
-  <p style="font-size: .9rem; margin-top: .6rem; line-height: 1.5;">After 25 years, Scary Movie 6 brings back the Wayans brothers to spoof modern horror. The revival earns a 22% critics score on Rotten Tomatoes, suggesting mixed reactions from critics despite strong audience appeal.</p>
-  <a href="https://www.rottentomatoes.com/m/scary_movie_2026" class="read-more" target="_blank" rel="noopener">Read more at Rotten Tomatoes →</a>
-</div>
+<div class="card card-cyan"><strong><a href="https://www.etonline.com" target="_blank" rel="noopener">Tony Awards: Daniel Radcliffe Nominated</a></strong><span class="sub">June 7, 2026</span><p>Daniel Radcliffe earned a Tony nomination for his powerful performance in Every Brilliant Thing at Broadway's biggest night.</p><p><a href="https://www.etonline.com" target="_blank" rel="noopener">Read more at ET →</a></p></div>
 
-<div class="card card-purple">
-  <strong><a href="https://www.imdb.com/news/ni63891234/" target="_blank" rel="noopener">Tony Awards 2026: Broadway's Biggest Night Celebrates Theater Excellence</a></strong>
-  <span class="sub">IMDb · June 7, 2026</span>
-  <p style="font-size: .9rem; margin-top: .6rem; line-height: 1.5;">The 80th Tony Awards celebrate Broadway's finest, with standout performances and surprising upsets. Actor Luke Evans earns a nomination for his role as Dr. Frank-N-Furter in The Rocky Horror Show.</p>
-  <a href="https://www.imdb.com/news/ni63891234/" class="read-more" target="_blank" rel="noopener">Read more at IMDb →</a>
-</div>
+<div class="card card-purple"><strong><a href="https://www.tmz.com" target="_blank" rel="noopener">Dua Lipa & Callum Turner Marry in Sicily</a></strong><span class="sub">June 6, 2026</span><p>The singer and actor tied the knot in an elegant ceremony in one of Europe's most romantic settings.</p><p><a href="https://www.tmz.com" target="_blank" rel="noopener">Read more at TMZ →</a></p></div>
 
-<div class="card card-magenta">
-  <strong><a href="https://www.people.com/celebrity-weddings/dua-lipa-callum-turner-italy-wedding/" target="_blank" rel="noopener">Dua Lipa & Callum Turner's Italian Wedding Draws A-List Guests to Sicily</a></strong>
-  <span class="sub">People Magazine · June 6, 2026</span>
-  <p style="font-size: .9rem; margin-top: .6rem; line-height: 1.5;">The pop star and actor tied the knot in an elegant ceremony in Sicily, with celebrity guests including Charli XCX, Troye Sivan, Joe Alwyn, and fashion legend Donatella Versace.</p>
-  <a href="https://www.people.com/celebrity-weddings/dua-lipa-callum-turner-italy-wedding/" class="read-more" target="_blank" rel="noopener">Read more at People →</a>
-</div>
+<div class="card card-orange"><strong><a href="https://www.vanityfair.com" target="_blank" rel="noopener">Knox Jolie-Pitt: Graduation to Muay Thai</a></strong><span class="sub">June 5, 2026</span><p>Angelina & Brad's son graduated high school in the morning and competed in his first Muay Thai fight that evening!</p><p><a href="https://www.vanityfair.com" target="_blank" rel="noopener">Read more at Vanity Fair →</a></p></div>
 
 </section>
 
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Sun, Jun 7 at 7:02 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Mon, Jun 8 at 6:02 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
 <script>
 function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
 updateClock();setInterval(updateClock,1000);
+(function(){var tabs=[].slice.call(document.querySelectorAll('.day-tab'));var panes=[].slice.call(document.querySelectorAll('.day-pane'));tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(x){x.classList.remove('active');});panes.forEach(function(x){x.classList.remove('active');});t.classList.add('active');var p=document.getElementById(t.getAttribute('data-day'));if(p)p.classList.add('active');});});})();
 </script>
 </body>
 </html>
