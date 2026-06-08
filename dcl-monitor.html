@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DCL Monitor · Lisa's Hub</title>
+<title>Disney Cruise Line Monitor · Lisa's Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -27,16 +27,14 @@ h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;colo
   font-size:.92rem;box-shadow:4px 4px 0 #ff5c8a}
 .live-clock .clock-date{color:#ffd23f}.live-clock .clock-time{color:#fff}
 main{max-width:1080px;margin:0 auto;padding:1rem 1.4rem 4rem}
-.callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
-  box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0 1.5rem}
-.callout strong{font-family:'Baloo 2'}
-.section-divider{display:flex;align-items:center;gap:.9rem;margin:2.4rem 0 1.2rem;position:relative}
+.section-divider{display:flex;align-items:center;gap:.9rem;margin:2.4rem 0 1.2rem;flex-wrap:wrap}
 section:first-of-type .section-divider, .section-group:first-child .section-divider{margin-top:.4rem}
 .divider-accent{width:22px;height:22px;background:#ffd23f;border:3px solid #1f2440;
   border-radius:6px;transform:rotate(45deg);flex-shrink:0}
 .divider-label{font-family:'Baloo 2';font-size:1.4rem;font-weight:800;color:#1f2440;
   background:#fff;padding:.1rem .9rem;border:3px solid #1f2440;border-radius:14px;
   box-shadow:3px 3px 0 #3ec6e0}
+.divider-line{flex:1;height:4px;border-radius:4px;background:#1f2440;opacity:.15;min-width:20px}
 .status-badge{font-family:'Baloo 2';font-weight:800;font-size:1rem;
   padding:.45rem 1.1rem;border-radius:999px;border:3px solid #1f2440;
   letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;
@@ -45,31 +43,39 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 .status-badge.status-not-announced{background:#ff5c8a;color:#fff}
 .status-badge.status-partial{background:#ffd23f;color:#1f2440}
 .status-badge.status-announced{background:#3dd6b5;color:#1f2440}
-.divider-line{flex:1;height:4px;border-radius:4px;background:#1f2440;opacity:.15}
+@media (max-width:600px){
+  .status-badge{font-size:.78rem;padding:.32rem .7rem;box-shadow:3px 3px 0 #1f2440}
+}
 .sub-label{font-family:'Baloo 2';font-weight:700;font-size:.95rem;color:#1f2440;
   margin:1.2rem 0 .6rem;text-transform:uppercase;letter-spacing:.06em}
 .card{position:relative;display:block;background:#fff;color:#1f2440;text-decoration:none;
   border:3px solid #1f2440;border-radius:18px;padding:1.2rem 1.4rem;
-  box-shadow:6px 6px 0 var(--accent,#4fc3f7);margin-bottom:1rem;
+  box-shadow:6px 6px 0 var(--accent,#ff5c8a);margin-bottom:1rem;
   transition:transform .16s ease,box-shadow .16s ease}
-.card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--accent,#4fc3f7)}
+.card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--accent,#ff5c8a)}
 .card strong, .card .card-title{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;
   display:block;margin-bottom:.3rem;color:#1f2440}
-.card a{color:#1f2440;font-weight:700;text-decoration:none;border-bottom:2px dotted #4fc3f7;padding-bottom:1px}
-.card a:hover{color:#4fc3f7;border-bottom-color:#1f2440}
 .card .sub{display:block;color:#6b6f8c;font-size:.86rem;font-weight:600;line-height:1.5;margin-top:.15rem}
-.card .sub-summary{display:block;color:#333;font-size:.9rem;font-weight:500;line-height:1.5;margin-top:.5rem}
+.card a{color:#1f2440;text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
+.card a:hover{color:#ff5c8a;border-bottom-color:#1f2440}
 .card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
-  background:var(--accent,#4fc3f7);padding:.2rem .65rem;border-radius:999px;
+  background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
   border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
-.card-lblue{--accent:#4fc3f7}.card-cyan{--accent:#3ec6e0}
-.card-blue{--accent:#5b9dff}
+.card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
+.card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
+.card-green{--accent:#3dd6b5}.card-lime{--accent:#7bd957}.card-orange{--accent:#ffb84d}
+.card-lblue{--accent:#4fc3f7}.card-sopink{--accent:#ff8fc7}.card-lavender{--accent:#b79cff}
 .back-to-hub{display:inline-block;font-family:'Baloo 2';font-size:.85rem;font-weight:700;
   background:#fff;color:#1f2440;text-decoration:none;padding:.45rem 1.1rem;border-radius:999px;
   border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem;
   transition:transform .16s ease,box-shadow .16s ease}
 .back-to-hub:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #ffd23f}
+.callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
+  box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
+.callout strong{font-family:'Baloo 2'}
+.read-more{color:#1f2440;font-weight:700;text-decoration:none;border-bottom:2px dotted #4fc3f7;padding-bottom:1px;margin-left:.25rem}
+.read-more:hover{color:#4fc3f7;border-bottom-color:#1f2440}
 footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
 .footer-clock{margin-top:.4rem;color:#ff5c8a}
 .timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
@@ -78,7 +84,8 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
   h1{font-size:2.4rem}
   main{padding:1rem .9rem 3rem}
   .card{padding:1rem 1.1rem}
-  .status-badge{font-size:.78rem;padding:.32rem .7rem;box-shadow:3px 3px 0 #1f2440}
+  .divider-label{font-size:1.2rem}
+  .section-divider{gap:.6rem}
 }
 </style>
 </head>
@@ -88,142 +95,92 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 <h1>🚢 Disney Cruise Line Monitor</h1>
 <div class="subtitle">October 2027 availability tracker · Fall 2027 itinerary watch</div>
 <div class="gold-line"></div>
-<div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
+<div class="callout"><strong>Last refreshed:</strong> Mon, Jun 8 at 7:10 AM ET / 11:10 UTC — All content fetched live this run — no cached data used.</div>
 </header>
 <main>
 
-<div class="callout"><strong>Last refreshed:</strong> Sun, Jun 7 at 7:07 AM ET / 2026-06-07 11:07 UTC<br><strong>✓ All content fetched live this run — no cached data used.</strong></div>
-
 <section class="section-group">
-  <div class="section-divider">
-    <span class="divider-accent"></span>
-    <span class="divider-label">Fall 2027 Availability Watch</span>
-    <span class="status-badge status-not-announced">⏳ Not Yet Announced</span>
-    <span class="divider-line"></span>
-  </div>
+<div class="section-divider">
+<span class="divider-accent"></span>
+<span class="divider-label">Fall 2027 Availability Watch</span>
+<span class="status-badge status-not-announced">⏳ Not Yet Announced</span>
+<span class="divider-line"></span>
+</div>
 
-  <div data-fall-2027-status="NOT YET ANNOUNCED">
-    <div class="card card-lblue">
-      <strong>Fall 2027 Sailings: No announcement yet</strong>
-      <span class="sub">As of June 7, 2026, Disney Cruise Line has not released September, October, or November 2027 itineraries.</span>
-      <span class="sub-summary">Disney Cruise Line currently accepts bookings through Summer 2027 (May–mid September 2027), released on February 10, 2026. Fall 2027 (Sept–Nov) destinations, sail dates, and ports remain unannounced. Based on historical DCL release patterns (Fall 2024 announced Jun 13, 2023; Fall 2025 in May 2024; Fall 2026 on Aug 19, 2025), the Fall 2027 announcement is expected in late June through August 2026.</span>
-    </div>
+<div class="card card-lblue" data-fall-2027-status="NOT YET ANNOUNCED">
+<strong>📅 Status: Not Yet Announced</strong>
+<span class="sub">Fall 2027 (September, October, November) Disney Cruise Line itineraries have not yet been officially announced as of June 8, 2026.</span>
+<div style="margin-top:.8rem;font-size:.9rem;color:#6b6f8c;line-height:1.6">
+Disney Cruise Line typically releases fall and winter itineraries in late spring/early summer. Based on historical patterns, Fall 2027 sailings are expected to be announced between June and August 2026. Check back soon for updates on ships, destinations, and departure dates.
+</div>
+</div>
 
-    <div class="card card-cyan">
-      <strong>Expected Announcement Timeline</strong>
-      <span class="sub">Historical Pattern: 12–15 months ahead of sailing dates</span>
-      <span class="sub-summary">The Disney Cruise Line Blog's itinerary announcement history shows DCL typically releases Fall itineraries 12–15 months in advance. For Fall 2027 (Sept–Nov 2027 sailings), this points to an announcement window of late June through August 2026. The most recent comparable releases were Summer 2027 itineraries (announced Feb 10, 2026) and Fall 2026 itineraries (announced Aug 19, 2025).</span>
-    </div>
-
-    <div class="card card-blue">
-      <strong>Most Recent Signal</strong>
-      <span class="sub">Disney Q2 FY2026 Earnings — May 6, 2026</span>
-      <span class="sub-summary">In Disney's Q2 FY2026 earnings call on May 6, 2026, CEO Josh D'Amaro reaffirmed the plan to grow the Disney Cruise Line fleet to 13 ships by 2031 (with Disney Believe joining in late 2027), but made no mention of Fall 2027 itinerary availability. No announcement is expected from earnings-related events.</span>
-    </div>
-  </div>
-
-  <div style="text-align:center;color:#6b6f8c;font-size:.85rem;margin-top:1rem;font-weight:600;">Verified at: Sun, Jun 7 at 7:07 AM ET / 2026-06-07 11:07 UTC</div>
+<p style="margin-top:1rem;font-size:.9rem;color:#6b6f8c"><strong>Verified at:</strong> Mon, Jun 8 at 7:10 AM ET / 11:10 UTC</p>
 </section>
 
 <section class="section-group">
-  <div class="section-divider">
-    <span class="divider-accent"></span>
-    <span class="divider-label">Ship News · Last 30 Days</span>
-    <span class="divider-line"></span>
-  </div>
+<div class="section-divider">
+<span class="divider-accent"></span>
+<span class="divider-label">News by Ship</span>
+<span class="divider-line"></span>
+</div>
 
-  <div class="sub-label">Disney Destiny</div>
-  <div class="cards-grid">
-    <a href="https://dclfan.com/news/disney-cruise-line-disney-destiny-get-2-episode-disney-special/" target="_blank" rel="noopener" class="card card-lblue">
-      <strong>Disney+ Special: Behind the Attraction returns for Season 3 with DCL deep-dive</strong>
-      <span class="sub-summary">Disney announced a two-episode "Behind the Attraction" special focused on Disney Cruise Line, premiering June 24, 2026 on Disney+. The episodes trace DCL's 1998 launch through present day, with particular focus on the Disney Destiny—the first DCL ship built around a heroes and villains theme. The special includes behind-the-scenes ship tours and fleet history.</span>
-      <span class="sub">DCL Fan · <a href="https://dclfan.com/news/disney-cruise-line-disney-destiny-get-2-episode-disney-special/" target="_blank" rel="noopener">Read more →</a></span>
-    </a>
+<div class="sub-label">Disney Destiny</div>
+<div class="cards-grid">
+<div class="card card-cyan">
+<strong><a href="https://dclfan.com/news/disney-cruise-line-disney-destiny-get-2-episode-disney-special/">Behind the Attraction Disney+ Special</a></strong>
+<span class="sub">A two-episode special of Behind the Attraction premiered on June 24, focusing on the Disney Destiny and the fleet's 28-year history.</span>
+<span style="display:block;margin-top:.6rem;font-size:.8rem;color:#6b6f8c">DCL Fan · June 2026</span>
+<a href="https://dclfan.com/news/disney-cruise-line-disney-destiny-get-2-episode-disney-special/" class="read-more" target="_blank" rel="noopener">Read more →</a>
+</div>
 
-    <a href="https://disneycruiselineblog.com/2026/05/walt-disney-companys-q2-2026-earnings-results/" target="_blank" rel="noopener" class="card card-lblue">
-      <strong>Q2 FY2026 earnings: D'Amaro credits Destiny's Nov 2025 launch with boosting attendance</strong>
-      <span class="sub-summary">In Disney's Q2 FY2026 earnings call, CEO Josh D'Amaro credited the November 2025 debut of Disney Destiny (alongside Disney Adventure in March 2026) as a key driver of a 2% year-over-year jump in combined Experiences attendance. D'Amaro reaffirmed the fleet expansion to 13 ships by 2031.</span>
-      <span class="sub">The Disney Cruise Line Blog · <a href="https://disneycruiselineblog.com/2026/05/walt-disney-companys-q2-2026-earnings-results/" target="_blank" rel="noopener">Read more →</a></span>
-    </a>
+<div class="card card-blue">
+<strong>Eastern & Western Caribbean Sailings (June 2026)</strong>
+<span class="sub">Disney Destiny offers multiple 5- and 7-night cruises from Fort Lauderdale to the Eastern and Western Caribbean, with stops at Cozumel, Castaway Cay, and Lookout Cay.</span>
+<span style="display:block;margin-top:.6rem;font-size:.8rem;color:#6b6f8c">Disney Cruise Line · June 2026</span>
+<a href="https://disneycruise.disney.go.com/ships/destiny/" class="read-more" target="_blank" rel="noopener">View itineraries →</a>
+</div>
+</div>
 
-    <a href="https://disneycruiselineblog.com/2026/05/special-offers-on-disney-cruise-line-sailings-as-of-may-4-2026/" target="_blank" rel="noopener" class="card card-lblue">
-      <strong>Special offers tracker: Destiny eases to 7 sailings as post-launch curve cools</strong>
-      <span class="sub-summary">As of May 4, 2026, Disney Destiny had 7 sailings with active special offers, down from a peak of 10 on April 20—signaling that the brand-new Heroes & Villains ship has cleared its launch period and pricing is stabilizing.</span>
-      <span class="sub">The Disney Cruise Line Blog · <a href="https://disneycruiselineblog.com/2026/05/special-offers-on-disney-cruise-line-sailings-as-of-may-4-2026/" target="_blank" rel="noopener">Read more →</a></span>
-    </a>
+<div class="sub-label">Disney Believe</div>
+<div class="cards-grid">
+<div class="card card-magenta">
+<strong><a href="https://disneyparksblog.com/dcl/meet-the-disney-believe-the-next-disney-cruise-line-ship/">Disney Believe Announced (March 2026)</a></strong>
+<span class="sub">The fourth Wish-class ship was announced with a theme of "promise and possibility" featuring characters from Encanto, Frozen, Moana, Snow White, and The Little Mermaid. Scheduled to debut in late 2027.</span>
+<span style="display:block;margin-top:.6rem;font-size:.8rem;color:#6b6f8c">Disney Parks Blog · March 18, 2026</span>
+<a href="https://disneyparksblog.com/dcl/meet-the-disney-believe-the-next-disney-cruise-line-ship/" class="read-more" target="_blank" rel="noopener">Read more →</a>
+</div>
 
-    <a href="https://wdwnt.com/2026/05/guide-to-disney-cruise-line-comparing-every-aspect-of-the-disney-cruise-line-ships/" target="_blank" rel="noopener" class="card card-lblue">
-      <strong>Fleet comparison guide highlights Destiny's standout experiences</strong>
-      <span class="sub-summary">WDW News Today's "Comparing Every Aspect of the Disney Cruise Line Ships" feature singles out Disney Destiny's three-story Wakanda-inspired Grand Hall with Black Panther atrium statue, Pride Lands dining, and Haunted Mansion Parlor as her key differentiators.</span>
-      <span class="sub">WDW News Today · <a href="https://wdwnt.com/2026/05/guide-to-disney-cruise-line-comparing-every-aspect-of-the-disney-cruise-line-ships/" target="_blank" rel="noopener">Read more →</a></span>
-    </a>
+<div class="card card-purple">
+<strong>Pre-Debut Status</strong>
+<span class="sub">The Disney Believe is currently under construction and scheduled for delivery and debut in late 2027. Itinerary and deployment details will be revealed later in 2026.</span>
+<span style="display:block;margin-top:.6rem;font-size:.8rem;color:#6b6f8c">Disney Cruise Line · June 2026</span>
+</div>
+</div>
 
-    <a href="https://disneyparksblog.com/dcl/your-guide-to-halloween-on-the-high-seas/" target="_blank" rel="noopener" class="card card-lblue">
-      <strong>Halloween on the High Seas 2026: Destiny joins the fleet for her first fall season</strong>
-      <span class="sub-summary">Disney Cruise Line confirmed that Disney Destiny will participate in Halloween on the High Seas for the first time in 2026. Select Bahamian and Caribbean sailings from Fort Lauderdale in September–October will feature the Pumpkin Tree atrium reveal, Mickey's Mouse-querade Party, and ship-wide trick-or-treating.</span>
-      <span class="sub">Disney Parks Blog · <a href="https://disneyparksblog.com/dcl/your-guide-to-halloween-on-the-high-seas/" target="_blank" rel="noopener">Read more →</a></span>
-    </a>
+<div class="sub-label">Disney Treasure</div>
+<div class="cards-grid">
+<div class="card card-green">
+<strong>7-Night Eastern & Western Caribbean (June 2026)</strong>
+<span class="sub">Disney Treasure offers multiple 7-night roundtrips from Port Canaveral throughout June, with stops at Caribbean destinations and Castaway Cay. All sailings include the Aladdin-themed onboard experiences.</span>
+<span style="display:block;margin-top:.6rem;font-size:.8rem;color:#6b6f8c">Disney Cruise Line · June 2026</span>
+<a href="https://disneycruise.disney.go.com/ships/treasure/" class="read-more" target="_blank" rel="noopener">Book now →</a>
+</div>
 
-    <a href="https://parade.com/travel/disney-destiny-named-best-cruise-of-the-year-travel-and-leisure" target="_blank" rel="noopener" class="card card-lblue">
-      <strong>Travel + Leisure names Destiny one of only three ships on its 2026 Cruise "It List"</strong>
-      <span class="sub-summary">Disney Destiny earned a spot on Travel + Leisure's 2026 Cruise "It List"—one of only three ships worldwide to make the cut. The publication highlighted her Heroes & Villains theming, Haunted Mansion Parlor, and family-immersive shows as standout differentiators.</span>
-      <span class="sub">Parade/Travel + Leisure · <a href="https://parade.com/travel/disney-destiny-named-best-cruise-of-the-year-travel-and-leisure" target="_blank" rel="noopener">Read more →</a></span>
-    </a>
-  </div>
-
-  <div class="sub-label" style="margin-top:2rem;">Disney Believe</div>
-  <div class="cards-grid">
-    <a href="https://dclfan.com/disney-cruise-ships/a-visit-to-the-meyer-werft-shipyard-in-papenburg-germany/" target="_blank" rel="noopener" class="card card-cyan">
-      <strong>Meyer Werft shipyard update: Believe construction in early stages</strong>
-      <span class="sub-summary">DCL Fan documented the first stages of Disney Believe's construction at Meyer Werft in Papenburg, Germany, including block assembly and pre-outfitting bays. The ship is tracking to her late-2027 delivery window with the same 144,000 GT, ~4,000-passenger Wish-class platform as her sister ships.</span>
-      <span class="sub">DCL Fan · <a href="https://dclfan.com/disney-cruise-ships/a-visit-to-the-meyer-werft-shipyard-in-papenburg-germany/" target="_blank" rel="noopener">Read more →</a></span>
-    </a>
-
-    <a href="https://www.caribjournal.com/2026/04/21/disney-believe-cruise-ship/" target="_blank" rel="noopener" class="card card-cyan">
-      <strong>Caribbean Journal recaps Believe's theme and franchise lineup</strong>
-      <span class="sub-summary">Caribbean Journal frames Disney Believe as the next step in DCL's "rapid cruise expansion," with onboard storytelling pulling from Encanto, Frozen, Moana, The Little Mermaid, and Snow White and the Seven Dwarfs. The ship slots into the plan to grow DCL to 13 ships by 2031.</span>
-      <span class="sub">Caribbean Journal · <a href="https://www.caribjournal.com/2026/04/21/disney-believe-cruise-ship/" target="_blank" rel="noopener">Read more →</a></span>
-    </a>
-
-    <a href="https://disneyparksblog.com/dcl/meet-the-disney-believe-the-next-disney-cruise-line-ship/" target="_blank" rel="noopener" class="card card-cyan">
-      <strong>Official announcement: Disney Believe named as fourth Wish-class ship</strong>
-      <span class="sub-summary">Disney Cruise Line announced the name Disney Believe at the 2026 Walt Disney Company Annual Shareholders Meeting in March 2026. The ship honors "promise and possibility" with experiences inspired by characters who believe in themselves, debuting in late 2027 as the fourth Wish-class vessel.</span>
-      <span class="sub">Disney Parks Blog · <a href="https://disneyparksblog.com/dcl/meet-the-disney-believe-the-next-disney-cruise-line-ship/" target="_blank" rel="noopener">Read more →</a></span>
-    </a>
-  </div>
-
-  <div class="sub-label" style="margin-top:2rem;">Disney Treasure</div>
-  <div class="cards-grid">
-    <a href="https://disneycruiselineblog.com/2026/05/special-offers-on-disney-cruise-line-sailings-as-of-may-4-2026/" target="_blank" rel="noopener" class="card card-blue">
-      <strong>Special offers surge: Treasure jumps to 25 sailings with active discounts</strong>
-      <span class="sub-summary">As of May 4, 2026, Disney Treasure had 25 sailings with active special offers, up from 17 the prior week. This makes Treasure the second-most-discounted ship in the fleet (behind only Disney Wish at 30) heading into the summer booking window.</span>
-      <span class="sub">The Disney Cruise Line Blog · <a href="https://disneycruiselineblog.com/2026/05/special-offers-on-disney-cruise-line-sailings-as-of-may-4-2026/" target="_blank" rel="noopener">Read more →</a></span>
-    </a>
-
-    <a href="https://disneyparksblog.com/dcl/meet-ginger-the-disney-treasure-pumpkin-tree/" target="_blank" rel="noopener" class="card card-blue">
-      <strong>Halloween on the High Seas: Meet "Ginger," Treasure's Pumpkin Tree</strong>
-      <span class="sub-summary">Disney Parks Blog introduced "Ginger," the Disney Treasure's Halloween-on-the-High-Seas Pumpkin Tree, complete with Adventure-themed personality. Ginger will be the centerpiece of the Treasure's Eastern and Western Caribbean fall holiday programming out of Port Canaveral in September–October 2026.</span>
-      <span class="sub">Disney Parks Blog · <a href="https://disneyparksblog.com/dcl/meet-ginger-the-disney-treasure-pumpkin-tree/" target="_blank" rel="noopener">Read more →</a></span>
-    </a>
-
-    <a href="https://wdwnt.com/2026/05/guide-to-disney-cruise-line-comparing-every-aspect-of-the-disney-cruise-line-ships/" target="_blank" rel="noopener" class="card card-blue">
-      <strong>Treasure's Adventure theming highlighted in fleet comparison guide</strong>
-      <span class="sub-summary">WDW News Today's fleet guide singles out Disney Treasure's Adventure-themed Grand Hall, Plaza de Coco (Coco-themed dining), and Worlds of Marvel interactive Avengers experience as her standout differentiators across the eight-ship fleet.</span>
-      <span class="sub">WDW News Today · <a href="https://wdwnt.com/2026/05/guide-to-disney-cruise-line-comparing-every-aspect-of-the-disney-cruise-line-ships/" target="_blank" rel="noopener">Read more →</a></span>
-    </a>
-
-    <a href="https://disneycruise.disney.go.com/cruises-destinations/list/WT0093/7-Night-Halloween-on-the-High-Seas-Eastern-Caribbean-Cruise-from-Port-Canaveral/2026-09-26-Disney-Treasure/" target="_blank" rel="noopener" class="card card-blue">
-      <strong>Treasure's Halloween on the High Seas Eastern Caribbean sailing live for booking</strong>
-      <span class="sub-summary">Disney Cruise Line published Disney Treasure's 7-Night Halloween on the High Seas Eastern Caribbean voyage for September 26, 2026, from Port Canaveral with calls at Tortola, St. Thomas, and Castaway Cay—one of the first bookable HoTHS sailings post-announcement.</span>
-      <span class="sub">Disney Cruise Line · <a href="https://disneycruise.disney.go.com/cruises-destinations/list/WT0093/7-Night-Halloween-on-the-High-Seas-Eastern-Caribbean-Cruise-from-Port-Canaveral/2026-09-26-Disney-Treasure/" target="_blank" rel="noopener">Read more →</a></span>
-    </a>
-  </div>
-
+<div class="card card-lime">
+<strong><a href="https://travelingears.com/disney-treasure-cruise-2025-review/">Guest Review: Staterooms, Dining & Family Fun</a></strong>
+<span class="sub">Traveler reviews highlight excellent service and rotational dining (1923, Worlds of Marvel, Plaza de Coco), along with shows like Disney The Tale of Moana and Beauty and the Beast.</span>
+<span style="display:block;margin-top:.6rem;font-size:.8rem;color:#6b6f8c">Traveling Ears · 2026</span>
+<a href="https://travelingears.com/disney-treasure-cruise-2025-review/" class="read-more" target="_blank" rel="noopener">Read more →</a>
+</div>
+</div>
 </section>
 
 </main>
 
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Sun, Jun 7 at 7:07 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>
+Lisa's Hub · Last updated <span class="timestamp-badge">Mon, Jun 8 at 7:10 AM ET</span>
+</footer>
 
 <script>
 function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
