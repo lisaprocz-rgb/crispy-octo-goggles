@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disney Daily Briefing · Lisa's Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;min-height:100vh;color:#1f2440;
+  background:#fff8f0;
+  background-image:radial-gradient(#ffd23f 2px,transparent 2px),
+                   radial-gradient(#ff5c8a 2px,transparent 2px);
+  background-size:60px 60px;background-position:0 0,30px 30px}
+header{text-align:center;padding:2.6rem 1.5rem 1.8rem;position:relative}
+.hub-label{font-family:'Baloo 2';font-weight:700;font-size:.78rem;letter-spacing:.28em;
+  text-transform:uppercase;color:#ff5c8a;margin-bottom:.6rem}
+.hub-label a{color:#ff5c8a;text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:2px}
+.hub-label a:hover{color:#1f2440;border-bottom-color:#1f2440}
+h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;color:#1f2440;
+  line-height:1;text-shadow:4px 4px 0 #ff8fc7}
+.subtitle{font-size:.95rem;margin-top:.75rem;color:#6b6f8c;font-weight:700}
+.gold-line{width:120px;height:8px;margin:1.1rem auto 0;border-radius:8px;
+  background:repeating-linear-gradient(90deg,#ff5c8a 0 16px,#3ec6e0 16px 32px,#ffd23f 32px 48px)}
+.live-clock{margin-top:1.1rem;display:inline-block;background:#1f2440;color:#fff;
+  padding:.5rem 1.3rem;border-radius:14px;font-family:'Baloo 2';font-weight:600;
+  font-size:.92rem;box-shadow:4px 4px 0 #ff8fc7}
+.live-clock .clock-date{color:#ffd23f}.live-clock .clock-time{color:#fff}
+main{max-width:1080px;margin:0 auto;padding:1rem 1.4rem 4rem}
+.section-divider{display:flex;align-items:center;gap:.9rem;margin:2.4rem 0 1.2rem}
+section:first-of-type .section-divider, .section-group:first-child .section-divider{margin-top:.4rem}
+.divider-accent{width:22px;height:22px;background:#ffd23f;border:3px solid #1f2440;
+  border-radius:6px;transform:rotate(45deg);flex-shrink:0}
+.divider-label{font-family:'Baloo 2';font-size:1.4rem;font-weight:800;color:#1f2440;
+  background:#fff;padding:.1rem .9rem;border:3px solid #1f2440;border-radius:14px;
+  box-shadow:3px 3px 0 #3ec6e0}
+.divider-line{flex:1;height:4px;border-radius:4px;background:#1f2440;opacity:.15}
+.sub-label{font-family:'Baloo 2';font-weight:700;font-size:.95rem;color:#1f2440;
+  margin:1.2rem 0 .6rem;text-transform:uppercase;letter-spacing:.06em}
+.card{position:relative;display:block;background:#fff;color:#1f2440;text-decoration:none;
+  border:3px solid #1f2440;border-radius:18px;padding:1.2rem 1.4rem;
+  box-shadow:6px 6px 0 var(--accent,#ff8fc7);margin-bottom:1rem;
+  transition:transform .16s ease,box-shadow .16s ease}
+.card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--accent,#ff8fc7)}
+.card strong, .card .card-title{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;
+  display:block;margin-bottom:.3rem;color:#1f2440}
+.card a{color:#1f2440;text-decoration:none;border-bottom:2px dotted #ff8fc7}
+.card a:hover{color:#ff8fc7;border-bottom-color:#1f2440}
+.card .sub{display:block;color:#6b6f8c;font-size:.86rem;font-weight:600;line-height:1.5;margin-top:.15rem}
+.card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
+  background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
+  border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
+.readmore{margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8}
+.readmore a{font-size:.85rem;font-weight:700;color:#1f2440;text-decoration:none;border:none}
+.readmore a:hover{color:#ff8fc7}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
+.card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
+.card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
+.card-green{--accent:#3dd6b5}.card-lime{--accent:#7bd957}.card-orange{--accent:#ffb84d}
+.card-lblue{--accent:#4fc3f7}.card-sopink{--accent:#ff8fc7}.card-lavender{--accent:#b79cff}
+.back-to-hub{display:inline-block;font-family:'Baloo 2';font-size:.85rem;font-weight:700;
+  background:#fff;color:#1f2440;text-decoration:none;padding:.45rem 1.1rem;border-radius:999px;
+  border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem;
+  transition:transform .16s ease,box-shadow .16s ease}
+.back-to-hub:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #ffd23f}
+.callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
+  box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
+.callout strong{font-family:'Baloo 2'}
+footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
+.footer-clock{margin-top:.4rem;color:#ff8fc7}
+.timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
+  font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
+@media (max-width:600px){
+  h1{font-size:2.4rem}
+  main{padding:1rem .9rem 3rem}
+  .card{padding:1rem 1.1rem}
+}
+</style>
+</head>
+<body>
+<!-- Navigation bar -->
+<div style="background: #1a2744; padding: 14px 20px; display: flex; align-items: center; gap: 1rem; margin: -20px -20px 0 -20px;">
+  <a href="index.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.08em;">Lisa's Hub</a>
+  <span style="color: rgba(255,255,255,0.2); font-size: 0.75rem;">&#8250;</span>
+  <span style="color: #fff; font-weight: 500; font-size: 0.82rem;">Disney Daily Briefing</span>
+  <a href="https://docs.google.com/document/d/1yo9L1eVBVuJWg4m5xF9rI6LfJA-Gh8Unlg-FRm-vWm4/edit" target="_blank" rel="noopener" style="margin-left: auto; color: #ffd2e4; text-decoration: none; font-size: 0.82rem; letter-spacing: 0.05em;">🔒 Personal Briefing →</a>
+</div>
+
+<!-- Header banner -->
+<header>
+<div class="hub-label"><a href="index.html">← Lisa's Hub</a></div>
+<h1>✨ Disney Daily Briefing</h1>
+<div class="subtitle">Parks · DVC · Cruise fleet · Dining · Upcoming events</div>
+<div class="gold-line"></div>
+<div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
+</header>
+
+<main>
+
+<!-- Corporate & Business -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Corporate & Business</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-magenta">
+      <strong><a href="https://deadline.com/2026/06/walt-disney-main-street-carrie-brzezinski-hsu-1236941409/" target="_blank" rel="noopener">New Creative Agency Main Street Launches at Disney</a></strong>
+      <span class="sub">Disney has created a new in-house creative agency called Main Street that consolidates marketing talent from across the company to unlock collective creativity through closer collaboration.</span>
+      <span class="note">Deadline · Jun 2026</span>
+      <div class="readmore"><a href="https://deadline.com/2026/06/walt-disney-main-street-carrie-brzezinski-hsu-1236941409/" target="_blank" rel="noopener">Read more at Deadline →</a></div>
+    </div>
+    <div class="card card-pink">
+      <strong><a href="https://au.variety.com/2026/film/news/walt-disney-asad-ayaz-chief-marketing-officer-31969/" target="_blank" rel="noopener">Disney Names First-Ever Chief Marketing Officer</a></strong>
+      <span class="sub">Asad Ayaz has been appointed as Walt Disney Company's first Chief Marketing Officer, overseeing marketing strategy across all Disney businesses.</span>
+      <span class="note">Variety · Jun 2026</span>
+      <div class="readmore"><a href="https://au.variety.com/2026/film/news/walt-disney-asad-ayaz-chief-marketing-officer-31969/" target="_blank" rel="noopener">Read more at Variety →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Parks News -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Parks News</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-sopink">
+      <strong><a href="https://wdwnt.com/" target="_blank" rel="noopener">Joe Schott Named New Disney World President</a></strong>
+      <span class="sub">Joe Schott, previously president of Disney Signature Experiences, has been appointed as the new president of Walt Disney World Parks & Resorts.</span>
+      <span class="note">WDW News Today · Jun 2026</span>
+      <div class="readmore"><a href="https://wdwnt.com/" target="_blank" rel="noopener">Read more at WDW News Today →</a></div>
+    </div>
+    <div class="card card-pink">
+      <strong><a href="https://www.disneytouristblog.com/disney-world-refurbishments/" target="_blank" rel="noopener">Major Ride Closures & Refurbishments in Progress</a></strong>
+      <span class="sub">Multiple attractions closed for refurbishment including Buzz Lightyear Astro Blasters, Pirates of the Caribbean, Inside Out Emotional Whirlwind, and Silly Symphony Swings with varying reopening dates.</span>
+      <span class="note">Disney Tourist Blog · Jun 2026</span>
+      <div class="readmore"><a href="https://www.disneytouristblog.com/disney-world-refurbishments/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></div>
+    </div>
+    <div class="card card-magenta">
+      <strong><a href="https://www.undercovertourist.com/blog/disney-world-refurbishments-closings/" target="_blank" rel="noopener">Rock 'n' Roller Coaster & Soarin' Reopened This Week</a></strong>
+      <span class="sub">Rock 'n' Roller Coaster Starring The Muppets and Soarin' Across America both reopened on May 26. The Walt Disney Studios courtyard was also unveiled with new shaded areas and amenities.</span>
+      <span class="note">Undercover Tourist · May 2026</span>
+      <div class="readmore"><a href="https://www.undercovertourist.com/blog/disney-world-refurbishments-closings/" target="_blank" rel="noopener">Read more at Undercover Tourist →</a></div>
+    </div>
+    <div class="card card-sopink">
+      <strong><a href="https://www.wdwmagic.com/" target="_blank" rel="noopener">Monsters, Inc. Land Coming to Hollywood Studios</a></strong>
+      <span class="sub">Animation Courtyard is permanently closing to make way for the new Walt Disney Studios Lot. Monsters Inc. Door Coaster and Monstropolis miniland are replacing Muppets Courtyard.</span>
+      <span class="note">WDW Magic · Jun 2026</span>
+      <div class="readmore"><a href="https://www.wdwmagic.com/" target="_blank" rel="noopener">Read more at WDW Magic →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- EPCOT Festivals -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">EPCOT Festivals</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-orange">
+      <strong><a href="https://www.wdw-magazine.com/epcot-flower-garden-festival-complete-guide/" target="_blank" rel="noopener">Flower & Garden Festival Wraps Up Early June</a></strong>
+      <span class="sub">The EPCOT International Flower & Garden Festival runs through June 1, 2026, featuring over 20 Outdoor Kitchens, 60 character topiaries, and the nightly Garden Rocks Concert Series at the America Gardens Theatre.</span>
+      <span class="note">WDW Magazine · Jun 2026</span>
+      <div class="readmore"><a href="https://www.wdw-magazine.com/epcot-flower-garden-festival-complete-guide/" target="_blank" rel="noopener">Read more at WDW Magazine →</a></div>
+    </div>
+    <div class="card card-yellow">
+      <strong><a href="https://horizonwesthappenings.com/news/epcot-international-flower-garden-festival-2026-guide-dates-concerts-food-what-to-see/" target="_blank" rel="noopener">Festival Food Booths & Themed Experiences</a></strong>
+      <span class="sub">Outdoor Kitchens feature garden-inspired dishes and drinks with seasonal ingredients. Special garden topiaries, illuminated after sunset, and a day-to-night garden exhibit with glowing fireflies add to the magic.</span>
+      <span class="note">Horizon West Happenings · Jun 2026</span>
+      <div class="readmore"><a href="https://horizonwesthappenings.com/news/epcot-international-flower-garden-festival-2026-guide-dates-concerts-food-what-to-see/" target="_blank" rel="noopener">Read more at Horizon West →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Dining -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Dining</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-yellow">
+      <strong><a href="https://www.disneyfanatic.com/disney-worlds-summer-dining-overhaul-impacts-more-than-20-restaurant-menus-bwb1/" target="_blank" rel="noopener">Large-Scale Menu Overhaul Across Disney World</a></strong>
+      <span class="sub">Disney World rolled out major menu updates across over 20 restaurants this week, affecting parks, resorts, pool bars, and Disney Springs locations with new and replaced items.</span>
+      <span class="note">Disney Fanatic · Jun 2026</span>
+      <div class="readmore"><a href="https://www.disneyfanatic.com/disney-worlds-summer-dining-overhaul-impacts-more-than-20-restaurant-menus-bwb1/" target="_blank" rel="noopener">Read more at Disney Fanatic →</a></div>
+    </div>
+    <div class="card card-orange">
+      <strong><a href="https://www.wdwmagic.com/dining/california-grill/news/03jun2026-california-grill-june-2026-menu-update-new-dishes-cocktails-and-pricing-at-disney-s-contemporary-resort.htm" target="_blank" rel="noopener">California Grill June Menu Refresh</a></strong>
+      <span class="sub">The 15th-floor Contemporary Resort restaurant introduces new starters, mains, and cocktails with a three-course prix-fixe at $99 per adult.</span>
+      <span class="note">WDW Magic · Jun 2026</span>
+      <div class="readmore"><a href="https://www.wdwmagic.com/dining/california-grill/news/03jun2026-california-grill-june-2026-menu-update-new-dishes-cocktails-and-pricing-at-disney-s-contemporary-resort.htm" target="_blank" rel="noopener">Read more at WDW Magic →</a></div>
+    </div>
+    <div class="card card-yellow">
+      <strong><a href="https://mickeyvisit.com/disney-world-menu-changes-june-8-2026/" target="_blank" rel="noopener">Specific Menu Changes at Magic Kingdom & Beyond</a></strong>
+      <span class="sub">Auntie Gravity's replaced older items with new space-themed shakes and floats. Akershus removed side items, Contempo Cafe removed breakfast/dessert options, and Harambe Market reopened with new menu items.</span>
+      <span class="note">Mickey Visit · Jun 8 2026</span>
+      <div class="readmore"><a href="https://mickeyvisit.com/disney-world-menu-changes-june-8-2026/" target="_blank" rel="noopener">Read more at Mickey Visit →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- DVC Updates -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">DVC Updates</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-lavender">
+      <strong><a href="https://dvcsales.com/dvc-market-report" target="_blank" rel="noopener">DVC Resale Market Report June 2026</a></strong>
+      <span class="sub">Premium resorts like Grand Floridian trade at $150–$180/point; Saratoga Springs and Old Key West near $95–$115/point. Buyers still save 40–60% vs. direct Disney purchases. Disney exercises Right of First Refusal on below-market contracts.</span>
+      <span class="note">DVC Sales · Jun 2026</span>
+      <div class="readmore"><a href="https://dvcsales.com/dvc-market-report" target="_blank" rel="noopener">Read more at DVC Sales →</a></div>
+    </div>
+    <div class="card card-purple">
+      <strong><a href="https://www.dvcresalemarket.com/" target="_blank" rel="noopener">Active DVC Resale Marketplace</a></strong>
+      <span class="sub">The DVC resale market remains one of the most active timeshare markets in the world, with hundreds of contracts trading monthly. Activity typically peaks in Q1 for summer/fall planning.</span>
+      <span class="note">DVC Resale Market · Jun 2026</span>
+      <div class="readmore"><a href="https://www.dvcresalemarket.com/" target="_blank" rel="noopener">Read more at DVC Resale Market →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Cruise Fleet -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Cruise Fleet</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-lblue">
+      <strong><a href="https://disneycruise.disney.go.com/why-cruise-disney/2026-summer-itineraries/" target="_blank" rel="noopener">Disney Destiny & Treasure June Sailings</a></strong>
+      <span class="sub">Disney Destiny offers 5-night Western Caribbean cruises from Fort Lauderdale (June 6, 20) and 7-night sailings. Disney Treasure sails 7-night Western Caribbean from Port Canaveral (June 13, 27) with stops in Cozumel, Grand Cayman, Falmouth, and Castaway Cay.</span>
+      <span class="note">Disney Cruise Line · Jun 2026</span>
+      <div class="readmore"><a href="https://disneycruise.disney.go.com/why-cruise-disney/2026-summer-itineraries/" target="_blank" rel="noopener">Read more at Disney Cruise Line →</a></div>
+    </div>
+    <div class="card card-cyan">
+      <strong><a href="https://www.undercovertourist.com/blog/whats-coming-disney-cruise-line/" target="_blank" rel="noopener">Disney Adventure Global Class Ship</a></strong>
+      <span class="sub">The Disney Adventure, the first Global class ship, sails three- and four-night "Magic at Sea" cruises from Singapore filled with Disney, Pixar, and Marvel experiences.</span>
+      <span class="note">Undercover Tourist · Jun 2026</span>
+      <div class="readmore"><a href="https://www.undercovertourist.com/blog/whats-coming-disney-cruise-line/" target="_blank" rel="noopener">Read more at Undercover Tourist →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Movies & Entertainment -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Movies & Entertainment</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-green">
+      <strong><a href="https://www.disneyplus.com/explore/articles/new-to-disney-plus" target="_blank" rel="noopener">Avatar: Fire and Ash Streams June 24</a></strong>
+      <span class="sub">Avatar: Fire and Ash, which earned nearly $1.5 billion at the box office, debuts on Disney+ June 24. Jake Sully unites Pandora's natives against Colonel Quaritch and the brutal Varang clan.</span>
+      <span class="note">Disney+ · Jun 2026</span>
+      <div class="readmore"><a href="https://www.disneyplus.com/explore/articles/new-to-disney-plus" target="_blank" rel="noopener">Read more at Disney+ →</a></div>
+    </div>
+    <div class="card card-lime">
+      <strong><a href="https://press.disneyplus.com/news/next-on-disney-plus-june-2026" target="_blank" rel="noopener">Pixar's Hoppers Arrives June 3 on Disney+</a></strong>
+      <span class="sub">Hoppers, the acclaimed Pixar film that earned $372 million worldwide, makes its Disney+ debut June 3 after a successful theatrical run.</span>
+      <span class="note">Disney+ Press · Jun 2026</span>
+      <div class="readmore"><a href="https://press.disneyplus.com/news/next-on-disney-plus-june-2026" target="_blank" rel="noopener">Read more at Disney+ Press →</a></div>
+    </div>
+    <div class="card card-green">
+      <strong><a href="https://www.newsweek.com/entertainment/tv/new-on-disney-june-2026-12017974" target="_blank" rel="noopener">The Bear Season 5 Finale June 25</a></strong>
+      <span class="sub">The fifth and final season of The Bear premieres on Disney+ June 25, concluding the Emmy-winning culinary drama series.</span>
+      <span class="note">Newsweek · Jun 2026</span>
+      <div class="readmore"><a href="https://www.newsweek.com/entertainment/tv/new-on-disney-june-2026-12017974" target="_blank" rel="noopener">Read more at Newsweek →</a></div>
+    </div>
+    <div class="card card-lime">
+      <strong><a href="https://press.disneyplus.com/news/next-on-disney-plus-june-2026" target="_blank" rel="noopener">Behind the Attraction Season 3 Premiere</a></strong>
+      <span class="sub">Behind the Attraction Season 3 debuts on Disney+, featuring a special two-episode series about Disney Cruise Line in addition to looking behind Disney Parks' most iconic attractions.</span>
+      <span class="note">Disney+ Press · Jun 2026</span>
+      <div class="readmore"><a href="https://press.disneyplus.com/news/next-on-disney-plus-june-2026" target="_blank" rel="noopener">Read more at Disney+ Press →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Deals & Discounts -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Deals & Discounts</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-yellow">
+      <strong><a href="https://disneyworld.disney.go.com/special-offers/summer-2026-disney-plus-room-offer/" target="_blank" rel="noopener">Disney+ Perks Summer Room Offer</a></strong>
+      <span class="sub">Disney+ subscribers get special rates on select rooms at Walt Disney World resorts starting at $99/night for 2+ night stays, valid June 21–August 15, 2026.</span>
+      <span class="note">Disney World · Jun 2026</span>
+      <div class="readmore"><a href="https://disneyworld.disney.go.com/special-offers/summer-2026-disney-plus-room-offer/" target="_blank" rel="noopener">Read more at Disney World →</a></div>
+    </div>
+    <div class="card card-orange">
+      <strong><a href="https://disneyworld.disney.go.com/special-offers/early-summer-2026-room-offer/" target="_blank" rel="noopener">Stay Longer & Save More Discount</a></strong>
+      <span class="sub">Up to 30% off room-only discounts at select WDW resorts for stays May 1–October 4, 2026. Up to 30% for 5+ nights; up to 25% for 1-4 nights.</span>
+      <span class="note">Disney World · Jun 2026</span>
+      <div class="readmore"><a href="https://disneyworld.disney.go.com/special-offers/early-summer-2026-room-offer/" target="_blank" rel="noopener">Read more at Disney World →</a></div>
+    </div>
+    <div class="card card-lime">
+      <strong><a href="https://disneyrewards.com/offers/" target="_blank" rel="noopener">Disney Visa Cardmember Offers</a></strong>
+      <span class="sub">Cardmembers save on Disneyland Resort Hotels (up to 25% on premium rooms) through September 7. Save up to 35% on AULANI Resort stays through June 12. $350 discount per person on select Adventures by Disney departures.</span>
+      <span class="note">Disney Rewards · Jun 2026</span>
+      <div class="readmore"><a href="https://disneyrewards.com/offers/" target="_blank" rel="noopener">Read more at Disney Rewards →</a></div>
+    </div>
+    <div class="card card-yellow">
+      <strong><a href="https://disneyland.disney.go.com/offers-discounts/summer-2026-room-offer/" target="_blank" rel="noopener">Disneyland Summer Room Discounts</a></strong>
+      <span class="sub">Save up to 25% on Disneyland Resort Hotels for 4+ night stays through September 7 (booking deadline August 25). Sun–Thu rates available with up to 20% discount.</span>
+      <span class="note">Disneyland · Jun 2026</span>
+      <div class="readmore"><a href="https://disneyland.disney.go.com/offers-discounts/summer-2026-room-offer/" target="_blank" rel="noopener">Read more at Disneyland →</a></div>
+    </div>
+    <div class="card card-orange">
+      <strong><a href="https://www.disneytouristblog.com/good-disney-gift-card-deals-january-2026/" target="_blank" rel="noopener">Disney Gift Card Warehouse Discounts</a></strong>
+      <span class="sub">Sam's Club regularly offers $500 Disney eGift cards for $479.99–$484.98. Target gives 5% off all gift card denominations with Circle Card. Costco occasionally stocks $500 bundles at $474.99.</span>
+      <span class="note">Disney Tourist Blog · Jun 2026</span>
+      <div class="readmore"><a href="https://www.disneytouristblog.com/good-disney-gift-card-deals-january-2026/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></div>
+    </div>
+    <div class="card card-lime">
+      <strong><a href="https://www.disneytouristblog.com/free-dining-june-december-2026-disney-world/" target="_blank" rel="noopener">Free Dining for Kids 2026</a></strong>
+      <span class="sub">Free Disney Dining for children ages 3–9 is available throughout 2026 when staying at Disney World resorts and purchasing a dining plan for other party members.</span>
+      <span class="note">Disney Tourist Blog · Jun 2026</span>
+      <div class="readmore"><a href="https://www.disneytouristblog.com/free-dining-june-december-2026-disney-world/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- YouTube & Community -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">YouTube & Community</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-cyan">
+      <strong><a href="https://www.youtube.com/c/DFBGuide/videos" target="_blank" rel="noopener">DFB Guide Latest Videos</a></strong>
+      <span class="sub">DFB Guide continues their weekly Disney news roundups, most recently covering Rock 'n' Roller Coaster, new Millennium Falcon scenes, and park openings throughout late May and June.</span>
+      <span class="note">YouTube · DFB Guide</span>
+      <div class="readmore"><a href="https://www.youtube.com/c/DFBGuide/videos" target="_blank" rel="noopener">Watch on YouTube →</a></div>
+    </div>
+    <div class="card card-blue">
+      <strong><a href="https://www.youtube.com/AllEarsNet" target="_blank" rel="noopener">AllEars.Net Latest Uploads</a></strong>
+      <span class="sub">AllEars posted about Disney World opening 7 new things in one day, Disney+ June releases, and behind-the-scenes content on the new Monsters, Inc. land construction.</span>
+      <span class="note">YouTube · AllEars.Net</span>
+      <div class="readmore"><a href="https://www.youtube.com/AllEarsNet" target="_blank" rel="noopener">Watch on YouTube →</a></div>
+    </div>
+    <div class="card card-purple">
+      <strong><a href="https://www.youtube.com/c/DVCFan" target="_blank" rel="noopener">DVC Fan Channel</a></strong>
+      <span class="sub">DVC Fan produces weekly videos and live shows about Disney Vacation Club news, reviews, and trends. The DVC Show discusses resorts, member benefits, and market updates.</span>
+      <span class="note">YouTube · DVC Fan</span>
+      <div class="readmore"><a href="https://www.youtube.com/c/DVCFan" target="_blank" rel="noopener">Watch on YouTube →</a></div>
+    </div>
+    <div class="card card-cyan">
+      <strong><a href="https://www.youtube.com/c/TimTrackerOfficial" target="_blank" rel="noopener">Tim Tracker Disney Coverage</a></strong>
+      <span class="sub">Tim Tracker provides in-depth looks at Walt Disney World park tours, attractions, and day-in-the-life videos, with recent content covering June 2026 park visits in 4K.</span>
+      <span class="note">YouTube · Tim Tracker</span>
+      <div class="readmore"><a href="https://www.youtube.com/c/TimTrackerOfficial" target="_blank" rel="noopener">Watch on YouTube →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Upcoming Events -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Upcoming Events</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-green">
+      <strong><a href="https://disneyworld.disney.go.com/calendars/" target="_blank" rel="noopener">Disney After Hours Continues Through July</a></strong>
+      <span class="sub">Disney After Hours at Magic Kingdom runs select nights through July 27, 2026, offering exclusive after-hours access to attractions and entertainment with shorter wait times.</span>
+      <span class="note">Disney World · Jun 2026</span>
+      <div class="readmore"><a href="https://disneyworld.disney.go.com/calendars/" target="_blank" rel="noopener">Read more at Disney World →</a></div>
+    </div>
+    <div class="card card-lime">
+      <strong><a href="https://www.undercovertourist.com/blog/guide-rundisney-events/" target="_blank" rel="noopener">runDisney Virtual Series Summer 2026</a></strong>
+      <span class="sub">The 2026 runDisney Virtual Series runs June 1–August 31, allowing participants to complete races virtually. No in-person runDisney events scheduled due to summer heat.</span>
+      <span class="note">Undercover Tourist · Jun 2026</span>
+      <div class="readmore"><a href="https://www.undercovertourist.com/blog/guide-rundisney-events/" target="_blank" rel="noopener">Read more at Undercover Tourist →</a></div>
+    </div>
+    <div class="card card-green">
+      <strong><a href="https://wdwprepschool.com/events-at-disney-world/" target="_blank" rel="noopener">Disney Starlight Night Parade Nightly</a></strong>
+      <span class="sub">Disney Starlight Night Parade debuts at Magic Kingdom and is being performed nightly in June, offering guests a newly reimagined nighttime parade experience.</span>
+      <span class="note">WDW Prep School · Jun 2026</span>
+      <div class="readmore"><a href="https://wdwprepschool.com/events-at-disney-world/" target="_blank" rel="noopener">Read more at WDW Prep School →</a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+Lisa's Hub · Last updated <span class="timestamp-badge">Tue, Jun 9 at 3:32 AM ET</span>
+<div class="footer-clock" id="footer-clock"></div>
+</footer>
+
+<script>
+function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
+updateClock();setInterval(updateClock,1000);
+</script>
+</body>
+</html>
