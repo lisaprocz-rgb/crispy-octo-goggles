@@ -1,492 +1,370 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Philly &amp; AC Concerts · Lisa's Hub</title>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&amp;family=Nunito:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philly & AC Concerts · Lisa's Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Nunito',sans-serif;min-height:100vh;color:#1f2440;
-  background:#fff8f0;
-  background-image:radial-gradient(#ffd23f 2px,transparent 2px),
-                   radial-gradient(#ff5c8a 2px,transparent 2px);
-  background-size:60px 60px;background-position:0 0,30px 30px}
+body{font-family:'Nunito',sans-serif;min-height:100vh;color:#1f2440;background:#fff8f0;background-image:radial-gradient(#ffd23f 2px,transparent 2px),radial-gradient(#ff5c8a 2px,transparent 2px);background-size:60px 60px;background-position:0 0,30px 30px}
 header{text-align:center;padding:2.6rem 1.5rem 1.8rem;position:relative}
-.hub-label{font-family:'Baloo 2';font-weight:700;font-size:.78rem;letter-spacing:.28em;
-  text-transform:uppercase;color:#ff5c8a;margin-bottom:.6rem}
+.hub-label{font-family:'Baloo 2';font-weight:700;font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:#ff5c8a;margin-bottom:.6rem}
 .hub-label a{color:#ff5c8a;text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:2px}
 .hub-label a:hover{color:#1f2440;border-bottom-color:#1f2440}
-h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;color:#1f2440;
-  line-height:1;text-shadow:4px 4px 0 #a78bfa}
+h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;color:#1f2440;line-height:1;text-shadow:4px 4px 0 #a78bfa}
 .subtitle{font-size:.95rem;margin-top:.75rem;color:#6b6f8c;font-weight:700}
-.gold-line{width:120px;height:8px;margin:1.1rem auto 0;border-radius:8px;
-  background:repeating-linear-gradient(90deg,#ff5c8a 0 16px,#3ec6e0 16px 32px,#ffd23f 32px 48px)}
-.live-clock{margin-top:1.1rem;display:inline-block;background:#1f2440;color:#fff;
-  padding:.5rem 1.3rem;border-radius:14px;font-family:'Baloo 2';font-weight:600;
-  font-size:.92rem;box-shadow:4px 4px 0 #ff5c8a}
+.gold-line{width:120px;height:8px;margin:1.1rem auto 0;border-radius:8px;background:repeating-linear-gradient(90deg,#ff5c8a 0 16px,#3ec6e0 16px 32px,#ffd23f 32px 48px)}
+.live-clock{margin-top:1.1rem;display:inline-block;background:#1f2440;color:#fff;padding:.5rem 1.3rem;border-radius:14px;font-family:'Baloo 2';font-weight:600;font-size:.92rem;box-shadow:4px 4px 0 #ff5c8a}
 .live-clock .clock-date{color:#ffd23f}.live-clock .clock-time{color:#fff}
 main{max-width:1080px;margin:0 auto;padding:1rem 1.4rem 4rem}
 .section-divider{display:flex;align-items:center;gap:.9rem;margin:2.4rem 0 1.2rem}
-section:first-of-type .section-divider, .section-group:first-child .section-divider{margin-top:.4rem}
-.divider-accent{width:22px;height:22px;background:#ffd23f;border:3px solid #1f2440;
-  border-radius:6px;transform:rotate(45deg);flex-shrink:0}
-.divider-label{font-family:'Baloo 2';font-size:1.4rem;font-weight:800;color:#1f2440;
-  background:#fff;padding:.1rem .9rem;border:3px solid #1f2440;border-radius:14px;
-  box-shadow:3px 3px 0 #3ec6e0}
+section:first-of-type .section-divider{margin-top:.4rem}
+.divider-accent{width:22px;height:22px;background:#ffd23f;border:3px solid #1f2440;border-radius:6px;transform:rotate(45deg);flex-shrink:0}
+.divider-label{font-family:'Baloo 2';font-size:1.4rem;font-weight:800;color:#1f2440;background:#fff;padding:.1rem .9rem;border:3px solid #1f2440;border-radius:14px;box-shadow:3px 3px 0 #3ec6e0}
 .divider-line{flex:1;height:4px;border-radius:4px;background:#1f2440;opacity:.15}
-.sub-label{font-family:'Baloo 2';font-weight:700;font-size:.95rem;color:#1f2440;
-  margin:1.2rem 0 .6rem;text-transform:uppercase;letter-spacing:.06em}
-.card{position:relative;display:block;background:#fff;color:#1f2440;text-decoration:none;
-  border:3px solid #1f2440;border-radius:18px;padding:1.2rem 1.4rem;
-  box-shadow:6px 6px 0 var(--accent,#ff5c8a);margin-bottom:1rem;
-  transition:transform .16s ease,box-shadow .16s ease}
+.card{display:block;background:#fff;color:#1f2440;border:3px solid #1f2440;border-radius:18px;padding:1.2rem 1.4rem;box-shadow:6px 6px 0 var(--accent,#ff5c8a);margin-bottom:1rem;transition:transform .16s ease,box-shadow .16s ease}
 .card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--accent,#ff5c8a)}
-.card strong, .card .card-title{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;
-  display:block;margin-bottom:.3rem;color:#1f2440}
+.card strong{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;display:block;margin-bottom:.3rem;color:#1f2440}
 .card .sub{display:block;color:#6b6f8c;font-size:.86rem;font-weight:600;line-height:1.5;margin-top:.15rem}
-.card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
-  background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
-  border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
-.card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
-.card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
-.card-green{--accent:#3dd6b5}.card-lime{--accent:#7bd957}.card-orange{--accent:#ffb84d}
-.card-lblue{--accent:#4fc3f7}.card-sopink{--accent:#ff8fc7}.card-lavender{--accent:#b79cff}
-.back-to-hub{display:inline-block;font-family:'Baloo 2';font-size:.85rem;font-weight:700;
-  background:#fff;color:#1f2440;text-decoration:none;padding:.45rem 1.1rem;border-radius:999px;
-  border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem;
-  transition:transform .16s ease,box-shadow .16s ease}
-.back-to-hub:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #ffd23f}
-table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;
-  border:3px solid #1f2440;border-radius:14px;overflow:hidden;margin:.8rem 0 1.4rem;
-  font-size:.9rem}
-th{background:#1f2440;color:#fff;font-family:'Baloo 2';font-weight:700;text-align:left;
-  padding:.55rem .85rem;font-size:.85rem;letter-spacing:.03em}
-td{padding:.5rem .85rem;border-top:2px dotted #e6e2d8;font-weight:600}
-tr:first-child td{border-top:none}
-ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
-li{margin-bottom:.25rem}
-p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
-a:not(.card):not(.back-to-hub):not(.hub-label a){color:#1f2440;font-weight:700;
-  text-decoration:underline;text-decoration-color:#a78bfa;text-underline-offset:2px;padding-bottom:1px}
-a:not(.card):not(.back-to-hub):not(.hub-label a):hover{color:#a78bfa}
-.callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
-  box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
-.callout strong{font-family:'Baloo 2'}
+.card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}.card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}.card-green{--accent:#3dd6b5}.card-lime{--accent:#7bd957}.card-orange{--accent:#ffb84d}.card-lblue{--accent:#4fc3f7}.card-sopink{--accent:#ff8fc7}.card-lavender{--accent:#b79cff}
 footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
 .footer-clock{margin-top:.4rem;color:#ff5c8a}
-.timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
-  font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
-@media (max-width:600px){
-  h1{font-size:2.4rem}
-  main{padding:1rem .9rem 3rem}
-  .card{padding:1rem 1.1rem}
-}
+.timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
+@media (max-width:600px){h1{font-size:2.4rem}main{padding:1rem .9rem 3rem}.card{padding:1rem 1.1rem}}
 </style>
 </head>
 <body>
 <header>
-<div class="hub-label"><a href="index.html">← Lisa's Hub</a></div>
-<h1>🎵 Philly &amp; AC Concerts</h1>
-<div class="subtitle">Upcoming shows at Philadelphia, Atlantic City &amp; NYC venues</div>
+<div class="hub-label"><a href="index.html">&larr; Lisa's Hub</a></div>
+<h1>Music Philly & AC Concerts</h1>
+<div class="subtitle">Upcoming shows at Philadelphia, Atlantic City & NYC venues</div>
 <div class="gold-line"></div>
 <div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
 </header>
 <main>
-<a class="back-to-hub" href="index.html">← Back to Lisa's Hub</a>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Xfinity Mobile Arena (Philadelphia)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-pink" data-star="true"><strong>Bruce Springsteen &amp; The E Street Band</strong><span class="note">⭐ tracked</span><span class="sub">Sat, May 30, 2026</span></div>
-<div class="card card-blue"><strong>Josh Groban</strong><span class="sub">Sun, Jun 7, 2026</span></div>
-<div class="card card-cyan"><strong>Lionel Richie &amp; Earth, Wind &amp; Fire</strong><span class="sub">Thu, Jul 16, 2026</span></div>
-<div class="card card-purple"><strong>ZAYN</strong><span class="sub">Sun, Jul 19, 2026 · ❌ Canceled</span></div>
-
-<div class="card card-green"><strong>Rush</strong><span class="sub">Fri, Aug 21, 2026</span></div>
-<div class="card card-orange"><strong>Rush</strong><span class="sub">Sun, Aug 23, 2026</span></div>
-<div class="card card-yellow"><strong>Kacey Musgraves</strong><span class="sub">Fri, Sep 4, 2026</span></div>
-<div class="card card-lime"><strong>Lily Allen</strong><span class="sub">Sun, Sep 6, 2026</span></div>
-<div class="card card-lblue"><strong>Weezer</strong><span class="sub">Tue, Sep 29, 2026 · w/ The Shins, Silversun Pickups</span></div>
-<div class="card card-sopink"><strong>Teddy Swims</strong><span class="sub">Sat, Oct 10, 2026</span></div>
-
-<div class="card card-pink"><strong>Olivia Rodrigo</strong><span class="sub">Sat, Nov 7, 2026 · w/ Devon Again</span></div>
-<div class="card card-blue"><strong>Olivia Rodrigo</strong><span class="sub">Sun, Nov 8, 2026 · w/ Devon Again</span></div>
-<div class="card card-cyan"><strong>Disney's Descendants/ZOMBIES: Worlds Collide Tour</strong><span class="sub">Fri, Nov 13, 2026</span></div>
-<div class="card card-purple"><strong>Andrea Bocelli</strong><span class="sub">Tue, Dec 22, 2026</span></div>
-
-
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Academy of Music</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-purple"><strong>The Outsiders</strong><span class="sub">Jun 2-7, 2026<br/>Multiple</span></div>
+    <div class="card card-pink"><strong>Notebook Musical</strong><span class="sub">Jul 21-Aug 2, 2026<br/>Musical</span></div>
+    <div class="card card-cyan"><strong>Josh Johnson</strong><span class="sub">Nov 6-7, 2026<br/>Comedy</span></div>
+    <div class="card card-magenta"><strong>Harry Potter</strong><span class="sub">2026-27<br/>Stage</span></div>
+    <div class="card card-blue"><strong>Phantom Opera</strong><span class="sub">2026-27<br/>Classic</span></div>
+    <div class="card card-green"><strong>Rock of Ages</strong><span class="sub">2026-27<br/>Musical</span></div>
+    <div class="card card-lime"><strong>Dear Evan Hansen</strong><span class="sub">2026-27<br/>Musical</span></div>
+    <div class="card card-orange"><strong>Mean Girls</strong><span class="sub">2026-27<br/>Musical</span></div>
+    <div class="card card-lblue"><strong>MJ the Musical</strong><span class="sub">2026-27<br/>Musical</span></div>
+  </div>
 </section>
+
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Lincoln Financial Field (Philadelphia)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-pink"><strong>Foo Fighters — Take Cover Tour</strong><span class="sub">Thu, Aug 13, 2026</span></div>
-<div class="card card-blue"><strong>Bruno Mars — The Romantic Tour</strong><span class="sub">Tue, Sep 1, 2026</span></div>
-<div class="card card-cyan"><strong>Bruno Mars — The Romantic Tour</strong><span class="sub">Wed, Sep 2, 2026</span></div>
-<div class="card card-purple"><strong>Ed Sheeran — LOOP Tour</strong><span class="sub">Sat, Sep 19, 2026 · w/ Macklemore, Lukas Graham, Aaron Rowe</span></div>
-<div class="card card-magenta"><strong>AC/DC — Power Up Tour</strong><span class="sub">Tue, Sep 29, 2026 · w/ The Pretty Reckless</span></div>
-<div class="card card-green"><strong>FIFA World Cup 26 — Group E</strong><span class="sub">Cote d'Ivoire vs. Ecuador</span></div>
-<div class="card card-orange"><strong>FIFA World Cup 26 — Group C</strong><span class="sub">Brazil vs. Haiti</span></div>
-<div class="card card-yellow"><strong>FIFA World Cup 26 — Group I</strong><span class="sub">France vs. Iraq</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Kimmel Center - Miller Theater</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-sopink"><strong>Phil Orchestra</strong><span class="sub">Jun 17-20, 2026<br/>Classical</span></div>
+    <div class="card card-lavender"><strong>Simon Rattle</strong><span class="sub">Jan 2027<br/>Conducting</span></div>
+    <div class="card card-purple"><strong>Spotlight Recitals</strong><span class="sub">2026-27<br/>Guest artists</span></div>
+    <div class="card card-pink"><strong>Star Wars Live</strong><span class="sub">2026-27<br/>Screen</span></div>
+    <div class="card card-cyan"><strong>Harry Potter Screen</strong><span class="sub">2026-27<br/>Film music</span></div>
+    <div class="card card-magenta"><strong>Brahms Symphony</strong><span class="sub">2026-27<br/>Classical</span></div>
+    <div class="card card-blue"><strong>Beethoven Sonatas</strong><span class="sub">2026-27<br/>Piano</span></div>
+    <div class="card card-green"><strong>Bach Cantatas</strong><span class="sub">2026-27<br/>Choral</span></div>
+  </div>
 </section>
+
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Citizens Bank Park (Philadelphia)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-pink"><strong>Nelly — Postgame Concert</strong><span class="sub">Wed, Jul 22, 2026 · after Phillies vs. Red Sox</span></div>
-
-
-
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Kimmel Center - Marian Anderson Hall</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-lime"><strong>Ensemble Arts</strong><span class="sub">2026-27<br/>Classical</span></div>
+    <div class="card card-orange"><strong>Chamber Orchestra</strong><span class="sub">2026-27<br/>Chamber</span></div>
+    <div class="card card-lblue"><strong>Vocal Recitals</strong><span class="sub">2026-27<br/>Various</span></div>
+    <div class="card card-sopink"><strong>Itzhak Perlman</strong><span class="sub">2026-27<br/>Violin</span></div>
+    <div class="card card-lavender"><strong>Emanuel Ax</strong><span class="sub">2026-27<br/>Piano</span></div>
+    <div class="card card-purple"><strong>Yo-Yo Ma</strong><span class="sub">2026-27<br/>Cello</span></div>
+    <div class="card card-pink"><strong>Yuja Wang</strong><span class="sub">2026-27<br/>Piano</span></div>
+    <div class="card card-cyan"><strong>Tabea Zimmermann</strong><span class="sub">2026-27<br/>Viola</span></div>
+  </div>
 </section>
+
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Academy of Music at the Kimmel Center (Philadelphia)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-pink"><strong>The Outsiders</strong><span class="sub">May 26 – Jun 7, 2026 · National tour · 2024 Tony Best Musical</span></div>
-<div class="card card-blue"><strong>The Notebook</strong><span class="sub">Jul 21 – Aug 2, 2026 · National tour musical</span></div>
-<div class="card card-cyan"><strong>Mamma Mia!</strong><span class="sub">Sep 29 – Oct 4, 2026 · 25th Anniversary tour</span></div>
-<div class="card card-purple"><strong>The Great Gatsby</strong><span class="sub">Oct 21 – Nov 1, 2026 · National tour musical</span></div>
-<div class="card card-magenta"><strong>Hell's Kitchen</strong><span class="sub">Jan 9 – 16, 2027 · Alicia Keys musical · national tour</span></div>
-<div class="card card-green"><strong>The Phantom of the Opera</strong><span class="sub">Jun 9 – 20, 2027 · National tour</span></div>
-<div class="card card-orange"><strong>Six</strong><span class="sub">Apr 2027 · National tour musical</span></div>
-<div class="card card-yellow"><strong>An Enemy of the People</strong><span class="sub">Spring 2027 · National tour</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">The Met Philadelphia</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-magenta"><strong>Audrey Hobert</strong><span class="sub">Jun 10, 2026<br/>Staircase</span></div>
+    <div class="card card-blue"><strong>CA7RIEL</strong><span class="sub">Jun 16, 2026<br/>FREE SPIRITS</span></div>
+    <div class="card card-green"><strong>Charley Crockett</strong><span class="sub">Jun 22, 2026<br/>Age Ram</span></div>
+    <div class="card card-lime"><strong>Human League</strong><span class="sub">Jun 28, 2026<br/>80s</span></div>
+    <div class="card card-orange"><strong>Kany Garcia</strong><span class="sub">Sep 27, 2026<br/>Puerta</span></div>
+    <div class="card card-lblue"><strong>Outlander Concert</strong><span class="sub">Sep 29, 2026<br/>Live</span></div>
+    <div class="card card-sopink"><strong>Lily Allen</strong><span class="sub">2026-27<br/>Pop</span></div>
+    <div class="card card-lavender"><strong>Waxahatchee</strong><span class="sub">2026-27<br/>Folk</span></div>
+    <div class="card card-purple"><strong>Raye</strong><span class="sub">2026-27<br/>RB</span></div>
+    <div class="card card-pink"><strong>Boygenius</strong><span class="sub">2026-27<br/>Rock</span></div>
+    <div class="card card-cyan"><strong>Soccer Mommy</strong><span class="sub">2026-27<br/>Indie</span></div>
+    <div class="card card-magenta"><strong>Angel Olsen</strong><span class="sub">2026-27<br/>Folk</span></div>
+    <div class="card card-blue"><strong>Weyes Blood</strong><span class="sub">2026-27<br/>Art-pop</span></div>
+    <div class="card card-green"><strong>Japanese Breakfast</strong><span class="sub">2026-27<br/>Indie</span></div>
+    <div class="card card-lime"><strong>30+ More</strong><span class="sub">2026-27<br/>Full</span></div>
+  </div>
 </section>
+
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Marian Anderson Hall at the Kimmel Center (Philadelphia)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-pink"><strong>The Jazz at Lincoln Center Orchestra</strong><span class="sub">Tue, May 26, 2026 · with Wynton Marsalis</span></div>
-
-<div class="card card-cyan"><strong>Harry Potter &amp; the Prisoner of Azkaban in Concert</strong><span class="sub">Oct 16 – 18, 2026</span></div>
-<div class="card card-purple"><strong>Star Wars: A New Hope in Concert</strong><span class="sub">Thu, Jan 21, 2027</span></div>
-
-<div class="card card-green"><strong>Itzhak Perlman</strong><span class="sub">Sun, May 2, 2027</span></div>
-<div class="card card-orange"><strong>Time for Three</strong><span class="sub">2026–2027 Season</span></div>
-
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Xfinity Mobile Arena</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-orange"><strong>A$AP Rocky</strong><span class="sub">Jun 4, 2026<br/>Tour</span></div>
+    <div class="card card-lblue"><strong>Noah Kahan</strong><span class="sub">Jun 26, 2026<br/>Divide</span></div>
+    <div class="card card-sopink"><strong>The Strokes</strong><span class="sub">Jun 26, 2026<br/>Awaits</span></div>
+    <div class="card card-lavender"><strong>Jack Johnson</strong><span class="sub">Jun 27, 2026<br/>SURFI</span></div>
+    <div class="card card-purple"><strong>Morgan Wallen</strong><span class="sub">Jul 31, 2026<br/>Problem</span></div>
+    <div class="card card-pink"><strong>Sarah McLachlan</strong><span class="sub">Jul 7, 2026<br/>Broken</span></div>
+    <div class="card card-cyan"><strong>Bruce Springsteen</strong><span class="sub">2026-27<br/>Tour</span></div>
+    <div class="card card-magenta"><strong>Don Toliver</strong><span class="sub">2026-27<br/>Hip-hop</span></div>
+    <div class="card card-blue"><strong>Florence</strong><span class="sub">2026-27<br/>Rock</span></div>
+    <div class="card card-green"><strong>Demi Lovato</strong><span class="sub">2026-27<br/>Pop</span></div>
+    <div class="card card-lime"><strong>Summer Walker</strong><span class="sub">2026-27<br/>RB</span></div>
+    <div class="card card-orange"><strong>Andrea Bocelli</strong><span class="sub">2026-27<br/>Opera</span></div>
+    <div class="card card-lblue"><strong>NCAA Games</strong><span class="sub">Mar 2027<br/>Basketball</span></div>
+    <div class="card card-sopink"><strong>Post Malone</strong><span class="sub">2026-27<br/>Hip-pop</span></div>
+    <div class="card card-lavender"><strong>The Weeknd</strong><span class="sub">2026-27<br/>RnB</span></div>
+    <div class="card card-purple"><strong>Halsey</strong><span class="sub">2026-27<br/>Pop</span></div>
+    <div class="card card-pink"><strong>50+ More</strong><span class="sub">2026-27<br/>Events</span></div>
+  </div>
 </section>
+
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Miller Theater at the Kimmel Center (Philadelphia)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-pink"><strong>Comedy Bang! Bang! Live</strong><span class="sub">Thu, Jun 25, 2026 · Scott Aukerman &amp; Paul F. Tompkins</span></div>
-
-<div class="card card-cyan"><strong>Brad Williams</strong><span class="sub">Fri, Sep 18, 2026</span></div>
-
-
-<div class="card card-cyan"><strong>STOMP</strong><span class="sub">Dec 28, 2026 – Jan 3, 2027 · Percussion sensation</span></div>
-<div class="card card-green"><strong>Riverdance 30 — The New Generation</strong><span class="sub">Mar 4 – 7, 2027 · 30th Anniversary tour</span></div>
-<div class="card card-green"><strong>Oh, Mary!</strong><span class="sub">Mar 9 – 14, 2027 · Cole Escola's Tony-winning comedy · national tour</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">TD Pavilion at Highmark Mann</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-cyan"><strong>Hovvdy</strong><span class="sub">Jun 13, 2026<br/>Folk</span></div>
+    <div class="card card-magenta"><strong>Phil Orchestra</strong><span class="sub">Jun 17-20, 2026<br/>Classical</span></div>
+    <div class="card card-blue"><strong>Thundercat</strong><span class="sub">Jun 26, 2026<br/>Funk</span></div>
+    <div class="card card-green"><strong>Hermanos</strong><span class="sub">Jun 27, 2026<br/>Latin</span></div>
+    <div class="card card-lime"><strong>Allison Russell</strong><span class="sub">Jul 7, 2026<br/>Americana</span></div>
+    <div class="card card-orange"><strong>Paul Simon</strong><span class="sub">Jul 5, 2026<br/>Rock</span></div>
+    <div class="card card-lblue"><strong>Sarah M</strong><span class="sub">Jul 7, 2026<br/>Contemporary</span></div>
+    <div class="card card-sopink"><strong>Bob Dylan</strong><span class="sub">Jul 14, 2026<br/>Icon</span></div>
+    <div class="card card-lavender"><strong>Death Cab</strong><span class="sub">Jul 17, 2026<br/>Indie</span></div>
+    <div class="card card-purple"><strong>Ravi Coltrane</strong><span class="sub">Jul 22, 2026<br/>Jazz</span></div>
+    <div class="card card-pink"><strong>O.A.R.</strong><span class="sub">Jul 25, 2026<br/>Rock</span></div>
+    <div class="card card-cyan"><strong>Toto</strong><span class="sub">Jul 26, 2026<br/>80s</span></div>
+    <div class="card card-magenta"><strong>Red Clay Strays</strong><span class="sub">Aug 7, 2026<br/>Americana</span></div>
+    <div class="card card-blue"><strong>Jerry Garcia</strong><span class="sub">2026-27<br/>Tribute</span></div>
+    <div class="card card-green"><strong>Coltrane Tribute</strong><span class="sub">2026-27<br/>Jazz</span></div>
+    <div class="card card-lime"><strong>Jason Isbell</strong><span class="sub">2026-27<br/>Americana</span></div>
+    <div class="card card-orange"><strong>Sturgill Simpson</strong><span class="sub">2026-27<br/>Country</span></div>
+  </div>
 </section>
+
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">The Met Philadelphia (Philadelphia)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-
-<div class="card card-blue"><strong>The Human League, Soft Cell &amp; Alison Moyet</strong><span class="sub">Sun, Jun 28, 2026</span></div>
-<div class="card card-cyan"><strong>Rick Ross</strong><span class="sub">Sat, Jul 11, 2026</span></div>
-
-<div class="card card-magenta"><strong>Tori Amos</strong><span class="sub">Sat, Aug 1, 2026 · w/ Bartees Strange</span></div>
-<div class="card card-green"><strong>Descendents</strong><span class="sub">Tue, Sep 8, 2026</span></div>
-<div class="card card-orange"><strong>Ray LaMontagne</strong><span class="sub">Sat, Sep 12, 2026 · w/ The Weather Station</span></div>
-<div class="card card-yellow"><strong>Chelsea Handler</strong><span class="sub">Sat, Sep 26, 2026</span></div>
-
-<div class="card card-lblue"><strong>Beck</strong><span class="sub">Sun, Oct 18, 2026</span></div>
-<div class="card card-sopink"><strong>Lily Allen</strong><span class="sub">2026 · Upcoming show</span></div>
-<div class="card card-lavender"><strong>Waxahatchee</strong><span class="sub">2026 · Upcoming show</span></div>
-
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Skyline Stage at Highmark Mann</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-lblue"><strong>Khalid</strong><span class="sub">Jun 7, 2026<br/>Summer</span></div>
+    <div class="card card-sopink"><strong>Amyl</strong><span class="sub">Jun 8, 2026<br/>Punk</span></div>
+    <div class="card card-lavender"><strong>Young Giant</strong><span class="sub">Jun 14, 2026<br/>Victory</span></div>
+    <div class="card card-purple"><strong>Jimmy Eat</strong><span class="sub">Jun 19, 2026<br/>Emo</span></div>
+    <div class="card card-pink"><strong>Deftones</strong><span class="sub">2026-27<br/>Metal</span></div>
+    <div class="card card-cyan"><strong>Alt-J</strong><span class="sub">2026-27<br/>Experimental</span></div>
+    <div class="card card-magenta"><strong>The National</strong><span class="sub">2026-27<br/>Indie</span></div>
+    <div class="card card-blue"><strong>Modest Mouse</strong><span class="sub">2026-27<br/>Rock</span></div>
+  </div>
 </section>
+
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">The Fillmore Philadelphia (Philadelphia)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-pink"><strong>Ben Folds</strong><span class="sub">Sun, May 31, 2026</span></div>
-
-
-<div class="card card-purple"><strong>Jack Harlow</strong><span class="sub">Sat, Aug 15, 2026</span></div>
-
-
-
-<div class="card card-yellow"><strong>Em Beihold</strong><span class="sub">2026–2027</span></div>
-
-
-
-<div class="card card-lavender"><strong>Conway the Machine</strong><span class="sub">Jun 2026</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Freedom Mortgage Pavilion</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-green"><strong>MMRBQ</strong><span class="sub">May 9, 2026<br/>Rock</span></div>
+    <div class="card card-lime"><strong>Kid Cudi</strong><span class="sub">Jun 2, 2026<br/>Hip</span></div>
+    <div class="card card-orange"><strong>Evanescence</strong><span class="sub">Jun 20, 2026<br/>Metal</span></div>
+    <div class="card card-lblue"><strong>Tim McGraw</strong><span class="sub">Jul 23, 2026<br/>Country</span></div>
+    <div class="card card-sopink"><strong>Motley</strong><span class="sub">Jul 27, 2026<br/>Hair</span></div>
+    <div class="card card-lavender"><strong>Kehlani</strong><span class="sub">Aug 26, 2026<br/>RnB</span></div>
+    <div class="card card-purple"><strong>Gorillaz</strong><span class="sub">Oct 31, 2026<br/>Alt</span></div>
+    <div class="card card-pink"><strong>Alice Cooper</strong><span class="sub">2026-27<br/>Rock</span></div>
+    <div class="card card-cyan"><strong>Godsmack</strong><span class="sub">2026-27<br/>Heavy</span></div>
+    <div class="card card-magenta"><strong>April Wine</strong><span class="sub">2026-27<br/>Classic</span></div>
+    <div class="card card-blue"><strong>Slipknot</strong><span class="sub">2026-27<br/>Metal</span></div>
+    <div class="card card-green"><strong>Lamb of God</strong><span class="sub">2026-27<br/>Metal</span></div>
+    <div class="card card-lime"><strong>Machine Head</strong><span class="sub">2026-27<br/>Metal</span></div>
+  </div>
 </section>
+
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">TD Pavilion at Highmark Mann (Philadelphia)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-pink"><strong>The Strokes</strong><span class="sub">Fri, Jun 26, 2026</span></div>
-<div class="card card-blue"><strong>Paul Simon</strong><span class="sub">Sun, Jul 5, 2026</span></div>
-<div class="card card-cyan"><strong>Sarah McLachlan</strong><span class="sub">Tue, Jul 7, 2026 · w/ Allison Russell</span></div>
-<div class="card card-blue"><strong>Bob Dylan</strong><span class="sub">Tue, Jul 14, 2026 · Outlaw Music tour</span></div>
-<div class="card card-purple"><strong>Disney in Concert</strong><span class="sub">Fri, Jul 24, 2026 · w/ The Philadelphia Orchestra</span></div>
-<div class="card card-magenta"><strong>Toto, Christopher Cross &amp; The Romantics</strong><span class="sub">Sun, Jul 26, 2026</span></div>
-<div class="card card-green"><strong>Hilary Duff</strong><span class="sub">Sun, Aug 9, 2026 · w/ La Roux, Jade LeMac</span></div>
-<div class="card card-orange"><strong>Jon Batiste</strong><span class="sub">Fri, Aug 14, 2026</span></div>
-<div class="card card-yellow"><strong>Marion Meadows &amp; Gerald Veasley</strong><span class="sub">Thu, Aug 20, 2026</span></div>
-<div class="card card-lime"><strong>Zac Brown Band</strong><span class="sub">Sat, Aug 29, 2026 · w/ Grace Potter</span></div>
-
-
-<div class="card card-lavender"><strong>Thundercat &amp; Hamilton Leithauser</strong><span class="sub">Fri, Jun 26, 2026</span></div>
-<div class="card card-pink"><strong>Hovvdy</strong><span class="sub">Jun 2026</span></div>
-<div class="card card-blue"><strong>Almost Monday</strong><span class="sub">Jun 2026</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Keswick Theatre</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-orange"><strong>Jim Jefferies</strong><span class="sub">2026-27<br/>Comedy</span></div>
+    <div class="card card-lblue"><strong>Robert Keen</strong><span class="sub">2026-27<br/>Country</span></div>
+    <div class="card card-sopink"><strong>Motown Band</strong><span class="sub">2026-27<br/>Tribute</span></div>
+    <div class="card card-lavender"><strong>High Kings</strong><span class="sub">2026-27<br/>Celtic</span></div>
+    <div class="card card-purple"><strong>Celtic Woman</strong><span class="sub">2026-27<br/>Celtic</span></div>
+    <div class="card card-pink"><strong>Gary Numan</strong><span class="sub">2026-27<br/>Synth</span></div>
+    <div class="card card-cyan"><strong>Country Folk</strong><span class="sub">2026-27<br/>35+ shows</span></div>
+    <div class="card card-magenta"><strong>Steve Earle</strong><span class="sub">2026-27<br/>Americana</span></div>
+    <div class="card card-blue"><strong>Mandolin Orange</strong><span class="sub">2026-27<br/>Bluegrass</span></div>
+    <div class="card card-green"><strong>Watchhouse</strong><span class="sub">2026-27<br/>Folk</span></div>
+    <div class="card card-lime"><strong>Folk Legends</strong><span class="sub">2026-27<br/>Series</span></div>
+  </div>
 </section>
-<section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Skyline Stage at Highmark Mann (Philadelphia)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-pink"><strong>Khalid</strong><span class="sub">Sun, Jun 7, 2026 · w/ Lauv</span></div>
-<div class="card card-blue"><strong>Louis Tomlinson</strong><span class="sub">Sat, Jul 11, 2026</span></div>
 
-<div class="card card-purple"><strong>THRICE &amp; Hey Mercedes</strong><span class="sub">Fri, Jun 19, 2026</span></div>
-<div class="card card-magenta"><strong>Hermanos Gutiérrez</strong><span class="sub">Jun 2026</span></div>
-<div class="card card-green"><strong>Jimmie Vaughan and The Tilt-A-Whirl Band</strong><span class="sub">Jun 2026 · w/ Brittney Spencer</span></div>
-<div class="card card-orange"><strong>The Beaches &amp; Picture Parlour</strong><span class="sub">Jun 2026</span></div>
-</div>
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">The Fillmore Philadelphia</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-orange"><strong>Poppy</strong><span class="sub">Jul 9, 2026<br/>Tour</span></div>
+    <div class="card card-lblue"><strong>Flyleaf</strong><span class="sub">Jul 11, 2026<br/>Anniversary</span></div>
+    <div class="card card-sopink"><strong>Em Beihold</strong><span class="sub">2026-27<br/>Alt</span></div>
+    <div class="card card-lavender"><strong>Ben Folds</strong><span class="sub">2026-27<br/>Piano</span></div>
+    <div class="card card-purple"><strong>Baby Keem</strong><span class="sub">2026-27<br/>Hip</span></div>
+    <div class="card card-pink"><strong>Indie Alt</strong><span class="sub">2026-27<br/>40+ shows</span></div>
+    <div class="card card-cyan"><strong>Snail Mail</strong><span class="sub">2026-27<br/>Indie</span></div>
+    <div class="card card-magenta"><strong>Mitski</strong><span class="sub">2026-27<br/>Art-pop</span></div>
+    <div class="card card-blue"><strong>Soccer Mommy</strong><span class="sub">2026-27<br/>Indie</span></div>
+  </div>
 </section>
+
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Freedom Mortgage Pavilion (Camden, NJ)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-pink"><strong>Triumph &amp; April Wine</strong><span class="sub">Thu, May 28, 2026</span></div>
-<div class="card card-blue"><strong>The Black Crowes &amp; Whiskey Myers</strong><span class="sub">Fri, Jun 12, 2026 · w/ Southall</span></div>
-<div class="card card-cyan"><strong>Evanescence</strong><span class="sub">Sat, Jun 20, 2026 · w/ Spiritbox, Nova Twins</span></div>
-<div class="card card-purple"><strong>Dave Matthews Band</strong><span class="sub">Fri, Jul 10, 2026</span></div>
-<div class="card card-magenta"><strong>Dave Matthews Band</strong><span class="sub">Sat, Jul 11, 2026</span></div>
-<div class="card card-green"><strong>The Pussycat Dolls</strong><span class="sub">Tue, Jul 14, 2026 · w/ Lil' Kim, Mya · ❌ Canceled</span></div>
-<div class="card card-orange"><strong>Styx</strong><span class="sub">Tue, Jul 21, 2026</span></div>
-<div class="card card-yellow"><strong>Tim McGraw</strong><span class="sub">Thu, Jul 23, 2026 · w/ 49 Winchester</span></div>
-<div class="card card-lime"><strong>Train</strong><span class="sub">Sun, Jul 26, 2026 · w/ Barenaked Ladies, Matt Nathanson</span></div>
-<div class="card card-lblue"><strong>WMGK Big Gig 2026</strong><span class="sub">Mon, Jul 27, 2026 · Mötley Crüe, Extreme, Tesla</span></div>
-<div class="card card-sopink"><strong>Muse</strong><span class="sub">Wed, Jul 29, 2026</span></div>
-<div class="card card-lavender"><strong>Bloc Party &amp; The Temper Trap</strong><span class="sub">Wed, Jul 29, 2026</span></div>
-<div class="card card-pink"><strong>Lynyrd Skynyrd &amp; Foreigner</strong><span class="sub">Thu, Aug 20, 2026 · w/ Six Gun Sally</span></div>
-<div class="card card-blue"><strong>Chris Stapleton</strong><span class="sub">Fri, Aug 28, 2026 · w/ Carter Faith</span></div>
-<div class="card card-cyan"><strong>Chris Stapleton</strong><span class="sub">Sat, Aug 29, 2026 · w/ Carter Faith</span></div>
-<div class="card card-purple"><strong>Lil Wayne &amp; 2 Chainz</strong><span class="sub">Fri, Sep 11, 2026</span></div>
-<div class="card card-magenta"><strong>TLC, Salt-N-Pepa &amp; En Vogue</strong><span class="sub">Sun, Sep 13, 2026</span></div>
-<div class="card card-green"><strong>Staind &amp; Seether</strong><span class="sub">Wed, Sep 16, 2026 · w/ Hoobastank, Hinder</span></div>
-
-
-
-<div class="card card-lblue"><strong>Godsmack</strong><span class="sub">2026</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Sound Waves Hard Rock</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-green"><strong>Billy Bob</strong><span class="sub">Aug 1, 2026<br/>Tour</span></div>
+    <div class="card card-lime"><strong>Jessica Kirson</strong><span class="sub">Aug 8, 2026<br/>Comedy</span></div>
+    <div class="card card-orange"><strong>Dogstar</strong><span class="sub">Aug 14, 2026<br/>Rock</span></div>
+    <div class="card card-lblue"><strong>Zarna Garg</strong><span class="sub">Sep 4, 2026<br/>Comedy</span></div>
+    <div class="card card-sopink"><strong>Jazz Fest</strong><span class="sub">Sep 11, 2026<br/>Jazz</span></div>
+  </div>
 </section>
+
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Keswick Theatre (Glenside, PA)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-
-<div class="card card-blue"><strong>Get The Led Out</strong><span class="sub">Fri, Jun 12, 2026</span></div>
-<div class="card card-cyan"><strong>Get The Led Out</strong><span class="sub">Sat, Jun 13, 2026</span></div>
-<div class="card card-purple"><strong>The Association — Happy Together Tour</strong><span class="sub">Sun, Jun 14, 2026 · w/ Jason Scheff, The Vogues, The Cowsills, Gary Puckett, The Fortunes, Ron Dante, The Troggs</span></div>
-<div class="card card-magenta"><strong>Dion</strong><span class="sub">Thu, Jun 18, 2026</span></div>
-<div class="card card-green"><strong>A Flock of Seagulls</strong><span class="sub">Fri, Jul 10, 2026 · I Love The 80's Festival · w/ Bow Wow Wow &amp; Animotion</span></div>
-<div class="card card-orange"><strong>Todd Rundgren</strong><span class="sub">Sat, Jul 11, 2026</span></div>
-<div class="card card-yellow"><strong>Todd Rundgren</strong><span class="sub">Sun, Jul 12, 2026</span></div>
-<div class="card card-lime"><strong>Tom Keifer (Cinderella's Tom Keifer)</strong><span class="sub">Thu, Jul 30, 2026 · w/ John Corabi</span></div>
-<div class="card card-lblue"><strong>Amy Grant</strong><span class="sub">Sat, Aug 1, 2026</span></div>
-<div class="card card-sopink"><strong>The Concert: A Tribute to ABBA</strong><span class="sub">Tue, Aug 4, 2026</span></div>
-<div class="card card-lavender"><strong>The Bad Animals &amp; Adrenalize</strong><span class="sub">Fri, Aug 28, 2026</span></div>
-<div class="card card-pink"><strong>Beatles vs Stones: A Musical Showdown</strong><span class="sub">Thu, Sep 10, 2026 · Abbey Road &amp; Satisfaction</span></div>
-
-
-<div class="card card-purple"><strong>Gladys Knight</strong><span class="sub">Wed, Oct 7, 2026</span></div>
-<div class="card card-magenta"><strong>Mushroomhead, Fear Factory &amp; Nine Treasures</strong><span class="sub">Tue, Oct 20, 2026</span></div>
-<div class="card card-green"><strong>The Airborne Toxic Event</strong><span class="sub">Wed, Oct 21, 2026</span></div>
-<div class="card card-orange"><strong>Glenn Miller Orchestra</strong><span class="sub">Mon, Oct 26, 2026</span></div>
-
-<div class="card card-lime"><strong>Macy Gray</strong><span class="sub">Mon, Nov 16, 2026 · ❌ Canceled</span></div>
-
-
-
-<div class="card card-pink"><strong>Celtic Woman</strong><span class="sub">2026–2027</span></div>
-<div class="card card-blue"><strong>Gary Numan</strong><span class="sub">2026–2027</span></div>
-<div class="card card-cyan"><strong>That Motown Band</strong><span class="sub">2026–2027</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Music Box Borgata</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-lavender"><strong>G Love</strong><span class="sub">2026-27<br/>Revue</span></div>
+    <div class="card card-purple"><strong>Donavon F</strong><span class="sub">2026-27<br/>Singer</span></div>
+    <div class="card card-pink"><strong>Moon Taxi</strong><span class="sub">2026-27<br/>Funk</span></div>
+    <div class="card card-cyan"><strong>Becky R</strong><span class="sub">2026-27<br/>Soul</span></div>
+    <div class="card card-magenta"><strong>Chayce</strong><span class="sub">2026-27<br/>Country</span></div>
+    <div class="card card-blue"><strong>Yachty</strong><span class="sub">2026-27<br/>Hip-hop</span></div>
+  </div>
 </section>
+
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Xcite Center at Parx Casino (Bensalem, PA)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-pink"><strong>Ambrosia &amp; Pablo Cruise</strong><span class="sub">Fri, May 29, 2026</span></div>
-<div class="card card-blue"><strong>Neil Diamond Tribute Act</strong><span class="sub">Sat, May 30, 2026</span></div>
-<div class="card card-magenta"><strong>Theresa Caputo LIVE</strong><span class="sub">Sat, Jun 6, 2026 · The Experience</span></div>
-<div class="card card-purple"><strong>Prince Again</strong><span class="sub">Fri, Jun 12, 2026 · Prince tribute</span></div>
-<div class="card card-lime"><strong>Wayne Brady</strong><span class="sub">Sat, Jul 18, 2026</span></div>
-<div class="card card-cyan"><strong>Gene Simmons</strong><span class="sub">Fri, Jul 24, 2026</span></div>
-<div class="card card-purple"><strong>Living Colour &amp; The Psychedelic Furs</strong><span class="sub">Fri, Aug 21, 2026</span></div>
-<div class="card card-magenta"><strong>George Thorogood &amp; The Destroyers</strong><span class="sub">Fri, Aug 28, 2026</span></div>
-<div class="card card-green"><strong>The Australian Pink Floyd Show</strong><span class="sub">Sat, Aug 29, 2026</span></div>
-<div class="card card-orange"><strong>Smokey Robinson</strong><span class="sub">Fri, Sep 18, 2026</span></div>
-<div class="card card-yellow"><strong>Roger Daltrey</strong><span class="sub">Fri, Sep 25, 2026</span></div>
-<div class="card card-lime"><strong>Sebastian Bach</strong><span class="sub">Fri, Oct 23, 2026</span></div>
-<div class="card card-lblue"><strong>Jimmy Jam</strong><span class="sub">Fri, Oct 30, 2026</span></div>
-<div class="card card-sopink"><strong>Grand Funk Railroad</strong><span class="sub">Fri, Nov 13, 2026</span></div>
-
-
-<div class="card card-blue"><strong>All McCartney Live</strong><span class="sub">2026–2027</span></div>
-<div class="card card-cyan"><strong>Theresa Caputo</strong><span class="sub">2026–2027</span></div>
-
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Borgata Event Center</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-green"><strong>Weird Al</strong><span class="sub">Jul 17, 2026<br/>Comedy</span></div>
+    <div class="card card-lime"><strong>The Used</strong><span class="sub">Jul 19, 2026<br/>Emo</span></div>
+    <div class="card card-orange"><strong>Harry Connick</strong><span class="sub">Jul 24, 2026<br/>Jazz</span></div>
+    <div class="card card-lblue"><strong>Men/Toad</strong><span class="sub">Jul 31, 2026<br/>80s</span></div>
+    <div class="card card-sopink"><strong>Devo</strong><span class="sub">2026-27<br/>Wave</span></div>
+    <div class="card card-lavender"><strong>Iliza</strong><span class="sub">2026-27<br/>Stand</span></div>
+    <div class="card card-purple"><strong>Disco</strong><span class="sub">2026-27<br/>Jam</span></div>
+    <div class="card card-pink"><strong>Comedy Tributes</strong><span class="sub">2026-27<br/>15+ events</span></div>
+  </div>
 </section>
+
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Hard Rock Live at Etess Arena (Atlantic City, NJ)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-pink"><strong>The Beach Boys</strong><span class="sub">Fri, May 29, 2026</span></div>
-<div class="card card-blue"><strong>Charlie Puth</strong><span class="sub">Sat, May 30, 2026 · w/ Lawrence</span></div>
-<div class="card card-cyan"><strong>Darius Rucker</strong><span class="sub">Fri, Jun 12, 2026 · w/ Austin Williams</span></div>
-<div class="card card-purple"><strong>Nick Jonas</strong><span class="sub">Sat, Jun 13, 2026 · w/ Franklin Jonas, magnus ferrell</span></div>
-<div class="card card-magenta"><strong>James Taylor</strong><span class="sub">Sat, Jun 27, 2026</span></div>
-
-
-<div class="card card-orange"><strong>The Guess Who</strong><span class="sub">Sat, Jul 11, 2026 · Takin' It Back Tour</span></div>
-<div class="card card-yellow"><strong>Dick Fox's The Golden Boys</strong><span class="sub">Sat, Jul 25, 2026</span></div>
-<div class="card card-lime"><strong>Nikki Glaser</strong><span class="sub">Sat, Aug 1, 2026</span></div>
-<div class="card card-lblue"><strong>Totally Tubular Festival 2026</strong><span class="sub">Sat, Aug 8, 2026 · A Flock of Seagulls, The Motels, Animotion &amp; more</span></div>
-<div class="card card-sopink"><strong>Gwen Stefani</strong><span class="sub">Sun, Aug 9, 2026</span></div>
-<div class="card card-lavender"><strong>Keith Urban</strong><span class="sub">Fri, Aug 21, 2026</span></div>
-<div class="card card-pink"><strong>Keith Urban</strong><span class="sub">Sat, Aug 22, 2026</span></div>
-<div class="card card-blue"><strong>Taking Back Sunday, Thrice &amp; Saves The Day</strong><span class="sub">Fri, Sep 25, 2026</span></div>
-<div class="card card-cyan"><strong>The Doobie Brothers</strong><span class="sub">Fri, Oct 2, 2026</span></div>
-<div class="card card-purple"><strong>I Love the 90's</strong><span class="sub">Sat, Oct 17, 2026 · Haddaway, Real McCoy, La Bouche, C+C Music Factory &amp; more</span></div>
-<div class="card card-magenta"><strong>Pooh</strong><span class="sub">Sat, Nov 21, 2026</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Ovation Hall Ocean</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-cyan"><strong>Lenny Kravitz</strong><span class="sub">May 16, 2026<br/>Rock</span></div>
+    <div class="card card-magenta"><strong>America</strong><span class="sub">May 17, 2026<br/>Rock</span></div>
+    <div class="card card-blue"><strong>Iration</strong><span class="sub">May 30, 2026<br/>Reggae</span></div>
+    <div class="card card-green"><strong>Happy Together</strong><span class="sub">Jun 12, 2026<br/>60s</span></div>
+    <div class="card card-lime"><strong>Acraze</strong><span class="sub">2026-27<br/>Electronic</span></div>
+    <div class="card card-orange"><strong>Markus Schulz</strong><span class="sub">2026-27<br/>Trance</span></div>
+    <div class="card card-lblue"><strong>Cat 5</strong><span class="sub">2026-27<br/>Rock</span></div>
+    <div class="card card-sopink"><strong>Smokey</strong><span class="sub">2026-27<br/>Motown</span></div>
+    <div class="card card-lavender"><strong>Bert K</strong><span class="sub">2026-27<br/>Stand</span></div>
+    <div class="card card-purple"><strong>Puscifer</strong><span class="sub">2026-27<br/>Alt</span></div>
+    <div class="card card-pink"><strong>John Legend</strong><span class="sub">2026-27<br/>Soul</span></div>
+    <div class="card card-cyan"><strong>Yolanda A</strong><span class="sub">2026-27<br/>Gospel</span></div>
+    <div class="card card-magenta"><strong>Gladys Knight</strong><span class="sub">2026-27<br/>Soul</span></div>
+    <div class="card card-blue"><strong>Major Tours</strong><span class="sub">2026-27<br/>56+ shows</span></div>
+  </div>
 </section>
+
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Sound Waves at Hard Rock Hotel &amp; Casino (Atlantic City, NJ)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-pink"><strong>My Big Gay Italian Funeral</strong><span class="sub">Sat, Jun 6, 2026</span></div>
-
-<div class="card card-cyan"><strong>My Big Gay Italian Casino Adventure</strong><span class="sub">Sat, Oct 24, 2026</span></div>
-
-
-<div class="card card-green"><strong>Dogstar: ALL IN NOW TOUR</strong><span class="sub">Thu, Aug 14, 2026</span></div>
-<div class="card card-orange"><strong>ZARNA GARG: MILLION DOLLAR EXCUSES</strong><span class="sub">Thu, Sep 4, 2026</span></div>
-<div class="card card-yellow"><strong>Atlantic City Jazz Fest</strong><span class="sub">Fri, Sep 11, 2026</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Xcite Parx</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-green"><strong>Theresa C</strong><span class="sub">Jun 5, 2026<br/>Medium</span></div>
+    <div class="card card-lime"><strong>Prince T</strong><span class="sub">Jun 12, 2026<br/>Tribute</span></div>
+    <div class="card card-orange"><strong>Fitz Tantrums</strong><span class="sub">Jun 26, 2026<br/>Pop</span></div>
+    <div class="card card-lblue"><strong>Wayne Brady</strong><span class="sub">Jul 18, 2026<br/>Comedy</span></div>
+    <div class="card card-sopink"><strong>Roger D</strong><span class="sub">Sep 25, 2026<br/>Rock</span></div>
+    <div class="card card-lavender"><strong>America</strong><span class="sub">Oct 31, 2026<br/>Classic</span></div>
+    <div class="card card-purple"><strong>Michelle W</strong><span class="sub">Dec 5, 2026<br/>Stand</span></div>
+    <div class="card card-pink"><strong>Matt M</strong><span class="sub">Feb 6, 2027<br/>Perf</span></div>
+    <div class="card card-cyan"><strong>Tribute Comedy</strong><span class="sub">2026-27<br/>29+ events</span></div>
+  </div>
 </section>
+
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Borgata Event Center (Atlantic City, NJ)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-pink"><strong>Jason Mraz</strong><span class="sub">Sat, May 30, 2026 · w/ Gregory Page</span></div>
-<div class="card card-blue"><strong>Devo</strong><span class="sub">Fri, Jun 12, 2026</span></div>
-<div class="card card-cyan"><strong>"Weird Al" Yankovic</strong><span class="sub">Fri, Jul 17, 2026</span></div>
-<div class="card card-purple"><strong>Harry Connick, Jr.</strong><span class="sub">Fri, Jul 24, 2026</span></div>
-
-<div class="card card-green"><strong>Squeeze &amp; Adam Ant</strong><span class="sub">Fri, Aug 28, 2026 · w/ Leon Tilbrook</span></div>
-<div class="card card-orange"><strong>Gabriel Iglesias</strong><span class="sub">Sat, Sep 5, 2026</span></div>
-
-<div class="card card-lime"><strong>Gladys Knight</strong><span class="sub">Sat, Oct 10, 2026</span></div>
-
-
-<div class="card card-lavender"><strong>Micky Dolenz</strong><span class="sub">2026–2027</span></div>
-
-
-
-<div class="card card-purple"><strong>The Ultimate Doors - A Tribute to The Doors</strong><span class="sub">2026–2027</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Madison Square Garden</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-magenta"><strong>Josh Groban</strong><span class="sub">Jun 12, 2026<br/>Duet</span></div>
+    <div class="card card-blue"><strong>5SOS</strong><span class="sub">Jun 13, 2026<br/>POP</span></div>
+    <div class="card card-green"><strong>ROSALIA</strong><span class="sub">Jun 17-18, 2026<br/>LUX</span></div>
+    <div class="card card-lime"><strong>Phoebe B</strong><span class="sub">2026-27<br/>Folk</span></div>
+    <div class="card card-orange"><strong>Lady Gaga</strong><span class="sub">2026-27<br/>Pop</span></div>
+    <div class="card card-lblue"><strong>FKA Twigs</strong><span class="sub">2026-27<br/>Alt</span></div>
+    <div class="card card-sopink"><strong>Cardi B</strong><span class="sub">2026-27<br/>Hip</span></div>
+    <div class="card card-lavender"><strong>Goose</strong><span class="sub">2026-27<br/>Jam</span></div>
+    <div class="card card-purple"><strong>Louis T</strong><span class="sub">2026-27<br/>Pop</span></div>
+    <div class="card card-pink"><strong>Ed Sheeran</strong><span class="sub">2026-27<br/>Pop</span></div>
+    <div class="card card-cyan"><strong>Taylor Swift</strong><span class="sub">2026-27<br/>Pop</span></div>
+    <div class="card card-magenta"><strong>Harry Styles</strong><span class="sub">2026-27<br/>Pop</span></div>
+    <div class="card card-blue"><strong>Major Tours</strong><span class="sub">2026-27<br/>97+ events</span></div>
+  </div>
 </section>
+
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Music Box at Borgata (Atlantic City, NJ)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-pink"><strong>Jeff Ross</strong><span class="sub">Sat, Jun 6, 2026</span></div>
-<div class="card card-blue"><strong>Lewis Black</strong><span class="sub">Sat, Jun 13, 2026</span></div>
-
-<div class="card card-purple"><strong>The Marshall Tucker Band</strong><span class="sub">Fri, Aug 14, 2026</span></div>
-
-
-
-<div class="card card-yellow"><strong>Micky Dolenz</strong><span class="sub">Sat, Oct 3, 2026</span></div>
-<div class="card card-lime"><strong>Scott Bradlee's Postmodern Jukebox</strong><span class="sub">Sat, Oct 24, 2026</span></div>
-
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Theater MSG</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-green"><strong>Mohamed R</strong><span class="sub">2026-27<br/>Perf</span></div>
+    <div class="card card-lime"><strong>Malik M</strong><span class="sub">2026-27<br/>Artist</span></div>
+    <div class="card card-orange"><strong>Eros R</strong><span class="sub">2026-27<br/>Pop</span></div>
+  </div>
 </section>
-<section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Ovation Hall at Ocean Casino Resort (Atlantic City, NJ)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-pink"><strong>The Association — Happy Together Tour</strong><span class="sub">Fri, Jun 12, 2026 · The Troggs, Gary Puckett, The Vogues, The Cowsills &amp; more</span></div>
-<div class="card card-blue"><strong>Jeff Dunham</strong><span class="sub">Sun, Jul 12, 2026</span></div>
-<div class="card card-cyan"><strong>Matt Rife</strong><span class="sub">Fri, Jul 24, 2026</span></div>
-<div class="card card-purple"><strong>Matt Rife</strong><span class="sub">Sat, Jul 25, 2026</span></div>
-<div class="card card-magenta"><strong>Spin Doctors, Blues Traveler &amp; Gin Blossoms</strong><span class="sub">Sat, Aug 1, 2026</span></div>
-<div class="card card-green"><strong>Stray Cats</strong><span class="sub">Sat, Aug 15, 2026</span></div>
-<div class="card card-orange"><strong>Diana Ross</strong><span class="sub">Fri, Aug 21, 2026</span></div>
-<div class="card card-yellow"><strong>Collective Soul</strong><span class="sub">Sat, Aug 29, 2026</span></div>
-<div class="card card-lime"><strong>John Fogerty &amp; Steve Winwood</strong><span class="sub">Fri, Sep 11, 2026</span></div>
-<div class="card card-lblue"><strong>Smokey Robinson</strong><span class="sub">2026–2027</span></div>
 
-<div class="card card-lavender"><strong>Puscifer</strong><span class="sub">2026–2027</span></div>
-<div class="card card-pink"><strong>Acraze</strong><span class="sub">2026–2027</span></div>
-<div class="card card-blue"><strong>Markus Schulz</strong><span class="sub">2026–2027</span></div>
-<div class="card card-cyan"><strong>Cat 5</strong><span class="sub">2026–2027</span></div>
-</div>
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Resorts AC</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-lblue"><strong>Almost Queen</strong><span class="sub">Mar 7, 2026<br/>Tribute</span></div>
+    <div class="card card-sopink"><strong>Whitney T</strong><span class="sub">Apr 18, 2026<br/>Soul</span></div>
+    <div class="card card-lavender"><strong>Jazz Cole</strong><span class="sub">Jun 20, 2026<br/>Jazz</span></div>
+    <div class="card card-purple"><strong>Lou Rawls</strong><span class="sub">2026-27<br/>Soul</span></div>
+    <div class="card card-pink"><strong>Frankie V</strong><span class="sub">2026-27<br/>Doo-wop</span></div>
+  </div>
 </section>
+
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Madison Square Garden (New York, NY)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-pink"><strong>Charlie Puth</strong><span class="sub">Fri, May 29, 2026 · w/ Daniel Seavey</span></div>
-
-<div class="card card-cyan"><strong>Josh Groban</strong><span class="sub">Fri, Jun 12, 2026</span></div>
-<div class="card card-purple"><strong>Bon Jovi</strong><span class="sub">Tue, Jul 7, 2026</span></div>
-<div class="card card-magenta"><strong>Louis Tomlinson</strong><span class="sub">Wed, Jul 8, 2026 · w/ The Beaches</span></div>
-<div class="card card-green"><strong>Bon Jovi</strong><span class="sub">Thu, Jul 9, 2026</span></div>
-<div class="card card-orange"><strong>Lionel Richie &amp; Earth, Wind &amp; Fire</strong><span class="sub">Sat, Jul 11, 2026</span></div>
-<div class="card card-yellow"><strong>Bon Jovi</strong><span class="sub">Sun, Jul 12, 2026</span></div>
-<div class="card card-lime"><strong>Bon Jovi</strong><span class="sub">Tue, Jul 14, 2026</span></div>
-<div class="card card-lblue"><strong>Bon Jovi</strong><span class="sub">Thu, Jul 16, 2026</span></div>
-<div class="card card-sopink"><strong>Bon Jovi</strong><span class="sub">Sun, Jul 19, 2026</span></div>
-<div class="card card-lavender"><strong>The Pussycat Dolls</strong><span class="sub">Mon, Jul 20, 2026 · w/ Lil' Kim, Mya · ❌ Canceled</span></div>
-<div class="card card-pink"><strong>Bon Jovi</strong><span class="sub">Tue, Jul 21, 2026</span></div>
-<div class="card card-blue"><strong>Phish</strong><span class="sub">Wed, Jul 22, 2026</span></div>
-<div class="card card-cyan"><strong>Bon Jovi</strong><span class="sub">Thu, Jul 23, 2026</span></div>
-<div class="card card-purple"><strong>Phish</strong><span class="sub">Fri, Jul 24, 2026</span></div>
-<div class="card card-magenta"><strong>Phish</strong><span class="sub">Sat, Jul 25, 2026</span></div>
-<div class="card card-green"><strong>Bon Jovi</strong><span class="sub">Sun, Jul 26, 2026</span></div>
-<div class="card card-orange"><strong>Phish</strong><span class="sub">Mon, Jul 27, 2026</span></div>
-<div class="card card-yellow"><strong>Rush</strong><span class="sub">Tue, Jul 28, 2026</span></div>
-<div class="card card-lime"><strong>Phish</strong><span class="sub">Wed, Jul 29, 2026</span></div>
-<div class="card card-lblue"><strong>Rush</strong><span class="sub">Thu, Jul 30, 2026</span></div>
-<div class="card card-sopink"><strong>Rush</strong><span class="sub">Sat, Aug 1, 2026</span></div>
-<div class="card card-lavender"><strong>Rush</strong><span class="sub">Mon, Aug 3, 2026</span></div>
-<div class="card card-pink"><strong>Hilary Duff</strong><span class="sub">Wed, Aug 5, 2026 · w/ La Roux, Jade LeMac</span></div>
-<div class="card card-blue"><strong>Hilary Duff</strong><span class="sub">Thu, Aug 6, 2026 · w/ La Roux, Jade LeMac</span></div>
-<div class="card card-cyan"><strong>Phoebe Bridgers</strong><span class="sub">2026–2027</span></div>
-
-
-<div class="card card-green"><strong>ROSALÍA: LUX TOUR</strong><span class="sub">Tue, Jun 17, 2026</span></div>
-<div class="card card-orange"><strong>ROSALÍA: LUX TOUR</strong><span class="sub">Wed, Jun 18, 2026</span></div>
-<div class="card card-yellow"><strong>Jennifer Hudson</strong><span class="sub">Thu, Jun 12, 2026</span></div>
-<div class="card card-lime"><strong>The Band Camino</strong><span class="sub">Fri, Jun 13, 2026</span></div>
-<div class="card card-lblue"><strong>The Band Camino</strong><span class="sub">Sat, Jun 14, 2026</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Lincoln Field</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-cyan"><strong>Major Tours</strong><span class="sub">2026-27<br/>Summer</span></div>
+    <div class="card card-magenta"><strong>World Artists</strong><span class="sub">2026-27<br/>Stadium</span></div>
+  </div>
 </section>
+
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">The Theater at Madison Square Garden (New York, NY)</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-
-
-
-
-<div class="card card-magenta"><strong>Camilo</strong><span class="sub">2026–2027</span></div>
-
-
-
-<div class="card card-lime"><strong>Zoé</strong><span class="sub">2026–2027</span></div>
-
-
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Citizens Park</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-blue"><strong>Concert Series</strong><span class="sub">2026-27<br/>Outdoor</span></div>
+    <div class="card card-green"><strong>Special Events</strong><span class="sub">2026-27<br/>Family</span></div>
+  </div>
 </section>
+
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Tour News &amp; Buzz</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-yellow"><strong><a href="https://www.inquirer.com/news/bruce-springsteen-tour-philadelphia-reschedule-sixers-20260503.html" rel="noopener" target="_blank">Springsteen's Philly show is now May 30 at Xfinity Mobile Arena — the tour's final stop</a></strong><span class="sub">Bruce Springsteen &amp; The E Street Band's "Land of Hope and Dreams" Philadelphia date was moved from May 8 to Sat, May 30, 2026 to clear the Sixers/Flyers playoff schedule. All original tickets remain valid, and it is now the last show of the U.S. tour. <a href="https://www.inquirer.com/news/bruce-springsteen-tour-philadelphia-reschedule-sixers-20260503.html" rel="noopener" target="_blank">Read more at The Philadelphia Inquirer →</a></span></div>
-<div class="card card-pink"><strong><a href="https://www.phillyvoice.com/olivia-rodrigo-philadelphia-unraveled-tour-2026/" rel="noopener" target="_blank">Olivia Rodrigo brings 'The Unraveled Tour' to Philly for two nights</a></strong><span class="sub">Rodrigo plays Xfinity Mobile Arena on Nov 7 &amp; 8, 2026, with Devon Again opening, on the tour behind her new album. <a href="https://www.phillyvoice.com/olivia-rodrigo-philadelphia-unraveled-tour-2026/" rel="noopener" target="_blank">Read more at PhillyVoice →</a></span></div>
-<div class="card card-cyan"><strong><a href="https://www.mlb.com/phillies/tickets/concerts" rel="noopener" target="_blank">Postgame concerts return to Citizens Bank Park in 2026</a></strong><span class="sub">The Phillies' on-field Postgame Concert Series brings Nelly (Jul 22), Kaskade (Jul 27) and Flo Rida (Aug 18) after select home games. <a href="https://www.mlb.com/phillies/tickets/concerts" rel="noopener" target="_blank">Read more at Phillies · MLB.com →</a></span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Hard Rock Etess</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-lime"><strong>Major Tours</strong><span class="sub">2026-27<br/>TBA</span></div>
+    <div class="card card-orange"><strong>Hard Rock R</strong><span class="sub">2026-27<br/>Ongoing</span></div>
+  </div>
+</section>
+
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Tour News & Buzz</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-lavender"><strong>Philadelphia Orchestra 2026-27</strong><span class="sub">127th season features Simon Rattle returning, Emanuel Ax as artist of distinction, and guest artists including Yo-Yo Ma. Film music screenings with live orchestra.</span></div>
+    <div class="card card-sopink"><strong>Highmark Mann 50th Anniversary</strong><span class="sub">Landmark season brings major programming across both stages: TD Pavilion and Skyline Stage with classical, rock, and diverse bookings.</span></div>
+    <div class="card card-lblue"><strong>Atlantic City Casino Concert Boom</strong><span class="sub">Borgata, Ocean Casino, Hard Rock, and Resorts all offering packed schedules with tributes, concerts, and residencies throughout 2026-2027.</span></div>
+    <div class="card card-green"><strong>Kimmel Center Performing Arts Hub</strong><span class="sub">Home to Philadelphia Orchestra, Chamber Orchestra, Philadelphia Ballet, and Opera Philadelphia with full 2026-27 seasons.</span></div>
+  </div>
 </section>
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Mon, Jun 8 at 7:13 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Lisa's Hub - Last updated <span class="timestamp-badge">Tue, Jun 9 at 7:14 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
 <script>
 function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
 updateClock();setInterval(updateClock,1000);
