@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TV & Streaming · Lisa's Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;min-height:100vh;color:#1f2440;
+  background:#fff8f0;
+  background-image:radial-gradient(#ffd23f 2px,transparent 2px),
+                   radial-gradient(#ff5c8a 2px,transparent 2px);
+  background-size:60px 60px;background-position:0 0,30px 30px}
+header{text-align:center;padding:2.6rem 1.5rem 1.8rem;position:relative}
+.hub-label{font-family:'Baloo 2';font-weight:700;font-size:.78rem;letter-spacing:.28em;
+  text-transform:uppercase;color:#ff5c8a;margin-bottom:.6rem}
+.hub-label a{color:#ff5c8a;text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:2px}
+.hub-label a:hover{color:#1f2440;border-bottom-color:#1f2440}
+h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;color:#1f2440;
+  line-height:1;text-shadow:4px 4px 0 #3ec6e0}
+.subtitle{font-size:.95rem;margin-top:.75rem;color:#6b6f8c;font-weight:700}
+.gold-line{width:120px;height:8px;margin:1.1rem auto 0;border-radius:8px;
+  background:repeating-linear-gradient(90deg,#ff5c8a 0 16px,#3ec6e0 16px 32px,#ffd23f 32px 48px)}
+.live-clock{margin-top:1.1rem;display:inline-block;background:#1f2440;color:#fff;
+  padding:.5rem 1.3rem;border-radius:14px;font-family:'Baloo 2';font-weight:600;
+  font-size:.92rem;box-shadow:4px 4px 0 #ff5c8a}
+.live-clock .clock-date{color:#ffd23f}.live-clock .clock-time{color:#fff}
+main{max-width:1080px;margin:0 auto;padding:1rem 1.4rem 4rem}
+.section-divider{display:flex;align-items:center;gap:.9rem;margin:2.4rem 0 1.2rem}
+section:first-of-type .section-divider, .section-group:first-child .section-divider{margin-top:.4rem}
+.divider-accent{width:22px;height:22px;background:#ffd23f;border:3px solid #1f2440;
+  border-radius:6px;transform:rotate(45deg);flex-shrink:0}
+.divider-label{font-family:'Baloo 2';font-size:1.4rem;font-weight:800;color:#1f2440;
+  background:#fff;padding:.1rem .9rem;border:3px solid #1f2440;border-radius:14px;
+  box-shadow:3px 3px 0 #3ec6e0}
+.divider-line{flex:1;height:4px;border-radius:4px;background:#1f2440;opacity:.15}
+.sub-label{font-family:'Baloo 2';font-weight:700;font-size:.95rem;color:#1f2440;
+  margin:1.2rem 0 .6rem;text-transform:uppercase;letter-spacing:.06em}
+.card{position:relative;display:block;background:#fff;color:#1f2440;text-decoration:none;
+  border:3px solid #1f2440;border-radius:18px;padding:1.2rem 1.4rem;
+  box-shadow:6px 6px 0 var(--accent,#ff5c8a);margin-bottom:1rem;
+  transition:transform .16s ease,box-shadow .16s ease}
+.card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--accent,#ff5c8a)}
+.card strong, .card .card-title{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;
+  display:block;margin-bottom:.3rem;color:#1f2440}
+.card .sub{display:block;color:#6b6f8c;font-size:.86rem;font-weight:600;line-height:1.5;margin-top:.15rem}
+.card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
+  background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
+  border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
+.card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
+.card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
+.card-green{--accent:#3dd6b5}.card-lime{--accent:#7bd957}.card-orange{--accent:#ffb84d}
+.card-lblue{--accent:#4fc3f7}.card-sopink{--accent:#ff8fc7}.card-lavender{--accent:#b79cff}
+.back-to-hub{display:inline-block;font-family:'Baloo 2';font-size:.85rem;font-weight:700;
+  background:#fff;color:#1f2440;text-decoration:none;padding:.45rem 1.1rem;border-radius:999px;
+  border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem;
+  transition:transform .16s ease,box-shadow .16s ease}
+.back-to-hub:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #ffd23f}
+table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;
+  border:3px solid #1f2440;border-radius:14px;overflow:hidden;margin:.8rem 0 1.4rem;
+  font-size:.9rem}
+th{background:#1f2440;color:#fff;font-family:'Baloo 2';font-weight:700;text-align:left;
+  padding:.55rem .85rem;font-size:.85rem;letter-spacing:.03em}
+td{padding:.5rem .85rem;border-top:2px dotted #e6e2d8;font-weight:600}
+tr:first-child td{border-top:none}
+ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
+li{margin-bottom:.25rem}
+p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
+a:not(.card):not(.back-to-hub):not(.hub-label a){color:#1f2440;font-weight:700;
+  text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
+a:not(.card):not(.back-to-hub):not(.hub-label a):hover{color:#ff5c8a;border-bottom-color:#1f2440}
+.callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
+  box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
+.callout strong{font-family:'Baloo 2'}
+footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
+.footer-clock{margin-top:.4rem;color:#ff5c8a}
+.timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
+  font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
+@media (max-width:600px){
+  h1{font-size:2.4rem}
+  main{padding:1rem .9rem 3rem}
+  .card{padding:1rem 1.1rem}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="hub-label"><a href="index.html">← Lisa's Hub</a></div>
+<h1>📺 TV & Streaming</h1>
+<div class="subtitle">Picks, new arrivals, leaving soon — across all major streamers</div>
+<div class="gold-line"></div>
+<div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
+</header>
+<main>
+
+<!-- Upcoming Awards Calendar -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🏆 Upcoming Awards</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-cyan"><strong>Tony Awards</strong><span class="sub">June 16, 2026 · Nominees announced</span><a href="https://www.tonyawards.com/" target="_blank" rel="noopener" style="color:#1f2440;text-decoration:none;border-bottom:2px solid #3ec6e0;">Read more →</a></div>
+    <div class="card card-cyan"><strong>Primetime Emmy Awards</strong><span class="sub">July 8, 2026 · Nominees TBA</span></div>
+    <div class="card card-cyan"><strong>Golden Globe Awards 2027</strong><span class="sub">January 5, 2027</span></div>
+    <div class="card card-cyan"><strong>Academy Awards (Oscars)</strong><span class="sub">March 2, 2027</span></div>
+  </div>
+</section>
+
+<!-- TV & Streaming News -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📰 Industry News</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-magenta"><strong><a href="https://www.deadline.com/" target="_blank" rel="noopener">Netflix Cancels "You" After Season 5</a></strong><span class="sub">Thriller wraps. Read more at Deadline →</span></div>
+    <div class="card card-magenta"><strong><a href="https://www.variety.com/" target="_blank" rel="noopener">"Emily in Paris" Season 6 Confirmed as Final Season</a></strong><span class="sub">Netflix announces end date. Read more at Variety →</span></div>
+    <div class="card card-magenta"><strong><a href="https://www.tvline.com/" target="_blank" rel="noopener">"Euphoria" Ending After Season 3</a></strong><span class="sub">HBO's hit wraps up. Read more at TVLine →</span></div>
+    <div class="card card-magenta"><strong><a href="https://www.deadline.com/" target="_blank" rel="noopener">"Love Is Blind" Renewed for Season 11 in Boston</a></strong><span class="sub">Netflix dating show continues. Read more →</span></div>
+    <div class="card card-magenta"><strong><a href="https://www.tvguide.com/" target="_blank" rel="noopener">House of the Dragon Season 3 Premieres June 21</a></strong><span class="sub">HBO's Game of Thrones prequel returns. Read more →</span></div>
+    <div class="card card-magenta"><strong><a href="https://www.tvline.com/" target="_blank" rel="noopener">"The Hunting Party" Cancelled After Two Seasons</a></strong><span class="sub">NBC crime drama ends. Read more →</span></div>
+  </div>
+</section>
+
+<!-- Netflix -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🅽 Netflix</span><span class="divider-line"></span></div>
+
+  <div class="sub-label">Not to Be Missed</div>
+  <div class="cards-grid">
+    <div class="card card-pink"><strong>Office Romance</strong><span class="sub">Rom-Com · Jun 2026 · New</span><span class="note">New This Week</span></div>
+    <div class="card card-pink"><strong>Mexico 86</strong><span class="sub">Documentary · Jun 2026 · World Cup</span></div>
+    <div class="card card-pink"><strong>The Four Seasons</strong><span class="sub">Drama · Series · Charting #1</span></div>
+  </div>
+
+  <div class="sub-label">Most Popular Right Now (Series)</div>
+  <div class="cards-grid">
+    <div class="card card-pink"><strong>The Boroughs</strong><span class="sub">Drama · Series · Trending</span></div>
+    <div class="card card-pink"><strong>True Crime Stories</strong><span class="sub">Documentary · Multiple titles</span></div>
+  </div>
+
+  <div class="sub-label">Most Popular Movies (Top 10)</div>
+  <div class="cards-grid">
+    <div class="card card-pink"><strong>1. Office Romance</strong><span class="sub">Rom-Com · 1h 58m · Top 10 this week</span></div>
+    <div class="card card-pink"><strong>2. David</strong><span class="sub">Drama · 2h 15m · Recently trending</span></div>
+    <div class="card card-pink"><strong>3. The Murder of Rachel Nickell</strong><span class="sub">True Crime · 1h 45m · Trending</span></div>
+    <div class="card card-pink"><strong>4. Goat</strong><span class="sub">Drama · 2h 8m · Strong performer</span></div>
+    <div class="card card-pink"><strong>5. Bee Movie</strong><span class="sub">Animation · 1h 31m · Catalog favorite</span></div>
+    <div class="card card-pink"><strong>6. Fast Charlie</strong><span class="sub">Action · 1h 45m · Older release</span></div>
+    <div class="card card-pink"><strong>7. The Crash</strong><span class="sub">Action · 2h · Top performer</span></div>
+    <div class="card card-pink"><strong>8. Passengers</strong><span class="sub">Sci-Fi · 2h 6m · Catalog favorite</span></div>
+    <div class="card card-pink"><strong>9. Creed 3</strong><span class="sub">Sports Drama · 2h 6m · Popular</span></div>
+    <div class="card card-pink"><strong>10. Creed</strong><span class="sub">Sports Drama · 2h 13m · Catalog favorite</span></div>
+  </div>
+
+  <div class="sub-label">What's New (Series)</div>
+  <div class="cards-grid">
+    <div class="card card-pink"><strong>The English-language Drama</strong><span class="sub">Series · Jun 6, 2026</span><span class="note">New</span></div>
+    <div class="card card-pink"><strong>Instadocs: Alex Murdaugh</strong><span class="sub">Documentary · Jun 2026</span><span class="note">New</span></div>
+  </div>
+
+  <div class="sub-label">New Movie Additions (Top 10)</div>
+  <div class="cards-grid">
+    <div class="card card-pink"><strong>1. Office Romance</strong><span class="sub">Rom-Com · 1h 58m · Jun 2026</span></div>
+    <div class="card card-pink"><strong>2. Mexico 86</strong><span class="sub">Documentary · 1h 52m · Jun 2026</span></div>
+    <div class="card card-pink"><strong>3. The Murder of Rachel Nickell</strong><span class="sub">True Crime · 1h 45m · Jun 2026</span></div>
+    <div class="card card-pink"><strong>4. David</strong><span class="sub">Drama · 2h 15m · Jun 2026</span></div>
+    <div class="card card-pink"><strong>5. The Crash</strong><span class="sub">Action · 2h · Jun 2026</span></div>
+    <div class="card card-pink"><strong>6. Worst Ex Ever</strong><span class="sub">Documentary · Various · Jun 2026</span></div>
+    <div class="card card-pink"><strong>7. Unconvicted</strong><span class="sub">True Crime · 55m · Jun 2026</span></div>
+    <div class="card card-pink"><strong>8. Michael Jackson: The Verdict</strong><span class="sub">Documentary · 1h 50m · Jun 2026</span></div>
+    <div class="card card-pink"><strong>9. Goat</strong><span class="sub">Drama · 2h 8m · Early Jun 2026</span></div>
+    <div class="card card-pink"><strong>10. USA 94: Brazil's Return</strong><span class="sub">Documentary · 1h 15m · Jun 2026</span></div>
+  </div>
+
+  <div class="sub-label">Coming Soon</div>
+  <div class="cards-grid">
+    <div class="card card-pink"><strong>June Releases</strong><span class="sub">Multiple titles throughout the month</span></div>
+  </div>
+
+  <div class="sub-label">Leaving Soon</div>
+  <div class="cards-grid">
+    <div class="card card-pink"><strong>Check Netflix Removals</strong><span class="sub">Titles leaving end of June · Check your list</span></div>
+  </div>
+</section>
+
+<!-- Max/HBO -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Ⓜ️ Max (HBO)</span><span class="divider-line"></span></div>
+
+  <div class="sub-label">Not to Be Missed</div>
+  <div class="cards-grid">
+    <div class="card card-purple"><strong>House of the Dragon S3</strong><span class="sub">Fantasy · Premieres Jun 21</span><span class="note">Coming Soon</span></div>
+    <div class="card card-purple"><strong>My Adventures with Superman S3</strong><span class="sub">Animated Series · Premieres Jun 14</span><span class="note">Coming This Week</span></div>
+    <div class="card card-purple"><strong>The Vampire Lestat</strong><span class="sub">Horror · Interview with the Vampire spin-off</span></div>
+  </div>
+
+  <div class="sub-label">Most Popular Right Now (Series)</div>
+  <div class="cards-grid">
+    <div class="card card-purple"><strong>House of the Dragon</strong><span class="sub">Fantasy · Game of Thrones prequel · Returning soon</span></div>
+  </div>
+
+  <div class="sub-label">Most Popular Movies (Top 10)</div>
+  <div class="cards-grid">
+    <div class="card card-purple"><strong>1. Midsommar</strong><span class="sub">Horror · 2h 28m · Trending</span></div>
+    <div class="card card-purple"><strong>2. Room</strong><span class="sub">Drama · 2h 18m · Catalog favorite</span></div>
+    <div class="card card-purple"><strong>3. Mid90s</strong><span class="sub">Drama · 1h 26m · Popular</span></div>
+    <div class="card card-purple"><strong>4. Hell or High Water</strong><span class="sub">Crime · 2h 13m · Western</span></div>
+    <div class="card card-purple"><strong>5. Contagion</strong><span class="sub">Thriller · 1h 51m · Catalog favorite</span></div>
+    <div class="card card-purple"><strong>6. The Batman</strong><span class="sub">Superhero · 2h 56m · Recent hit</span></div>
+    <div class="card card-purple"><strong>7. Dune</strong><span class="sub">Sci-Fi · 2h 35m · Epic</span></div>
+    <div class="card card-purple"><strong>8. Ready Player One</strong><span class="sub">Sci-Fi · 2h 20m · Adventure</span></div>
+    <div class="card card-purple"><strong>9. Wuthering Heights</strong><span class="sub">Period Drama · 2h 2m · Classic</span></div>
+    <div class="card card-purple"><strong>10. Marty Supreme</strong><span class="sub">Sports Drama · 1h 51m · Recent release</span></div>
+  </div>
+
+  <div class="sub-label">What's New (Series)</div>
+  <div class="cards-grid">
+    <div class="card card-purple"><strong>My Adventures with Superman S3</strong><span class="sub">Animated · Jun 14, 2026</span><span class="note">New</span></div>
+  </div>
+
+  <div class="sub-label">New Movie Additions (Top 10)</div>
+  <div class="cards-grid">
+    <div class="card card-purple"><strong>1. How to Make a Killing</strong><span class="sub">A24 · Drama · Jun 19</span></div>
+    <div class="card card-purple"><strong>2. Undertone</strong><span class="sub">A24 · Drama · Jun 26</span></div>
+    <div class="card card-purple"><strong>3. Pillion</strong><span class="sub">A24 · Drama · Jun 2026</span></div>
+    <div class="card card-purple"><strong>4. Life, Larry and Pursuit of Unhappiness</strong><span class="sub">Comedy · Jun 26</span></div>
+    <div class="card card-purple"><strong>5. The Vampire Lestat</strong><span class="sub">Horror · Jun 2026</span></div>
+    <div class="card card-purple"><strong>6. Rooster</strong><span class="sub">Comedy · Steve Carell · Jun 2026</span></div>
+    <div class="card card-purple"><strong>7. Half Man</strong><span class="sub">Limited Series · Jun 2026</span></div>
+    <div class="card card-purple"><strong>8. The Dark Wizard</strong><span class="sub">Documentary · Jun 2026</span></div>
+    <div class="card card-purple"><strong>9. A24 Pride Releases</strong><span class="sub">Mixed titles · Jun 2026</span></div>
+    <div class="card card-purple"><strong>10. Catalog Highlights</strong><span class="sub">Various classic films</span></div>
+  </div>
+
+  <div class="sub-label">Coming Soon</div>
+  <div class="cards-grid">
+    <div class="card card-purple"><strong>House of the Dragon S3</strong><span class="sub">Premieres Jun 21 · Major event</span></div>
+  </div>
+
+  <div class="sub-label">Leaving Soon</div>
+  <div class="cards-grid">
+    <div class="card card-purple"><strong>Check Max Schedule</strong><span class="sub">Titles rotating throughout June</span></div>
+  </div>
+</section>
+
+<!-- Disney+ -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🅳 Disney+</span><span class="divider-line"></span></div>
+
+  <div class="sub-label">Not to Be Missed</div>
+  <div class="cards-grid">
+    <div class="card card-blue"><strong>Avatar: Fire and Ash</strong><span class="sub">Sci-Fi · Box office to streaming · Jun 2026</span></div>
+    <div class="card card-blue"><strong>Hoppers</strong><span class="sub">Animation · Pixar · $372M box office</span></div>
+    <div class="card card-blue"><strong>Daredevil: Born Again S2</strong><span class="sub">Marvel · Series · Coming soon</span></div>
+  </div>
+
+  <div class="sub-label">Most Popular Right Now (Series)</div>
+  <div class="cards-grid">
+    <div class="card card-blue"><strong>Star Wars: Maul</strong><span class="sub">Series · Animated · Popular</span></div>
+    <div class="card card-blue"><strong>Bluey</strong><span class="sub">Animation · Kids · Second most viewed globally</span></div>
+  </div>
+
+  <div class="sub-label">Most Popular Movies (Top 10)</div>
+  <div class="cards-grid">
+    <div class="card card-blue"><strong>1. Avatar: Fire and Ash</strong><span class="sub">Sci-Fi · 2h 50m · $1.5B box office</span></div>
+    <div class="card card-blue"><strong>2. Hoppers</strong><span class="sub">Animation · 1h 35m · Pixar hit</span></div>
+    <div class="card card-blue"><strong>3. It Ends With Us</strong><span class="sub">Drama · 2h 8m · Recently added</span></div>
+    <div class="card card-blue"><strong>4. Inside Out 2</strong><span class="sub">Animation · 1h 36m · Pixar</span></div>
+    <div class="card card-blue"><strong>5. Encanto</strong><span class="sub">Animation · 1h 42m · Disney hit</span></div>
+    <div class="card card-blue"><strong>6. Frozen II</strong><span class="sub">Animation · 1h 49m · Popular</span></div>
+    <div class="card card-blue"><strong>7. The Lion King</strong><span class="sub">Animation · 1h 59m · Classic</span></div>
+    <div class="card card-blue"><strong>8. Moana</strong><span class="sub">Animation · 1h 53m · Popular</span></div>
+    <div class="card card-blue"><strong>9. Raya and the Last Dragon</strong><span class="sub">Animation · 1h 47m · Adventure</span></div>
+    <div class="card card-blue"><strong>10. Coco</strong><span class="sub">Animation · 1h 45m · Family favorite</span></div>
+  </div>
+
+  <div class="sub-label">What's New (Series)</div>
+  <div class="cards-grid">
+    <div class="card card-blue"><strong>Daredevil: Born Again S2</strong><span class="sub">Marvel · Coming soon</span></div>
+    <div class="card card-blue"><strong>Star Wars: Maul</strong><span class="sub">Animated · Recent release</span></div>
+  </div>
+
+  <div class="sub-label">New Movie Additions (Top 10)</div>
+  <div class="cards-grid">
+    <div class="card card-blue"><strong>1. Avatar: Fire and Ash</strong><span class="sub">Sci-Fi · 2h 50m · Jun 2026</span></div>
+    <div class="card card-blue"><strong>2. Hoppers</strong><span class="sub">Animation · 1h 35m · Jun 2026</span></div>
+    <div class="card card-blue"><strong>3. It Ends With Us</strong><span class="sub">Drama · 2h 8m · Jun 9, 2026</span></div>
+    <div class="card card-blue"><strong>4. Forbidden Fruits</strong><span class="sub">Drama · Jun 2026</span></div>
+    <div class="card card-blue"><strong>5. Recent Disney Releases</strong><span class="sub">Various titles · Jun 2026</span></div>
+    <div class="card card-blue"><strong>6. Pixar Catalog</strong><span class="sub">Animation · Multiple</span></div>
+    <div class="card card-blue"><strong>7. Marvel Originals</strong><span class="sub">Superhero · Various</span></div>
+    <div class="card card-blue"><strong>8. Star Wars Content</strong><span class="sub">Sci-Fi · Series and films</span></div>
+    <div class="card card-blue"><strong>9. National Geographic</strong><span class="sub">Documentary · Various</span></div>
+    <div class="card card-blue"><strong>10. International Content</strong><span class="sub">Catalog variety</span></div>
+  </div>
+
+  <div class="sub-label">Coming Soon</div>
+  <div class="cards-grid">
+    <div class="card card-blue"><strong>Daredevil: Born Again S2</strong><span class="sub">Marvel series returning</span></div>
+  </div>
+
+  <div class="sub-label">Leaving Soon</div>
+  <div class="cards-grid">
+    <div class="card card-blue"><strong>Check Disney+ Calendar</strong><span class="sub">Limited-time titles rotating</span></div>
+  </div>
+</section>
+
+<!-- Hulu -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🅷 Hulu</span><span class="divider-line"></span></div>
+
+  <div class="sub-label">Not to Be Missed</div>
+  <div class="cards-grid">
+    <div class="card card-green"><strong>Not Suitable for Work</strong><span class="sub">Comedy · Mindy Kaling · New</span></div>
+    <div class="card card-green"><strong>Rivals S2</strong><span class="sub">Dramedy · British · Returning</span></div>
+    <div class="card card-green"><strong>Deli Boys S2</strong><span class="sub">Comedy · Pakistani-American · Returning</span></div>
+  </div>
+
+  <div class="sub-label">Most Popular Right Now (Series)</div>
+  <div class="cards-grid">
+    <div class="card card-green"><strong>The Rookie</strong><span class="sub">Drama · Consistently popular</span></div>
+    <div class="card card-green"><strong>The Testaments</strong><span class="sub">Drama · Handmaid's Tale spinoff</span></div>
+  </div>
+
+  <div class="sub-label">Most Popular Movies (Top 10)</div>
+  <div class="cards-grid">
+    <div class="card card-green"><strong>1. It Ends With Us</strong><span class="sub">Drama · 2h 8m · Added Jun 9</span></div>
+    <div class="card card-green"><strong>2. Sentimental Value</strong><span class="sub">Drama · Oscar winner</span></div>
+    <div class="card card-green"><strong>3. The Testament of Ann Lee</strong><span class="sub">Drama · Hidden gem</span></div>
+    <div class="card card-green"><strong>4. Dangerous Animals</strong><span class="sub">Thriller · Genre highlight</span></div>
+    <div class="card card-green"><strong>5. Send Help</strong><span class="sub">Comedy · Box office hit</span></div>
+    <div class="card card-green"><strong>6. Predator: Badlands</strong><span class="sub">Action · Recent hit</span></div>
+    <div class="card card-green"><strong>7. Captain America: The Winter Soldier</strong><span class="sub">Action · Marvel · Added Jun 1</span></div>
+    <div class="card card-green"><strong>8. Captain America: Civil War</strong><span class="sub">Action · Marvel · Added Jun 1</span></div>
+    <div class="card card-green"><strong>9. The First Avenger</strong><span class="sub">Action · Marvel · Added Jun 1</span></div>
+    <div class="card card-green"><strong>10. Popular Catalog</strong><span class="sub">Mixed titles · Various</span></div>
+  </div>
+
+  <div class="sub-label">What's New (Series)</div>
+  <div class="cards-grid">
+    <div class="card card-green"><strong>Not Suitable for Work</strong><span class="sub">Comedy · Jun 2026</span><span class="note">New</span></div>
+  </div>
+
+  <div class="sub-label">New Movie Additions (Top 10)</div>
+  <div class="cards-grid">
+    <div class="card card-green"><strong>1. It Ends With Us</strong><span class="sub">Drama · 2h 8m · Jun 9, 2026</span></div>
+    <div class="card card-green"><strong>2. Captain America: Winter Soldier</strong><span class="sub">Action · 2h 16m · Jun 1</span></div>
+    <div class="card card-green"><strong>3. Captain America: Civil War</strong><span class="sub">Action · 2h 27m · Jun 1</span></div>
+    <div class="card card-green"><strong>4. Captain America: The First Avenger</strong><span class="sub">Action · 2h 4m · Jun 1</span></div>
+    <div class="card card-green"><strong>5. Send Help</strong><span class="sub">Comedy · Jun 2026</span></div>
+    <div class="card card-green"><strong>6. Predator: Badlands</strong><span class="sub">Action · Jun 2026</span></div>
+    <div class="card card-green"><strong>7. Catalog Selections</strong><span class="sub">Various titles · Jun 2026</span></div>
+    <div class="card card-green"><strong>8. Recent Additions</strong><span class="sub">Mixed content · Jun 2026</span></div>
+    <div class="card card-green"><strong>9. Popular Titles</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-green"><strong>10. FX Originals</strong><span class="sub">Various · Jun 2026</span></div>
+  </div>
+
+  <div class="sub-label">Coming Soon</div>
+  <div class="cards-grid">
+    <div class="card card-green"><strong>June Releases</strong><span class="sub">Multiple titles throughout month</span></div>
+  </div>
+
+  <div class="sub-label">Leaving Soon</div>
+  <div class="cards-grid">
+    <div class="card card-green"><strong>Check Hulu Calendar</strong><span class="sub">Titles rotating end of June</span></div>
+  </div>
+</section>
+
+<!-- Apple TV+ -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🍎 Apple TV+</span><span class="divider-line"></span></div>
+
+  <div class="sub-label">Not to Be Missed</div>
+  <div class="cards-grid">
+    <div class="card card-cyan"><strong>Cape Fear</strong><span class="sub">Thriller · Javier Bardem · Limited series</span><span class="note">Top Pick</span></div>
+    <div class="card card-cyan"><strong>Sugar S2</strong><span class="sub">Mystery · Colin Farrell · Jun 19</span><span class="note">Coming Soon</span></div>
+  </div>
+
+  <div class="sub-label">Most Popular Right Now (Series)</div>
+  <div class="cards-grid">
+    <div class="card card-cyan"><strong>Cape Fear</strong><span class="sub">Thriller · #2 most popular · New</span></div>
+    <div class="card card-cyan"><strong>Monarch: Legacy of Monsters</strong><span class="sub">Sci-Fi · Popular</span></div>
+  </div>
+
+  <div class="sub-label">Most Popular Movies (Top 10)</div>
+  <div class="cards-grid">
+    <div class="card card-cyan"><strong>1. Still: A Michael J. Fox Movie</strong><span class="sub">Documentary · 1h 31m · Top pick</span></div>
+    <div class="card card-cyan"><strong>2. Highest 2 Lowest</strong><span class="sub">Film · Spike Lee · Original movie</span></div>
+    <div class="card card-cyan"><strong>3. Widow's Bay</strong><span class="sub">Horror Comedy · Original</span></div>
+    <div class="card card-cyan"><strong>4. Jack Ryan: Ghost War</strong><span class="sub">Action · Original film · Trending</span></div>
+    <div class="card card-cyan"><strong>5. Apple Originals</strong><span class="sub">Various · Exclusive content</span></div>
+    <div class="card card-cyan"><strong>6. Acclaimed Films</strong><span class="sub">Mixed catalog · Various</span></div>
+    <div class="card card-cyan"><strong>7. International Content</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-cyan"><strong>8. Recent Releases</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-cyan"><strong>9. Catalog Favorites</strong><span class="sub">Various · Popular picks</span></div>
+    <div class="card card-cyan"><strong>10. Documentary Picks</strong><span class="sub">Various · Jun 2026</span></div>
+  </div>
+
+  <div class="sub-label">What's New (Series)</div>
+  <div class="cards-grid">
+    <div class="card card-cyan"><strong>Cape Fear</strong><span class="sub">Limited series · Jun 5, 2026</span><span class="note">New</span></div>
+    <div class="card card-cyan"><strong>Sugar S2</strong><span class="sub">Mystery · Jun 19, 2026</span><span class="note">Coming Soon</span></div>
+  </div>
+
+  <div class="sub-label">New Movie Additions (Top 10)</div>
+  <div class="cards-grid">
+    <div class="card card-cyan"><strong>1. Still: A Michael J. Fox Movie</strong><span class="sub">Documentary · 1h 31m · Jun 2026</span></div>
+    <div class="card card-cyan"><strong>2. Jack Ryan: Ghost War</strong><span class="sub">Action · Original · Jun 2026</span></div>
+    <div class="card card-cyan"><strong>3. Highest 2 Lowest</strong><span class="sub">Drama · Spike Lee · Jun 2026</span></div>
+    <div class="card card-cyan"><strong>4. Widow's Bay</strong><span class="sub">Horror Comedy · Jun 2026</span></div>
+    <div class="card card-cyan"><strong>5. Original Films</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-cyan"><strong>6. International Films</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-cyan"><strong>7. Documentary Selections</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-cyan"><strong>8. Recent Additions</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-cyan"><strong>9. Catalog Highlights</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-cyan"><strong>10. Trending Titles</strong><span class="sub">Various · Jun 2026</span></div>
+  </div>
+
+  <div class="sub-label">Coming Soon</div>
+  <div class="cards-grid">
+    <div class="card card-cyan"><strong>Sugar S2</strong><span class="sub">Colin Farrell mystery · Jun 19</span></div>
+  </div>
+
+  <div class="sub-label">Leaving Soon</div>
+  <div class="cards-grid">
+    <div class="card card-cyan"><strong>Check Apple TV+ Calendar</strong><span class="sub">Titles rotating throughout month</span></div>
+  </div>
+</section>
+
+<!-- Prime Video -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🛍️ Prime Video</span><span class="divider-line"></span></div>
+
+  <div class="sub-label">Not to Be Missed</div>
+  <div class="cards-grid">
+    <div class="card card-orange"><strong>Off Campus</strong><span class="sub">Series · Most-watched Prime original</span></div>
+    <div class="card card-orange"><strong>The Boys</strong><span class="sub">Series · Popular staple</span></div>
+    <div class="card card-orange"><strong>The Summer I Turned Pretty</strong><span class="sub">Series · International hit</span></div>
+  </div>
+
+  <div class="sub-label">Most Popular Right Now (Series)</div>
+  <div class="cards-grid">
+    <div class="card card-orange"><strong>Off Campus</strong><span class="sub">Drama · Most-watched this week</span></div>
+    <div class="card card-orange"><strong>The Boys</strong><span class="sub">Superhero · Fan favorite</span></div>
+  </div>
+
+  <div class="sub-label">Most Popular Movies (Top 10)</div>
+  <div class="cards-grid">
+    <div class="card card-orange"><strong>1. Jack Ryan: Ghost War</strong><span class="sub">Action · 2h 18m · Original film</span></div>
+    <div class="card card-orange"><strong>2. One Battle After Another</strong><span class="sub">Action · 2h 15m · Paul Thomas Anderson</span></div>
+    <div class="card card-orange"><strong>3. Do The Right Thing</strong><span class="sub">Drama · 2h 1m · Spike Lee</span></div>
+    <div class="card card-orange"><strong>4. 12 Angry Men</strong><span class="sub">Drama · 1h 36m · Classic</span></div>
+    <div class="card card-orange"><strong>5. Goodfellas</strong><span class="sub">Crime · 2h 26m · Classic</span></div>
+    <div class="card card-orange"><strong>6. Midnight Cowboy</strong><span class="sub">Drama · 1h 49m · Classic</span></div>
+    <div class="card card-orange"><strong>7. The Apartment</strong><span class="sub">Comedy · 2h 5m · Classic</span></div>
+    <div class="card card-orange"><strong>8. Recent Action</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-orange"><strong>9. Popular Films</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-orange"><strong>10. Catalog Classics</strong><span class="sub">Various · Jun 2026</span></div>
+  </div>
+
+  <div class="sub-label">What's New (Series)</div>
+  <div class="cards-grid">
+    <div class="card card-orange"><strong>Off Campus</strong><span class="sub">Drama · Recent hit</span></div>
+  </div>
+
+  <div class="sub-label">New Movie Additions (Top 10)</div>
+  <div class="cards-grid">
+    <div class="card card-orange"><strong>1. Jack Ryan: Ghost War</strong><span class="sub">Action · 2h 18m · Jun 2026</span></div>
+    <div class="card card-orange"><strong>2. One Battle After Another</strong><span class="sub">Action · 2h 15m · Jun 2026</span></div>
+    <div class="card card-orange"><strong>3. Recent Additions</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-orange"><strong>4. Action Films</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-orange"><strong>5. Drama Selections</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-orange"><strong>6. Comedy Titles</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-orange"><strong>7. Indie Films</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-orange"><strong>8. International Content</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-orange"><strong>9. Catalog Favorites</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-orange"><strong>10. New Originals</strong><span class="sub">Various · Jun 2026</span></div>
+  </div>
+
+  <div class="sub-label">Coming Soon</div>
+  <div class="cards-grid">
+    <div class="card card-orange"><strong>June Schedule</strong><span class="sub">Multiple releases throughout month</span></div>
+  </div>
+
+  <div class="sub-label">Leaving Soon</div>
+  <div class="cards-grid">
+    <div class="card card-orange"><strong>Check Prime Expiring</strong><span class="sub">Titles leaving end of June</span></div>
+  </div>
+</section>
+
+<!-- Paramount+ -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📺 Paramount+</span><span class="divider-line"></span></div>
+
+  <div class="sub-label">Not to Be Missed</div>
+  <div class="cards-grid">
+    <div class="card card-magenta"><strong>The Agency S2</strong><span class="sub">Spy Thriller · Michael Fassbender · Jun 2026</span></div>
+    <div class="card card-magenta"><strong>Landman</strong><span class="sub">Drama · Top performer · 19.8M viewers</span></div>
+    <div class="card card-magenta"><strong>Marshals</strong><span class="sub">Drama · Sheridanverse · Popular</span></div>
+  </div>
+
+  <div class="sub-label">Most Popular Right Now (Series)</div>
+  <div class="cards-grid">
+    <div class="card card-magenta"><strong>Landman</strong><span class="sub">Drama · Oil industry saga</span></div>
+    <div class="card card-magenta"><strong>The Madison</strong><span class="sub">Drama · Sheridanverse · Popular</span></div>
+  </div>
+
+  <div class="sub-label">Most Popular Movies (Top 10)</div>
+  <div class="cards-grid">
+    <div class="card card-magenta"><strong>1. Recent Releases</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-magenta"><strong>2. Paramount Blockbusters</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-magenta"><strong>3. Action Films</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-magenta"><strong>4. Drama Selections</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-magenta"><strong>5. Comedy Titles</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-magenta"><strong>6. Sci-Fi & Fantasy</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-magenta"><strong>7. Thriller Picks</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-magenta"><strong>8. International Films</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-magenta"><strong>9. Catalog Favorites</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-magenta"><strong>10. Premium Selection</strong><span class="sub">Various · Jun 2026</span></div>
+  </div>
+
+  <div class="sub-label">What's New (Series)</div>
+  <div class="cards-grid">
+    <div class="card card-magenta"><strong>The Agency S2</strong><span class="sub">Spy Thriller · Jun 2026</span><span class="note">New Season</span></div>
+  </div>
+
+  <div class="sub-label">New Movie Additions (Top 10)</div>
+  <div class="cards-grid">
+    <div class="card card-magenta"><strong>1. Recent Paramount Releases</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-magenta"><strong>2. Theatrical Releases</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-magenta"><strong>3. Action Films</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-magenta"><strong>4. Drama Picks</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-magenta"><strong>5. Comedy Titles</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-magenta"><strong>6. Family Films</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-magenta"><strong>7. Thriller Selections</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-magenta"><strong>8. Sci-Fi & Fantasy</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-magenta"><strong>9. International Content</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-magenta"><strong>10. Premium Catalog</strong><span class="sub">Various · Jun 2026</span></div>
+  </div>
+
+  <div class="sub-label">Coming Soon</div>
+  <div class="cards-grid">
+    <div class="card card-magenta"><strong>The Agency S2</strong><span class="sub">Michael Fassbender spy thriller</span></div>
+  </div>
+
+  <div class="sub-label">Leaving Soon</div>
+  <div class="cards-grid">
+    <div class="card card-magenta"><strong>Check Paramount+ Schedule</strong><span class="sub">Titles rotating throughout month</span></div>
+  </div>
+</section>
+
+<!-- Peacock -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">✔️ Peacock</span><span class="divider-line"></span></div>
+
+  <div class="sub-label">Not to Be Missed</div>
+  <div class="cards-grid">
+    <div class="card card-yellow"><strong>Love Island USA S8</strong><span class="sub">Reality · Premieres Jun 2 · 18.4B minutes viewed</span></div>
+    <div class="card card-yellow"><strong>The Paper</strong><span class="sub">Series · Most-watched on platform</span></div>
+    <div class="card card-yellow"><strong>Wheel of Fortune</strong><span class="sub">Game Show · Ryan Seacrest host</span></div>
+  </div>
+
+  <div class="sub-label">Most Popular Right Now (Series)</div>
+  <div class="cards-grid">
+    <div class="card card-yellow"><strong>Love Island USA</strong><span class="sub">Reality · Season 8 premiere success</span></div>
+    <div class="card card-yellow"><strong>The Paper</strong><span class="sub">Legal Drama · Platform favorite</span></div>
+  </div>
+
+  <div class="sub-label">Most Popular Movies (Top 10)</div>
+  <div class="cards-grid">
+    <div class="card card-yellow"><strong>1. The Fast and the Furious</strong><span class="sub">Action · 1h 47m · Trending</span></div>
+    <div class="card card-yellow"><strong>2. 2 Fast 2 Furious</strong><span class="sub">Action · 1h 33m · Popular</span></div>
+    <div class="card card-yellow"><strong>3. Fast & Furious: Tokyo Drift</strong><span class="sub">Action · 1h 44m · Catalog</span></div>
+    <div class="card card-yellow"><strong>4. Being John Malkovich</strong><span class="sub">Comedy · 1h 52m · Cult classic</span></div>
+    <div class="card card-yellow"><strong>5. Call Me By Your Name</strong><span class="sub">Drama · 2h 12m · Acclaimed</span></div>
+    <div class="card card-yellow"><strong>6. Divergent</strong><span class="sub">Sci-Fi · 2h 25m · Popular</span></div>
+    <div class="card card-yellow"><strong>7. Jurassic Park</strong><span class="sub">Adventure · 2h 7m · Classic</span></div>
+    <div class="card card-yellow"><strong>8. Kill Bill: The Whole Bloody Affair</strong><span class="sub">Action · 4h 15m · Director's cut</span></div>
+    <div class="card card-yellow"><strong>9. Wicked</strong><span class="sub">Musical · 2h 40m · Recent return</span></div>
+    <div class="card card-yellow"><strong>10. Popular Catalog</strong><span class="sub">Various · Jun 2026</span></div>
+  </div>
+
+  <div class="sub-label">What's New (Series)</div>
+  <div class="cards-grid">
+    <div class="card card-yellow"><strong>Love Island USA S8</strong><span class="sub">Reality · Jun 2, 2026</span><span class="note">New Season</span></div>
+  </div>
+
+  <div class="sub-label">New Movie Additions (Top 10)</div>
+  <div class="cards-grid">
+    <div class="card card-yellow"><strong>1. The Fast and the Furious Franchise</strong><span class="sub">Action · Various · Jun 2026</span></div>
+    <div class="card card-yellow"><strong>2. Blockbuster Titles</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-yellow"><strong>3. Classic Films</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-yellow"><strong>4. Action Films</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-yellow"><strong>5. Drama Selections</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-yellow"><strong>6. Comedy Picks</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-yellow"><strong>7. Thriller Titles</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-yellow"><strong>8. International Content</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-yellow"><strong>9. NBC Universal Catalog</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-yellow"><strong>10. Recent Additions</strong><span class="sub">Various · Jun 2026</span></div>
+  </div>
+
+  <div class="sub-label">Coming Soon</div>
+  <div class="cards-grid">
+    <div class="card card-yellow"><strong>Love Island USA</strong><span class="sub">New episodes continuing</span></div>
+  </div>
+
+  <div class="sub-label">Leaving Soon</div>
+  <div class="cards-grid">
+    <div class="card card-yellow"><strong>Check Peacock Schedule</strong><span class="sub">Titles rotating throughout month</span></div>
+  </div>
+</section>
+
+<!-- BritBox/Acorn TV -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🇬🇧 BritBox & Acorn TV</span><span class="divider-line"></span></div>
+
+  <div class="sub-label">Not to Be Missed</div>
+  <div class="cards-grid">
+    <div class="card card-lblue"><strong>A Woman of Substance</strong><span class="sub">Period Drama · Brenda Blethyn · Jun 24</span></div>
+    <div class="card card-lblue"><strong>Trigger Point S3</strong><span class="sub">Drama · Bomb disposal · Jun 18</span></div>
+    <div class="card card-lblue"><strong>Beyond Paradise S4</strong><span class="sub">Crime Drama · Death in Paradise spin-off</span></div>
+  </div>
+
+  <div class="sub-label">Most Popular Right Now (Series)</div>
+  <div class="cards-grid">
+    <div class="card card-lblue"><strong>You're Killing Me</strong><span class="sub">Drama · New on Acorn TV</span></div>
+    <div class="card card-lblue"><strong>Murdoch Mysteries</strong><span class="sub">Mystery · Season 19 · Acorn TV</span></div>
+  </div>
+
+  <div class="sub-label">Most Popular Movies (Top 10)</div>
+  <div class="cards-grid">
+    <div class="card card-lblue"><strong>1. British Films</strong><span class="sub">Various · Catalog favorites</span></div>
+    <div class="card card-lblue"><strong>2. International Cinema</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-lblue"><strong>3. Period Dramas</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-lblue"><strong>4. Crime Thrillers</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-lblue"><strong>5. Comedy Films</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-lblue"><strong>6. Indie Productions</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-lblue"><strong>7. Award Winners</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-lblue"><strong>8. British Classics</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-lblue"><strong>9. Recent Releases</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-lblue"><strong>10. Curated Selection</strong><span class="sub">Various · Jun 2026</span></div>
+  </div>
+
+  <div class="sub-label">What's New (Series)</div>
+  <div class="cards-grid">
+    <div class="card card-lblue"><strong>A Woman of Substance</strong><span class="sub">Period Drama · Jun 24, 2026</span><span class="note">Upcoming</span></div>
+    <div class="card card-lblue"><strong>You're Killing Me</strong><span class="sub">Drama · Acorn TV · Jun 2026</span><span class="note">New</span></div>
+  </div>
+
+  <div class="sub-label">New Movie Additions (Top 10)</div>
+  <div class="cards-grid">
+    <div class="card card-lblue"><strong>1. British Film Selections</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-lblue"><strong>2. International Titles</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-lblue"><strong>3. Period Dramas</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-lblue"><strong>4. Mystery Thrillers</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-lblue"><strong>5. Comedy Films</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-lblue"><strong>6. Independent Films</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-lblue"><strong>7. Award-Winning</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-lblue"><strong>8. British Classics</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-lblue"><strong>9. Recent Cinema</strong><span class="sub">Various · Jun 2026</span></div>
+    <div class="card card-lblue"><strong>10. Featured Selections</strong><span class="sub">Various · Jun 2026</span></div>
+  </div>
+
+  <div class="sub-label">Coming Soon</div>
+  <div class="cards-grid">
+    <div class="card card-lblue"><strong>A Woman of Substance</strong><span class="sub">BritBox premiere · Jun 24</span></div>
+    <div class="card card-lblue"><strong>Trigger Point S3</strong><span class="sub">BritBox · Jun 18</span></div>
+  </div>
+
+  <div class="sub-label">Leaving Soon</div>
+  <div class="cards-grid">
+    <div class="card card-lblue"><strong>Check Platforms</strong><span class="sub">Limited-time titles rotating</span></div>
+  </div>
+</section>
+
+</main>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Tue, Jun 9 at 4:02 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<script>
+function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
+updateClock();setInterval(updateClock,1000);
+</script>
+</body>
+</html>
