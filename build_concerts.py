@@ -14,6 +14,7 @@ Usage:
 
 Inputs (in repo root): concert_archive.json, concert_exclusions.json
 Output: concerts.html  (header "Generated:" line + footer timestamp injected here)
+        acts_list.json  (Suppress? | Act Name | Venue | Date — one row per act+venue)
 """
 import json, re, html as H, unicodedata, datetime, sys, subprocess
 
@@ -105,8 +106,13 @@ def matchnorm(s):
     s = re.sub(r'[^a-z0-9 ]',' ', s)
     return re.sub(r'\s+',' ', s).strip()
 
+def date_only(d):
+    """Strip time suffix (' · 7:30 PM') so the review sheet shows date/range only."""
+    return re.sub(r'\s*·\s*\d.*$', '', d).strip()
+
 def render(arch, sup):
     secs, total_before, total_after, acts = [], 0, 0, set()
+    sheet_rows = []  # (act, venue, date-only) for the review sheet
     for v, css in VENUE_ORDER:
         shows = arch['venues'].get(v, {}).get('shows', {})
         items = sorted(shows.items(), key=lambda kv: sortkey(kv[1]))
@@ -116,6 +122,7 @@ def render(arch, sup):
             if suppressed(name, sup):
                 continue
             acts.add(name)
+            sheet_rows.append((name, v, date_only(date)))
             cards.append(f'    <div class="card {css}"><strong>{esc(name)}</strong>'
                          f'<span class="sub">{esc(date)}</span></div>')
         total_after += len(cards)
@@ -128,7 +135,8 @@ def render(arch, sup):
             f'<span class="divider-label">{esc(v)}</span><span class="divider-line"></span></div>\n'
             f'  <div class="cards-grid">\n{body}\n  </div>\n</section>'
         )
-    return "\n".join(secs), total_before, total_after, sorted(acts, key=str.lower)
+    sheet_rows.sort(key=lambda r:(r[0].lower(), r[1]))
+    return "\n".join(secs), total_before, total_after, sorted(acts, key=str.lower), sheet_rows
 
 def audit(arch, sup, rendered_html):
     rendered = {}
@@ -240,7 +248,7 @@ def main():
         print("AUDIT PASSED: 0 non-suppressed shows missing.")
         return
 
-    body, before, after, acts = render(arch, sup)
+    body, before, after, acts, sheet_rows = render(arch, sup)
     header_gen, ts = stamp()
     page = HEAD_TMPL.replace('__HEADER_GEN__', header_gen) + body + \
            FOOT_TMPL.replace('__DYNAMIC_TIMESTAMP__', ts)
@@ -253,7 +261,8 @@ def main():
         sys.exit(1)
 
     open(OUT, "w").write(page)
-    json.dump(acts, open(f"{ROOT}/acts_list.json","w"), ensure_ascii=False, indent=1)
+    sheet = [["Suppress?","Act Name","Venue","Date"]] + [["", a, v, d] for (a,v,d) in sheet_rows]
+    json.dump(sheet, open(f"{ROOT}/acts_list.json","w"), ensure_ascii=False, indent=1)
     print(f"OK: wrote {OUT}. Venues={len(VENUE_ORDER)} cards_before_suppression={before} "
           f"cards_after={after} unique_acts={len(acts)} audit=PASS(0 missing)")
 
