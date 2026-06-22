@@ -26,8 +26,9 @@ h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;colo
   padding:.5rem 1.3rem;border-radius:14px;font-family:'Baloo 2';font-weight:600;
   font-size:.92rem;box-shadow:4px 4px 0 #ff5c8a}
 .live-clock .clock-date{color:#ffd23f}.live-clock .clock-time{color:#fff}
-.freshness{margin-top:.8rem;font-size:.74rem;font-weight:700;color:#6b6f8c;line-height:1.5}
 main{max-width:1080px;margin:0 auto;padding:1rem 1.4rem 4rem}
+.freshness{max-width:1080px;margin:0 auto;padding:0 1.4rem;text-align:center;
+  font-size:.8rem;font-weight:700;color:#6b6f8c}
 .section-divider{display:flex;align-items:center;gap:.9rem;margin:2.4rem 0 1.2rem}
 section:first-of-type .section-divider, .section-group:first-child .section-divider{margin-top:.4rem}
 .divider-accent{width:22px;height:22px;background:#ffd23f;border:3px solid #1f2440;
@@ -54,6 +55,8 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 .card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
 .card-green{--accent:#3dd6b5}.card-lime{--accent:#7bd957}.card-orange{--accent:#ffb84d}
 .card-lblue{--accent:#4fc3f7}.card-sopink{--accent:#ff8fc7}.card-lavender{--accent:#b79cff}
+.card a{color:#1f2440;font-weight:800;border-bottom:2px solid #d68bff}
+.card a:hover{color:#d68bff;border-bottom-color:#1f2440}
 .back-to-hub{display:inline-block;font-family:'Baloo 2';font-size:.85rem;font-weight:700;
   background:#fff;color:#1f2440;text-decoration:none;padding:.45rem 1.1rem;border-radius:999px;
   border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem;
@@ -62,12 +65,6 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
 li{margin-bottom:.25rem}
 p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
-a:not(.card):not(.back-to-hub):not(.hub-label a){color:#1f2440;font-weight:700;
-  text-decoration:underline;text-decoration-color:#d68bff;text-underline-offset:2px}
-a:not(.card):not(.back-to-hub):not(.hub-label a):hover{color:#d68bff}
-.card .readmore{display:inline-block;margin-top:8px;font-weight:800;color:#1f2440;
-  text-decoration:underline;text-decoration-color:#d68bff;text-underline-offset:2px}
-.card .readmore:hover{color:#d68bff}
 .callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
   box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
 .callout strong{font-family:'Baloo 2'}
@@ -75,6 +72,7 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 .footer-clock{margin-top:.4rem;color:#ff5c8a}
 .timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
   font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
+/* seen-show styling (preserved per task spec) */
 .card[data-seen="true"]{background:#f0f5f0;opacity:.78}
 .card[data-seen="true"] strong{color:#555}
 .seen-badge{display:inline-block;background:#3dd6b5;color:#1f2440;font-family:'Baloo 2';font-size:.66rem;font-weight:800;padding:2px 8px;border-radius:10px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;border:2px solid #1f2440}
@@ -92,209 +90,163 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 <div class="subtitle">Broadway · Off-Broadway · Philadelphia · What's Coming</div>
 <div class="gold-line"></div>
 <div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
-<div class="freshness">Generated: Sun, Jun 21, 2026 · 7:09 AM ET (11:09 UTC)<br>All content fetched live this run — no cached data used.</div>
 </header>
+<div class="freshness">
+  Generated: Mon, Jun 22, 2026 · 7:09 AM ET (11:09 UTC)<br>
+  All content fetched live this run — no cached data used.
+</div>
 <main>
+<a href="index.html" class="back-to-hub">← Back to Hub</a>
 
-<!-- ===================== BROADWAY OPEN RUNS ===================== -->
+<!-- ============ BROADWAY OPEN RUNS ============ -->
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🎭 Broadway — Open Runs</span><span class="divider-line"></span></div>
 
   <div class="sub-label">Musicals</div>
   <div class="cards-grid">
-    <div class="card card-purple"><strong>🎵 The Lion King</strong><span class="sub">Minskoff Theatre · Disney's reigning blockbuster, open since 1997.</span></div>
-    <div class="card card-purple"><strong>🎵 Wicked</strong><span class="sub">Gershwin Theatre · The Ozian juggernaut, running since 2003.</span></div>
-    <div class="card card-purple"><strong>🎵 Aladdin</strong><span class="sub">New Amsterdam Theatre · Disney's magic-carpet musical.</span></div>
-    <div class="card card-purple"><strong>🎵 The Book of Mormon</strong><span class="sub">Eugene O'Neill Theatre · The irreverent smash from the South Park team.</span></div>
-    <div class="card card-purple"><strong>🎵 Hamilton</strong><span class="sub">Richard Rodgers Theatre · Lin-Manuel Miranda's history-making hit.</span></div>
-    <div class="card card-purple"><strong>🎵 Hadestown</strong><span class="sub">Walter Kerr Theatre · Anaïs Mitchell's Tony-winning folk opera.</span></div>
-    <div class="card card-purple"><strong>🎵 Chicago</strong><span class="sub">Ambassador Theatre · The longest-running American musical in Broadway history.</span></div>
-    <div class="card card-purple"><strong>🎵 MJ</strong><span class="sub">Neil Simon Theatre · The Michael Jackson jukebox musical.</span></div>
-    <div class="card card-purple"><strong>🎵 Six</strong><span class="sub">Lena Horne Theatre · The pop-concert reframing of Henry VIII's wives.</span></div>
-    <div class="card card-purple"><strong>🎵 Moulin Rouge! The Musical</strong><span class="sub">Al Hirschfeld Theatre · Baz Luhrmann's spectacle. <em>Closes Aug 30, 2026.</em></span></div>
-    <div class="card card-purple"><strong>🎵 The Outsiders</strong><span class="sub">Bernard B. Jacobs Theatre · Tony-winning adaptation of the S.E. Hinton novel.</span></div>
-    <div class="card card-purple"><strong>🎵 The Great Gatsby</strong><span class="sub">Broadway Theatre · The Jazz Age musical adaptation.</span></div>
-    <div class="card card-purple"><strong>🎵 Death Becomes Her</strong><span class="sub">Lunt-Fontanne Theatre · Camp comedy musical. <em>Closes Jun 28, 2026.</em></span></div>
-    <div class="card card-purple"><strong>🎵 Maybe Happy Ending</strong><span class="sub">Belasco Theatre · The 2025 Best Musical Tony winner about two helper-bots.</span></div>
-    <div class="card card-purple"><strong>🎵 Just in Time</strong><span class="sub">Circle in the Square · Jonathan Groff as Bobby Darin. Tickets now through Oct 2026.</span></div>
-    <div class="card card-purple"><strong>🎵 Buena Vista Social Club</strong><span class="sub">Gerald Schoenfeld Theatre · The Cuban-music celebration.</span></div>
-    <div class="card card-purple"><strong>🎵 Operation Mincemeat</strong><span class="sub">John Golden Theatre · The British WWII comedy musical.</span></div>
-    <div class="card card-purple"><strong>🎵 &amp; Juliet</strong><span class="sub">Stephen Sondheim Theatre · Max Martin pop-jukebox Shakespeare remix.</span></div>
-    <div class="card card-purple"><strong>🎵 Cats: The Jellicle Ball</strong><span class="sub">Broadhurst Theatre · The drag-and-ball-culture reinvention of the Lloyd Webber classic.</span></div>
-    <div class="card card-purple"><strong>🎵 The Lost Boys</strong><span class="sub">Palace Theatre · New musical based on the 1987 vampire film.</span></div>
-    <div class="card card-purple"><strong>🎵 Two Strangers (Carry a Cake Across New York)</strong><span class="sub">Longacre Theatre · Intimate British two-hander musical.</span></div>
+    <div class="card card-purple"><strong>🎵 Wicked</strong><span class="sub">Gershwin Theatre · long-running blockbuster, open-ended</span></div>
+    <div class="card card-purple"><strong>🎵 Hamilton</strong><span class="sub">Richard Rodgers Theatre · Christopher Jackson returns as Washington Sept 8, 2026</span></div>
+    <div class="card card-purple"><strong>🎵 The Lion King</strong><span class="sub">Minskoff Theatre · Disney's perennial hit</span></div>
+    <div class="card card-purple"><strong>🎵 Aladdin</strong><span class="sub">New Amsterdam Theatre · Disney musical</span></div>
+    <div class="card card-purple"><strong>🎵 The Book of Mormon</strong><span class="sub">Eugene O'Neill Theatre · still running strong</span></div>
+    <div class="card card-purple"><strong>🎵 Hadestown</strong><span class="sub">Walter Kerr Theatre · Tony-winning folk opera</span></div>
+    <div class="card card-purple"><strong>🎵 MJ The Musical</strong><span class="sub">Neil Simon Theatre · the Michael Jackson musical</span></div>
+    <div class="card card-purple"><strong>🎵 Moulin Rouge! The Musical</strong><span class="sub">Al Hirschfeld Theatre · jukebox spectacle</span></div>
+    <div class="card card-purple"><strong>🎵 Six</strong><span class="sub">Lena Horne Theatre · the Tudor queens pop concert</span></div>
+    <div class="card card-purple"><strong>🎵 &amp; Juliet</strong><span class="sub">Stephen Sondheim Theatre · Max Martin jukebox musical</span></div>
+    <div class="card card-purple"><strong>🎵 The Great Gatsby</strong><span class="sub">Broadway Theatre · Jazz Age musical</span></div>
+    <div class="card card-purple"><strong>🎵 The Outsiders</strong><span class="sub">Bernard B. Jacobs Theatre · 2024 Best Musical winner</span></div>
+    <div class="card card-purple"><strong>🎵 Buena Vista Social Club</strong><span class="sub">Gerald Schoenfeld Theatre · Cuban-music musical; West End transfer set for 2027</span></div>
+    <div class="card card-purple"><strong>🎵 Maybe Happy Ending</strong><span class="sub">Belasco Theatre · 2025 Best Musical winner</span></div>
+    <div class="card card-purple"><strong>🎵 Operation Mincemeat</strong><span class="sub">Golden Theatre · British WWII comedy-musical import</span></div>
+    <div class="card card-purple"><strong>🎵 The Lost Boys</strong><span class="sub">Palace Theatre · Michael Arden-directed musical; tickets through Mar 2027</span></div>
+    <div class="card card-purple"><strong>🎵 Cats: The Jellicle Ball</strong><span class="sub">Broadhurst Theatre · ballroom reimagining; opened Apr 7, 2026, run extended</span></div>
   </div>
 
   <div class="sub-label">Plays</div>
   <div class="cards-grid">
-    <div class="card card-purple"><strong>Oh, Mary!</strong><span class="sub">Lyceum Theatre · Cole Escola's hit comedy. Maya Rudolph plays Mary through Jul 5, 2026.</span></div>
-    <div class="card card-purple"><strong>Harry Potter and the Cursed Child</strong><span class="sub">Lyric Theatre · The wizarding-world stage epic.</span></div>
-    <div class="card card-purple"><strong>Stranger Things: The First Shadow</strong><span class="sub">Marquis Theatre · Netflix stage prequel. <em>Closes Jan 3, 2027.</em></span></div>
+    <div class="card card-purple"><strong>Harry Potter and the Cursed Child</strong><span class="sub">Lyric Theatre · the wizarding-world play, open-ended</span></div>
+    <div class="card card-purple"><strong>Stranger Things: The First Shadow</strong><span class="sub">Marquis Theatre · Netflix prequel stage play</span></div>
   </div>
 
-  <div class="sub-label">Revivals</div>
+  <div class="sub-label">Revivals &amp; Long-Runners</div>
   <div class="cards-grid">
-    <div class="card card-purple"><strong>🎵 Ragtime</strong><span class="sub">Vivian Beaumont Theatre · Lincoln Center's revival. <em>Closes Aug 16, 2026.</em></span></div>
-    <div class="card card-purple"><strong>🎵 The Rocky Horror Show</strong><span class="sub">Studio 54 · Roundabout revival with Luke Evans. <em>Closes Nov 29, 2026.</em></span></div>
-    <div class="card card-purple"><strong>Death of a Salesman</strong><span class="sub">Winter Garden Theatre · Nathan Lane &amp; Laurie Metcalf. <em>Closes Aug 9, 2026.</em></span></div>
+    <div class="card card-purple"><strong>🎵 Chicago</strong><span class="sub">Ambassador Theatre · 2nd-longest-running Broadway show ever (since 1996)</span></div>
   </div>
 </section>
 
-<!-- ===================== BROADWAY LIMITED RUNS ===================== -->
+<!-- ============ BROADWAY LIMITED RUNS ============ -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🎭 Broadway — Limited Runs</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🎭 Broadway — Limited Runs (Currently Playing)</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-    <div class="card card-pink"><strong>The Balusters</strong><span class="note">closes today</span><span class="sub">Samuel J. Friedman Theatre · Neighborhood-association comedy. Final performance Jun 21, 2026.</span></div>
-    <div class="card card-pink"><strong>Chess</strong><span class="note">closes today</span><span class="sub">Imperial Theatre · The Cold War musical revival. Early checkmate — final performance Jun 21, 2026.</span></div>
-    <div class="card card-pink"><strong>Celebrity Autobiography</strong><span class="sub">Shubert Theatre · The rotating-cast comedy of read-aloud memoirs. Closes Aug 16, 2026.</span></div>
-    <div class="card card-pink"><strong>🎵 Giant</strong><span class="note">closes Jun 28</span><span class="sub">Music Box Theatre · John Lithgow as Roald Dahl. Closes Jun 28, 2026.</span></div>
-    <div class="card card-pink"><strong>The Fear of 13</strong><span class="note">closes Jun 28</span><span class="sub">James Earl Jones Theatre · Adrien Brody &amp; Tessa Thompson. Closes Jun 28, 2026.</span></div>
-    <div class="card card-pink"><strong>Every Brilliant Thing</strong><span class="sub">Hudson Theatre · Solo show; Mariska Hargitay through Jul 5, then Tracee Ellis Ross Jul 7–Aug 9, 2026.</span></div>
-    <div class="card card-pink"><strong>Dog Day Afternoon</strong><span class="note">closes Jul 12</span><span class="sub">August Wilson Theatre · Jon Bernthal &amp; Ebon Moss-Bachrach. Closes Jul 12, 2026.</span></div>
-    <div class="card card-pink"><strong>Proof</strong><span class="note">closes Jul 19</span><span class="sub">Booth Theatre · Ayo Edebiri, Don Cheadle &amp; Kara Young. Closes Jul 19, 2026.</span></div>
-    <div class="card card-pink"><strong>Joe Turner's Come and Gone</strong><span class="note">closes Jul 26</span><span class="sub">Ethel Barrymore Theatre · Taraji P. Henson &amp; Cedric the Entertainer. Closes Jul 26, 2026.</span></div>
-    <div class="card card-pink"><strong>🎵 Titaníque</strong><span class="note">closes Sep 20</span><span class="sub">St. James Theatre · The Céline Dion / <em>Titanic</em> parody musical. Closes Sep 20, 2026.</span></div>
-    <div class="card card-pink"><strong>🎵 Schmigadoon!</strong><span class="note">2026 Best Musical</span><span class="sub">Nederlander Theatre · The Apple TV+ adaptation, fresh off its Tony win. Closes Jan 3, 2027.</span></div>
+    <div class="card card-pink"><strong>Death of a Salesman</strong><span class="note">2026 Tony — Best Revival</span><span class="sub">Winter Garden Theatre · Arthur Miller revival; won six 2026 Tonys</span></div>
+    <div class="card card-pink"><strong>Ragtime</strong><span class="note">Revival</span><span class="sub">Vivian Beaumont Theater (Lincoln Center) · acclaimed revival; four 2026 Tonys</span></div>
+    <div class="card card-pink"><strong>🎵 Just in Time</strong><span class="sub">Circle in the Square · Bobby Darin musical w/ Jonathan Groff; tickets through Oct 2026</span></div>
+    <div class="card card-pink"><strong>🎵 Schmigadoon! on Broadway</strong><span class="note">2026 Tony — Best Musical</span><span class="sub">Nederlander Theatre · closes Jan 3, 2027</span></div>
+    <div class="card card-pink"><strong>The Fear of 13</strong><span class="note">closes Jun 28, 2026</span><span class="sub">James Earl Jones Theatre · Adrien Brody &amp; Tessa Thompson</span></div>
+    <div class="card card-pink"><strong>🎵 Death Becomes Her</strong><span class="note">closes Jun 28, 2026</span><span class="sub">Lunt-Fontanne Theatre · the movie-to-musical comedy</span></div>
+    <div class="card card-pink"><strong>Joe Turner's Come and Gone</strong><span class="note">closes Jul 26, 2026</span><span class="sub">Barrymore Theatre · August Wilson revival</span></div>
+    <div class="card card-pink"><strong>Proof</strong><span class="note">closes Jul 19, 2026</span><span class="sub">Booth Theatre · David Auburn drama revival</span></div>
+    <div class="card card-pink"><strong>Dog Day Afternoon</strong><span class="note">closes Jul 12, 2026</span><span class="sub">August Wilson Theatre · Jon Bernthal &amp; Ebon Moss-Bachrach</span></div>
+    <div class="card card-pink"><strong>Every Brilliant Thing</strong><span class="sub">Hudson Theatre · one-person play, limited engagement</span></div>
+    <div class="card card-pink"><strong>The Rocky Horror Show</strong><span class="sub">Studio 54 · cult-classic revival</span></div>
+    <div class="card card-pink"><strong>🎵 Two Strangers (Carry a Cake Across New York)</strong><span class="sub">Longacre Theatre · British two-hander musical</span></div>
   </div>
 </section>
 
-<!-- ===================== OFF-BROADWAY ===================== -->
+<!-- ============ OFF-BROADWAY ============ -->
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🎭 Off-Broadway</span><span class="divider-line"></span></div>
 
   <div class="sub-label">Currently Running</div>
   <div class="cards-grid">
-    <div class="card card-pink"><strong>🎵 Little Shop of Horrors</strong><span class="sub">Westside Theatre · The long-running revival of the man-eating-plant musical.</span></div>
-    <div class="card card-pink"><strong>The Play That Goes Wrong</strong><span class="sub">New World Stages · The disaster-comedy hit.</span></div>
-    <div class="card card-pink"><strong>🎵 The 25th Annual Putnam County Spelling Bee</strong><span class="sub">New World Stages · The beloved spelling-bee musical.</span></div>
-    <div class="card card-pink"><strong>Perfect Crime</strong><span class="sub">The Theater Center · NYC's longest-running play, going since 1987.</span></div>
-    <div class="card card-pink"><strong>Friends! The Musical Parody</strong><span class="sub">The Theater Center · The sitcom send-up.</span></div>
-    <div class="card card-pink"><strong>🎵 Gazillion Bubble Show</strong><span class="sub">New World Stages · Family-friendly bubble spectacle.</span></div>
-    <div class="card card-pink"><strong>Drunk Romeo &amp; Juliet</strong><span class="sub">The Ruby Theatre · Boozy take on the Shakespeare tragedy.</span></div>
-    <div class="card card-pink"><strong>The Very Hungry Caterpillar Show</strong><span class="sub">DR2 Theatre · Puppet adaptation for the whole family.</span></div>
-    <div class="card card-pink"><strong>🎵 Singfeld! A Musical About Nothing</strong><span class="sub">Jerry Orbach Theatre · The Seinfeld musical parody.</span></div>
-    <div class="card card-pink"><strong>KENREX</strong><span class="sub">Lucille Lortel Theatre · New true-crime drama.</span></div>
-    <div class="card card-pink"><strong>Girl, Interrupted</strong><span class="sub">The Public Theater · Stage adaptation of the memoir.</span></div>
-    <div class="card card-pink"><strong>Henry VI: A Trilogy in Two Parts</strong><span class="sub">The Public Theater · Shakespeare's history cycle, condensed.</span></div>
-    <div class="card card-pink"><strong>🎵 Giulia: The Poison Queen of Palermo</strong><span class="sub">PAC NYC · Jennifer Nettles' new musical.</span></div>
-    <div class="card card-pink"><strong>David Copperfield</strong><span class="sub">59E59 Theaters · New stage adaptation of the Dickens novel.</span></div>
-    <div class="card card-pink"><strong>🎵 Petite Rouge by Company XIV</strong><span class="sub">Théâtre XIV · Burlesque-cabaret reimagining.</span></div>
+    <div class="card card-pink"><strong>🎵 Titanique</strong><span class="note">closes Sep 20, 2026</span><span class="sub">Daryl Roth Theatre · Céline Dion-scored Titanic spoof</span></div>
+    <div class="card card-pink"><strong>Perfect Crime</strong><span class="sub">The Theater Center · longest-running Off-Broadway show (since 1987)</span></div>
+    <div class="card card-pink"><strong>🎵 Little Shop of Horrors</strong><span class="sub">Westside Theatre · long-running revival of the man-eating-plant musical</span></div>
+    <div class="card card-pink"><strong>The Museum of Broadway</strong><span class="sub">145 W. 45th St · immersive Broadway-history experience</span></div>
   </div>
 
   <div class="sub-label">Opening Soon &amp; In Previews</div>
   <div class="cards-grid">
-    <div class="card card-magenta"><strong>🎵 Encores! La Cage aux Folles</strong><span class="note">opened Jun 17</span><span class="sub">New York City Center · Billy Porter &amp; Wayne Brady, directed by Robert O'Hara.</span></div>
-    <div class="card card-magenta"><strong>The Loved Ones</strong><span class="note">opens Jun 23</span><span class="sub">Irish Repertory Theatre · Erica Murray's drama, set in West Clare.</span></div>
-    <div class="card card-magenta"><strong>Birthright</strong><span class="note">opens Jun 29</span><span class="sub">Newman Mills Theatre (MCC) · Jonathan Spector's new play.</span></div>
-    <div class="card card-magenta"><strong>A Walk on the Moon</strong><span class="sub">Laura Pels Theatre · New Roundabout musical.</span></div>
-    <div class="card card-magenta"><strong>🎵 Heated Rivalry: The Unauthorized Musical Parody</strong><span class="sub">The Club · The hockey-romance parody.</span></div>
+    <div class="card card-magenta"><strong>🎵 A Walk on the Moon</strong><span class="note">opens Jun 29, 2026</span><span class="sub">Laura Pels Theatre · new musical w/ Talia Suskauer; runs through Aug 22</span></div>
+    <div class="card card-magenta"><strong>The Loved Ones</strong><span class="note">opens Jun 23, 2026</span><span class="sub">Irish Repertory Theatre · new play set in West Clare</span></div>
+    <div class="card card-magenta"><strong>Birthright</strong><span class="note">opens Jun 29, 2026</span><span class="sub">MCC Theater · new play</span></div>
   </div>
 </section>
 
-<!-- ===================== PHILADELPHIA AREA THEATER ===================== -->
+<!-- ============ PHILADELPHIA ============ -->
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📍 Philadelphia Area Theater</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-    <div class="card card-purple"><strong>🎵 South Pacific</strong><span class="note">Jun 18 – Jul 26</span><span class="sub">Bucks County Playhouse · Rodgers &amp; Hammerstein classic, directed by Denis Jones.</span></div>
-    <div class="card card-purple"><strong>🎵 Rent</strong><span class="note">Aug 13 – Sep 13</span><span class="sub">Bucks County Playhouse · Jonathan Larson's rock musical, directed by Jennifer Weber.</span></div>
-    <div class="card card-purple"><strong>🎵 The Notebook</strong><span class="note">Jul 21 – Aug 2</span><span class="sub">Academy of Music (Kimmel) · National tour of the Broadway musical romance.</span></div>
-    <div class="card card-purple"><strong>🎵 The Addams Family: The Musical</strong><span class="sub">Walnut Street Theatre · Opens the 2026–27 mainstage season this fall.</span></div>
-    <div class="card card-purple"><strong>🎵 Holiday Inn: The New Irving Berlin Musical</strong><span class="note">Nov 19 – Jan 3</span><span class="sub">Bucks County Playhouse · The festive Irving Berlin songbook show.</span></div>
-    <div class="card card-purple"><strong>🎵 Philly Pops Summer Season</strong><span class="sub">Marian Anderson Hall (Kimmel) · Idina Menzel, Leslie Odom Jr. &amp; more headline.</span></div>
+    <div class="card card-purple"><strong>Walnut Street Theatre</strong><span class="sub">9th &amp; Walnut · America's oldest theatre; 2026–27 season includes 1776 The Musical and A Delicate Balance</span></div>
+    <div class="card card-purple"><strong>Forrest Theatre (Ensemble Arts / Broadway Philadelphia)</strong><span class="sub">1114 Walnut St · touring Broadway; Operation Mincemeat Dec 15–20, 2026 · The Who's Tommy Apr 13–18, 2027</span></div>
+    <div class="card card-purple"><strong>Bucks County Playhouse</strong><span class="sub">New Hope, PA · summer-season productions on the Delaware</span></div>
+    <div class="card card-purple"><strong>Kimmel Center / Ensemble Arts Philly</strong><span class="sub">Broad St · Philadelphia Orchestra home + touring Broadway series</span></div>
   </div>
 </section>
 
-<!-- ===================== COMING TO BROADWAY ===================== -->
+<!-- ============ COMING TO BROADWAY ============ -->
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🚀 Coming to Broadway</span><span class="divider-line"></span></div>
 
-  <div class="sub-label">Confirmed (2026–27 Season)</div>
+  <div class="sub-label">Confirmed</div>
   <div class="cards-grid">
-    <div class="card card-blue"><strong>Paranormal Activity</strong><span class="note">previews Aug 14</span><span class="sub">August Wilson Theatre · Stage experience from the film series. Opens Sep 15, 2026.</span></div>
-    <div class="card card-blue"><strong>School Girls; or, The African Mean Girls Play</strong><span class="note">previews Sep 8</span><span class="sub">Samuel J. Friedman Theatre · Jocelyn Bioh's comedy, directed by Whitney White.</span></div>
-    <div class="card card-blue"><strong>Other Desert Cities</strong><span class="note">previews Sep 29</span><span class="sub">Hudson Theatre · Julia Louis-Dreyfus, Ed Harris, Allison Janney. Opens Oct 18, 2026.</span></div>
-    <div class="card card-blue"><strong>860</strong><span class="note">previews Oct 1</span><span class="sub">Imperial Theatre · Billy Crystal's autobiographical solo show. Opens Oct 21, 2026.</span></div>
-    <div class="card card-blue"><strong>🎵 Wanted</strong><span class="note">previews Oct 15</span><span class="sub">James Earl Jones Theatre · Solea Pfeiffer, Liisi LaFontaine, Ledisi. Opens Nov 8, 2026.</span></div>
-    <div class="card card-blue"><strong>🎵 The Fantasticks</strong><span class="note">previews Oct 22</span><span class="sub">Hayes Theatre · The world's longest-running musical, reframed. Opens Nov 16, 2026.</span></div>
-    <div class="card card-blue"><strong>Much Ado About Nothing</strong><span class="note">previews Oct 31</span><span class="sub">Winter Garden Theatre · Tom Hiddleston &amp; Hayley Atwell, dir. Jamie Lloyd. Opens Nov 19, 2026.</span></div>
-    <div class="card card-blue"><strong>🎵 Galileo</strong><span class="note">previews Nov 10</span><span class="sub">Shubert Theatre · Raúl Esparza, Joy Woods. Opens Dec 6, 2026.</span></div>
-    <div class="card card-blue"><strong>Inter Alia</strong><span class="note">previews Nov 10</span><span class="sub">Music Box Theatre · Rosamund Pike in Suzie Miller's drama. Opens Dec 1, 2026.</span></div>
-    <div class="card card-blue"><strong>🎵 Evita</strong><span class="note">previews Feb 27, 2027</span><span class="sub">Winter Garden Theatre · Rachel Zegler, dir. Jamie Lloyd. Opens Mar 25, 2027.</span></div>
-    <div class="card card-blue"><strong>🎵 Paddington the Musical</strong><span class="note">previews Mar 30, 2027</span><span class="sub">Al Hirschfeld Theatre · The Olivier-winning London hit transfers. Opens Apr 18, 2027.</span></div>
-    <div class="card card-blue"><strong>Gloria</strong><span class="note">previews Mar 17, 2027</span><span class="sub">Hayes Theatre · Branden Jacobs-Jenkins' Pulitzer-finalist comedy. Opens Apr 5, 2027.</span></div>
+    <div class="card card-blue"><strong>Inter Alia</strong><span class="note">opens Dec 1, 2026</span><span class="sub">Music Box Theatre · new drama starring Rosamund Pike; previews from Nov 10</span></div>
+    <div class="card card-blue"><strong>🎵 Evita</strong><span class="note">opens Mar 25, 2027</span><span class="sub">Winter Garden Theatre · Lloyd Webber revival starring Rachel Zegler; previews Feb 27</span></div>
+    <div class="card card-blue"><strong>🎵 Paddington The Musical</strong><span class="note">opens Apr 18, 2027</span><span class="sub">Al Hirschfeld Theatre · West End hit, 7 Olivier Awards; previews Mar 30</span></div>
+    <div class="card card-blue"><strong>Awake and Sing!</strong><span class="note">previews Dec 2026</span><span class="sub">Clifford Odets revival w/ Danny Burstein, Jessica Hecht, Jeremy Shamos</span></div>
   </div>
 
   <div class="sub-label">In Development</div>
   <div class="cards-grid">
-    <div class="card card-green"><strong>🎵 Dreamgirls</strong><span class="sub">All-new production directed by Camille A. Brown, aiming for fall 2026.</span></div>
-    <div class="card card-green"><strong>Awake and Sing!</strong><span class="sub">Samuel J. Friedman · Clifford Odets revival with Danny Burstein, Jessica Hecht. Aiming Dec 2026.</span></div>
-    <div class="card card-green"><strong>The Imaginary Invalid</strong><span class="sub">Todd Haimes Theatre · Bill Irwin's adaptation of Molière, aiming fall 2026.</span></div>
-    <div class="card card-green"><strong>🎵 The Devil Wears Prada</strong><span class="sub">Elton John &amp; Shaina Taub musical; West End production opened Dec 2024.</span></div>
-    <div class="card card-green"><strong>🎵 Coal Miner's Daughter</strong><span class="sub">Sutton Foster as Loretta Lynn; score produced by Jeanine Tesori.</span></div>
-    <div class="card card-green"><strong>🎵 Purple Rain</strong><span class="sub">Prince stage adaptation, book by Branden Jacobs-Jenkins.</span></div>
-    <div class="card card-green"><strong>Cat on a Hot Tin Roof</strong><span class="sub">Tennessee Williams revival directed by Sam Gold, aiming spring 2027.</span></div>
-    <div class="card card-green"><strong>🎵 La La Land</strong><span class="sub">Stage adaptation of the Oscar-winning movie musical, dir. Bartlett Sher.</span></div>
+    <div class="card card-green"><strong>🎵 Dreamgirls</strong><span class="note">Fall 2026</span><span class="sub">Broadway's first all-new production of the beloved musical</span></div>
   </div>
 </section>
 
-<!-- ===================== BROADWAY NEWS & BUZZ ===================== -->
+<!-- ============ NEWS & BUZZ ============ -->
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📰 Broadway News &amp; Buzz</span><span class="divider-line"></span></div>
 
   <div class="card card-yellow">
-    <strong><a href="https://playbill.com/article/tony-awards-2026-winners-live-updating" target="_blank" rel="noopener">Tony Awards 2026: <em>Schmigadoon!</em> Wins Best Musical, <em>Liberation</em> Wins Best Play</a></strong>
-    <span class="sub"><em>Schmigadoon!</em> took Best Musical and Bess Wohl's <em>Liberation</em> won Best Play at the 79th Tony Awards, held June 7 at Radio City Music Hall and hosted by Pink. <em>Death of a Salesman</em> led the night with six wins.</span>
-    <span class="note">Playbill · Jun 7, 2026</span>
-    <div><a class="readmore" href="https://playbill.com/article/tony-awards-2026-winners-live-updating" target="_blank" rel="noopener">Read more at Playbill →</a></div>
+    <strong><a href="https://www.npr.org/2026/06/07/nx-s1-5843086/tony-awards-winners-list-2026" target="_blank" rel="noopener">2026 Tony Awards: 'Schmigadoon!' wins Best Musical, 'Liberation' wins Best Play</a></strong>
+    <span class="sub">P!nk hosted at Radio City Music Hall. Schmigadoon! and The Lost Boys each took four awards; Death of a Salesman won six including Best Revival of a Play.</span>
+    <span class="note">NPR · Jun 7, 2026</span>
+    <div style="margin-top:8px;"><a href="https://www.npr.org/2026/06/07/nx-s1-5843086/tony-awards-winners-list-2026" target="_blank" rel="noopener" style="font-weight:700;">Read more at NPR →</a></div>
   </div>
 
   <div class="card card-yellow">
-    <strong><a href="https://playbill.com/article/ratings-tony-awards-2026-was-number-1-program-june-7" target="_blank" rel="noopener">2026 Tony Awards Was the #1 Program of the Night</a></strong>
-    <span class="sub">The Pink-hosted ceremony drew an average of 5.06 million viewers, topping all programming on June 7.</span>
-    <span class="note">Playbill · Jun 12, 2026</span>
-    <div><a class="readmore" href="https://playbill.com/article/ratings-tony-awards-2026-was-number-1-program-june-7" target="_blank" rel="noopener">Read more at Playbill →</a></div>
+    <strong><a href="https://variety.com/2026/legit/news/tony-awards-winners-2026-full-list-1236765656/" target="_blank" rel="noopener">Tony Awards 2026 — full winners list</a></strong>
+    <span class="sub">Complete category-by-category results from the 79th Tony Awards ceremony.</span>
+    <span class="note">Variety · Jun 2026</span>
+    <div style="margin-top:8px;"><a href="https://variety.com/2026/legit/news/tony-awards-winners-2026-full-list-1236765656/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Variety →</a></div>
   </div>
 
   <div class="card card-purple">
-    <strong><a href="https://playbill.com/article/christopher-jackson-sets-return-to-broadways-hamilton" target="_blank" rel="noopener">Christopher Jackson Returns to <em>Hamilton</em> as George Washington</a></strong>
-    <span class="sub">The original George Washington reprises his Tony-nominated role at the Richard Rodgers for the show's 11th anniversary, Sep 8, 2026 through Jan 3, 2027.</span>
+    <strong><a href="https://playbill.com/article/christopher-jackson-sets-return-to-broadways-hamilton" target="_blank" rel="noopener">Christopher Jackson returns to 'Hamilton' as George Washington</a></strong>
+    <span class="sub">The original cast member plays the role at the Richard Rodgers Theatre from Sept 8, 2026 through Jan 3, 2027 — a strictly limited engagement.</span>
     <span class="note">Playbill · Jun 16, 2026</span>
-    <div><a class="readmore" href="https://playbill.com/article/christopher-jackson-sets-return-to-broadways-hamilton" target="_blank" rel="noopener">Read more at Playbill →</a></div>
-  </div>
-
-  <div class="card card-purple">
-    <strong><a href="https://playbill.com/article/stranger-things-the-first-shadow-to-close-on-broadway-and-west-end" target="_blank" rel="noopener"><em>Stranger Things: The First Shadow</em> Sets Broadway Closing Date</a></strong>
-    <span class="sub">The Netflix stage prequel will play its final performance at the Marquis Theatre on Jan 3, 2027, after more than 700 performances.</span>
-    <span class="note">Playbill · Jun 9, 2026</span>
-    <div><a class="readmore" href="https://playbill.com/article/stranger-things-the-first-shadow-to-close-on-broadway-and-west-end" target="_blank" rel="noopener">Read more at Playbill →</a></div>
-  </div>
-
-  <div class="card card-purple">
-    <strong><a href="https://www.broadwayworld.com/article/Its-Official-PADDINGTON-Will-Arrive-on-Broadway-in-2027-Watch-a-New-Trailer-20260616" target="_blank" rel="noopener">It's Official: <em>Paddington the Musical</em> Will Arrive on Broadway in 2027</a></strong>
-    <span class="sub">The Olivier Award-winning London hit confirms a spring 2027 transfer to the Al Hirschfeld Theatre, with a new trailer released.</span>
-    <span class="note">BroadwayWorld · Jun 16, 2026</span>
-    <div><a class="readmore" href="https://www.broadwayworld.com/article/Its-Official-PADDINGTON-Will-Arrive-on-Broadway-in-2027-Watch-a-New-Trailer-20260616" target="_blank" rel="noopener">Read more at BroadwayWorld →</a></div>
-  </div>
-
-  <div class="card card-purple">
-    <strong><a href="https://playbill.com/article/billy-porter-and-wayne-brady-lead-la-cage-aux-folles-for-new-york-city-center-encores-starting-june-17" target="_blank" rel="noopener">Billy Porter &amp; Wayne Brady Lead <em>La Cage aux Folles</em> at City Center Encores!</a></strong>
-    <span class="sub">Robert O'Hara directs the Tony-winning musical, which began performances June 17 at New York City Center.</span>
-    <span class="note">Playbill · Jun 17, 2026</span>
-    <div><a class="readmore" href="https://playbill.com/article/billy-porter-and-wayne-brady-lead-la-cage-aux-folles-for-new-york-city-center-encores-starting-june-17" target="_blank" rel="noopener">Read more at Playbill →</a></div>
+    <div style="margin-top:8px;"><a href="https://playbill.com/article/christopher-jackson-sets-return-to-broadways-hamilton" target="_blank" rel="noopener" style="font-weight:700;">Read more at Playbill →</a></div>
   </div>
 
   <div class="card card-green">
-    <strong><a href="https://www.broadwayworld.com/article/Christopher-Jackson-Will-Return-to-HAMILTON-on-Broadway-in-September-20260616" target="_blank" rel="noopener"><em>Chess</em> Calls an Early Checkmate, Closing June 21</a></strong>
-    <span class="sub">The multiply-extended revival ends June 21 at the Imperial, cancelling JoJo Levesque's announced run as Florence; it played 241 performances.</span>
-    <span class="note">Playbill · Jun 2026</span>
-    <div><a class="readmore" href="https://playbill.com/article/last-chance-schedule-of-upcoming-broadway-and-off-broadway-show-closings" target="_blank" rel="noopener">Read more at Playbill →</a></div>
+    <strong><a href="https://variety.com/2026/legit/news/paddington-musical-broadway-spring-2027-1236781976/" target="_blank" rel="noopener">'Paddington The Musical' to open on Broadway in spring 2027</a></strong>
+    <span class="sub">The West End hit — winner of 7 Olivier Awards including Best New Musical — heads to the Al Hirschfeld Theatre. Previews March 30, opening April 18, 2027.</span>
+    <span class="note">Variety · Jun 16, 2026</span>
+    <div style="margin-top:8px;"><a href="https://variety.com/2026/legit/news/paddington-musical-broadway-spring-2027-1236781976/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Variety →</a></div>
   </div>
 
   <div class="card card-green">
-    <strong><a href="https://www.newyorktheatreguide.com/theatre-news/news/what-broadway-shows-are-opening-in-2026" target="_blank" rel="noopener">A Star-Studded 2026–27 Season Takes Shape</a></strong>
-    <span class="sub">Julia Louis-Dreyfus, Billy Crystal, Tom Hiddleston, Rachel Zegler, Rosamund Pike and more headline a packed lineup of new shows and revivals.</span>
-    <span class="note">New York Theatre Guide · Jun 2026</span>
-    <div><a class="readmore" href="https://www.newyorktheatreguide.com/theatre-news/news/what-broadway-shows-are-opening-in-2026" target="_blank" rel="noopener">Read more at New York Theatre Guide →</a></div>
+    <strong><a href="https://deadline.com/2026/06/broadway-summer-closings-2026-1236963205/" target="_blank" rel="noopener">Broadway summer closings: what's leaving and when</a></strong>
+    <span class="sub">A rundown of summer 2026 closings, including Death Becomes Her and The Fear of 13 (Jun 28), Dog Day Afternoon (Jul 12), Proof (Jul 19), and Joe Turner's Come and Gone (Jul 26).</span>
+    <span class="note">Deadline · Jun 2026</span>
+    <div style="margin-top:8px;"><a href="https://deadline.com/2026/06/broadway-summer-closings-2026-1236963205/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Deadline →</a></div>
+  </div>
+
+  <div class="card card-purple">
+    <strong><a href="https://playbill.com/article/whats-headed-for-broadway-in-2026-2027" target="_blank" rel="noopener">What's headed to Broadway in 2026–2027</a></strong>
+    <span class="sub">A look at the announced season — including Evita with Rachel Zegler, Inter Alia with Rosamund Pike, Dreamgirls, and Awake and Sing!.</span>
+    <span class="note">Playbill · 2026</span>
+    <div style="margin-top:8px;"><a href="https://playbill.com/article/whats-headed-for-broadway-in-2026-2027" target="_blank" rel="noopener" style="font-weight:700;">Read more at Playbill →</a></div>
   </div>
 </section>
 
