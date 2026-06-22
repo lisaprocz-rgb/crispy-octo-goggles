@@ -52,6 +52,41 @@ VENUE_ORDER = [
     ("Madison Square Garden","card-magenta"),
 ]
 
+# City/State shown after each venue name in the section header (Venue · City, ST).
+VENUE_CITY = {
+    "Academy of Music": "Philadelphia, PA",
+    "Kimmel Center": "Philadelphia, PA",
+    "Kimmel Center - Miller Theater": "Philadelphia, PA",
+    "Kimmel Center - Marian Anderson Hall": "Philadelphia, PA",
+    "Perelman Theater": "Philadelphia, PA",
+    "Forrest Theatre": "Philadelphia, PA",
+    "Commonwealth Plaza": "Philadelphia, PA",
+    "The Met Philadelphia": "Philadelphia, PA",
+    "Xfinity Mobile Arena": "Philadelphia, PA",
+    "TD Pavilion at Highmark Mann": "Philadelphia, PA",
+    "Skyline Stage at Highmark Mann": "Philadelphia, PA",
+    "Lincoln Field": "Philadelphia, PA",
+    "Citizens Park": "Philadelphia, PA",
+    "Xcite Parx": "Bensalem, PA",
+    "Sellersville Theater": "Sellersville, PA",
+    "Bucks County Playhouse": "New Hope, PA",
+    "Keswick Theatre": "Glenside, PA",
+    "Music Mountain Theatre": "Lambertville, NJ",
+    "Freedom Mortgage Pavilion": "Camden, NJ",
+    "Sound Waves Hard Rock": "Atlantic City, NJ",
+    "Hard Rock Etess": "Atlantic City, NJ",
+    "Music Box Borgata": "Atlantic City, NJ",
+    "Borgata Event Center": "Atlantic City, NJ",
+    "Ovation Hall Ocean": "Atlantic City, NJ",
+    "Resorts AC": "Atlantic City, NJ",
+    "Madison Square Garden": "New York, NY",
+}
+
+def venue_label(v):
+    """Section-header label: 'Venue · City, ST' (city appended when known)."""
+    city = VENUE_CITY.get(v)
+    return f"{v} · {city}" if city else v
+
 COMMON_WORDS = {'dance','tour','live','show','band','the','and','jazz','music','concert',
                 'tribute','experience','festival','orchestra','symphony','trio','project',
                 'night','stars','all','a','of','in'}
@@ -96,6 +131,45 @@ MON = {m:i for i,m in enumerate(['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'
 def sortkey(d):
     m = re.search(r'([A-Z][a-z]{2})\s+(\d+).*?(\d{4})', d)
     return (int(m.group(3)), MON.get(m.group(1),13), int(m.group(2))) if m else (9999,13,99)
+
+TODAY = datetime.date.today()
+def end_date(d):
+    """Return the LAST calendar date a show runs, as a date object (None if unparseable).
+
+    Handles: 'Jun 20, 2026' · 'Jul 7 – Jul 26, 2026' · 'Sep 11 – 12, 2026' ·
+             'Nov 19, 2026 – Jan 3, 2027' · trailing ' · 7:30 PM' time suffixes.
+    A range's end is taken from the text AFTER the dash; a bare end-day inherits
+    the start month, and a year missing on one side is inherited from the other.
+    """
+    s = date_only(d)  # drop any ' · 7:30 PM' time suffix
+    parts = re.split(r'\s*[–—-]\s*', s)            # split on en/em/hyphen dash
+    start, last = parts[0], parts[-1]
+    sm = re.search(r'([A-Z][a-z]{2})\s+(\d{1,2})(?:,\s*(\d{4}))?', start)
+    if not sm:
+        return None
+    s_mon, s_year = MON.get(sm.group(1)), sm.group(3)
+    if last is start:
+        mon, day, year = sm.group(1), sm.group(2), s_year
+    else:
+        em = re.search(r'(?:([A-Z][a-z]{2})\s+)?(\d{1,2})(?:,\s*(\d{4}))?', last)
+        if not em:
+            mon, day, year = sm.group(1), sm.group(2), s_year
+        else:
+            mon = em.group(1) or sm.group(1)       # inherit month if end omits it
+            day = em.group(2)
+            year = em.group(3) or s_year           # inherit year if end omits it
+    mi, yr = MON.get(mon), int(year) if year else None
+    if mi is None or yr is None:
+        return None
+    try:
+        return datetime.date(yr, mi, int(day))
+    except ValueError:
+        return None
+
+def is_past(d):
+    """True if the show's last date is strictly before today (so it is hidden)."""
+    ed = end_date(d)
+    return ed is not None and ed < TODAY
 def esc(s):
     return H.escape(s, quote=True).replace("'", "&#x27;")
 
@@ -112,6 +186,7 @@ def date_only(d):
 
 def render(arch, sup):
     secs, total_before, total_after, acts = [], 0, 0, set()
+    past_hidden = [0]
     sheet_rows = []  # (act, venue, date-only) for the review sheet
     for v, css in VENUE_ORDER:
         shows = arch['venues'].get(v, {}).get('shows', {})
@@ -120,6 +195,9 @@ def render(arch, sup):
         cards = []
         for name, date in items:
             if suppressed(name, sup):
+                continue
+            if is_past(date):           # hide shows whose last date is before today
+                past_hidden[0] += 1
                 continue
             acts.add(name)
             sheet_rows.append((name, v, date_only(date)))
@@ -132,28 +210,33 @@ def render(arch, sup):
         secs.append(
             '<section class="section-group">\n'
             f'  <div class="section-divider"><span class="divider-accent"></span>'
-            f'<span class="divider-label">{esc(v)}</span><span class="divider-line"></span></div>\n'
+            f'<span class="divider-label">{esc(venue_label(v))}</span><span class="divider-line"></span></div>\n'
             f'  <div class="cards-grid">\n{body}\n  </div>\n</section>'
         )
     sheet_rows.sort(key=lambda r:(r[0].lower(), r[1]))
-    return "\n".join(secs), total_before, total_after, sorted(acts, key=str.lower), sheet_rows
+    return "\n".join(secs), total_before, total_after, sorted(acts, key=str.lower), sheet_rows, past_hidden[0]
+
+def _venue_from_label(label):
+    """Recover the venue key from a 'Venue · City, ST' divider label."""
+    return H.unescape(label).split(' · ')[0].strip()
 
 def audit(arch, sup, rendered_html):
     rendered = {}
     for m in re.finditer(r'divider-label">([^<]+)</span>.*?<div class="cards-grid">(.*?)</div>\s*</section>',
                          rendered_html, re.S):
-        rendered[m.group(1)] = {matchnorm(H.unescape(n))
+        rendered[_venue_from_label(m.group(1))] = {matchnorm(H.unescape(n))
                                 for n in re.findall(r'<strong>(.*?)</strong>', m.group(2))
                                 if n != 'No upcoming shows listed'}
     missing = []
     for v in arch['venues']:
+        shows = arch['venues'][v]['shows']
         if v not in dict(VENUE_ORDER):
-            for s in arch['venues'][v]['shows']:
-                if not suppressed(s, sup):
+            for s, dt in shows.items():
+                if not suppressed(s, sup) and not is_past(dt):
                     missing.append((v, s))
             continue
-        for s in arch['venues'][v]['shows']:
-            if suppressed(s, sup):
+        for s, dt in shows.items():
+            if suppressed(s, sup) or is_past(dt):   # past shows are intentionally hidden
                 continue
             if matchnorm(s) not in rendered.get(v, set()):
                 missing.append((v, s))
@@ -248,7 +331,7 @@ def main():
         print("AUDIT PASSED: 0 non-suppressed shows missing.")
         return
 
-    body, before, after, acts, sheet_rows = render(arch, sup)
+    body, before, after, acts, sheet_rows, past_hidden = render(arch, sup)
     header_gen, ts = stamp()
     page = HEAD_TMPL.replace('__HEADER_GEN__', header_gen) + body + \
            FOOT_TMPL.replace('__DYNAMIC_TIMESTAMP__', ts)
@@ -264,7 +347,7 @@ def main():
     sheet = [["Suppress?","Act Name","Venue","Date"]] + [["", a, v, d] for (a,v,d) in sheet_rows]
     json.dump(sheet, open(f"{ROOT}/acts_list.json","w"), ensure_ascii=False, indent=1)
     print(f"OK: wrote {OUT}. Venues={len(VENUE_ORDER)} cards_before_suppression={before} "
-          f"cards_after={after} unique_acts={len(acts)} audit=PASS(0 missing)")
+          f"past_hidden={past_hidden} cards_after={after} unique_acts={len(acts)} audit=PASS(0 missing)")
 
 if __name__ == "__main__":
     main()
