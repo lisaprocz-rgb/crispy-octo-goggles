@@ -37,7 +37,6 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 .divider-line{flex:1;height:4px;border-radius:4px;background:#1f2440;opacity:.15}
 .sub-label{font-family:'Baloo 2';font-weight:700;font-size:.95rem;color:#1f2440;
   margin:1.2rem 0 .6rem;text-transform:uppercase;letter-spacing:.06em}
-.sub-label .addr{display:block;text-transform:none;letter-spacing:normal;font-weight:600;font-size:.8rem;color:#6b6f8c;margin-top:.2rem}
 .card{position:relative;display:block;background:#fff;color:#1f2440;text-decoration:none;
   border:3px solid #1f2440;border-radius:18px;padding:1.2rem 1.4rem;
   box-shadow:6px 6px 0 var(--accent,#ff5c8a);margin-bottom:1rem;
@@ -49,11 +48,6 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 .card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
   background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
   border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
-.card .readmore{display:inline-block;margin-top:.55rem;font-family:'Baloo 2';font-weight:700;font-size:.85rem;
-  color:#1f2440;text-decoration:underline;text-decoration-color:var(--accent,#ff5c8a);text-underline-offset:3px}
-.card .readmore:hover{color:#ff5c8a}
-.card a.title-link{color:#1f2440;text-decoration:underline;text-decoration-color:var(--accent,#ff5c8a);text-underline-offset:3px}
-.card a.title-link:hover{color:#ff5c8a}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
 .card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
 .card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
@@ -74,9 +68,9 @@ tr:first-child td{border-top:none}
 ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
 li{margin-bottom:.25rem}
 p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
-a:not(.card):not(.back-to-hub):not(.hub-label a):not(.title-link):not(.readmore){color:#1f2440;font-weight:700;
+a:not(.card):not(.back-to-hub):not(.hub-label a){color:#1f2440;font-weight:700;
   text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
-a:not(.card):not(.back-to-hub):not(.hub-label a):not(.title-link):not(.readmore):hover{color:#ff5c8a;border-bottom-color:#1f2440}
+a:not(.card):not(.back-to-hub):not(.hub-label a):hover{color:#ff5c8a;border-bottom-color:#1f2440}
 .callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
   box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
 .callout strong{font-family:'Baloo 2'}
@@ -84,15 +78,15 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 .footer-clock{margin-top:.4rem;color:#ff5c8a}
 .timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
   font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
+.read-more{font-weight:800;color:#ff5c8a;border-bottom:2px dotted #ff5c8a;}
 .day-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;}
-.day-tab{cursor:pointer;padding:8px 14px;border-radius:12px;border:2px solid #ffd1df;background:#fff;font:inherit;font-size:0.95rem;line-height:1.2;text-align:center;color:#333;font-family:'Baloo 2';font-weight:700;}
-.day-tab span{display:block;font-size:0.72rem;opacity:.7;font-weight:600;}
+.day-tab{cursor:pointer;padding:8px 14px;border-radius:12px;border:2px solid #ffd1df;background:#fff;font:inherit;font-size:0.95rem;line-height:1.2;text-align:center;color:#333;}
+.day-tab span{display:block;font-size:0.72rem;opacity:.7;}
 .day-tab.active{background:#ff5c8a;border-color:#ff5c8a;color:#fff;}
 .day-tab.active span{opacity:.95;}
 .day-pane{display:none;}
 .day-pane.active{display:block;}
-.day-empty{padding:12px 14px;border:2px dashed #ffd1df;border-radius:12px;color:#666;font-size:0.95rem;margin-bottom:1.4rem;}
-.notposted{font-size:.78rem;color:#b06;font-weight:700;}
+.day-empty{padding:12px 14px;border:2px dashed #ffd1df;border-radius:12px;color:#666;font-size:0.95rem;margin-bottom:1rem;}
 @media (max-width:600px){
   h1{font-size:2.4rem}
   main{padding:1rem .9rem 3rem}
@@ -110,400 +104,167 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 </header>
 <main>
 
+<div class="callout"><strong>Generated:</strong> Tue, Jun 30, 2026 at 7:05 AM ET (2026-06-30 11:05 UTC). <em>All content fetched live this run — no cached data used.</em> Penn Cinema and the two Regal theaters publish only today's time slots; future-date showtimes (Jul 1–6) had not been posted at run time.</div>
+
+<!-- ====================== NOW PLAYING (date-tabbed) ====================== -->
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🎟️ Now Playing</span><span class="divider-line"></span></div>
-<p style="margin-bottom:.4rem">Pick a day. Theaters publish only a few days to a week ahead — later dates may show only advance-ticket titles, and Penn Cinema had not yet posted July 4 at run time.</p>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🎟️ Now Playing</span><span class="divider-line"></span></div>
 
-<div class="day-tabs" role="tablist">
-  <button class="day-tab active" data-day="day0" role="tab">Today<span>Mon Jun 29</span></button>
-  <button class="day-tab" data-day="day1" role="tab">Tue<span>Jun 30</span></button>
-  <button class="day-tab" data-day="day2" role="tab">Wed<span>Jul 1</span></button>
-  <button class="day-tab" data-day="day3" role="tab">Thu<span>Jul 2</span></button>
-  <button class="day-tab" data-day="day4" role="tab">Fri<span>Jul 3</span></button>
-  <button class="day-tab" data-day="day5" role="tab">Sat<span>Jul 4</span></button>
-  <button class="day-tab" data-day="day6" role="tab">Sun<span>Jul 5</span></button>
-</div>
+  <div class="day-tabs" role="tablist">
+    <button class="day-tab active" data-day="day0" role="tab">Today<span>Tue Jun 30</span></button>
+    <button class="day-tab" data-day="day1" role="tab">Wed<span>Jul 1</span></button>
+    <button class="day-tab" data-day="day2" role="tab">Thu<span>Jul 2</span></button>
+    <button class="day-tab" data-day="day3" role="tab">Fri<span>Jul 3</span></button>
+    <button class="day-tab" data-day="day4" role="tab">Sat<span>Jul 4</span></button>
+    <button class="day-tab" data-day="day5" role="tab">Sun<span>Jul 5</span></button>
+    <button class="day-tab" data-day="day6" role="tab">Mon<span>Jul 6</span></button>
+  </div>
 
-<!-- DAY 0 — Mon Jun 29 -->
-<div class="day-pane active" id="day0">
+  <!-- ===== DAY 0 — Tue Jun 30 ===== -->
+  <div class="day-pane active" id="day0">
 
-  <div class="sub-label">Penn Cinema Huntingdon Valley<span class="addr">2nd Street Pike &amp; County Line Rd, Huntingdon Valley · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Rating</th><th>Runtime</th><th>Showtimes</th></tr>
-  <tr><td>Supergirl</td><td>PG-13</td><td>1h 48m</td><td>11:20a, 2:00p, 3:30p, 4:40p, 6:20p, 7:10p</td></tr>
-  <tr><td>Toy Story 5</td><td>PG</td><td>1h 42m</td><td>11:00a, 11:30a, 12:10p, 12:40p, 1:20p, 1:50p +7 more</td></tr>
-  <tr><td>Disclosure Day</td><td>PG-13</td><td>2h 25m</td><td>12:00p, 3:00p, 6:00p</td></tr>
-  <tr><td>Masters of the Universe</td><td>PG-13</td><td>2h 13m</td><td>12:20p, 3:20p, 6:30p</td></tr>
-  </table>
+    <div class="sub-label">Penn Cinema Huntingdon Valley — 2068 County Line Rd, Huntingdon Valley, PA 19006 · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets</a></div>
+    <table>
+      <tr><th>Movie</th><th>Rating</th><th>Runtime</th><th>Showtimes</th></tr>
+      <tr><td>Toy Story 5</td><td>G</td><td>1h 42m</td><td>11:00, 11:30 AM, 12:10, 12:40, 1:20, 1:50, 2:40, 3:40, 4:20, 5:10, 6:10, 6:40, 7:20 PM</td></tr>
+      <tr><td>Supergirl</td><td>PG-13</td><td>1h 48m</td><td>11:20 AM, 2:00, 3:30, 4:40, 6:20, 7:10 PM</td></tr>
+      <tr><td>Disclosure Day</td><td>PG-13</td><td>2h 25m</td><td>12:00, 3:00, 6:00 PM</td></tr>
+      <tr><td>Masters of the Universe</td><td>PG-13</td><td>2h 20m</td><td>12:20, 3:20, 6:30 PM</td></tr>
+    </table>
 
-  <div class="sub-label">Regal Warrington Crossing<span class="addr">104 Easton Rd, Warrington · <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Rating</th><th>Runtime</th><th>Showtimes</th></tr>
-  <tr><td>Supergirl</td><td>PG-13</td><td>1h 48m</td><td>8:50a, 9:10a, 9:40a, 10:10a, 11:40a, 12:10p +17 more</td></tr>
-  <tr><td>Toy Story 5</td><td>PG</td><td>1h 42m</td><td>9:00a, 9:25a, 9:50a, 10:30a, 10:50a, 11:20a +18 more</td></tr>
-  <tr><td>Disclosure Day</td><td>PG-13</td><td>2h 25m</td><td>8:55a, 12:15p, 3:35p, 7:00p, 10:30p</td></tr>
-  <tr><td>Masters of the Universe</td><td>PG-13</td><td>2h 13m</td><td>9:15a, 12:05p, 3:25p, 7:30p, 10:25p</td></tr>
-  <tr><td>Obsession</td><td>R</td><td>1h 48m</td><td>9:05a, 11:55a, 2:45p, 5:30p, 8:20p, 11:00p</td></tr>
-  <tr><td>Jackass: Best and Last</td><td>R</td><td>1h 32m</td><td>9:20a, 12:00p, 2:30p, 5:20p, 8:00p, 10:50p</td></tr>
-  <tr><td>Scary Movie</td><td>R</td><td>1h 36m</td><td>9:35a, 12:30p, 3:00p, 6:30p, 8:30p, 11:05p</td></tr>
-  <tr><td>Backrooms</td><td>R</td><td>1h 50m</td><td>2:10p, 4:55p, 7:40p, 10:35p</td></tr>
-  <tr><td>Star Wars: The Mandalorian and Grogu</td><td>PG-13</td><td>2h 12m</td><td>9:45a, 1:05p, 4:25p, 7:35p, 10:55p</td></tr>
-  <tr><td>The Death of Robin Hood</td><td>R</td><td>2h 3m</td><td>9:30a, 12:25p, 6:00p</td></tr>
-  <tr><td>The Furious</td><td>R</td><td>1h 53m</td><td>10:00a, 1:00p, 10:00p</td></tr>
-  <tr><td>Girls Like Girls</td><td>R</td><td>1h 35m</td><td>10:25a, 1:45p, 4:00p</td></tr>
-  <tr><td>Leviticus</td><td>R</td><td>1h 26m</td><td>3:30p, 9:00p</td></tr>
-  <tr><td>Lucky Strike</td><td>R</td><td>—</td><td>4:05p, 7:05p</td></tr>
-  <tr><td>7 Dogs</td><td>R</td><td>2h 5m</td><td>12:55p, 4:30p, 7:00p, 10:45p</td></tr>
-  <tr><td>Michael</td><td>PG-13</td><td>2h 7m</td><td>10:20p</td></tr>
-  <tr><td>A Minecraft Movie</td><td>PG</td><td>1h 41m</td><td>11:00a</td></tr>
-  <tr><td>Sonic the Hedgehog 2</td><td>PG</td><td>2h 2m</td><td>11:00a, 7:25p</td></tr>
-  <tr><td>BLEACH: Thousand-Year Blood War</td><td>—</td><td>1h 25m</td><td>6:00p</td></tr>
-  <tr><td>Cocktail 2</td><td>—</td><td>2h 30m</td><td>9:05p</td></tr>
-  <tr><td>Minions &amp; Monsters (Early Access)</td><td>PG</td><td>1h 30m</td><td>6:00p</td></tr>
-  </table>
+    <div class="sub-label">Regal Warrington Crossing — 104 Easton Rd, Bldg F, Warrington, PA 18976 · <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">Get Tickets</a></div>
+    <table>
+      <tr><th>Movie</th><th>Rating</th><th>Runtime</th><th>Showtimes</th></tr>
+      <tr><td>Supergirl</td><td>PG-13</td><td>1h 48m</td><td>8:50, 9:10, 9:40, 10:10, 10:40, 11:40 AM, 12:10, 1:10, 2:40, 3:10, 3:40, 4:10, 5:40, 6:10, 6:40, 7:10, 8:10, 8:40, 9:10, 9:40, 10:10, 10:40, 11:10 PM</td></tr>
+      <tr><td>Toy Story 5</td><td>G</td><td>1h 42m</td><td>9:00, 9:25, 9:50, 10:30, 11:20, 11:50 AM, 12:20, 12:50, 1:20, 1:50, 2:20, 2:50, 3:20, 3:50, 4:20, 4:50, 5:25, 5:50, 6:20, 6:50, 7:50, 8:50, 9:20, 9:50 PM</td></tr>
+      <tr><td>Disclosure Day</td><td>PG-13</td><td>2h 25m</td><td>8:55 AM, 12:15, 3:35, 7:00, 10:30 PM</td></tr>
+      <tr><td>Obsession</td><td>R</td><td>1h 48m</td><td>9:05, 11:55 AM, 2:45, 5:30, 8:20, 11:00 PM</td></tr>
+      <tr><td>Masters of the Universe</td><td>PG-13</td><td>2h 20m</td><td>9:15 AM, 12:05, 3:25, 7:05, 10:25 PM</td></tr>
+      <tr><td>jackass: best and last</td><td>R</td><td>1h 32m</td><td>9:20 AM, 12:00, 2:30, 5:20, 8:00, 10:50 PM</td></tr>
+      <tr><td>The Death of Robin Hood</td><td>R</td><td>2h 3m</td><td>9:30 AM, 12:25, 6:00 PM</td></tr>
+      <tr><td>Scary Movie</td><td>R</td><td>1h 36m</td><td>9:35 AM, 12:30, 3:00, 5:45, 8:30, 11:05 PM</td></tr>
+      <tr><td>Star Wars: The Mandalorian &amp; Grogu</td><td>PG</td><td>2h 12m</td><td>9:45 AM, 1:05, 4:25, 7:35, 10:55 PM</td></tr>
+      <tr><td>The Furious</td><td>R</td><td>1h 53m</td><td>10:00 AM, 1:00, 10:00 PM</td></tr>
+      <tr><td>Girls Like Girls</td><td>R</td><td>1h 35m</td><td>10:25 AM, 1:45, 4:00, 6:30 PM</td></tr>
+      <tr><td>SMX26: Sonic the Hedgehog 2</td><td>PG</td><td>2h 2m</td><td>11:00 AM</td></tr>
+      <tr><td>SMX26: A Minecraft Movie</td><td>PG</td><td>1h 41m</td><td>11:00 AM</td></tr>
+      <tr><td>7 Dogs</td><td>NR</td><td>2h 5m</td><td>12:55, 7:30, 10:35 PM</td></tr>
+      <tr><td>Backrooms</td><td>R</td><td>1h 51m</td><td>2:10, 4:55, 7:40, 10:35 PM</td></tr>
+      <tr><td>Leviticus</td><td>NR</td><td>1h 28m</td><td>3:30, 9:00 PM</td></tr>
+      <tr><td>Talladega Nights 20th Anniversary</td><td>PG-13</td><td>1h 47m</td><td>4:00 PM</td></tr>
+      <tr><td>Lucky Strike</td><td>NR</td><td>1h 43m</td><td>4:05, 7:05 PM</td></tr>
+      <tr><td>Pride: Moonlight</td><td>NR</td><td>1h 51m</td><td>7:25 PM</td></tr>
+      <tr><td>Cocktail 2 (Hindi, sub)</td><td>NR</td><td>2h 40m</td><td>9:05 PM</td></tr>
+      <tr><td>Michael</td><td>PG-13</td><td>2h 10m</td><td>10:20 PM</td></tr>
+    </table>
 
-  <div class="sub-label">Regal UA Oxford Valley<span class="addr">403 Middletown Blvd, Langhorne · <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Rating</th><th>Runtime</th><th>Showtimes</th></tr>
-  <tr><td>Supergirl</td><td>PG-13</td><td>1h 48m</td><td>10:00a, 11:20a, 12:50p, 1:30p, 2:10p, 3:40p +5 more</td></tr>
-  <tr><td>Toy Story 5</td><td>PG</td><td>1h 42m</td><td>10:10a, 10:50a, 11:30a, 12:00p, 1:00p, 2:20p +12 more</td></tr>
-  <tr><td>Disclosure Day</td><td>PG-13</td><td>2h 25m</td><td>12:00p, 3:20p, 6:50p, 10:20p</td></tr>
-  <tr><td>Masters of the Universe</td><td>PG-13</td><td>2h 13m</td><td>11:40a, 6:00p, 9:30p</td></tr>
-  <tr><td>Obsession</td><td>R</td><td>1h 48m</td><td>10:30a, 1:20p, 4:10p, 7:00p, 9:55p</td></tr>
-  <tr><td>Jackass: Best and Last</td><td>R</td><td>1h 32m</td><td>11:10a, 1:50p, 4:30p, 7:15p, 9:50p</td></tr>
-  <tr><td>Scary Movie</td><td>R</td><td>1h 36m</td><td>2:05p, 4:35p, 9:45p</td></tr>
-  <tr><td>Backrooms</td><td>R</td><td>1h 50m</td><td>2:15p, 8:40p</td></tr>
-  <tr><td>Star Wars: The Mandalorian and Grogu</td><td>PG-13</td><td>2h 12m</td><td>11:50a, 2:55p, 8:35p</td></tr>
-  <tr><td>The Death of Robin Hood</td><td>R</td><td>2h 3m</td><td>3:00p</td></tr>
-  <tr><td>Leviticus</td><td>R</td><td>1h 26m</td><td>10:20a, 4:00p</td></tr>
-  <tr><td>Michael</td><td>PG-13</td><td>2h 7m</td><td>12:55p, 9:40p</td></tr>
-  <tr><td>A Minecraft Movie</td><td>PG</td><td>1h 41m</td><td>11:00a</td></tr>
-  <tr><td>Sonic the Hedgehog 2</td><td>PG</td><td>2h 2m</td><td>11:00a, 7:00p</td></tr>
-  <tr><td>BLEACH: Thousand-Year Blood War</td><td>—</td><td>1h 25m</td><td>6:00p</td></tr>
-  <tr><td>Minions &amp; Monsters (Early Access)</td><td>PG</td><td>1h 30m</td><td>6:00p</td></tr>
-  </table>
-</div>
+    <div class="sub-label">Regal UA Oxford Valley — 403 Middletown Blvd, Langhorne, PA 19047 · <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Get Tickets</a></div>
+    <table>
+      <tr><th>Movie</th><th>Rating</th><th>Runtime</th><th>Showtimes</th></tr>
+      <tr><td>Supergirl</td><td>PG-13</td><td>1h 48m</td><td>10:00, 10:40, 11:10 AM, 12:50, 1:30, 2:10, 3:40, 4:20, 5:10, 6:30, 7:10, 8:10, 9:20, 10:00 PM</td></tr>
+      <tr><td>SMX26: A Minecraft Movie</td><td>PG</td><td>1h 41m</td><td>11:00 AM</td></tr>
+      <tr><td>SMX26: Sonic the Hedgehog 2</td><td>PG</td><td>2h 2m</td><td>11:00 AM</td></tr>
+      <tr><td>Masters of the Universe</td><td>PG-13</td><td>2h 20m</td><td>11:40 AM, 6:00, 9:30 PM</td></tr>
+      <tr><td>Star Wars: The Mandalorian &amp; Grogu</td><td>PG</td><td>2h 12m</td><td>11:50 AM, 3:10, 6:25, 9:40 PM</td></tr>
+      <tr><td>Disclosure Day</td><td>PG-13</td><td>2h 25m</td><td>12:45, 4:15, 7:50 PM</td></tr>
+      <tr><td>Backrooms</td><td>R</td><td>1h 51m</td><td>12:55, 6:55, 9:50 PM</td></tr>
+      <tr><td>Toy Story 5</td><td>G</td><td>1h 42m</td><td>1:00, 1:40, 2:20, 3:50, 4:25, 5:10, 6:40, 7:05, 8:00, 9:30, 9:55, 10:35 PM</td></tr>
+      <tr><td>Leviticus</td><td>NR</td><td>1h 28m</td><td>1:35 PM</td></tr>
+      <tr><td>jackass: best and last</td><td>R</td><td>1h 32m</td><td>2:00, 4:40, 7:25, 10:00 PM</td></tr>
+      <tr><td>Obsession</td><td>R</td><td>1h 48m</td><td>2:50, 5:50, 8:45 PM</td></tr>
+      <tr><td>Scary Movie</td><td>R</td><td>1h 36m</td><td>2:55, 5:30, 8:00, 10:35 PM</td></tr>
+      <tr><td>The Death of Robin Hood</td><td>R</td><td>2h 3m</td><td>3:00 PM</td></tr>
+      <tr><td>Michael</td><td>PG-13</td><td>2h 10m</td><td>3:55, 9:55 PM</td></tr>
+      <tr><td>Talladega Nights 20th Anniversary</td><td>PG-13</td><td>1h 47m</td><td>4:00 PM</td></tr>
+      <tr><td>Pride: Moonlight</td><td>NR</td><td>1h 51m</td><td>7:00 PM</td></tr>
+    </table>
+  </div>
 
-<!-- DAY 1 — Tue Jun 30 -->
-<div class="day-pane" id="day1">
+  <!-- ===== DAY 1–6 — not yet posted ===== -->
+  <div class="day-pane" id="day1"><div class="day-empty">Showtimes for this date haven't been published by the theaters yet — check back closer to the day. (Several titles such as <em>Minions &amp; Monsters</em> and anniversary screenings are currently "pre-order only.")</div></div>
+  <div class="day-pane" id="day2"><div class="day-empty">Showtimes for this date haven't been published by the theaters yet — check back closer to the day.</div></div>
+  <div class="day-pane" id="day3"><div class="day-empty">Showtimes for this date haven't been published by the theaters yet — check back closer to the day.</div></div>
+  <div class="day-pane" id="day4"><div class="day-empty">Showtimes for this date haven't been published by the theaters yet — check back closer to the day.</div></div>
+  <div class="day-pane" id="day5"><div class="day-empty">Showtimes for this date haven't been published by the theaters yet — check back closer to the day.</div></div>
+  <div class="day-pane" id="day6"><div class="day-empty">Showtimes for this date haven't been published by the theaters yet — check back closer to the day.</div></div>
 
-  <div class="sub-label">Penn Cinema Huntingdon Valley<span class="addr">2nd Street Pike &amp; County Line Rd, Huntingdon Valley · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Showtimes</th></tr>
-  <tr><td>Supergirl</td><td>11:20a, 2:00p, 3:30p, 4:40p, 6:20p, 7:10p</td></tr>
-  <tr><td>Toy Story 5</td><td>11:00a, 11:30a, 12:10p, 12:40p, 1:20p, 1:50p +7 more</td></tr>
-  <tr><td>Disclosure Day</td><td>12:00p, 3:00p, 6:00p</td></tr>
-  <tr><td>Masters of the Universe</td><td>12:20p, 3:20p, 6:30p</td></tr>
-  </table>
-
-  <div class="sub-label">Regal Warrington Crossing<span class="addr">104 Easton Rd, Warrington · <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Showtimes</th></tr>
-  <tr><td>Supergirl</td><td>8:50a, 9:10a, 9:40a, 10:10a, 10:40a, 11:40a +18 more</td></tr>
-  <tr><td>Toy Story 5</td><td>9:00a, 9:25a, 9:50a, 10:30a, 11:20a, 11:50a +18 more</td></tr>
-  <tr><td>Disclosure Day</td><td>8:55a, 12:15p, 3:35p, 7:00p, 10:30p</td></tr>
-  <tr><td>Masters of the Universe</td><td>9:15a, 12:05p, 3:25p, 7:05p, 10:25p</td></tr>
-  <tr><td>Obsession</td><td>9:05a, 11:55a, 2:45p, 5:30p, 8:20p, 11:00p</td></tr>
-  <tr><td>Jackass: Best and Last</td><td>9:20a, 12:00p, 2:30p, 5:20p, 8:00p, 10:50p</td></tr>
-  <tr><td>Scary Movie</td><td>9:35a, 12:30p, 3:00p, 5:45p, 8:30p, 11:05p</td></tr>
-  <tr><td>Backrooms</td><td>2:10p, 4:55p, 7:40p, 10:35p</td></tr>
-  <tr><td>Star Wars: The Mandalorian and Grogu</td><td>9:45a, 1:05p, 4:25p, 7:35p, 10:55p</td></tr>
-  <tr><td>The Death of Robin Hood</td><td>9:30a, 12:25p, 6:00p</td></tr>
-  <tr><td>The Furious</td><td>10:00a, 1:00p, 10:00p</td></tr>
-  <tr><td>Girls Like Girls</td><td>10:25a, 1:45p, 4:00p, 6:30p</td></tr>
-  <tr><td>Leviticus</td><td>3:30p, 9:00p</td></tr>
-  <tr><td>Lucky Strike</td><td>4:05p, 7:05p</td></tr>
-  <tr><td>7 Dogs</td><td>12:55p, 4:00p, 7:30p, 10:35p</td></tr>
-  <tr><td>Michael</td><td>10:20p</td></tr>
-  <tr><td>A Minecraft Movie</td><td>11:00a</td></tr>
-  <tr><td>Sonic the Hedgehog 2</td><td>11:00a</td></tr>
-  <tr><td>Moonlight (Pride)</td><td>7:25p</td></tr>
-  <tr><td>Cocktail 2</td><td>9:05p</td></tr>
-  </table>
-
-  <div class="sub-label">Regal UA Oxford Valley<span class="addr">403 Middletown Blvd, Langhorne · <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Showtimes</th></tr>
-  <tr><td>Supergirl</td><td>10:00a, 10:40a, 11:10a, 12:50p, 1:30p, 2:10p +8 more</td></tr>
-  <tr><td>Toy Story 5</td><td>1:00p, 1:40p, 2:20p, 3:50p, 4:25p, 5:10p +6 more</td></tr>
-  <tr><td>Disclosure Day</td><td>12:45p, 4:15p, 7:50p</td></tr>
-  <tr><td>Masters of the Universe</td><td>11:40a, 6:00p, 9:30p</td></tr>
-  <tr><td>Obsession</td><td>2:50p, 5:50p, 8:45p</td></tr>
-  <tr><td>Jackass: Best and Last</td><td>2:00p, 4:40p, 7:25p, 10:00p</td></tr>
-  <tr><td>Scary Movie</td><td>2:55p, 5:30p, 8:00p, 10:35p</td></tr>
-  <tr><td>Backrooms</td><td>12:55p, 6:55p, 9:50p</td></tr>
-  <tr><td>Star Wars: The Mandalorian and Grogu</td><td>11:50a, 3:10p, 6:25p, 9:40p</td></tr>
-  <tr><td>The Death of Robin Hood</td><td>3:00p</td></tr>
-  <tr><td>Leviticus</td><td>1:35p</td></tr>
-  <tr><td>Michael</td><td>3:55p, 9:55p</td></tr>
-  <tr><td>A Minecraft Movie</td><td>11:00a</td></tr>
-  <tr><td>Sonic the Hedgehog 2</td><td>11:00a</td></tr>
-  <tr><td>Moonlight (Pride)</td><td>7:00p</td></tr>
-  </table>
-</div>
-
-<!-- DAY 2 — Wed Jul 1 -->
-<div class="day-pane" id="day2">
-  <div class="callout"><strong>🎉 New this day:</strong> Minions &amp; Monsters opens wide.</div>
-
-  <div class="sub-label">Penn Cinema Huntingdon Valley<span class="addr">2nd Street Pike &amp; County Line Rd, Huntingdon Valley · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Showtimes</th></tr>
-  <tr><td>Minions &amp; Monsters</td><td>11:00a, 12:10p, 1:00p, 2:20p, 3:10p, 5:20p +2 more</td></tr>
-  <tr><td>Supergirl</td><td>10:30a, 12:50p, 3:20p, 4:40p, 7:00p</td></tr>
-  <tr><td>Toy Story 5</td><td>10:40a, 12:00p, 2:10p, 4:30p, 5:30p, 6:40p +1 more</td></tr>
-  <tr><td>Disclosure Day</td><td>10:10a, 1:10p, 4:10p, 7:10p</td></tr>
-  <tr><td>Masters of the Universe</td><td>10:20a, 1:20p, 4:20p, 7:20p</td></tr>
-  <tr><td>Kung Fu Panda 4 (special)</td><td>10:00a, 6:00p</td></tr>
-  </table>
-
-  <div class="sub-label">Regal Warrington Crossing<span class="addr">104 Easton Rd, Warrington · <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Showtimes</th></tr>
-  <tr><td>Minions &amp; Monsters</td><td>8:30a, 9:00a, 9:20a, 9:40a, 10:00a, 10:20a +30 more</td></tr>
-  <tr><td>Supergirl</td><td>8:40a, 10:10a, 11:20a, 1:00p, 2:10p, 4:30p +5 more</td></tr>
-  <tr><td>Toy Story 5</td><td>8:25a, 10:30a, 11:10a, 1:10p, 1:50p, 4:00p +5 more</td></tr>
-  <tr><td>Jackass: Best and Last</td><td>10:25a, 12:55p, 3:30p, 6:05p, 8:30p, 11:05p</td></tr>
-  <tr><td>Disclosure Day</td><td>8:35a, 12:00p, 3:25p, 7:05p, 10:25p</td></tr>
-  <tr><td>Masters of the Universe</td><td>8:35a, 11:55a, 3:10p, 6:45p, 10:05p</td></tr>
-  <tr><td>Scary Movie</td><td>8:50a, 11:40a, 2:30p, 5:20p, 8:10p, 10:45p</td></tr>
-  <tr><td>Backrooms</td><td>1:15p, 4:15p, 7:10p, 10:00p</td></tr>
-  <tr><td>Star Wars: The Mandalorian and Grogu</td><td>9:30a, 1:05p, 4:20p, 7:45p, 10:55p</td></tr>
-  <tr><td>Obsession</td><td>9:50a, 12:40p, 3:35p, 6:20p, 9:10p</td></tr>
-  <tr><td>Girls Like Girls</td><td>8:20a, 10:50a, 1:25p, 3:55p, 6:25p</td></tr>
-  <tr><td>The Death of Robin Hood</td><td>1:35p, 7:25p</td></tr>
-  <tr><td>7 Dogs</td><td>1:55p, 4:55p, 7:55p, 11:00p</td></tr>
-  <tr><td>Leviticus</td><td>10:35p</td></tr>
-  <tr><td>Cocktail 2</td><td>9:20p</td></tr>
-  <tr><td>A Minecraft Movie</td><td>11:00a</td></tr>
-  <tr><td>Sonic the Hedgehog 2</td><td>11:00a</td></tr>
-  </table>
-
-  <div class="sub-label">Regal UA Oxford Valley<span class="addr">403 Middletown Blvd, Langhorne · <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Showtimes</th></tr>
-  <tr><td>Minions &amp; Monsters</td><td>9:00a, 9:30a, 10:30a, 11:00a, 11:30a, 12:00p +16 more</td></tr>
-  <tr><td>Supergirl</td><td>10:00a, 12:50p, 1:45p, 3:40p, 6:30p, 9:20p</td></tr>
-  <tr><td>Toy Story 5</td><td>9:10a, 11:55a, 1:10p, 2:10p, 2:45p, 4:35p +8 more</td></tr>
-  <tr><td>Jackass: Best and Last</td><td>10:10a, 12:50p, 3:30p, 6:15p, 8:50p</td></tr>
-  <tr><td>Disclosure Day</td><td>11:10a, 2:40p, 6:10p, 9:40p</td></tr>
-  <tr><td>Scary Movie</td><td>10:20a, 1:05p, 3:55p, 6:25p, 9:10p</td></tr>
-  <tr><td>Backrooms</td><td>11:20a, 2:10p, 5:05p, 8:00p, 10:50p</td></tr>
-  <tr><td>Obsession</td><td>10:50a, 1:50p, 4:50p, 7:40p, 10:35p</td></tr>
-  <tr><td>A Minecraft Movie</td><td>11:00a</td></tr>
-  <tr><td>Sonic the Hedgehog 2</td><td>11:00a</td></tr>
-  </table>
-</div>
-
-<!-- DAY 3 — Thu Jul 2 -->
-<div class="day-pane" id="day3">
-  <div class="callout"><strong>🎉 New this day:</strong> Young Washington &amp; Lockbox open.</div>
-
-  <div class="sub-label">Penn Cinema Huntingdon Valley<span class="addr">2nd Street Pike &amp; County Line Rd, Huntingdon Valley · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Showtimes</th></tr>
-  <tr><td>Young Washington</td><td>11:10a, 1:50p, 7:20p</td></tr>
-  <tr><td>Minions &amp; Monsters</td><td>10:30a, 11:00a, 1:00p, 3:10p, 5:20p, 6:00p +2 more</td></tr>
-  <tr><td>Supergirl</td><td>10:20a, 12:40p, 3:30p, 4:50p, 7:20p</td></tr>
-  <tr><td>Toy Story 5</td><td>10:10a, 12:25p, 2:40p, 4:30p, 5:00p, 6:50p</td></tr>
-  <tr><td>Disclosure Day</td><td>10:00a, 1:00p, 4:00p, 7:00p</td></tr>
-  <tr><td>Masters of the Universe</td><td>10:40a, 1:40p, 4:40p, 7:40p</td></tr>
-  </table>
-
-  <div class="sub-label">Regal Warrington Crossing <span class="notposted">· full lineup not yet posted (advance titles only)</span><span class="addr">104 Easton Rd, Warrington · <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Showtimes</th></tr>
-  <tr><td>Young Washington</td><td>8:50a, 12:10p, 3:30p, 6:50p, 10:10p</td></tr>
-  <tr><td>Minions &amp; Monsters</td><td>8:30a, 9:00a, 9:20a, 9:40a, 10:00a, 10:20a +30 more</td></tr>
-  <tr><td>Supergirl</td><td>8:40a, 11:20a, 2:10p, 5:00p, 7:50p, 10:40p</td></tr>
-  <tr><td>Lockbox</td><td>10:05p</td></tr>
-  <tr><td>A Minecraft Movie</td><td>11:00a</td></tr>
-  <tr><td>Sonic the Hedgehog 2</td><td>11:00a</td></tr>
-  </table>
-
-  <div class="sub-label">Regal UA Oxford Valley<span class="addr">403 Middletown Blvd, Langhorne · <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Showtimes</th></tr>
-  <tr><td>Young Washington</td><td>11:30a, 2:40p, 5:50p, 9:00p</td></tr>
-  <tr><td>Minions &amp; Monsters</td><td>9:30a, 10:30a, 11:00a, 11:30a, 12:00p, 1:00p +15 more</td></tr>
-  <tr><td>Supergirl</td><td>11:10a, 1:45p, 2:10p, 5:10p, 8:10p</td></tr>
-  <tr><td>Toy Story 5</td><td>9:40a, 11:40a, 12:20p, 1:10p, 2:20p, 3:00p +11 more</td></tr>
-  <tr><td>Scary Movie</td><td>2:15p, 4:50p, 7:30p, 10:10p</td></tr>
-  <tr><td>Backrooms</td><td>11:20a, 2:10p, 5:05p, 8:00p, 10:50p</td></tr>
-  <tr><td>Obsession</td><td>10:50a, 1:50p, 4:50p, 7:40p, 10:35p</td></tr>
-  <tr><td>A Minecraft Movie</td><td>11:00a</td></tr>
-  <tr><td>Sonic the Hedgehog 2</td><td>11:00a</td></tr>
-  </table>
-</div>
-
-<!-- DAY 4 — Fri Jul 3 -->
-<div class="day-pane" id="day4">
-  <div class="callout"><strong>🎉 New this day:</strong> Alpha opens.</div>
-
-  <div class="sub-label">Penn Cinema Huntingdon Valley<span class="addr">2nd Street Pike &amp; County Line Rd, Huntingdon Valley · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Showtimes</th></tr>
-  <tr><td>Young Washington</td><td>11:10a, 1:50p, 4:30p, 7:20p</td></tr>
-  <tr><td>Minions &amp; Monsters</td><td>11:00a, 12:00p, 1:00p, 2:10p, 3:10p, 4:20p +4 more</td></tr>
-  <tr><td>Supergirl</td><td>12:10p, 2:40p, 5:10p, 7:40p</td></tr>
-  <tr><td>Toy Story 5</td><td>11:20a, 1:40p, 4:00p, 6:20p, 8:40p</td></tr>
-  </table>
-
-  <div class="sub-label">Regal Warrington Crossing <span class="notposted">· full lineup not yet posted (advance titles only)</span><span class="addr">104 Easton Rd, Warrington · <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Showtimes</th></tr>
-  <tr><td>Alpha</td><td>10:25a, 2:05p, 5:50p, 9:35p</td></tr>
-  <tr><td>Young Washington</td><td>9:10a, 12:20p, 3:30p, 6:50p, 10:00p</td></tr>
-  <tr><td>Minions &amp; Monsters</td><td>8:30a, 9:00a, 9:20a, 9:40a, 10:00a, 10:20a +30 more</td></tr>
-  <tr><td>Supergirl</td><td>8:40a, 11:20a, 2:10p, 5:00p, 7:50p, 10:40p</td></tr>
-  <tr><td>Lockbox</td><td>10:05p</td></tr>
-  </table>
-
-  <div class="sub-label">Regal UA Oxford Valley <span class="notposted">· full lineup not yet posted (advance titles only)</span><span class="addr">403 Middletown Blvd, Langhorne · <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Showtimes</th></tr>
-  <tr><td>Young Washington</td><td>10:20a, 1:40p, 4:50p, 8:10p</td></tr>
-  <tr><td>Minions &amp; Monsters</td><td>9:00a, 9:30a, 10:00a, 10:30a, 11:30a, 12:00p +17 more</td></tr>
-  </table>
-</div>
-
-<!-- DAY 5 — Sat Jul 4 -->
-<div class="day-pane" id="day5">
-
-  <div class="sub-label">Penn Cinema Huntingdon Valley<span class="addr">2nd Street Pike &amp; County Line Rd, Huntingdon Valley · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <div class="day-empty">Showtimes for this date haven't been published by the theater yet — check back closer to the day.</div>
-
-  <div class="sub-label">Regal Warrington Crossing <span class="notposted">· full lineup not yet posted (advance titles only)</span><span class="addr">104 Easton Rd, Warrington · <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Showtimes</th></tr>
-  <tr><td>Alpha</td><td>10:25a, 2:05p, 5:50p, 9:35p</td></tr>
-  <tr><td>Young Washington</td><td>9:10a, 12:20p, 3:30p, 6:50p, 10:00p</td></tr>
-  <tr><td>Minions &amp; Monsters</td><td>8:30a, 9:00a, 9:20a, 9:40a, 10:00a, 10:20a +30 more</td></tr>
-  <tr><td>Supergirl</td><td>8:40a, 11:20a, 2:10p, 5:00p, 7:50p, 10:40p</td></tr>
-  <tr><td>Lockbox</td><td>10:05p</td></tr>
-  </table>
-
-  <div class="sub-label">Regal UA Oxford Valley <span class="notposted">· full lineup not yet posted (advance titles only)</span><span class="addr">403 Middletown Blvd, Langhorne · <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Showtimes</th></tr>
-  <tr><td>Young Washington</td><td>10:20a, 1:40p, 4:50p, 8:10p</td></tr>
-  <tr><td>Minions &amp; Monsters</td><td>9:00a, 9:30a, 10:00a, 10:30a, 11:30a, 12:00p +17 more</td></tr>
-  </table>
-</div>
-
-<!-- DAY 6 — Sun Jul 5 -->
-<div class="day-pane" id="day6">
-
-  <div class="sub-label">Penn Cinema Huntingdon Valley<span class="addr">2nd Street Pike &amp; County Line Rd, Huntingdon Valley · <a href="https://huntingdonvalley.penncinema.com/home" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Showtimes</th></tr>
-  <tr><td>Young Washington</td><td>11:50a, 4:30p</td></tr>
-  <tr><td>Minions &amp; Monsters</td><td>11:00a, 12:00p, 1:00p, 2:10p, 3:10p, 4:20p +4 more</td></tr>
-  <tr><td>Supergirl</td><td>2:40p, 5:10p, 7:40p</td></tr>
-  <tr><td>Toy Story 5</td><td>11:20a, 1:40p, 4:00p, 6:20p, 8:40p</td></tr>
-  </table>
-
-  <div class="sub-label">Regal Warrington Crossing <span class="notposted">· full lineup not yet posted (advance titles only)</span><span class="addr">104 Easton Rd, Warrington · <a href="https://www.regmovies.com/theatres/regal-warrington-crossing-0379" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Showtimes</th></tr>
-  <tr><td>Alpha</td><td>10:25a, 2:05p, 4:00p, 5:50p, 9:35p</td></tr>
-  <tr><td>Young Washington</td><td>9:10a, 12:20p, 3:30p, 6:50p, 10:00p</td></tr>
-  <tr><td>Minions &amp; Monsters</td><td>8:30a, 9:00a, 9:20a, 9:40a, 10:00a, 10:20a +30 more</td></tr>
-  <tr><td>Supergirl</td><td>8:40a, 11:20a, 2:10p, 5:00p, 7:50p, 10:40p</td></tr>
-  <tr><td>Lockbox</td><td>10:05p</td></tr>
-  </table>
-
-  <div class="sub-label">Regal UA Oxford Valley <span class="notposted">· full lineup not yet posted (advance titles only)</span><span class="addr">403 Middletown Blvd, Langhorne · <a href="https://www.regmovies.com/theatres/regal-ua-oxford-valley-1269" target="_blank" rel="noopener">Get Tickets</a></span></div>
-  <table><tr><th>Movie</th><th>Showtimes</th></tr>
-  <tr><td>Young Washington</td><td>10:20a, 1:40p, 4:50p, 8:10p</td></tr>
-  <tr><td>Minions &amp; Monsters</td><td>9:00a, 9:30a, 10:00a, 10:30a, 11:30a, 12:00p +17 more</td></tr>
-  </table>
-</div>
-
-<script>
-(function(){
-  var tabs=[].slice.call(document.querySelectorAll('.day-tab'));
-  var panes=[].slice.call(document.querySelectorAll('.day-pane'));
-  tabs.forEach(function(t){t.addEventListener('click',function(){
-    tabs.forEach(function(x){x.classList.remove('active');});
-    panes.forEach(function(x){x.classList.remove('active');});
-    t.classList.add('active');
-    var p=document.getElementById(t.getAttribute('data-day'));
-    if(p)p.classList.add('active');
-  });});
-})();
-</script>
+  <script>
+  (function(){
+    var tabs=[].slice.call(document.querySelectorAll('.day-tab'));
+    var panes=[].slice.call(document.querySelectorAll('.day-pane'));
+    tabs.forEach(function(t){t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('active');});
+      panes.forEach(function(x){x.classList.remove('active');});
+      t.classList.add('active');
+      var p=document.getElementById(t.getAttribute('data-day'));
+      if(p)p.classList.add('active');
+    });});
+  })();
+  </script>
 </section>
 
+<!-- ====================== NOW IN THEATERS (cards) ====================== -->
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🍿 Now in Theaters</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-
-  <div class="card card-pink"><strong><a class="title-link" href="https://www.fandango.com/toy-story-5-2026-243393/movie-overview" target="_blank" rel="noopener">Toy Story 5</a></strong><span class="sub"><span class="note">PG · 1h 42m</span> The toys are back — and this time it's Toy meets Tech. Woody, Buzz and Jessie are challenged when Bonnie grows attached to Lilypad (Greta Lee), a disruptive new smart tablet. Year's biggest debut at $160M.</span></div>
-
-  <div class="card card-cyan"><strong><a class="title-link" href="https://www.fandango.com/supergirl-2026-243716/movie-overview" target="_blank" rel="noopener">Supergirl</a></strong><span class="sub"><span class="note">PG-13 · 1h 48m</span> When a ruthless adversary strikes close to home, Kara Zor-El reluctantly joins an unlikely companion on an interstellar journey of vengeance and justice. Milly Alcock stars.</span></div>
-
-  <div class="card card-yellow"><strong><a class="title-link" href="https://www.fandango.com/minions-and-monsters-2026-245605/movie-overview" target="_blank" rel="noopener">Minions &amp; Monsters</a></strong><span class="sub"><span class="note">PG · 1h 30m · opens Jul 1</span> The "rambunctious, ridiculous and totally true" story of how the Minions conquered Hollywood, became movie stars, lost everything, and unleashed monsters on the world.</span></div>
-
-  <div class="card card-purple"><strong><a class="title-link" href="https://www.fandango.com/disclosure-day-2026-244050/movie-overview" target="_blank" rel="noopener">Disclosure Day</a></strong><span class="sub"><span class="note">PG-13 · 2h 25m</span> Steven Spielberg's sci-fi event: if someone proved we weren't alone, would it frighten you? This summer, the truth belongs to seven billion people.</span></div>
-
-  <div class="card card-blue"><strong><a class="title-link" href="https://www.fandango.com/masters-of-the-universe-2026-239690/movie-overview" target="_blank" rel="noopener">Masters of the Universe</a></strong><span class="sub"><span class="note">PG-13 · 2h 13m</span> Prince Adam, separated from his Power Sword since crashing to Earth as a boy, is whisked back to Eternia to defend it against the evil Skeletor.</span></div>
-
-  <div class="card card-magenta"><strong><a class="title-link" href="https://www.fandango.com/obsession-2026-242812/movie-overview" target="_blank" rel="noopener">Obsession</a></strong><span class="sub"><span class="note">R · 1h 48m</span> After breaking the mysterious "One Wish Willow" to win his crush's heart, a hopeless romantic gets exactly what he asked for — at a dark, sinister price. A breakout hit ($215M domestic).</span></div>
-
-  <div class="card card-green"><strong><a class="title-link" href="https://www.fandango.com/backrooms-2026-244954/movie-overview" target="_blank" rel="noopener">Backrooms</a></strong><span class="sub"><span class="note">R · 1h 50m</span> A strange doorway appears in the basement of a furniture showroom. Kane Parsons' viral-horror feature is A24's highest-grossing film ever ($175M domestic).</span></div>
-
-  <div class="card card-orange"><strong><a class="title-link" href="https://www.fandango.com/scary-movie-2026-245093/movie-overview" target="_blank" rel="noopener">Scary Movie</a></strong><span class="sub"><span class="note">R · 1h 36m</span> Twenty-six years later, the Core Four (Anna Faris, Regina Hall, the Wayans brothers) are back in Ghostface's crosshairs — and no horror IP is safe.</span></div>
-
-  <div class="card card-lavender"><strong><a class="title-link" href="https://www.fandango.com/star-wars-the-mandalorian-and-grogu-2026-242515/movie-overview" target="_blank" rel="noopener">Star Wars: The Mandalorian and Grogu</a></strong><span class="sub"><span class="note">PG-13 · 2h 12m</span> The Mandalorian and Grogu embark on their most thrilling mission yet as the fledgling New Republic rebuilds a galaxy still haunted by scattered Imperial warlords.</span></div>
-
-  <div class="card card-lime"><strong><a class="title-link" href="https://www.fandango.com/jackass-best-and-last-2026-245528/movie-overview" target="_blank" rel="noopener">Jackass: Best and Last</a></strong><span class="sub"><span class="note">R · 1h 32m</span> Johnny Knoxville and the gang return for one final big-screen fling — all-new stunts plus the greatest hits and biggest laughs.</span></div>
-
-  <div class="card card-sopink"><strong><a class="title-link" href="https://www.fandango.com/the-death-of-robin-hood-2026-243756/movie-overview" target="_blank" rel="noopener">The Death of Robin Hood</a></strong><span class="sub"><span class="note">R · 2h 3m</span> Grappling with a life of crime, a gravely injured Robin Hood is offered a chance at salvation by a mysterious woman. Stars Hugh Jackman.</span></div>
-
-  <div class="card card-lblue"><strong><a class="title-link" href="https://www.fandango.com/young-washington-2026/movie-overview" target="_blank" rel="noopener">Young Washington</a></strong><span class="sub"><span class="note">PG-13 · opens Jul 2</span> An epic of George Washington's early years and his command in the French and Indian War, from director Jon Erwin. Stars William Franklyn-Miller.</span></div>
-
-  <div class="card card-pink"><strong><a class="title-link" href="https://www.rottentomatoes.com/m/alpha_2025" target="_blank" rel="noopener">Alpha</a></strong><span class="sub"><span class="note">opens Jul 3</span> Julia Ducournau's drama: a 13-year-old returns from a party with a tattoo, and her family fears she's contracted a terrifying blood-borne illness sweeping society.</span></div>
-
-  <div class="card card-cyan"><strong><a class="title-link" href="https://www.fandango.com/the-furious-2026-245071/movie-overview" target="_blank" rel="noopener">The Furious</a></strong><span class="sub"><span class="note">R · 1h 53m</span> After his daughter is kidnapped and corrupt police won't help, Wang Wei (Xie Miao) goes on a rampage to find her, with a relentless journalist as his only ally.</span></div>
-
-  <div class="card card-yellow"><strong><a class="title-link" href="https://www.fandango.com/girls-like-girls-2026-244464/movie-overview" target="_blank" rel="noopener">Girls Like Girls</a></strong><span class="sub"><span class="note">R · 1h 35m</span> Based on Hayley Kiyoko's hit single and novel, a sun-drenched coming-of-age story about new-girl-in-town Coley falling in love for the first time.</span></div>
-
-  <div class="card card-purple"><strong><a class="title-link" href="https://www.fandango.com/leviticus-2026-244348/movie-overview" target="_blank" rel="noopener">Leviticus</a></strong><span class="sub"><span class="note">R · 1h 26m</span> Two teenage boys must escape a violent entity that takes the form of the person they desire most — each other. A buzzy festival breakout from Neon.</span></div>
-
-  <div class="card card-green"><strong><a class="title-link" href="https://www.fandango.com/7-dogs-2026-246219/movie-overview" target="_blank" rel="noopener">7 Dogs</a></strong><span class="sub"><span class="note">R · 2h 5m</span> Interpol agent Khalid Al-Azzazi teams with a member of the 7 Dogs crime syndicate to fight drug trafficking.</span></div>
-
-  <div class="card card-orange"><strong><a class="title-link" href="https://www.fandango.com/lucky-strike-2026-246022/movie-overview" target="_blank" rel="noopener">Lucky Strike</a></strong><span class="sub"><span class="note">R</span> Inspired by true events: one soldier trapped behind enemy lines during the Battle of the Bulge, armed only with his Motorola SCR-300 radio.</span></div>
-
-  <div class="card card-magenta"><strong><a class="title-link" href="https://www.fandango.com/michael-2026-243301/movie-overview" target="_blank" rel="noopener">Michael</a></strong><span class="sub"><span class="note">PG-13 · 2h 7m</span> The cinematic portrayal of Michael Jackson's life and legacy, from his discovery as the lead of the Jackson Five through superstardom.</span></div>
-
-  <div class="card card-lavender"><strong><a class="title-link" href="https://www.rottentomatoes.com/m/lockbox_2026" target="_blank" rel="noopener">Lockbox</a></strong><span class="sub"><span class="note">opens Jul 2</span> Seeking peace after her mother's death, Ellen takes in her traumatized cousin and must defend him from an otherworldly entity. Stars Carla Gugino.</span></div>
-
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🍿 Now in Theaters</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-pink"><a href="https://www.fandango.com/toy-story-5-2026/movie-overview" target="_blank" rel="noopener"><strong>🧸 Toy Story 5</strong></a><span class="sub">G · 1h 42m</span><span class="sub">Woody, Buzz, Jessie and the gang face Lilypad — a brand-new tablet with disruptive ideas about what's best for their kid Bonnie.</span></div>
+    <div class="card card-cyan"><a href="https://www.fandango.com/supergirl-2026/movie-overview" target="_blank" rel="noopener"><strong>🦸 Supergirl</strong></a><span class="sub">PG-13 · 1h 48m</span><span class="sub">Kara Zor-El travels across the galaxy on a quest for revenge in the second DC Universe film.</span></div>
+    <div class="card card-purple"><a href="https://www.fandango.com/disclosure-day-2026-244050/movie-overview" target="_blank" rel="noopener"><strong>🛸 Disclosure Day</strong></a><span class="sub">PG-13 · 2h 25m</span><span class="sub">A Spielberg sci-fi thriller: a cybersecurity specialist turns whistleblower over alien secrets as a TV meteorologist faces strange phenomena tied to her past.</span></div>
+    <div class="card card-yellow"><a href="https://www.fandango.com/masters-of-the-universe-2026/movie-overview" target="_blank" rel="noopener"><strong>⚔️ Masters of the Universe</strong></a><span class="sub">PG-13 · 2h 20m</span><span class="sub">Prince Adam returns to Eternia to claim his destiny as He-Man and save his world from Skeletor.</span></div>
+    <div class="card card-magenta"><a href="https://www.fandango.com/jackass-best-and-last-2026-245528/movie-overview" target="_blank" rel="noopener"><strong>🤼 jackass: best and last</strong></a><span class="sub">R · 1h 32m</span><span class="sub">The crew's final round of stunts and pranks — a franchise farewell mixing classic bits and never-before-seen footage.</span></div>
+    <div class="card card-green"><a href="https://a24films.com/films/the-death-of-robin-hood" target="_blank" rel="noopener"><strong>🏹 The Death of Robin Hood</strong></a><span class="sub">R · 2h 3m</span><span class="sub">An aged, wounded Robin (Hugh Jackman) takes refuge in a priory, tormented by his past as an outlaw.</span></div>
+    <div class="card card-blue"><a href="https://www.fandango.com/scary-movie-2026/movie-overview" target="_blank" rel="noopener"><strong>🃏 Scary Movie</strong></a><span class="sub">R · 1h 36m</span><span class="sub">The Wayans-led spoof returns, skewering recent horror hits like <em>Get Out</em>, <em>Sinners</em> and <em>Backrooms</em>.</span></div>
+    <div class="card card-lime"><a href="https://www.starwars.com/films/star-wars-the-mandalorian-and-grogu" target="_blank" rel="noopener"><strong>🪐 Star Wars: The Mandalorian &amp; Grogu</strong></a><span class="sub">PG · 2h 12m</span><span class="sub">Din Djarin and Grogu are enlisted by the New Republic to rescue Rotta the Hutt in exchange for a target's location.</span></div>
+    <div class="card card-orange"><a href="https://www.lionsgate.com/movies/the-furious" target="_blank" rel="noopener"><strong>🥊 The Furious</strong></a><span class="sub">R · 1h 53m</span><span class="sub">When his daughter is abducted, tradesman Wang Wei battles an international criminal network to save her.</span></div>
+    <div class="card card-lblue"><a href="https://en.wikipedia.org/wiki/Backrooms_(film)" target="_blank" rel="noopener"><strong>🚪 Backrooms</strong></a><span class="sub">R · 1h 51m</span><span class="sub">A furniture-store owner and his therapist discover a dimension of endless liminal spaces through the store's basement.</span></div>
+    <div class="card card-sopink"><a href="https://en.wikipedia.org/wiki/Obsession_(2025_film)" target="_blank" rel="noopener"><strong>💔 Obsession</strong></a><span class="sub">R · 1h 48m</span><span class="sub">A music-store employee buys a supernatural toy that grants his wish for a friend to love him — with horrific consequences.</span></div>
+    <div class="card card-lavender"><a href="https://www.focusfeatures.com/article/focus-features-girls-like-girls-arriving-in-theaters-june-19-2026" target="_blank" rel="noopener"><strong>🏳️‍🌈 Girls Like Girls</strong></a><span class="sub">R · 1h 35m</span><span class="sub">Hayley Kiyoko's coming-of-age romance: 17-year-old Coley navigates new feelings after meeting Sonya in rural Oregon.</span></div>
+    <div class="card card-pink"><a href="https://en.wikipedia.org/wiki/Leviticus_(film)" target="_blank" rel="noopener"><strong>🕯️ Leviticus</strong></a><span class="sub">NR · 1h 28m</span><span class="sub">Two teens are tormented by a violent supernatural entity summoned by their religious community, taking the form of the one they desire most.</span></div>
+    <div class="card card-cyan"><a href="https://michael.movie/" target="_blank" rel="noopener"><strong>🎤 Michael</strong></a><span class="sub">PG-13 · 2h 10m</span><span class="sub">The Michael Jackson biopic, tracing his rise from the lead of the Jackson Five to the biggest entertainer in the world.</span></div>
+  </div>
 </section>
 
+<!-- ====================== COMING SOON ====================== -->
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📺 Streaming Picks</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-
-  <div class="card card-cyan"><strong>The Bear — Season 5 (Hulu)</strong><span class="sub">The Emmy-winning FX dramedy's eight-episode final season dropped June 25, with the first seven set during one rainy night of service. Sitting near the top of critics' lists.</span><a class="readmore" href="https://www.indiewire.com/criticism/shows/the-bear-season-5-review-final-season-fx-hulu-1235202029/" target="_blank" rel="noopener">Read more at IndieWire →</a></div>
-
-  <div class="card card-pink"><strong>Enola Holmes 3 (Netflix)</strong><span class="sub">Premieres July 1: Millie Bobby Brown and Henry Cavill return for a darker entry directed by "Adolescence" filmmaker Philip Barantini, with Enola's Malta wedding upended by Sherlock's disappearance.</span><a class="readmore" href="https://www.netflix.com/tudum/articles/enola-holmes-3-release-date-cast-news" target="_blank" rel="noopener">Read more at Netflix Tudum →</a></div>
-
-  <div class="card card-yellow"><strong>8 Best New Movies &amp; Shows This Weekend</strong><span class="sub">TheWrap's roundup across Netflix, Hulu, HBO Max and more — including "Avatar: The Last Airbender" Season 2, "Camp Snoopy" Season 2 and Larry David's new HBO series.</span><a class="readmore" href="https://www.thewrap.com/creative-content/what-to-watch/best-new-movies-shows-streaming-this-weekend-june-26-28/" target="_blank" rel="noopener">Read more at TheWrap →</a></div>
-
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🎬 Coming Soon</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-yellow"><strong>👹 Minions &amp; Monsters</strong><span class="sub">July 1, 2026 — moved up a full year to take Shrek 5's date.</span><a class="read-more" href="https://www.movieinsider.com/movies/july/2026" target="_blank" rel="noopener">Read more at Movie Insider →</a></div>
+    <div class="card card-green"><strong>🪓 Evil Dead Burn</strong><span class="sub">July 2026 — a standalone entry in the Evil Dead franchise.</span><a class="read-more" href="https://www.movieinsider.com/movies/july/2026" target="_blank" rel="noopener">Read more at Movie Insider →</a></div>
+    <div class="card card-blue"><strong>🏛️ The Odyssey</strong><span class="sub">Mid-July 2026 — Christopher Nolan's epic, with Tom Holland.</span><a class="read-more" href="https://www.firstshowing.net/schedule2026/" target="_blank" rel="noopener">Read more at FirstShowing →</a></div>
+    <div class="card card-pink"><strong>🕷️ Spider-Man: Brand New Day</strong><span class="sub">July 31, 2026 — Tom Holland returns; the second trailer became the 2nd most-viewed of all time.</span><a class="read-more" href="https://deadline.com/2026/06/spider-man-brand-new-day-trailer-first-look-mark-ruffalo-hulk-1236958566/" target="_blank" rel="noopener">Read more at Deadline →</a></div>
+  </div>
 </section>
 
+<!-- ====================== STREAMING PICKS ====================== -->
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📰 Now &amp; Upcoming Movie News</span><span class="divider-line"></span></div>
-
-  <div class="card card-purple"><strong><a class="title-link" href="https://deadline.com/feature/christopher-nolan-the-odyssey-news-1236284537/" target="_blank" rel="noopener">Christopher Nolan's "The Odyssey" eyes $80–100M opening</a></strong><span class="sub">Nolan's IMAX-shot Homer adaptation (Matt Damon, Tom Holland, Zendaya, Anne Hathaway) opens July 17 with the biggest pre-sales in four years and a July 6 London premiere.</span><a class="readmore" href="https://deadline.com/feature/christopher-nolan-the-odyssey-news-1236284537/" target="_blank" rel="noopener">Read more at Deadline →</a></div>
-
-  <div class="card card-pink"><strong><a class="title-link" href="https://variety.com/2026/film/box-office/toy-story-5-box-office-opening-weekend-record-franchise-1236786574/" target="_blank" rel="noopener">"Toy Story 5" scores year's biggest debut with $160M</a></strong><span class="sub">Pixar's sequel topped the box office with the largest "Toy Story" opening ever ($312M global), the second-biggest animated debut in history.</span><a class="readmore" href="https://variety.com/2026/film/box-office/toy-story-5-box-office-opening-weekend-record-franchise-1236786574/" target="_blank" rel="noopener">Read more at Variety →</a></div>
-
-  <div class="card card-cyan"><strong><a class="title-link" href="https://variety.com/2026/film/box-office/supergirl-stumbles-box-office-opening-weekend-jackass-flops-toy-story-rules-1236797777/" target="_blank" rel="noopener">"Supergirl" stumbles in debut as Milly Alcock earns praise</a></strong><span class="sub">The Craig Gillespie DCU film opened second behind "Toy Story 5," with a softer-than-hoped haul — though critics singled out Alcock as the standout.</span><a class="readmore" href="https://variety.com/2026/film/box-office/supergirl-stumbles-box-office-opening-weekend-jackass-flops-toy-story-rules-1236797777/" target="_blank" rel="noopener">Read more at Variety →</a></div>
-
-  <div class="card card-orange"><strong><a class="title-link" href="https://deadline.com/lists/movie-tv-casting-roles-to-be-filled-2026/" target="_blank" rel="noopener">James Bond 26 casting search heats up under Villeneuve</a></strong><span class="sub">Amazon MGM's hunt for the next 007 is moving into an active phase under director Denis Villeneuve, with an announcement anticipated late 2026.</span><a class="readmore" href="https://deadline.com/lists/movie-tv-casting-roles-to-be-filled-2026/" target="_blank" rel="noopener">Read more at Deadline →</a></div>
-
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📺 Streaming Picks</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-lblue"><strong>🔥 Avatar: Fire and Ash</strong><span class="sub">Netflix — long-awaited streaming debut this month.</span><a class="read-more" href="https://editorial.rottentomatoes.com/article/new-movies-and-shows-streaming-in-june-2026-what-to-watch-on-netflix-prime-video-disney-hbo-max-and-more/" target="_blank" rel="noopener">Read more at Rotten Tomatoes →</a></div>
+    <div class="card card-sopink"><strong>💼 Office Romance</strong><span class="sub">Netflix — a Jennifer Lopez rom-com.</span><a class="read-more" href="https://www.thewrap.com/creative-content/what-to-watch/best-new-streaming-movies-june-2026/" target="_blank" rel="noopener">Read more at TheWrap →</a></div>
+    <div class="card card-purple"><strong>🔫 How to Make a Killing</strong><span class="sub">HBO Max — an A24 thriller starring Glen Powell.</span><a class="read-more" href="https://www.indiewire.com/gallery/best-movies-new-streaming-june-2026/" target="_blank" rel="noopener">Read more at IndieWire →</a></div>
+    <div class="card card-magenta"><strong>🍏 Forbidden Fruits</strong><span class="sub">Lili Reinhart, Alexandra Shipp &amp; Victoria Pedretti in a mall-set dark comedy.</span><a class="read-more" href="https://www.thewrap.com/creative-content/what-to-watch/best-new-streaming-movies-june-2026/" target="_blank" rel="noopener">Read more at TheWrap →</a></div>
+  </div>
 </section>
 
+<!-- ====================== MOVIE NEWS ====================== -->
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📰 Celebrity &amp; Entertainment News</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🎞️ Movie News</span><span class="divider-line"></span></div>
+  <div class="card card-pink"><strong><a href="https://deadline.com/2026/06/box-office-global-toy-story-5-supergirl-minions-and-monsters-1236969190/" target="_blank" rel="noopener">Toy Story 5 nears $600M worldwide</a></strong><span class="sub">Pixar's sequel added another $70M in its second weekend, holding the No. 1 spot as the summer's biggest hit.</span><a class="read-more" href="https://deadline.com/2026/06/box-office-global-toy-story-5-supergirl-minions-and-monsters-1236969190/" target="_blank" rel="noopener">Read more at Deadline →</a></div>
+  <div class="card card-cyan"><strong><a href="https://deadline.com/2026/06/box-office-supergirl-toy-story-5-1236968254/" target="_blank" rel="noopener">Supergirl stumbles in box-office debut</a></strong><span class="sub">A $38M domestic / $68M worldwide opening on a $170M budget, with a B-minus CinemaScore, raises questions for the DCU.</span><a class="read-more" href="https://deadline.com/2026/06/box-office-supergirl-toy-story-5-1236968254/" target="_blank" rel="noopener">Read more at Deadline →</a></div>
+  <div class="card card-purple"><strong><a href="https://variety.com/2026/film/news/spider-man-brand-new-day-trailer-tom-holland-hulk-1236735764/" target="_blank" rel="noopener">Spider-Man: Brand New Day trailer breaks records</a></strong><span class="sub">The second trailer gathered 590.8M views in a week — the 2nd most-viewed ever — ahead of the July 31 release.</span><a class="read-more" href="https://variety.com/2026/film/news/spider-man-brand-new-day-trailer-tom-holland-hulk-1236735764/" target="_blank" rel="noopener">Read more at Variety →</a></div>
+</section>
 
-  <div class="card card-magenta"><strong><a class="title-link" href="https://www.revolt.tv/article/bet-awards-lauryn-hill-teyana-taylor-sylvia-rhone-honors" target="_blank" rel="noopener">Teyana Taylor named Icon of the Year at 2026 BET Awards</a></strong><span class="sub">At the June 28 ceremony, Janet Jackson surprised Taylor with the inaugural Icon of the Year award (Taylor won four total), while Lauryn Hill received the Living Legend honor.</span><a class="readmore" href="https://www.revolt.tv/article/bet-awards-lauryn-hill-teyana-taylor-sylvia-rhone-honors" target="_blank" rel="noopener">Read more at Revolt →</a></div>
-
-  <div class="card card-blue"><strong><a class="title-link" href="https://www.rollingstone.com/music/music-country/taylor-swift-alan-jackson-message-final-show-boos-1235585686/" target="_blank" rel="noopener">Taylor Swift's virtual tribute draws boos at Alan Jackson's farewell</a></strong><span class="sub">Swift appeared virtually at Jackson's June 27 Nashville finale to thank him for "decades of incredible songwriting," but the tribute drew a mix of boos and cheers.</span><a class="readmore" href="https://www.rollingstone.com/music/music-country/taylor-swift-alan-jackson-message-final-show-boos-1235585686/" target="_blank" rel="noopener">Read more at Rolling Stone →</a></div>
-
-  <div class="card card-lime"><strong><a class="title-link" href="https://www.billboard.com/culture/events/justin-bieber-2026-nhl-draft-toronto-maple-leafs-pick-1236282560/" target="_blank" rel="noopener">Justin Bieber makes surprise NHL Draft appearance</a></strong><span class="sub">The lifelong Maple Leafs fan took the stage in Buffalo on June 26 to announce Gavin McKenna as Toronto's first-overall draft pick, calling it "a dream."</span><a class="readmore" href="https://www.billboard.com/culture/events/justin-bieber-2026-nhl-draft-toronto-maple-leafs-pick-1236282560/" target="_blank" rel="noopener">Read more at Billboard →</a></div>
-
-  <div class="card card-sopink"><strong><a class="title-link" href="https://www.hollywoodreporter.com/movies/movie-news/supergirl-box-office-previews-milly-alcock-1236631309/" target="_blank" rel="noopener">"Supergirl" makes $7.8M in box-office previews</a></strong><span class="sub">THR breaks down the DCU film's Thursday-night preview haul ahead of its wide release, framing the launch around rising star Milly Alcock.</span><a class="readmore" href="https://www.hollywoodreporter.com/movies/movie-news/supergirl-box-office-previews-milly-alcock-1236631309/" target="_blank" rel="noopener">Read more at The Hollywood Reporter →</a></div>
-
+<!-- ====================== CELEBRITY NEWS ====================== -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📰 Celebrity &amp; Entertainment News</span><span class="divider-line"></span></div>
+  <div class="card card-sopink"><strong><a href="https://www.nbcnewyork.com/news/local/taylor-swift-wedding-madison-square-garden-latest-details/6519144/" target="_blank" rel="noopener">Taylor Swift &amp; Travis Kelce wedding buzz</a></strong><span class="sub">Reports point to a July 3 Madison Square Garden celebration with ~1,100 guests under NDAs — still unconfirmed by the couple.</span><a class="read-more" href="https://www.nbcnewyork.com/news/local/taylor-swift-wedding-madison-square-garden-latest-details/6519144/" target="_blank" rel="noopener">Read more at NBC New York →</a></div>
+  <div class="card card-yellow"><strong><a href="https://variety.com/2026/music/news/taylor-swift-wedding-madison-square-garden-police-fans-1236790354/" target="_blank" rel="noopener">NYPD braces for fans at MSG</a></strong><span class="sub">Police confirm they've been warned about an influx of fans expected around the rumored July 3 nuptials.</span><a class="read-more" href="https://variety.com/2026/music/news/taylor-swift-wedding-madison-square-garden-police-fans-1236790354/" target="_blank" rel="noopener">Read more at Variety →</a></div>
+  <div class="card card-green"><strong><a href="https://editorial.rottentomatoes.com/article/weekend-box-office-toy-story-5-holds-off-supergirl/" target="_blank" rel="noopener">Weekend box office: Toy Story 5 holds off Supergirl</a></strong><span class="sub">Pixar's juggernaut kept the top spot as DC's latest landed in second — a full rundown of the weekend's numbers.</span><a class="read-more" href="https://editorial.rottentomatoes.com/article/weekend-box-office-toy-story-5-holds-off-supergirl/" target="_blank" rel="noopener">Read more at Rotten Tomatoes →</a></div>
+  <div class="card card-blue"><strong><a href="https://www.eonline.com/news" target="_blank" rel="noopener">2026 BET Awards highlights</a></strong><span class="sub">Cardi B commanded the stage, Teyana Taylor dominated the wins, and Lauryn Hill received a legendary tribute.</span><a class="read-more" href="https://www.eonline.com/news" target="_blank" rel="noopener">Read more at E! News →</a></div>
 </section>
 
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Mon, Jun 29 at 7:18 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Tue, Jun 30 at 7:05 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
 <script>
 function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
 updateClock();setInterval(updateClock,1000);
