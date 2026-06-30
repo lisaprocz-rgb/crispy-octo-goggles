@@ -9,7 +9,7 @@ When building a page, paste the full skeleton below, then:
 3. Replace `[PAGE_SUBTITLE]` with a one-line subtitle.
 4. Replace `[H1_SHADOW]` with the page accent hex color (see palette below) — drives the text-shadow on the h1.
 5. Replace `[CONTENT]` with the body of the page, using the section + card patterns shown below the skeleton.
-6. Leave `DYNAMIC_TIMESTAMP` as-is — the inline script swaps it at load time. (If you prefer server-side, you can replace it with today's ET timestamp string before pushing.)
+6. Replace `DYNAMIC_TIMESTAMP` (in the footer badge) with today's ET timestamp string before pushing — format `Sun, May 17 at 6:40 AM ET`. If you leave it as-is, the inline script falls back to showing the viewer's local date so the literal word never appears, but a server-rendered ET string is preferred.
 
 Do NOT alter the CSS block, the live-clock script, or the back-to-hub link. They are shared design across the whole hub.
 
@@ -143,9 +143,9 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 <main>
 [CONTENT]
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge">DYNAMIC_TIMESTAMP</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">DYNAMIC_TIMESTAMP</span><div class="footer-clock" id="footer-clock"></div></footer>
 <script>
-function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
+function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;const badge=document.getElementById('updated-badge');if(badge&&badge.textContent.trim()==='DYNAMIC_TIMESTAMP')badge.textContent=dateStr;}
 updateClock();setInterval(updateClock,1000);
 </script>
 </body>
@@ -206,4 +206,4 @@ Inside `[CONTENT]`, prefer this structure:
 
 ## Timestamp injection
 
-The inline script replaces `DYNAMIC_TIMESTAMP` at page load with the visitor's local time. If you want a server-rendered timestamp that always shows ET regardless of viewer location, replace `DYNAMIC_TIMESTAMP` server-side with the actual string (format: `Sun, May 17 at 6:40 AM ET`) before pushing the file.
+Preferred: replace `DYNAMIC_TIMESTAMP` server-side with the actual ET string (format: `Sun, May 17 at 6:40 AM ET`) before pushing the file, so the badge always shows ET regardless of viewer location. Safety net: if the placeholder is left in, the inline `updateClock` script detects the literal `DYNAMIC_TIMESTAMP` text in the `#updated-badge` element and swaps it for the visitor's local date — so the raw placeholder word can never render on a published page.
