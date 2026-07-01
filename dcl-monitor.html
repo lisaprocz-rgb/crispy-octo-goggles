@@ -44,38 +44,27 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 .card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--accent,#ff5c8a)}
 .card strong, .card .card-title{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;
   display:block;margin-bottom:.3rem;color:#1f2440}
-.card .sub{display:block;color:#6b6f8c;font-size:.86rem;font-weight:600;line-height:1.5;margin-top:.15rem}
+.card strong a{color:#0a66c2;text-decoration:underline}
+.card strong a:hover{color:#ff5c8a}
+.card .sub{display:block;color:#6b6f8c;font-size:.86rem;font-weight:600;line-height:1.5;margin-top:.35rem}
+.card .sub a{color:#0a66c2;font-weight:800;text-decoration:underline}
+.card .sub a:hover{color:#ff5c8a}
 .card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
   background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
-  border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
-.card .readmore{display:inline-block;margin-top:.6rem;font-family:'Baloo 2';font-weight:800;
-  font-size:.85rem;color:#0b6ea8;text-decoration:underline;text-underline-offset:2px}
-.card .readmore:hover{color:#1f2440}
+  border:2px solid #1f2440;margin:.15rem .35rem .35rem 0;letter-spacing:.04em;text-transform:uppercase}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
 .card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
 .card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
 .card-green{--accent:#3dd6b5}.card-lime{--accent:#7bd957}.card-orange{--accent:#ffb84d}
 .card-lblue{--accent:#4fc3f7}.card-sopink{--accent:#ff8fc7}.card-lavender{--accent:#b79cff}
-.card a.headline-link{color:#0b6ea8;text-decoration:underline;text-underline-offset:2px}
-.card a.headline-link:hover{color:#1f2440}
 .back-to-hub{display:inline-block;font-family:'Baloo 2';font-size:.85rem;font-weight:700;
   background:#fff;color:#1f2440;text-decoration:none;padding:.45rem 1.1rem;border-radius:999px;
   border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem;
   transition:transform .16s ease,box-shadow .16s ease}
 .back-to-hub:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #ffd23f}
-table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;
-  border:3px solid #1f2440;border-radius:14px;overflow:hidden;margin:.8rem 0 1.4rem;
-  font-size:.9rem}
-th{background:#1f2440;color:#fff;font-family:'Baloo 2';font-weight:700;text-align:left;
-  padding:.55rem .85rem;font-size:.85rem;letter-spacing:.03em}
-td{padding:.5rem .85rem;border-top:2px dotted #e6e2d8;font-weight:600}
-tr:first-child td{border-top:none}
 ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
 li{margin-bottom:.25rem}
 p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
-a:not(.card):not(.back-to-hub):not(.hub-label a):not(.readmore):not(.headline-link){color:#1f2440;font-weight:700;
-  text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
-a:not(.card):not(.back-to-hub):not(.hub-label a):not(.readmore):not(.headline-link):hover{color:#ff5c8a;border-bottom-color:#1f2440}
 .callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
   box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
 .callout strong{font-family:'Baloo 2'}
@@ -83,6 +72,7 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 .footer-clock{margin-top:.4rem;color:#ff5c8a}
 .timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
   font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
+
 .status-badge{font-family:'Baloo 2';font-weight:800;font-size:1rem;
   padding:.45rem 1.1rem;border-radius:999px;border:3px solid #1f2440;
   letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;
@@ -92,10 +82,13 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 .status-badge.status-partial{background:#ffd23f;color:#1f2440}
 .status-badge.status-announced{background:#3dd6b5;color:#1f2440}
 @media (max-width:600px){
+  .status-badge{font-size:.78rem;padding:.32rem .7rem;box-shadow:3px 3px 0 #1f2440}
+}
+
+@media (max-width:600px){
   h1{font-size:2.4rem}
   main{padding:1rem .9rem 3rem}
   .card{padding:1rem 1.1rem}
-  .status-badge{font-size:.78rem;padding:.32rem .7rem;box-shadow:3px 3px 0 #1f2440}
 }
 </style>
 </head>
@@ -108,13 +101,13 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 <div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
 </header>
 <main>
+<a href="index.html" class="back-to-hub">← Back to Hub</a>
 
 <div class="callout">
-  <strong>Last refreshed:</strong> Tuesday, June 30, 2026 at 7:03 AM ET&nbsp;/&nbsp;2026-06-30 11:03 UTC<br>
-  <span style="font-size:.86rem;color:#6b6f8c;font-weight:600">All content fetched live this run — no cached data used. News window: items published on or after May 31, 2026 (last 30 days).</span>
+  <strong>Last refreshed:</strong> Wed, Jul 1, 2026 · 7:04 AM ET &nbsp;/&nbsp; 2026-07-01 11:04 UTC<br>
+  <span class="sub">All content fetched live this run — no cached data used. News window: items published on or after 2026-06-01 (last 30 days).</span>
 </div>
 
-<!-- ================= FALL 2027 AVAILABILITY WATCH ================= -->
 <section class="section-group">
   <div class="section-divider">
     <span class="divider-accent"></span>
@@ -124,128 +117,96 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
   </div>
 
   <div data-fall-2027-status="NOT YET ANNOUNCED">
-  <div class="cards-grid">
-
-    <div class="card card-lblue">
-      <strong>Fall 2027 (Sep–Nov) — Status: NOT YET ANNOUNCED</strong>
-      <span class="note">Watching</span>
-      <span class="sub">Disney Cruise Line has <strong>not</strong> released October or November 2027 sail dates, and only part of September 2027 is on sale. The most recent block announced was <em>Summer 2027 (May–September)</em>, revealed February 10, 2026. Fall 2027 itineraries, ports, and ships remain unannounced as of this run.</span>
-      <a class="headline-link" href="https://disneycruiselineblog.com/cruise-planning/itineraries/itinerary-announcement-history/" target="_blank" rel="noopener">Itinerary Announcement History →</a>
+    <div class="cards-grid">
+      <div class="card card-lblue">
+        <strong>Fall 2027 itineraries: NOT YET ANNOUNCED</strong>
+        <span class="note">Watching</span>
+        <span class="sub">As of this run, Disney Cruise Line has <strong>not</strong> released Fall 2027 (September–November 2027) itineraries or opened them for booking. The current published schedule runs through Summer 2027 (announced Feb 10, 2026, covering roughly May–mid-September 2027); October and November 2027 sail dates are not yet available on the official booking flow.</span>
+      </div>
+      <div class="card card-cyan">
+        <strong>When to expect the announcement</strong>
+        <span class="note">Rumor / Signal</span>
+        <span class="sub">Based on DCL's historical release cadence, the Fall 2027 itinerary announcement is expected sometime between <strong>May and August 2027</strong>. No earlier signal has surfaced this run.</span>
+        <span class="sub"><a href="https://disneycruiselineblog.com/cruise-planning/itineraries/itinerary-announcement-history/" target="_blank" rel="noopener">See DCL itinerary announcement history →</a></span>
+      </div>
+      <div class="card card-blue">
+        <strong>Most recent related release: Summer 2027</strong>
+        <span class="sub">The latest itineraries DCL has released are the Summer 2027 sailings (May–September 2027), announced Feb 10, 2026 — Alaska on the Magic &amp; Wonder, the Wish's European debut, and the Dream back at Port Canaveral.</span>
+        <span class="sub"><a href="https://disneycruiselineblog.com/2026/02/disney-cruise-line-announces-summer-2027-itineraries-may-september/" target="_blank" rel="noopener">Read more at The DCL Blog →</a></span>
+      </div>
     </div>
-
-    <div class="card card-cyan">
-      <strong>Latest credible signal — expect May–Aug 2027</strong>
-      <span class="note">Rumor / Pattern</span>
-      <span class="sub">Based on Disney's announcement cadence (Summer 2027 dropped Feb 2026; Winter/Spring 2027 dropped Aug 2025), the Fall 2027 block is expected to be announced sometime between <strong>May and August 2027</strong>. No earlier release date has been signaled.</span>
-      <a class="headline-link" href="https://www.mousesavers.com/disney-cruise-tips/2027-disney-cruise-schedule-sail-dates-ports-more/" target="_blank" rel="noopener">MouseSavers: 2027 Disney Cruise Schedule →</a>
-    </div>
-
-    <div class="card card-blue">
-      <strong>Where Fall 2027 will likely appear first</strong>
-      <span class="note">Sources to watch</span>
-      <span class="sub">When announced, details typically post simultaneously to the official Disney Parks Blog and the DCL booking site, with fast coverage from The DIS, AllEars, and the DCL Blog. This page will flip its badge to ✅ Announced and text Lisa the moment it does.</span>
-      <a class="headline-link" href="https://disneyparksblog.com/disney-cruise-line/" target="_blank" rel="noopener">Disney Parks Blog — Cruise Line →</a>
-    </div>
-
-  </div>
-  <p style="font-size:.84rem;color:#6b6f8c;font-weight:700;margin-top:.4rem">Verified at: Tuesday, June 30, 2026 at 7:03 AM ET / 2026-06-30 11:03 UTC</p>
+    <p style="margin-top:.8rem;color:#6b6f8c;font-weight:700">Verified at: Wed, Jul 1, 2026 · 7:04 AM ET / 2026-07-01 11:04 UTC</p>
   </div>
 </section>
 
-<!-- ================= NEWS BY SHIP ================= -->
-
-<!-- DISNEY DESTINY -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Destiny</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🦸 Disney Destiny</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-
-    <div class="card card-lblue">
-      <strong>🎬 <a class="headline-link" href="https://disneycruiselineblog.com/2026/06/behind-the-attraction-season-3-sets-sail-disney-cruise-line-gets-a-two-episode-special-on-disney/" target="_blank" rel="noopener">Behind the Attraction S3 spotlights Disney Cruise Line</a></strong>
-      <span class="note">Jun 24, 2026</span>
-      <span class="sub">Season 3 of Disney+'s "Behind the Attraction" includes a two-episode special on Disney Cruise Line, featuring the newest ships in the fleet — including the Disney Destiny — and how they're built and themed. <em>The Disney Cruise Line Blog, 2026-06-24.</em></span>
-      <a class="readmore" href="https://disneycruiselineblog.com/2026/06/behind-the-attraction-season-3-sets-sail-disney-cruise-line-gets-a-two-episode-special-on-disney/" target="_blank" rel="noopener">Read more at The Disney Cruise Line Blog →</a>
-    </div>
-
-    <div class="card card-cyan">
-      <strong>💰 <a class="headline-link" href="https://allears.net/2026/06/26/you-can-save-big-on-a-disney-cruise-if-you-act-fast/" target="_blank" rel="noopener">626 Day "Stitch" flash sale — up to 30% off Destiny sailings</a></strong>
-      <span class="note">Jun 26, 2026</span>
-      <span class="sub">For 626 Day (Stitch Day), Disney offered up to 30% off the voyage fare on guaranteed-stateroom categories for select Florida departures — including the Disney Destiny — bookable June 26–29, 2026. <em>AllEars, 2026-06-26.</em></span>
-      <a class="readmore" href="https://allears.net/2026/06/26/you-can-save-big-on-a-disney-cruise-if-you-act-fast/" target="_blank" rel="noopener">Read more at AllEars →</a>
-    </div>
-
-    <div class="card card-blue">
-      <strong>⛴️ <a class="headline-link" href="https://disneycruiselineblog.com/2026/06/special-offers-on-disney-cruise-line-sailings-as-of-june-8-2026/" target="_blank" rel="noopener">Current special offers include Destiny Caribbean sailings</a></strong>
-      <span class="note">Jun 8, 2026</span>
-      <span class="sub">DCL's rundown of active discounts as of June 8, 2026 lists eligible Disney Destiny Western Caribbean sailings out of Fort Lauderdale among the deals. <em>The Disney Cruise Line Blog, 2026-06-08.</em></span>
-      <a class="readmore" href="https://disneycruiselineblog.com/2026/06/special-offers-on-disney-cruise-line-sailings-as-of-june-8-2026/" target="_blank" rel="noopener">Read more at The Disney Cruise Line Blog →</a>
-    </div>
-
-  </div>
+<div class="card card-lblue">
+  <strong><a href="https://cruises.scottsanfilippo.com/disney-destiny-eastern-caribbean-cruise-review-day-1-june-27-2026/" target="_blank" rel="noopener">Disney Destiny sails its first 7-night Eastern Caribbean itinerary</a></strong>
+  <span class="note">New Itinerary</span>
+  <span class="sub">A day-by-day review of the ship's inaugural 7-night Eastern Caribbean sailing (Jun 27–Jul 4) from Fort Lauderdale, calling at Lookout Cay, San Juan and Philipsburg, St. Maarten — with praise for the Pride Lands: Feast of the Lion King musical dining venue.</span>
+  <span class="sub"><em>Cruises with Scott Sanfilippo · 2026-06-29</em></span>
+  <span class="sub"><a href="https://cruises.scottsanfilippo.com/disney-destiny-eastern-caribbean-cruise-review-day-1-june-27-2026/" target="_blank" rel="noopener">Read more at Scott Sanfilippo →</a></span>
+</div>
+<div class="card card-cyan">
+  <strong><a href="https://www.disneytouristblog.com/stitch-glitch-30-off-disney-cruise-line-for-626-day/" target="_blank" rel="noopener">Stitch Glitch: 30% off select Disney Destiny, Wish, Treasure &amp; Fantasy sailings</a></strong>
+  <span class="note">Deal</span>
+  <span class="sub">For '626 Day,' Disney Cruise Line released a limited 30%-off voyage-fare offer covering select Disney Destiny sailings (along with Wish, Treasure and Fantasy) through December 2026.</span>
+  <span class="sub"><em>Disney Tourist Blog · 2026-06-26</em></span>
+  <span class="sub"><a href="https://www.disneytouristblog.com/stitch-glitch-30-off-disney-cruise-line-for-626-day/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></span>
+</div>
+</div>
 </section>
 
-<!-- DISNEY BELIEVE -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Believe</span><span class="divider-line"></span></div>
-  <div class="cards-grid">
-
-    <div class="card card-lblue">
-      <strong>No news in the last 30 days.</strong>
-      <span class="note">Watching</span>
-      <span class="sub">No Disney Believe coverage published on or after May 31, 2026 met the freshness window this run. The ship's name reveal (March 18, 2026) and its late-2027 debut are confirmed, but deployment and itineraries have not yet been announced — Disney has said those details will come "later this year." This card will populate as soon as a dated story lands.</span>
-      <a class="readmore" href="https://disneycruiselineblog.com/ships/disney-believe/" target="_blank" rel="noopener">Background at The Disney Cruise Line Blog →</a>
-    </div>
-
-  </div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">💙 Disney Believe</span><span class="divider-line"></span></div>
+  <div class="callout"><strong>No news in the last 30 days.</strong></div>
 </section>
 
-<!-- DISNEY TREASURE -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Treasure</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">💎 Disney Treasure</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-
-    <div class="card card-cyan">
-      <strong>💰 <a class="headline-link" href="https://allears.net/2026/06/26/you-can-save-big-on-a-disney-cruise-if-you-act-fast/" target="_blank" rel="noopener">626 Day flash sale — up to 30% off Treasure sailings</a></strong>
-      <span class="note">Jun 26, 2026</span>
-      <span class="sub">The 626 Day (Stitch Day) promotion also covered the Disney Treasure: up to 30% off voyage fare on guaranteed-stateroom categories for select Florida departures, bookable June 26–29, 2026. <em>AllEars, 2026-06-26.</em></span>
-      <a class="readmore" href="https://allears.net/2026/06/26/you-can-save-big-on-a-disney-cruise-if-you-act-fast/" target="_blank" rel="noopener">Read more at AllEars →</a>
-    </div>
-
-    <div class="card card-blue">
-      <strong>🎬 <a class="headline-link" href="https://disneycruiselineblog.com/2026/06/behind-the-attraction-season-3-sets-sail-disney-cruise-line-gets-a-two-episode-special-on-disney/" target="_blank" rel="noopener">DCL's newest ships featured in Behind the Attraction S3</a></strong>
-      <span class="note">Jun 24, 2026</span>
-      <span class="sub">The two-episode Disney Cruise Line special in "Behind the Attraction" Season 3 spotlights the Wish-class fleet — Disney Treasure included — and the design and engineering behind them. <em>The Disney Cruise Line Blog, 2026-06-24.</em></span>
-      <a class="readmore" href="https://disneycruiselineblog.com/2026/06/behind-the-attraction-season-3-sets-sail-disney-cruise-line-gets-a-two-episode-special-on-disney/" target="_blank" rel="noopener">Read more at The Disney Cruise Line Blog →</a>
-    </div>
-
-  </div>
+<div class="card card-lblue">
+  <strong><a href="https://dclfan.com/discounts/new-disney-cruise-deal-save-up-to-500-per-person-on-select-holiday-sailings/" target="_blank" rel="noopener">Save up to $500 per guest on select Disney Treasure holiday sailings</a></strong>
+  <span class="note">Deal</span>
+  <span class="sub">New offer takes up to $500 per guest ($1,500 for a party of three) off select Disney Treasure, Wonder and Fantasy sailings Oct 1–Dec 31, 2026 — including Halloween on the High Seas and Very Merrytime voyages. Book by Aug 30, 2026.</span>
+  <span class="sub"><em>DCL Fan · 2026-06-30</em></span>
+  <span class="sub"><a href="https://dclfan.com/discounts/new-disney-cruise-deal-save-up-to-500-per-person-on-select-holiday-sailings/" target="_blank" rel="noopener">Read more at DCL Fan →</a></span>
+</div>
+<div class="card card-cyan">
+  <strong><a href="https://disneycruiselineblog.com/2026/06/yet-another-special-offer-save-up-to-1500-on-select-voyage-fare/" target="_blank" rel="noopener">'Yet another special offer' — up to $1,500 off select voyage fare</a></strong>
+  <span class="note">Deal</span>
+  <span class="sub">The Disney Cruise Line Blog details the same fall/holiday promotion, which applies to select Disney Treasure sailings among others, framing it as another discount in an unusually deal-heavy stretch for DCL.</span>
+  <span class="sub"><em>The Disney Cruise Line Blog · 2026-06-30</em></span>
+  <span class="sub"><a href="https://disneycruiselineblog.com/2026/06/yet-another-special-offer-save-up-to-1500-on-select-voyage-fare/" target="_blank" rel="noopener">Read more at The DCL Blog →</a></span>
+</div>
+</div>
 </section>
 
-<!-- ================= GENERAL FLEET NEWS ================= -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">General Fleet News</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">⚓ General Fleet News</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-
-    <div class="card card-lblue">
-      <strong>💰 <a class="headline-link" href="https://disneycruiselineblog.com/2026/06/special-offers-on-disney-cruise-line-sailings-as-of-june-8-2026/" target="_blank" rel="noopener">Active fleet-wide special offers (as of June 8, 2026)</a></strong>
-      <span class="note">Jun 8, 2026</span>
-      <span class="sub">DCL published its current slate of discounts across the fleet, including restricted-guarantee savings on select Caribbean and Bahamian sailings. <em>The Disney Cruise Line Blog, 2026-06-08.</em></span>
-      <a class="readmore" href="https://disneycruiselineblog.com/2026/06/special-offers-on-disney-cruise-line-sailings-as-of-june-8-2026/" target="_blank" rel="noopener">Read more at The Disney Cruise Line Blog →</a>
-    </div>
-
-    <div class="card card-cyan">
-      <strong>🎬 <a class="headline-link" href="https://disneycruiselineblog.com/2026/06/behind-the-attraction-season-3-sets-sail-disney-cruise-line-gets-a-two-episode-special-on-disney/" target="_blank" rel="noopener">Disney Cruise Line gets a two-episode "Behind the Attraction" special</a></strong>
-      <span class="note">Jun 24, 2026</span>
-      <span class="sub">Season 3 of the Disney+ docuseries dedicates two episodes to Disney Cruise Line, covering the fleet's history and the building of its newest ships. <em>The Disney Cruise Line Blog, 2026-06-24.</em></span>
-      <a class="readmore" href="https://disneycruiselineblog.com/2026/06/behind-the-attraction-season-3-sets-sail-disney-cruise-line-gets-a-two-episode-special-on-disney/" target="_blank" rel="noopener">Read more at The Disney Cruise Line Blog →</a>
-    </div>
-
-  </div>
+<div class="card card-lblue">
+  <strong><a href="https://www.disneytouristblog.com/1500-dollars-savings-disney-cruise-line-sailings-halloween-christmas-2026/" target="_blank" rel="noopener">Disney Cruise Line launches up to $1,500 savings on Halloween &amp; Christmas 2026 sailings</a></strong>
+  <span class="note">Deal</span>
+  <span class="sub">Fleetwide holiday promotion offering up to $500 per guest (up to $1,500 for three guests) on select Halloween on the High Seas and Very Merrytime voyages, Oct 1–Dec 31, 2026. Bookable through Aug 30, 2026.</span>
+  <span class="sub"><em>Disney Tourist Blog · 2026-06-30</em></span>
+  <span class="sub"><a href="https://www.disneytouristblog.com/1500-dollars-savings-disney-cruise-line-sailings-halloween-christmas-2026/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></span>
+</div>
+<div class="card card-cyan">
+  <strong><a href="https://www.disneytouristblog.com/stitch-glitch-30-off-disney-cruise-line-for-626-day/" target="_blank" rel="noopener">Stitch Glitch 30%-off deal marks '626 Day' across the fleet</a></strong>
+  <span class="note">Deal</span>
+  <span class="sub">A 30%-off voyage-fare flash offer on select 2026 sailings across multiple Wish-class ships, tied to Stitch's '626 Day' on June 26.</span>
+  <span class="sub"><em>Disney Tourist Blog · 2026-06-26</em></span>
+  <span class="sub"><a href="https://www.disneytouristblog.com/stitch-glitch-30-off-disney-cruise-line-for-626-day/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></span>
+</div>
+</div>
 </section>
-
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Tue, Jun 30 at 7:03 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">Wed, Jul 1 at 7:04 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
 <script>
-function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
+function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;const badge=document.getElementById('updated-badge');if(badge&&badge.textContent.trim()==='DYNAMIC_TIMESTAMP')badge.textContent=dateStr;}
 updateClock();setInterval(updateClock,1000);
 </script>
 </body>
