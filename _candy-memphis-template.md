@@ -9,7 +9,7 @@ When building a page, paste the full skeleton below, then:
 3. Replace `[PAGE_SUBTITLE]` with a one-line subtitle.
 4. Replace `[H1_SHADOW]` with the page accent hex color (see palette below) — drives the text-shadow on the h1.
 5. Replace `[CONTENT]` with the body of the page, using the section + card patterns shown below the skeleton.
-6. Replace `DYNAMIC_TIMESTAMP` (in the footer badge) with today's ET timestamp string before pushing — format `Sun, May 17 at 6:40 AM ET`. If you leave it as-is, the inline script falls back to showing the viewer's local date so the literal word never appears, but a server-rendered ET string is preferred.
+6. Replace `DYNAMIC_TIMESTAMP` (in the footer badge) with today's ET timestamp string before pushing — format `Sun, May 17 at 6:40 AM ET`. If you leave it as-is, the inline script falls back to showing the viewer's local date AND time so the literal word never appears, but a server-rendered ET string is preferred.
 
 Do NOT alter the CSS block, the live-clock script, or the back-to-hub link. They are shared design across the whole hub.
 
@@ -145,7 +145,7 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 </main>
 <footer>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">DYNAMIC_TIMESTAMP</span><div class="footer-clock" id="footer-clock"></div></footer>
 <script>
-function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;const badge=document.getElementById('updated-badge');if(badge&&badge.textContent.trim()==='DYNAMIC_TIMESTAMP')badge.textContent=dateStr;}
+function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;const badge=document.getElementById('updated-badge');if(badge&&badge.textContent.trim()==='DYNAMIC_TIMESTAMP')badge.textContent=dateStr+' · '+timeStr;}
 updateClock();setInterval(updateClock,1000);
 </script>
 </body>
