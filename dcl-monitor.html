@@ -27,7 +27,7 @@ h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;colo
   font-size:.92rem;box-shadow:4px 4px 0 #ff5c8a}
 .live-clock .clock-date{color:#ffd23f}.live-clock .clock-time{color:#fff}
 main{max-width:1080px;margin:0 auto;padding:1rem 1.4rem 4rem}
-.section-divider{display:flex;align-items:center;gap:.9rem;margin:2.4rem 0 1.2rem}
+.section-divider{display:flex;align-items:center;gap:.9rem;margin:2.4rem 0 1.2rem;flex-wrap:wrap}
 section:first-of-type .section-divider, .section-group:first-child .section-divider{margin-top:.4rem}
 .divider-accent{width:22px;height:22px;background:#ffd23f;border:3px solid #1f2440;
   border-radius:6px;transform:rotate(45deg);flex-shrink:0}
@@ -44,14 +44,15 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 .card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--accent,#ff5c8a)}
 .card strong, .card .card-title{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;
   display:block;margin-bottom:.3rem;color:#1f2440}
-.card strong a{color:#0a66c2;text-decoration:underline}
-.card strong a:hover{color:#ff5c8a}
-.card .sub{display:block;color:#6b6f8c;font-size:.86rem;font-weight:600;line-height:1.5;margin-top:.35rem}
-.card .sub a{color:#0a66c2;font-weight:800;text-decoration:underline}
-.card .sub a:hover{color:#ff5c8a}
+.card .sub{display:block;color:#6b6f8c;font-size:.86rem;font-weight:600;line-height:1.5;margin-top:.15rem}
 .card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
   background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
-  border:2px solid #1f2440;margin:.15rem .35rem .35rem 0;letter-spacing:.04em;text-transform:uppercase}
+  border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
+.card a.readmore{display:inline-block;margin-top:.7rem;font-family:'Baloo 2';font-weight:700;
+  font-size:.85rem;color:#0a58ca;text-decoration:underline;text-decoration-thickness:2px}
+.card a.readmore:hover{color:#ff5c8a}
+.card a.headline-link{text-decoration:underline;text-decoration-thickness:2px;color:#0a58ca}
+.card a.headline-link:hover{color:#ff5c8a}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
 .card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
 .card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
@@ -65,14 +66,11 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
 li{margin-bottom:.25rem}
 p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
+a:not(.card):not(.back-to-hub):not(.readmore):not(.headline-link):not(.hub-label a){color:#1f2440;font-weight:700;
+  text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
 .callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
   box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
 .callout strong{font-family:'Baloo 2'}
-footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
-.footer-clock{margin-top:.4rem;color:#ff5c8a}
-.timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
-  font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
-
 .status-badge{font-family:'Baloo 2';font-weight:800;font-size:1rem;
   padding:.45rem 1.1rem;border-radius:999px;border:3px solid #1f2440;
   letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;
@@ -81,14 +79,15 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 .status-badge.status-not-announced{background:#ff5c8a;color:#fff}
 .status-badge.status-partial{background:#ffd23f;color:#1f2440}
 .status-badge.status-announced{background:#3dd6b5;color:#1f2440}
-@media (max-width:600px){
-  .status-badge{font-size:.78rem;padding:.32rem .7rem;box-shadow:3px 3px 0 #1f2440}
-}
-
+footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
+.footer-clock{margin-top:.4rem;color:#ff5c8a}
+.timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
+  font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
 @media (max-width:600px){
   h1{font-size:2.4rem}
   main{padding:1rem .9rem 3rem}
   .card{padding:1rem 1.1rem}
+  .status-badge{font-size:.78rem;padding:.32rem .7rem;box-shadow:3px 3px 0 #1f2440}
 }
 </style>
 </head>
@@ -101,13 +100,14 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 <div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
 </header>
 <main>
-<a href="index.html" class="back-to-hub">← Back to Hub</a>
+<a href="index.html" class="back-to-hub">← Back to Lisa's Hub</a>
 
 <div class="callout">
-  <strong>Last refreshed:</strong> Wed, Jul 1, 2026 · 7:04 AM ET &nbsp;/&nbsp; 2026-07-01 11:04 UTC<br>
-  <span class="sub">All content fetched live this run — no cached data used. News window: items published on or after 2026-06-01 (last 30 days).</span>
+<strong>🕐 Last refreshed:</strong> Thu, Jul 2, 2026 at 7:12 AM ET / 2026-07-02 11:12 UTC<br>
+<span style="font-size:.86rem;color:#6b6f8c;font-weight:700">All content fetched live this run — no cached data used. Freshness window: items published on/after Jun 2, 2026.</span>
 </div>
 
+<!-- ============ FALL 2027 AVAILABILITY WATCH ============ -->
 <section class="section-group">
   <div class="section-divider">
     <span class="divider-accent"></span>
@@ -117,96 +117,103 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
   </div>
 
   <div data-fall-2027-status="NOT YET ANNOUNCED">
-    <div class="cards-grid">
-      <div class="card card-lblue">
-        <strong>Fall 2027 itineraries: NOT YET ANNOUNCED</strong>
-        <span class="note">Watching</span>
-        <span class="sub">As of this run, Disney Cruise Line has <strong>not</strong> released Fall 2027 (September–November 2027) itineraries or opened them for booking. The current published schedule runs through Summer 2027 (announced Feb 10, 2026, covering roughly May–mid-September 2027); October and November 2027 sail dates are not yet available on the official booking flow.</span>
-      </div>
-      <div class="card card-cyan">
-        <strong>When to expect the announcement</strong>
-        <span class="note">Rumor / Signal</span>
-        <span class="sub">Based on DCL's historical release cadence, the Fall 2027 itinerary announcement is expected sometime between <strong>May and August 2027</strong>. No earlier signal has surfaced this run.</span>
-        <span class="sub"><a href="https://disneycruiselineblog.com/cruise-planning/itineraries/itinerary-announcement-history/" target="_blank" rel="noopener">See DCL itinerary announcement history →</a></span>
-      </div>
-      <div class="card card-blue">
-        <strong>Most recent related release: Summer 2027</strong>
-        <span class="sub">The latest itineraries DCL has released are the Summer 2027 sailings (May–September 2027), announced Feb 10, 2026 — Alaska on the Magic &amp; Wonder, the Wish's European debut, and the Dream back at Port Canaveral.</span>
-        <span class="sub"><a href="https://disneycruiselineblog.com/2026/02/disney-cruise-line-announces-summer-2027-itineraries-may-september/" target="_blank" rel="noopener">Read more at The DCL Blog →</a></span>
-      </div>
+  <div class="cards-grid">
+    <div class="card card-lblue">
+      <strong>Fall 2027 sailings — NOT YET ANNOUNCED</strong>
+      <span class="sub">Disney Cruise Line has <b>not</b> officially released September, October, or November 2027 itineraries. As of this run, bookable sail dates extend only through roughly early-to-mid September 2027 for some ships; October and November 2027 are not yet open.</span>
+      <span class="note">Watching</span>
     </div>
-    <p style="margin-top:.8rem;color:#6b6f8c;font-weight:700">Verified at: Wed, Jul 1, 2026 · 7:04 AM ET / 2026-07-01 11:04 UTC</p>
+    <div class="card card-cyan">
+      <strong>📅 Most recent credible signal</strong>
+      <span class="sub">Based on Disney's historical release cadence, Fall 2027 itineraries are expected to be unveiled sometime in the <b>May–August 2027</b> window (prior new-season drops have followed this pattern). No firm announcement date has been set.</span>
+      <a class="readmore" href="https://disneycruiselineblog.com/cruise-planning/itineraries/itinerary-announcement-history/" target="_blank" rel="noopener">Announcement history at The DCL Blog →</a>
+    </div>
+    <div class="card card-blue">
+      <strong>🔎 What's bookable now</strong>
+      <span class="sub">Current published schedule runs through Summer 2027 / early Fall 2027 only. The 2027 schedule tracker confirms Oct/Nov 2027 dates have not been released.</span>
+      <a class="readmore" href="https://www.mousesavers.com/disney-cruise-tips/2027-disney-cruise-schedule-sail-dates-ports-more/" target="_blank" rel="noopener">2027 schedule tracker at MouseSavers →</a>
+    </div>
+  </div>
+  </div>
+  <p style="font-size:.82rem;color:#6b6f8c;font-weight:700;margin-top:.4rem">Verified at: Thu, Jul 2, 2026 at 7:12 AM ET / 2026-07-02 11:12 UTC</p>
+</section>
+
+<!-- ============ NEWS BY SHIP ============ -->
+
+<!-- DESTINY -->
+<section class="section-group">
+  <div class="section-divider">
+    <span class="divider-accent"></span>
+    <span class="divider-label">Disney Destiny</span>
+    <span class="divider-line"></span>
+  </div>
+  <div class="cards-grid">
+    <div class="card card-lblue">
+      <strong>No ship-specific news in the last 30 days</strong>
+      <span class="sub">No Destiny-only announcements, itinerary changes, or press coverage published on/after Jun 2, 2026 were found this run. Note: the fleet-wide "Stitch Glitch" 30% offer (see General Fleet News) did include select Disney Destiny sailings.</span>
+      <span class="note">No news</span>
+    </div>
   </div>
 </section>
 
+<!-- BELIEVE -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🦸 Disney Destiny</span><span class="divider-line"></span></div>
+  <div class="section-divider">
+    <span class="divider-accent"></span>
+    <span class="divider-label">Disney Believe</span>
+    <span class="divider-line"></span>
+  </div>
   <div class="cards-grid">
-<div class="card card-lblue">
-  <strong><a href="https://cruises.scottsanfilippo.com/disney-destiny-eastern-caribbean-cruise-review-day-1-june-27-2026/" target="_blank" rel="noopener">Disney Destiny sails its first 7-night Eastern Caribbean itinerary</a></strong>
-  <span class="note">New Itinerary</span>
-  <span class="sub">A day-by-day review of the ship's inaugural 7-night Eastern Caribbean sailing (Jun 27–Jul 4) from Fort Lauderdale, calling at Lookout Cay, San Juan and Philipsburg, St. Maarten — with praise for the Pride Lands: Feast of the Lion King musical dining venue.</span>
-  <span class="sub"><em>Cruises with Scott Sanfilippo · 2026-06-29</em></span>
-  <span class="sub"><a href="https://cruises.scottsanfilippo.com/disney-destiny-eastern-caribbean-cruise-review-day-1-june-27-2026/" target="_blank" rel="noopener">Read more at Scott Sanfilippo →</a></span>
-</div>
-<div class="card card-cyan">
-  <strong><a href="https://www.disneytouristblog.com/stitch-glitch-30-off-disney-cruise-line-for-626-day/" target="_blank" rel="noopener">Stitch Glitch: 30% off select Disney Destiny, Wish, Treasure &amp; Fantasy sailings</a></strong>
-  <span class="note">Deal</span>
-  <span class="sub">For '626 Day,' Disney Cruise Line released a limited 30%-off voyage-fare offer covering select Disney Destiny sailings (along with Wish, Treasure and Fantasy) through December 2026.</span>
-  <span class="sub"><em>Disney Tourist Blog · 2026-06-26</em></span>
-  <span class="sub"><a href="https://www.disneytouristblog.com/stitch-glitch-30-off-disney-cruise-line-for-626-day/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></span>
-</div>
-</div>
+    <div class="card card-cyan">
+      <strong>No news in the last 30 days</strong>
+      <span class="sub">No new Disney Believe announcements were published on/after Jun 2, 2026. The ship (fourth Wish-class vessel, "promise and possibility" theme) remains on track for a late-2027 debut; its Caribbean itinerary program has not yet been released.</span>
+      <span class="note">No news</span>
+    </div>
+  </div>
 </section>
 
+<!-- TREASURE -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">💙 Disney Believe</span><span class="divider-line"></span></div>
-  <div class="callout"><strong>No news in the last 30 days.</strong></div>
+  <div class="section-divider">
+    <span class="divider-accent"></span>
+    <span class="divider-label">Disney Treasure</span>
+    <span class="divider-line"></span>
+  </div>
+  <div class="cards-grid">
+    <div class="card card-blue">
+      <strong><a class="headline-link" href="https://allears.net/2026/06/08/port-canaveral-approves-95-million-terminal-upgrades/" target="_blank" rel="noopener">Port Canaveral approves $95M terminal upgrade</a></strong>
+      <span class="sub">Port Canaveral — Disney Treasure's home port — is proceeding with a $95 million upgrade (including Cruise Terminal 10) to handle larger ships carrying up to ~6,700 passengers. Targeted for completion November 2027. <i>AllEars.Net, 2026-06-08.</i></span>
+      <a class="readmore" href="https://allears.net/2026/06/08/port-canaveral-approves-95-million-terminal-upgrades/" target="_blank" rel="noopener">Read more at AllEars.Net →</a>
+    </div>
+  </div>
 </section>
 
+<!-- ============ GENERAL FLEET NEWS ============ -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">💎 Disney Treasure</span><span class="divider-line"></span></div>
+  <div class="section-divider">
+    <span class="divider-accent"></span>
+    <span class="divider-label">General Fleet News</span>
+    <span class="divider-line"></span>
+  </div>
   <div class="cards-grid">
-<div class="card card-lblue">
-  <strong><a href="https://dclfan.com/discounts/new-disney-cruise-deal-save-up-to-500-per-person-on-select-holiday-sailings/" target="_blank" rel="noopener">Save up to $500 per guest on select Disney Treasure holiday sailings</a></strong>
-  <span class="note">Deal</span>
-  <span class="sub">New offer takes up to $500 per guest ($1,500 for a party of three) off select Disney Treasure, Wonder and Fantasy sailings Oct 1–Dec 31, 2026 — including Halloween on the High Seas and Very Merrytime voyages. Book by Aug 30, 2026.</span>
-  <span class="sub"><em>DCL Fan · 2026-06-30</em></span>
-  <span class="sub"><a href="https://dclfan.com/discounts/new-disney-cruise-deal-save-up-to-500-per-person-on-select-holiday-sailings/" target="_blank" rel="noopener">Read more at DCL Fan →</a></span>
-</div>
-<div class="card card-cyan">
-  <strong><a href="https://disneycruiselineblog.com/2026/06/yet-another-special-offer-save-up-to-1500-on-select-voyage-fare/" target="_blank" rel="noopener">'Yet another special offer' — up to $1,500 off select voyage fare</a></strong>
-  <span class="note">Deal</span>
-  <span class="sub">The Disney Cruise Line Blog details the same fall/holiday promotion, which applies to select Disney Treasure sailings among others, framing it as another discount in an unusually deal-heavy stretch for DCL.</span>
-  <span class="sub"><em>The Disney Cruise Line Blog · 2026-06-30</em></span>
-  <span class="sub"><a href="https://disneycruiselineblog.com/2026/06/yet-another-special-offer-save-up-to-1500-on-select-voyage-fare/" target="_blank" rel="noopener">Read more at The DCL Blog →</a></span>
-</div>
-</div>
+    <div class="card card-sopink">
+      <strong><a class="headline-link" href="https://disneycruiselineblog.com/2026/06/stitch-day-special-offer-up-to-30-off-voyage-fare-on-select-florida-departures/" target="_blank" rel="noopener">"Stitch Glitch" — up to 30% off for 626 Day</a></strong>
+      <span class="sub">A four-day flash offer (launched June 26, "626 Day") gave up to 30% off the voyage fare on select Florida departures aboard Disney Fantasy, Wish, Treasure and Destiny — restricted guarantee categories (IGT/OGT/VGT), sailings mid-July to early October 2026. Booking window closed June 29, 2026. <i>The Disney Cruise Line Blog, 2026-06-26.</i></span>
+      <span class="note">Offer closed Jun 29</span>
+      <a class="readmore" href="https://disneycruiselineblog.com/2026/06/stitch-day-special-offer-up-to-30-off-voyage-fare-on-select-florida-departures/" target="_blank" rel="noopener">Read more at The DCL Blog →</a>
+    </div>
+  </div>
+  <p style="font-size:.82rem;color:#6b6f8c;font-weight:700;margin-top:.4rem">Note: The June 6, 2026 rotational-dining menu refresh applied to the original four ships (Magic, Wonder, Dream, Fantasy), not the Wish-class vessels tracked above, and is therefore listed only for fleet context.</p>
 </section>
 
-<section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">⚓ General Fleet News</span><span class="divider-line"></span></div>
-  <div class="cards-grid">
-<div class="card card-lblue">
-  <strong><a href="https://www.disneytouristblog.com/1500-dollars-savings-disney-cruise-line-sailings-halloween-christmas-2026/" target="_blank" rel="noopener">Disney Cruise Line launches up to $1,500 savings on Halloween &amp; Christmas 2026 sailings</a></strong>
-  <span class="note">Deal</span>
-  <span class="sub">Fleetwide holiday promotion offering up to $500 per guest (up to $1,500 for three guests) on select Halloween on the High Seas and Very Merrytime voyages, Oct 1–Dec 31, 2026. Bookable through Aug 30, 2026.</span>
-  <span class="sub"><em>Disney Tourist Blog · 2026-06-30</em></span>
-  <span class="sub"><a href="https://www.disneytouristblog.com/1500-dollars-savings-disney-cruise-line-sailings-halloween-christmas-2026/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></span>
-</div>
-<div class="card card-cyan">
-  <strong><a href="https://www.disneytouristblog.com/stitch-glitch-30-off-disney-cruise-line-for-626-day/" target="_blank" rel="noopener">Stitch Glitch 30%-off deal marks '626 Day' across the fleet</a></strong>
-  <span class="note">Deal</span>
-  <span class="sub">A 30%-off voyage-fare flash offer on select 2026 sailings across multiple Wish-class ships, tied to Stitch's '626 Day' on June 26.</span>
-  <span class="sub"><em>Disney Tourist Blog · 2026-06-26</em></span>
-  <span class="sub"><a href="https://www.disneytouristblog.com/stitch-glitch-30-off-disney-cruise-line-for-626-day/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></span>
-</div>
-</div>
-</section>
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">Wed, Jul 1 at 7:04 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>
+Disney Cruise Line Monitor · part of <a href="index.html">Lisa's Hub</a>
+<div class="footer-clock" id="footer-clock"></div>
+<div style="margin-top:.8rem"><span class="timestamp-badge" id="updated-badge">DYNAMIC_TIMESTAMP</span></div>
+</footer>
 <script>
-function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;const badge=document.getElementById('updated-badge');if(badge&&badge.textContent.trim()==='DYNAMIC'+'_TIMESTAMP'){badge.textContent='…';var pg=(location.pathname.split('/').pop()||'index.html');fetch('https://api.github.com/repos/lisaprocz-rgb/crispy-octo-goggles/commits?path='+encodeURIComponent(pg)+'&per_page=1').then(function(r){return r.json();}).then(function(d){var t=new Date(d[0].commit.committer.date);var ds=t.toLocaleDateString('en-US',{timeZone:'America/New_York',weekday:'short',month:'short',day:'numeric'});var tm=t.toLocaleTimeString('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit',hour12:true});badge.textContent=ds+' at '+tm+' ET';}).catch(function(){badge.textContent='unavailable';});}}
+function updateClock(){var now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;const badge=document.getElementById('updated-badge');if(badge&&badge.textContent.trim()==='DYNAMIC'+'_TIMESTAMP'){badge.textContent='…';var pg=(location.pathname.split('/').pop()||'index.html');fetch('https://api.github.com/repos/lisaprocz-rgb/crispy-octo-goggles/commits?path='+encodeURIComponent(pg)+'&per_page=1').then(function(r){return r.json();}).then(function(d){var t=new Date(d[0].commit.committer.date);var ds=t.toLocaleDateString('en-US',{timeZone:'America/New_York',weekday:'short',month:'short',day:'numeric'});var tm=t.toLocaleTimeString('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit',hour12:true});badge.textContent=ds+' at '+tm+' ET';}).catch(function(){badge.textContent='unavailable';});}}
 updateClock();setInterval(updateClock,1000);
 </script>
 </body>
