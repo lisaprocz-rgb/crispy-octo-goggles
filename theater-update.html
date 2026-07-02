@@ -302,25 +302,14 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 </section>
 
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge">DYNAMIC_TIMESTAMP</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Wed, Jul 1 at 7:14 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
 
 <script>
 function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
 updateClock();setInterval(updateClock,1000);
 </script>
 
-<script>
-(function(){
-  var now = new Date();
-  var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  var h = now.getHours(), ampm = h >= 12 ? 'PM' : 'AM';
-  h = h % 12 || 12;
-  var min = now.getMinutes().toString().padStart(2,'0');
-  var ts = days[now.getDay()] + ', ' + months[now.getMonth()] + ' ' + now.getDate() + ' at ' + h + ':' + min + ' ' + ampm + ' ET';
-  document.body.innerHTML = document.body.innerHTML.replaceAll('DYNAMIC_TIMESTAMP', ts);
-})();
-</script>
+<!-- timestamp script removed: Last updated must be the run time, not viewer time -->
 
 <script>
 (function() {
