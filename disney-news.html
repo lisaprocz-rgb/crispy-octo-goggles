@@ -26,7 +26,7 @@ h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;colo
   padding:.5rem 1.3rem;border-radius:14px;font-family:'Baloo 2';font-weight:600;
   font-size:.92rem;box-shadow:4px 4px 0 #ff5c8a}
 .live-clock .clock-date{color:#ffd23f}.live-clock .clock-time{color:#fff}
-.freshness{margin-top:.7rem;font-size:.72rem;font-weight:700;color:#6b6f8c}
+.checked-line{margin-top:.7rem;font-size:.82rem;font-weight:700;color:#6b6f8c}
 main{max-width:1080px;margin:0 auto;padding:1rem 1.4rem 4rem}
 .section-divider{display:flex;align-items:center;gap:.9rem;margin:2.4rem 0 1.2rem}
 section:first-of-type .section-divider, .section-group:first-child .section-divider{margin-top:.4rem}
@@ -40,29 +40,39 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
   margin:1.2rem 0 .6rem;text-transform:uppercase;letter-spacing:.06em}
 .card{position:relative;display:block;background:#fff;color:#1f2440;text-decoration:none;
   border:3px solid #1f2440;border-radius:18px;padding:1.2rem 1.4rem;
-  box-shadow:6px 6px 0 var(--accent,#ff5c8a);margin-bottom:1rem}
+  box-shadow:6px 6px 0 var(--accent,#ff5c8a);margin-bottom:1rem;
+  transition:transform .16s ease,box-shadow .16s ease}
+.card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--accent,#ff5c8a)}
 .card strong, .card .card-title{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;
   display:block;margin-bottom:.3rem;color:#1f2440}
-.card strong a{color:#1f2440;text-decoration:none;border-bottom:2px solid var(--accent,#ff5c8a);padding-bottom:1px}
+.card strong a{color:#1f2440;text-decoration:none;border-bottom:3px solid var(--accent,#ff5c8a)}
 .card strong a:hover{color:#ff5c8a}
-.card .sub{display:block;color:#4a4f6b;font-size:.9rem;font-weight:600;line-height:1.55;margin-top:.15rem}
+.card .sub{display:block;color:#6b6f8c;font-size:.86rem;font-weight:600;line-height:1.5;margin-top:.15rem}
 .card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
   background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
-  border:2px solid #1f2440;margin:.5rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
-.readmore{margin-top:.5rem}
-.readmore a{font-family:'Baloo 2';font-weight:700;font-size:.82rem;color:#1f2440;
-  text-decoration:none;background:var(--accent,#ffd23f);padding:.28rem .8rem;border-radius:999px;
-  border:2px solid #1f2440;display:inline-block}
+  border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
+.readmore{margin-top:.55rem}
+.readmore a{display:inline-block;font-family:'Baloo 2';font-weight:700;font-size:.8rem;
+  color:#1f2440;text-decoration:none;background:var(--accent,#ffd23f);
+  padding:.25rem .8rem;border-radius:999px;border:2px solid #1f2440}
 .readmore a:hover{transform:translate(-1px,-1px)}
-.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.1rem}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
 .card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
 .card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
 .card-green{--accent:#3dd6b5}.card-lime{--accent:#7bd957}.card-orange{--accent:#ffb84d}
 .card-lblue{--accent:#4fc3f7}.card-sopink{--accent:#ff8fc7}.card-lavender{--accent:#b79cff}
-.card-red{--accent:#ff6b6b}
+table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;
+  border:3px solid #1f2440;border-radius:14px;overflow:hidden;margin:.8rem 0 1.4rem;
+  font-size:.9rem}
+th{background:#1f2440;color:#fff;font-family:'Baloo 2';font-weight:700;text-align:left;
+  padding:.55rem .85rem;font-size:.85rem;letter-spacing:.03em}
+td{padding:.5rem .85rem;border-top:2px dotted #e6e2d8;font-weight:600}
+tr:first-child td{border-top:none}
+p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
 .callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
   box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
 .callout strong{font-family:'Baloo 2'}
+.callout a{color:#1f2440;font-weight:700;text-decoration:none;border-bottom:2px dotted #ff5c8a}
 footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
 .footer-clock{margin-top:.4rem;color:#ff5c8a}
 .timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
@@ -81,122 +91,262 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 <div class="subtitle">Parks · DVC · Cruise fleet · Dining · Upcoming events</div>
 <div class="gold-line"></div>
 <div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
-<div class="freshness">Checked: Fri, Jul 3 at 3:33 AM ET · 2026-07-03 07:33 UTC<br>All content fetched live this run — no cached data used.</div>
+<div class="checked-line">Checked: Sat, Jul 4 at 3:32 AM ET · All content fetched live this run — no cached data used.</div>
 </header>
 <main>
 
+<div class="callout">
+  <strong>🇺🇸 Happy 4th — America's 250th at Disney.</strong> Disney is running a 24-hour "Disney Celebrates America" broadcast across ABC, Disney+, ESPN, Hulu, Nat Geo, FX &amp; Freeform, with special fireworks at Magic Kingdom &amp; EPCOT and a U.S. Air Force Reserve flyover over the parks at 10:30 a.m. today. <a href="https://thewaltdisneycompany.com/news/disney-celebrates-america-july-fourth-weekend/" target="_blank" rel="noopener">Details →</a>
+</div>
+
 <!-- CORPORATE & BUSINESS -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📊 Corporate &amp; Business</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Corporate &amp; Business</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-    <div class="card card-pink"><strong><a href="https://insidethemagic.net/2026/06/espn-disney-planning-another-round-of-layoffs-following-massive-nfl-deal-rl1/" target="_blank" rel="noopener">Disney braces for another round of ESPN layoffs after multi-billion-dollar deal</a></strong><span class="sub">Following aggressive expansion of ESPN's footprint through big media acquisitions, Disney is reportedly preparing a fresh wave of cuts that could hit both production operations and on-air talent.</span><span class="note">Inside the Magic · Jun 2026</span><div class="readmore"><a href="https://insidethemagic.net/2026/06/espn-disney-planning-another-round-of-layoffs-following-massive-nfl-deal-rl1/" target="_blank" rel="noopener">Read more at Inside the Magic →</a></div></div>
-    <div class="card card-magenta"><strong><a href="https://www.hollywoodreporter.com/business/business-news/disney-layoffs-hit-studios-tv-espn-marketing-josh-damaro-1236563751/" target="_blank" rel="noopener">Layoffs under new CEO hit studios, TV, ESPN and marketing</a></strong><span class="sub">CEO Josh D'Amaro, weeks into the job, told staff that roughly 1,000 jobs would be cut across the unified marketing org, studios and TV, ESPN, product &amp; technology and corporate functions.</span><span class="note">Hollywood Reporter · Apr 2026</span><div class="readmore"><a href="https://www.hollywoodreporter.com/business/business-news/disney-layoffs-hit-studios-tv-espn-marketing-josh-damaro-1236563751/" target="_blank" rel="noopener">Read more at Hollywood Reporter →</a></div></div>
-    <div class="card card-pink"><strong><a href="https://thewaltdisneycompany.com/news/2026-annual-shareholders-meeting-remarks/" target="_blank" rel="noopener">D'Amaro takes the reins from Iger as CEO</a></strong><span class="sub">Josh D'Amaro was elected CEO effective at the March 18 annual meeting, succeeding Bob Iger, with Dana Walden as President &amp; Chief Creative Officer. He outlined a next chapter built on studios, streaming, ESPN and Experiences.</span><span class="note">The Walt Disney Company · Mar 2026</span><div class="readmore"><a href="https://thewaltdisneycompany.com/news/2026-annual-shareholders-meeting-remarks/" target="_blank" rel="noopener">Read more at TWDC →</a></div></div>
-    <div class="card card-magenta"><strong><a href="https://deadline.com/2026/06/box-office-disney-2026-record-1236967751/" target="_blank" rel="noopener">Disney first studio to pass $3B worldwide box office in 2026</a></strong><span class="sub">Disney became the first studio to cross $3 billion at the global box office this year, ahead of a crowded summer slate. Next quarterly earnings report is due August 12, 2026.</span><span class="note">Deadline · Jun 2026</span><div class="readmore"><a href="https://deadline.com/2026/06/box-office-disney-2026-record-1236967751/" target="_blank" rel="noopener">Read more at Deadline →</a></div></div>
+    <div class="card card-pink">
+      <span class="note">CNBC · Deadline</span>
+      <strong><a href="https://deadline.com/2026/07/disneyland-1-billion-guests-1236974028/" target="_blank" rel="noopener">Disneyland Welcomes Its 1 Billionth Guest</a></strong>
+      <span class="sub">On July 3 — just shy of the park's 71st birthday — Disneyland counted its billionth guest since 1955. The Robles family got a free VIP tour, a look inside Walt's private apartment, and a ride on the new Soarin' Across America.</span>
+      <div class="readmore"><a href="https://deadline.com/2026/07/disneyland-1-billion-guests-1236974028/" target="_blank" rel="noopener">Read more at Deadline →</a></div>
+    </div>
+    <div class="card card-magenta">
+      <span class="note">Deadline · Jun 2026</span>
+      <strong><a href="https://deadline.com/2026/06/box-office-disney-2026-record-1236967751/" target="_blank" rel="noopener">Disney First Studio to Pass $3B Worldwide in 2026</a></strong>
+      <span class="sub">Disney became the first major studio to cross $3 billion at the global box office this year, powered by The Devil Wears Prada 2, The Mandalorian and Grogu, and Pixar's Hoppers — its ninth No. 1 finish in ten years.</span>
+      <div class="readmore"><a href="https://deadline.com/2026/06/box-office-disney-2026-record-1236967751/" target="_blank" rel="noopener">Read more at Deadline →</a></div>
+    </div>
   </div>
 </section>
 
 <!-- PARKS NEWS -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🏰 Parks News</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Parks News</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-    <div class="card card-sopink"><strong><a href="https://www.wdwinfo.com/walt-disney-world/what-disney-world-rides-are-closed-in-july-2026/" target="_blank" rel="noopener">Carousel of Progress closing July 6 for major refurbishment</a></strong><span class="sub">The classic Magic Kingdom attraction closes July 6, 2026 for an extensive refresh that adds new scenes and a Walt Disney Audio-Animatronic. Expected to reopen in 2027.</span><span class="note">WDWInfo · Jul 2026</span><div class="readmore"><a href="https://www.wdwinfo.com/walt-disney-world/what-disney-world-rides-are-closed-in-july-2026/" target="_blank" rel="noopener">Read more at WDWInfo →</a></div></div>
-    <div class="card card-pink"><strong><a href="https://blogmickey.com/2025-2026-walt-disney-world-refurbishments-projects/" target="_blank" rel="noopener">Frontierland Cars-themed land construction continues</a></strong><span class="sub">Work presses on in Magic Kingdom's Frontierland for the new Cars land following the 2025 closures of Tom Sawyer Island and the Liberty Square Riverboat. A Villains-themed land is also planned, timeline TBD.</span><span class="note">Blog Mickey · Jun 2026</span><div class="readmore"><a href="https://blogmickey.com/2025-2026-walt-disney-world-refurbishments-projects/" target="_blank" rel="noopener">Read more at Blog Mickey →</a></div></div>
-    <div class="card card-magenta"><strong><a href="https://www.disneyfoodblog.com/2026/06/27/7-major-changes-coming-to-disney-world-in-july/" target="_blank" rel="noopener">7 major changes coming to Disney World in July</a></strong><span class="sub">DFB rounds up the month's biggest shifts across the parks and resorts — from attraction closures to dining and entertainment updates hitting in July 2026.</span><span class="note">Disney Food Blog · Jun 27, 2026</span><div class="readmore"><a href="https://www.disneyfoodblog.com/2026/06/27/7-major-changes-coming-to-disney-world-in-july/" target="_blank" rel="noopener">Read more at Disney Food Blog →</a></div></div>
-    <div class="card card-sopink"><strong><a href="https://magicguides.com/what-rides-are-closed-at-disney-world/" target="_blank" rel="noopener">Animal Kingdom's Tropical Americas rising in former DinoLand</a></strong><span class="sub">DinoLand, U.S.A. has permanently closed and construction is underway on Tropical Americas, an all-new land slated to open in 2027. Hollywood Studios' Magic of Disney Animation is set for late summer 2026.</span><span class="note">Magic Guides · Jun 2026</span><div class="readmore"><a href="https://magicguides.com/what-rides-are-closed-at-disney-world/" target="_blank" rel="noopener">Read more at Magic Guides →</a></div></div>
+    <div class="card card-sopink">
+      <span class="note">Disney Parks Blog</span>
+      <strong><a href="https://disneyparksblog.com/disney-experiences/honoring-americas-250th-anniversary-with-disney-magic/" target="_blank" rel="noopener">Fourth of July Fireworks &amp; Air Force Flyover</a></strong>
+      <span class="sub">Magic Kingdom's "Celebrate America! Fourth of July Concert in the Sky" and EPCOT's "Heartbeat of Freedom" finale run tonight, with Voices of Liberty echo sets July 3–5 and a 920th Rescue Wing flyover at 10:30 a.m. July 4.</span>
+      <div class="readmore"><a href="https://disneyparksblog.com/disney-experiences/honoring-americas-250th-anniversary-with-disney-magic/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a></div>
+    </div>
+    <div class="card card-pink">
+      <span class="note">WDW Info · Jul 6</span>
+      <strong><a href="https://www.wdwinfo.com/walt-disney-world/what-disney-world-rides-are-closed-in-july-2026/" target="_blank" rel="noopener">Carousel of Progress Closes July 6 for Overhaul</a></strong>
+      <span class="sub">The Magic Kingdom classic closes July 6 for an extensive refurbishment — the story timeline moves forward 60 years and a new Walt Disney Audio-Animatronic is added. Reopening sometime in 2027.</span>
+      <div class="readmore"><a href="https://www.wdwinfo.com/walt-disney-world/what-disney-world-rides-are-closed-in-july-2026/" target="_blank" rel="noopener">Read more at WDW Info →</a></div>
+    </div>
+    <div class="card card-magenta">
+      <span class="note">Mickey Visit · Jul 2</span>
+      <strong><a href="https://mickeyvisit.com/disney-july-ride-closures-july-2-2026/" target="_blank" rel="noopener">7 Ride Closures &amp; Changes Announced for July</a></strong>
+      <span class="sub">Disney outlined seven July refurbishments and ride changes across the parks; Mickey's Magical Friendship Faire also pauses at Magic Kingdom July 7–14, with The Magic of Disney Animation slated to open later this summer.</span>
+      <div class="readmore"><a href="https://mickeyvisit.com/disney-july-ride-closures-july-2-2026/" target="_blank" rel="noopener">Read more at Mickey Visit →</a></div>
+    </div>
   </div>
 </section>
 
 <!-- EPCOT FESTIVALS -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🌐 EPCOT Festivals</span><span class="divider-line"></span></div>
-  <div class="callout"><strong>No active EPCOT festival in early July.</strong> The 2026 Flower &amp; Garden Festival wrapped June 1, and the Food &amp; Wine Festival doesn't begin until August 27. July falls in the gap — but there's a fresh World Showcase food addition below.</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">EPCOT Festivals</span><span class="divider-line"></span></div>
+  <div class="callout">
+    <strong>No festival running right now.</strong> EPCOT is between festivals in early July — Flower &amp; Garden ended in June and Food &amp; Wine doesn't begin until Aug 27. In the meantime, "Cool Kid Summer" programming fills CommuniCore Plaza and World Celebration Gardens.
+  </div>
   <div class="cards-grid">
-    <div class="card card-orange"><strong><a href="https://www.disneyfoodblog.com/2026-disney-dining-plan-restaurants-walt-disney-world/" target="_blank" rel="noopener">La Poutinerie debuts at the Canada Pavilion (July 1)</a></strong><span class="sub">A new World Showcase quick-service spot serving traditional poutine plus a Montréal version with smoked meat and cheese curds — a Canadian classic with a twist, opened Canada Day.</span><span class="note">Disney Food Blog · Jul 1, 2026</span><div class="readmore"><a href="https://www.disneyfoodblog.com/2026-disney-dining-plan-restaurants-walt-disney-world/" target="_blank" rel="noopener">Read more at Disney Food Blog →</a></div></div>
-    <div class="card card-yellow"><strong><a href="https://www.disneytouristblog.com/2026-epcot-food-wine-festival-dates-details/" target="_blank" rel="noopener">Food &amp; Wine Festival 2026: 86 days, Aug 27–Nov 21</a></strong><span class="sub">EPCOT's flagship foodie event returns for its longest run yet — 86 days of Global Marketplaces, included with park admission. Now's the time to start planning booth crawls.</span><span class="note">Disney Tourist Blog · 2026</span><div class="readmore"><a href="https://www.disneytouristblog.com/2026-epcot-food-wine-festival-dates-details/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></div></div>
+    <div class="card card-orange">
+      <span class="note">Disney Food Blog</span>
+      <strong><a href="https://www.disneyfoodblog.com/epcot-food-and-wine-festival-booths-menus-and-food-photos/" target="_blank" rel="noopener">2026 Food &amp; Wine Festival: Aug 27 – Nov 21</a></strong>
+      <span class="sub">The next EPCOT festival is expected to bring 32–36 Global Marketplaces plus the Eat to the Beat concert series nightly at America Gardens Theatre (5:30, 6:45 &amp; 8 p.m.).</span>
+      <div class="readmore"><a href="https://www.disneyfoodblog.com/epcot-food-and-wine-festival-booths-menus-and-food-photos/" target="_blank" rel="noopener">Read more at Disney Food Blog →</a></div>
+    </div>
+    <div class="card card-yellow">
+      <span class="note">Disney Tourist Blog</span>
+      <strong><a href="https://www.disneytouristblog.com/disney-reveals-full-concert-lineup-band-dates-dining-packages-for-2026-epcot-food-wine-festival/" target="_blank" rel="noopener">Food &amp; Wine Dining Packages Book July 16</a></strong>
+      <span class="sub">Dining packages — a meal at an EPCOT restaurant plus a guaranteed Eat to the Beat concert seat — go on sale July 16, 2026, ahead of the late-August festival start.</span>
+      <div class="readmore"><a href="https://www.disneytouristblog.com/disney-reveals-full-concert-lineup-band-dates-dining-packages-for-2026-epcot-food-wine-festival/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></div>
+    </div>
   </div>
 </section>
 
 <!-- DINING -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🍽️ Dining</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Dining</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-    <div class="card card-yellow"><strong><a href="https://blog.mousedining.com/walt-disney-world-new-menu-items-july-2026/" target="_blank" rel="noopener">12 new menu items land at Brown Derby &amp; Sunshine Seasons</a></strong><span class="sub">The Hollywood Brown Derby added five entrees (halibut, octopus, pork chop, short rib, filet) and two desserts; Sunshine Seasons rolled out three rice bowls plus a Mickey strawberry-lemonade macaron.</span><span class="note">MouseDining · Jun 2026</span><div class="readmore"><a href="https://blog.mousedining.com/walt-disney-world-new-menu-items-july-2026/" target="_blank" rel="noopener">Read more at MouseDining →</a></div></div>
-    <div class="card card-orange"><strong><a href="https://www.disneyfoodblog.com/2026/06/14/10-disney-world-hotel-restaurants-hit-with-changes-in-2026/" target="_blank" rel="noopener">Grand Floridian Cafe closing mid-July through October</a></strong><span class="sub">The Grand Floridian Cafe goes down for refurbishment from mid-July into October 2026. Brunch shifts upstairs to Citricos; no dinner service during the closure.</span><span class="note">Disney Food Blog · Jun 14, 2026</span><div class="readmore"><a href="https://www.disneyfoodblog.com/2026/06/14/10-disney-world-hotel-restaurants-hit-with-changes-in-2026/" target="_blank" rel="noopener">Read more at Disney Food Blog →</a></div></div>
-    <div class="card card-yellow"><strong><a href="https://www.disneyfoodblog.com/2025/12/15/disney-is-opening-14-new-restaurants-in-2026-heres-the-full-list/" target="_blank" rel="noopener">Disney opening 21 new restaurants across 2026</a></strong><span class="sub">DFB's running list tracks the full slate of new table-service and quick-service spots debuting at Disney World this year — worth a look before booking your next trip's dining.</span><span class="note">Disney Food Blog · 2026</span><div class="readmore"><a href="https://www.disneyfoodblog.com/2025/12/15/disney-is-opening-14-new-restaurants-in-2026-heres-the-full-list/" target="_blank" rel="noopener">Read more at Disney Food Blog →</a></div></div>
+    <div class="card card-yellow">
+      <span class="note">Disney Food Blog · Jul 1</span>
+      <strong><a href="https://www.disneyfoodblog.com/2026/07/01/6-new-restaurants-confirmed-for-disney-world/" target="_blank" rel="noopener">La Poutinerie Opens in EPCOT</a></strong>
+      <span class="sub">The former Refreshment Port near the Canada Pavilion reopened July 1 as La Poutinerie, serving traditional poutine and a Montréal version topped with smoked meat, pickles and mustard gravy — one of several new spots confirmed for 2026.</span>
+      <div class="readmore"><a href="https://www.disneyfoodblog.com/2026/07/01/6-new-restaurants-confirmed-for-disney-world/" target="_blank" rel="noopener">Read more at Disney Food Blog →</a></div>
+    </div>
+    <div class="card card-orange">
+      <span class="note">MouseDining</span>
+      <strong><a href="https://blog.mousedining.com/walt-disney-world-new-menu-items-july-2026/" target="_blank" rel="noopener">New Menus at Brown Derby &amp; Sunshine Seasons</a></strong>
+      <span class="sub">The Hollywood Brown Derby added five entrees (halibut, octopus, pork chop, short rib, filet) plus two new desserts, while Sunshine Seasons at EPCOT rolled out fresh bowls and desserts.</span>
+      <div class="readmore"><a href="https://blog.mousedining.com/walt-disney-world-new-menu-items-july-2026/" target="_blank" rel="noopener">Read more at MouseDining →</a></div>
+    </div>
+    <div class="card card-yellow">
+      <span class="note">Disney Food Blog · Jul 3</span>
+      <strong><a href="https://www.disneyfoodblog.com/2026/07/03/3-new-restaurants-attraction-overhauls-and-food-and-wine-festival-updates-every-major-disney-announcement-you-missed/" target="_blank" rel="noopener">3 New Restaurants &amp; Big Announcements Roundup</a></strong>
+      <span class="sub">A July 3 recap of every major Disney update you may have missed — three new restaurants, attraction overhauls, and the latest Food &amp; Wine Festival details in one place.</span>
+      <div class="readmore"><a href="https://www.disneyfoodblog.com/2026/07/03/3-new-restaurants-attraction-overhauls-and-food-and-wine-festival-updates-every-major-disney-announcement-you-missed/" target="_blank" rel="noopener">Read more at Disney Food Blog →</a></div>
+    </div>
   </div>
 </section>
 
 <!-- DVC UPDATES -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🏡 DVC Updates</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">DVC Updates</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-    <div class="card card-lavender"><strong><a href="https://dvcfan.com/news/2026-disney-vacation-club-annual-dues/" target="_blank" rel="noopener">2026 annual dues up a blended 6.38%</a></strong><span class="sub">Most resorts rose 6–7% year-over-year. Bay Lake Tower saw the largest jump at 9.06% (tied to its refurb/repositioning) but at ~$8.74/point still sits among the lower-dues resorts.</span><span class="note">DVC Fan · 2026</span><div class="readmore"><a href="https://dvcfan.com/news/2026-disney-vacation-club-annual-dues/" target="_blank" rel="noopener">Read more at DVC Fan →</a></div></div>
-    <div class="card card-purple"><strong><a href="https://www.dvcresalemarket.com/blog/2026-disney-vacation-club-annual-dues/" target="_blank" rel="noopener">Resale inventory near historic lows as dues climb</a></strong><span class="sub">Average resale prices held steady into May 2026 with inventory tight. Above-norm dues increases may nudge some owners to list, easing the low-inventory squeeze for buyers.</span><span class="note">DVC Resale Market · 2026</span><div class="readmore"><a href="https://www.dvcresalemarket.com/blog/2026-disney-vacation-club-annual-dues/" target="_blank" rel="noopener">Read more at DVC Resale Market →</a></div></div>
-    <div class="card card-lavender"><strong><a href="https://dvcfan.com/" target="_blank" rel="noopener">Members' America 250 Meet &amp; Treat at BoardWalk</a></strong><span class="sub">DVC is hosting a special members' event celebrating America's 250th birthday at Disney's BoardWalk in July 2026 — a seasonal perk worth checking on the Member site.</span><span class="note">DVC Fan · Jul 2026</span><div class="readmore"><a href="https://dvcfan.com/" target="_blank" rel="noopener">Read more at DVC Fan →</a></div></div>
+    <div class="card card-lavender">
+      <span class="note">DVC Fan</span>
+      <strong><a href="https://dvcfan.com/news/disney-vacation-club-announces-2026-welcome-home-weeks-details/" target="_blank" rel="noopener">Welcome Home Weeks: July 22 – Aug 26</a></strong>
+      <span class="sub">Members get an earlier-than-usual run of perks: complimentary ice cream at WDW, Disneyland, Aulani, Vero Beach and Hilton Head; up to 40% off table-service food on select dates; and character meet-and-greets.</span>
+      <div class="readmore"><a href="https://dvcfan.com/news/disney-vacation-club-announces-2026-welcome-home-weeks-details/" target="_blank" rel="noopener">Read more at DVC Fan →</a></div>
+    </div>
+    <div class="card card-purple">
+      <span class="note">DVC Shop</span>
+      <strong><a href="https://dvcshop.com/what-dvc-members-should-know-about-independence-day-2026-closures/" target="_blank" rel="noopener">July 4th Member Services Closures</a></strong>
+      <span class="sub">Member Administration &amp; Accounting closed July 3 and reopen July 7; Member Services closed July 4, back July 5. DVCMember.com stays available for reservations and point banking throughout.</span>
+      <div class="readmore"><a href="https://dvcshop.com/what-dvc-members-should-know-about-independence-day-2026-closures/" target="_blank" rel="noopener">Read more at DVC Shop →</a></div>
+    </div>
   </div>
 </section>
 
 <!-- CRUISE FLEET -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🚢 Cruise Fleet</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Cruise Fleet</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-    <div class="card card-lblue"><strong><a href="https://parade.com/travel/disney-destiny-named-best-cruise-of-the-year-travel-and-leisure" target="_blank" rel="noopener">Disney Destiny named to Travel + Leisure 2026 "It List"</a></strong><span class="sub">The heroes-and-villains ship — one of just three cruise vessels on the list — sails 4-, 5- and 7-night Bahamas and Caribbean itineraries after its November 2025 maiden voyage from Port Everglades.</span><span class="note">Parade · 2026</span><div class="readmore"><a href="https://parade.com/travel/disney-destiny-named-best-cruise-of-the-year-travel-and-leisure" target="_blank" rel="noopener">Read more at Parade →</a></div></div>
-    <div class="card card-cyan"><strong><a href="https://dclfan.com/disney-cruise-ships/disney-adventure/new-adventure-cruise-ship-officially-handed-over-to-disney/" target="_blank" rel="noopener">Disney Adventure sailing Asia out of Singapore</a></strong><span class="sub">DCL's new mega-ship Disney Adventure — a different vessel from the Destiny — took its maiden voyage in March 2026 and is based in Singapore for Asian itineraries.</span><span class="note">DCL Fan · 2026</span><div class="readmore"><a href="https://dclfan.com/disney-cruise-ships/disney-adventure/new-adventure-cruise-ship-officially-handed-over-to-disney/" target="_blank" rel="noopener">Read more at DCL Fan →</a></div></div>
+    <div class="card card-lblue">
+      <span class="note">Parade · Travel + Leisure</span>
+      <strong><a href="https://parade.com/travel/disney-destiny-named-best-cruise-of-the-year-travel-and-leisure" target="_blank" rel="noopener">Disney Destiny Named a Top Ship of 2026</a></strong>
+      <span class="sub">The heroes-and-villains-themed Destiny — the newest Wish-class ship, 4,000 guests and 1,246 staterooms — landed on Travel + Leisure's "It List." Its Eastern Caribbean sailing from Fort Lauderdale wraps today, July 4.</span>
+      <div class="readmore"><a href="https://parade.com/travel/disney-destiny-named-best-cruise-of-the-year-travel-and-leisure" target="_blank" rel="noopener">Read more at Parade →</a></div>
+    </div>
+    <div class="card card-cyan">
+      <span class="note">DCL Fan</span>
+      <strong><a href="https://dclfan.com/news/disney-cruise-line-offers-250-military-onboard-credit-in-2026/" target="_blank" rel="noopener">$250 Military Onboard Credit Through 2026</a></strong>
+      <span class="sub">Honoring America's 250th, DCL is giving eligible U.S. military a $250 onboard credit per reservation on select Disney Wish &amp; Disney Dream Florida sailings — stackable with military rates, valid on sailings through Dec 31, 2026.</span>
+      <div class="readmore"><a href="https://dclfan.com/news/disney-cruise-line-offers-250-military-onboard-credit-in-2026/" target="_blank" rel="noopener">Read more at DCL Fan →</a></div>
+    </div>
   </div>
 </section>
 
 <!-- MOVIES & ENTERTAINMENT -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🎬 Movies &amp; Entertainment</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Movies &amp; Entertainment</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-    <div class="card card-green"><strong><a href="https://www.boxofficepro.com/the-biggest-movies-coming-to-theaters-in-july-2026/" target="_blank" rel="noopener">Live-action Moana hits theaters July 10</a></strong><span class="sub">Directed by Thomas Kail, starring Catherine Laga'aia with Dwayne Johnson back as Maui and new Lin-Manuel Miranda music. It opens into a crowded July alongside Toy Story 5.</span><span class="note">Boxoffice Pro · 2026</span><div class="readmore"><a href="https://www.boxofficepro.com/the-biggest-movies-coming-to-theaters-in-july-2026/" target="_blank" rel="noopener">Read more at Boxoffice Pro →</a></div></div>
-    <div class="card card-lime"><strong><a href="https://press.disneyplus.com/news/next-on-disney-plus-july-2026" target="_blank" rel="noopener">Disney+ July: Descendants, X-Men '97 &amp; new streams</a></strong><span class="sub">July brings <em>Descendants: Wicked Wonderland</em>, a new season of <em>King of the Hill</em>, and the <em>X-Men '97</em> season premiere, plus a Disney Princess Stream (July 23) and a Pixar Stream.</span><span class="note">Disney+ Press · Jul 2026</span><div class="readmore"><a href="https://press.disneyplus.com/news/next-on-disney-plus-july-2026" target="_blank" rel="noopener">Read more at Disney+ Press →</a></div></div>
-    <div class="card card-green"><strong><a href="https://disneyparksblog.com/disney-experiences/honoring-americas-250th-anniversary-with-disney-magic/" target="_blank" rel="noopener">America 250 fireworks July 3–5 at the parks</a></strong><span class="sub">Celebrate America! — A Fourth of July Concert in the Sky lights up Magic Kingdom, with the Heartbeat of Freedom finale at EPCOT, all three nights at 9 PM. Disney Springs adds live Air Force Band sets.</span><span class="note">Disney Parks Blog · Jul 2026</span><div class="readmore"><a href="https://disneyparksblog.com/disney-experiences/honoring-americas-250th-anniversary-with-disney-magic/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a></div></div>
+    <div class="card card-green">
+      <span class="note">The Walt Disney Company</span>
+      <strong><a href="https://thewaltdisneycompany.com/news/disney-movies-theaters-summer-2026/" target="_blank" rel="noopener">Live-Action "Moana" Hits Theaters July 10</a></strong>
+      <span class="sub">The live-action Moana arrives July 10, starring Catherine Laga'aia as Moana with Dwayne Johnson returning as Maui.</span>
+      <div class="readmore"><a href="https://thewaltdisneycompany.com/news/disney-movies-theaters-summer-2026/" target="_blank" rel="noopener">Read more at The Walt Disney Company →</a></div>
+    </div>
+    <div class="card card-lime">
+      <span class="note">D23 · Disney+</span>
+      <strong><a href="https://d23.com/everything-new-coming-to-disney-july-2026/" target="_blank" rel="noopener">Streaming: "Descendants" &amp; "Devil Wears Prada 2"</a></strong>
+      <span class="sub">Disney+ adds Descendants: Wicked Wonderland on July 17 and The Devil Wears Prada 2 (a $677M box-office hit) on July 29 — a light month with just two new movies.</span>
+      <div class="readmore"><a href="https://d23.com/everything-new-coming-to-disney-july-2026/" target="_blank" rel="noopener">Read more at D23 →</a></div>
+    </div>
   </div>
 </section>
 
 <!-- DEALS & DISCOUNTS -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">💸 Deals &amp; Discounts</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Deals &amp; Discounts</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-    <div class="card card-yellow"><strong><a href="https://disneyworld.disney.go.com/special-offers/passholder-summer-2026-room-offer/" target="_blank" rel="noopener">Passholders: up to 40% off resort rooms this summer</a></strong><span class="sub">Annual Passholders save up to 40% on 4+ night stays (up to 35% for 1–3 nights) at select resorts. Current window runs through July 29; a new window covers July 30–Oct 3.</span><span class="note">Disney World · 2026</span><div class="readmore"><a href="https://disneyworld.disney.go.com/special-offers/passholder-summer-2026-room-offer/" target="_blank" rel="noopener">Read more at Disney World →</a></div></div>
-    <div class="card card-orange"><strong><a href="https://www.disneytouristblog.com/disney-world-brings-back-40-off-dining-discount-for-aps/" target="_blank" rel="noopener">Passholder dining discount up to 40% (Mon–Thu)</a></strong><span class="sub">Passholders save 20% or 40% at select dining locations, Monday through Thursday, valid May 1 through July 31, 2026. A Kids Dining Plan package offer also runs alongside.</span><span class="note">Disney Tourist Blog · 2026</span><div class="readmore"><a href="https://www.disneytouristblog.com/disney-world-brings-back-40-off-dining-discount-for-aps/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></div></div>
-    <div class="card card-lime"><strong><a href="https://disneyrewards.com/offers/" target="_blank" rel="noopener">Disney Visa: up to 25% off Disneyland hotels, 35% off Aulani</a></strong><span class="sub">Cardmembers save up to 25% on select premium Disneyland Resort hotel rooms (Sun–Thu, May 22–Sep 7) and up to 35% at Aulani for travel Aug 9–Oct 18, 2026. Must book with the Disney Visa.</span><span class="note">Disney Rewards · 2026</span><div class="readmore"><a href="https://disneyrewards.com/offers/" target="_blank" rel="noopener">Read more at Disney Rewards →</a></div></div>
-    <div class="card card-yellow"><strong><a href="https://disneycruise.disney.go.com/special-offers/military-onboard-credit-offer/" target="_blank" rel="noopener">DCL: $250 military onboard credit</a></strong><span class="sub">Eligible U.S. military (active/retired, plus qualifying spouses) get $250 onboard credit on select Disney Wish and Disney Dream Florida sailings through Dec 31, 2026; combinable with military rates.</span><span class="note">Disney Cruise Line · 2026</span><div class="readmore"><a href="https://disneycruise.disney.go.com/special-offers/military-onboard-credit-offer/" target="_blank" rel="noopener">Read more at Disney Cruise Line →</a></div></div>
-    <div class="card card-orange"><strong><a href="https://www.disneytouristblog.com/best-deal-on-disney-gift-cards-of-2026-up-to-100-off/" target="_blank" rel="noopener">Gift cards: Sam's Club is the go-to warehouse deal</a></strong><span class="sub">Sam's Club ran $500 eGift cards for $450 (10% off, limit 2) and keeps up to ~5% off face value through year-end. Costco no longer reliably carries Disney gift cards; BJ's is another option.</span><span class="note">Disney Tourist Blog · 2026</span><div class="readmore"><a href="https://www.disneytouristblog.com/best-deal-on-disney-gift-cards-of-2026-up-to-100-off/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></div></div>
-    <div class="card card-lime"><strong><a href="https://www.mousesavers.com/walt-disney-world-vacation-discounts-and-deals/disney-world-resort-hotel-discounts-codes/" target="_blank" rel="noopener">MouseSavers roundup: room, package &amp; ticket offers</a></strong><span class="sub">Up to 40% off resort rooms and 30% off package room portions through July 29; a fall window (up to 30%) covers July 30–Oct 3. Multi-day After 2 PM and 4-Park Magic tickets also available.</span><span class="note">MouseSavers · 2026</span><div class="readmore"><a href="https://www.mousesavers.com/walt-disney-world-vacation-discounts-and-deals/disney-world-resort-hotel-discounts-codes/" target="_blank" rel="noopener">Read more at MouseSavers →</a></div></div>
+    <div class="card card-yellow">
+      <span class="note">Chip and Company</span>
+      <strong><a href="https://chipandco.com/disney-world-annual-passholders-can-save-up-to-40-off-rooms-for-summer-2026-625362/" target="_blank" rel="noopener">Up to 40% Off Rooms for Passholders</a></strong>
+      <span class="sub">Annual Passholders can save up to 40% on select Disney World resort stays May 1 – July 29, 2026; the general public offer runs up to 30% off over the same window.</span>
+      <div class="readmore"><a href="https://chipandco.com/disney-world-annual-passholders-can-save-up-to-40-off-rooms-for-summer-2026-625362/" target="_blank" rel="noopener">Read more at Chip and Company →</a></div>
+    </div>
+    <div class="card card-orange">
+      <span class="note">disneyrewards.com</span>
+      <strong><a href="https://disneyrewards.com/offers/" target="_blank" rel="noopener">Disney Visa: Up to 35% Off Fall Stays</a></strong>
+      <span class="sub">Disney Visa Cardmembers get up to 35% off 5+ night stays (30% off 4 nights) most nights Aug 9 – Oct 18, 2026. Disney+ subscriber rooms start from $99/night at All-Star Sports on select summer dates.</span>
+      <div class="readmore"><a href="https://disneyrewards.com/offers/" target="_blank" rel="noopener">Read more at Disney Rewards →</a></div>
+    </div>
+    <div class="card card-lime">
+      <span class="note">DCL · military</span>
+      <strong><a href="https://disneycruise.disney.go.com/special-offers/military-onboard-credit-offer/" target="_blank" rel="noopener">$250 DCL Military Onboard Credit</a></strong>
+      <span class="sub">Eligible U.S. military get a $250 onboard credit per reservation on select Disney Wish &amp; Dream sailings, stackable with military rates, for sailings through Dec 31, 2026.</span>
+      <div class="readmore"><a href="https://disneycruise.disney.go.com/special-offers/military-onboard-credit-offer/" target="_blank" rel="noopener">Read more at Disney Cruise Line →</a></div>
+    </div>
+    <div class="card card-yellow">
+      <span class="note">Disney Tourist Blog</span>
+      <strong><a href="https://www.disneytouristblog.com/best-deal-on-disney-gift-cards-of-2026-up-to-100-off/" target="_blank" rel="noopener">Gift Cards: Target 5% &amp; Sam's Club</a></strong>
+      <span class="sub">Target Circle Card holders get 5% off Disney gift cards ($500 for $475); Sam's Club runs member-exclusive $500 cards around $475–$485. Costco no longer reliably stocks them nationwide.</span>
+      <div class="readmore"><a href="https://www.disneytouristblog.com/best-deal-on-disney-gift-cards-of-2026-up-to-100-off/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></div>
+    </div>
+    <div class="card card-orange">
+      <span class="note">MouseSavers</span>
+      <strong><a href="https://www.mousesavers.com/walt-disney-world-vacation-discounts-and-deals/disney-world-resort-hotel-discounts-codes/" target="_blank" rel="noopener">Summer Tickets &amp; Room Code Roundup</a></strong>
+      <span class="sub">2- to 4-day "Disney Summer" and "After 2 PM" tickets are valid for start dates through July 29; MouseSavers keeps a running list of current room-only and package codes.</span>
+      <div class="readmore"><a href="https://www.mousesavers.com/walt-disney-world-vacation-discounts-and-deals/disney-world-resort-hotel-discounts-codes/" target="_blank" rel="noopener">Read more at MouseSavers →</a></div>
+    </div>
+    <div class="card card-lime">
+      <span class="note">Southwest · JetBlue</span>
+      <strong><a href="https://www.southwest.com/en/flights/flight-deals" target="_blank" rel="noopener">MCO Airfare: Watch the Low-Fare Calendar</a></strong>
+      <span class="sub">July fares to Orlando run roughly $134–$149 one-way on Southwest and JetBlue from Northeast cities. No standout headline MCO sale is active this run — use the low-fare calendars to time a booking.</span>
+      <div class="readmore"><a href="https://www.southwest.com/en/flights/flight-deals" target="_blank" rel="noopener">Read more at Southwest →</a></div>
+    </div>
   </div>
-  <div class="callout"><strong>Checked this run, no fresh deal found:</strong> Costco (no longer reliably carries Disney gift cards), BJ's, Target RedCard, Kroger fuel points, Disney Movie Insiders, and Southwest/JetBlue/Spirit/Frontier MCO fare sales — no new Orlando airfare or gift-card promos surfaced beyond the Sam's Club offer above.</div>
+  <div class="callout">
+    <strong>Sources checked with nothing brand-new this run:</strong> Costco (no longer reliably stocks Disney gift cards), BJ's, Kroger fuel points, and Disney Movie Insiders had no fresh gift-card promotion; no new free-dining promo was active as of July 4.
+  </div>
 </section>
 
 <!-- YOUTUBE & COMMUNITY -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📺 YouTube &amp; Community</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">YouTube &amp; Community</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-    <div class="card card-cyan"><strong><a href="https://www.youtube.com/watch?v=Ld1_28oJq64" target="_blank" rel="noopener">The BEST New Eats We Found in Disney This Week</a></strong><span class="sub">DFB Guide's weekly walk through the newest snacks and menu items across the parks and resorts.</span><span class="note">DFB Guide</span><div class="readmore"><a href="https://www.youtube.com/watch?v=Ld1_28oJq64" target="_blank" rel="noopener">Watch on YouTube →</a></div></div>
-    <div class="card card-blue"><strong><a href="https://www.youtube.com/watch?v=2iuFRARwNpg" target="_blank" rel="noopener">We Tried EVERY Snack in Magic Kingdom</a></strong><span class="sub">DFB taste-tests Magic Kingdom's full snack lineup to flag what's actually worth your money.</span><span class="note">DFB Guide</span><div class="readmore"><a href="https://www.youtube.com/watch?v=2iuFRARwNpg" target="_blank" rel="noopener">Watch on YouTube →</a></div></div>
-    <div class="card card-purple"><strong><a href="https://www.youtube.com/channel/UCoocMG5lMACNKgpvqKay2lg" target="_blank" rel="noopener">The Tim Tracker — latest WDW &amp; home vlogs</a></strong><span class="sub">Tim &amp; Jenn's daily-ish vlogs covering Disney World, Universal and Orlando life. Jump to the channel for this week's newest uploads.</span><span class="note">The Tim Tracker</span><div class="readmore"><a href="https://www.youtube.com/channel/UCoocMG5lMACNKgpvqKay2lg" target="_blank" rel="noopener">Watch on YouTube →</a></div></div>
-    <div class="card card-cyan"><strong><a href="https://www.youtube.com/user/DisneyFoodBlog" target="_blank" rel="noopener">Disney Food Blog — newest uploads</a></strong><span class="sub">Everything edible across the parks, resorts and cruise ships, updated multiple times a week.</span><span class="note">Disney Food Blog</span><div class="readmore"><a href="https://www.youtube.com/user/DisneyFoodBlog" target="_blank" rel="noopener">Watch on YouTube →</a></div></div>
+    <div class="card card-cyan">
+      <span class="note">DFB Guide · Jul 2</span>
+      <strong><a href="https://www.disneyfoodblog.com/2026/07/02/dfb-video-every-disney-world-ride-ranked-the-definitive-2026-list/" target="_blank" rel="noopener">Every Disney World Ride Ranked — 2026 List</a></strong>
+      <span class="sub">DFB Guide ranks every ride at Walt Disney World in a definitive 2026 countdown, weighing the classics against the newest additions.</span>
+      <div class="readmore"><a href="https://www.disneyfoodblog.com/2026/07/02/dfb-video-every-disney-world-ride-ranked-the-definitive-2026-list/" target="_blank" rel="noopener">Watch via DFB Guide →</a></div>
+    </div>
+    <div class="card card-blue">
+      <span class="note">Provost Park Pass</span>
+      <strong><a href="https://www.provostparkpass.com/" target="_blank" rel="noopener">Sneak Preview: Avengers Campus &amp; Iron Man Coaster</a></strong>
+      <span class="sub">Chris Provost was invited to preview Disneyland Paris's new Avengers Campus and Iron Man coaster on July 10 — expect a first-look walkthrough on the channel.</span>
+      <div class="readmore"><a href="https://www.provostparkpass.com/" target="_blank" rel="noopener">Watch on Provost Park Pass →</a></div>
+    </div>
+    <div class="card card-purple">
+      <span class="note">DVC Fan</span>
+      <strong><a href="https://dvcfan.com/" target="_blank" rel="noopener">DVC Members' BoardWalk "Meet &amp; Treat"</a></strong>
+      <span class="sub">DVC Fan covers a special Meet &amp; Treat event at Disney's BoardWalk celebrating America's 250th birthday this July.</span>
+      <div class="readmore"><a href="https://dvcfan.com/" target="_blank" rel="noopener">Read more at DVC Fan →</a></div>
+    </div>
   </div>
-  <div class="callout"><strong>Note:</strong> Checked DFB Guide, AllEars, DVC Fan, Tim Tracker, Mammoth Club, Provost Park Pass and Mickey Views this run. Search didn't return confirmed upload dates inside the 14-day window for AllEars, DVC Fan, Mammoth Club, Provost Park Pass or Mickey Views, so their channels aren't card-linked above — the four items shown link to specific recent videos or the creators' upload feeds.</div>
+  <div class="callout">
+    <strong>Also checked:</strong> AllEars.Net, Tim Tracker, Mammoth Club and Mickey Views had no standout new upload surface this run within the 14-day window.
+  </div>
 </section>
 
 <!-- UPCOMING EVENTS -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📅 Upcoming Events</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Upcoming Events</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-    <div class="card card-green"><strong><a href="https://disneyparksblog.com/disney-experiences/honoring-americas-250th-anniversary-with-disney-magic/" target="_blank" rel="noopener">America's 250th fireworks — July 3, 4 &amp; 5</a></strong><span class="sub">Special Independence Day fireworks at 9 PM nightly across Magic Kingdom and EPCOT, plus festive decor and live U.S. Air Force Band performances at Disney Springs July 3–4.</span><span class="note">Disney Parks Blog · Jul 2026</span><div class="readmore"><a href="https://disneyparksblog.com/disney-experiences/honoring-americas-250th-anniversary-with-disney-magic/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a></div></div>
-    <div class="card card-lime"><strong><a href="https://disneyworld.disney.go.com/events-tours/epcot/epcot-international-food-and-wine-festival/" target="_blank" rel="noopener">EPCOT Food &amp; Wine Festival — Aug 27–Nov 21</a></strong><span class="sub">Mark the calendar: EPCOT's 86-day Food &amp; Wine Festival opens August 27 and runs through November 21, included with park admission.</span><span class="note">Disney World · 2026</span><div class="readmore"><a href="https://disneyworld.disney.go.com/events-tours/epcot/epcot-international-food-and-wine-festival/" target="_blank" rel="noopener">Read more at Disney World →</a></div></div>
-    <div class="card card-green"><strong><a href="https://wdwprepschool.com/events-at-disney-world/" target="_blank" rel="noopener">Disney After Hours nights through Sept 24</a></strong><span class="sub">Separately-ticketed after-close events continue at Magic Kingdom, EPCOT, Hollywood Studios and Typhoon Lagoon on select nights through September 24, 2026.</span><span class="note">WDW Prep School · 2026</span><div class="readmore"><a href="https://wdwprepschool.com/events-at-disney-world/" target="_blank" rel="noopener">Read more at WDW Prep School →</a></div></div>
+    <div class="card card-green">
+      <span class="note">DVC Fan · Jul 22</span>
+      <strong><a href="https://dvcfan.com/news/disney-vacation-club-announces-2026-welcome-home-weeks-details/" target="_blank" rel="noopener">DVC Welcome Home Weeks — July 22 to Aug 26</a></strong>
+      <span class="sub">Five-plus weeks of member ice cream, dining discounts and character events across Disney's U.S. resorts.</span>
+      <div class="readmore"><a href="https://dvcfan.com/news/disney-vacation-club-announces-2026-welcome-home-weeks-details/" target="_blank" rel="noopener">Read more at DVC Fan →</a></div>
+    </div>
+    <div class="card card-lime">
+      <span class="note">Disney Parks Blog · Aug 27</span>
+      <strong><a href="https://disneyparksblog.com/wdw/epcot-international-food-and-wine-festival-delicious-dates-and-details/" target="_blank" rel="noopener">EPCOT Food &amp; Wine Festival — Aug 27 to Nov 21</a></strong>
+      <span class="sub">The parks' biggest foodie event returns for a nearly three-month run; dining packages book starting July 16.</span>
+      <div class="readmore"><a href="https://disneyparksblog.com/wdw/epcot-international-food-and-wine-festival-delicious-dates-and-details/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a></div>
+    </div>
   </div>
 </section>
 
-<!-- DVC BANKING SOFT MENTION -->
-<div class="callout"><strong>⏰ DVC banking window note:</strong> The February Use Year banking deadline (Sep 30, 2026) is ~89 days out. Your DVC Points Info file wasn't reachable this run (Obsidian vault not mounted), so the eligible balance couldn't be confirmed — worth a quick check of your points on the Member site so nothing sits unbanked as the window tightens over the next few weeks.</div>
+<div class="callout">
+  <strong>DVC banking note:</strong> The Sep 30 February-use-year banking deadline is ~88 days out (soft-mention window). The DVC Points Info file was not mounted in this automated session, so the current UY 2026 balance could not be verified — worth a quick check on DVCMember.com if you're holding unbanked points.
+</div>
 
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">Fri, Jul 3 at 3:33 AM ET</span><div class="footer-clock" id="footer-clock"></div><div style="margin-top:.6rem;font-size:.75rem;">Generated Fri, Jul 3, 2026 at 3:33 AM ET · 07:33 UTC</div></footer>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Sat, Jul 4 at 3:32 AM ET</span><div class="footer-clock" id="footer-clock"></div>
+<div style="margin-top:.5rem;font-size:.78rem;">Generated on Saturday, July 4, 2026 at 3:32 AM ET · 07:32 UTC.</div></footer>
 <script>
 function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
 updateClock();setInterval(updateClock,1000);
