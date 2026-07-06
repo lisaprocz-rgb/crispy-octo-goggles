@@ -30,10 +30,14 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ fromJSON(steps.deployment.outputs.outputs).page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages (with retry)
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: Wandalen/wretry.action@v3.8.0
+        with:
+          action: actions/deploy-pages@v4
+          attempt_limit: 5
+          attempt_delay: 20000
