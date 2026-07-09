@@ -20,8 +20,8 @@ header{text-align:center;padding:2.6rem 1.5rem 1.8rem;position:relative}
 h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;color:#1f2440;
   line-height:1;text-shadow:4px 4px 0 #5b9dff}
 .subtitle{font-size:.95rem;margin-top:.75rem;color:#6b6f8c;font-weight:700}
-.subtitle a{color:#5b9dff;text-decoration:none;border-bottom:2px dotted #5b9dff;padding-bottom:1px}
-.subtitle a:hover{color:#1f2440;border-bottom-color:#1f2440}
+.subtitle a{color:#1f2440;border-bottom:2px dotted #ff5c8a;text-decoration:none;padding-bottom:1px}
+.subtitle a:hover{color:#ff5c8a;border-bottom-color:#1f2440}
 .gold-line{width:120px;height:8px;margin:1.1rem auto 0;border-radius:8px;
   background:repeating-linear-gradient(90deg,#ff5c8a 0 16px,#3ec6e0 16px 32px,#ffd23f 32px 48px)}
 .live-clock{margin-top:1.1rem;display:inline-block;background:#1f2440;color:#fff;
@@ -43,10 +43,9 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
   border:3px solid #1f2440;border-radius:18px;padding:1.2rem 1.4rem;
   box-shadow:6px 6px 0 var(--accent,#ff5c8a);margin-bottom:1rem;
   transition:transform .16s ease,box-shadow .16s ease}
-.card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--accent,#ff5c8a)}
 .card strong, .card .card-title{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;
   display:block;margin-bottom:.3rem;color:#1f2440}
-.card .sub{display:block;color:#6b6f8c;font-size:.86rem;font-weight:600;line-height:1.5;margin-top:.15rem}
+.card .sub{display:block;color:#6b6f8c;font-size:.9rem;font-weight:600;line-height:1.6;margin-top:.15rem}
 .card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
   background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
   border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
@@ -55,17 +54,25 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 .card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
 .card-green{--accent:#3dd6b5}.card-lime{--accent:#7bd957}.card-orange{--accent:#ffb84d}
 .card-lblue{--accent:#4fc3f7}.card-sopink{--accent:#ff8fc7}.card-lavender{--accent:#b79cff}
-.count-num{font-family:'Baloo 2';font-size:2.6rem;line-height:1;display:block}
+.count-num{font-family:'Baloo 2';font-size:2.6rem;line-height:1;display:block;font-weight:800}
 .back-to-hub{display:inline-block;font-family:'Baloo 2';font-size:.85rem;font-weight:700;
   background:#fff;color:#1f2440;text-decoration:none;padding:.45rem 1.1rem;border-radius:999px;
   border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem;
   transition:transform .16s ease,box-shadow .16s ease}
 .back-to-hub:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #ffd23f}
-a.article-link{color:#1f2440;font-weight:700;text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
-a.article-link:hover{color:#ff5c8a;border-bottom-color:#1f2440}
+.artentry{margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8}
+.artsrc{font-family:'Baloo 2';font-weight:800;color:#1f2440}
+p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
+a:not(.card):not(.back-to-hub){color:#1f2440;font-weight:700;
+  text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
+a:not(.card):not(.back-to-hub):hover{color:#ff5c8a;border-bottom-color:#1f2440}
 .callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
   box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
 .callout strong{font-family:'Baloo 2'}
+.stamp{background:#1f2440;color:#fff;border-radius:14px;padding:.9rem 1.2rem;margin:0 0 1.2rem;
+  font-weight:700;font-size:.86rem;line-height:1.7}
+.stamp .g{color:#ffd23f;font-family:'Baloo 2'}
+.stamp .live{color:#7bd957;font-family:'Baloo 2';display:block;margin-top:.3rem}
 footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
 .footer-clock{margin-top:.4rem;color:#ff5c8a}
 .timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
@@ -87,30 +94,21 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 </header>
 <main>
 
-<div class="callout" style="box-shadow:5px 5px 0 #5b9dff;">
-<strong>Generated:</strong> Wednesday, July 8, 2026 at 6:07 AM ET &nbsp;·&nbsp; 2026-07-08 10:07 UTC<br>
-<span style="font-size:.9rem;">✅ All content fetched live this run — no cached data used.</span>
+<div class="stamp">
+<span class="g">Generated:</span> Thursday, July 9, 2026 at 6:04 AM ET &nbsp;·&nbsp; 2026-07-09 10:04 UTC
+<span class="live">✔ All content fetched live this run — no cached data used.</span>
 </div>
 
-<!-- COUNTDOWN GRID -->
-<div class="cards-grid" style="margin-bottom:1.2rem;">
-  <div class="card card-purple" style="text-align:center;">
-    <strong class="count-num" style="color:#a78bfa;">118</strong>
-    <span class="sub" style="text-transform:uppercase;letter-spacing:.1em;">Days to PA General · Nov 3, 2026</span>
-  </div>
-  <div class="card card-cyan" style="text-align:center;">
-    <strong class="count-num" style="color:#3ec6e0;">103</strong>
-    <span class="sub" style="text-transform:uppercase;letter-spacing:.1em;">Days to Register · Oct 19, 2026</span>
-  </div>
-  <div class="card card-blue" style="text-align:center;">
-    <strong class="count-num" style="color:#5b9dff;">111</strong>
-    <span class="sub" style="text-transform:uppercase;letter-spacing:.1em;">Days to Mail-In Request · Oct 27, 2026</span>
-  </div>
+<!-- COUNTDOWN -->
+<div class="cards-grid">
+  <div class="card card-purple"><strong class="count-num">117</strong><span class="sub">Days to PA General · Nov 3, 2026</span></div>
+  <div class="card card-cyan"><strong class="count-num">102</strong><span class="sub">Days to Register · Oct 19, 2026</span></div>
+  <div class="card card-blue"><strong class="count-num">110</strong><span class="sub">Days to Mail-In Request · Oct 27, 2026</span></div>
 </div>
 
 <!-- EXECUTIVE SUMMARY -->
 <div class="callout">
-<strong>Executive Summary.</strong> The marquee PA-01 contest between Democrat Bob Harvie and Republican incumbent Rep. Brian Fitzpatrick turned combative this week: Harvie's attorneys sent Fitzpatrick and a pro-Fitzpatrick super PAC cease-and-desist letters over ads claiming he is "under FBI investigation," which his campaign calls categorically false. Harvie says he has now raised roughly $2 million ahead of the July 15 disclosure, while Fitzpatrick retains a large cash edge. No fresh 48-hour coverage surfaced for the down-ballot State Senate and State House matchups this run — those races remain quiet in the mid-summer lull.
+<strong>Executive Summary.</strong> The PA-01 congressional race between Democrat Bob Harvie and Republican Rep. Brian Fitzpatrick is the week's flashpoint: Harvie's attorneys sent cease-and-desist letters (July 3) to Fitzpatrick's campaign and the pro-Fitzpatrick Defending America PAC over ads claiming Harvie is "under FBI investigation," which his campaign calls defamatory. Fundraising is escalating ahead of the July 15 disclosure — Harvie reports roughly $2M raised; Fitzpatrick entered April with $7M banked. Across the down-ballot State Senate and State House matchups, no new coverage surfaced within the freshness window this run (last 48 hours / past week); those cards are marked accordingly.
 </div>
 
 <!-- CONGRESS -->
@@ -119,110 +117,110 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 
   <div class="card card-blue">
     <strong>Bob Harvie (D) vs. Rep. Brian Fitzpatrick (R, incumbent) — 1st Congressional District</strong>
-    <span class="sub"><em>Bucks County Commissioner from Falls Township who announced his congressional bid in April 2025. A lifelong Bucks County resident born in Bristol Borough, he graduated magna cum laude from George Washington University and spent 20 years as a teacher and Social Studies Department chair at Bucks County Technical High School. Elected County Commissioner in 2019, named board chair in 2022, and re-elected in 2023, he won the Democratic primary roughly 65%–35% and sits on the DCCC's "Red to Blue" list. His campaign centers on economic fairness and kitchen-table issues.</em></span>
+    <span class="sub"><em>Bucks County Commissioner (Falls Township) who announced his congressional bid in April 2025. Born in Bristol Borough, a magna cum laude George Washington University graduate, he spent 20 years teaching Social Studies at Bucks County Technical High School. Elected Commissioner in 2019, board chair in 2022, re-elected 2023. Won the May Democratic primary roughly 65%–35% and sits on the DCCC's "Red to Blue" list. Faces five-term Republican incumbent and former FBI agent Brian Fitzpatrick in November for a seat that could decide control of the U.S. House.</em></span>
 
-    <div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
-      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">Philadelphia Inquirer</span> —
-      <a class="article-link" href="https://www.inquirer.com/politics/philadelphia/bob-harvie-brian-fitzpatrick-bucks-county-ads-20260703.html" target="_blank" rel="noopener">Democrat Bob Harvie sends cease-and-desist letter to Rep. Brian Fitzpatrick, claiming defamation in campaign ads</a>
-      <span class="note">Jul 3, 2026</span>
-      <div style="margin-top:.3rem;font-weight:500;">Harvie's attorneys accuse Fitzpatrick's campaign of "categorically false and defamatory" ads that suggest Harvie is under criminal FBI investigation; Harvie says he was never a subject of the 2022 grand-jury probe. The piece also notes Fitzpatrick entered April with $7M banked, while Harvie's campaign says it has now raised about $2M ahead of the July 15 disclosure.</div>
-      <div style="margin-top:.3rem;"><a class="article-link" href="https://www.inquirer.com/politics/philadelphia/bob-harvie-brian-fitzpatrick-bucks-county-ads-20260703.html" target="_blank" rel="noopener" style="font-weight:700;">Read more at the Philadelphia Inquirer →</a></div>
+    <div class="artentry">
+      <span class="artsrc">Philadelphia Inquirer</span> —
+      <a href="https://www.inquirer.com/politics/philadelphia/bob-harvie-brian-fitzpatrick-bucks-county-ads-20260703.html" target="_blank" rel="noopener">Democrat Bob Harvie sends cease-and-desist letter to Rep. Brian Fitzpatrick, claiming defamation in campaign ads</a>
+      <span class="note">July 3, 2026</span>
+      <div style="margin-top:.3rem;font-weight:500;">Harvie's attorneys demanded Fitzpatrick and his campaign stop "defamatory" ads portraying Harvie as under criminal FBI investigation; Harvie says he was never a subject of the 2022 grand-jury probe into Falls Township/Pennsbury contracts. The piece also details the money race — Fitzpatrick had $7M banked in April, Harvie reports ~$2M raised, with the next disclosure due July 15.</div>
+      <div style="margin-top:.3rem;"><a href="https://www.inquirer.com/politics/philadelphia/bob-harvie-brian-fitzpatrick-bucks-county-ads-20260703.html" target="_blank" rel="noopener" style="font-weight:700;">Read more at the Philadelphia Inquirer →</a></div>
     </div>
 
-    <div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
-      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">The Bucks Independence</span> —
-      <a class="article-link" href="https://bucksindependence.com/democratic-congressional-candidate-harvie-fires-back-at-fitzpatrick-pac-bucks-round-up/" target="_blank" rel="noopener">Democratic congressional candidate Harvie fires back at pro-Fitzpatrick PAC — Bucks Round-Up</a>
-      <span class="note">Jul 3, 2026</span>
-      <div style="margin-top:.3rem;font-weight:500;">Harvie's law firm Dilworth Paxson issued a cease-and-desist to the Georgia-based Defending America PAC, which supports Fitzpatrick, over materials labeling Harvie an "FBI corruption subject." PAC president Chris Pack stood by the messaging, demanded Harvie's grand-jury records, and called the move an attempt to chill protected political speech.</div>
-      <div style="margin-top:.3rem;"><a class="article-link" href="https://bucksindependence.com/democratic-congressional-candidate-harvie-fires-back-at-fitzpatrick-pac-bucks-round-up/" target="_blank" rel="noopener" style="font-weight:700;">Read more at The Bucks Independence →</a></div>
+    <div class="artentry">
+      <span class="artsrc">The Independence (Bucks Round-Up)</span> —
+      <a href="https://bucksindependence.com/democratic-congressional-candidate-harvie-fires-back-at-fitzpatrick-pac-bucks-round-up/" target="_blank" rel="noopener">Democratic congressional candidate Harvie fires back at pro-Fitzpatrick PAC</a>
+      <span class="note">July 3, 2026</span>
+      <div style="margin-top:.3rem;font-weight:500;">Harvie's firm Dilworth Paxson sent a three-page cease-and-desist to the Georgia-based Defending America PAC over an anti-Harvie website, posts and video labeling him an "FBI corruption subject." PAC president Chris Pack stood by the messaging and demanded Harvie release his full grand-jury records, calling any lawsuit an attempt to chill political speech.</div>
+      <div style="margin-top:.3rem;"><a href="https://bucksindependence.com/democratic-congressional-candidate-harvie-fires-back-at-fitzpatrick-pac-bucks-round-up/" target="_blank" rel="noopener" style="font-weight:700;">Read more at The Independence →</a></div>
     </div>
   </div>
 </section>
 
 <!-- STATE SENATE -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">State Senate</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Pennsylvania State Senate</span><span class="divider-line"></span></div>
 
-  <div class="card card-cyan">
+  <div class="card card-purple">
     <strong>Steve Santarsiero (D, incumbent) vs. Greg Bankos (R) — 10th Senatorial District</strong>
-    <span class="sub"><em>Has represented the 10th District since 2019 and chairs the Bucks County Democrats. Unopposed in the primary, he faces Republican Greg Bankos, a Plumstead Township supervisor, in November. Active on minimum wage, PECO rate increases, and other legislative issues.</em></span>
+    <span class="sub"><em>Has represented the 10th District since 2019 and chairs the Bucks County Democrats; was unopposed in the primary. Faces Republican Greg Bankos, a Plumstead Township supervisor, in November. Active on minimum wage, PECO rate increases and other legislative issues.</em></span>
     <span class="sub"><em>No new coverage in the last 48 hours.</em></span>
   </div>
 
   <div class="card card-cyan">
     <strong>Eileen Hartnett Albillar (D) vs. Sen. Frank Farry (R, incumbent) — 6th Senatorial District</strong>
-    <span class="sub"><em>Bucks County Clerk of Courts who launched her bid in January 2026 to unseat Republican Frank Farry. A former Warrington Township supervisor with a background in social work and nonprofit leadership, she is endorsed by Senate Democratic Leader Jay Costa, Sen. Santarsiero, and Commissioners Harvie and Ellis-Marseglia. She focuses on affordability, SEPTA funding, and working families, and is a top Democratic flip target.</em></span>
+    <span class="sub"><em>Bucks County Clerk of Courts who launched her bid in January 2026 to unseat Republican Frank Farry. A former Warrington Township supervisor with a background in social work and nonprofit leadership. Endorsed by Senate Democratic Leader Jay Costa, Sen. Santarsiero and Commissioners Harvie and Ellis-Marseglia. Focuses on affordability, SEPTA funding and working families — a top Democratic flip target.</em></span>
     <span class="sub"><em>No new coverage in the last 48 hours.</em></span>
   </div>
 
-  <div class="card card-cyan">
+  <div class="card card-blue">
     <strong>Mark Pinsley (D) vs. Sen. Jarrett Coleman (R, incumbent) — 16th Senatorial District</strong>
-    <span class="sub"><em>Lehigh County Controller and Democratic nominee in the 16th, which spans parts of Bucks and Lehigh counties. He won the contested primary (about 54%–46%) and now faces Republican incumbent Jarrett Coleman in a top target race for flipping the GOP-held state Senate.</em></span>
+    <span class="sub"><em>Lehigh County Controller and Democratic nominee in the 16th, which spans parts of Bucks and Lehigh counties. Won the contested primary with about 54% and now faces Republican incumbent Jarrett Coleman in a rematch — a top target race for flipping the GOP-held state Senate.</em></span>
     <span class="sub"><em>No new coverage in the last 48 hours.</em></span>
   </div>
 </section>
 
 <!-- STATE HOUSE -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">State House</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Pennsylvania State House</span><span class="divider-line"></span></div>
 
-  <div class="card card-purple">
+  <div class="card card-green">
     <strong>Bryan Allen (D) vs. Rep. K.C. Tomlinson (R, incumbent) — 18th District (Bensalem)</strong>
-    <span class="sub"><em>Former Bensalem Township council member and chief of staff for State Rep. Tina Davis. He introduced the first casino tax rebate for Bensalem residents and is vice chair of the Bucks County Water and Sewer Authority Board. One of the state's most competitive legislative races.</em></span>
+    <span class="sub"><em>Former Bensalem Township council member and chief of staff for State Rep. Tina Davis. Introduced the first casino tax rebate for Bensalem residents and is vice chair of the Bucks County Water and Sewer Authority Board. One of the state's most competitive legislative races.</em></span>
     <span class="sub"><em>No new coverage in the last 48 hours.</em></span>
   </div>
 
-  <div class="card card-purple">
+  <div class="card card-lime">
     <strong>Tim Brennan (D, incumbent) vs. Sean Patrick Duffy (R) — 29th District (Doylestown)</strong>
-    <span class="sub"><em>Incumbent Democrat, unopposed in the primary, now in a general-election contest against Republican Sean Patrick Duffy.</em></span>
+    <span class="sub"><em>Incumbent Democrat and attorney, first elected in 2022 and unopposed in the primary. Faces Republican Sean Patrick Duffy, an attorney and military veteran, in the general election.</em></span>
     <span class="sub"><em>No new coverage in the last 48 hours.</em></span>
   </div>
 
-  <div class="card card-purple">
+  <div class="card card-orange">
     <strong>Perry Warren (D, incumbent) — 31st District (Newtown)</strong>
-    <span class="sub"><em>Incumbent Democrat who appears unopposed in the general election as of the latest filings this run; no Republican challenger has been confirmed.</em></span>
+    <span class="sub"><em>Incumbent Democrat representing Lower Makefield, Newtown Borough and Township, Upper Makefield and Yardley. Appears unopposed in the general election as of the latest filings this run — no Republican opponent has surfaced.</em></span>
     <span class="sub"><em>No new coverage in the last 48 hours.</em></span>
   </div>
 
-  <div class="card card-purple">
+  <div class="card card-magenta">
     <strong>Jim Prokopiak (D, incumbent) vs. Michael Gettis (R) — 140th District (Falls Township)</strong>
-    <span class="sub"><em>Won his seat in a February 2024 special election. A former Falls Township supervisor and Temple University law graduate.</em></span>
+    <span class="sub"><em>Won his seat in a February 2024 special election; former Falls Township supervisor, Pennsbury School Board member and Temple University law graduate. Faces Republican Michael Gettis, a structural inspector.</em></span>
     <span class="sub"><em>No new coverage in the last 48 hours.</em></span>
   </div>
 
-  <div class="card card-purple">
+  <div class="card card-pink">
     <strong>Tina Davis (D, incumbent) vs. Ken Velez (R) — 141st District (Bristol Township)</strong>
-    <span class="sub"><em>Has represented Bristol Township and Bristol Borough since 2010. Priorities include economic development, pay equity, and property tax reform.</em></span>
+    <span class="sub"><em>Has represented Bristol Township and Bristol Borough since 2010. Priorities include economic development, pay equity and property tax reform. Faces Republican business owner Ken Velez.</em></span>
     <span class="sub"><em>No new coverage in the last 48 hours.</em></span>
   </div>
 
-  <div class="card card-purple">
+  <div class="card card-lavender">
     <strong>Kristin Egan (D) vs. Rep. Joe Hogan (R, incumbent) — 142nd District (Langhorne)</strong>
-    <span class="sub"><em>Neshaminy School Board director and 20-year public school teacher. The first state candidate to publicly oppose the $227M PennDOT US-1 reconstruction project. Platform: education funding reform, public safety, and cost of living.</em></span>
+    <span class="sub"><em>Neshaminy School Board director and 20-year public school teacher. The first state candidate to publicly oppose the $227M PennDOT US-1 reconstruction project. Platform: education funding reform, public safety and cost of living.</em></span>
     <span class="sub"><em>No new coverage in the last 48 hours.</em></span>
   </div>
 
-  <div class="card card-purple">
+  <div class="card card-cyan">
     <strong>Tim Hayes (D) vs. Rep. Shelby Labs (R, incumbent) — 143rd District (Dublin)</strong>
-    <span class="sub"><em>Dublin Borough Council president, Army National Guard veteran, and environmental policy expert. Priorities include alternative energy, regulating AI data farms, affordability, and education.</em></span>
+    <span class="sub"><em>Dublin Borough Council president, Army National Guard veteran and environmental policy expert. Priorities include alternative energy, regulating AI data farms, affordability and education.</em></span>
     <span class="sub"><em>No new coverage in the last 48 hours.</em></span>
   </div>
 
-  <div class="card card-purple">
+  <div class="card card-blue">
     <strong>Brian Munroe (D, incumbent) vs. Michael J. Murphy (R) — 144th District (Warminster)</strong>
-    <span class="sub"><em>Former Radnor Township police officer and Warminster Township supervisor. He unseated Republican Todd Polinchock in 2022 by 515 votes and was re-elected in 2024 by 1,065 votes. Endorsed by Conservation Voters of PA; a DLCC-targeted swing district. Republican challenger Michael J. Murphy is a Warrington nurse.</em></span>
+    <span class="sub"><em>Former Radnor Township police officer and Warminster Township supervisor. Unseated Republican Todd Polinchock in 2022 by 515 votes and was re-elected in 2024 by 1,065 votes. Endorsed by Conservation Voters of PA; a DLCC-targeted swing district. Faces Republican Michael J. Murphy, a nurse from Warrington.</em></span>
     <span class="sub"><em>No new coverage in the last 48 hours.</em></span>
   </div>
 
-  <div class="card card-purple">
+  <div class="card card-green">
     <strong>Les Mavus (D) vs. Rep. Craig Staats (R, incumbent) — 145th District (Nockamixon)</strong>
-    <span class="sub"><em>Nockamixon Township resident and inspector of elections.</em></span>
+    <span class="sub"><em>Nockamixon Township resident and inspector of elections; a 20-year technical-services veteran. Campaign focuses on healthcare, education and economic protection. Faces Republican incumbent Craig Staats of Richland.</em></span>
     <span class="sub"><em>No new coverage in the last 48 hours.</em></span>
   </div>
 
   <div class="card card-purple">
     <strong>Monica Weninger (D) vs. Rep. Kristin Marcell (R, incumbent) — 178th District (Warwick)</strong>
-    <span class="sub"><em>25-year public school science teacher and Science Department Chair at Wissahickon School District. As auditor in Warwick Township, she was the first Democrat elected to that office in decades.</em></span>
+    <span class="sub"><em>25-year public school science teacher and Science Department Chair at Wissahickon School District, and a past president of the League of Women Voters of Bucks County. Auditor in Warwick Township — the first Democrat elected to that office in decades. Faces Republican incumbent Kristin Marcell of Wrightstown.</em></span>
     <span class="sub"><em>No new coverage in the last 48 hours.</em></span>
   </div>
 </section>
@@ -230,26 +228,27 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 <!-- KEY RACES TO WATCH -->
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Key Races to Watch</span><span class="divider-line"></span></div>
-  <div class="cards-grid">
-    <div class="card card-lime">
-      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">Philadelphia Inquirer</span> —
-      <a class="article-link" href="https://www.inquirer.com/politics/philadelphia/bob-harvie-brian-fitzpatrick-bucks-county-ads-20260703.html" target="_blank" rel="noopener">Harvie–Fitzpatrick ad war escalates as balance of the U.S. House hangs on Bucks County</a>
-      <span class="note">Jul 3, 2026</span>
-      <div style="margin-top:.3rem;font-weight:500;">PA-01 is one of just four Pennsylvania swing seats both parties are targeting to decide House control. The Inquirer details the defamation dispute, the money race, and joint Fitzpatrick–NRCC ad buys enabled by a recent Supreme Court campaign-finance ruling.</div>
-      <div style="margin-top:.3rem;"><a class="article-link" href="https://www.inquirer.com/politics/philadelphia/bob-harvie-brian-fitzpatrick-bucks-county-ads-20260703.html" target="_blank" rel="noopener" style="font-weight:700;">Read more at the Philadelphia Inquirer →</a></div>
+
+  <div class="card card-blue">
+    <strong>PA-01: the fight that could tip the U.S. House</strong>
+    <span class="sub"><em>The Harvie–Fitzpatrick contest is one of four Pennsylvania seats both parties are targeting in the 2026 midterms. This run's only fresh broad-picture coverage centers on the escalating ad war and money race.</em></span>
+
+    <div class="artentry">
+      <span class="artsrc">Philadelphia Inquirer</span> —
+      <a href="https://www.inquirer.com/politics/philadelphia/bob-harvie-brian-fitzpatrick-bucks-county-ads-20260703.html" target="_blank" rel="noopener">Democrat Bob Harvie sends cease-and-desist letter to Rep. Brian Fitzpatrick, claiming defamation in campaign ads</a>
+      <span class="note">July 3, 2026</span>
+      <div style="margin-top:.3rem;font-weight:500;">A close look at how the defamation dispute, a recent Supreme Court campaign-finance ruling, and a joint Fitzpatrick–NRCC ad buy are shaping one of the nation's marquee swing-seat races heading into November.</div>
+      <div style="margin-top:.3rem;"><a href="https://www.inquirer.com/politics/philadelphia/bob-harvie-brian-fitzpatrick-bucks-county-ads-20260703.html" target="_blank" rel="noopener" style="font-weight:700;">Read more at the Philadelphia Inquirer →</a></div>
     </div>
-    <div class="card card-lime">
-      <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">The Bucks Independence</span> —
-      <a class="article-link" href="https://bucksindependence.com/democratic-congressional-candidate-harvie-fires-back-at-fitzpatrick-pac-bucks-round-up/" target="_blank" rel="noopener">Bucks Round-Up: Harvie vs. Defending America PAC, plus local governance news</a>
-      <span class="note">Jul 3, 2026</span>
-      <div style="margin-top:.3rem;font-weight:500;">The Independence's weekly round-up leads with the Harvie–PAC clash and also covers Wrightstown's support for a local "bill of rights" and the restoration of CSX freight service after a Bensalem derailment.</div>
-      <div style="margin-top:.3rem;"><a class="article-link" href="https://bucksindependence.com/democratic-congressional-candidate-harvie-fires-back-at-fitzpatrick-pac-bucks-round-up/" target="_blank" rel="noopener" style="font-weight:700;">Read more at The Bucks Independence →</a></div>
-    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Coverage note:</strong> Down-ballot State Senate and State House matchups produced no articles within this run's freshness window (last 48 hours / past week). Rather than recycle older primary-season pieces, those cards are marked "No new coverage." No prioritized source was unreachable this run.
   </div>
 </section>
 
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">Wed, Jul 8 at 6:07 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge">Thu, Jul 9 at 6:04 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
 <script>
 function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
 updateClock();setInterval(updateClock,1000);
