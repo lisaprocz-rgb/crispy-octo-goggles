@@ -48,33 +48,39 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 .card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
   background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
   border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
-.card a.readmore{display:inline-block;margin-top:.6rem;font-family:'Baloo 2';font-weight:800;
-  font-size:.82rem;color:#1565a8;text-decoration:underline;text-underline-offset:2px}
-.card a.readmore:hover{color:#ff5c8a}
-.card-title a{color:#1565a8;text-decoration:underline;text-underline-offset:2px}
-.card-title a:hover{color:#ff5c8a}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
 .card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
 .card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
 .card-green{--accent:#3dd6b5}.card-lime{--accent:#7bd957}.card-orange{--accent:#ffb84d}
 .card-lblue{--accent:#4fc3f7}.card-sopink{--accent:#ff8fc7}.card-lavender{--accent:#b79cff}
+.card-link{font-family:'Baloo 2';font-weight:800;font-size:.85rem;color:#1f2440;
+  text-decoration:underline;text-decoration-color:var(--accent,#4fc3f7);text-decoration-thickness:2px;
+  display:inline-block;margin-top:.55rem}
+.card-link:hover{color:#ff5c8a}
+.card a.headline-link{text-decoration:underline;text-decoration-color:var(--accent,#4fc3f7);
+  text-decoration-thickness:2px;color:#1f2440}
+.card a.headline-link:hover{color:#ff5c8a}
 .back-to-hub{display:inline-block;font-family:'Baloo 2';font-size:.85rem;font-weight:700;
   background:#fff;color:#1f2440;text-decoration:none;padding:.45rem 1.1rem;border-radius:999px;
   border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem;
   transition:transform .16s ease,box-shadow .16s ease}
 .back-to-hub:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #ffd23f}
+table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;
+  border:3px solid #1f2440;border-radius:14px;overflow:hidden;margin:.8rem 0 1.4rem;
+  font-size:.9rem}
+th{background:#1f2440;color:#fff;font-family:'Baloo 2';font-weight:700;text-align:left;
+  padding:.55rem .85rem;font-size:.85rem;letter-spacing:.03em}
+td{padding:.5rem .85rem;border-top:2px dotted #e6e2d8;font-weight:600}
+tr:first-child td{border-top:none}
 ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
 li{margin-bottom:.25rem}
 p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
-a:not(.card):not(.back-to-hub):not(.hub-label a):not(.readmore){color:#1f2440;font-weight:700;
+a:not(.card):not(.back-to-hub):not(.hub-label a):not(.card-link):not(.headline-link){color:#1f2440;font-weight:700;
   text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
+a:not(.card):not(.back-to-hub):not(.hub-label a):not(.card-link):not(.headline-link):hover{color:#ff5c8a;border-bottom-color:#1f2440}
 .callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
   box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
 .callout strong{font-family:'Baloo 2'}
-footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
-.footer-clock{margin-top:.4rem;color:#ff5c8a}
-.timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
-  font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
 .status-badge{font-family:'Baloo 2';font-weight:800;font-size:1rem;
   padding:.45rem 1.1rem;border-radius:999px;border:3px solid #1f2440;
   letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;
@@ -83,6 +89,10 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 .status-badge.status-not-announced{background:#ff5c8a;color:#fff}
 .status-badge.status-partial{background:#ffd23f;color:#1f2440}
 .status-badge.status-announced{background:#3dd6b5;color:#1f2440}
+footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
+.footer-clock{margin-top:.4rem;color:#ff5c8a}
+.timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
+  font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
 @media (max-width:600px){
   h1{font-size:2.4rem}
   main{padding:1rem .9rem 3rem}
@@ -101,77 +111,94 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 </header>
 <main>
 
-<div class="callout"><strong>Last refreshed:</strong> Thursday, July 16, 2026 at 7:01 AM ET / 2026-07-16 11:01 UTC<br>
-All content fetched live this run — no cached data used. Freshness window: news published on or after June 16, 2026.</div>
+<div class="callout">
+  <strong>🔄 Last refreshed:</strong> Fri, Jul 17, 2026 · 7:03 AM ET&nbsp;/&nbsp;Fri, Jul 17, 2026 · 11:03 UTC<br>
+  <span style="font-size:.86rem;color:#6b6f8c;">All content fetched live this run — no cached data used. News window: past 30 days (items dated on or after Jun 17, 2026).</span>
+</div>
 
+<!-- ================= FALL 2027 AVAILABILITY WATCH ================= -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Fall 2027 Availability Watch</span><span class="status-badge status-not-announced">⏳ Not Yet Announced</span><span class="divider-line"></span></div>
+  <div class="section-divider">
+    <span class="divider-accent"></span>
+    <span class="divider-label">Fall 2027 Availability Watch</span>
+    <span class="status-badge status-not-announced">⏳ Not Yet Announced</span>
+    <span class="divider-line"></span>
+  </div>
 
   <div data-fall-2027-status="NOT YET ANNOUNCED">
   <div class="cards-grid">
-    <div class="card card-lblue"><span class="card-title">Fall 2027 sailings — NOT YET ANNOUNCED</span>
-      <span class="sub">As of this run, Disney Cruise Line has <strong>not</strong> released September, October, or November 2027 itineraries, dates, or destinations. Booking is not yet open for any Fall 2027 sailing.</span>
-      <span class="note">Watching</span></div>
-    <div class="card card-cyan"><span class="card-title">When to expect the announcement</span>
-      <span class="sub">Based on DCL's past cadence, Fall 2027 itineraries are expected to land roughly between May and August 2027. DCL typically releases dates a few months at a time (Jan–Apr, May–Sep, Sep–Dec). No firm date is confirmed.</span>
-      <a class="readmore" href="https://www.mousesavers.com/disney-cruise-tips/2027-disney-cruise-schedule-sail-dates-ports-more/" target="_blank" rel="noopener">Read more at MouseSavers →</a></div>
-    <div class="card card-blue"><span class="card-title">Most recent credible signal</span>
-      <span class="sub">DCL's official planning page currently covers only Fall 2026 &amp; Spring 2027. A plandisney host confirms October 2027 dates are not yet released. No leak or preview of Fall 2027 has surfaced.</span>
-      <a class="readmore" href="https://plandisney.disney.go.com/question/itineraries-dates-released-october-632904/" target="_blank" rel="noopener">Read more at planDisney →</a></div>
+    <div class="card card-lblue">
+      <strong>⏳ Fall 2027 sailings — NOT YET ANNOUNCED</strong>
+      <span class="sub">As of this run, Disney Cruise Line has <strong>not</strong> released any September, October, or November 2027 itineraries, sail dates, or ports. The booking flow and itinerary search currently extend only through the <strong>Summer 2027</strong> season (May–September 2027), which opened to the public in February 2026. No Fall 2027 dates are bookable.</span>
+      <span class="note">Watching</span>
+    </div>
+
+    <div class="card card-cyan">
+      <strong>📅 Most recent credible signal — announcement "watch" is on</strong>
+      <span class="sub">The Disney Cruise Line Blog reports DCL is now <em>"officially on Fall 2027 and Early 2028 itinerary announcement watch… within the historical announcement window,"</em> noting that last year these same seasons were announced in <strong>August</strong>. Port of St. Maarten's public schedule already shows tentative late-2027 Wish, Fantasy, and Treasure calls — a hint an announcement is near. <em>The Disney Cruise Line Blog, 2026-07-09.</em></span>
+      <a class="card-link" href="https://disneycruiselineblog.com/2026/07/sint-maarten-officials-welcome-disney-destiny-and-hint-at-more-cruise-stops-going-forward/" target="_blank" rel="noopener">Read more at The DCL Blog →</a>
+    </div>
+
+    <div class="card card-blue">
+      <strong>🔎 What to expect</strong>
+      <span class="sub">Based on prior years, Fall 2027 (and Early 2028) itineraries are most likely to drop in <strong>August 2026</strong>, with Castaway Club early booking a few days ahead of general public access. This page will flip its badge to green and text Lisa the moment sailings go live.</span>
+      <a class="card-link" href="https://disneycruiselineblog.com/cruise-planning/itineraries/itinerary-announcement-history/" target="_blank" rel="noopener">Read more at The DCL Blog (announcement history) →</a>
+    </div>
   </div>
-  <p style="font-size:.85rem;color:#6b6f8c;font-weight:700">Verified at: Thursday, July 16, 2026 at 7:01 AM ET / 2026-07-16 11:01 UTC · Sources checked live this run: disneycruise.disney.go.com, disneyparksblog.com, The DCL Blog, MouseSavers, planDisney.</p>
+  <p style="font-size:.84rem;color:#6b6f8c;margin-top:.4rem;">Verified at: Fri, Jul 17, 2026 · 7:03 AM ET / Fri, Jul 17, 2026 · 11:03 UTC — live check this run.</p>
   </div>
 </section>
 
+<!-- ================= NEWS BY SHIP ================= -->
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Destiny</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-    <div class="card card-lblue"><span class="card-title"><a href="https://disneycruiselineblog.com/2026/07/sint-maarten-officials-welcome-disney-destiny-and-hint-at-more-cruise-stops-going-forward/" target="_blank" rel="noopener">Disney Destiny makes inaugural call in Sint Maarten; more DCL stops teased</a></span>
-      <span class="sub">On July 1, 2026 the Destiny made her first call at Philipsburg during her first 7-night Eastern Caribbean sailing from Fort Lauderdale. St. Maarten's tourism minister signaled a ramp-up — three Disney visits in 2026, ~14 calls in 2027, and more in 2028. <em>The DCL Blog, 2026-07.</em></span>
-      <a class="readmore" href="https://disneycruiselineblog.com/2026/07/sint-maarten-officials-welcome-disney-destiny-and-hint-at-more-cruise-stops-going-forward/" target="_blank" rel="noopener">Read more at The DCL Blog →</a></div>
-    <div class="card card-cyan"><span class="card-title"><a href="https://www.caribjournal.com/2026/07/07/disney-st-maarten-cruises/" target="_blank" rel="noopener">Disney to expand St. Maarten presence after Destiny's maiden call</a></span>
-      <span class="sub">Following the Destiny's inaugural visit, Disney Cruise Line and the government of Sint Maarten confirmed plans to grow Disney ship calls at the Eastern Caribbean port over the next several years. <em>Caribbean Journal, 2026-07-07.</em></span>
-      <a class="readmore" href="https://www.caribjournal.com/2026/07/07/disney-st-maarten-cruises/" target="_blank" rel="noopener">Read more at Caribbean Journal →</a></div>
-    <div class="card card-blue"><span class="card-title"><a href="https://wdwnt.com/2026/07/disney-cruise-line-expanding-st-maarten-relationship/" target="_blank" rel="noopener">DCL expanding St. Maarten relationship</a></span>
-      <span class="sub">WDW News Today's coverage of the same expansion, with detail on the economic partnership between Disney and the island following the Destiny's July 1 call. <em>WDW News Today, 2026-07.</em></span>
-      <a class="readmore" href="https://wdwnt.com/2026/07/disney-cruise-line-expanding-st-maarten-relationship/" target="_blank" rel="noopener">Read more at WDW News Today →</a></div>
+    <div class="card card-lblue">
+      <strong><a class="headline-link" href="https://disneycruiselineblog.com/2026/07/sint-maarten-officials-welcome-disney-destiny-and-hint-at-more-cruise-stops-going-forward/" target="_blank" rel="noopener">Sint Maarten welcomes Disney Destiny's inaugural call — more stops coming</a></strong>
+      <span class="sub">On July 1, 2026, Disney Destiny made her first call in Philipsburg, St. Maarten, during her debut 7-night Eastern Caribbean cruise from Fort Lauderdale. The island's tourism minister said DCL calls are set to grow from ~2 in 2026 to roughly <strong>14 in 2027</strong>, with more expansion in 2028 — a hint at Caribbean itinerary diversification ahead. <em>The Disney Cruise Line Blog, 2026-07-09.</em></span>
+      <a class="card-link" href="https://disneycruiselineblog.com/2026/07/sint-maarten-officials-welcome-disney-destiny-and-hint-at-more-cruise-stops-going-forward/" target="_blank" rel="noopener">Read more at The DCL Blog →</a>
+    </div>
   </div>
 </section>
 
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Believe</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-    <div class="card card-lblue"><span class="card-title">No news in the last 30 days</span>
-      <span class="sub">No Disney Believe coverage published within the freshness window (on or after June 16, 2026) turned up this run. The ship's naming reveal was in March 2026 (outside the window). Believe is still slated for delivery in 2027 and a late-2027 debut, with no itineraries released yet.</span>
-      <span class="note">Coming 2027</span></div>
+    <div class="card card-cyan">
+      <strong>No news in the last 30 days</strong>
+      <span class="sub">No Disney Believe news, construction milestones, or itinerary updates published on or after Jun 17, 2026 turned up this run. (For background: the fourth Wish-class ship was named in March 2026 and is due to debut in late 2027 — both outside the 30-day window.)</span>
+      <span class="note">Nothing new</span>
+    </div>
   </div>
 </section>
 
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Treasure</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-    <div class="card card-lblue"><span class="card-title">No Treasure-specific news in the last 30 days</span>
-      <span class="sub">No news dedicated to the Disney Treasure was published within the freshness window (on or after June 16, 2026) this run — only routine sailing/deal listings. The Treasure continues Caribbean sailings from Port Canaveral this summer. Fleet-wide items that include the Treasure are below.</span>
-      <span class="note">Sailing</span></div>
+    <div class="card card-blue">
+      <strong>No news in the last 30 days</strong>
+      <span class="sub">No Disney Treasure announcements, itinerary changes, or press coverage dated on or after Jun 17, 2026 were found this run. The ship continues her scheduled 7-night Eastern/Western Caribbean sailings from Port Canaveral; Summer 2027 Caribbean itineraries (announced Feb 2026) fall outside the 30-day window.</span>
+      <span class="note">Nothing new</span>
+    </div>
   </div>
 </section>
 
+<!-- ================= GENERAL FLEET NEWS ================= -->
 <section class="section-group">
   <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">General Fleet News</span><span class="divider-line"></span></div>
   <div class="cards-grid">
-    <div class="card card-cyan"><span class="card-title"><a href="https://disneycruiselineblog.com/2026/07/travel-leisure-ranks-disney-cruise-line-best-large-ship-ocean-cruise-line-in-worlds-best-awards-2026/" target="_blank" rel="noopener">DCL named Best Large-Ship Ocean Cruise Line — Travel + Leisure World's Best 2026</a></span>
-      <span class="sub">Disney Cruise Line took the top spot in Travel + Leisure's 2026 World's Best Awards for large-ship ocean cruise lines — its second year in a row — scoring 86.79 from a survey of 207,000+ readers. <em>The DCL Blog, 2026-07.</em></span>
-      <a class="readmore" href="https://disneycruiselineblog.com/2026/07/travel-leisure-ranks-disney-cruise-line-best-large-ship-ocean-cruise-line-in-worlds-best-awards-2026/" target="_blank" rel="noopener">Read more at The DCL Blog →</a></div>
-    <div class="card card-blue"><span class="card-title"><a href="https://disneycruiselineblog.com/2026/07/special-offers-on-disney-cruise-line-sailings-as-of-july-13-2026/" target="_blank" rel="noopener">Current DCL special offers (as of July 13, 2026)</a></span>
-      <span class="sub">The DCL Blog's rolling roundup of active discounts and last-minute deals across the fleet, including Treasure and Destiny sailings. Useful if a Fall 2027 hold isn't yet possible and you're weighing nearer-term dates. <em>The DCL Blog, 2026-07-13.</em></span>
-      <a class="readmore" href="https://disneycruiselineblog.com/2026/07/special-offers-on-disney-cruise-line-sailings-as-of-july-13-2026/" target="_blank" rel="noopener">Read more at The DCL Blog →</a></div>
+    <div class="card card-yellow">
+      <strong><a class="headline-link" href="https://www.wdw-magazine.com/disney-cruise-line-thirty-percent-offer/" target="_blank" rel="noopener">Save up to 30% on voyage fare for select 2026 Disney sailings</a></strong>
+      <span class="sub">Disney Cruise Line is offering up to 30% off the voyage fare on a selection of 2026 sailings for a limited time. Eligible ships, sail dates, and the booking deadline are listed in the write-up. <em>WDW Magazine, 2026-06-26.</em></span>
+      <a class="card-link" href="https://www.wdw-magazine.com/disney-cruise-line-thirty-percent-offer/" target="_blank" rel="noopener">Read more at WDW Magazine →</a>
+    </div>
   </div>
 </section>
 
 </main>
-<footer><a class="back-to-hub" href="index.html">← Back to Lisa's Hub</a><br>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">Thu, Jul 16 at 7:01 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">Fri, Jul 17 at 7:03 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
 <script>
-function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
+function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;const badge=document.getElementById('updated-badge');if(badge&&badge.textContent.trim()==='DYNAMIC'+'_TIMESTAMP'){badge.textContent='…';var pg=(location.pathname.split('/').pop()||'index.html');fetch('https://api.github.com/repos/lisaprocz-rgb/crispy-octo-goggles/commits?path='+encodeURIComponent(pg)+'&per_page=1').then(function(r){return r.json();}).then(function(d){var t=new Date(d[0].commit.committer.date);var ds=t.toLocaleDateString('en-US',{timeZone:'America/New_York',weekday:'short',month:'short',day:'numeric'});var tm=t.toLocaleTimeString('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit',hour12:true});badge.textContent=ds+' at '+tm+' ET';}).catch(function(){badge.textContent='unavailable';});}}
 updateClock();setInterval(updateClock,1000);
 </script>
 </body>
