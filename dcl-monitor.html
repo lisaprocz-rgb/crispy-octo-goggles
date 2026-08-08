@@ -48,11 +48,6 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 .card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
   background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
   border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
-.card a.readmore{display:inline-block;margin-top:.55rem;font-family:'Baloo 2';font-weight:700;
-  font-size:.85rem;color:#0a66c2;text-decoration:underline;border:none}
-.card a.readmore:hover{color:#ff5c8a}
-.card .headline-link{color:#0a66c2;text-decoration:underline}
-.card .headline-link:hover{color:#ff5c8a}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
 .card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
 .card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
@@ -63,14 +58,34 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
   border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem;
   transition:transform .16s ease,box-shadow .16s ease}
 .back-to-hub:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #ffd23f}
+table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;
+  border:3px solid #1f2440;border-radius:14px;overflow:hidden;margin:.8rem 0 1.4rem;
+  font-size:.9rem}
+th{background:#1f2440;color:#fff;font-family:'Baloo 2';font-weight:700;text-align:left;
+  padding:.55rem .85rem;font-size:.85rem;letter-spacing:.03em}
+td{padding:.5rem .85rem;border-top:2px dotted #e6e2d8;font-weight:600}
+tr:first-child td{border-top:none}
 ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
 li{margin-bottom:.25rem}
 p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
-a:not(.card):not(.back-to-hub):not(.hub-label a):not(.readmore):not(.headline-link){color:#1f2440;font-weight:700;
+a:not(.card):not(.back-to-hub):not(.hub-label a){color:#1f2440;font-weight:700;
   text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
+a:not(.card):not(.back-to-hub):not(.hub-label a):hover{color:#ff5c8a;border-bottom-color:#1f2440}
 .callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
   box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
 .callout strong{font-family:'Baloo 2'}
+.read-more{display:inline-block;margin-top:.55rem;font-family:'Baloo 2';font-weight:700;
+  font-size:.82rem;color:#0a6ebd !important;border-bottom:2px solid #4fc3f7 !important;padding-bottom:1px}
+.read-more:hover{color:#ff5c8a !important;border-bottom-color:#ff5c8a !important}
+a.card-title{border-bottom:2px solid #4fc3f7;padding-bottom:1px}
+a.card-title:hover{color:#0a6ebd;border-bottom-color:#0a6ebd}
+.stamp{font-family:'Baloo 2';font-weight:700;font-size:.8rem;color:#0a6ebd;
+  background:#eaf7fe;border:2px solid #4fc3f7;border-radius:12px;
+  padding:.4rem .8rem;display:inline-block;margin:.4rem 0 .2rem}
+footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
+.footer-clock{margin-top:.4rem;color:#ff5c8a}
+.timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
+  font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
 .status-badge{font-family:'Baloo 2';font-weight:800;font-size:1rem;
   padding:.45rem 1.1rem;border-radius:999px;border:3px solid #1f2440;
   letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;
@@ -79,11 +94,6 @@ a:not(.card):not(.back-to-hub):not(.hub-label a):not(.readmore):not(.headline-li
 .status-badge.status-not-announced{background:#ff5c8a;color:#fff}
 .status-badge.status-partial{background:#ffd23f;color:#1f2440}
 .status-badge.status-announced{background:#3dd6b5;color:#1f2440}
-.verified-stamp{font-family:'Baloo 2';font-weight:700;font-size:.8rem;color:#6b6f8c;margin-top:.8rem}
-footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
-.footer-clock{margin-top:.4rem;color:#ff5c8a}
-.timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
-  font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
 @media (max-width:600px){
   h1{font-size:2.4rem}
   main{padding:1rem .9rem 3rem}
@@ -103,8 +113,8 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 <main>
 
 <div class="callout">
-<strong>🔄 Last refreshed:</strong> Friday, August 7, 2026 · 7:03 AM ET&nbsp;/&nbsp;2026-08-07 11:03 UTC<br>
-✅ All content fetched live this run — no cached data used. Freshness window: items published on or after July 8, 2026 (last 30 days).
+<strong>🔄 Last refreshed:</strong> Saturday, August 8, 2026 at 8:33 AM ET&nbsp;/&nbsp;2026-08-08 12:33 UTC<br>
+<span style="font-size:.88rem;color:#6b6f8c;font-weight:700">All content fetched live this run — no cached data used. News limited to the last 30 days (on/after 2026-07-09).</span>
 </div>
 
 <section class="section-group">
@@ -119,88 +129,91 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
   <div class="cards-grid">
 
     <div class="card card-lblue">
-      <strong>⏳ Fall 2027 block — NOT YET ANNOUNCED</strong>
+      <strong>🗓️ October 2027 sailings — status: NOT YET ANNOUNCED</strong>
+      <span class="sub">Disney Cruise Line has <b>not</b> released Fall 2027 (September–November 2027) itineraries. The furthest-out dates you can book run through the <b>Summer 2027</b> program (May–September 2027). October 2027 dates are not open yet.</span>
       <span class="note">Watching</span>
-      <span class="sub">Disney Cruise Line has <strong>not</strong> released its dedicated Fall 2027 itinerary block. As of this run, <strong>no October 2027 or November 2027 sail dates</strong> are available in the booking flow or itinerary search on disneycruise.disney.go.com.</span>
     </div>
 
     <div class="card card-cyan">
-      <strong>ℹ️ What IS already bookable</strong>
-      <span class="note">Context</span>
-      <span class="sub">Early-September 2027 sailings are already on sale — but only because they fall inside the <em>Summer 2027 (May–September)</em> block that DCL announced back in February 2026. That is a pre-existing release, not a new Fall 2027 announcement. The true Fall/Winter block (which carries October &amp; November) is still pending.</span>
-      <a class="readmore" href="https://disneycruiselineblog.com/2026/02/disney-cruise-line-announces-summer-2027-itineraries-may-september/" target="_blank" rel="noopener">Read more at The Disney Cruise Line Blog →</a>
+      <a class="card-title" href="https://disneycruiselineblog.com/2026/02/disney-cruise-line-announces-summer-2027-itineraries-may-september/" target="_blank" rel="noopener">📌 Most recent release: Summer 2027 (May–September)</a>
+      <span class="sub">The last itinerary tranche DCL announced covers May through September 2027 — the block right before the Fall window Lisa is watching. <em>The Disney Cruise Line Blog · announced 2026-02-10</em></span>
+      <a class="read-more" href="https://disneycruiselineblog.com/2026/02/disney-cruise-line-announces-summer-2027-itineraries-may-september/" target="_blank" rel="noopener">Read more at The Disney Cruise Line Blog →</a>
     </div>
 
     <div class="card card-blue">
-      <strong>📅 When to expect the announcement</strong>
-      <span class="note">Signal</span>
-      <span class="sub">DCL announces fall/winter blocks roughly 15–18 months out. The comparable <em>Fall 2026 &amp; early-2027</em> block dropped in <strong>August 2025</strong> — which puts the Fall 2027 &amp; early-2028 reveal squarely in the <strong>late-summer / early-fall 2026 window (i.e., now)</strong>. Worth checking daily.</span>
-      <a class="readmore" href="https://disneycruiselineblog.com/2025/08/disney-cruise-line-announces-fall-2026-early-2027-itineraries-september-26-may-27/" target="_blank" rel="noopener">Read more at The Disney Cruise Line Blog →</a>
+      <a class="card-title" href="https://disneycruiselineblog.com/cruise-planning/itineraries/itinerary-announcement-history/" target="_blank" rel="noopener">⏰ When to expect it: ~Friday, Aug 28, 2026 (projected)</a>
+      <span class="sub">DCL Blog's itinerary-history model projects the next Fall release around <b>Aug 28, 2026</b>, based on the ~374-day average cadence. For reference, Fall 2026 &amp; Early 2027 dropped Aug 19, 2025 — so an announcement could land any day now. <em>The Disney Cruise Line Blog · Itinerary Announcement History</em></span>
+      <a class="read-more" href="https://disneycruiselineblog.com/cruise-planning/itineraries/itinerary-announcement-history/" target="_blank" rel="noopener">Read more at The Disney Cruise Line Blog →</a>
     </div>
 
   </div>
+  <div class="stamp">✅ Verified live at: Saturday, August 8, 2026 at 8:33 AM ET / 2026-08-08 12:33 UTC — status confirmed <b>NOT YET ANNOUNCED</b></div>
   </div>
-  <div class="verified-stamp">Verified at: Friday, August 7, 2026 · 7:03 AM ET / 2026-08-07 11:03 UTC — checked live against disneycruise.disney.go.com, disneyparksblog.com, the DCL newsroom, and DCL news outlets.</div>
 </section>
 
 <section class="section-group">
   <div class="section-divider">
     <span class="divider-accent"></span>
-    <span class="divider-label">News by Ship</span>
+    <span class="divider-label">Disney Destiny</span>
     <span class="divider-line"></span>
   </div>
-
-  <div class="sub-label">🦸 Disney Destiny</div>
   <div class="cards-grid">
     <div class="card card-lblue">
-      <strong>No ship-specific news in the last 30 days</strong>
-      <span class="sub">No Disney Destiny–specific announcements, itinerary changes, or press coverage published on or after July 8, 2026 surfaced this run. The Heroes &amp; Villains ship continues its scheduled four- and five-night Bahamas and Western Caribbean sailings from Fort Lauderdale (departures included Aug 6, 20, and 24). Its christening with godmother Susan Egan was November 2025 — outside the 30-day window.</span>
+      <a class="card-title" href="https://disneycruiselineblog.com/2026/08/personal-navigators-disney-destiny-5-night-western-caribbean-cruise-from-fort-lauderdale-august-1-2026/" target="_blank" rel="noopener">🦸 Fresh onboard schedules from Destiny's Aug 1 Western Caribbean sailing</a>
+      <span class="sub">DCL Blog posted the Personal Navigators (daily onboard schedules) from Destiny's 5-night Western Caribbean round-trip out of Fort Lauderdale — Cozumel and Castaway Cay, under Captain Jason Preston. Destiny (debuted Nov 2025) is now in regular year-round Caribbean service from Port Everglades. <em>The Disney Cruise Line Blog · 2026-08-07</em></span>
+      <a class="read-more" href="https://disneycruiselineblog.com/2026/08/personal-navigators-disney-destiny-5-night-western-caribbean-cruise-from-fort-lauderdale-august-1-2026/" target="_blank" rel="noopener">Read more at The Disney Cruise Line Blog →</a>
     </div>
   </div>
+</section>
 
-  <div class="sub-label">✨ Disney Believe</div>
+<section class="section-group">
+  <div class="section-divider">
+    <span class="divider-accent"></span>
+    <span class="divider-label">Disney Believe</span>
+    <span class="divider-line"></span>
+  </div>
   <div class="cards-grid">
 
     <div class="card card-cyan">
-      <strong><a class="headline-link" href="https://cruiseindustrynews.com/cruise-news/2026/08/disney-to-reveal-details-on-next-ship-in-october/" target="_blank" rel="noopener">Disney to reveal Believe details in October</a></strong>
-      <span class="note">Coming Soon</span>
-      <span class="sub">Disney will unveil full details of the Disney Believe — the fourth Wish-class ship, due from Meyer Werft in Q4 2027 — during a livestream on <strong>October 7, 2026</strong>. <em>Cruise Industry News, 2026-08</em>.</span>
-      <a class="readmore" href="https://cruiseindustrynews.com/cruise-news/2026/08/disney-to-reveal-details-on-next-ship-in-october/" target="_blank" rel="noopener">Read more at Cruise Industry News →</a>
+      <a class="card-title" href="https://cruiseindustrynews.com/cruise-news/2026/08/disney-to-reveal-details-on-next-ship-in-october/" target="_blank" rel="noopener">📺 Believe details to be revealed in Oct 7 livestream</a>
+      <span class="sub">Disney confirmed an October 7, 2026 livestream to unveil the Disney Believe — its fourth Wish-class ship (140,000 tons), delivering Q4 2027. Per DCL's site, the ship will feature experiences based on Disney, Pixar, Marvel <b>and Star Wars</b> universes. <em>Cruise Industry News · 2026-08-03</em></span>
+      <a class="read-more" href="https://cruiseindustrynews.com/cruise-news/2026/08/disney-to-reveal-details-on-next-ship-in-october/" target="_blank" rel="noopener">Read more at Cruise Industry News →</a>
     </div>
 
     <div class="card card-blue">
-      <strong><a class="headline-link" href="https://wdwnt.com/2026/07/disney-believe-reveal-livestream-and-one-night-only-show-on-disney-wish-announced/" target="_blank" rel="noopener">Livestream reveal + one-night-only show on Disney Wish</a></strong>
-      <span class="note">Announced</span>
-      <span class="sub">Alongside the Oct. 7 livestream, guests on the Disney Wish's Oct. 5 voyage get a special one-night-only performance inspired by Disney Believe, featuring godmother-favorite <strong>Susan Egan</strong>. <em>WDW News Today, 2026-07-28</em>.</span>
-      <a class="readmore" href="https://wdwnt.com/2026/07/disney-believe-reveal-livestream-and-one-night-only-show-on-disney-wish-announced/" target="_blank" rel="noopener">Read more at WDW News Today →</a>
+      <a class="card-title" href="https://allears.net/2026/07/28/disney-is-finally-giving-us-an-update-on-their-newest-cruise-ship/" target="_blank" rel="noopener">🚢 Disney finally shares an update on the Believe</a>
+      <span class="sub">AllEars recaps Disney's first substantial Believe update — a teaser video plus confirmation that a full reveal is on the way this fall. <em>AllEars · 2026-07-28</em></span>
+      <a class="read-more" href="https://allears.net/2026/07/28/disney-is-finally-giving-us-an-update-on-their-newest-cruise-ship/" target="_blank" rel="noopener">Read more at AllEars →</a>
     </div>
 
     <div class="card card-lblue">
-      <strong><a class="headline-link" href="https://allears.net/2026/07/28/disney-is-finally-giving-us-an-update-on-their-newest-cruise-ship/" target="_blank" rel="noopener">First real update on the newest ship — funnel takes shape</a></strong>
-      <span class="note">Construction</span>
-      <span class="sub">Disney shared fresh construction progress at Meyer Werft in Papenburg, Germany, including the ship's funnel, plus a new teaser video. Believe's theme: "promise, possibility, and what lies beyond the horizon," with theming from <em>Encanto, Frozen, Moana, Snow White</em> and <em>The Little Mermaid</em>. <em>AllEars, 2026-07-28</em>.</span>
-      <a class="readmore" href="https://allears.net/2026/07/28/disney-is-finally-giving-us-an-update-on-their-newest-cruise-ship/" target="_blank" rel="noopener">Read more at AllEars →</a>
+      <a class="card-title" href="https://disneycruiselineblog.com/2026/07/disney-believe-reveal-scheduled-for-october-7th-via-livestream/" target="_blank" rel="noopener">🎬 Reveal scheduled for Oct 7 via livestream</a>
+      <span class="sub">DCL Blog breaks down the teaser video and the characters hinted for the ship — Encanto, Frozen, Snow White, Moana, The Little Mermaid and more. The Believe is "inspired by promise, possibility, and what lies beyond the horizon." <em>The Disney Cruise Line Blog · 2026-07-28</em></span>
+      <a class="read-more" href="https://disneycruiselineblog.com/2026/07/disney-believe-reveal-scheduled-for-october-7th-via-livestream/" target="_blank" rel="noopener">Read more at The Disney Cruise Line Blog →</a>
     </div>
 
-    <div class="card card-purple">
-      <strong><a class="headline-link" href="https://disneycruiselineblog.com/2026/07/disney-believe-reveal-scheduled-for-october-7th-via-livestream/" target="_blank" rel="noopener">Reveal date confirmed: October 7th via livestream</a></strong>
-      <span class="note">Announced</span>
-      <span class="sub">The Disney Cruise Line Blog confirms the Oct. 7 livestream date and notes the announcement teaser adds characters from <em>Inside Out, Big Hero 6, Zootopia, Monsters, Inc.</em> and <em>Tangled</em>. <em>The Disney Cruise Line Blog, 2026-07</em>.</span>
-      <a class="readmore" href="https://disneycruiselineblog.com/2026/07/disney-believe-reveal-scheduled-for-october-7th-via-livestream/" target="_blank" rel="noopener">Read more at The Disney Cruise Line Blog →</a>
+    <div class="card card-cyan">
+      <a class="card-title" href="https://allears.net/2026/07/22/sneak-peek-of-disneys-newest-cruise-ship-the-believe/" target="_blank" rel="noopener">👀 Sneak peek at Disney's newest ship, the Believe</a>
+      <span class="sub">An early sneak peek at the Believe ahead of the fall reveal, with a look at the ship's teased theming and design direction. <em>AllEars · 2026-07-22</em></span>
+      <a class="read-more" href="https://allears.net/2026/07/22/sneak-peek-of-disneys-newest-cruise-ship-the-believe/" target="_blank" rel="noopener">Read more at AllEars →</a>
     </div>
 
   </div>
+</section>
 
-  <div class="sub-label">💎 Disney Treasure</div>
+<section class="section-group">
+  <div class="section-divider">
+    <span class="divider-accent"></span>
+    <span class="divider-label">Disney Treasure</span>
+    <span class="divider-line"></span>
+  </div>
   <div class="cards-grid">
-    <div class="card card-yellow">
-      <strong><a class="headline-link" href="https://wdwnt.com/2026/08/new-kraft-heinz-condiment-dispensers-debut-aboard-the-disney-treasure/" target="_blank" rel="noopener">New Kraft Heinz condiment dispensers debut aboard Disney Treasure</a></strong>
-      <span class="note">Onboard</span>
-      <span class="sub">New Heinz dispensers were spotted near the Mickey &amp; Friends Festival of Foods on Deck 11 — the first sign of the multi-year Kraft Heinz partnership (announced in July) reaching DCL sailings. <em>WDW News Today, 2026-08</em>.</span>
-      <a class="readmore" href="https://wdwnt.com/2026/08/new-kraft-heinz-condiment-dispensers-debut-aboard-the-disney-treasure/" target="_blank" rel="noopener">Read more at WDW News Today →</a>
+    <div class="card card-blue">
+      <strong>📰 No Disney Treasure-specific news in the last 30 days</strong>
+      <span class="sub">No stand-alone Treasure announcements published on/after 2026-07-09. Treasure is running 7-night Caribbean itineraries from Port Canaveral and features prominently in this week's fleet-wide special offers — see <b>General Fleet News</b> below for the linked deals post.</span>
+      <span class="note">No news</span>
     </div>
   </div>
-
 </section>
 
 <section class="section-group">
@@ -210,19 +223,34 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
     <span class="divider-line"></span>
   </div>
   <div class="cards-grid">
-    <div class="card card-green">
-      <strong>No additional fleet-wide news in the last 30 days</strong>
-      <span class="sub">Beyond the ship-specific items above (Believe's Oct. 7 reveal and the fleet-wide Kraft Heinz rollout first seen on Treasure), no other Disney Cruise Line fleet announcements published on or after July 8, 2026 surfaced this run.</span>
+
+    <div class="card card-lblue">
+      <a class="card-title" href="https://disneycruiselineblog.com/2026/08/walt-disney-companys-q3-2026-earnings-results/" target="_blank" rel="noopener">💰 Disney posts strong fiscal Q3 2026 earnings</a>
+      <span class="sub">The Walt Disney Company reported strong operating income for fiscal Q3 (quarter ended June 27, 2026) and reiterated its guidance; Disney Cruise Line sits within the Experiences segment. <em>The Disney Cruise Line Blog · 2026-08-05</em></span>
+      <a class="read-more" href="https://disneycruiselineblog.com/2026/08/walt-disney-companys-q3-2026-earnings-results/" target="_blank" rel="noopener">Read more at The Disney Cruise Line Blog →</a>
     </div>
+
+    <div class="card card-cyan">
+      <a class="card-title" href="https://disneycruiselineblog.com/2026/08/special-offers-on-disney-cruise-line-sailings-as-of-august-3-2026/" target="_blank" rel="noopener">🏷️ Big week of deals — 171 discounted sail dates</a>
+      <span class="sub">DCL loaded an unusually large batch of special offers: 171 sail dates extending into early May 2027, across Fort Lauderdale, Galveston, Port Canaveral, San Diego, Southampton and Vancouver. Treasure and Wish are tied for the most discounted dates. <em>The Disney Cruise Line Blog · 2026-08-03</em></span>
+      <a class="read-more" href="https://disneycruiselineblog.com/2026/08/special-offers-on-disney-cruise-line-sailings-as-of-august-3-2026/" target="_blank" rel="noopener">Read more at The Disney Cruise Line Blog →</a>
+    </div>
+
+    <div class="card card-blue">
+      <a class="card-title" href="https://disneycruiselineblog.com/2026/08/personal-navigators-disney-dream-7-night-western-europe-cruise-from-barcelona-ending-in-southampton-july-20-2026/" target="_blank" rel="noopener">🌍 Disney Dream wraps a 7-night Western Europe sailing</a>
+      <span class="sub">Personal Navigators from the Dream's Barcelona-to-Southampton Western Europe cruise (departed July 20, 2026) — a window into DCL's European season this summer. <em>The Disney Cruise Line Blog · 2026-08-05</em></span>
+      <a class="read-more" href="https://disneycruiselineblog.com/2026/08/personal-navigators-disney-dream-7-night-western-europe-cruise-from-barcelona-ending-in-southampton-july-20-2026/" target="_blank" rel="noopener">Read more at The Disney Cruise Line Blog →</a>
+    </div>
+
   </div>
 </section>
 
 <a class="back-to-hub" href="index.html">← Back to Lisa's Hub</a>
 
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">Fri, Aug 7 at 7:03 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">Sat, Aug 8 at 8:33 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
 <script>
-function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
+function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;const badge=document.getElementById('updated-badge');if(badge&&badge.textContent.trim()==='DYNAMIC'+'_TIMESTAMP'){badge.textContent='…';var pg=(location.pathname.split('/').pop()||'index.html');fetch('https://api.github.com/repos/lisaprocz-rgb/crispy-octo-goggles/commits?path='+encodeURIComponent(pg)+'&per_page=1').then(function(r){return r.json();}).then(function(d){var t=new Date(d[0].commit.committer.date);var ds=t.toLocaleDateString('en-US',{timeZone:'America/New_York',weekday:'short',month:'short',day:'numeric'});var tm=t.toLocaleTimeString('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit',hour12:true});badge.textContent=ds+' at '+tm+' ET';}).catch(function(){badge.textContent='unavailable';});}}
 updateClock();setInterval(updateClock,1000);
 </script>
 </body>
