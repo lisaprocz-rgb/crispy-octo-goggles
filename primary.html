@@ -21,7 +21,7 @@ h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;colo
   line-height:1;text-shadow:4px 4px 0 #5b9dff}
 .subtitle{font-size:.95rem;margin-top:.75rem;color:#6b6f8c;font-weight:700}
 .subtitle a{color:#1f2440;border-bottom:2px dotted #5b9dff;text-decoration:none;padding-bottom:1px}
-.subtitle a:hover{color:#5b9dff;border-bottom-color:#1f2440}
+.subtitle a:hover{color:#5b9dff}
 .gold-line{width:120px;height:8px;margin:1.1rem auto 0;border-radius:8px;
   background:repeating-linear-gradient(90deg,#ff5c8a 0 16px,#3ec6e0 16px 32px,#ffd23f 32px 48px)}
 .live-clock{margin-top:1.1rem;display:inline-block;background:#1f2440;color:#fff;
@@ -30,44 +30,73 @@ h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;colo
 .live-clock .clock-date{color:#ffd23f}.live-clock .clock-time{color:#fff}
 main{max-width:1080px;margin:0 auto;padding:1rem 1.4rem 4rem}
 .section-divider{display:flex;align-items:center;gap:.9rem;margin:2.4rem 0 1.2rem}
-.section-group:first-child .section-divider{margin-top:.4rem}
+section:first-of-type .section-divider, .section-group:first-child .section-divider{margin-top:.4rem}
 .divider-accent{width:22px;height:22px;background:#ffd23f;border:3px solid #1f2440;
   border-radius:6px;transform:rotate(45deg);flex-shrink:0}
 .divider-label{font-family:'Baloo 2';font-size:1.4rem;font-weight:800;color:#1f2440;
   background:#fff;padding:.1rem .9rem;border:3px solid #1f2440;border-radius:14px;
   box-shadow:3px 3px 0 #3ec6e0}
 .divider-line{flex:1;height:4px;border-radius:4px;background:#1f2440;opacity:.15}
+.sub-label{font-family:'Baloo 2';font-weight:700;font-size:.95rem;color:#1f2440;
+  margin:1.2rem 0 .6rem;text-transform:uppercase;letter-spacing:.06em}
 .card{position:relative;display:block;background:#fff;color:#1f2440;text-decoration:none;
   border:3px solid #1f2440;border-radius:18px;padding:1.2rem 1.4rem;
-  box-shadow:6px 6px 0 var(--accent,#ff5c8a);margin-bottom:1rem}
-.card strong{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;
+  box-shadow:6px 6px 0 var(--accent,#ff5c8a);margin-bottom:1rem;
+  transition:transform .16s ease,box-shadow .16s ease}
+.card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--accent,#ff5c8a)}
+.card strong, .card .card-title{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;
   display:block;margin-bottom:.3rem;color:#1f2440}
-.card .sub{display:block;color:#6b6f8c;font-size:.9rem;font-weight:600;line-height:1.55;margin-top:.15rem}
-.card .note{color:#1f2440;font-size:.72rem;font-weight:800;display:inline-block;
-  background:var(--accent,#ffd23f);padding:.15rem .55rem;border-radius:999px;
-  border:2px solid #1f2440;margin:0 .35rem;letter-spacing:.03em;text-transform:uppercase}
+.card .sub{display:block;color:#6b6f8c;font-size:.86rem;font-weight:600;line-height:1.5;margin-top:.15rem}
+.card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
+  background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
+  border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
-.count-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:.4rem 0 1rem}
-.count-grid .card{text-align:center;margin-bottom:0}
-.count-grid strong{font-family:'Baloo 2';font-size:2.6rem;line-height:1;display:block;color:var(--accent,#1f2440)}
-.card-purple{--accent:#a78bfa}.card-cyan{--accent:#3ec6e0}.card-blue{--accent:#5b9dff}
-.card-pink{--accent:#ff5c8a}.card-green{--accent:#3dd6b5}.card-orange{--accent:#ffb84d}
-.card-lime{--accent:#7bd957}.card-magenta{--accent:#d68bff}.card-yellow{--accent:#ffd23f}
-a.art-link{color:#1f2440;font-weight:700;text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
-a.art-link:hover{color:#ff5c8a;border-bottom-color:#1f2440}
+.card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
+.card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
+.card-green{--accent:#3dd6b5}.card-lime{--accent:#7bd957}.card-orange{--accent:#ffb84d}
+.card-lblue{--accent:#4fc3f7}.card-sopink{--accent:#ff8fc7}.card-lavender{--accent:#b79cff}
+.back-to-hub{display:inline-block;font-family:'Baloo 2';font-size:.85rem;font-weight:700;
+  background:#fff;color:#1f2440;text-decoration:none;padding:.45rem 1.1rem;border-radius:999px;
+  border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem;
+  transition:transform .16s ease,box-shadow .16s ease}
+.back-to-hub:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #ffd23f}
+table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;
+  border:3px solid #1f2440;border-radius:14px;overflow:hidden;margin:.8rem 0 1.4rem;
+  font-size:.9rem}
+th{background:#1f2440;color:#fff;font-family:'Baloo 2';font-weight:700;text-align:left;
+  padding:.55rem .85rem;font-size:.85rem;letter-spacing:.03em}
+td{padding:.5rem .85rem;border-top:2px dotted #e6e2d8;font-weight:600}
+tr:first-child td{border-top:none}
+ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
+li{margin-bottom:.25rem}
+p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
+a:not(.card):not(.back-to-hub):not(.hub-label a){color:#1f2440;font-weight:700;
+  text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
+a:not(.card):not(.back-to-hub):not(.hub-label a):hover{color:#ff5c8a;border-bottom-color:#1f2440}
 .callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
-  box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0 1.4rem}
+  box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
 .callout strong{font-family:'Baloo 2'}
-.stamp{font-family:'Baloo 2';font-weight:700;font-size:.8rem;color:#1f2440;
-  background:#fff;border:2px solid #1f2440;border-radius:12px;padding:.6rem .9rem;
-  box-shadow:3px 3px 0 #3dd6b5;margin:.2rem 0 1rem;line-height:1.5}
-.stamp .ok{color:#2b8a3e}
 footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
 .footer-clock{margin-top:.4rem;color:#ff5c8a}
 .timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
   font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
-@media (max-width:600px){h1{font-size:2.4rem}main{padding:1rem .9rem 3rem}.card{padding:1rem 1.1rem}
-  .count-grid strong{font-size:2.1rem}}
+@media (max-width:600px){
+  h1{font-size:2.4rem}
+  main{padding:1rem .9rem 3rem}
+  .card{padding:1rem 1.1rem}
+}
+</style>
+<style>
+/* page-specific additions (does not alter shared block) */
+.art-source{font-family:'Baloo 2';font-weight:800;color:#1f2440}
+.art-entry{margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8}
+.art-entry a:hover .title{color:#ff5c8a}
+.art-summary{margin-top:.3rem;font-weight:500;line-height:1.55}
+.art-readmore{margin-top:.3rem}
+.freshbar{background:#fff;border:3px solid #1f2440;border-radius:14px;box-shadow:5px 5px 0 #3ec6e0;
+  padding:.7rem 1rem;margin:.2rem 0 1rem;font-weight:700;font-size:.82rem;color:#1f2440}
+.freshbar span{color:#3d8a3d}
+.count-num{font-family:'Baloo 2';font-size:2.6rem;line-height:1;display:block}
 </style>
 </head>
 <body>
@@ -80,197 +109,234 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 </header>
 <main>
 
-<div class="stamp">
-Generated: <strong>Tue, Aug 18, 2026 at 8:48 AM ET</strong> &nbsp;·&nbsp; <strong>2026-08-18 12:48 UTC</strong><br>
-<span class="ok">✓ All content fetched live this run — no cached data used.</span>
+<div class="freshbar">Generated: <strong>Thursday, August 20, 2026 at 6:10 AM ET</strong> &nbsp;·&nbsp; <strong>2026-08-20 10:10 UTC</strong><br><span>✓ All content fetched live this run — no cached data used.</span></div>
+
+<!-- COUNTDOWN GRID -->
+<div class="cards-grid">
+  <div class="card card-purple"><strong class="count-num">75</strong><span class="sub">Days to PA General · Nov 3, 2026</span></div>
+  <div class="card card-cyan"><strong class="count-num">60</strong><span class="sub">Days to Register · Oct 19, 2026</span></div>
+  <div class="card card-blue"><strong class="count-num">68</strong><span class="sub">Days to Mail-In Request · Oct 27, 2026</span></div>
 </div>
 
-<div class="count-grid">
-  <div class="card card-purple"><strong>77</strong><span class="sub">Days to PA General · Nov 3, 2026</span></div>
-  <div class="card card-cyan"><strong>62</strong><span class="sub">Days to Register · Oct 19, 2026</span></div>
-  <div class="card card-blue"><strong>70</strong><span class="sub">Days to Mail-In Request · Oct 27, 2026</span></div>
-</div>
-
+<!-- EXECUTIVE SUMMARY -->
 <div class="callout">
-<strong>Executive summary.</strong> With 77 days to the November 3 general election, the freshest reporting this run is a Northeast Independent statewide survey (Aug 17) that carries new State Navigate polling for six Bucks County races — showing tossups in the 6th Senate (Albillar 46–45) and the 18th, 142nd and 178th House districts. Also new this week: four area sheriffs endorsed Democrat Tim Hayes in the 143rd (Aug 14). Most other candidate coverage predates the 30-day freshness window and was dropped; those races are marked "no new coverage."
+<strong>Executive summary.</strong> The marquee PA-01 race boiled over this week: Bob Harvie (D) challenged Rep. Brian Fitzpatrick (R) to four town-hall debates, and Fitzpatrick countered with 10 — but only if Harvie releases "FBI files" that his lawyers say don't exist (Inquirer, Aug 18), while a new internal Harvie poll shows the race within the margin of error (PoliticsPA, Aug 19). Down-ballot, fresh State Navigate polling (Northeast Independent, Aug 17) keeps the 6th Senate (Albillar–Farry, 46–45) and 142nd House (Egan–Hogan, 48–44) as the tightest flip fights, while four area sheriffs endorsed Tim Hayes in the 143rd and an independent candidate there battles to stay on the ballot. Most other Bucks races had no new coverage in the last 48 hours.
 </div>
 
 <!-- ================= CONGRESS ================= -->
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">U.S. Congress</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">U.S. Congress</span><span class="divider-line"></span></div>
 
-<div class="card card-blue">
-<strong>Bob Harvie (D) vs. Rep. Brian Fitzpatrick (R, incumbent) — PA-01</strong>
-<span class="sub"><em>Bucks County Commissioner who launched his congressional bid in April 2025. A lifelong Bucks resident born in Bristol Borough, he graduated magna cum laude from George Washington University and spent 20 years teaching social studies at Bucks County Technical High School. Elected commissioner in 2019, board chair in 2022, re-elected 2023. Won the Democratic primary roughly 65%–35% and sits on the DCCC "Red to Blue" list, running on economic fairness and kitchen-table issues.</em></span>
-<span class="sub" style="margin-top:.6rem;"><em>No new coverage in the last 48 hours (within the 30-day freshness window).</em></span>
-</div>
+  <div class="card card-blue">
+    <strong>Bob Harvie (D) vs. Rep. Brian Fitzpatrick (R) — 1st Congressional District</strong>
+    <span class="sub"><em>November matchup for PA-01 (Falls Township / Bucks &amp; part of Montgomery). Harvie is a two-term Bucks County Commissioner and former Bucks County Technical High School teacher who launched his bid in April 2025, won the Democratic primary roughly 65%–35%, and sits on the DCCC's "Red to Blue" list. He faces five-term Republican incumbent Brian Fitzpatrick in one of the nation's most-watched swing seats.</em></span>
+
+    <div class="art-entry">
+      <span class="art-source">Philadelphia Inquirer</span> &mdash;
+      <a href="https://www.inquirer.com/politics/election/bob-harvie-brian-fitzpatrick-four-debate-times-pennsylvania-20260818.html" target="_blank" rel="noopener"><span class="title">Bob Harvie's debate challenge to Brian Fitzpatrick sets off new war of words in Bucks County race</span></a>
+      <span class="note">Aug 18, 2026</span>
+      <div class="art-summary">Harvie challenged Fitzpatrick to four town-hall-style debates across the district; Fitzpatrick countered with 10 debates, but only if Harvie releases "FBI files" his campaign manager and lawyers say do not exist and that Harvie has already sued a pro-Fitzpatrick PAC over. It has been four years since a PA-01 general-election debate.</div>
+      <div class="art-readmore"><a href="https://www.inquirer.com/politics/election/bob-harvie-brian-fitzpatrick-four-debate-times-pennsylvania-20260818.html" target="_blank" rel="noopener" style="font-weight:700;">Read more at Philadelphia Inquirer →</a></div>
+    </div>
+
+    <div class="art-entry">
+      <span class="art-source">PoliticsPA</span> &mdash;
+      <a href="https://politicspa.com/internal-pa-01-poll-shows-harvie-within-margin-of-error-against-fitzpatrick/150216/" target="_blank" rel="noopener"><span class="title">Internal PA-01 Poll Shows Harvie Within Margin of Error Against Fitzpatrick</span></a>
+      <span class="note">Aug 19, 2026</span>
+      <div class="art-summary">A Global Strategy Group internal poll prepared for the Harvie campaign shows the Democrat within the margin of error against Fitzpatrick, which Harvie's team is touting as evidence of momentum in the district.</div>
+      <div class="art-readmore"><a href="https://politicspa.com/internal-pa-01-poll-shows-harvie-within-margin-of-error-against-fitzpatrick/150216/" target="_blank" rel="noopener" style="font-weight:700;">Read more at PoliticsPA →</a></div>
+    </div>
+
+    <div class="art-entry">
+      <span class="art-source">Bucks County Beacon</span> &mdash;
+      <a href="https://buckscountybeacon.com/2026/08/democratic-candidate-bob-harvie-challenges-incumbent-republican-brian-fitzpatrick-to-four-pa-01-congressional-debates/" target="_blank" rel="noopener"><span class="title">Democratic Candidate Bob Harvie Challenges Incumbent Republican Brian Fitzpatrick to Four PA-01 Congressional Debates</span></a>
+      <span class="note">Aug 18, 2026</span>
+      <div class="art-summary">Per a Harvie campaign release, the four proposed debates would be held in the lower, central, and upper portions of Bucks County plus a fourth in the western Montgomery County part of the district; specific venues have not yet been set.</div>
+      <div class="art-readmore"><a href="https://buckscountybeacon.com/2026/08/democratic-candidate-bob-harvie-challenges-incumbent-republican-brian-fitzpatrick-to-four-pa-01-congressional-debates/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Bucks County Beacon →</a></div>
+    </div>
+  </div>
 </section>
 
 <!-- ================= STATE SENATE ================= -->
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Pennsylvania State Senate</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Pennsylvania State Senate</span><span class="divider-line"></span></div>
 
-<div class="card card-purple">
-<strong>Eileen Hartnett Albillar (D) vs. Sen. Frank Farry (R, incumbent) — 6th District</strong>
-<span class="sub"><em>Bucks County Clerk of Courts who launched her bid in January 2026. A former Warrington Township supervisor with a background in social work and nonprofit leadership, she is endorsed by Senate Democratic Leader Jay Costa, Sen. Santarsiero, and Commissioners Harvie and Ellis-Marseglia. She focuses on affordability, SEPTA funding, and working families, and is a top Democratic flip target.</em></span>
-<div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
-  <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">Northeast Independent</span> —
-  <a class="art-link" href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener">As the Midterm Heats Up, Democrats Look to End 32-Year Statehouse Drought</a>
-  <span class="note">Aug 17, 2026</span>
-  <div style="margin-top:.3rem;font-weight:500;">Names the 6th as one of the Democrats' best pickup shots, citing State Navigate polling that has Hartnett Albillar leading Farry 46–45 as she hammers him on the cost of living and SEPTA funding.</div>
-  <div style="margin-top:.3rem;"><a class="art-link" href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Northeast Independent →</a></div>
-</div>
-<div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
-  <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">State Navigate</span> —
-  <a class="art-link" href="https://statenavigate.org/wp-content/uploads/2026/08/PA_SD6_General_StateNav_Briefing-1.pdf" target="_blank" rel="noopener">PA Senate District 6 General Election Poll Briefing</a>
-  <span class="note">Aug 2026</span>
-  <div style="margin-top:.3rem;font-weight:500;">The full polling briefing rates the 6th a tossup, with Hartnett Albillar edging Farry 46%–45% with leaners (survey fielded July 31–Aug 3).</div>
-  <div style="margin-top:.3rem;"><a class="art-link" href="https://statenavigate.org/wp-content/uploads/2026/08/PA_SD6_General_StateNav_Briefing-1.pdf" target="_blank" rel="noopener" style="font-weight:700;">Read more at State Navigate →</a></div>
-</div>
-</div>
+  <div class="card card-cyan">
+    <strong>Steve Santarsiero (D, incumbent) vs. Greg Bankos (R) — 10th Senatorial District</strong>
+    <span class="sub"><em>Santarsiero has represented the 10th since 2019 and chairs the Bucks County Democrats; he was unopposed in the primary. In November he faces Republican Greg Bankos, a Plumstead Township supervisor. Active on minimum wage and PECO rate increases.</em></span>
+    <span class="sub">No new coverage in the last 48 hours.</span>
+  </div>
 
-<div class="card card-magenta">
-<strong>Steve Santarsiero (D, incumbent) vs. Greg Bankos (R) — 10th District</strong>
-<span class="sub"><em>Has represented the 10th since 2019 and chairs the Bucks County Democrats. Unopposed in the primary, he faces Republican Greg Bankos, a Plumstead Township supervisor, in November. Active on minimum wage, PECO rate increases, and other legislative issues.</em></span>
-<span class="sub" style="margin-top:.6rem;"><em>No new coverage in the last 48 hours.</em></span>
-</div>
+  <div class="card card-cyan">
+    <strong>Eileen Hartnett Albillar (D) vs. Sen. Frank Farry (R, incumbent) — 6th Senatorial District</strong>
+    <span class="sub"><em>Bucks County Clerk of Courts and former Warrington Township supervisor who launched her bid in January 2026 to unseat Republican Frank Farry. A top Democratic flip target; her platform centers on affordability, SEPTA funding, and working families.</em></span>
 
-<div class="card card-pink">
-<strong>Mark Pinsley (D) vs. Sen. Jarrett Coleman (R, incumbent) — 16th District</strong>
-<span class="sub"><em>Lehigh County Controller and Democratic nominee in the 16th, which spans parts of Bucks and Lehigh counties. He won the contested primary and now takes on Republican incumbent Jarrett Coleman in a top target race for flipping the GOP-held state Senate.</em></span>
-<div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
-  <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">Northeast Independent</span> —
-  <a class="art-link" href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener">As the Midterm Heats Up, Democrats Look to End 32-Year Statehouse Drought</a>
-  <span class="note">Aug 17, 2026</span>
-  <div style="margin-top:.3rem;font-weight:500;">Frames the 16th as a Coleman–Pinsley rematch Democrats are bullish on, arguing Coleman's outspoken conservative reformism is mismatched for the district.</div>
-  <div style="margin-top:.3rem;"><a class="art-link" href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Northeast Independent →</a></div>
-</div>
-</div>
+    <div class="art-entry">
+      <span class="art-source">Northeast Independent</span> &mdash;
+      <a href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener"><span class="title">As the Midterm Heats Up, Democrats Look to End 32-year Statehouse Drought</span></a>
+      <span class="note">Aug 17, 2026</span>
+      <div class="art-summary">Names the 6th as one of Democrats' best pickup shots: State Navigate polling has Albillar leading Farry 46–45, with Albillar hammering Farry over the rising cost of living and a SEPTA funding shortfall. The district leans Republican historically, making it a genuine tossup.</div>
+      <div class="art-readmore"><a href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Northeast Independent →</a></div>
+    </div>
+  </div>
+
+  <div class="card card-cyan">
+    <strong>Mark Pinsley (D) vs. Sen. Jarrett Coleman (R, incumbent) — 16th Senatorial District</strong>
+    <span class="sub"><em>Lehigh County Controller and Democratic nominee in the 16th, which spans parts of Bucks and Lehigh counties. He won a contested primary and now faces Republican incumbent Jarrett Coleman in a rematch of their 2022 race, a top target for flipping the GOP-held state Senate.</em></span>
+
+    <div class="art-entry">
+      <span class="art-source">Northeast Independent</span> &mdash;
+      <a href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener"><span class="title">Democrats target four freshman GOP senators, including the 16th</span></a>
+      <span class="note">Aug 17, 2026</span>
+      <div class="art-summary">Frames the Coleman–Pinsley rematch: Democrats are bullish that Coleman's outspoken conservative record is mismatched for the district, though the seat's recent history (GOP +8.3 in 2022) still favors the incumbent.</div>
+      <div class="art-readmore"><a href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Northeast Independent →</a></div>
+    </div>
+  </div>
 </section>
 
 <!-- ================= STATE HOUSE ================= -->
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Pennsylvania State House</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Pennsylvania State House</span><span class="divider-line"></span></div>
 
-<div class="card card-orange">
-<strong>Bryan Allen (D) vs. Rep. K.C. Tomlinson (R, incumbent) — 18th District (Bensalem)</strong>
-<span class="sub"><em>Former Bensalem Township council member and chief of staff for State Rep. Tina Davis. He introduced the first casino tax rebate for Bensalem residents and is vice chair of the Bucks County Water and Sewer Authority Board. One of the state's most competitive legislative races.</em></span>
-<div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
-  <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">Northeast Independent</span> —
-  <a class="art-link" href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener">As the Midterm Heats Up, Democrats Look to End 32-Year Statehouse Drought</a>
-  <span class="note">Aug 17, 2026</span>
-  <div style="margin-top:.3rem;font-weight:500;">Reports State Navigate showing Rep. Tomlinson "in trouble," trailing Allen 48–44 in the 18th — one of several Philly-suburb seats that will decide House control.</div>
-  <div style="margin-top:.3rem;"><a class="art-link" href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Northeast Independent →</a></div>
-</div>
-</div>
+  <div class="card card-green">
+    <strong>Bryan Allen (D) vs. Rep. K.C. Tomlinson (R, incumbent) — 18th District (Bensalem)</strong>
+    <span class="sub"><em>Former Bensalem Township council member and longtime chief of staff to State Rep. Tina Davis. He introduced the first casino tax rebate for Bensalem residents and serves as vice chair of the Bucks County Water and Sewer Authority Board. One of the state's most competitive legislative races.</em></span>
 
-<div class="card card-cyan">
-<strong>Tim Brennan (D, incumbent) vs. Sean Patrick Duffy (R) — 29th District (Doylestown)</strong>
-<span class="sub"><em>Incumbent Democrat from Doylestown Borough, unopposed in the primary, now facing Buckingham Republican Sean Patrick Duffy in the general election.</em></span>
-<span class="sub" style="margin-top:.6rem;"><em>No new coverage in the last 48 hours.</em></span>
-</div>
+    <div class="art-entry">
+      <span class="art-source">Northeast Independent</span> &mdash;
+      <a href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener"><span class="title">State Navigate shows Rep. K.C. Tomlinson "in trouble" against Bryan Allen</span></a>
+      <span class="note">Aug 17, 2026</span>
+      <div class="art-summary">The overview reports State Navigate polling showing incumbent Tomlinson trailing Allen 48–44 — one of several Philadelphia-suburb seats Democrats see as central to holding and expanding their narrow House majority.</div>
+      <div class="art-readmore"><a href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Northeast Independent →</a></div>
+    </div>
+  </div>
 
-<div class="card card-green">
-<strong>Perry Warren (D, incumbent) — 31st District (Newtown)</strong>
-<span class="sub"><em>Incumbent Democrat from Newtown Borough representing Lower Makefield, Upper Makefield and Newtown townships plus Newtown and Yardley boroughs. Appears unopposed in the general election as of the latest county filings this run; no Republican challenger was surfaced.</em></span>
-<span class="sub" style="margin-top:.6rem;"><em>No new coverage in the last 48 hours.</em></span>
-</div>
+  <div class="card card-green">
+    <strong>Tim Brennan (D, incumbent) vs. Sean Patrick Duffy (R) — 29th District (Doylestown)</strong>
+    <span class="sub"><em>Incumbent Democrat and attorney, first elected in 2022 and unopposed in the primary. He faces Republican Sean Patrick Duffy, an attorney and military veteran, in the general election.</em></span>
+    <span class="sub">No new coverage in the last 48 hours.</span>
+  </div>
 
-<div class="card card-blue">
-<strong>Jim Prokopiak (D, incumbent) vs. Michael Gettis (R) — 140th District (Falls Township)</strong>
-<span class="sub"><em>Won his seat in a February 2024 special election. A former Falls Township supervisor and Temple University law graduate, he is expected to face Republican Michael J. Gettis of Falls in November.</em></span>
-<span class="sub" style="margin-top:.6rem;"><em>No new coverage in the last 48 hours.</em></span>
-</div>
+  <div class="card card-green">
+    <strong>Perry Warren (D, incumbent) — 31st District (Newtown)</strong>
+    <span class="sub"><em>Incumbent Democrat representing Newtown. Per the latest county filings he appears unopposed in the general election, with no Republican named on the current candidate list (verified this run; will be updated if a challenger files).</em></span>
+    <span class="sub">No new coverage in the last 48 hours.</span>
+  </div>
 
-<div class="card card-pink">
-<strong>Tina Davis (D, incumbent) vs. Ken Velez (R) — 141st District (Bristol Township)</strong>
-<span class="sub"><em>Has represented Bristol Township and Bristol Borough since 2010. Her priorities include economic development, pay equity, and property tax reform. Faces GOP-backed challenger Ken Velez in November.</em></span>
-<span class="sub" style="margin-top:.6rem;"><em>No new coverage in the last 48 hours.</em></span>
-</div>
+  <div class="card card-green">
+    <strong>Jim Prokopiak (D, incumbent) vs. Michael Gettis (R) — 140th District (Falls Township)</strong>
+    <span class="sub"><em>Won his seat in a February 2024 special election; a former Falls Township supervisor, Pennsbury School Board member, and Temple University law graduate. He faces Republican Michael Gettis, a structural inspector.</em></span>
+    <span class="sub">No new coverage in the last 48 hours.</span>
+  </div>
 
-<div class="card card-purple">
-<strong>Kristin Egan (D) vs. Rep. Joe Hogan (R, incumbent) — 142nd District (Langhorne)</strong>
-<span class="sub"><em>Neshaminy School Board director and 20-year public school teacher, and the first state candidate to publicly oppose the $227M PennDOT US-1 reconstruction project. Platform: education funding reform, public safety, and cost of living.</em></span>
-<div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
-  <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">Northeast Independent</span> —
-  <a class="art-link" href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener">As the Midterm Heats Up, Democrats Look to End 32-Year Statehouse Drought</a>
-  <span class="note">Aug 17, 2026</span>
-  <div style="margin-top:.3rem;font-weight:500;">Calls the 142nd the seat "the road to the House majority runs through," with State Navigate polling putting Egan ahead of Rep. Hogan 48–44 in what it expects to be a barnburner.</div>
-  <div style="margin-top:.3rem;"><a class="art-link" href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Northeast Independent →</a></div>
-</div>
-</div>
+  <div class="card card-green">
+    <strong>Tina Davis (D, incumbent) vs. Ken Velez (R) — 141st District (Bristol Township)</strong>
+    <span class="sub"><em>Has represented Bristol Township and Bristol Borough since 2011. Priorities include economic development, pay equity, and property tax reform. She faces Republican business owner Ken Velez of Bristol Township.</em></span>
+    <span class="sub">No new coverage in the last 48 hours.</span>
+  </div>
 
-<div class="card card-lime">
-<strong>Tim Hayes (D) vs. Rep. Shelby Labs (R, incumbent) — 143rd District (Dublin)</strong>
-<span class="sub"><em>Dublin Borough Council president, Army National Guard veteran, and environmental policy expert. Priorities include alternative energy, regulating AI data farms, affordability, and education.</em></span>
-<div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
-  <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">Bucks County Beacon</span> —
-  <a class="art-link" href="https://buckscountybeacon.com/2026/08/four-area-sheriffs-endorse-bucks-countys-tim-hayes-for-state-representative/" target="_blank" rel="noopener">Four Area Sheriffs Endorse Bucks County's Tim Hayes for State Representative</a>
-  <span class="note">Aug 14, 2026</span>
-  <div style="margin-top:.3rem;font-weight:500;">Sheriffs Danny Ceisler (Bucks), Kevin Dykes (Chester), Siddiq Kamara (Delaware) and Sean Kilkenny (Montgomery) endorsed Hayes, citing his public-safety focus in the 143rd against Rep. Shelby Labs.</div>
-  <div style="margin-top:.3rem;"><a class="art-link" href="https://buckscountybeacon.com/2026/08/four-area-sheriffs-endorse-bucks-countys-tim-hayes-for-state-representative/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Bucks County Beacon →</a></div>
-</div>
-</div>
+  <div class="card card-green">
+    <strong>Kristin Egan (D) vs. Rep. Joe Hogan (R, incumbent) — 142nd District (Langhorne)</strong>
+    <span class="sub"><em>Neshaminy School Board director and 20-year public school teacher, and the first state candidate to publicly oppose the ~$227M PennDOT US-1 (RC3) reconstruction project. Platform: education funding reform, public safety, and cost of living.</em></span>
 
-<div class="card card-orange">
-<strong>Brian Munroe (D, incumbent) vs. Michael J. Murphy (R) — 144th District (Warminster)</strong>
-<span class="sub"><em>Former Radnor Township police officer and Warminster Township supervisor. He unseated Republican Todd Polinchock in 2022 by 515 votes and was re-elected in 2024 by 1,065. Endorsed by Conservation Voters of PA; a DLCC-targeted swing district.</em></span>
-<div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
-  <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">Northeast Independent</span> —
-  <a class="art-link" href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener">As the Midterm Heats Up, Democrats Look to End 32-Year Statehouse Drought</a>
-  <span class="note">Aug 17, 2026</span>
-  <div style="margin-top:.3rem;font-weight:500;">Reports Rep. Munroe expected to fend off GOP challenger Mike Murphy, with State Navigate polling the incumbent up 52–40 — a key Democratic hold.</div>
-  <div style="margin-top:.3rem;"><a class="art-link" href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Northeast Independent →</a></div>
-</div>
-</div>
+    <div class="art-entry">
+      <span class="art-source">Northeast Independent</span> &mdash;
+      <a href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener"><span class="title">"The road to the House majority runs through this district" — Egan leads Hogan 48–44</span></a>
+      <span class="note">Aug 17, 2026</span>
+      <div class="art-summary">The overview calls the 142nd a likely "barnburner" and the pivotal seat for control of the chamber, with State Navigate polling putting Egan ahead of incumbent Joe Hogan 48–44.</div>
+      <div class="art-readmore"><a href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Northeast Independent →</a></div>
+    </div>
+  </div>
 
-<div class="card card-yellow">
-<strong>Les Mavus (D) vs. Rep. Craig Staats (R, incumbent) — 145th District (Nockamixon)</strong>
-<span class="sub"><em>Nockamixon Township resident and inspector of elections, running on healthcare, education, and economic protection. Independent candidate Rebecca Prendergast has also filed, making the 145th a three-way November contest.</em></span>
-<span class="sub" style="margin-top:.6rem;"><em>No new coverage in the last 48 hours.</em></span>
-</div>
+  <div class="card card-green">
+    <strong>Tim Hayes (D) vs. Rep. Shelby Labs (R, incumbent) — 143rd District (Dublin)</strong>
+    <span class="sub"><em>Dublin Borough Council president, Army National Guard veteran, and environmental policy expert. Priorities include alternative energy, regulating AI data centers, affordability, and education. A DLCC target race.</em></span>
 
-<div class="card card-magenta">
-<strong>Monica Weninger (D) vs. Rep. Kristin Marcell (R, incumbent) — 178th District (Warwick)</strong>
-<span class="sub"><em>25-year public school science teacher and Science Department Chair at Wissahickon School District, and auditor in Warwick Township — the first Democrat elected to that office in decades.</em></span>
-<div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
-  <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">Northeast Independent</span> —
-  <a class="art-link" href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener">As the Midterm Heats Up, Democrats Look to End 32-Year Statehouse Drought</a>
-  <span class="note">Aug 17, 2026</span>
-  <div style="margin-top:.3rem;font-weight:500;">Notes the 178th has swung wildly — Marcell won by 22% in 2024 but by under 2% in Trump's first midterm — with State Navigate now putting her comfortably ahead of Weninger 51–39.</div>
-  <div style="margin-top:.3rem;"><a class="art-link" href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Northeast Independent →</a></div>
-</div>
-<div style="margin-top:.6rem;padding-top:.6rem;border-top:2px dotted #e6e2d8;">
-  <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">State Navigate</span> —
-  <a class="art-link" href="https://statenavigate.org/wp-content/uploads/2026/08/PA_HD178_General_StateNav_Briefing.pdf" target="_blank" rel="noopener">PA House District 178 General Election Poll Briefing</a>
-  <span class="note">Aug 2026</span>
-  <div style="margin-top:.3rem;font-weight:500;">The underlying briefing details Marcell's 51%–39% lead over Weninger with leaners in the 178th.</div>
-  <div style="margin-top:.3rem;"><a class="art-link" href="https://statenavigate.org/wp-content/uploads/2026/08/PA_HD178_General_StateNav_Briefing.pdf" target="_blank" rel="noopener" style="font-weight:700;">Read more at State Navigate →</a></div>
-</div>
-</div>
+    <div class="art-entry">
+      <span class="art-source">Bucks County Beacon</span> &mdash;
+      <a href="https://buckscountybeacon.com/2026/08/four-area-sheriffs-endorse-bucks-countys-tim-hayes-for-state-representative/" target="_blank" rel="noopener"><span class="title">Four Area Sheriffs Endorse Bucks County's Tim Hayes for State Representative</span></a>
+      <span class="note">Aug 2026</span>
+      <div class="art-summary">Sheriffs Danny Ceisler (Bucks), Kevin Dykes (Chester), Siddiq Kamara (Delaware), and Sean Kilkenny (Montgomery) endorsed Hayes's campaign to flip the 143rd from red to blue against Republican incumbent Shelby Labs.</div>
+      <div class="art-readmore"><a href="https://buckscountybeacon.com/2026/08/four-area-sheriffs-endorse-bucks-countys-tim-hayes-for-state-representative/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Bucks County Beacon →</a></div>
+    </div>
+
+    <div class="art-entry">
+      <span class="art-source">Pennsylvania Capital-Star</span> &mdash;
+      <a href="https://penncapital-star.com/government-politics/an-independent-candidate-is-fighting-to-stay-on-the-ballot-in-a-bucks-county-state-house-race/" target="_blank" rel="noopener"><span class="title">An independent candidate is fighting to stay on the ballot in a Bucks County state House race</span></a>
+      <span class="note">Aug 18, 2026</span>
+      <div class="art-summary">Independent Chris Gambino, a monitoring-and-evaluation expert and former Delaware Valley University professor, appeared in court Tuesday to defend his 143rd-District ballot filing after a challenge to 269 of his 667 signatures; no final ruling was issued. A three-way race could reshape the Hayes–Labs contest.</div>
+      <div class="art-readmore"><a href="https://penncapital-star.com/government-politics/an-independent-candidate-is-fighting-to-stay-on-the-ballot-in-a-bucks-county-state-house-race/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Pennsylvania Capital-Star →</a></div>
+    </div>
+  </div>
+
+  <div class="card card-green">
+    <strong>Brian Munroe (D, incumbent) vs. Michael J. Murphy (R) — 144th District (Warminster)</strong>
+    <span class="sub"><em>Former Radnor Township police officer and Warminster Township supervisor. He unseated Republican Todd Polinchock in 2022 and was re-elected in 2024 by 1,065 votes. Endorsed by Conservation Voters of PA; a DLCC-targeted swing district. Faces Republican Mike Murphy, a Warrington nurse.</em></span>
+
+    <div class="art-entry">
+      <span class="art-source">Northeast Independent</span> &mdash;
+      <a href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener"><span class="title">Munroe expected to hold the 144th, leading Murphy 52–40</span></a>
+      <span class="note">Aug 17, 2026</span>
+      <div class="art-summary">The overview lists the 144th among the seats Democrats expect to hold, citing State Navigate polling showing incumbent Munroe ahead of Republican Mike Murphy 52–40.</div>
+      <div class="art-readmore"><a href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Northeast Independent →</a></div>
+    </div>
+  </div>
+
+  <div class="card card-green">
+    <strong>Les Mavus (D) vs. Rep. Craig Staats (R, incumbent) — 145th District (Nockamixon)</strong>
+    <span class="sub"><em>Nockamixon Township resident and inspector of elections whose campaign focuses on healthcare, education, and economic protection. He faces Republican incumbent Craig Staats of Richland; independent candidate Rebecca Prendergast is also on the November ballot.</em></span>
+    <span class="sub">No new coverage in the last 48 hours.</span>
+  </div>
+
+  <div class="card card-green">
+    <strong>Monica Weninger (D) vs. Rep. Kristin Marcell (R, incumbent) — 178th District (Warwick)</strong>
+    <span class="sub"><em>25-year public school science teacher, past president of the League of Women Voters of Bucks County, and Warwick Township auditor — the first Democrat elected to that office there in decades. She challenges Republican incumbent Kristin Marcell.</em></span>
+
+    <div class="art-entry">
+      <span class="art-source">Northeast Independent</span> &mdash;
+      <a href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener"><span class="title">Marcell leads Weninger 51–39 in a district with wild partisan swings</span></a>
+      <span class="note">Aug 17, 2026</span>
+      <div class="art-summary">The overview notes the 178th has swung sharply cycle to cycle; State Navigate currently shows incumbent Marcell comfortably ahead of challenger Weninger, 51–39.</div>
+      <div class="art-readmore"><a href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Northeast Independent →</a></div>
+    </div>
+  </div>
 </section>
 
 <!-- ================= KEY RACES TO WATCH ================= -->
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Key Races to Watch</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-blue">
-  <strong>The battle for the PA legislature runs through Bucks</strong>
-  <div style="margin-top:.4rem;">
-  <span style="font-family:'Baloo 2';font-weight:800;color:#1f2440;">Northeast Independent</span> —
-  <a class="art-link" href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener">As the Midterm Heats Up, Democrats Look to End 32-Year Statehouse Drought</a>
-  <span class="note">Aug 17, 2026</span>
-  <div style="margin-top:.3rem;font-weight:500;">Control of the PA Senate hinges on ~5 seats and the House on ~9, several of them in Bucks. The forecast: Republicans likely hold the Senate (losing at most one), while Democrats are positioned to grow their House majority by 3–5 seats.</div>
-  <div style="margin-top:.3rem;"><a class="art-link" href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Northeast Independent →</a></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Key Races to Watch</span><span class="divider-line"></span></div>
+
+  <div class="cards-grid">
+    <div class="card card-purple">
+      <span class="art-source">PoliticsPA</span> &mdash;
+      <a href="https://politicspa.com/hd-12-dukes-defeats-timko-in-butler-county-shocker/150219/" target="_blank" rel="noopener"><span class="title">HD-12: Dukes Defeats Timko In Butler County Shocker</span></a>
+      <span class="note">Aug 18, 2026</span>
+      <div class="art-summary">Democrat Brandon Dukes flipped a western-PA seat the GOP had held for three decades, growing the Democratic state House majority to 103–100 — a result Democrats are reading as a possible "blue wave" signal for competitive Bucks County House races in November.</div>
+      <div class="art-readmore"><a href="https://politicspa.com/hd-12-dukes-defeats-timko-in-butler-county-shocker/150219/" target="_blank" rel="noopener" style="font-weight:700;">Read more at PoliticsPA →</a></div>
+    </div>
+
+    <div class="card card-magenta">
+      <span class="art-source">PoliticsPA</span> &mdash;
+      <a href="https://politicspa.com/august-19-playbook-executive-orders-and-election-shockers/150222/" target="_blank" rel="noopener"><span class="title">August 19 Playbook: Executive Orders and Election Shockers</span></a>
+      <span class="note">Aug 19, 2026</span>
+      <div class="art-summary">PoliticsPA's daily roundup ties the week together for Bucks watchers — the PA-01 debate standoff and internal Harvie poll, the HD-12 special-election upset, and the HD-143 independent-candidate ballot fight — alongside Gov. Shapiro's new executive order restricting data-center development.</div>
+      <div class="art-readmore"><a href="https://politicspa.com/august-19-playbook-executive-orders-and-election-shockers/150222/" target="_blank" rel="noopener" style="font-weight:700;">Read more at PoliticsPA →</a></div>
+    </div>
+
+    <div class="card card-lblue">
+      <span class="art-source">Northeast Independent</span> &mdash;
+      <a href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener"><span class="title">As the Midterm Heats Up, Democrats Look to End 32-year Statehouse Drought</span></a>
+      <span class="note">Aug 17, 2026</span>
+      <div class="art-summary">A district-by-district overview of the fight for the PA legislature, with State Navigate polling for the key Bucks races — SD-6 (Albillar–Farry 46–45), SD-16 (Coleman–Pinsley), HD-18, HD-142 (Egan–Hogan 48–44), HD-144, and HD-178 — and a forecast that Democrats are positioned to grow their House majority by 3–5 seats while the Senate likely stays Republican.</div>
+      <div class="art-readmore"><a href="https://northeastindependent.com/2026/08/as-the-midterm-heats-up-democrats-look-to-end-32-year-statehouse-drought/" target="_blank" rel="noopener" style="font-weight:700;">Read more at Northeast Independent →</a></div>
+    </div>
   </div>
-</div>
-</div>
 </section>
 
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">DYNAMIC_TIMESTAMP</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">Thu, Aug 20 at 6:10 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
 <script>
-function updateClock(){var now=new Date();var dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});var timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});var combined=dateStr+' · '+timeStr;var hDate=document.getElementById('header-date');var hTime=document.getElementById('header-time');var footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;var badge=document.getElementById('updated-badge');if(badge&&badge.textContent.trim()==='DYNAMIC'+'_TIMESTAMP'){badge.textContent='…';var pg=(location.pathname.split('/').pop()||'index.html');fetch('https://api.github.com/repos/lisaprocz-rgb/crispy-octo-goggles/commits?path='+encodeURIComponent(pg)+'&per_page=1').then(function(r){return r.json();}).then(function(d){var t=new Date(d[0].commit.committer.date);var ds=t.toLocaleDateString('en-US',{timeZone:'America/New_York',weekday:'short',month:'short',day:'numeric'});var tm=t.toLocaleTimeString('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit',hour12:true});badge.textContent=ds+' at '+tm+' ET';}).catch(function(){badge.textContent='unavailable';});}}
+function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;const badge=document.getElementById('updated-badge');if(badge&&badge.textContent.trim()==='DYNAMIC'+'_TIMESTAMP'){badge.textContent='…';var pg=(location.pathname.split('/').pop()||'index.html');fetch('https://api.github.com/repos/lisaprocz-rgb/crispy-octo-goggles/commits?path='+encodeURIComponent(pg)+'&per_page=1').then(function(r){return r.json();}).then(function(d){var t=new Date(d[0].commit.committer.date);var ds=t.toLocaleDateString('en-US',{timeZone:'America/New_York',weekday:'short',month:'short',day:'numeric'});var tm=t.toLocaleTimeString('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit',hour12:true});badge.textContent=ds+' at '+tm+' ET';}).catch(function(){badge.textContent='unavailable';});}}
 updateClock();setInterval(updateClock,1000);
 </script>
 </body>
