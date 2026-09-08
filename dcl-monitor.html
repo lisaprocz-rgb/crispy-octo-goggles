@@ -48,11 +48,12 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 .card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
   background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
   border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
-.card a.read-more{display:inline-block;margin-top:.6rem;font-family:'Baloo 2';font-weight:700;
-  font-size:.82rem;color:#1467a8;text-decoration:underline;text-decoration-color:#4fc3f7}
-.card a.read-more:hover{color:#ff5c8a}
-.card a.headline-link{color:#1467a8;text-decoration:underline;text-decoration-color:#4fc3f7}
-.card a.headline-link:hover{color:#ff5c8a}
+.card a.readmore{color:#1f2440;font-weight:800;font-size:.82rem;text-decoration:underline;
+  text-decoration-color:#4fc3f7;text-underline-offset:2px;display:inline-block;margin-top:.5rem}
+.card a.readmore:hover{color:#4fc3f7}
+.card-head{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;display:block;margin-bottom:.3rem}
+.card-head a{color:#1f2440;text-decoration:underline;text-decoration-color:#4fc3f7;text-underline-offset:3px}
+.card-head a:hover{color:#4fc3f7}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
 .card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
 .card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
@@ -63,18 +64,6 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
   border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem;
   transition:transform .16s ease,box-shadow .16s ease}
 .back-to-hub:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #ffd23f}
-ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
-li{margin-bottom:.25rem}
-p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
-a:not(.card):not(.back-to-hub):not(.hub-label a):not(.read-more):not(.headline-link){color:#1f2440;font-weight:700;
-  text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
-.callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
-  box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
-.callout strong{font-family:'Baloo 2'}
-footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
-.footer-clock{margin-top:.4rem;color:#ff5c8a}
-.timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
-  font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
 .status-badge{font-family:'Baloo 2';font-weight:800;font-size:1rem;
   padding:.45rem 1.1rem;border-radius:999px;border:3px solid #1f2440;
   letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;
@@ -83,6 +72,18 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 .status-badge.status-not-announced{background:#ff5c8a;color:#fff}
 .status-badge.status-partial{background:#ffd23f;color:#1f2440}
 .status-badge.status-announced{background:#3dd6b5;color:#1f2440}
+ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
+li{margin-bottom:.25rem}
+p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
+a:not(.card):not(.back-to-hub):not(.hub-label a):not(.readmore):not(.card-head a){color:#1f2440;font-weight:700;
+  text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
+.callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
+  box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
+.callout strong{font-family:'Baloo 2'}
+footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
+.footer-clock{margin-top:.4rem;color:#ff5c8a}
+.timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
+  font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
 @media (max-width:600px){
   h1{font-size:2.4rem}
   main{padding:1rem .9rem 3rem}
@@ -100,129 +101,69 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 <div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
 </header>
 <main>
-<a href="index.html" class="back-to-hub">← Back to Hub</a>
 
-<div class="callout"><strong>Last refreshed:</strong> Mon, Sep 7, 2026 · 7:02 AM ET / 11:02 UTC.<br>All content fetched live this run — no cached data used.</div>
+<div class="callout"><strong>Last refreshed:</strong> Tue, Sep 8 at 7:03 AM ET / 2026-09-08 11:03 UTC<br><span style="font-size:.85rem;color:#6b6f8c">All content fetched live this run — no cached data used. Freshness window: news within the last 30 days (on/after Aug 9, 2026).</span></div>
 
 <section class="section-group">
-<div class="section-divider">
-  <span class="divider-accent"></span>
-  <span class="divider-label">Fall 2027 Availability Watch</span>
-  <span class="status-badge status-announced">✅ Announced</span>
-  <span class="divider-line"></span>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Fall 2027 Availability Watch</span><span class="status-badge status-announced">✅ Announced</span><span class="divider-line"></span></div>
 
-<div data-fall-2027-status="ANNOUNCED">
-<div class="cards-grid">
+  <div data-fall-2027-status="ANNOUNCED">
+  <div class="cards-grid">
+    <div class="card card-green"><span class="card-head"><a href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Fall 2027 &amp; Spring 2028 itineraries are LIVE</a></span><span class="sub">DCL officially revealed Fall 2027–Spring 2028 sailings on Aug 25, 2026 for the full bookable fleet (Magic, Wonder, Dream, Fantasy, Wish, Treasure, Destiny, Adventure). General booking opens today, Sept 8, 2026, on disneycruise.com after phased Castaway Club early access (Aug 31–Sept 3).</span><span class="note">Now Open</span><a class="readmore" href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a></div>
 
-<div class="card card-green">
-<strong>🚨 <a class="headline-link" href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Fall 2027 &amp; Spring 2028 itineraries are LIVE — Disney Wish returns to New York</a></strong>
-<span class="sub">DCL officially unveiled Sept 2027–May 2028 sailings on Aug 25, 2026. The Disney Wish sails from New York for the first time (DCL's NYC return since 2023) with 4–7 night trips to Bermuda, New England &amp; Canada. Also: expanded San Juan departures, Panama Canal repositionings with new ports (Fuerte Amador &amp; Colón, Panama; first-ever Langkawi, Malaysia), and the return of Very Merrytime holiday sailings in Nov–Dec 2027.</span>
-<span class="note">Now Open</span>
-<span class="note">General booking Sep 8</span>
-<a class="read-more" href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a>
-</div>
+    <div class="card card-lblue"><span class="card-head"><a href="https://www.prnewswire.com/news-releases/disney-cruise-line-returns-to-new-york-city-offers-more-ports-to-explore-in-fall-2027-and-spring-2028-302859582.html" target="_blank" rel="noopener">Disney Wish returns to New York City — Sept–Nov 2027</a></span><span class="sub">Seven Disney Wish itineraries sail from NYC Sept 29–Nov 5, 2027 (4–7 nights) to Bermuda, Canada, New England &amp; Puerto Rico — DCL's first NYC season since 2023. Five sailings visit Bermuda; the season ends with a one-way NYC→San Juan cruise. Ports include Saint John, Boston, Halifax, Charlottetown &amp; Sydney.</span><span class="note">Fall 2027</span><a class="readmore" href="https://www.prnewswire.com/news-releases/disney-cruise-line-returns-to-new-york-city-offers-more-ports-to-explore-in-fall-2027-and-spring-2028-302859582.html" target="_blank" rel="noopener">Read more at PR Newswire →</a></div>
 
-<div class="card card-cyan">
-<strong><a class="headline-link" href="https://disneycruiselineblog.com/2026/08/disney-cruise-line-announces-fall-2027-early-2028-itineraries-september-27-may-28/" target="_blank" rel="noopener">Ships &amp; booking windows for the Fall 2027 slate</a></strong>
-<span class="sub">Itineraries cover Magic, Wonder, Dream, Fantasy, Wish, Treasure, Destiny and Adventure. Castaway Club booking ran Aug 31–Sep 3 (Pearl → Silver), DVC &amp; Adventure Insiders Sep 3, and general booking opens <strong>Tuesday, Sep 8, 2026</strong> at 8 AM ET. <em>The Disney Cruise Line Blog, 2026-08-26.</em></span>
-<span class="note">Watching</span>
-<a class="read-more" href="https://disneycruiselineblog.com/2026/08/disney-cruise-line-announces-fall-2027-early-2028-itineraries-september-27-may-28/" target="_blank" rel="noopener">Read more at The DCL Blog →</a>
-</div>
+    <div class="card card-cyan"><span class="card-head"><a href="https://www.disneyfoodblog.com/2026/08/25/disney-cruise-line-drops-new-sailings-for-late-2027-including-new-york-city/" target="_blank" rel="noopener">New ports added for the 2027–28 season</a></span><span class="sub">New calls include Fuerte Amador (Panama City) and Colón, Panama (first-ever on a guest cruise), plus Langkawi, Malaysia on select Disney Adventure sailings from Singapore. Homeports span Florida, California, Texas, Puerto Rico and Singapore.</span><span class="note">New Ports</span><a class="readmore" href="https://www.disneyfoodblog.com/2026/08/25/disney-cruise-line-drops-new-sailings-for-late-2027-including-new-york-city/" target="_blank" rel="noopener">Read more at Disney Food Blog →</a></div>
 
-<div class="card card-lblue">
-<strong><a class="headline-link" href="https://www.disneytouristblog.com/new-disney-cruise-line-2027-2028-itineraries-return-to-new-york-canada-comeback-adventure-adds-first-port/" target="_blank" rel="noopener">Return to New York, Canada comeback, Adventure adds first port</a></strong>
-<span class="sub">Deep-dive on the new 2027–2028 lineup: NYC return, the Canada/New England comeback, and the Disney Adventure adding its first-ever new port of call. <em>Disney Tourist Blog, 2026-08-26.</em></span>
-<a class="read-more" href="https://www.disneytouristblog.com/new-disney-cruise-line-2027-2028-itineraries-return-to-new-york-canada-comeback-adventure-adds-first-port/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a>
-</div>
-
-</div>
-</div>
-<p style="font-size:.82rem;color:#6b6f8c;margin-top:.4rem"><strong>Status:</strong> ANNOUNCED. Fall 2027 (Sept–Nov 2027) itineraries are officially released and bookable; general booking opens Sep 8, 2026. Historical cadence per the <a href="https://disneycruiselineblog.com/cruise-planning/itineraries/itinerary-announcement-history/" target="_blank" rel="noopener">DCL Blog announcement-history page</a>. <br><em>Verified at: Mon, Sep 7, 2026 · 7:02 AM ET / 11:02 UTC.</em></p>
+    <div class="card card-blue"><span class="card-head"><a href="https://disneycruiselineblog.com/2026/08/disney-cruise-line-announces-fall-2027-early-2028-itineraries-september-27-may-28/" target="_blank" rel="noopener">Cadence note: announced on schedule</a></span><span class="sub">The Fall 2027–Spring 2028 batch was teased Aug 24 and revealed Aug 25, 2026 — right on the ~late-August cadence (the Fall 2026 slate landed Aug 19, 2025). Booking windows ran Aug 31–Sept 8 by Castaway Club tier.</span><a class="readmore" href="https://disneycruiselineblog.com/2026/08/disney-cruise-line-announces-fall-2027-early-2028-itineraries-september-27-may-28/" target="_blank" rel="noopener">Read more at The DCL Blog →</a></div>
+  </div>
+  <p style="font-size:.85rem;color:#6b6f8c;margin-top:.4rem"><strong>Status: ANNOUNCED.</strong> Fall 2027 (Sept–Nov 2027) itineraries are officially published and general booking opens today, Sept 8, 2026. Verified at: Tue, Sep 8 at 7:03 AM ET / 2026-09-08 11:03 UTC.</p>
+  </div>
 </section>
 
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Destiny</span><span class="divider-line"></span></div>
-<div class="cards-grid">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Destiny</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-lblue"><span class="card-head"><a href="https://disneycruiselineblog.com/2026/09/disney-destiny-pumpkin-tree-installed-ahead-of-the-halloween-on-the-high-seas-voyages/" target="_blank" rel="noopener">'Solara' pumpkin tree installed on Destiny</a></span><span class="sub">DCL shared a look at Solara, the enchanted pumpkin tree aboard Disney Destiny, ahead of the ship's first-ever Halloween on the High Seas voyages. <em>The Disney Cruise Line Blog, 2026-09-05.</em></span><span class="note">Now Sailing</span><a class="readmore" href="https://disneycruiselineblog.com/2026/09/disney-destiny-pumpkin-tree-installed-ahead-of-the-halloween-on-the-high-seas-voyages/" target="_blank" rel="noopener">Read more at The DCL Blog →</a></div>
 
-<div class="card card-orange">
-<strong><a class="headline-link" href="https://disneybymark.com/2026/09/disney-cruise-line-unveils-disney-destinys-pumpkin-tree-for-halloween-on-the-high-seas/" target="_blank" rel="noopener">Destiny debuts its first-ever Halloween on the High Seas — meet "Solara," the pumpkin tree</a></strong>
-<span class="sub">Destiny's inaugural Halloween season kicked off with its first HHS sailing on Sep 7. DCL unveiled the ship's Grand Hall pumpkin tree, "Solara," lit in orange, purple and green with carved, glowing jack-o'-lanterns. <em>Disney by Mark, 2026-09.</em></span>
-<span class="note">Now Sailing</span>
-<a class="read-more" href="https://disneybymark.com/2026/09/disney-cruise-line-unveils-disney-destinys-pumpkin-tree-for-halloween-on-the-high-seas/" target="_blank" rel="noopener">Read more at Disney by Mark →</a>
-</div>
+    <div class="card card-cyan"><span class="card-head"><a href="https://wdwnt.com/2026/09/disney-cruise-line-halloween-on-the-high-seas-very-merrytime-cruises-dates-announced/" target="_blank" rel="noopener">Destiny's 2027 Halloween dates set</a></span><span class="sub">DCL published its ship-by-ship 2027 seasonal schedule on Sept 3; Disney Destiny is slated for Halloween on the High Seas from Sept 10–Oct 28, 2027. <em>WDW News Today, 2026-09-03.</em></span><a class="readmore" href="https://wdwnt.com/2026/09/disney-cruise-line-halloween-on-the-high-seas-very-merrytime-cruises-dates-announced/" target="_blank" rel="noopener">Read more at WDW News Today →</a></div>
 
-<div class="card card-lblue">
-<strong><a class="headline-link" href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Destiny included in the new Fall 2027–Spring 2028 itineraries</a></strong>
-<span class="sub">The Disney Destiny is among the eight ships with newly released Fall 2027/Spring 2028 sailings (announced Aug 25, 2026), giving Lisa Oct 2027 options for the newest Wish-class ship. <em>Disney Parks Blog, 2026-08-25.</em></span>
-<a class="read-more" href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a>
-</div>
-
-</div>
+    <div class="card card-blue"><span class="card-head"><a href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Destiny in the Fall 2027–Spring 2028 slate</a></span><span class="sub">Disney Destiny is among the eight ships with newly announced Fall 2027 and Early 2028 itineraries; general booking opens Sept 8, 2026. <em>Disney Parks Blog, 2026-08-25.</em></span><a class="readmore" href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a></div>
+  </div>
 </section>
 
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Believe</span><span class="divider-line"></span></div>
-<div class="cards-grid">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Believe</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-lblue"><span class="card-head"><a href="https://www.disneyfoodblog.com/2026/08/15/new-details-revealed-for-disneys-newest-cruise-ship/" target="_blank" rel="noopener">New Believe details revealed at D23</a></span><span class="sub">At D23 (Aug 15, 2026), DCL detailed the Disney Believe: new venues and entertainment shaped by Encanto, Frozen, Snow White, Moana and The Little Mermaid — with Tinker Bell on the bow, Woody &amp; Buzz on the stern, and a Moana statue in the Grand Hall. <em>Disney Food Blog, 2026-08-15.</em></span><span class="note">Coming 2027</span><a class="readmore" href="https://www.disneyfoodblog.com/2026/08/15/new-details-revealed-for-disneys-newest-cruise-ship/" target="_blank" rel="noopener">Read more at Disney Food Blog →</a></div>
 
-<div class="card card-purple">
-<strong><a class="headline-link" href="https://wdwnt.com/2026/08/breaking-disney-believe-atrium-statue-features-moana-bow-and-stern-characters-announced/" target="_blank" rel="noopener">Believe reveals its Moana atrium statue, Tinker Bell bow &amp; Woody-and-Buzz stern</a></strong>
-<span class="sub">DCL revealed the exterior and Grand Hall icons for its next ship: a bronze Moana statue in the atrium, a hand-painted Tinker Bell filigree on the bow (flanked by Peter Pan characters), and Woody &amp; Buzz sculpting the ship's name on the stern with yellow crayons. <em>WDW News Today, 2026-08-15.</em></span>
-<span class="note">Coming 2027</span>
-<a class="read-more" href="https://wdwnt.com/2026/08/breaking-disney-believe-atrium-statue-features-moana-bow-and-stern-characters-announced/" target="_blank" rel="noopener">Read more at WDW News Today →</a>
-</div>
-
-<div class="card card-magenta">
-<strong><a class="headline-link" href="https://www.disneytouristblog.com/disney-reveals-new-believe-ship-details-moana-statue-polynesian-grand-hall-toy-story-tinker-bell/" target="_blank" rel="noopener">New Believe details: Moana statue, Polynesian Grand Hall, Toy Story &amp; Tinker Bell</a></strong>
-<span class="sub">Analysis of the newly revealed design, including the Polynesian-themed Grand Hall and the fleet-first block-lettering stern that breaks from DCL's traditional looped calligraphy. <em>Disney Tourist Blog, 2026-08.</em></span>
-<a class="read-more" href="https://www.disneytouristblog.com/disney-reveals-new-believe-ship-details-moana-statue-polynesian-grand-hall-toy-story-tinker-bell/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a>
-</div>
-
-<div class="card card-sopink">
-<strong><a class="headline-link" href="https://www.disneyfoodblog.com/2026/08/19/the-one-thing-every-disney-fan-wanted-to-know-about-the-believe-cruise-ship-is-here/" target="_blank" rel="noopener">The one thing fans wanted to know about the Believe is here</a></strong>
-<span class="sub">Follow-up coverage rounding up the latest confirmed details on the fourth Wish-class ship, themed "promise and possibility" and set to debut in late 2027. <em>Disney Food Blog, 2026-08-19.</em></span>
-<a class="read-more" href="https://www.disneyfoodblog.com/2026/08/19/the-one-thing-every-disney-fan-wanted-to-know-about-the-believe-cruise-ship-is-here/" target="_blank" rel="noopener">Read more at Disney Food Blog →</a>
-</div>
-
-</div>
+    <div class="card card-cyan"><span class="card-head"><a href="https://disneyparksblog.com/dcl/meet-the-disney-believe-the-next-disney-cruise-line-ship/" target="_blank" rel="noopener">Believe confirmed to debut late 2027</a></span><span class="sub">Disney Believe, the fourth and final Wish-class ship (144,000 gross tons, ~4,000 guests), is set to enter service in late 2027. DCL also confirmed a new class of three mid-sized ships, the first debuting in 2029. <em>Disney Parks Blog / D23, 2026-08.</em></span><span class="note">Watching</span><a class="readmore" href="https://disneyparksblog.com/dcl/meet-the-disney-believe-the-next-disney-cruise-line-ship/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a></div>
+  </div>
 </section>
 
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Treasure</span><span class="divider-line"></span></div>
-<div class="cards-grid">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Treasure</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-lblue"><span class="card-head"><a href="https://wdwnt.com/2026/09/disney-cruise-line-halloween-on-the-high-seas-very-merrytime-cruises-dates-announced/" target="_blank" rel="noopener">Treasure gets 2027 Halloween &amp; Merrytime dates</a></span><span class="sub">Disney Treasure is included in DCL's Sept 3 ship-by-ship 2027 schedule for Halloween on the High Seas (Sept 6–Oct 31 fleet-wide) and Very Merrytime Cruises (Nov 8–Dec 24). <em>WDW News Today, 2026-09-03.</em></span><a class="readmore" href="https://wdwnt.com/2026/09/disney-cruise-line-halloween-on-the-high-seas-very-merrytime-cruises-dates-announced/" target="_blank" rel="noopener">Read more at WDW News Today →</a></div>
 
-<div class="card card-lblue">
-<strong><a class="headline-link" href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Treasure part of the new Fall 2027–Spring 2028 itinerary release</a></strong>
-<span class="sub">The Disney Treasure is one of the eight ships with newly released Fall 2027/Spring 2028 sailings (announced Aug 25, 2026), continuing its Eastern &amp; Western Caribbean roundtrips from Port Canaveral with Castaway Cay calls. <em>Disney Parks Blog, 2026-08-25.</em></span>
-<span class="note">Watching</span>
-<a class="read-more" href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a>
-</div>
-
-</div>
-<p style="font-size:.82rem;color:#6b6f8c;margin-top:.2rem">No other Treasure-specific news with a verifiable source link in the last 30 days.</p>
+    <div class="card card-cyan"><span class="card-head"><a href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Treasure in the Fall 2027–Spring 2028 slate</a></span><span class="sub">Disney Treasure is part of the newly announced Fall 2027 &amp; Early 2028 deployment (Eastern/Western Caribbean roundtrips from Port Canaveral); general booking opens Sept 8, 2026. <em>Disney Parks Blog, 2026-08-25.</em></span><a class="readmore" href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a></div>
+  </div>
 </section>
 
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">General Fleet News</span><span class="divider-line"></span></div>
-<div class="cards-grid">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">General Fleet News</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-lblue"><span class="card-head"><a href="https://wdwnt.com/2026/09/disney-cruise-line-halloween-on-the-high-seas-very-merrytime-cruises-dates-announced/" target="_blank" rel="noopener">2027 Halloween &amp; Very Merrytime dates announced</a></span><span class="sub">On Sept 3, DCL released the 2027 seasonal schedule across seven ships: Halloween on the High Seas runs Sept 6–Oct 31 and Very Merrytime Nov 8–Dec 24 (varies by ship); Singapore-based Disney Adventure is not included. <em>WDW News Today, 2026-09-03.</em></span><a class="readmore" href="https://wdwnt.com/2026/09/disney-cruise-line-halloween-on-the-high-seas-very-merrytime-cruises-dates-announced/" target="_blank" rel="noopener">Read more at WDW News Today →</a></div>
 
-<div class="card card-blue">
-<strong><a class="headline-link" href="https://www.mousehacking.com/blog/disney-cruise-line-reveals-late-2027-early-2028-itineraries-aug-26-2026" target="_blank" rel="noopener">Fleet-wide: DCL reveals late-2027/early-2028 itineraries</a></strong>
-<span class="sub">Overview of the full fleet's newly released Fall 2027–Spring 2028 deployment, including new ports, Panama Canal cruises and expanded Florida departures. <em>Mouse Hacking, 2026-08-26.</em></span>
-<a class="read-more" href="https://www.mousehacking.com/blog/disney-cruise-line-reveals-late-2027-early-2028-itineraries-aug-26-2026" target="_blank" rel="noopener">Read more at Mouse Hacking →</a>
-</div>
+    <div class="card card-cyan"><span class="card-head"><a href="https://cruiseindustrynews.com/cruise-news/2026/08/new-york-return-more-ports-mark-disneys-2027-28-season/" target="_blank" rel="noopener">NYC return headlines 2027–28 season</a></span><span class="sub">Industry coverage of DCL's Fall 2027–Spring 2028 deployment highlights the Disney Wish's return to New York and expanded ports across the fleet. <em>Cruise Industry News, 2026-08.</em></span><a class="readmore" href="https://cruiseindustrynews.com/cruise-news/2026/08/new-york-return-more-ports-mark-disneys-2027-28-season/" target="_blank" rel="noopener">Read more at Cruise Industry News →</a></div>
 
-<div class="card card-cyan">
-<strong><a class="headline-link" href="https://dclfan.com/itineraries/new-disney-cruise-line-2027-2028-itineraries-heres-when-you-can-book/" target="_blank" rel="noopener">New 2027–2028 itineraries: here's when you can book</a></strong>
-<span class="sub">Booking-window guide for the Fall 2027/Spring 2028 sailings by Castaway Club tier, ahead of general booking on Sep 8, 2026. <em>DCL Fan, 2026-08.</em></span>
-<a class="read-more" href="https://dclfan.com/itineraries/new-disney-cruise-line-2027-2028-itineraries-heres-when-you-can-book/" target="_blank" rel="noopener">Read more at DCL Fan →</a>
-</div>
-
-</div>
+    <div class="card card-blue"><span class="card-head"><a href="https://www.disneyfoodblog.com/2026/08/15/new-details-revealed-for-disneys-newest-cruise-ship/" target="_blank" rel="noopener">New mid-sized ship class confirmed</a></span><span class="sub">At D23 (Aug 15, 2026), Disney confirmed three new mid-sized vessels forming a brand-new ship class, with the first set to debut in 2029 — part of DCL's plan to grow its fleet. <em>Disney Food Blog, 2026-08-15.</em></span><a class="readmore" href="https://www.disneyfoodblog.com/2026/08/15/new-details-revealed-for-disneys-newest-cruise-ship/" target="_blank" rel="noopener">Read more at Disney Food Blog →</a></div>
+  </div>
 </section>
 
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">Mon, Sep 7 at 7:02 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">Tue, Sep 8 at 7:03 AM ET</span><div class="footer-clock" id="footer-clock"></div>
+<div style="margin-top:.8rem"><a class="back-to-hub" href="index.html">← Back to Lisa's Hub</a></div></footer>
 <script>
 function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;}
 updateClock();setInterval(updateClock,1000);
