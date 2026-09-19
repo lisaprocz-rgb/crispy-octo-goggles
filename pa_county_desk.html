@@ -347,8 +347,13 @@ details.sec > summary:hover{background:var(--surface-2)}
 .quote mark{background:transparent; padding:0 1px; border-radius:2px; font-weight:700}
 .quote mark.del{background:rgba(160,30,35,.22); color:var(--alarm); text-decoration:line-through;
   text-decoration-thickness:1px}
-.quote mark.del a{color:inherit}
-.quote a{color:var(--link); text-decoration:underline; text-underline-offset:2px}
+.quote a{
+  color:var(--link); text-decoration:underline; text-decoration-thickness:1.5px; text-underline-offset:2px;
+  font-weight:700;
+}
+.quote a::after{content:'\2197'; font-size:.8em; margin-left:2px; text-decoration:none; display:inline-block}
+.quote mark.del a{color:var(--alarm)}
+.quote mark.ins a{color:var(--ok)}
 .locbanner a,.loc a,.days a{color:inherit; text-decoration:underline; text-underline-offset:2px}
 .quote mark.ins{background:rgba(21,94,76,.2); color:var(--ok)}
 :root[data-theme="dark"] .quote mark.del,:root:not([data-theme="light"]) .quote mark.del{background:rgba(255,155,148,.2)}
