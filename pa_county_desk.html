@@ -347,6 +347,9 @@ details.sec > summary:hover{background:var(--surface-2)}
 .quote mark{background:transparent; padding:0 1px; border-radius:2px; font-weight:700}
 .quote mark.del{background:rgba(160,30,35,.22); color:var(--alarm); text-decoration:line-through;
   text-decoration-thickness:1px}
+.quote mark.del a{color:inherit}
+.quote a{color:var(--link); text-decoration:underline; text-underline-offset:2px}
+.locbanner a,.loc a,.days a{color:inherit; text-decoration:underline; text-underline-offset:2px}
 .quote mark.ins{background:rgba(21,94,76,.2); color:var(--ok)}
 :root[data-theme="dark"] .quote mark.del,:root:not([data-theme="light"]) .quote mark.del{background:rgba(255,155,148,.2)}
 :root[data-theme="dark"] .quote mark.ins,:root:not([data-theme="light"]) .quote mark.ins{background:rgba(127,217,190,.2)}
@@ -495,6 +498,23 @@ function linkify(t){
   return t;
 }
 
+// Escaped HTML that may already carry <mark> tags: linkify only the text between tags, so a URL inside a
+// diff highlight still becomes a link and the tags survive.
+function linkifyHtml(h){
+  if(!h) return h;
+  return h.split(/(<[^>]*>)/).map(part =>
+    part.startsWith('<') ? part : linkify(part)
+  ).join('');
+}
+// Plain text straight from the data: escape, then linkify, including bare phone numbers.
+function rich(t){
+  if(t === null || t === undefined || t === '') return '';
+  let out = linkify(esc(String(t)));
+  out = out.replace(/(^|[\s(>])(\d{3}-\d{3}-\d{4})(?![\d-])/g,
+        (m,pre,n)=>`${pre}<a href="tel:${n}">${n}</a>`);
+  return out;
+}
+
 function render(raw){
   if(raw===null||raw===undefined||raw==='') return '<p class="muted">Not given in the workbook.</p>';
   let t = esc(raw);
@@ -548,15 +568,15 @@ function renderLocations(county, kind){
                                   : (n === 1 ? 'office' : 'offices');
   let banner = '';
   if(blk.status === 'stale')
-    banner = `<p class="locbanner bad"><b>Out of date at the source.</b> ${esc(blk.note)}</p>`;
+    banner = `<p class="locbanner bad"><b>Out of date at the source.</b> ${rich(blk.note)}</p>`;
   else if(blk.status === 'failed')
-    banner = `<p class="locbanner bad"><b>Link is broken.</b> ${esc(blk.note)}</p>`;
+    banner = `<p class="locbanner bad"><b>Link is broken.</b> ${rich(blk.note)}</p>`;
   else if(blk.status === 'pending')
-    banner = `<p class="locbanner"><b>Not published yet.</b> ${esc(blk.note)}</p>`;
+    banner = `<p class="locbanner"><b>Not published yet.</b> ${rich(blk.note)}</p>`;
   else if(blk.status === 'conflict')
-    banner = `<p class="locbanner"><b>The workbook contradicts itself here.</b> ${esc(blk.note)}</p>`;
+    banner = `<p class="locbanner"><b>The workbook contradicts itself here.</b> ${rich(blk.note)}</p>`;
   else if(blk.note)
-    banner = `<p class="locbanner">${esc(blk.note)}</p>`;
+    banner = `<p class="locbanner">${rich(blk.note)}</p>`;
 
   const cards = blk.locations.map(l=>{
     const mine = l.hours_mine && l.hours_mine.trim();
@@ -564,17 +584,17 @@ function renderLocations(county, kind){
                      nov2:'Mon 2 Nov', eday:'Election Day'};
     let hrs;
     if(mine){
-      hrs = `<div class="hrs">${esc(l.hours_mine)}<span class="who">Your confirmed hours${l.hours ? '. County published: ' + esc(l.hours) : ''}</span></div>`;
+      hrs = `<div class="hrs">${rich(l.hours_mine)}<span class="who">Your confirmed hours${l.hours ? '. County published: ' + rich(l.hours) : ''}</span></div>`;
     } else if(l.days && Object.values(l.days).some(v=>v)){
       const rows = Object.keys(DAYNAME).filter(k=>l.days[k]).map(k=>{
         const v = l.days[k];
         const shut = /^closed$/i.test(v.trim());
         const big = (k==='eday' || k==='nov2');
-        return `<div class="${shut?'shut':(big?'big':'')}"><dt>${DAYNAME[k]}</dt><dd>${esc(v)}</dd></div>`;
+        return `<div class="${shut?'shut':(big?'big':'')}"><dt>${DAYNAME[k]}</dt><dd>${rich(v)}</dd></div>`;
       }).join('');
       hrs = `<dl class="days">${rows}</dl>`;
     } else {
-      hrs = l.hours ? `<div class="hrs">${esc(l.hours)}</div>`
+      hrs = l.hours ? `<div class="hrs">${rich(l.hours)}</div>`
                     : `<div class="hrs none">No hours published</div>`;
     }
     const tag = l.io ? `<span class="tag">${esc(l.io)}</span>` : '';
@@ -583,11 +603,11 @@ function renderLocations(county, kind){
     const note = [l.notes, l.note_mine].filter(Boolean).join(' ');
     return `<div class="loc">
       <h5>${esc(l.name)}</h5>
-      ${l.address ? `<div class="addr">${esc(l.address)}${l.muni ? ' &middot; ' + esc(l.muni) : ''}</div>` : ''}
+      ${l.address ? `<div class="addr">${rich(l.address)}${l.muni ? ' &middot; ' + esc(l.muni) : ''}</div>` : ''}
       ${hrs}
-      ${l.dates ? `<div class="when">${esc(l.dates)}</div>` : ''}
+      ${l.dates ? `<div class="when">${rich(l.dates)}</div>` : ''}
       ${tag}${closed}
-      ${note ? `<div class="lnote">${esc(note)}</div>` : ''}
+      ${note ? `<div class="lnote">${rich(note)}</div>` : ''}
       ${l.link ? `<div class="lnote"><a href="${l.link}" target="_blank" rel="noopener">Schedule</a></div>` : ''}
     </div>`;
   }).join('');
@@ -716,10 +736,10 @@ function bucketsView(){
           <h3>${esc(g.label)}</h3>
           <span class="n">${g.counties.length} ${g.counties.length===1?'county':'counties'}</span>
         </div>
-        <p class="desc">${esc(g.desc)}</p>
+        <p class="desc">${rich(g.desc)}</p>
         <div class="cties">${g.counties.map(c=>`<button class="cty${c===current?' is-current':''}" type="button" data-county="${esc(c)}">${esc(c)}</button>`).join('')}</div>
       </div>`).join('');
-    return `<div class="dim"><h2>${esc(D.title)}</h2><p class="lede">${esc(D.lede)}</p>${groups}</div>`;
+    return `<div class="dim"><h2>${esc(D.title)}</h2><p class="lede">${rich(D.lede)}</p>${groups}</div>`;
   }).join('') + `<p class="sourcenote">Counties are sorted into these groups by reading the workbook text for the
   column named under each heading. A county sits in exactly one group per question, so every group list on this page
   adds up to 67. Where the workbook says only &ldquo;Call BOE&rdquo;, that is its own group: it means the county has not
@@ -782,9 +802,9 @@ function paintIssues(){
                 ask:'Only the county can answer', none:'Tracked, no change yet'};
   const card = i=>{
     const right = i.should_html
-      ? `<div class="now"><h4>Should say</h4><pre class="quote now">${i.should_html}</pre></div>`
+      ? `<div class="now"><h4>Should say</h4><pre class="quote now">${linkifyHtml(i.should_html)}</pre></div>`
       : `<div class="open"><h4>${i.kind==='none'?'What to add' : 'No replacement to give yet'}</h4>
-         <div class="quote open">${linkify(esc(i.note))}</div></div>`;
+         <div class="quote open">${rich(i.note)}</div></div>`;
     const leftLabel = i.now && i.now.includes('Envelope Errors:') ? 'The two cells today' : 'Workbook says now';
     return `
     <article class="issue s-${i.sev}">
@@ -795,12 +815,12 @@ function paintIssues(){
         <span class="kindchip ${i.kind}">${KIND[i.kind]}</span>
         ${i.is_new ? '<span class="newbadge">New in this workbook</span>' : ''}
       </div>
-      <p class="what">${esc(i.what)}</p>
+      <p class="what">${rich(i.what)}</p>
       <div class="ba">
-        <div class="was"><h4>${leftLabel}</h4><pre class="quote was">${i.now_html || esc(i.now) || '(blank)'}</pre></div>
+        <div class="was"><h4>${leftLabel}</h4><pre class="quote was">${linkifyHtml(i.now_html) || rich(i.now) || '(blank)'}</pre></div>
         ${right}
       </div>
-      ${i.should_html ? `<p class="fix"><b>Why:</b> ${linkify(esc(i.note))}</p>` : ''}
+      ${i.should_html ? `<p class="fix"><b>Why:</b> ${rich(i.note)}</p>` : ''}
     </article>`;};
 
   const CLOSED = new Set(['staff','format']);
@@ -826,7 +846,7 @@ function paintIssues(){
         <span class="n" style="margin-left:auto">${g.rows.length} ${g.rows.length===1?'item':'items'}</span>
       </summary>
       <div class="catbody">
-        <p class="lede">${esc(g.lede)}</p>
+        <p class="lede">${rich(g.lede)}</p>
         ${g.rows.map(card).join('')}
       </div>
     </details>`;
