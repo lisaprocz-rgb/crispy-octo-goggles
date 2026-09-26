@@ -29,20 +29,12 @@ h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;colo
 main{max-width:1080px;margin:0 auto;padding:1rem 1.4rem 4rem}
 .section-divider{display:flex;align-items:center;gap:.9rem;margin:2.4rem 0 1.2rem}
 section:first-of-type .section-divider, .section-group:first-child .section-divider{margin-top:.4rem}
-.divider-accent{width:22px;height:22px;background:#4fc3f7;
+.divider-accent{width:22px;height:22px;background:#ffd23f;border:3px solid #1f2440;
   border-radius:6px;transform:rotate(45deg);flex-shrink:0}
 .divider-label{font-family:'Baloo 2';font-size:1.4rem;font-weight:800;color:#1f2440;
   background:#fff;padding:.1rem .9rem;border:3px solid #1f2440;border-radius:14px;
   box-shadow:3px 3px 0 #3ec6e0}
 .divider-line{flex:1;height:4px;border-radius:4px;background:#1f2440;opacity:.15}
-.status-badge{font-family:'Baloo 2';font-weight:800;font-size:1rem;
-  padding:.45rem 1.1rem;border-radius:999px;border:3px solid #1f2440;
-  letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;
-  flex-shrink:0;display:inline-flex;align-items:center;gap:.45rem;
-  box-shadow:4px 4px 0 #1f2440}
-.status-badge.status-not-announced{background:#ff5c8a;color:#fff}
-.status-badge.status-partial{background:#ffd23f;color:#1f2440}
-.status-badge.status-announced{background:#3dd6b5;color:#1f2440}
 .sub-label{font-family:'Baloo 2';font-weight:700;font-size:.95rem;color:#1f2440;
   margin:1.2rem 0 .6rem;text-transform:uppercase;letter-spacing:.06em}
 .card{position:relative;display:block;background:#fff;color:#1f2440;text-decoration:none;
@@ -53,11 +45,16 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 .card strong, .card .card-title{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;
   display:block;margin-bottom:.3rem;color:#1f2440}
 .card .sub{display:block;color:#6b6f8c;font-size:.86rem;font-weight:600;line-height:1.5;margin-top:.15rem}
-.card a{color:#0077b6;font-weight:800;text-decoration:underline}
-.card a:hover{color:#ff5c8a}
 .card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
   background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
   border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
+.card a.read-more{display:inline-block;margin-top:.6rem;font-family:'Baloo 2';font-weight:800;
+  font-size:.82rem;color:#1466a8;text-decoration:underline;text-decoration-thickness:2px;
+  text-underline-offset:2px;border:none}
+.card a.read-more:hover{color:#ff5c8a}
+.card a.headline-link{color:#1466a8;text-decoration:underline;text-decoration-thickness:2px;
+  text-underline-offset:2px;border:none}
+.card a.headline-link:hover{color:#ff5c8a}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
 .card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
 .card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
@@ -78,12 +75,20 @@ tr:first-child td{border-top:none}
 ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
 li{margin-bottom:.25rem}
 p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
-a:not(.card):not(.back-to-hub):not(.hub-label a){color:#1f2440;font-weight:700;
+a:not(.card):not(.back-to-hub):not(.hub-label a):not(.read-more):not(.headline-link){color:#1f2440;font-weight:700;
   text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
-a:not(.card):not(.back-to-hub):not(.hub-label a):hover{color:#ff5c8a;border-bottom-color:#1f2440}
+a:not(.card):not(.back-to-hub):not(.hub-label a):not(.read-more):not(.headline-link):hover{color:#ff5c8a;border-bottom-color:#1f2440}
 .callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
   box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
 .callout strong{font-family:'Baloo 2'}
+.status-badge{font-family:'Baloo 2';font-weight:800;font-size:1rem;
+  padding:.45rem 1.1rem;border-radius:999px;border:3px solid #1f2440;
+  letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;
+  flex-shrink:0;display:inline-flex;align-items:center;gap:.45rem;
+  box-shadow:4px 4px 0 #1f2440}
+.status-badge.status-not-announced{background:#ff5c8a;color:#fff}
+.status-badge.status-partial{background:#ffd23f;color:#1f2440}
+.status-badge.status-announced{background:#3dd6b5;color:#1f2440}
 footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
 .footer-clock{margin-top:.4rem;color:#ff5c8a}
 .timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
@@ -105,101 +110,160 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 <div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
 </header>
 <main>
-
 <a href="index.html" class="back-to-hub">← Back to Lisa's Hub</a>
 
-<div class="callout"><strong>Last refreshed:</strong> Fri, Sep 25, 2026 at 7:08 AM ET &nbsp;/&nbsp; Fri, Sep 25, 2026 at 11:08 UTC<br>
-<span style="font-size:.85rem;color:#6b6f8c;font-weight:700">✅ All content fetched live this run — no cached data used. Freshness window: news items published on or after Aug 26, 2026 (last 30 days).</span></div>
+<div class="callout">
+<strong>🔄 Last refreshed:</strong> Saturday, September 26, 2026 at 7:08 AM ET / 2026-09-26 11:08 UTC.<br>
+<span style="color:#3dd6b5;font-weight:800">All content fetched live this run — no cached data used.</span> Freshness window for ship news: items published on or after 2026-08-27 (last 30 days).
+</div>
 
+<!-- ============ FALL 2027 AVAILABILITY WATCH ============ -->
 <section class="section-group">
-  <div class="section-divider">
-    <span class="divider-accent"></span>
-    <span class="divider-label">Fall 2027 Availability Watch</span>
-    <span class="status-badge status-announced">✅ Announced</span>
-    <span class="divider-line"></span>
-  </div>
+<div class="section-divider">
+  <span class="divider-accent"></span>
+  <span class="divider-label">Fall 2027 Availability Watch</span>
+  <span class="status-badge status-announced">✅ Announced</span>
+  <span class="divider-line"></span>
+</div>
 
-  <div data-fall-2027-status="ANNOUNCED">
-  <div class="cards-grid">
+<div data-fall-2027-status="ANNOUNCED">
+<div class="callout">
+<strong>Status: ANNOUNCED.</strong> Disney Cruise Line officially revealed its <strong>Fall 2027 &amp; Spring 2028</strong> itineraries on <strong>August 25, 2026</strong>. General booking opened <strong>September 8, 2026</strong>, following Castaway Club early-access windows that began August 31, 2026. Fall 2027 sailings (September–November 2027) are on sale now across the fleet.
+</div>
 
-    <div class="card card-cyan">
-      <a href="https://blogmickey.com/2026/09/now-on-sail-fall-2027-spring-2028-disney-cruise-line-itineraries/" target="_blank" rel="noopener" style="border:none"><strong>🟢 Fall 2027 &amp; Spring 2028 sailings are ON SALE</strong></a>
-      <span class="note">Now Open</span>
-      <span class="sub">General booking opened Sept 8, 2026 (Castaway Club early access began Aug 31). The full Sept 2027–May 2028 slate is bookable now.</span>
-      <span class="sub"><em>Blog Mickey, 2026-09</em> · <a href="https://blogmickey.com/2026/09/now-on-sail-fall-2027-spring-2028-disney-cruise-line-itineraries/" target="_blank" rel="noopener">Read more at Blog Mickey →</a></span>
-    </div>
+<div class="cards-grid">
 
-    <div class="card card-lblue">
-      <a href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener" style="border:none"><strong>🗽 Disney Wish → New York</strong></a>
-      <span class="sub">Wish repositions to NYC in late Sept 2027 with five-plus sailings to Bermuda, New England &amp; Canada (4–7 nights); a few extend an extra day, plus a San Juan voyage.</span>
-      <span class="sub"><em>Disney Parks Blog, 2026-08-25</em> · <a href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a></span>
-    </div>
+<div class="card card-cyan">
+<strong>🗽 Disney Wish → New York</strong>
+<span class="sub">Five sailings from New York: 4–7 night Bermuda cruises (three with extended stays), plus New England &amp; Canada sailings starting late September 2027. <em>Disney Parks Blog, 2026-08-25.</em></span>
+<span class="note">Now On Sale</span><br>
+<a class="read-more" href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a>
+</div>
 
-    <div class="card card-blue">
-      <a href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener" style="border:none"><strong>🚢 Disney Destiny → Port Canaveral / Fort Lauderdale</strong></a>
-      <span class="sub">Bahamas &amp; Western Caribbean, 3–7 nights. Starts Fall 2027 out of Port Canaveral, then shifts to Fort Lauderdale in November.</span>
-      <span class="sub"><em>Disney Parks Blog, 2026-08-25</em> · <a href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a></span>
-    </div>
+<div class="card card-lblue">
+<strong>🦸 Disney Destiny → Fort Lauderdale &amp; Port Canaveral</strong>
+<span class="sub">3–7 night Bahamas &amp; Western Caribbean cruises. Opens the season from Fort Lauderdale, then relocates to Port Canaveral — the Heroes &amp; Villains ship's first Port Canaveral season. <em>Disney Parks Blog / BlogMickey, 2026-08-25 &amp; 2026-09-08.</em></span>
+<span class="note">Now On Sale</span><br>
+<a class="read-more" href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a>
+</div>
 
-    <div class="card card-lblue">
-      <a href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener" style="border:none"><strong>🏝️ Treasure, Dream &amp; Fantasy → Florida</strong></a>
-      <span class="sub">Eastern/Western Caribbean &amp; Bahamas, 3–7 nights, Sept–Nov 2027 out of Port Canaveral / Fort Lauderdale.</span>
-      <span class="sub"><em>Disney Parks Blog, 2026-08-25</em> · <a href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a></span>
-    </div>
+<div class="card card-blue">
+<strong>💎 Disney Treasure → Port Canaveral</strong>
+<span class="sub">7-night Eastern &amp; Western Caribbean, 8-night Eastern Caribbean, and 6-night Bahamas sailings with dual Castaway Cay stops. <em>Disney Parks Blog, 2026-08-25.</em></span>
+<span class="note">Now On Sale</span><br>
+<a class="read-more" href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a>
+</div>
 
-    <div class="card card-cyan">
-      <a href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener" style="border:none"><strong>🌊 Magic &amp; Wonder → West Coast</strong></a>
-      <span class="sub">Disney Wonder sails Baja &amp; Mexican Riviera from San Diego (3–7 nights). Disney Magic runs San Diego &amp; Galveston with a Panama Canal repositioning, into early Nov 2027.</span>
-      <span class="sub"><em>Disney Parks Blog, 2026-08-25</em> · <a href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a></span>
-    </div>
+<div class="card card-purple">
+<strong>⚓ Disney Magic → San Diego · Panama · Galveston</strong>
+<span class="sub">3–7 night Baja/Mexican Riviera through early November, a 14-night Panama Canal repositioning (maiden calls in Panama ports), then 4–7 night Bahamas/Caribbean from Galveston. <em>Disney Parks Blog, 2026-08-25.</em></span>
+<span class="note">Now On Sale</span><br>
+<a class="read-more" href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a>
+</div>
 
-    <div class="card card-blue">
-      <strong>ℹ️ Disney Believe — not in the Fall 2027 slate</strong>
-      <span class="note">Watching</span>
-      <span class="sub">The Aug 25, 2026 announcement did not include any Believe Fall 2027 sailings; the ship debuts late 2027 (see below). Watch for a separate Believe inaugural itinerary reveal.</span>
-    </div>
+<div class="card card-magenta">
+<strong>🏰 Disney Fantasy &amp; Disney Dream → Florida</strong>
+<span class="sub">Fantasy: 4–5 night Bahamas/Western Caribbean, 4–7 night Eastern Caribbean, and an 8-night Bermuda cruise from Port Canaveral, later Fort Lauderdale. Dream: 3–4 night Bahamas, repositioning to Fort Lauderdale in November 2027. <em>Disney Parks Blog, 2026-08-25.</em></span>
+<span class="note">Now On Sale</span><br>
+<a class="read-more" href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a>
+</div>
 
-  </div>
-  </div>
+<div class="card card-green">
+<strong>🌊 Disney Wonder &amp; Disney Adventure</strong>
+<span class="sub">Wonder: 3–7 night San Diego cruises with Ensenada, Cabo San Lucas &amp; Catalina Island. Adventure: 3- and 4-night Southeast Asia itineraries from Singapore, September–December 2027. <em>Disney Parks Blog, 2026-08-25.</em></span>
+<span class="note">Now On Sale</span><br>
+<a class="read-more" href="https://disneyparksblog.com/dcl/disney-cruise-line-fall-2027-and-spring-2028-itineraries-announced/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a>
+</div>
 
-  <p style="font-size:.85rem;color:#6b6f8c;font-weight:700;margin-top:.4rem"><strong>Status: ANNOUNCED.</strong> Verified at: Fri, Sep 25, 2026 at 7:08 AM ET / Fri, Sep 25, 2026 at 11:08 UTC. Cadence reference: the Fall 2027–Spring 2028 batch was teased Aug 24, 2026 and revealed Aug 25, 2026; booking opened Aug 31–Sep 8, 2026 (<a href="https://disneycruiselineblog.com/cruise-planning/itineraries/itinerary-announcement-history/" target="_blank" rel="noopener">announcement history</a>). No new pre-announcement teaser for a later batch detected in the last 7 days.</p>
+</div>
+</div>
+
+<div class="sub-label">📡 Announcement-signal sweep (last 7 days)</div>
+<div class="cards-grid">
+<div class="card card-yellow">
+<strong>No new Fall 2027 signals</strong>
+<span class="sub">Fall 2027–Spring 2028 is already fully announced and on sale, so there is nothing left to tease for this window. No official DCL save-the-date, teaser, or reveal-date post about <em>Fall 2027</em> surfaced in the last 7 days. The next major DCL reveal on the calendar is the Disney Believe livestream (see below) — not a Fall 2027 event.</span>
+</div>
+</div>
+
+<p style="font-size:.85rem;color:#6b6f8c;font-weight:700">✔️ Verified at: Saturday, September 26, 2026 at 7:08 AM ET / 2026-09-26 11:08 UTC — checked live against Disney Parks Blog, the DCL newsroom, BlogMickey, and The Disney Cruise Line Blog.</p>
+<p style="font-size:.8rem;color:#6b6f8c;font-weight:600">Cadence reference: the Fall 2027–Spring 2028 batch was teased Aug 24, 2026 and revealed Aug 25, 2026, with booking Aug 31–Sep 8, 2026 — matching the prior year's late-August pattern (<a href="https://disneycruiselineblog.com/cruise-planning/itineraries/itinerary-announcement-history/" target="_blank" rel="noopener">DCL Blog announcement history</a>).</p>
+</section>
+
+<!-- ============ NEWS BY SHIP ============ -->
+<section class="section-group">
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Destiny</span><span class="divider-line"></span></div>
+<div class="cards-grid">
+<div class="card card-lblue">
+<strong><a class="headline-link" href="https://blogmickey.com/2026/09/now-on-sail-fall-2027-spring-2028-disney-cruise-line-itineraries/" target="_blank" rel="noopener">Destiny's first Port Canaveral season goes on sale</a></strong>
+<span class="sub">With Fall 2027 booking now open, the Heroes &amp; Villains–themed Disney Destiny is confirmed for its first Port Canaveral home-port season, after opening from Fort Lauderdale — sailing 3–7 night Bahamas and Western Caribbean itineraries. <em>BlogMickey, 2026-09-08.</em></span>
+<span class="note">Fresh · Booking Open</span><br>
+<a class="read-more" href="https://blogmickey.com/2026/09/now-on-sail-fall-2027-spring-2028-disney-cruise-line-itineraries/" target="_blank" rel="noopener">Read more at BlogMickey →</a>
+</div>
+</div>
 </section>
 
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Destiny</span><span class="divider-line"></span></div>
-  <div class="callout"><strong>No news in the last 30 days.</strong> No Destiny-specific coverage published on or after Aug 26, 2026 was found this run. (The ship's Fall 2027 itineraries appear in the Availability Watch above.)</div>
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Believe</span><span class="divider-line"></span></div>
+<div class="cards-grid">
+<div class="card card-cyan">
+<strong><a class="headline-link" href="https://disneycruiselineblog.com/2026/09/disney-believe-construction-update-first-of-three-gigablocks-floats-out/" target="_blank" rel="noopener">First of three "gigablocks" floats out at Meyer Werft</a></strong>
+<span class="sub">A major construction milestone: the first of three giant hull-and-superstructure "gigablocks" for the Disney Believe was completed and floated out at the Meyer Werft shipyard — reportedly already including the Grand Hall. Disney says the ship remains on schedule for its target late-2027 debut as the ninth DCL vessel and fourth Wish-class ship. <em>The DCL Blog / WDWNT / Disney Food Blog, 2026-09-18 to 09-20.</em></span>
+<span class="note">Fresh · Construction</span><br>
+<a class="read-more" href="https://disneycruiselineblog.com/2026/09/disney-believe-construction-update-first-of-three-gigablocks-floats-out/" target="_blank" rel="noopener">Read more at The DCL Blog →</a>
+</div>
+<div class="card card-purple">
+<strong>🔔 Upcoming: Disney Believe livestream reveal</strong>
+<span class="sub">Disney Cruise Line will unveil new details about the Disney Believe (Wish-class, debuting late 2027) in a livestream on <strong>October 7, 2026</strong>. This is a scheduled future event — the reveal was announced back in July 2026, so the source link below predates the 30-day news window and is included only for context.</span>
+<span class="note">Event: Oct 7, 2026</span><br>
+<a class="read-more" href="https://disneycruiselineblog.com/2026/07/disney-believe-reveal-scheduled-for-october-7th-via-livestream/" target="_blank" rel="noopener">Context at The DCL Blog (2026-07) →</a>
+</div>
+</div>
 </section>
 
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Believe</span><span class="divider-line"></span></div>
-  <div class="cards-grid">
-    <div class="card card-lblue">
-      <a href="https://www.disneyfoodblog.com/2026/09/20/behind-the-scenes-look-at-disneys-newest-cruise-ship/" target="_blank" rel="noopener" style="border:none"><strong>🔩 First gigablock floated out — Believe on schedule for late 2027</strong></a>
-      <span class="sub">The first of three "gigablocks" for the Disney Believe was completed and floated out at the shipyard — a major construction milestone with interior wiring, walls and plumbing already inside. Keeps the ship on track for its late-2027 debut.</span>
-      <span class="sub"><em>Disney Food Blog, 2026-09-20</em> · <a href="https://www.disneyfoodblog.com/2026/09/20/behind-the-scenes-look-at-disneys-newest-cruise-ship/" target="_blank" rel="noopener">Read more at Disney Food Blog →</a></span>
-    </div>
-  </div>
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Treasure</span><span class="divider-line"></span></div>
+<div class="cards-grid">
+<div class="card card-blue">
+<strong><a class="headline-link" href="https://blogmickey.com/2026/09/now-on-sail-fall-2027-spring-2028-disney-cruise-line-itineraries/" target="_blank" rel="noopener">Treasure's Fall 2027 Caribbean lineup on sale</a></strong>
+<span class="sub">Booking is now open for the Disney Treasure's Fall 2027 season from Port Canaveral — 7-night Eastern &amp; Western Caribbean, an 8-night Eastern Caribbean, and 6-night Bahamas sailings featuring dual stops at Castaway Cay. <em>BlogMickey, 2026-09-08.</em></span>
+<span class="note">Fresh · Booking Open</span><br>
+<a class="read-more" href="https://blogmickey.com/2026/09/now-on-sail-fall-2027-spring-2028-disney-cruise-line-itineraries/" target="_blank" rel="noopener">Read more at BlogMickey →</a>
+</div>
+</div>
 </section>
 
+<!-- ============ GENERAL FLEET NEWS ============ -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Disney Treasure</span><span class="divider-line"></span></div>
-  <div class="callout"><strong>No news in the last 30 days.</strong> No Treasure-specific coverage published on or after Aug 26, 2026 was found this run. (The ship's Fall 2027 itineraries appear in the Availability Watch above.)</div>
-</section>
+<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">General Fleet News</span><span class="divider-line"></span></div>
+<div class="cards-grid">
 
-<section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">General Fleet News</span><span class="divider-line"></span></div>
-  <div class="cards-grid">
-    <div class="card card-cyan">
-      <a href="https://disneycruiselineblog.com/2026/09/special-offers-on-disney-cruise-line-sailings-as-of-september-14-2026/" target="_blank" rel="noopener" style="border:none"><strong>💸 141 special-rate sailings through May 2027</strong></a>
-      <span class="note">Deals</span>
-      <span class="sub">Fleet-wide offers include U.S. military rates (limited to 50 staterooms per category/sailing), Florida-resident, Southern California-resident and Canadian-resident discounts across all ships.</span>
-      <span class="sub"><em>The Disney Cruise Line Blog, 2026-09-14</em> · <a href="https://disneycruiselineblog.com/2026/09/special-offers-on-disney-cruise-line-sailings-as-of-september-14-2026/" target="_blank" rel="noopener">Read more at The DCL Blog →</a></span>
-    </div>
-  </div>
+<div class="card card-lblue">
+<strong><a class="headline-link" href="https://disneycruiselineblog.com/2026/09/special-offers-on-disney-cruise-line-sailings-as-of-september-14-2026/" target="_blank" rel="noopener">141 fleet-wide special offers live through May 2027</a></strong>
+<span class="sub">Disney Cruise Line is running 141 discounted sailings — including U.S. military, Florida-resident, Southern-California-resident and Canadian-resident rates, up to 25% off select fares, and $250 onboard credit on select Wish and Dream military sailings. Disney Wonder leads with 44 discounted departures. <em>The DCL Blog, 2026-09-14.</em></span>
+<span class="note">Fresh · Deals</span><br>
+<a class="read-more" href="https://disneycruiselineblog.com/2026/09/special-offers-on-disney-cruise-line-sailings-as-of-september-14-2026/" target="_blank" rel="noopener">Read more at The DCL Blog →</a>
+</div>
+
+<div class="card card-green">
+<strong><a class="headline-link" href="https://blogmickey.com/2026/09/now-on-sail-fall-2027-spring-2028-disney-cruise-line-itineraries/" target="_blank" rel="noopener">Fall 2027 &amp; Spring 2028 sailings open to all guests</a></strong>
+<span class="sub">General booking for the entire Fall 2027–Spring 2028 season opened September 8, 2026 (Castaway Club early access began Aug 31). Highlights: Disney Wish's return to New York, new Panama Canal crossings for Disney Magic, and Disney Destiny's first Port Canaveral season. <em>BlogMickey, 2026-09-08.</em></span>
+<span class="note">Fresh · Booking Open</span><br>
+<a class="read-more" href="https://blogmickey.com/2026/09/now-on-sail-fall-2027-spring-2028-disney-cruise-line-itineraries/" target="_blank" rel="noopener">Read more at BlogMickey →</a>
+</div>
+
+<div class="card card-orange">
+<strong><a class="headline-link" href="https://disneycruiselineblog.com/2026/09/special-offers-on-disney-cruise-line-sailings-as-of-september-2-2026-new-disney-adventure-promotion/" target="_blank" rel="noopener">New Disney Adventure (Singapore) promotion added</a></strong>
+<span class="sub">Early September's offer roundup introduced a new promotion for the Singapore-based Disney Adventure alongside the fleet's ongoing resident and military discounts. <em>The DCL Blog, 2026-09-02.</em></span>
+<span class="note">Fresh · Deals</span><br>
+<a class="read-more" href="https://disneycruiselineblog.com/2026/09/special-offers-on-disney-cruise-line-sailings-as-of-september-2-2026-new-disney-adventure-promotion/" target="_blank" rel="noopener">Read more at The DCL Blog →</a>
+</div>
+
+</div>
 </section>
 
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">Fri, Sep 25 at 7:08 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">Sat, Sep 26 at 7:08 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
 <script>
 function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;const badge=document.getElementById('updated-badge');if(badge&&badge.textContent.trim()==='DYNAMIC'+'_TIMESTAMP'){badge.textContent='…';var pg=(location.pathname.split('/').pop()||'index.html');fetch('https://api.github.com/repos/lisaprocz-rgb/crispy-octo-goggles/commits?path='+encodeURIComponent(pg)+'&per_page=1').then(function(r){return r.json();}).then(function(d){var t=new Date(d[0].commit.committer.date);var ds=t.toLocaleDateString('en-US',{timeZone:'America/New_York',weekday:'short',month:'short',day:'numeric'});var tm=t.toLocaleTimeString('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit',hour12:true});badge.textContent=ds+' at '+tm+' ET';}).catch(function(){badge.textContent='unavailable';});}}
 updateClock();setInterval(updateClock,1000);
