@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: refresh-hub-dates
@@ -59,6 +60,8 @@ jobs:
           PY
 
       - name: Commit if changed
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           if git diff --quiet -- index.html; then
             echo "No date changes — nothing to commit."
@@ -70,6 +73,9 @@ jobs:
           git commit -m "Hub: refresh card dates from commit times"
           git pull --rebase origin main
           git push origin HEAD:main
+          # Pushes made with the built-in token don't trigger other workflows,
+          # so start the site deploy explicitly.
+          gh workflow run pages.yml --ref main
 
       - name: Verify page stays static
         run: |
