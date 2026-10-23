@@ -1,0 +1,78 @@
+name: Refresh hub card dates
+
+on:
+  schedule:
+    - cron: "17 * * * *"   # hourly at :17 UTC; change as you like
+  workflow_dispatch:        # lets you run it manually from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-hub-dates
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Stamp latest commit times into index.html
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          python3 - <<'PY'
+          import os, json, re, datetime, urllib.request, urllib.parse
+          from zoneinfo import ZoneInfo
+          ET = ZoneInfo("America/New_York")
+          token = os.environ["GH_TOKEN"]; repo = os.environ["REPO"]
+          m = [("movies-ts","movies.html"),("concert-ts","concerts.html"),
+               ("theater-ts","theater-update.html"),("tv-ts","tv-streaming.html"),
+               ("primary-ts","primary.html"),("bucksgov-ts","bucks-government.html"),
+               ("dcl-ts","dcl-monitor.html"),("disney-ts","disney-news.html")]
+          def fmt(iso):
+              dt = datetime.datetime.strptime(iso, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=datetime.timezone.utc)
+              return dt.astimezone(ET).strftime("%a, %b %-d at %-I:%M %p ET")
+          html = open("index.html", "r", encoding="utf-8").read()
+          for el, f in m:
+              url = "https://api.github.com/repos/%s/commits?path=%s&per_page=1&sha=main" % (repo, urllib.parse.quote(f))
+              req = urllib.request.Request(url, headers={
+                  "Authorization": "Bearer " + token,
+                  "Accept": "application/vnd.github+json",
+                  "User-Agent": "hub-date-baker"})
+              try:
+                  with urllib.request.urlopen(req, timeout=30) as r:
+                      arr = json.load(r)
+                  if not arr:
+                      continue
+                  txt = fmt(arr[0]["commit"]["committer"]["date"])
+              except Exception as e:
+                  print("WARN: could not fetch", f, e)
+                  continue
+              html = re.sub(r'(id="%s">)[^<]*(</span>)' % re.escape(el),
+                            lambda mm, t=txt: mm.group(1) + t + mm.group(2), html, count=1)
+          open("index.html", "w", encoding="utf-8").write(html)
+          PY
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "No date changes — nothing to commit."
+            exit 0
+          fi
+          git config user.name "Lisa Procz"
+          git config user.email "lisaprocz@gmail.com"
+          git add index.html
+          git commit -m "Hub: refresh card dates from commit times"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Verify page stays static
+        run: |
+          if grep -q "api.github.com" index.html; then
+            echo "index.html contains api.github.com"; exit 1
+          fi
