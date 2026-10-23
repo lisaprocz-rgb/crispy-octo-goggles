@@ -247,7 +247,7 @@ HEAD_TMPL = '''<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Philly & AC Concerts · Lisa's Hub</title>
+<title>Philly &amp; AC Concerts · Lisa's Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -282,8 +282,8 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 <body>
 <header>
 <div class="hub-label"><a href="index.html">&larr; Lisa's Hub</a></div>
-<h1>Music Philly & AC Concerts</h1>
-<div class="subtitle">Upcoming shows at Philadelphia, Atlantic City & NYC venues</div>
+<h1>🎵 Philly &amp; AC Concerts</h1>
+<div class="subtitle">Upcoming shows at Philadelphia, Atlantic City &amp; NYC venues</div>
 <div class="gold-line"></div>
 <div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
 <div style="margin-top:.9rem;font-size:.85rem;font-weight:700;color:#6b6f8c;">Generated: __HEADER_GEN__</div>
