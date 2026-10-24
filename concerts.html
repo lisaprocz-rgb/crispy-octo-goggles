@@ -1,429 +1,391 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Philly &amp; AC Concerts · Lisa's Hub</title>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&amp;family=Nunito:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Nunito',sans-serif;min-height:100vh;color:#1f2440;
-  background:#fff8f0;
-  background-image:radial-gradient(#ffd23f 2px,transparent 2px),
-                   radial-gradient(#ff5c8a 2px,transparent 2px);
-  background-size:60px 60px;background-position:0 0,30px 30px}
+body{font-family:'Nunito',sans-serif;min-height:100vh;color:#1f2440;background:#fff8f0;background-image:radial-gradient(#ffd23f 2px,transparent 2px),radial-gradient(#ff5c8a 2px,transparent 2px);background-size:60px 60px;background-position:0 0,30px 30px}
 header{text-align:center;padding:2.6rem 1.5rem 1.8rem;position:relative}
-.hub-label{font-family:'Baloo 2';font-weight:700;font-size:.78rem;letter-spacing:.28em;
-  text-transform:uppercase;color:#ff5c8a;margin-bottom:.6rem}
+.hub-label{font-family:'Baloo 2';font-weight:700;font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:#ff5c8a;margin-bottom:.6rem}
 .hub-label a{color:#ff5c8a;text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:2px}
 .hub-label a:hover{color:#1f2440;border-bottom-color:#1f2440}
-h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;color:#1f2440;
-  line-height:1;text-shadow:4px 4px 0 #a78bfa}
+h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;color:#1f2440;line-height:1;text-shadow:4px 4px 0 #a78bfa}
 .subtitle{font-size:.95rem;margin-top:.75rem;color:#6b6f8c;font-weight:700}
-.gold-line{width:120px;height:8px;margin:1.1rem auto 0;border-radius:8px;
-  background:repeating-linear-gradient(90deg,#ff5c8a 0 16px,#3ec6e0 16px 32px,#ffd23f 32px 48px)}
-.live-clock{margin-top:1.1rem;display:inline-block;background:#1f2440;color:#fff;
-  padding:.5rem 1.3rem;border-radius:14px;font-family:'Baloo 2';font-weight:600;
-  font-size:.92rem;box-shadow:4px 4px 0 #ff5c8a}
+.gold-line{width:120px;height:8px;margin:1.1rem auto 0;border-radius:8px;background:repeating-linear-gradient(90deg,#ff5c8a 0 16px,#3ec6e0 16px 32px,#ffd23f 32px 48px)}
+.live-clock{margin-top:1.1rem;display:inline-block;background:#1f2440;color:#fff;padding:.5rem 1.3rem;border-radius:14px;font-family:'Baloo 2';font-weight:600;font-size:.92rem;box-shadow:4px 4px 0 #ff5c8a}
 .live-clock .clock-date{color:#ffd23f}.live-clock .clock-time{color:#fff}
 main{max-width:1080px;margin:0 auto;padding:1rem 1.4rem 4rem}
 .section-divider{display:flex;align-items:center;gap:.9rem;margin:2.4rem 0 1.2rem}
-section:first-of-type .section-divider, .section-group:first-child .section-divider{margin-top:.4rem}
-.divider-accent{width:22px;height:22px;background:#ffd23f;border:3px solid #1f2440;
-  border-radius:6px;transform:rotate(45deg);flex-shrink:0}
-.divider-label{font-family:'Baloo 2';font-size:1.4rem;font-weight:800;color:#1f2440;
-  background:#fff;padding:.1rem .9rem;border:3px solid #1f2440;border-radius:14px;
-  box-shadow:3px 3px 0 #3ec6e0}
+section:first-of-type .section-divider{margin-top:.4rem}
+.divider-accent{width:22px;height:22px;background:#ffd23f;border:3px solid #1f2440;border-radius:6px;transform:rotate(45deg);flex-shrink:0}
+.divider-label{font-family:'Baloo 2';font-size:1.4rem;font-weight:800;color:#1f2440;background:#fff;padding:.1rem .9rem;border:3px solid #1f2440;border-radius:14px;box-shadow:3px 3px 0 #3ec6e0}
 .divider-line{flex:1;height:4px;border-radius:4px;background:#1f2440;opacity:.15}
-.sub-label{font-family:'Baloo 2';font-weight:700;font-size:.95rem;color:#1f2440;
-  margin:1.2rem 0 .6rem;text-transform:uppercase;letter-spacing:.06em}
-.card{position:relative;display:block;background:#fff;color:#1f2440;text-decoration:none;
-  border:3px solid #1f2440;border-radius:18px;padding:1.2rem 1.4rem;
-  box-shadow:6px 6px 0 var(--accent,#ff5c8a);margin-bottom:1rem;
-  transition:transform .16s ease,box-shadow .16s ease}
+.card{display:block;background:#fff;color:#1f2440;border:3px solid #1f2440;border-radius:18px;padding:1.2rem 1.4rem;box-shadow:6px 6px 0 var(--accent,#ff5c8a);margin-bottom:1rem;transition:transform .16s ease,box-shadow .16s ease}
 .card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--accent,#ff5c8a)}
-.card strong, .card .card-title{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;
-  display:block;margin-bottom:.3rem;color:#1f2440}
+.card strong{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;display:block;margin-bottom:.3rem;color:#1f2440}
 .card .sub{display:block;color:#6b6f8c;font-size:.86rem;font-weight:600;line-height:1.5;margin-top:.15rem}
-.card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
-  background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
-  border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
-.card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
-.card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
-.card-green{--accent:#3dd6b5}.card-lime{--accent:#7bd957}.card-orange{--accent:#ffb84d}
-.card-lblue{--accent:#4fc3f7}.card-sopink{--accent:#ff8fc7}.card-lavender{--accent:#b79cff}
-.back-to-hub{display:inline-block;font-family:'Baloo 2';font-size:.85rem;font-weight:700;
-  background:#fff;color:#1f2440;text-decoration:none;padding:.45rem 1.1rem;border-radius:999px;
-  border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem;
-  transition:transform .16s ease,box-shadow .16s ease}
-.back-to-hub:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #ffd23f}
-table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;
-  border:3px solid #1f2440;border-radius:14px;overflow:hidden;margin:.8rem 0 1.4rem;
-  font-size:.9rem}
-th{background:#1f2440;color:#fff;font-family:'Baloo 2';font-weight:700;text-align:left;
-  padding:.55rem .85rem;font-size:.85rem;letter-spacing:.03em}
-td{padding:.5rem .85rem;border-top:2px dotted #e6e2d8;font-weight:600}
-tr:first-child td{border-top:none}
-ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
-li{margin-bottom:.25rem}
-p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
-a:not(.card):not(.back-to-hub):not(.hub-label a){color:#1f2440;font-weight:700;
-  text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
-a:not(.card):not(.back-to-hub):not(.hub-label a):hover{color:#ff5c8a;border-bottom-color:#1f2440}
-.callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
-  box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
-.callout strong{font-family:'Baloo 2'}
+.card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}.card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}.card-green{--accent:#3dd6b5}.card-lime{--accent:#7bd957}.card-orange{--accent:#ffb84d}.card-lblue{--accent:#4fc3f7}.card-sopink{--accent:#ff8fc7}.card-lavender{--accent:#b79cff}
 footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
 .footer-clock{margin-top:.4rem;color:#ff5c8a}
-.timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
-  font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
-@media (max-width:600px){
-  h1{font-size:2.4rem}
-  main{padding:1rem .9rem 3rem}
-  .card{padding:1rem 1.1rem}
-}
+.timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
+@media (max-width:600px){h1{font-size:2.4rem}main{padding:1rem .9rem 3rem}.card{padding:1rem 1.1rem}}
 </style>
 </head>
 <body>
 <header>
-<div class="hub-label"><a href="index.html">← Lisa's Hub</a></div>
+<div class="hub-label"><a href="index.html">&larr; Lisa's Hub</a></div>
 <h1>🎵 Philly &amp; AC Concerts</h1>
 <div class="subtitle">Upcoming shows at Philadelphia, Atlantic City &amp; NYC venues</div>
 <div class="gold-line"></div>
 <div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
+<div style="margin-top:.9rem;font-size:.85rem;font-weight:700;color:#6b6f8c;">Generated: Sat, Oct 24, 2026 · 11:46 AM ET (15:46 UTC) · All content fetched live this run — no cached data used.</div>
 </header>
 <main>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Academy of Music · Philadelphia, PA</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-purple"><strong>The Great Gatsby</strong><span class="sub">Oct 20 – Nov 1, 2026</span></div>
-<div class="card card-purple"><strong>AC2: An Intimate Evening With Anderson Cooper &amp; Andy Cohen</strong><span class="sub">Nov 14, 2026 · 8:00 PM</span></div>
-<div class="card card-purple"><strong>BOOP! The Musical</strong><span class="sub">Nov 17 – 29, 2026</span></div>
-<div class="card card-purple"><strong>Alicia Keys' Hell's Kitchen</strong><span class="sub">Jan 5 – 17, 2027</span></div>
-<div class="card card-purple"><strong>Waitress</strong><span class="sub">Feb 9 – 14, 2027</span></div>
-<div class="card card-purple"><strong>Cinderella</strong><span class="sub">Mar 4 – 14, 2027</span></div>
-<div class="card card-purple"><strong>Maybe Happy Ending</strong><span class="sub">Mar 23 – Apr 4, 2027</span></div>
-<div class="card card-purple"><strong>The Phantom of the Opera</strong><span class="sub">Jun 9 – 20, 2027</span></div>
-<div class="card card-purple"><strong>Harry Potter and the Cursed Child</strong><span class="sub">Jul 28 – Aug 8, 2027</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Academy of Music · Philadelphia, PA</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-purple"><strong>The Great Gatsby</strong><span class="sub">Oct 20 – Nov 1, 2026</span></div>
+    <div class="card card-purple"><strong>AC2: An Intimate Evening With Anderson Cooper &amp; Andy Cohen</strong><span class="sub">Nov 14, 2026 · 8:00 PM</span></div>
+    <div class="card card-purple"><strong>BOOP! The Musical</strong><span class="sub">Nov 17 – 29, 2026</span></div>
+    <div class="card card-purple"><strong>Alicia Keys&#x27; Hell&#x27;s Kitchen</strong><span class="sub">Jan 5 – 17, 2027</span></div>
+    <div class="card card-purple"><strong>Waitress</strong><span class="sub">Feb 9 – 14, 2027</span></div>
+    <div class="card card-purple"><strong>Cinderella</strong><span class="sub">Mar 4 – 14, 2027</span></div>
+    <div class="card card-purple"><strong>Maybe Happy Ending</strong><span class="sub">Mar 23 – Apr 4, 2027</span></div>
+    <div class="card card-purple"><strong>The Phantom of the Opera</strong><span class="sub">Jun 9 – 20, 2027</span></div>
+    <div class="card card-purple"><strong>Harry Potter and the Cursed Child</strong><span class="sub">Jul 28 – Aug 8, 2027</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Kimmel Center · Philadelphia, PA</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-pink"><strong>No upcoming shows listed</strong><span class="sub">Check back soon</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Kimmel Center · Philadelphia, PA</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-pink"><strong>No upcoming shows listed</strong><span class="sub">Check back soon</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Kimmel Center - Miller Theater · Philadelphia, PA</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-lblue"><strong>Ilana Glazer Live!</strong><span class="sub">Nov 11, 2026 · 7:00 PM</span></div>
-<div class="card card-lblue"><strong>Jordan Klepper</strong><span class="sub">Nov 20, 2026 · 7:30 PM</span></div>
-<div class="card card-lblue"><strong>The Enchanted Nutcracker</strong><span class="sub">Dec 5 – 6, 2026</span></div>
-<div class="card card-lblue"><strong>Jim Gaffigan: Everything is Wonderful!</strong><span class="sub">Dec 10 – 12, 2026</span></div>
-<div class="card card-lblue"><strong>Riverdance 30 - The New Generation</strong><span class="sub">Mar 4 – 7, 2027</span></div>
-<div class="card card-lblue"><strong>Oh, Mary!</strong><span class="sub">Mar 9 – 14, 2027</span></div>
-<div class="card card-lblue"><strong>An Evening with David Sedaris</strong><span class="sub">Apr 5, 2027 · 7:30 PM</span></div>
-<div class="card card-lblue"><strong>Richard Thomas in Mark Twain Tonight!</strong><span class="sub">Apr 9, 2027 · 8:00 PM</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Kimmel Center - Miller Theater · Philadelphia, PA</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-lblue"><strong>Ilana Glazer Live!</strong><span class="sub">Nov 11, 2026 · 7:00 PM</span></div>
+    <div class="card card-lblue"><strong>Jordan Klepper</strong><span class="sub">Nov 20, 2026 · 7:30 PM</span></div>
+    <div class="card card-lblue"><strong>The Enchanted Nutcracker</strong><span class="sub">Dec 5 – 6, 2026</span></div>
+    <div class="card card-lblue"><strong>Jim Gaffigan: Everything is Wonderful!</strong><span class="sub">Dec 10 – 12, 2026</span></div>
+    <div class="card card-lblue"><strong>Riverdance 30 - The New Generation</strong><span class="sub">Mar 4 – 7, 2027</span></div>
+    <div class="card card-lblue"><strong>Oh, Mary!</strong><span class="sub">Mar 9 – 14, 2027</span></div>
+    <div class="card card-lblue"><strong>An Evening with David Sedaris</strong><span class="sub">Apr 5, 2027 · 7:30 PM</span></div>
+    <div class="card card-lblue"><strong>Richard Thomas in Mark Twain Tonight!</strong><span class="sub">Apr 9, 2027 · 8:00 PM</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Kimmel Center - Marian Anderson Hall · Philadelphia, PA</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-lavender"><strong>Broadway à la Nero</strong><span class="sub">Oct 24, 2026 · 3:00 PM</span></div>
-<div class="card card-lavender"><strong>Rocky at 50: The Legacy Concert</strong><span class="sub">Nov 13, 2026 · 7:30 PM</span></div>
-<div class="card card-lavender"><strong>Children's Holiday Spectacular</strong><span class="sub">Dec 5, 2026 · 11:30 AM</span></div>
-<div class="card card-lavender"><strong>A Soulful Christmas</strong><span class="sub">Dec 8, 2026 · 7:30 PM</span></div>
-<div class="card card-lavender"><strong>A Philly Holiday Spectacular</strong><span class="sub">Dec 11 – 13, 2026</span></div>
-<div class="card card-lavender"><strong>New Year's Eve Celebration</strong><span class="sub">Dec 31, 2026 · 7:00 PM</span></div>
-<div class="card card-lavender"><strong>Green Eggs and Ham</strong><span class="sub">May 1, 2027 · 11:30 AM</span></div>
-<div class="card card-lavender"><strong>May the Fourth: The Music of Star Wars</strong><span class="sub">May 4, 2027 · 7:00 PM</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Kimmel Center - Marian Anderson Hall · Philadelphia, PA</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-lavender"><strong>Broadway à la Nero</strong><span class="sub">Oct 24, 2026 · 3:00 PM</span></div>
+    <div class="card card-lavender"><strong>Rocky at 50: The Legacy Concert</strong><span class="sub">Nov 13, 2026 · 7:30 PM</span></div>
+    <div class="card card-lavender"><strong>Children&#x27;s Holiday Spectacular</strong><span class="sub">Dec 5, 2026 · 11:30 AM</span></div>
+    <div class="card card-lavender"><strong>A Soulful Christmas</strong><span class="sub">Dec 8, 2026 · 7:30 PM</span></div>
+    <div class="card card-lavender"><strong>A Philly Holiday Spectacular</strong><span class="sub">Dec 11 – 13, 2026</span></div>
+    <div class="card card-lavender"><strong>New Year&#x27;s Eve Celebration</strong><span class="sub">Dec 31, 2026 · 7:00 PM</span></div>
+    <div class="card card-lavender"><strong>Green Eggs and Ham</strong><span class="sub">May 1, 2027 · 11:30 AM</span></div>
+    <div class="card card-lavender"><strong>May the Fourth: The Music of Star Wars</strong><span class="sub">May 4, 2027 · 7:00 PM</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Perelman Theater · Philadelphia, PA</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-green"><strong>Sing Along Broadway</strong><span class="sub">Oct 30, 2026 · 7:00 PM</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Perelman Theater · Philadelphia, PA</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-green"><strong>Sing Along Broadway</strong><span class="sub">Oct 30, 2026 · 7:00 PM</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Forrest Theatre · Philadelphia, PA</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-magenta"><strong>The Book of Mormon</strong><span class="sub">Jan 26 – 31, 2027</span></div>
-<div class="card card-magenta"><strong>The Who's Tommy</strong><span class="sub">Apr 13 – 18, 2027</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Forrest Theatre · Philadelphia, PA</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-magenta"><strong>The Book of Mormon</strong><span class="sub">Jan 26 – 31, 2027</span></div>
+    <div class="card card-magenta"><strong>The Who&#x27;s Tommy</strong><span class="sub">Apr 13 – 18, 2027</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Commonwealth Plaza · Philadelphia, PA</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-sopink"><strong>Halloween Ball</strong><span class="sub">Oct 31, 2026 · 7:30 PM</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Commonwealth Plaza · Philadelphia, PA</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-sopink"><strong>Halloween Ball</strong><span class="sub">Oct 31, 2026 · 7:30 PM</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">The Met Philadelphia · Philadelphia, PA</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-cyan"><strong>MARVIN - The Marvin Gaye Musical</strong><span class="sub">Oct 31, 2026 · 8:00 PM</span></div>
-<div class="card card-cyan"><strong>Jerry Seinfeld</strong><span class="sub">Nov 21, 2026 · 8:00 PM</span></div>
-<div class="card card-cyan"><strong>Brett Goldstein: Sex, Death &amp; Small Talk</strong><span class="sub">Dec 3, 2026 · 7:00 PM</span></div>
-<div class="card card-cyan"><strong>Dalvin La Melodia</strong><span class="sub">Dec 10, 2026 · 8:00 PM</span></div>
-<div class="card card-cyan"><strong>'Twas the Night Before... by Cirque du Soleil</strong><span class="sub">Dec 17 – 27, 2026</span></div>
-<div class="card card-cyan"><strong>LOLA YOUNG - Everything Begins</strong><span class="sub">Apr 10, 2027 · 8:00 PM</span></div>
-<div class="card card-cyan"><strong>Carly Rae Jepsen: Day and Night Tour</strong><span class="sub">May 18, 2027 · 7:30 PM</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">The Met Philadelphia · Philadelphia, PA</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-cyan"><strong>MARVIN - The Marvin Gaye Musical</strong><span class="sub">Oct 31, 2026 · 8:00 PM</span></div>
+    <div class="card card-cyan"><strong>Jerry Seinfeld</strong><span class="sub">Nov 21, 2026 · 8:00 PM</span></div>
+    <div class="card card-cyan"><strong>Brett Goldstein: Sex, Death &amp; Small Talk</strong><span class="sub">Dec 3, 2026 · 7:00 PM</span></div>
+    <div class="card card-cyan"><strong>Dalvin La Melodia</strong><span class="sub">Dec 10, 2026 · 8:00 PM</span></div>
+    <div class="card card-cyan"><strong>&#x27;Twas the Night Before... by Cirque du Soleil</strong><span class="sub">Dec 17 – 27, 2026</span></div>
+    <div class="card card-cyan"><strong>LOLA YOUNG - Everything Begins</strong><span class="sub">Apr 10, 2027 · 8:00 PM</span></div>
+    <div class="card card-cyan"><strong>Carly Rae Jepsen: Day and Night Tour</strong><span class="sub">May 18, 2027 · 7:30 PM</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Xfinity Mobile Arena · Philadelphia, PA</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-yellow"><strong>Journey</strong><span class="sub">Oct 28, 2026 · 7:30 PM</span></div>
-<div class="card card-yellow"><strong>Olivia Rodrigo</strong><span class="sub">Nov 7 – 8, 2026</span></div>
-<div class="card card-yellow"><strong>Disney's Descendants &amp; Zombies: Worlds Collide</strong><span class="sub">Nov 13, 2026 · 7:00 PM</span></div>
-<div class="card card-yellow"><strong>Disney Descendants, Zombies &amp; Camp Rock: Worlds Collide Concert Tour</strong><span class="sub">Nov 13, 2026 · 7:00 PM</span></div>
-
-<div class="card card-yellow"><strong>Q102 iHeartRadio Jingle Ball</strong><span class="sub">Dec 15, 2026 · Charlie Puth, sombr, OneRepublic, Ludacris &amp; more</span></div>
-<div class="card card-yellow"><strong>Trans-Siberian Orchestra</strong><span class="sub">Dec 20, 2026</span></div>
-<div class="card card-yellow"><strong>Andrea Bocelli</strong><span class="sub">Dec 22, 2026 · 8:00 PM</span></div>
-<div class="card card-yellow"><strong>Dancing with the Stars: Live!</strong><span class="sub">Feb 4, 2027 · 7:30 PM</span></div>
-
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Xfinity Mobile Arena · Philadelphia, PA</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-yellow"><strong>Journey</strong><span class="sub">Oct 28, 2026 · 7:30 PM</span></div>
+    <div class="card card-yellow"><strong>Olivia Rodrigo</strong><span class="sub">Nov 7 – 8, 2026</span></div>
+    <div class="card card-yellow"><strong>Disney&#x27;s Descendants &amp; Zombies: Worlds Collide</strong><span class="sub">Nov 13, 2026 · 7:00 PM</span></div>
+    <div class="card card-yellow"><strong>Disney Descendants, Zombies &amp; Camp Rock: Worlds Collide Concert Tour</strong><span class="sub">Nov 13, 2026 · 7:00 PM</span></div>
+    <div class="card card-yellow"><strong>Trans-Siberian Orchestra</strong><span class="sub">Dec 20 – Dec 21, 2026</span></div>
+    <div class="card card-yellow"><strong>Andrea Bocelli</strong><span class="sub">Dec 22, 2026 · 8:00 PM</span></div>
+    <div class="card card-yellow"><strong>Dancing with the Stars: Live!</strong><span class="sub">Feb 4, 2027 · 7:30 PM</span></div>
+    <div class="card card-yellow"><strong>Def Leppard and Goo Goo Dolls</strong><span class="sub">Jun 27, 2027 · 7:00 PM</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">TD Pavilion at Highmark Mann · Philadelphia, PA</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-lime"><strong>No upcoming shows listed</strong><span class="sub">Check back soon</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">TD Pavilion at Highmark Mann · Philadelphia, PA</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-lime"><strong>No upcoming shows listed</strong><span class="sub">Check back soon</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Skyline Stage at Highmark Mann · Philadelphia, PA</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-lblue"><strong>No upcoming shows listed</strong><span class="sub">Check back soon</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Skyline Stage at Highmark Mann · Philadelphia, PA</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-lblue"><strong>No upcoming shows listed</strong><span class="sub">Check back soon</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Lincoln Field · Philadelphia, PA</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-sopink"><strong>Luke Combs - My Kinda Saturday Night Tour</strong><span class="sub">Apr 24, 2027 · 7:00 PM</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Lincoln Field · Philadelphia, PA</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-sopink"><strong>Luke Combs - My Kinda Saturday Night Tour</strong><span class="sub">Apr 24, 2027 · 7:00 PM</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Citizens Park · Philadelphia, PA</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-green"><strong>No upcoming shows listed</strong><span class="sub">Check back soon</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Citizens Park · Philadelphia, PA</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-green"><strong>No upcoming shows listed</strong><span class="sub">Check back soon</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Xcite Parx · Bensalem, PA</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-orange"><strong>Sebastian Bach</strong><span class="sub">Oct 23, 2026 · 8:00 PM</span></div>
-<div class="card card-orange"><strong>America - The Band</strong><span class="sub">Oct 31, 2026 · 7:00 PM</span></div>
-<div class="card card-orange"><strong>The All-American Rejects</strong><span class="sub">Nov 12, 2026 · 8:00 PM</span></div>
-<div class="card card-orange"><strong>Tommy Chong</strong><span class="sub">Nov 21, 2026 · 8:00 PM</span></div>
-<div class="card card-orange"><strong>Rick Springfield</strong><span class="sub">Dec 3, 2026 · 8:00 PM</span></div>
-<div class="card card-orange"><strong>Michelle Wolf</strong><span class="sub">Dec 5, 2026 · 8:00 PM</span></div>
-<div class="card card-orange"><strong>Get The Led Out</strong><span class="sub">Dec 17, 2026 · 8:00 PM</span></div>
-<div class="card card-orange"><strong>Lady A</strong><span class="sub">Dec 18, 2026 · 8:00 PM</span></div>
-<div class="card card-orange"><strong>Bee Gees Gold - A Tribute to The Bee Gees</strong><span class="sub">Jan 16, 2027 · 8:00 PM</span></div>
-<div class="card card-orange"><strong>Almost Queen - A Tribute To Queen</strong><span class="sub">Jan 23, 2027 · 8:00 PM</span></div>
-<div class="card card-orange"><strong>The Magic of Manilow</strong><span class="sub">Feb 12, 2027 · 8:00 PM</span></div>
-<div class="card card-orange"><strong>Bachman-Turner Overdrive</strong><span class="sub">Feb 27, 2027 · 8:00 PM</span></div>
-<div class="card card-orange"><strong>Andrew Dice Clay</strong><span class="sub">May 22, 2027 · 8:00 PM</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Xcite Parx · Bensalem, PA</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-orange"><strong>America - The Band</strong><span class="sub">Oct 31, 2026 · 7:00 PM</span></div>
+    <div class="card card-orange"><strong>The All-American Rejects</strong><span class="sub">Nov 12, 2026 · 8:00 PM</span></div>
+    <div class="card card-orange"><strong>Tommy Chong</strong><span class="sub">Nov 21, 2026 · 8:00 PM</span></div>
+    <div class="card card-orange"><strong>Rick Springfield</strong><span class="sub">Dec 3, 2026 · 8:00 PM</span></div>
+    <div class="card card-orange"><strong>Michelle Wolf</strong><span class="sub">Dec 5, 2026 · 8:00 PM</span></div>
+    <div class="card card-orange"><strong>Get The Led Out</strong><span class="sub">Dec 17, 2026 · 8:00 PM</span></div>
+    <div class="card card-orange"><strong>Lady A</strong><span class="sub">Dec 18, 2026 · 8:00 PM</span></div>
+    <div class="card card-orange"><strong>Bee Gees Gold - A Tribute to The Bee Gees</strong><span class="sub">Jan 16, 2027 · 8:00 PM</span></div>
+    <div class="card card-orange"><strong>Almost Queen - A Tribute To Queen</strong><span class="sub">Jan 23, 2027 · 8:00 PM</span></div>
+    <div class="card card-orange"><strong>The Magic of Manilow</strong><span class="sub">Feb 12, 2027 · 8:00 PM</span></div>
+    <div class="card card-orange"><strong>Bachman-Turner Overdrive</strong><span class="sub">Feb 27, 2027 · 8:00 PM</span></div>
+    <div class="card card-orange"><strong>Andrew Dice Clay</strong><span class="sub">May 22, 2027 · 8:00 PM</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Sellersville Theater · Sellersville, PA</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-cyan"><strong>Bill Haley, Jr. and the Comets</strong><span class="sub">Nov 1, 2026 · 2:00 PM</span></div>
-<div class="card card-cyan"><strong>Herman's Hermits &amp; Peter Noone</strong><span class="sub">Nov 13, 2026 · 6:00 PM</span></div>
-<div class="card card-cyan"><strong>Herman's Hermits starring Peter Noone (6 PM)</strong><span class="sub">Nov 13, 2026 · 6:00 PM</span></div>
-<div class="card card-cyan"><strong>Herman's Hermits starring Peter Noone (9 PM)</strong><span class="sub">Nov 13, 2026 · 9:00 PM</span></div>
-<div class="card card-cyan"><strong>Jim Messina</strong><span class="sub">Nov 20, 2026 · 8:00 PM</span></div>
-<div class="card card-cyan"><strong>Christmas With The Rat Pack with Live Big Band</strong><span class="sub">Nov 22, 2026 · 2:00 PM</span></div>
-<div class="card card-cyan"><strong>Gregg Allman: The Music Of My Soul</strong><span class="sub">Nov 23, 2026 · 7:30 PM</span></div>
-<div class="card card-cyan"><strong>Grateful Dead Tribute Box Of Rain plays American Beauty and Workingman's Dead</strong><span class="sub">Nov 25, 2026 · 7:30 PM</span></div>
-<div class="card card-cyan"><strong>The Duprees - Holiday &amp; Hits</strong><span class="sub">Nov 28, 2026 · 2:00 PM</span></div>
-<div class="card card-cyan"><strong>Free Movie: Elf</strong><span class="sub">Nov 30, 2026 · 7:30 PM</span></div>
-<div class="card card-cyan"><strong>Paula Poundstone</strong><span class="sub">Dec 5, 2026 · 8:00 PM</span></div>
-<div class="card card-cyan"><strong>Rickie Lee Jones</strong><span class="sub">Dec 9, 2026 · 7:30 PM</span></div>
-<div class="card card-cyan"><strong>Beatlemania Now is Fab Forever! (3 PM)</strong><span class="sub">Dec 19, 2026 · 3:00 PM</span></div>
-<div class="card card-cyan"><strong>Beatlemania Now is Fab Forever! (8 PM)</strong><span class="sub">Dec 19, 2026 · 8:00 PM</span></div>
-<div class="card card-cyan"><strong>Free Movie: It's A Wonderful Life</strong><span class="sub">Dec 21, 2026 · 7:30 PM</span></div>
-<div class="card card-cyan"><strong>An Evening of Charlie Brown Jazz with the Eric Mintel Quartet</strong><span class="sub">Dec 22, 2026 · 7:30 PM</span></div>
-<div class="card card-cyan"><strong>Eddie Bruce Sings Songs for the Season</strong><span class="sub">Dec 23, 2026 · 7:30 PM</span></div>
-<div class="card card-cyan"><strong>Earth, Wind &amp; Fire Review</strong><span class="sub">Jan 16, 2027 · 8:00 PM</span></div>
-<div class="card card-cyan"><strong>Gold Rush - The Ultimate Neil Young Celebration</strong><span class="sub">Jan 21, 2027 · 8:00 PM</span></div>
-<div class="card card-cyan"><strong>Bruce In The USA: The World's #1 Tribute to Bruce Springsteen &amp; The E Street Band</strong><span class="sub">Feb 5 – 6, 2027</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Sellersville Theater · Sellersville, PA</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-cyan"><strong>Bill Haley, Jr. and the Comets</strong><span class="sub">Nov 1, 2026 · 2:00 PM</span></div>
+    <div class="card card-cyan"><strong>Herman&#x27;s Hermits &amp; Peter Noone</strong><span class="sub">Nov 13, 2026 · 6:00 PM</span></div>
+    <div class="card card-cyan"><strong>Herman&#x27;s Hermits starring Peter Noone (6 PM)</strong><span class="sub">Nov 13, 2026 · 6:00 PM</span></div>
+    <div class="card card-cyan"><strong>Herman&#x27;s Hermits starring Peter Noone (9 PM)</strong><span class="sub">Nov 13, 2026 · 9:00 PM</span></div>
+    <div class="card card-cyan"><strong>Jim Messina</strong><span class="sub">Nov 20, 2026 · 8:00 PM</span></div>
+    <div class="card card-cyan"><strong>Christmas With The Rat Pack with Live Big Band</strong><span class="sub">Nov 22, 2026 · 2:00 PM</span></div>
+    <div class="card card-cyan"><strong>Gregg Allman: The Music Of My Soul</strong><span class="sub">Nov 23, 2026 · 7:30 PM</span></div>
+    <div class="card card-cyan"><strong>Grateful Dead Tribute Box Of Rain plays American Beauty and Workingman&#x27;s Dead</strong><span class="sub">Nov 25, 2026 · 7:30 PM</span></div>
+    <div class="card card-cyan"><strong>The Duprees - Holiday &amp; Hits</strong><span class="sub">Nov 28, 2026 · 2:00 PM</span></div>
+    <div class="card card-cyan"><strong>Free Movie: Elf</strong><span class="sub">Nov 30, 2026 · 7:30 PM</span></div>
+    <div class="card card-cyan"><strong>Paula Poundstone</strong><span class="sub">Dec 5, 2026 · 8:00 PM</span></div>
+    <div class="card card-cyan"><strong>Rickie Lee Jones</strong><span class="sub">Dec 9, 2026 · 7:30 PM</span></div>
+    <div class="card card-cyan"><strong>Beatlemania Now is Fab Forever! (3 PM)</strong><span class="sub">Dec 19, 2026 · 3:00 PM</span></div>
+    <div class="card card-cyan"><strong>Beatlemania Now is Fab Forever! (8 PM)</strong><span class="sub">Dec 19, 2026 · 8:00 PM</span></div>
+    <div class="card card-cyan"><strong>Free Movie: It&#x27;s A Wonderful Life</strong><span class="sub">Dec 21, 2026 · 7:30 PM</span></div>
+    <div class="card card-cyan"><strong>An Evening of Charlie Brown Jazz with the Eric Mintel Quartet</strong><span class="sub">Dec 22, 2026 · 7:30 PM</span></div>
+    <div class="card card-cyan"><strong>Eddie Bruce Sings Songs for the Season</strong><span class="sub">Dec 23, 2026 · 7:30 PM</span></div>
+    <div class="card card-cyan"><strong>Earth, Wind &amp; Fire Review</strong><span class="sub">Jan 16, 2027 · 8:00 PM</span></div>
+    <div class="card card-cyan"><strong>Gold Rush - The Ultimate Neil Young Celebration</strong><span class="sub">Jan 21, 2027 · 8:00 PM</span></div>
+    <div class="card card-cyan"><strong>Bruce In The USA: The World&#x27;s #1 Tribute to Bruce Springsteen &amp; The E Street Band</strong><span class="sub">Feb 5 – 6, 2027</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Bucks County Playhouse · New Hope, PA</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-green"><strong>Irving Berlin's Holiday Inn: The New Irving Berlin Musical</strong><span class="sub">Nov 19, 2026 – Jan 3, 2027</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Bucks County Playhouse · New Hope, PA</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-green"><strong>Irving Berlin&#x27;s Holiday Inn: The New Irving Berlin Musical</strong><span class="sub">Nov 19, 2026 – Jan 3, 2027</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Keswick Theatre · Glenside, PA</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-yellow"><strong>Glenn Miller Orchestra</strong><span class="sub">Oct 26, 2026 · 7:00 PM</span></div>
-<div class="card card-yellow"><strong>Hokus Pokus Live!</strong><span class="sub">Oct 28, 2026 · 8:00 PM</span></div>
-<div class="card card-yellow"><strong>Michael Feinstein</strong><span class="sub">Nov 1, 2026 · 8:00 PM</span></div>
-<div class="card card-yellow"><strong>An Evening with The Hooters</strong><span class="sub">Nov 6 – 7, 2026</span></div>
-<div class="card card-yellow"><strong>The Ultimate Tribute to the BeeGees</strong><span class="sub">Nov 21, 2026 · 8:00 PM</span></div>
-<div class="card card-yellow"><strong>The Machine Performs Pink Floyd</strong><span class="sub">Nov 27 – 28, 2026</span></div>
-<div class="card card-yellow"><strong>EagleMania</strong><span class="sub">Dec 5, 2026 · 8:00 PM</span></div>
-<div class="card card-yellow"><strong>Chris Isaak</strong><span class="sub">Dec 8, 2026 · 7:30 PM</span></div>
-<div class="card card-yellow"><strong>Darlene Love</strong><span class="sub">Dec 16, 2026 · 8:00 PM</span></div>
-<div class="card card-yellow"><strong>An American Celtic Christmas</strong><span class="sub">Dec 19, 2026 · 7:30 PM</span></div>
-<div class="card card-yellow"><strong>Matthew Morrison</strong><span class="sub">Mar 16, 2027 · 8:00 PM</span></div>
-<div class="card card-yellow"><strong>John Cleese</strong><span class="sub">Mar 18, 2027 · 7:00 PM</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Keswick Theatre · Glenside, PA</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-yellow"><strong>Glenn Miller Orchestra</strong><span class="sub">Oct 26, 2026 · 7:00 PM</span></div>
+    <div class="card card-yellow"><strong>Michael Feinstein</strong><span class="sub">Nov 1, 2026 · 8:00 PM</span></div>
+    <div class="card card-yellow"><strong>An Evening with The Hooters</strong><span class="sub">Nov 6 – 7, 2026</span></div>
+    <div class="card card-yellow"><strong>The Ultimate Tribute to the BeeGees</strong><span class="sub">Nov 21, 2026 · 8:00 PM</span></div>
+    <div class="card card-yellow"><strong>The Machine Performs Pink Floyd</strong><span class="sub">Nov 27 – 28, 2026</span></div>
+    <div class="card card-yellow"><strong>EagleMania</strong><span class="sub">Dec 5, 2026 · 8:00 PM</span></div>
+    <div class="card card-yellow"><strong>Chris Isaak</strong><span class="sub">Dec 8, 2026 · 7:30 PM</span></div>
+    <div class="card card-yellow"><strong>Darlene Love</strong><span class="sub">Dec 16 – Dec 17, 2026</span></div>
+    <div class="card card-yellow"><strong>An American Celtic Christmas</strong><span class="sub">Dec 19, 2026 · 7:30 PM</span></div>
+    <div class="card card-yellow"><strong>Matthew Morrison</strong><span class="sub">Mar 16, 2027 · 8:00 PM</span></div>
+    <div class="card card-yellow"><strong>John Cleese</strong><span class="sub">Mar 18, 2027 · 7:00 PM</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Music Mountain Theatre · Lambertville, NJ</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-blue"><strong>It's a Wonderful Life: The Musical</strong><span class="sub">Oct 23 – Nov 15, 2026</span></div>
-<div class="card card-blue"><strong>James and the Giant Peach</strong><span class="sub">Oct 31 – Nov 14, 2026</span></div>
-<div class="card card-blue"><strong>A Christmas Carol</strong><span class="sub">Nov 20 – Dec 13, 2026</span></div>
-<div class="card card-blue"><strong>Sweets with Santa</strong><span class="sub">Dec 6, 2026 · 10:00 AM</span></div>
-<div class="card card-blue"><strong>Big Band Holiday Concert</strong><span class="sub">Dec 18 – 20, 2026</span></div>
-<div class="card card-blue"><strong>A Midsummer Night's Dream</strong><span class="sub">Jan 8 – 24, 2027</span></div>
-<div class="card card-blue"><strong>Disney's Frozen Kids</strong><span class="sub">Jan 16 – Feb 6, 2027</span></div>
-<div class="card card-blue"><strong>The Wizard of Oz</strong><span class="sub">Jan 29 – Feb 21, 2027</span></div>
-<div class="card card-blue"><strong>Camelot</strong><span class="sub">Feb 26 – Mar 21, 2027</span></div>
-<div class="card card-blue"><strong>Madagascar Kids</strong><span class="sub">Mar 20 – Apr 10, 2027</span></div>
-<div class="card card-blue"><strong>Godspell</strong><span class="sub">Mar 26 – Apr 11, 2027</span></div>
-<div class="card card-blue"><strong>Something Rotten!</strong><span class="sub">Apr 16 – May 9, 2027</span></div>
-<div class="card card-blue"><strong>Disney's Moana Jr.</strong><span class="sub">Apr 24 – May 15, 2027</span></div>
-<div class="card card-blue"><strong>Curtains</strong><span class="sub">May 14 – Jun 6, 2027</span></div>
-<div class="card card-blue"><strong>Jack and the Giant</strong><span class="sub">May 29 – Jun 12, 2027</span></div>
-<div class="card card-blue"><strong>Bye Bye Birdie</strong><span class="sub">Jun 11 – Jul 4, 2027</span></div>
-<div class="card card-blue"><strong>Disney's Newsies</strong><span class="sub">Jul 9 – Aug 1, 2027</span></div>
-<div class="card card-blue"><strong>Cinderella</strong><span class="sub">Jul 16 – 24, 2027</span></div>
-<div class="card card-blue"><strong>High School Musical Jr.</strong><span class="sub">Jul 30 – Aug 14, 2027</span></div>
-<div class="card card-blue"><strong>Mean Girls</strong><span class="sub">Aug 6 – 29, 2027</span></div>
-<div class="card card-blue"><strong>Pinocchio</strong><span class="sub">Aug 20 – 28, 2027</span></div>
-<div class="card card-blue"><strong>Dear Evan Hansen</strong><span class="sub">Sep 3 – 26, 2027</span></div>
-<div class="card card-blue"><strong>Lion King Kids</strong><span class="sub">Sep 11 – 25, 2027</span></div>
-<div class="card card-blue"><strong>Holiday Show (TBA)</strong><span class="sub">Oct 22 – Nov 14, 2027</span></div>
-<div class="card card-blue"><strong>A Christmas Carol (2027)</strong><span class="sub">Nov 19 – Dec 12, 2027</span></div>
-<div class="card card-blue"><strong>A Holiday Concert</strong><span class="sub">Dec 17 – 19, 2027</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Music Mountain Theatre · Lambertville, NJ</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-blue"><strong>It&#x27;s a Wonderful Life: The Musical</strong><span class="sub">Oct 23 – Nov 15, 2026</span></div>
+    <div class="card card-blue"><strong>James and the Giant Peach</strong><span class="sub">Oct 31 – Nov 14, 2026</span></div>
+    <div class="card card-blue"><strong>A Christmas Carol</strong><span class="sub">Nov 20 – Dec 13, 2026</span></div>
+    <div class="card card-blue"><strong>Sweets with Santa</strong><span class="sub">Dec 6, 2026 · 10:00 AM</span></div>
+    <div class="card card-blue"><strong>Big Band Holiday Concert</strong><span class="sub">Dec 18 – 20, 2026</span></div>
+    <div class="card card-blue"><strong>A Midsummer Night&#x27;s Dream</strong><span class="sub">Jan 8 – 24, 2027</span></div>
+    <div class="card card-blue"><strong>Disney&#x27;s Frozen Kids</strong><span class="sub">Jan 16 – Feb 6, 2027</span></div>
+    <div class="card card-blue"><strong>The Wizard of Oz</strong><span class="sub">Jan 29 – Feb 21, 2027</span></div>
+    <div class="card card-blue"><strong>Camelot</strong><span class="sub">Feb 26 – Mar 21, 2027</span></div>
+    <div class="card card-blue"><strong>Madagascar Kids</strong><span class="sub">Mar 20 – Apr 10, 2027</span></div>
+    <div class="card card-blue"><strong>Godspell</strong><span class="sub">Mar 26 – Apr 11, 2027</span></div>
+    <div class="card card-blue"><strong>Something Rotten!</strong><span class="sub">Apr 16 – May 9, 2027</span></div>
+    <div class="card card-blue"><strong>Disney&#x27;s Moana Jr.</strong><span class="sub">Apr 24 – May 15, 2027</span></div>
+    <div class="card card-blue"><strong>Curtains</strong><span class="sub">May 14 – Jun 6, 2027</span></div>
+    <div class="card card-blue"><strong>Jack and the Giant</strong><span class="sub">May 29 – Jun 12, 2027</span></div>
+    <div class="card card-blue"><strong>Bye Bye Birdie</strong><span class="sub">Jun 11 – Jul 4, 2027</span></div>
+    <div class="card card-blue"><strong>Disney&#x27;s Newsies</strong><span class="sub">Jul 9 – Aug 1, 2027</span></div>
+    <div class="card card-blue"><strong>Cinderella</strong><span class="sub">Jul 16 – 24, 2027</span></div>
+    <div class="card card-blue"><strong>High School Musical Jr.</strong><span class="sub">Jul 30 – Aug 14, 2027</span></div>
+    <div class="card card-blue"><strong>Mean Girls</strong><span class="sub">Aug 6 – 29, 2027</span></div>
+    <div class="card card-blue"><strong>Pinocchio</strong><span class="sub">Aug 20 – 28, 2027</span></div>
+    <div class="card card-blue"><strong>Dear Evan Hansen</strong><span class="sub">Sep 3 – 26, 2027</span></div>
+    <div class="card card-blue"><strong>Lion King Kids</strong><span class="sub">Sep 11 – 25, 2027</span></div>
+    <div class="card card-blue"><strong>The Great Pumpkin (Children&#x27;s Theatre)</strong><span class="sub">Oct 9 – Oct 30, 2027</span></div>
+    <div class="card card-blue"><strong>Holiday Show (TBA)</strong><span class="sub">Oct 22 – Nov 14, 2027</span></div>
+    <div class="card card-blue"><strong>A Christmas Carol (2027)</strong><span class="sub">Nov 19 – Dec 12, 2027</span></div>
+    <div class="card card-blue"><strong>A Holiday Concert</strong><span class="sub">Dec 17 – 19, 2027</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Freedom Mortgage Pavilion · Camden, NJ</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-blue"><strong>No upcoming shows listed</strong><span class="sub">Check back soon</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Freedom Mortgage Pavilion · Camden, NJ</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-blue"><strong>No upcoming shows listed</strong><span class="sub">Check back soon</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Sound Waves Hard Rock · Atlantic City, NJ</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-orange"><strong>Richard Marx</strong><span class="sub">Dec 18, 2026 · 8:00 PM</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Sound Waves Hard Rock · Atlantic City, NJ</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-orange"><strong>Richard Marx</strong><span class="sub">Dec 18, 2026 · 8:00 PM</span></div>
+    <div class="card card-orange"><strong>The Kolors</strong><span class="sub">Nov 6, 2027</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Hard Rock Etess · Atlantic City, NJ</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-orange"><strong>Chicago - The Band</strong><span class="sub">Nov 6 – 7, 2026</span></div>
-<div class="card card-orange"><strong>Jefferson Starship</strong><span class="sub">Nov 20, 2026 · 8:00 PM</span></div>
-<div class="card card-orange"><strong>Pooh</strong><span class="sub">Nov 21, 2026</span></div>
-<div class="card card-orange"><strong>The Temptations and The Four Tops</strong><span class="sub">Nov 27, 2026 · 8:00 PM</span></div>
-<div class="card card-orange"><strong>Paul Anka - You Are My Destiny Tour</strong><span class="sub">Dec 4, 2026 · 8:00 PM</span></div>
-<div class="card card-orange"><strong>The Music of Billy Joel featuring The Billy Joel Band</strong><span class="sub">Dec 5, 2026 · 8:00 PM</span></div>
-<div class="card card-orange"><strong>Earth, Wind &amp; Fire</strong><span class="sub">Dec 11 – 12, 2026</span></div>
-<div class="card card-orange"><strong>Rob Thomas Benefitting Sidewalk Angels</strong><span class="sub">Jan 16, 2027 · 8:00 PM</span></div>
-<div class="card card-orange"><strong>The Roots + Special Guests</strong><span class="sub">Jan 17, 2027 · 8:00 PM</span></div>
-<div class="card card-orange"><strong>Lynyrd Skynyrd</strong><span class="sub">Feb 19, 2027 · 8:00 PM</span></div>
-<div class="card card-orange"><strong>Brit Floyd</strong><span class="sub">Mar 20, 2027 · 8:00 PM</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Hard Rock Etess · Atlantic City, NJ</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-orange"><strong>Chicago - The Band</strong><span class="sub">Nov 6 – 7, 2026</span></div>
+    <div class="card card-orange"><strong>Jefferson Starship</strong><span class="sub">Nov 20, 2026 · 8:00 PM</span></div>
+    <div class="card card-orange"><strong>Pooh</strong><span class="sub">Nov 21, 2026</span></div>
+    <div class="card card-orange"><strong>The Temptations and The Four Tops</strong><span class="sub">Nov 27, 2026 · 8:00 PM</span></div>
+    <div class="card card-orange"><strong>Paul Anka - You Are My Destiny Tour</strong><span class="sub">Dec 4, 2026 · 8:00 PM</span></div>
+    <div class="card card-orange"><strong>The Music of Billy Joel featuring The Billy Joel Band</strong><span class="sub">Dec 5, 2026 · 8:00 PM</span></div>
+    <div class="card card-orange"><strong>Earth, Wind &amp; Fire</strong><span class="sub">Dec 11 – 12, 2026</span></div>
+    <div class="card card-orange"><strong>Rob Thomas Benefitting Sidewalk Angels</strong><span class="sub">Jan 16, 2027 · 8:00 PM</span></div>
+    <div class="card card-orange"><strong>The Roots + Special Guests</strong><span class="sub">Jan 17, 2027 · 8:00 PM</span></div>
+    <div class="card card-orange"><strong>Giggly Squad Podcast Live</strong><span class="sub">Jan 29, 2027</span></div>
+    <div class="card card-orange"><strong>Lynyrd Skynyrd</strong><span class="sub">Feb 19, 2027 · 8:00 PM</span></div>
+    <div class="card card-orange"><strong>Brit Floyd</strong><span class="sub">Mar 20, 2027 · 8:00 PM</span></div>
+    <div class="card card-orange"><strong>Jody Watley with Stevie B, SAFIRE, Robin S &amp; Friends</strong><span class="sub">May 1, 2027</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Music Box Borgata · Atlantic City, NJ</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-magenta"><strong>The Sixties Show</strong><span class="sub">Oct 23, 2026 · 7:30 PM</span></div>
-<div class="card card-magenta"><strong>Scott Bradlee's Postmodern Jukebox</strong><span class="sub">Oct 24, 2026 · 7:30 PM</span></div>
-<div class="card card-magenta"><strong>Patton Oswalt</strong><span class="sub">Nov 21, 2026 · 7:30 PM</span></div>
-<div class="card card-magenta"><strong>Chris Isaak</strong><span class="sub">Nov 27, 2026 · 8:00 PM</span></div>
-<div class="card card-magenta"><strong>Straight No Chaser</strong><span class="sub">Dec 3, 2026 · 7:30 PM</span></div>
-<div class="card card-magenta"><strong>Pink Floyd Laser Spectacular</strong><span class="sub">Jan 15, 2027 · 9:00 PM</span></div>
-<div class="card card-magenta"><strong>The Ultimate Elvis Tribute Experience</strong><span class="sub">Jan 29 – 30, 2027</span></div>
-<div class="card card-magenta"><strong>Killer Queen - A Tribute To Queen ft Patrick Myers as Freddie Mercury</strong><span class="sub">Jul 9, 2027 · 9:00 PM</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Music Box Borgata · Atlantic City, NJ</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-magenta"><strong>Scott Bradlee&#x27;s Postmodern Jukebox</strong><span class="sub">Oct 24, 2026 · 7:30 PM</span></div>
+    <div class="card card-magenta"><strong>Patton Oswalt</strong><span class="sub">Nov 21, 2026 · 7:30 PM</span></div>
+    <div class="card card-magenta"><strong>Chris Isaak</strong><span class="sub">Nov 27, 2026 · 8:00 PM</span></div>
+    <div class="card card-magenta"><strong>Straight No Chaser</strong><span class="sub">Dec 3, 2026 · 7:30 PM</span></div>
+    <div class="card card-magenta"><strong>Pink Floyd Laser Spectacular</strong><span class="sub">Jan 15, 2027 · 9:00 PM</span></div>
+    <div class="card card-magenta"><strong>The Ultimate Elvis Tribute Experience</strong><span class="sub">Jan 29 – 30, 2027</span></div>
+    <div class="card card-magenta"><strong>Killer Queen - A Tribute To Queen ft Patrick Myers as Freddie Mercury</strong><span class="sub">Jul 9, 2027 · 9:00 PM</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Borgata Event Center · Atlantic City, NJ</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-purple"><strong>Gwen Stefani</strong><span class="sub">Nov 20, 2026 · 8:00 PM</span></div>
-<div class="card card-purple"><strong>Derek Hough</strong><span class="sub">Dec 4, 2026 · 8:00 PM</span></div>
-<div class="card card-purple"><strong>Jerry Seinfeld</strong><span class="sub">Dec 5, 2026 · 8:00 PM</span></div>
-<div class="card card-purple"><strong>Boyz II Men</strong><span class="sub">Feb 6, 2027 · 8:00 PM</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Borgata Event Center · Atlantic City, NJ</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-purple"><strong>Gwen Stefani</strong><span class="sub">Nov 20, 2026 · 8:00 PM</span></div>
+    <div class="card card-purple"><strong>Priscilla Chan</strong><span class="sub">Nov 25, 2026</span></div>
+    <div class="card card-purple"><strong>Derek Hough</strong><span class="sub">Dec 4, 2026 · 8:00 PM</span></div>
+    <div class="card card-purple"><strong>Jerry Seinfeld</strong><span class="sub">Dec 5, 2026 · 8:00 PM</span></div>
+    <div class="card card-purple"><strong>Boyz II Men</strong><span class="sub">Feb 6, 2027 · 8:00 PM</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Ovation Hall Ocean · Atlantic City, NJ</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-cyan"><strong>John Mulaney</strong><span class="sub">Oct 23, 2026 · 9:00 PM</span></div>
-<div class="card card-cyan"><strong>John Legend: Get Lifted - 20th Anniversary Tour</strong><span class="sub">Nov 1, 2026</span></div>
-<div class="card card-cyan"><strong>Jon Stewart</strong><span class="sub">Nov 6, 2026 · 9:00 PM</span></div>
-<div class="card card-cyan"><strong>Macaulay Culkin &amp; Home Alone</strong><span class="sub">Dec 7, 2026</span></div>
-<div class="card card-cyan"><strong>Bush with Soul Asylum</strong><span class="sub">Dec 13, 2026</span></div>
-<div class="card card-cyan"><strong>Cirque Musica Holiday Wonderland</strong><span class="sub">Dec 14, 2026</span></div>
-<div class="card card-cyan"><strong>Cirque Dreams Holidaze</strong><span class="sub">Dec 20, 2026 · 4:00 PM</span></div>
-<div class="card card-cyan"><strong>Totally Tubular Festival</strong><span class="sub">Dec 27, 2026</span></div>
-<div class="card card-cyan"><strong>KC &amp; The Sunshine Band</strong><span class="sub">Feb 6, 2027 · 8:00 PM</span></div>
-<div class="card card-cyan"><strong>The Best of the Eagles</strong><span class="sub">Feb 19, 2027 · 9:00 PM</span></div>
-<div class="card card-cyan"><strong>38 Special</strong><span class="sub">Feb 27, 2027 · 8:00 PM</span></div>
-<div class="card card-cyan"><strong>Theresa Caputo</strong><span class="sub">Mar 13, 2027 · 8:00 PM</span></div>
-<div class="card card-cyan"><strong>Kool &amp; The Gang</strong><span class="sub">Apr 16, 2027 · 9:00 PM</span></div>
-<div class="card card-cyan"><strong>Roger Waters Presents Legacy</strong><span class="sub">Apr 17, 2027 · 8:00 PM</span></div>
-<div class="card card-cyan"><strong>One Vision of Queen</strong><span class="sub">May 21, 2027 · 9:00 PM</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Ovation Hall Ocean · Atlantic City, NJ</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-cyan"><strong>John Legend: Get Lifted - 20th Anniversary Tour</strong><span class="sub">Nov 1, 2026</span></div>
+    <div class="card card-cyan"><strong>Jon Stewart</strong><span class="sub">Nov 6, 2026 · 9:00 PM</span></div>
+    <div class="card card-cyan"><strong>Macaulay Culkin &amp; Home Alone</strong><span class="sub">Dec 7, 2026</span></div>
+    <div class="card card-cyan"><strong>Bush with Soul Asylum</strong><span class="sub">Dec 13, 2026</span></div>
+    <div class="card card-cyan"><strong>Cirque Musica Holiday Wonderland</strong><span class="sub">Dec 14, 2026</span></div>
+    <div class="card card-cyan"><strong>Cirque Dreams Holidaze</strong><span class="sub">Dec 20, 2026 · 4:00 PM</span></div>
+    <div class="card card-cyan"><strong>Totally Tubular Festival</strong><span class="sub">Dec 27, 2026</span></div>
+    <div class="card card-cyan"><strong>KC &amp; The Sunshine Band</strong><span class="sub">Feb 6, 2027 · 8:00 PM</span></div>
+    <div class="card card-cyan"><strong>The Best of the Eagles</strong><span class="sub">Feb 19, 2027 · 9:00 PM</span></div>
+    <div class="card card-cyan"><strong>38 Special</strong><span class="sub">Feb 27, 2027 · 8:00 PM</span></div>
+    <div class="card card-cyan"><strong>Theresa Caputo</strong><span class="sub">Mar 13, 2027 · 8:00 PM</span></div>
+    <div class="card card-cyan"><strong>Kool &amp; The Gang</strong><span class="sub">Apr 16, 2027 · 9:00 PM</span></div>
+    <div class="card card-cyan"><strong>Roger Waters Presents Legacy</strong><span class="sub">Apr 17, 2027 · 8:00 PM</span></div>
+    <div class="card card-cyan"><strong>One Vision of Queen</strong><span class="sub">May 21, 2027 · 9:00 PM</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Resorts AC · Atlantic City, NJ</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-lblue"><strong>Little Shop of Horrors</strong><span class="sub">Oct 24, 2026 · 8:00 PM</span></div>
-<div class="card card-lblue"><strong>Aretha - Greatest Live Tribute to Aretha Franklin</strong><span class="sub">Oct 24, 2026 · 8:00 PM</span></div>
-<div class="card card-lblue"><strong>Aretha - The Greatest Live Worldwide Tribute to Aretha Franklin</strong><span class="sub">Oct 24, 2026 · 8:00 PM</span></div>
-<div class="card card-lblue"><strong>Candlelight: A Haunted Evening of Halloween Classics</strong><span class="sub">Oct 30, 2026</span></div>
-<div class="card card-lblue"><strong>Candy Cane Lounge - Present Situation Holiday Pop-Up Bar</strong><span class="sub">Nov 6, 2026</span></div>
-<div class="card card-lblue"><strong>Candlelight: Queen vs. The Beatles</strong><span class="sub">Nov 7, 2026 · 6:15 PM</span></div>
-<div class="card card-lblue"><strong>Candlelight: Tribute to Michael Jackson</strong><span class="sub">Nov 7, 2026 · 8:30 PM</span></div>
-<div class="card card-lblue"><strong>Taylor Simon King - Celebrating 3 American Troubadours</strong><span class="sub">Nov 14, 2026 · 8:00 PM</span></div>
-<div class="card card-lblue"><strong>A Celebration of James Taylor, Carly Simon &amp; Carole King</strong><span class="sub">Nov 14, 2026 · 8:00 PM</span></div>
-<div class="card card-lblue"><strong>Taylor Simon King - Tribute Celebrating 3 American Troubadours</strong><span class="sub">Nov 14, 2026 · 8:00 PM</span></div>
-<div class="card card-lblue"><strong>Candlelight Christmas Classics</strong><span class="sub">Dec 19, 2026 · 6:15 PM</span></div>
-<div class="card card-lblue"><strong>Candlelight: Christmas Carols on Strings</strong><span class="sub">Dec 19, 2026 · 8:30 PM</span></div>
-<div class="card card-lblue"><strong>Celebrate the 2026 Holiday Season at Resorts</strong><span class="sub">Residency through Dec 31, 2026</span></div>
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Resorts AC · Atlantic City, NJ</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-lblue"><strong>Little Shop of Horrors</strong><span class="sub">Oct 24, 2026 · 8:00 PM</span></div>
+    <div class="card card-lblue"><strong>Aretha - Greatest Live Tribute to Aretha Franklin</strong><span class="sub">Oct 24, 2026 · 8:00 PM</span></div>
+    <div class="card card-lblue"><strong>Aretha - The Greatest Live Worldwide Tribute to Aretha Franklin</strong><span class="sub">Oct 24, 2026 · 8:00 PM</span></div>
+    <div class="card card-lblue"><strong>Candlelight: A Haunted Evening of Halloween Classics</strong><span class="sub">Oct 30, 2026</span></div>
+    <div class="card card-lblue"><strong>Candy Cane Lounge - Present Situation Holiday Pop-Up Bar</strong><span class="sub">Nov 6, 2026</span></div>
+    <div class="card card-lblue"><strong>Candlelight: Queen vs. The Beatles</strong><span class="sub">Nov 7, 2026 – Jan 22, 2027</span></div>
+    <div class="card card-lblue"><strong>Candlelight: Tribute to Michael Jackson</strong><span class="sub">Nov 7, 2026 · 8:30 PM</span></div>
+    <div class="card card-lblue"><strong>Taylor Simon King - Celebrating 3 American Troubadours</strong><span class="sub">Nov 14, 2026 · 8:00 PM</span></div>
+    <div class="card card-lblue"><strong>A Celebration of James Taylor, Carly Simon &amp; Carole King</strong><span class="sub">Nov 14, 2026 · 8:00 PM</span></div>
+    <div class="card card-lblue"><strong>Taylor Simon King - Tribute Celebrating 3 American Troubadours</strong><span class="sub">Nov 14, 2026 · 8:00 PM</span></div>
+    <div class="card card-lblue"><strong>Candlelight Christmas Classics</strong><span class="sub">Dec 19, 2026 · 6:15 PM</span></div>
+    <div class="card card-lblue"><strong>Candlelight: Christmas Carols on Strings</strong><span class="sub">Dec 19, 2026 · 8:30 PM</span></div>
+    <div class="card card-lblue"><strong>Celebrate the 2026 Holiday Season at Resorts</strong><span class="sub">Residency through Dec 31, 2026</span></div>
+    <div class="card card-lblue"><strong>Candlelight: Ed Sheeran Meets Coldplay</strong><span class="sub">Jan 22, 2027</span></div>
+    <div class="card card-lblue"><strong>Candlelight: Classical Romance</strong><span class="sub">Feb 13, 2027</span></div>
+  </div>
 </section>
 <section class="section-group">
-<div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Madison Square Garden · New York, NY</span><span class="divider-line"></span></div>
-<div class="cards-grid">
-<div class="card card-magenta"><strong>Harry Styles &amp; Jamie xx</strong><span class="sub">Aug 26 – Oct 31, 2026</span></div>
-<div class="card card-magenta"><strong>Harry Styles: Together, Together</strong><span class="sub">Oct 23 – 31, 2026</span></div>
-<div class="card card-magenta"><strong>Stevie Wonder</strong><span class="sub">Nov 19, 2026 · 8:00 PM</span></div>
-<div class="card card-magenta"><strong>Andrea Bocelli</strong><span class="sub">Dec 16 – 17, 2026</span></div>
-<div class="card card-magenta"><strong>WWE Holiday Live Tour</strong><span class="sub">Dec 26, 2026 · 7:30 PM</span></div>
-<div class="card card-magenta"><strong>Phish - New Year's Run</strong><span class="sub">Dec 30, 2026 – Jan 2, 2027</span></div>
-<div class="card card-magenta"><strong>John Mulaney</strong><span class="sub">Jan 15, 2027 · 7:30 PM</span></div>
-<div class="card card-magenta"><strong>Westminster Kennel Club Dog Show</strong><span class="sub">Feb 1 – 2, 2027</span></div>
-<div class="card card-magenta"><strong>Dancing with the Stars: Live!</strong><span class="sub">Feb 5, 2027 · 7:30 PM</span></div>
-<div class="card card-magenta"><strong>Carly Rae Jepsen</strong><span class="sub">May 15, 2027 · 8:00 PM</span></div>
-
-</div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Madison Square Garden · New York, NY</span><span class="divider-line"></span></div>
+  <div class="cards-grid">
+    <div class="card card-magenta"><strong>Harry Styles &amp; Jamie xx</strong><span class="sub">Aug 26 – Oct 31, 2026</span></div>
+    <div class="card card-magenta"><strong>Harry Styles: Together, Together</strong><span class="sub">Oct 23 – 31, 2026</span></div>
+    <div class="card card-magenta"><strong>Stevie Wonder</strong><span class="sub">Nov 19, 2026 · 8:00 PM</span></div>
+    <div class="card card-magenta"><strong>Andrea Bocelli</strong><span class="sub">Dec 16 – 17, 2026</span></div>
+    <div class="card card-magenta"><strong>WWE Holiday Live Tour</strong><span class="sub">Dec 26, 2026 · 7:30 PM</span></div>
+    <div class="card card-magenta"><strong>Phish - New Year&#x27;s Run</strong><span class="sub">Dec 30, 2026 – Jan 2, 2027</span></div>
+    <div class="card card-magenta"><strong>John Mulaney</strong><span class="sub">Jan 15, 2027 · 7:30 PM</span></div>
+    <div class="card card-magenta"><strong>Westminster Kennel Club Dog Show</strong><span class="sub">Feb 1 – 2, 2027</span></div>
+    <div class="card card-magenta"><strong>Dancing with the Stars: Live!</strong><span class="sub">Feb 5, 2027 · 7:30 PM</span></div>
+    <div class="card card-magenta"><strong>Carly Rae Jepsen</strong><span class="sub">May 15, 2027 · 8:00 PM</span></div>
+    <div class="card card-magenta"><strong>Def Leppard and Goo Goo Dolls</strong><span class="sub">Jun 23, 2027 · 7:00 PM</span></div>
+  </div>
 </section>
 <section class="section-group">
 <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Tour News &amp; Buzz</span><span class="divider-line"></span></div>
 <div class="cards-grid">
-<div class="card card-purple"><strong><a href="https://northeasttimes.com/2026/09/28/charlie-puth-sombr-and-onerepublic-set-for-q102-s-jingle-ball-at-xfinity-mobile/" rel="noopener" style="color:#5b2fd4;text-decoration:underline;" target="_blank">Charlie Puth, sombr and OneRepublic set for Q102's Jingle Ball at Xfinity Mobile Arena</a></strong><span class="sub">Q102's Jingle Ball lands at Xfinity Mobile Arena Dec 15 with Charlie Puth, sombr, OneRepublic, Ludacris and more on the bill. <a href="https://northeasttimes.com/2026/09/28/charlie-puth-sombr-and-onerepublic-set-for-q102-s-jingle-ball-at-xfinity-mobile/" rel="noopener" style="color:#5b2fd4;text-decoration:underline;" target="_blank">Read more at Northeast Times →</a></span></div>
-<div class="card card-pink"><strong><a href="https://news.pollstar.com/2026/09/25/iheartradio-jingle-ball-2026-tour-lineups-tap-olivia-rodrigo-katseye-more/" rel="noopener" style="color:#5b2fd4;text-decoration:underline;" target="_blank">iHeartRadio Jingle Ball 2026 tour lineups tap Olivia Rodrigo, KATSEYE &amp; more</a></strong><span class="sub">Pollstar's rundown of the full Jingle Ball 2026 tour routing, including the New York (MSG, Dec 11) and Philadelphia (Dec 15) stops. <a href="https://news.pollstar.com/2026/09/25/iheartradio-jingle-ball-2026-tour-lineups-tap-olivia-rodrigo-katseye-more/" rel="noopener" style="color:#5b2fd4;text-decoration:underline;" target="_blank">Read more at Pollstar →</a></span></div>
-<div class="card card-cyan"><strong><a href="https://thesunpapers.com/2026/09/28/philadephia/concerts/" rel="noopener" style="color:#5b2fd4;text-decoration:underline;" target="_blank">Philadelphia Concerts in 2026 and 2027: The Essential Guide</a></strong><span class="sub">The Sun's running guide (updated Oct 16) to every major arena, stadium and amphitheater show coming to the Philly area through 2027. <a href="https://thesunpapers.com/2026/09/28/philadephia/concerts/" rel="noopener" style="color:#5b2fd4;text-decoration:underline;" target="_blank">Read more at The Sun →</a></span></div>
+<div class="card card-purple"><strong><a href="https://www.jambase.com/article/phish-2026-new-years-eve-run-madison-square-garden" rel="noopener" style="color:#5b2fd4;text-decoration:underline;" target="_blank">The Road To 100: Phish Locks In 2026 New Year&#x27;s Eve Run At Madison Square Garden</a></strong><span class="sub">Phish&#x27;s four-night New Year&#x27;s run at MSG (Dec 30, 2026 – Jan 2, 2027) is locked in, with the Jan 2 finale marking the band&#x27;s 100th concert at the Garden. <a href="https://www.jambase.com/article/phish-2026-new-years-eve-run-madison-square-garden" rel="noopener" style="color:#5b2fd4;text-decoration:underline;" target="_blank">Read more at JamBase &rarr;</a></span></div>
+<div class="card card-pink"><strong><a href="https://news.pollstar.com/2026/10/13/slayyyter-announces-2027-madison-square-garden-headline-show/" rel="noopener" style="color:#5b2fd4;text-decoration:underline;" target="_blank">SLAYYYTER Announces 2027 Madison Square Garden Headline Show</a></strong><span class="sub">Slayyyter announced her biggest headline show to date at Madison Square Garden on June 21, 2027, following the North American leg of her WOR$T GIRL IN THE WORLD TOUR. <a href="https://news.pollstar.com/2026/10/13/slayyyter-announces-2027-madison-square-garden-headline-show/" rel="noopener" style="color:#5b2fd4;text-decoration:underline;" target="_blank">Read more at Pollstar &rarr;</a></span></div>
+<div class="card card-cyan"><strong><a href="https://news.pollstar.com/2026/10/19/tinashe-announces-2027-the-show-must-go-on-tour/" rel="noopener" style="color:#5b2fd4;text-decoration:underline;" target="_blank">Tinashe Announces 2027 &#x27;The Show Must Go On&#x27; Tour</a></strong><span class="sub">Tinashe&#x27;s 2027 North American tour launches April 14 in Dallas and includes a Philadelphia stop at Franklin Music Hall on April 27, 2027. <a href="https://news.pollstar.com/2026/10/19/tinashe-announces-2027-the-show-must-go-on-tour/" rel="noopener" style="color:#5b2fd4;text-decoration:underline;" target="_blank">Read more at Pollstar &rarr;</a></span></div>
+<div class="card card-magenta"><strong><a href="https://www.ticketnews.com/2026/09/lizzy-mcalpine-to-tour-north-america-europe-and-australia-in-2027/" rel="noopener" style="color:#5b2fd4;text-decoration:underline;" target="_blank">Lizzy McAlpine to Tour North America, Europe and Australia in 2027</a></strong><span class="sub">Lizzy McAlpine announced a 2027 world tour behind her album Angel, including Madison Square Garden on June 24, 2027 and a Philadelphia-area stop in June 2027. <a href="https://www.ticketnews.com/2026/09/lizzy-mcalpine-to-tour-north-america-europe-and-australia-in-2027/" rel="noopener" style="color:#5b2fd4;text-decoration:underline;" target="_blank">Read more at TicketNews &rarr;</a></span></div>
 </div>
 </section>
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">Fri, Oct 23 at 3:11 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>
+<div>Philly & AC Concerts · Part of Lisa's Hub</div>
+<div class="footer-clock">Last updated: <span class="timestamp-badge">October 24, 2026 at 11:46:47 AM</span></div>
+</footer>
 <script>
-function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;const badge=document.getElementById('updated-badge');if(badge&&badge.textContent.trim()==='DYNAMIC'+'_TIMESTAMP'){badge.textContent='…';var pg=(location.pathname.split('/').pop()||'index.html');fetch('https://api.github.com/repos/lisaprocz-rgb/crispy-octo-goggles/commits?path='+encodeURIComponent(pg)+'&per_page=1').then(function(r){return r.json();}).then(function(d){var t=new Date(d[0].commit.committer.date);var ds=t.toLocaleDateString('en-US',{timeZone:'America/New_York',weekday:'short',month:'short',day:'numeric'});var tm=t.toLocaleTimeString('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit',hour12:true});badge.textContent=ds+' at '+tm+' ET';}).catch(function(){badge.textContent='unavailable';});}}
+function updateClock(){
+  var now=new Date();
+  var opts={weekday:'short',month:'short',day:'numeric',year:'numeric'};
+  var d=now.toLocaleDateString('en-US',opts);
+  var t=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
+  var hd=document.getElementById('header-date');var ht=document.getElementById('header-time');
+  if(hd) hd.textContent=d+' ';if(ht) ht.textContent=t;
+}
 updateClock();setInterval(updateClock,1000);
 </script>
 </body>
