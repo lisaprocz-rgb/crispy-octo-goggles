@@ -1,6 +1,9 @@
 name: Refresh hub card dates
 
 on:
+  push:                     # runs after every scheduled task that publishes to main
+    branches: [main]
+    paths: ["**.html", "timestamps.json"]
   schedule:
     - cron: "17 * * * *"   # hourly at :17 UTC; change as you like
   workflow_dispatch:        # lets you run it manually from the Actions tab
@@ -15,6 +18,8 @@ concurrency:
 
 jobs:
   refresh:
+    # skip this workflow's own commits (belt-and-braces; built-in-token pushes don't retrigger anyway)
+    if: "${{ github.event_name != 'push' || !startsWith(github.event.head_commit.message, 'Hub: refresh card dates') }}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -33,6 +38,7 @@ jobs:
           token = os.environ["GH_TOKEN"]; repo = os.environ["REPO"]
           m = [("movies-ts","movies.html"),("concert-ts","concerts.html"),
                ("theater-ts","theater-update.html"),("tv-ts","tv-streaming.html"),
+               ("giftcards-ts","gift-card-deals.html"),
                ("primary-ts","primary.html"),("bucksgov-ts","bucks-government.html"),
                ("dcl-ts","dcl-monitor.html"),("disney-ts","disney-news.html")]
           def fmt(iso):
