@@ -347,6 +347,7 @@ updateClock();setInterval(updateClock,1000);
       document.querySelectorAll('.card').forEach(function(card) {
         var strongEl = card.querySelector('strong');
         if (!strongEl) return;
+        if (strongEl.querySelector('a')) return;
         var title = normalize(strongEl.textContent);
         var matched = seen.some(function(s) {
           var ns = s.toLowerCase().trim();
