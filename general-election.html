@@ -78,17 +78,16 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 .footer-clock{margin-top:.4rem;color:#ff5c8a}
 .timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
   font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
-.countdown{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.1rem;margin:1rem 0 .4rem}
-.count-card{background:#fff;border:3px solid #1f2440;border-radius:16px;padding:1rem 1.1rem;text-align:center;box-shadow:5px 5px 0 var(--accent,#3ec6e0)}
-.count-num{font-family:'Baloo 2';font-weight:800;font-size:2.4rem;line-height:1;color:#1f2440}
-.count-lbl{font-weight:700;font-size:.8rem;color:#6b6f8c;margin-top:.4rem;text-transform:uppercase;letter-spacing:.05em}
-.count-passed{font-family:'Baloo 2';font-weight:800;font-size:1.5rem;color:#ff5c8a}
-.article{margin:.85rem 0 0;padding-top:.75rem;border-top:2px dotted #e6e2d8}
-.article:first-of-type{border-top:none;padding-top:.2rem}
-.art-head{font-family:'Baloo 2';font-weight:800;font-size:1rem;line-height:1.3;display:inline}
-.art-date{color:#888;font-size:.8rem;font-weight:700;margin-left:.1rem}
-.art-sum{font-size:.9rem;font-weight:500;line-height:1.55;margin:.3rem 0 .35rem}
-.read-more{font-size:.85rem}
+.countdown-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.1rem;margin:1rem 0 .4rem}
+.count-card{background:#fff;border:3px solid #1f2440;border-radius:18px;padding:1rem 1.1rem;text-align:center}
+.count-num{font-family:'Baloo 2';font-weight:800;font-size:2.4rem;line-height:1;display:block}
+.count-lbl{font-size:.8rem;font-weight:700;color:#6b6f8c;margin-top:.4rem;display:block;line-height:1.35}
+.art{margin:.55rem 0 1rem;padding-top:.55rem;border-top:2px dotted #e6e2d8}
+.art:first-of-type{border-top:none;padding-top:0}
+.art-head{font-family:'Baloo 2';font-weight:800;font-size:1rem;display:block;margin:.25rem 0 .2rem}
+.art-date{color:#888;font-size:.78rem;font-weight:700;display:block;margin-bottom:.25rem}
+.art-sum{font-size:.9rem;font-weight:500;line-height:1.55;color:#444;margin:.15rem 0 .35rem}
+.readmore{font-size:.82rem;font-weight:800;border-bottom:2px solid #5b9dff !important}
 @media (max-width:600px){
   h1{font-size:2.4rem}
   main{padding:1rem .9rem 3rem}
@@ -105,215 +104,261 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 <div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
 </header>
 <main>
-<a class="back-to-hub" href="index.html">← Back to Lisa's Hub</a>
+<a href="index.html" class="back-to-hub">← Back to Lisa's Hub</a>
 
 <div class="callout">
-<strong>📡 Generated:</strong> Sunday, November 1, 2026 at 1:05 PM ET (2026-11-01 18:05 UTC).<br>
-All content fetched live this run — no cached data used. Article window: past 48 hours plus significant items from the past 7 days (Key Races to Watch: up to 30 days).
+<strong>Generated:</strong> Monday, November 2, 2026 at 5:46 AM ET (10:46 UTC).<br>
+All content fetched live this run — no cached data used. Article window: past 48 hours plus significant items from the past 7 days (Key Races to Watch: up to 30 days). Ballot verified this run against the Bucks County Board of Elections official candidate listing (updated Sept. 17, 2026).
 </div>
 
-<div class="countdown">
-  <div class="count-card" style="--accent:#ff5c8a"><div class="count-num">2</div><div class="count-lbl">Days to Election Day · Tue Nov 3</div></div>
-  <div class="count-card" style="--accent:#ffb84d"><div class="count-passed">Passed</div><div class="count-lbl">Mail-ballot application deadline · Oct 27</div></div>
-  <div class="count-card" style="--accent:#3ec6e0"><div class="count-num">2</div><div class="count-lbl">Days to mail-ballot return · 8 PM Tue Nov 3</div></div>
+<div class="countdown-grid">
+  <div class="count-card" style="box-shadow:6px 6px 0 #ff5c8a"><span class="count-num" style="color:#ff5c8a">1</span><span class="count-lbl">day to Election Day<br>(Tue, Nov 3, 2026)</span></div>
+  <div class="count-card" style="box-shadow:6px 6px 0 #6b6f8c"><span class="count-num" style="color:#6b6f8c">passed</span><span class="count-lbl">PA mail-ballot application deadline<br>(was Oct 27, 2026)</span></div>
+  <div class="count-card" style="box-shadow:6px 6px 0 #5b9dff"><span class="count-num" style="color:#5b9dff">Nov 3</span><span class="count-lbl">county mail-ballot return deadline<br>(by 8 PM Election Day)</span></div>
 </div>
+
+<div class="callout" style="box-shadow:5px 5px 0 #5b9dff">
+<strong>📋 Executive Summary — what's new today.</strong> On the eve of the election, the headline race is a dead heat: the latest NYT/Inquirer/Siena poll has Democrat Bob Harvie at 48% and GOP Rep. Brian Fitzpatrick at 46% in PA-1, a lead inside the margin of error, and Gov. Josh Shapiro made his final stump for Harvie in Doylestown Saturday, telling roughly 200 supporters they could "save the republic." Spotlight PA's Election Day preview (Nov 2) frames the real prize down-ballot: control of the Pennsylvania legislature, with House Democrats defending a 103–100 edge and Senate Republicans a narrow 27–23 majority — and several Bucks County seats (SD-6, SD-16, HD-18, HD-142, HD-143, HD-144) sitting squarely among the races that will decide it. All four of Pennsylvania's swing U.S. House districts, PA-1 included, remain within the margin of error.
+</div>
+
+<!-- ============ U.S. HOUSE ============ -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">U.S. House</span><span class="divider-line"></span></div>
+
+  <div class="card card-blue">
+    <strong>Bob Harvie (D) vs. Rep. Brian Fitzpatrick (R, incumbent) — PA-1</strong>
+    <span class="sub"><em>Harvie: Bucks County Commissioner (Falls Twp), born in Bristol Borough, GWU magna cum laude, 20-year Social Studies teacher and department chair at Bucks County Technical HS; commissioner since 2020, board chair 2022, re-elected 2023; on the DCCC "Red to Blue" list, running on affordability and kitchen-table issues. Opponent: five-term GOP incumbent Brian Fitzpatrick, a moderate who has frequently bucked Trump.</em></span>
+
+    <div class="art">
+      <span class="note">Philadelphia Inquirer</span>
+      <a class="art-head" href="https://www.inquirer.com/politics/pennsylvania/josh-shapiro-bob-harvie-doylestown-rally-20261031.html" target="_blank" rel="noopener">Shapiro makes final stump for Harvie, urging voters to 'save the republic'</a>
+      <span class="art-date">Oct 31, 2026</span>
+      <p class="art-sum">Gov. Josh Shapiro gave what was billed as his final campaign stop for Harvie, telling about 200 supporters in Doylestown they could "quite literally reshape what our nation looks like." Harvie narrowly leads Fitzpatrick 48%–46%, a margin-of-error race.</p>
+      <a class="readmore" href="https://www.inquirer.com/politics/pennsylvania/josh-shapiro-bob-harvie-doylestown-rally-20261031.html" target="_blank" rel="noopener">Read more at Philadelphia Inquirer →</a>
+    </div>
+
+    <div class="art">
+      <span class="note">Philadelphia Inquirer</span>
+      <a class="art-head" href="https://www.inquirer.com/politics/pennsylvania-congress-election-shapiro-garrity-20261030.html" target="_blank" rel="noopener">It's time to bite your nails: PA's swing races all within the margin of error</a>
+      <span class="art-date">Oct 30, 2026</span>
+      <p class="art-sum">The Inquirer's newsletter reports all four Pennsylvania swing House races are within the margin of error days out. In PA-1, Harvie leads 48%–46%, Shapiro carries 67% approval in the district and GOP gubernatorial nominee Stacy Garrity trails widely there.</p>
+      <a class="readmore" href="https://www.inquirer.com/politics/pennsylvania-congress-election-shapiro-garrity-20261030.html" target="_blank" rel="noopener">Read more at Philadelphia Inquirer →</a>
+    </div>
+
+    <div class="art">
+      <span class="note">Roll Call</span>
+      <a class="art-head" href="https://rollcall.com/2026/10/29/at-the-races-red-y-set-vote/" target="_blank" rel="noopener">At the Races: Red-y, set, vote</a>
+      <span class="art-date">Oct 29, 2026</span>
+      <p class="art-sum">Roll Call cites the NYT/Inquirer/Siena poll (Harvie 48, Fitzpatrick 46) and notes Inside Elections rates PA-1 "Lean Republican." Fitzpatrick holds a cash edge — about $709,000 on hand to Harvie's $409,000 — while Democrats call Harvie their best chance yet to unseat him.</p>
+      <a class="readmore" href="https://rollcall.com/2026/10/29/at-the-races-red-y-set-vote/" target="_blank" rel="noopener">Read more at Roll Call →</a>
+    </div>
+
+    <div class="art">
+      <span class="note">Philadelphia Inquirer</span>
+      <a class="art-head" href="https://www.inquirer.com/politics/nation/pennsylvania-swing-districts-midterms-final-push-20261028.html" target="_blank" rel="noopener">Congressional candidates in Pa. swing districts make their final push</a>
+      <span class="art-date">Oct 28, 2026</span>
+      <p class="art-sum">As Fitzpatrick courts labor unions and Harvie holds town halls, Democrats appear to have the edge across the state's four close swing districts. Trump's MAGA Inc. has spent at least $100,000 on Fitzpatrick's behalf despite no formal Trump endorsement.</p>
+      <a class="readmore" href="https://www.inquirer.com/politics/nation/pennsylvania-swing-districts-midterms-final-push-20261028.html" target="_blank" rel="noopener">Read more at Philadelphia Inquirer →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PA STATE SENATE ============ -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">PA State Senate</span><span class="divider-line"></span></div>
+
+  <div class="card card-blue">
+    <strong>Eileen Hartnett Albillar (D) vs. Sen. Frank Farry (R, incumbent) — SD-6</strong>
+    <span class="sub"><em>Albillar: Bucks County Clerk of Courts, former Warrington Twp supervisor, social-work and nonprofit background; focus on affordability, SEPTA funding and working families. Top Democratic flip target — one of the handful of GOP-held seats that could decide the Senate.</em></span>
+
+    <div class="art">
+      <span class="note">Spotlight PA</span>
+      <a class="art-head" href="https://www.spotlightpa.org/news/2026/11/pennsylvania-legislature-control-election-results-elections/" target="_blank" rel="noopener">Control of the Pennsylvania legislature is on the ballot this Tuesday</a>
+      <span class="art-date">Nov 2, 2026</span>
+      <p class="art-sum">Spotlight PA names SD-6 — GOP incumbent Frank Farry vs. Democrat Eileen Hartnett Albillar, the county clerk of courts — among the Republican-held Senate seats Democrats are targeting. Six Senate districts are expected to be competitive; Democrats need a net gain of three to flip the chamber for the first time in decades.</p>
+      <a class="readmore" href="https://www.spotlightpa.org/news/2026/11/pennsylvania-legislature-control-election-results-elections/" target="_blank" rel="noopener">Read more at Spotlight PA →</a>
+    </div>
+  </div>
+
+  <div class="card card-cyan">
+    <strong>Sen. Steve Santarsiero (D, incumbent) vs. Greg Bankos (R) — SD-10</strong>
+    <span class="sub"><em>Santarsiero has represented the 10th since 2019 and chairs the Bucks County Democratic Committee; active on the minimum wage and PECO rate increases. Opponent: Plumstead Twp supervisor Greg Bankos.</em></span>
+    <p class="art-sum">No new coverage in the last 48 hours.</p>
+  </div>
+
+  <div class="card card-blue">
+    <strong>Mark Pinsley (D) vs. Sen. Jarrett Coleman (R, incumbent) — SD-16</strong>
+    <span class="sub"><em>Pinsley: Lehigh County Controller; the district spans parts of Bucks and Lehigh. A rematch of 2022 and a key race for control of the state Senate. Opponent: conservative incumbent Jarrett Coleman.</em></span>
+
+    <div class="art">
+      <span class="note">Spotlight PA</span>
+      <a class="art-head" href="https://www.spotlightpa.org/news/2026/11/pennsylvania-legislature-control-election-results-elections/" target="_blank" rel="noopener">Control of the Pennsylvania legislature is on the ballot this Tuesday</a>
+      <span class="art-date">Nov 2, 2026</span>
+      <p class="art-sum">Spotlight PA lists SD-16 — "Shapiro critic" Jarrett Coleman vs. Democrat Mark Pinsley, the Lehigh County Controller — among the competitive Bucks/Lehigh Senate contests in play as Democrats try to erase the GOP's 27–23 majority.</p>
+      <a class="readmore" href="https://www.spotlightpa.org/news/2026/11/pennsylvania-legislature-control-election-results-elections/" target="_blank" rel="noopener">Read more at Spotlight PA →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PA STATE HOUSE ============ -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">PA State House</span><span class="divider-line"></span></div>
+
+  <div class="card card-blue">
+    <strong>Bryan Allen (D) vs. Rep. K.C. Tomlinson (R, incumbent) — HD-18 (Bensalem)</strong>
+    <span class="sub"><em>Allen: former Bensalem council member, chief of staff to Rep. Tina Davis, introduced Bensalem's first casino tax rebate, vice chair of the Bucks County Water & Sewer Authority. Opponent: GOP incumbent K.C. Tomlinson.</em></span>
+
+    <div class="art">
+      <span class="note">Spotlight PA</span>
+      <a class="art-head" href="https://www.spotlightpa.org/news/2026/11/pennsylvania-legislature-control-election-results-elections/" target="_blank" rel="noopener">Control of the Pennsylvania legislature is on the ballot this Tuesday</a>
+      <span class="art-date">Nov 2, 2026</span>
+      <p class="art-sum">HD-18 appears among the roughly two dozen competitive House seats in Spotlight PA's Election Day preview — Republican incumbent K.C. Tomlinson vs. Democrat Bryan Allen. Democrats hold a voter-registration edge in the district even though Trump carried it by about 3 points.</p>
+      <a class="readmore" href="https://www.spotlightpa.org/news/2026/11/pennsylvania-legislature-control-election-results-elections/" target="_blank" rel="noopener">Read more at Spotlight PA →</a>
+    </div>
+  </div>
+
+  <div class="card card-cyan">
+    <strong>Rep. Tim Brennan (D, incumbent) vs. Sean Patrick Duffy (R) — HD-29 (Doylestown)</strong>
+    <span class="sub"><em>Brennan has represented the 29th since 2023. Opponent: Republican Sean Patrick Duffy.</em></span>
+    <p class="art-sum">No new coverage in the last 48 hours.</p>
+  </div>
+
+  <div class="card card-green">
+    <strong>Rep. Perry Warren (D, incumbent) — HD-31 (Newtown)</strong>
+    <span class="sub"><em>Warren has served since 2017. Ballot note: the certified Bucks County candidate listing shows no Republican or third-party opponent filed in HD-31, so Warren appears unopposed on the general-election ballot.</em></span>
+    <p class="art-sum">No new coverage in the last 48 hours.</p>
+  </div>
+
+  <div class="card card-cyan">
+    <strong>Rep. Jim Prokopiak (D, incumbent) vs. Michael Gettis (R) — HD-140 (Falls Twp)</strong>
+    <span class="sub"><em>Prokopiak won a Feb. 2024 special election; former Falls supervisor and Temple Law graduate. Opponent: Republican Michael Gettis.</em></span>
+    <p class="art-sum">No new coverage in the last 48 hours.</p>
+  </div>
+
+  <div class="card card-cyan">
+    <strong>Rep. Tina Davis (D, incumbent) vs. Ken Velez (R) — HD-141 (Bristol Twp)</strong>
+    <span class="sub"><em>Davis has served since 2010; priorities include economic development, pay equity and property-tax reform. Opponent: Republican Ken Velez.</em></span>
+    <p class="art-sum">No new coverage in the last 48 hours.</p>
+  </div>
+
+  <div class="card card-blue">
+    <strong>Kristin Egan (D) vs. Rep. Joe Hogan (R, incumbent) — HD-142 (Langhorne)</strong>
+    <span class="sub"><em>Egan: Neshaminy School Board director, 20-year public-school teacher, first state candidate to oppose the $227M PennDOT US-1 reconstruction. Opponent: GOP incumbent Joe Hogan, who won the seat in 2022 by fewer than 100 votes.</em></span>
+
+    <div class="art">
+      <span class="note">Spotlight PA</span>
+      <a class="art-head" href="https://www.spotlightpa.org/news/2026/11/pennsylvania-legislature-control-election-results-elections/" target="_blank" rel="noopener">Control of the Pennsylvania legislature is on the ballot this Tuesday</a>
+      <span class="art-date">Nov 2, 2026</span>
+      <p class="art-sum">Spotlight PA lists HD-142 — Republican incumbent Joe Hogan vs. Democrat Kristin Egan — among the competitive suburban House seats. Hogan won in 2022 by under 100 votes before a more comfortable 2024, in a district Trump carried by about 3 points.</p>
+      <a class="readmore" href="https://www.spotlightpa.org/news/2026/11/pennsylvania-legislature-control-election-results-elections/" target="_blank" rel="noopener">Read more at Spotlight PA →</a>
+    </div>
+  </div>
+
+  <div class="card card-blue">
+    <strong>Tim Hayes (D) vs. Rep. Shelby Labs (R, incumbent) — HD-143 (Dublin)</strong>
+    <span class="sub"><em>Hayes: Dublin Borough Council president, Army National Guard veteran and environmental-policy expert; priorities include alternative energy, regulating AI data centers, affordability and education. Opponent: GOP incumbent Shelby Labs. Independent Chris Gambino (Forward) is also on the ballot.</em></span>
+
+    <div class="art">
+      <span class="note">Spotlight PA</span>
+      <a class="art-head" href="https://www.spotlightpa.org/news/2026/11/pennsylvania-legislature-control-election-results-elections/" target="_blank" rel="noopener">Control of the Pennsylvania legislature is on the ballot this Tuesday</a>
+      <span class="art-date">Nov 2, 2026</span>
+      <p class="art-sum">Spotlight PA's preview names HD-143 — Republican incumbent Shelby Labs vs. Democrat Tim Hayes, with independent Chris Gambino also running — among the House races to watch as control of the chamber hangs on a handful of suburban and exurban seats.</p>
+      <a class="readmore" href="https://www.spotlightpa.org/news/2026/11/pennsylvania-legislature-control-election-results-elections/" target="_blank" rel="noopener">Read more at Spotlight PA →</a>
+    </div>
+  </div>
+
+  <div class="card card-blue">
+    <strong>Rep. Brian Munroe (D, incumbent) vs. Michael J. Murphy (R) — HD-144 (Warminster)</strong>
+    <span class="sub"><em>Munroe: former Radnor police officer and Warminster supervisor; won in 2022 by 515 votes and in 2024 by 1,065 — a DLCC-targeted swing seat. Opponent: Republican Mike Murphy.</em></span>
+
+    <div class="art">
+      <span class="note">Spotlight PA</span>
+      <a class="art-head" href="https://www.spotlightpa.org/news/2026/11/pennsylvania-legislature-control-election-results-elections/" target="_blank" rel="noopener">Control of the Pennsylvania legislature is on the ballot this Tuesday</a>
+      <span class="art-date">Nov 2, 2026</span>
+      <p class="art-sum">Spotlight PA flags HD-144 — Democratic incumbent Brian Munroe vs. Republican Mike Murphy — as one of the seats on which the House majority turns. An August State Navigate poll (cited in earlier coverage) had Munroe up 12 in a district Trump carried.</p>
+      <a class="readmore" href="https://www.spotlightpa.org/news/2026/11/pennsylvania-legislature-control-election-results-elections/" target="_blank" rel="noopener">Read more at Spotlight PA →</a>
+    </div>
+  </div>
+
+  <div class="card card-cyan">
+    <strong>Les Mavus (D) vs. Rep. Craig Staats (R, incumbent) — HD-145 (Nockamixon)</strong>
+    <span class="sub"><em>GOP incumbent Craig Staats faces Democrat Les Mavus; independent Rebecca Prendergast is also on the ballot.</em></span>
+    <p class="art-sum">No new coverage in the last 48 hours.</p>
+  </div>
+
+  <div class="card card-cyan">
+    <strong>Monica Weninger (D) vs. Rep. Kristin Marcell (R, incumbent) — HD-178 (Warwick)</strong>
+    <span class="sub"><em>Weninger: 25-year science teacher and department chair at Wissahickon SD; Warwick Twp auditor. Opponent: GOP incumbent Kristin Marcell.</em></span>
+    <p class="art-sum">No new coverage in the last 48 hours.</p>
+  </div>
+</section>
+
+<!-- ============ KEY RACES TO WATCH ============ -->
+<section class="section-group">
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Key Races to Watch</span><span class="divider-line"></span></div>
+
+  <div class="card card-purple">
+    <strong>The big picture: who controls Harrisburg</strong>
+    <div class="art">
+      <span class="note">Spotlight PA</span>
+      <a class="art-head" href="https://www.spotlightpa.org/news/2026/11/pennsylvania-legislature-control-election-results-elections/" target="_blank" rel="noopener">Control of the Pennsylvania legislature is on the ballot this Tuesday</a>
+      <span class="art-date">Nov 2, 2026</span>
+      <p class="art-sum">House Democrats defend a 103–100 majority; Senate Republicans hold 27–23, the chamber's narrowest margin since 2013–14. Six Senate districts and about two dozen House seats are expected to be competitive, with several Bucks County contests among them; a Democratic trifecta hinges on holding the governorship and flipping the Senate.</p>
+      <a class="readmore" href="https://www.spotlightpa.org/news/2026/11/pennsylvania-legislature-control-election-results-elections/" target="_blank" rel="noopener">Read more at Spotlight PA →</a>
+    </div>
+  </div>
+
+  <div class="card card-magenta">
+    <strong>Ad spending: PA-1 tops $13.8 million</strong>
+    <div class="art">
+      <span class="note">Philadelphia Inquirer</span>
+      <a class="art-head" href="https://www.inquirer.com/politics/election/congress-ad-spending-pennsylvania-swing-district-20261012.html" target="_blank" rel="noopener">Pennsylvania swing districts draw $90 million in ad spending with House on the line</a>
+      <span class="art-date">Oct 12, 2026</span>
+      <p class="art-sum">About $90M has flooded Pennsylvania's four key House races (Republicans $46.5M, Democrats $44.1M, per AdImpact). In PA-1, Fitzpatrick and Harvie account for $13.8M in spending and reservations — Democrats ahead $8.5M to $5.2M — and Fitzpatrick's own $4.5M dwarfs the roughly $460K he spent on ads in 2024.</p>
+      <a class="readmore" href="https://www.inquirer.com/politics/election/congress-ad-spending-pennsylvania-swing-district-20261012.html" target="_blank" rel="noopener">Read more at Philadelphia Inquirer →</a>
+    </div>
+  </div>
+
+  <div class="card card-lblue">
+    <strong>Ratings & the legislative map</strong>
+    <div class="art">
+      <span class="note">WPSU / WHYY</span>
+      <a class="art-head" href="https://radio.wpsu.org/2026-10-19/pa-election-2026-these-state-house-and-senate-races-could-change-the-balance-of-power-in-harrisburg" target="_blank" rel="noopener">These state House and Senate races could change the balance of power in Harrisburg</a>
+      <span class="art-date">Oct 19, 2026</span>
+      <p class="art-sum">A statewide guide to the legislative fight: Democrats need a net of three Senate seats for their first elected majority since 1978 (25–25 would hand procedural control to Lt. Gov. Austin Davis's tiebreaker), while Republicans need two House seats to flip that chamber. Bucks battlegrounds SD-6, HD-18, HD-142 and HD-144 feature prominently.</p>
+      <a class="readmore" href="https://radio.wpsu.org/2026-10-19/pa-election-2026-these-state-house-and-senate-races-could-change-the-balance-of-power-in-harrisburg" target="_blank" rel="noopener">Read more at WPSU / WHYY →</a>
+    </div>
+  </div>
+
+  <div class="card card-green">
+    <strong>SD-6 forum: data centers, costs & ICE</strong>
+    <div class="art">
+      <span class="note">Bucks County Herald</span>
+      <a class="art-head" href="https://www.buckscountyherald.com/news/election/farry-albillar-meet-in-6th-senate-district-forum/article_01132f23-9b23-408f-9e1c-8e1795edec5a.html" target="_blank" rel="noopener">Farry, Albillar meet in 6th Senate District forum</a>
+      <span class="art-date">Oct 20, 2026</span>
+      <p class="art-sum">At an Oct. 14 League of Women Voters forum, Farry and Albillar clashed over data centers, rising costs and local police cooperation with ICE. Farry said he'd "already voted" twice to repeal data-center tax exemptions; Albillar called for a pause on new approvals and said immigration enforcement "has gone way too far and has got to stop."</p>
+      <a class="readmore" href="https://www.buckscountyherald.com/news/election/farry-albillar-meet-in-6th-senate-district-forum/article_01132f23-9b23-408f-9e1c-8e1795edec5a.html" target="_blank" rel="noopener">Read more at Bucks County Herald →</a>
+    </div>
+  </div>
+
+  <div class="card card-orange">
+    <strong>PA-1 poll tracker</strong>
+    <div class="art">
+      <span class="note">Philadelphia Inquirer</span>
+      <a class="art-head" href="https://www.inquirer.com/politics/election/bob-harvie-brian-fitzpatrick-congressional-poll-bucks-county-20261025.html" target="_blank" rel="noopener">Bob Harvie narrowly leads Brian Fitzpatrick in Bucks County's closely watched U.S. House race, new poll finds</a>
+      <span class="art-date">Oct 25, 2026</span>
+      <p class="art-sum">The NYT/Inquirer/Siena poll of 400 likely voters (Oct 16–22) put Harvie at 48% and Fitzpatrick at 46% — a two-point lead inside the margin of error — the data point that has anchored the final week of coverage in the district.</p>
+      <a class="readmore" href="https://www.inquirer.com/politics/election/bob-harvie-brian-fitzpatrick-congressional-poll-bucks-county-20261025.html" target="_blank" rel="noopener">Read more at Philadelphia Inquirer →</a>
+    </div>
+  </div>
+</section>
 
 <div class="callout">
-<strong>📝 Executive Summary.</strong> With two days to go, the marquee <strong>PA-1</strong> race (Harvie vs. Fitzpatrick) is a genuine dead heat — the only public poll (Inquirer/NYT/Siena) puts Harvie up 48–46, and both Cook Political Report and Sabato's Crystal Ball have moved the seat to toss-up. The final-weekend blitz was all-out: Gov. Shapiro closed a 10-day statewide bus tour Saturday (Oct 31) with a Doylestown rally for Harvie, while Fitzpatrick's team said it knocked 3,000 doors and Trump's TeleRally for the GOP ticket pointedly left Fitzpatrick off the endorsement list. Control of the state Senate may run through Bucks: <strong>SD-6</strong> (Albillar/Farry) and <strong>SD-16</strong> (Pinsley/Coleman) are both polling as statistical ties, and Bob Casey stumped Oct 27 in Langhorne for Albillar and state-House candidate Kristin Egan. As of Thursday, Pennsylvania Democrats had returned roughly 629,000 mail ballots to Republicans' 243,000 statewide.
-</div>
-
-<section class="section-group">
-<div class="section-divider"><div class="divider-accent"></div><div class="divider-label">🏛️ U.S. House</div><div class="divider-line"></div></div>
-
-<div class="card card-blue">
-<strong>Bob Harvie (D) vs. Rep. Brian Fitzpatrick (R) — PA-1</strong>
-<span class="sub"><em>Harvie: Bucks County Commissioner (Falls Twp), Bristol Borough native and 20-year Social Studies teacher at Bucks County Technical HS; commissioner since 2020, board chair 2022, on the DCCC "Red to Blue" list, running on affordability. Opponent: five-term Rep. Brian Fitzpatrick (R), who runs on a moderate record and votes with Trump roughly 70% of the time — the least of any House Republican.</em></span>
-
-<div class="article">
-<span class="note">Philadelphia Inquirer</span><br>
-<a class="art-head" href="https://www.inquirer.com/politics/pennsylvania/josh-shapiro-bob-harvie-doylestown-rally-20261031.html" target="_blank" rel="noopener">Shapiro makes final stump for Harvie, urging voters to "save the republic"</a> <span class="art-date">— Oct 31, 2026</span>
-<p class="art-sum">Shapiro closed his campaign with a ~200-person rally outside Bucks County Democratic HQ in Doylestown. Harvie told the crowd "nobody is coming to save us" and called them "the cavalry." Fitzpatrick's camp said it knocked 3,000 doors that Saturday; Trump held a TeleRally for Stacy Garrity and nine GOP House candidates the same day but did not endorse Fitzpatrick.</p>
-<a class="read-more" href="https://www.inquirer.com/politics/pennsylvania/josh-shapiro-bob-harvie-doylestown-rally-20261031.html" target="_blank" rel="noopener">Read more at Philadelphia Inquirer →</a>
-</div>
-
-<div class="article">
-<span class="note">WHYY</span><br>
-<a class="art-head" href="https://whyy.org/articles/governor-josh-shapiro-bucks-county-pennsylvania-bob-harvie/" target="_blank" rel="noopener">Shapiro makes final pitch for Democrats in Bucks County as Election Day draws near</a> <span class="art-date">— Oct 31, 2026</span>
-<p class="art-sum">Capping a 10-day bus tour, Shapiro barely mentioned his own race and focused on the down-ballot ticket; Eileen Hartnett Albillar, Sen. Steve Santarsiero and Rep. Tim Brennan also spoke. Lehigh University's Chris Borick said that if Fitzpatrick can't survive while posing as a moderate, "it would be a very bad cycle for the GOP."</p>
-<a class="read-more" href="https://whyy.org/articles/governor-josh-shapiro-bucks-county-pennsylvania-bob-harvie/" target="_blank" rel="noopener">Read more at WHYY →</a>
-</div>
-
-<div class="article">
-<span class="note">Philadelphia Inquirer</span><br>
-<a class="art-head" href="https://www.inquirer.com/politics/pennsylvania-congress-election-shapiro-garrity-20261030.html" target="_blank" rel="noopener">"It's time to bite your nails": Democrats have momentum, but Pa. races are razor-thin</a> <span class="art-date">— Oct 30, 2026</span>
-<p class="art-sum">A fresh Inquirer/NYT/Siena poll shows Harvie leading Fitzpatrick 48–46. Trump has his worst approval of the four swing districts in PA-1 (35% approve, 61% disapprove); Shapiro his best (67/27). The piece notes Fitzpatrick has sued to disqualify Democratic Commissioner Diane Ellis-Marseglia from the county election board over her support for Harvie.</p>
-<a class="read-more" href="https://www.inquirer.com/politics/pennsylvania-congress-election-shapiro-garrity-20261030.html" target="_blank" rel="noopener">Read more at Philadelphia Inquirer →</a>
-</div>
-
-<div class="article">
-<span class="note">WHYY</span><br>
-<a class="art-head" href="https://whyy.org/articles/4-pennsylvania-congressional-races-2026/" target="_blank" rel="noopener">4 Pennsylvania congressional races shift in Democrats' favor</a> <span class="art-date">— Oct 29, 2026</span>
-<p class="art-sum">Both Cook Political Report and Sabato's Crystal Ball moved PA-1 to toss-up. The only public poll (Siena) has Harvie 48, Fitzpatrick 46 (±5.7). Fitzpatrick leads in fundraising (~$8M in receipts through Oct 14 vs. Harvie's ~$3M). Republicans aired an ad tying Harvie to a 2022 Falls Township FBI probe; Harvie, who says he was only a witness, has sued the group behind it for defamation.</p>
-<a class="read-more" href="https://whyy.org/articles/4-pennsylvania-congressional-races-2026/" target="_blank" rel="noopener">Read more at WHYY →</a>
-</div>
-
-<div class="article">
-<span class="note">Philadelphia Inquirer</span><br>
-<a class="art-head" href="https://www.inquirer.com/politics/nation/pennsylvania-swing-districts-midterms-final-push-20261028.html" target="_blank" rel="noopener">Pa. swing-district candidates make their final push ahead of Nov. 3</a> <span class="art-date">— Oct 28, 2026</span>
-<p class="art-sum">An Inquirer/NYT/Siena poll finds Harvie narrowly leading. Shapiro — up double digits across each district — rallied with Harvie in Doylestown. Fitzpatrick has labor-union support and a large war chest and says he would not share a stage with Trump or the vice president.</p>
-<a class="read-more" href="https://www.inquirer.com/politics/nation/pennsylvania-swing-districts-midterms-final-push-20261028.html" target="_blank" rel="noopener">Read more at Philadelphia Inquirer →</a>
-</div>
-</div>
-</section>
-
-<section class="section-group">
-<div class="section-divider"><div class="divider-accent"></div><div class="divider-label">🏢 PA State Senate</div><div class="divider-line"></div></div>
-
-<div class="card card-blue">
-<strong>Eileen Hartnett Albillar (D) vs. Sen. Frank Farry (R) — SD-6</strong>
-<span class="sub"><em>Albillar: Bucks County Clerk of Courts, former Warrington Twp supervisor, social-work and nonprofit background; focused on affordability, SEPTA funding and working families. Opponent: Sen. Frank Farry (R, incumbent). The top Democratic flip target — a State Navigate poll had it 46–45.</em></span>
-
-<div class="article">
-<span class="note">WHYY</span><br>
-<a class="art-head" href="https://whyy.org/articles/governor-josh-shapiro-bucks-county-pennsylvania-bob-harvie/" target="_blank" rel="noopener">Shapiro boosts Albillar at Doylestown rally as Senate control hangs on Bucks</a> <span class="art-date">— Oct 31, 2026</span>
-<p class="art-sum">Albillar was among the down-ballot candidates Shapiro promoted at his final Bucks rally; he has put significant effort into helping Democrats win a state Senate majority the party hasn't held in decades, telling the crowd a trifecta's first bill would raise the minimum wage.</p>
-<a class="read-more" href="https://whyy.org/articles/governor-josh-shapiro-bucks-county-pennsylvania-bob-harvie/" target="_blank" rel="noopener">Read more at WHYY →</a>
-</div>
-
-<div class="article">
-<span class="note">Newsline Local</span><br>
-<a class="art-head" href="https://www.newslinelocal.com/2026/10/27/casey-campaigns-in-bucks-county-for-down-ballot-candidates/" target="_blank" rel="noopener">Casey campaigns in Bucks County for down-ballot candidates</a> <span class="art-date">— Oct 27, 2026</span>
-<p class="art-sum">Former U.S. Sen. Bob Casey headlined a Langhorne rally for Albillar and state-House candidate Kristin Egan, arguing Bucks would shape the Commonwealth's direction. Albillar said her race will determine whether Shapiro can advance his agenda.</p>
-<a class="read-more" href="https://www.newslinelocal.com/2026/10/27/casey-campaigns-in-bucks-county-for-down-ballot-candidates/" target="_blank" rel="noopener">Read more at Newsline Local →</a>
-</div>
-</div>
-
-<div class="card card-cyan">
-<strong>Sen. Steve Santarsiero (D) vs. Greg Bankos (R) — SD-10</strong>
-<span class="sub"><em>Santarsiero: incumbent since 2019 and chair of the Bucks County Democratic Committee; active on the minimum wage and PECO rate increases. Opponent: Greg Bankos (R), Plumstead Township supervisor.</em></span>
-
-<div class="article">
-<span class="note">WHYY</span><br>
-<a class="art-head" href="https://whyy.org/articles/governor-josh-shapiro-bucks-county-pennsylvania-bob-harvie/" target="_blank" rel="noopener">Santarsiero joins Shapiro's final Bucks rally for the Democratic ticket</a> <span class="art-date">— Oct 31, 2026</span>
-<p class="art-sum">Santarsiero was among the speakers at Shapiro's closing Doylestown event, part of the party's coordinated final-weekend push to protect and expand its suburban Senate seats.</p>
-<a class="read-more" href="https://whyy.org/articles/governor-josh-shapiro-bucks-county-pennsylvania-bob-harvie/" target="_blank" rel="noopener">Read more at WHYY →</a>
-</div>
-</div>
-
-<div class="card card-purple">
-<strong>Mark Pinsley (D) vs. Sen. Jarrett Coleman (R) — SD-16</strong>
-<span class="sub"><em>Pinsley: Lehigh County Controller; the district spans parts of Bucks and Lehigh. A rematch of 2022 (he lost by 8) and one of the key races for control of the state Senate — recent polling had it 47–46. Opponent: Sen. Jarrett Coleman (R, incumbent).</em></span>
-<p class="art-sum">No new coverage in the last 48 hours. See Key Races to Watch for the latest district polling.</p>
-</div>
-</section>
-
-<section class="section-group">
-<div class="section-divider"><div class="divider-accent"></div><div class="divider-label">🗳️ PA State House</div><div class="divider-line"></div></div>
-
-<div class="card card-blue">
-<strong>Kristin Egan (D) vs. Rep. Joe Hogan (R) — HD-142 (Langhorne)</strong>
-<span class="sub"><em>Egan: Neshaminy School Board director and 20-year public-school teacher; the first state candidate to oppose the $227M PennDOT US-1 reconstruction. Opponent: Rep. Joe Hogan (R, incumbent), who won the seat by fewer than 100 votes in 2022.</em></span>
-
-<div class="article">
-<span class="note">Newsline Local</span><br>
-<a class="art-head" href="https://www.newslinelocal.com/2026/10/27/casey-campaigns-in-bucks-county-for-down-ballot-candidates/" target="_blank" rel="noopener">Casey rallies in Langhorne for Egan's state-House bid</a> <span class="art-date">— Oct 27, 2026</span>
-<p class="art-sum">At the Langhorne rally, Egan spoke on funding education, raising the minimum wage and supporting unions, as Casey tied the down-ballot races to a possible Democratic trifecta in Harrisburg.</p>
-<a class="read-more" href="https://www.newslinelocal.com/2026/10/27/casey-campaigns-in-bucks-county-for-down-ballot-candidates/" target="_blank" rel="noopener">Read more at Newsline Local →</a>
-</div>
-</div>
-
-<div class="card card-green">
-<strong>Rep. Tim Brennan (D) vs. Sean Patrick Duffy (R) — HD-29 (Doylestown)</strong>
-<span class="sub"><em>Brennan: incumbent since 2023, representing the Doylestown area. Opponent: Sean Patrick Duffy (R).</em></span>
-
-<div class="article">
-<span class="note">WHYY</span><br>
-<a class="art-head" href="https://whyy.org/articles/governor-josh-shapiro-bucks-county-pennsylvania-bob-harvie/" target="_blank" rel="noopener">Brennan among speakers at Shapiro's Doylestown rally</a> <span class="art-date">— Oct 31, 2026</span>
-<p class="art-sum">Rep. Tim Brennan joined the slate of Democratic officeholders speaking at Shapiro's final Bucks County rally in his home base of Doylestown.</p>
-<a class="read-more" href="https://whyy.org/articles/governor-josh-shapiro-bucks-county-pennsylvania-bob-harvie/" target="_blank" rel="noopener">Read more at WHYY →</a>
-</div>
-</div>
-
-<div class="card card-orange">
-<strong>Bryan Allen (D) vs. Rep. K.C. Tomlinson (R) — HD-18 (Bensalem)</strong>
-<span class="sub"><em>Allen: former Bensalem council member and chief of staff to Rep. Tina Davis; introduced Bensalem's first casino tax rebate and is vice chair of the Bucks County Water &amp; Sewer Authority. Opponent: Rep. K.C. Tomlinson (R, incumbent). Rated one of the state's most competitive House seats, with Democrats holding a registration edge.</em></span>
-<p class="art-sum">No new coverage in the last 48 hours.</p>
-</div>
-
-<div class="card card-magenta">
-<strong>Rep. Tina Davis (D) vs. Ken Velez (R) — HD-141 (Bristol Twp)</strong>
-<span class="sub"><em>Davis: serving since 2010; priorities include economic development, pay equity and property-tax reform. Opponent: Ken Velez (R).</em></span>
-<p class="art-sum">No new coverage in the last 48 hours.</p>
-</div>
-
-<div class="card card-yellow">
-<strong>Rep. Jim Prokopiak (D) vs. Michael Gettis (R) — HD-140 (Falls Twp)</strong>
-<span class="sub"><em>Prokopiak: won a Feb. 2024 special election; former Falls supervisor and Temple Law graduate. Opponent: Michael Gettis (R).</em></span>
-<p class="art-sum">No new coverage in the last 48 hours.</p>
-</div>
-
-<div class="card card-lime">
-<strong>Tim Hayes (D) vs. Rep. Shelby Labs (R) — HD-143 (Dublin)</strong>
-<span class="sub"><em>Hayes: Dublin Borough Council president, Army National Guard veteran and environmental-policy expert; priorities include alternative energy, regulating AI data centers, affordability and education. Opponent: Rep. Shelby Labs (R, incumbent).</em></span>
-<p class="art-sum">No new coverage in the last 48 hours.</p>
-</div>
-
-<div class="card card-cyan">
-<strong>Rep. Brian Munroe (D) vs. Michael J. Murphy (R) — HD-144 (Warminster)</strong>
-<span class="sub"><em>Munroe: former Radnor police officer and Warminster supervisor; won in 2022 by 515 votes and in 2024 by 1,065 — a DLCC-targeted swing seat. Opponent: Michael J. Murphy (R). An August State Navigate poll had Munroe ahead by 12.</em></span>
-<p class="art-sum">No new coverage in the last 48 hours. See Key Races to Watch for the latest district polling.</p>
-</div>
-
-<div class="card card-lavender">
-<strong>Monica Weninger (D) vs. Rep. Kristin Marcell (R) — HD-178 (Warwick)</strong>
-<span class="sub"><em>Weninger: 25-year science teacher and department chair at Wissahickon SD, and Warwick Township auditor. Opponent: Rep. Kristin Marcell (R, incumbent).</em></span>
-<p class="art-sum">No new coverage in the last 48 hours.</p>
-</div>
-
-<div class="card card-sopink">
-<strong>Les Mavus (D) vs. Rep. Craig Staats (R) — HD-145 (Nockamixon)</strong>
-<span class="sub"><em>Mavus (D) challenges Rep. Craig Staats (R, incumbent); independent Rebecca Prendergast is also on the ballot.</em></span>
-<p class="art-sum">No new coverage in the last 48 hours.</p>
-</div>
-
-<div class="card card-green">
-<strong>Rep. Perry Warren (D) — HD-31 (Newtown)</strong>
-<span class="sub"><em>Warren: serving since 2017. No Republican appeared on the Newtown-area ballot as of the spring filing deadline, leaving Warren without a major-party challenger.</em></span>
-<p class="art-sum">No new coverage in the last 48 hours.</p>
-</div>
-</section>
-
-<section class="section-group">
-<div class="section-divider"><div class="divider-accent"></div><div class="divider-label">⭐ Key Races to Watch</div><div class="divider-line"></div></div>
-
-<div class="card card-blue">
-<span class="note">WHYY</span><br>
-<a class="art-head" href="https://whyy.org/articles/pennsylvania-election-2026-state-house-senate-harrisburg-power-democratic-republican-parties/" target="_blank" rel="noopener">These races could change the balance of power in Harrisburg</a> <span class="art-date">— Oct 13, 2026</span>
-<p class="art-sum">Republicans hold the Senate 27–23 (their narrowest margin in a decade) and Democrats hold the House 103–100. Bucks is central: a State Navigate poll had <strong>SD-6</strong> at Albillar 46, Farry 45; <strong>SD-16</strong> at Pinsley 47, Coleman 46 (with Shapiro up 20 in the district); <strong>HD-144</strong> Munroe leading by 12 in an August poll; <strong>HD-142</strong> (Hogan/Egan) in a Trump +3 seat Hogan won by under 100 in 2022; and <strong>HD-18</strong> (Allen/Tomlinson) among the state's most competitive.</p>
-<a class="read-more" href="https://whyy.org/articles/pennsylvania-election-2026-state-house-senate-harrisburg-power-democratic-republican-parties/" target="_blank" rel="noopener">Read more at WHYY →</a>
-</div>
-
-<div class="card card-pink">
-<span class="note">Bucks County Beacon</span><br>
-<a class="art-head" href="https://buckscountybeacon.com/2026/10/governor-josh-shapiro-representatives-madeleine-dean-and-hakeem-jeffries-headline-bucks-county-rally-for-bob-harvie/" target="_blank" rel="noopener">Shapiro, Dean and Jeffries headline Bucks County rally for Harvie</a> <span class="art-date">— Oct 11, 2026</span>
-<p class="art-sum">House Democratic Leader Hakeem Jeffries, Rep. Madeleine Dean and Gov. Shapiro drew hundreds to a Pennsbury-area rally. Harvie said outside spending against him had reached about $1 million a month since May and called for overturning Citizens United, banning partisan gerrymandering and barring congressional stock trading. SD-6 nominee Eileen Hartnett-Albillar also spoke.</p>
-<a class="read-more" href="https://buckscountybeacon.com/2026/10/governor-josh-shapiro-representatives-madeleine-dean-and-hakeem-jeffries-headline-bucks-county-rally-for-bob-harvie/" target="_blank" rel="noopener">Read more at Bucks County Beacon →</a>
-</div>
-
-<div class="card card-purple">
-<span class="note">Bucks County Beacon</span><br>
-<a class="art-head" href="https://buckscountybeacon.com/2026/10/poll-pa-01-congressional-race-between-gop-rep-brian-fitzpatrick-and-challenger-bob-harvie-a-dead-heat-rolling-into-november-election/" target="_blank" rel="noopener">Poll: PA-01 a dead heat rolling into the November election</a> <span class="art-date">— Oct 13, 2026</span>
-<p class="art-sum">A Global Strategy Group poll, first reported by Politico, had Fitzpatrick and Harvie tied at 46% each — a statistical tie in what the firm's memo called an evenly divided swing district where "most want to see Democrats take control of the U.S. House."</p>
-<a class="read-more" href="https://buckscountybeacon.com/2026/10/poll-pa-01-congressional-race-between-gop-rep-brian-fitzpatrick-and-challenger-bob-harvie-a-dead-heat-rolling-into-november-election/" target="_blank" rel="noopener">Read more at Bucks County Beacon →</a>
-</div>
-</section>
-
-<div class="callout">
-<strong>🔎 Sourcing &amp; freshness.</strong> Every item above links to its original article and was pulled live during this run. The Bucks County Courier Times (phillyburbs.com) crawler is blocked and returned nothing usable this run. The claimed "$13.8M in ads" figure from one aggregator could not be verified against a reachable source and was dropped in favor of the Inquirer/WHYY fundraising totals.
+<strong>Sources unavailable this run:</strong> Northeast Times and CNBC pages (PA-1 coverage) and the bucksco.today ad-spending recap returned site errors and were dropped rather than summarized from cache. The Bucks County Courier Times (phillyburbs.com) is blocked for the crawler. Poll and spending figures above come from the Inquirer, Roll Call and Spotlight PA reporting that was reachable live.
 </div>
 
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">Sun, Nov 1 at 1:05 PM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">Mon, Nov 02 at 5:46 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
 <script>
 function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;const badge=document.getElementById('updated-badge');if(badge&&badge.textContent.trim()==='DYNAMIC'+'_TIMESTAMP'){badge.textContent='…';var pg=(location.pathname.split('/').pop()||'index.html');fetch('https://api.github.com/repos/lisaprocz-rgb/crispy-octo-goggles/commits?path='+encodeURIComponent(pg)+'&per_page=1').then(function(r){return r.json();}).then(function(d){var t=new Date(d[0].commit.committer.date);var ds=t.toLocaleDateString('en-US',{timeZone:'America/New_York',weekday:'short',month:'short',day:'numeric'});var tm=t.toLocaleTimeString('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit',hour12:true});badge.textContent=ds+' at '+tm+' ET';}).catch(function(){badge.textContent='unavailable';});}}
 updateClock();setInterval(updateClock,1000);
