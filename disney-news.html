@@ -26,10 +26,6 @@ h1{font-family:'Baloo 2';font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;colo
   padding:.5rem 1.3rem;border-radius:14px;font-family:'Baloo 2';font-weight:600;
   font-size:.92rem;box-shadow:4px 4px 0 #ff5c8a}
 .live-clock .clock-date{color:#ffd23f}.live-clock .clock-time{color:#fff}
-.briefing-link{display:inline-block;margin-top:1rem;font-family:'Baloo 2';font-size:.82rem;font-weight:700;
-  background:#fff;color:#1f2440;text-decoration:none;padding:.42rem 1.05rem;border-radius:999px;
-  border:3px solid #1f2440;box-shadow:3px 3px 0 #ff8fc7;transition:transform .16s ease,box-shadow .16s ease}
-.briefing-link:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #ff8fc7}
 main{max-width:1080px;margin:0 auto;padding:1rem 1.4rem 4rem}
 .section-divider{display:flex;align-items:center;gap:.9rem;margin:2.4rem 0 1.2rem}
 section:first-of-type .section-divider, .section-group:first-child .section-divider{margin-top:.4rem}
@@ -48,17 +44,22 @@ section:first-of-type .section-divider, .section-group:first-child .section-divi
 .card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--accent,#ff5c8a)}
 .card strong, .card .card-title{font-family:'Baloo 2';font-size:1.12rem;font-weight:800;
   display:block;margin-bottom:.3rem;color:#1f2440}
+.card strong a{color:#1f2440;text-decoration:none;border-bottom:3px solid var(--accent,#ff5c8a)}
+.card strong a:hover{color:var(--accent,#ff5c8a)}
 .card .sub{display:block;color:#6b6f8c;font-size:.86rem;font-weight:600;line-height:1.5;margin-top:.15rem}
 .card .note{color:#1f2440;font-size:.74rem;font-weight:800;display:inline-block;
   background:var(--accent,#ffd23f);padding:.2rem .65rem;border-radius:999px;
   border:2px solid #1f2440;margin:.15rem .35rem .15rem 0;letter-spacing:.04em;text-transform:uppercase}
+.readmore{margin-top:.55rem}
+.readmore a{font-family:'Baloo 2';font-size:.8rem;font-weight:800;color:#1f2440;
+  text-decoration:none;background:var(--accent,#ffd23f);padding:.28rem .8rem;border-radius:999px;
+  border:2px solid #1f2440;display:inline-block;box-shadow:2px 2px 0 #1f2440}
+.readmore a:hover{transform:translate(-1px,-1px)}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
 .card-pink{--accent:#ff5c8a}.card-yellow{--accent:#ffd23f}.card-cyan{--accent:#3ec6e0}
 .card-purple{--accent:#a78bfa}.card-magenta{--accent:#d68bff}.card-blue{--accent:#5b9dff}
 .card-green{--accent:#3dd6b5}.card-lime{--accent:#7bd957}.card-orange{--accent:#ffb84d}
 .card-lblue{--accent:#4fc3f7}.card-sopink{--accent:#ff8fc7}.card-lavender{--accent:#b79cff}
-.readmore{margin-top:.55rem}
-.readmore a{font-family:'Baloo 2';font-weight:700;font-size:.82rem}
 .back-to-hub{display:inline-block;font-family:'Baloo 2';font-size:.85rem;font-weight:700;
   background:#fff;color:#1f2440;text-decoration:none;padding:.45rem 1.1rem;border-radius:999px;
   border:3px solid #1f2440;box-shadow:3px 3px 0 #ffd23f;margin-bottom:1.2rem;
@@ -74,16 +75,24 @@ tr:first-child td{border-top:none}
 ul, ol{margin:.6rem 0 1rem 1.4rem;font-size:.92rem;font-weight:600;line-height:1.6}
 li{margin-bottom:.25rem}
 p{margin:.6rem 0;font-size:.95rem;font-weight:500;line-height:1.6}
-a:not(.card):not(.back-to-hub):not(.briefing-link):not(.hub-label a){color:#1f2440;font-weight:700;
+a:not(.card):not(.back-to-hub):not(.hub-label a){color:#1f2440;font-weight:700;
   text-decoration:none;border-bottom:2px dotted #ff5c8a;padding-bottom:1px}
-a:not(.card):not(.back-to-hub):not(.briefing-link):not(.hub-label a):hover{color:#ff5c8a;border-bottom-color:#1f2440}
+a:not(.card):not(.back-to-hub):not(.hub-label a):hover{color:#ff5c8a;border-bottom-color:#1f2440}
 .callout{background:#fff;border:3px solid #1f2440;border-radius:16px;
   box-shadow:5px 5px 0 #ffd23f;padding:1rem 1.2rem;margin:.8rem 0}
 .callout strong{font-family:'Baloo 2'}
+.freshness{background:#fff;border:3px solid #1f2440;border-radius:16px;
+  box-shadow:5px 5px 0 #3ec6e0;padding:.9rem 1.2rem;margin:.2rem 0 1rem;font-size:.84rem;font-weight:700}
 footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem;font-weight:700}
 .footer-clock{margin-top:.4rem;color:#ff5c8a}
 .timestamp-badge{display:inline-block;background:#1f2440;color:#ffd23f;font-family:'Baloo 2';
   font-weight:700;font-size:.78rem;padding:.25rem .75rem;border-radius:999px;letter-spacing:.04em}
+.topnav{background:#1a2744;padding:14px 20px;display:flex;align-items:center;gap:1rem}
+.topnav a.crumb{color:rgba(255,255,255,0.6);text-decoration:none;font-size:.82rem;letter-spacing:.08em}
+.topnav a.crumb:hover{color:#fff}
+.topnav .here{color:#fff;font-weight:500;font-size:.82rem}
+.topnav .sep{color:rgba(255,255,255,0.2);font-size:.75rem}
+.topnav a.personal{margin-left:auto;color:#ffd2e4;text-decoration:none;font-size:.82rem;letter-spacing:.05em}
 @media (max-width:600px){
   h1{font-size:2.4rem}
   main{padding:1rem .9rem 3rem}
@@ -92,232 +101,367 @@ footer{text-align:center;padding:2rem 1rem 2.4rem;color:#6b6f8c;font-size:.84rem
 </style>
 </head>
 <body>
+<!-- Navigation bar -->
+<div class="topnav">
+  <a class="crumb" href="index.html">Lisa's Hub</a>
+  <span class="sep">&#8250;</span>
+  <span class="here">Disney Daily Briefing</span>
+  <a class="personal" href="https://docs.google.com/document/d/1yo9L1eVBVuJWg4m5xF9rI6LfJA-Gh8Unlg-FRm-vWm4/edit" target="_blank" rel="noopener">🔒 Personal Briefing →</a>
+</div>
 <header>
 <div class="hub-label"><a href="index.html">← Lisa's Hub</a></div>
 <h1>✨ Disney Daily Briefing</h1>
 <div class="subtitle">Parks · DVC · Cruise fleet · Dining · Upcoming events</div>
 <div class="gold-line"></div>
 <div class="live-clock"><span class="clock-date" id="header-date"></span><span class="clock-time" id="header-time"></span></div>
-<br>
-<a class="briefing-link" href="https://docs.google.com/document/d/1yo9L1eVBVuJWg4m5xF9rI6LfJA-Gh8Unlg-FRm-vWm4/edit" target="_blank" rel="noopener">🔒 Personal Briefing →</a>
 </header>
 <main>
 
-<div class="callout" style="box-shadow:5px 5px 0 #3ec6e0">
-<strong>📡 Generated:</strong> Thu, Nov 19, 2026 at 11:28 AM ET · 16:28 UTC.<br>
-All content fetched live this run — no cached data used. Freshness window: last 30 days (news) / 14 days (YouTube).<br>
-<span class="sub" style="color:#6b6f8c">Sources unavailable this run: CNBC earnings page, WDWMagic, Theme Park Insider, and the DisneyBlog holiday-dates page could not be loaded; figures below come from other live, dated sources. The DVC Points Info file on Lisa's Mac was not reachable this run (no folder mounted), so the banking balance could not be verified — see note below.</span>
+<div class="freshness">
+  <strong>Generated:</strong> Fri, Nov 20 at 3:36 AM ET · 2026-11-20 08:36 UTC<br>
+  All content fetched live this run — no cached data used. Freshness window: 30 days (news) / 14 days (YouTube). Items older than the cutoff were dropped.
 </div>
 
 <div class="callout">
-<strong>⏰ DVC Banking — February Use Year:</strong> The Sept 30, 2026 banking deadline for the current (2026) Use Year has passed. Any unbanked 2026-UY points left would now expire Jan 31, 2027. Lisa's DVC Points Info file could not be opened this run, so the actual balance is unverified — check the "Available Points Balance" table before assuming action is needed. Points refresh 780 (RR 350 + BLT 215 + AKL 215) on Feb 1, 2027.
+  <strong>📌 This run's note:</strong> The DVC banking-window check could not run — Lisa's DVC Points Info file was not reachable this run (no folder from her Mac is connected to this scheduled session), so the banking section is omitted rather than estimated. Separately, the February Use Year banking deadline (Sep 30) has already passed for UY 2026; any remaining UY-2026 points would expire Jan 31, 2027. Verify your balance on the DVC Member site if in doubt.
 </div>
 
+<!-- ============ CORPORATE & BUSINESS ============ -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">💼 Corporate &amp; Business</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Corporate & Business</span><span class="divider-line"></span></div>
+
+  <div class="callout">
+    <strong>🔴 Top story:</strong> Disney posted a strong fiscal Q4 2026 but confirmed another round of layoffs is coming as CEO Josh D'Amaro targets about <strong>$3 billion</strong> in annual cost savings by fiscal 2029. Details in the cards below.
+  </div>
+
   <div class="cards-grid">
     <div class="card card-pink">
-      <strong><a href="https://247wallst.com/investing/2026/11/18/disney-wants-3-billion-in-savings-and-more-layoffs-are-coming/" target="_blank" rel="noopener">Disney targets $3B in savings by 2029 — and more layoffs are coming</a></strong>
-      <span class="sub">Q4 FY2026 revenue rose 16% to $25.9B and adjusted EPS hit $1.77 (net income $2.61B), but CFO Hugh Johnston confirmed "we do expect more layoffs" as Disney chases roughly $3 billion in annual operating-expense savings by fiscal 2029. Disney will also stop reporting standalone streaming (SVOD) operating income starting in Q1 FY2027.</span>
-      <span class="note">24/7 Wall St. · Nov 18, 2026</span>
+      <strong><a href="https://thewaltdisneycompany.com/news/disney-q4-earnings-2026/" target="_blank" rel="noopener">Disney beats Q4 estimates; revenue up ~16% to $25.9B</a></strong>
+      <span class="sub">Disney closed fiscal 2026 with a fourth-quarter beat — revenue rose about 16% to roughly $25.9B, ahead of the ~$25.2B expected, led by streaming and record Disney Experiences guest numbers. D'Amaro called it "a defining year."</span>
+      <span class="note">The Walt Disney Company</span><span class="note">Nov 17</span>
+      <div class="readmore"><a href="https://thewaltdisneycompany.com/news/disney-q4-earnings-2026/" target="_blank" rel="noopener">Read more at Disney →</a></div>
+    </div>
+
+    <div class="card card-magenta">
+      <strong><a href="https://247wallst.com/investing/2026/11/18/disney-wants-3-billion-in-savings-and-more-layoffs-are-coming/" target="_blank" rel="noopener">Disney wants $3B in savings — and more layoffs are coming</a></strong>
+      <span class="sub">CFO Hugh Johnston said Disney is targeting ~$3B in annual run-rate savings by fiscal 2029 (procurement, IT, real estate, shared services, SG&A). Severance ran $212M in Q4 and $392M for the year; Johnston told CNBC more cuts are expected.</span>
+      <span class="note">24/7 Wall St.</span><span class="note">Nov 18</span>
       <div class="readmore"><a href="https://247wallst.com/investing/2026/11/18/disney-wants-3-billion-in-savings-and-more-layoffs-are-coming/" target="_blank" rel="noopener">Read more at 24/7 Wall St. →</a></div>
     </div>
-    <div class="card card-magenta">
-      <strong><a href="https://www.thestreet.com/employment/walt-disney-company-more-layoffs-392-million-dollars-severance-costs" target="_blank" rel="noopener">$392M in severance booked in FY2026 as more cuts loom</a></strong>
-      <span class="sub">Disney's annual report shows $392 million in severance charges for fiscal 2026 (including $212M in Q4), after eliminating more than 1,500 positions across three rounds from April to September. CEO Josh D'Amaro: "Changes like these are not easy, and they affect people who care deeply about Disney." No headcount or timing has been given for the next round.</span>
-      <span class="note">TheStreet · Nov 18, 2026</span>
-      <div class="readmore"><a href="https://www.thestreet.com/employment/walt-disney-company-more-layoffs-392-million-dollars-severance-costs" target="_blank" rel="noopener">Read more at TheStreet →</a></div>
-    </div>
+
     <div class="card card-pink">
-      <strong><a href="https://mickeyvisit.com/disney-announcements-november-17-2026/" target="_blank" rel="noopener">Parks drove the quarter: revenue up 9%, attendance up 3%</a></strong>
-      <span class="sub">On the Nov 17 earnings call, Experiences (parks) revenue was up 9% and operating income up 12% for the fiscal year, with domestic attendance up 3% — the segment carrying much of Disney's growth even as corporate cost-cutting continues.</span>
-      <span class="note">Mickey Visit · Nov 17, 2026</span>
-      <div class="readmore"><a href="https://mickeyvisit.com/disney-announcements-november-17-2026/" target="_blank" rel="noopener">Read more at Mickey Visit →</a></div>
+      <strong><a href="https://deadline.com/2026/11/disney-more-layoffs-2026-tv-networks-movie-studio-savings-1237211939/" target="_blank" rel="noopener">Divisions reportedly eyeing up to 20% in savings</a></strong>
+      <span class="sub">Deadline reports Disney divisions — including TV networks and the movie studio — have been asked to find deep savings, with some units targeting up to 20% on an annualized basis as part of the broader cost-cut drive.</span>
+      <span class="note">Deadline</span><span class="note">Nov 2026</span>
+      <div class="readmore"><a href="https://deadline.com/2026/11/disney-more-layoffs-2026-tv-networks-movie-studio-savings-1237211939/" target="_blank" rel="noopener">Read more at Deadline →</a></div>
+    </div>
+
+    <div class="card card-magenta">
+      <strong><a href="https://mickeyblog.com/2026/11/17/disney-intends-to-slash-3-billion-in-operating-expenses-by-2029-more-layoffs-are-coming" target="_blank" rel="noopener">What the cost cuts mean for guests and cast</a></strong>
+      <span class="sub">A roundup of the $3B operating-expense reduction plan through 2029, where the savings are expected to come from, and how much Disney says it will reinvest versus return to the bottom line.</span>
+      <span class="note">MickeyBlog</span><span class="note">Nov 17</span>
+      <div class="readmore"><a href="https://mickeyblog.com/2026/11/17/disney-intends-to-slash-3-billion-in-operating-expenses-by-2029-more-layoffs-are-coming" target="_blank" rel="noopener">Read more at MickeyBlog →</a></div>
     </div>
   </div>
 </section>
 
+<!-- ============ PARKS NEWS ============ -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🏰 Parks News</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Parks News</span><span class="divider-line"></span></div>
+
   <div class="cards-grid">
     <div class="card card-sopink">
-      <strong><a href="https://mickeyvisit.com/disney-november-ride-closures-october-27-2026/" target="_blank" rel="noopener">November closures &amp; refurbishments across the resorts</a></strong>
-      <span class="sub">At Walt Disney World, Tiana's Bayou Adventure (Magic Kingdom) closed Nov 2 and is slated to reopen Dec 18, 2026; Carousel of Progress remains down for an overhaul (back in 2027) and Typhoon Lagoon is closed for seasonal maintenance. Disneyland rolled out holiday overlays on "it's a small world" and Redwood Creek through mid-November.</span>
-      <span class="note">Mickey Visit · Oct 28, 2026</span>
-      <div class="readmore"><a href="https://mickeyvisit.com/disney-november-ride-closures-october-27-2026/" target="_blank" rel="noopener">Read more at Mickey Visit →</a></div>
+      <strong><a href="https://allears.net/2026/10/25/confirmed-full-list-of-disney-world-ride-closures-in-november-2026/" target="_blank" rel="noopener">CONFIRMED: Full list of Disney World ride closures in November</a></strong>
+      <span class="sub">AllEars' confirmed rundown of which attractions are down for refurbishment across the four parks this month — check it before locking in touring plans for a late-November visit.</span>
+      <span class="note">AllEars</span><span class="note">Oct 25</span>
+      <div class="readmore"><a href="https://allears.net/2026/10/25/confirmed-full-list-of-disney-world-ride-closures-in-november-2026/" target="_blank" rel="noopener">Read more at AllEars →</a></div>
     </div>
+
+    <div class="card card-pink">
+      <strong><a href="https://insidethemagic.net/2026/10/disney-world-confirms-7-holiday-closures-popular-experiences-and-entire-park-offline-sb1/" target="_blank" rel="noopener">Disney World confirms 7 holiday closures</a></strong>
+      <span class="sub">Several popular experiences — and an entire park on select hard-ticket nights — go offline during the holiday season. Inside the Magic breaks down the dates and what's affected.</span>
+      <span class="note">Inside the Magic</span><span class="note">Oct 2026</span>
+      <div class="readmore"><a href="https://insidethemagic.net/2026/10/disney-world-confirms-7-holiday-closures-popular-experiences-and-entire-park-offline-sb1/" target="_blank" rel="noopener">Read more at Inside the Magic →</a></div>
+    </div>
+
     <div class="card card-magenta">
-      <strong><a href="https://mickeyvisit.com/disney-announcements-november-17-2026/" target="_blank" rel="noopener">Project pipeline reaffirmed on the earnings call</a></strong>
-      <span class="sub">Disney leadership pointed to a packed 2027: Tropical Americas (with Encanto and Indiana Jones attractions) opening fully, Monstropolis opening partially, a new Coco boat ride, a Tomorrowland overhaul, Disney Lakeshore Lodge opening, and an Avatar land coming to Disneyland.</span>
-      <span class="note">Mickey Visit · Nov 17, 2026</span>
-      <div class="readmore"><a href="https://mickeyvisit.com/disney-announcements-november-17-2026/" target="_blank" rel="noopener">Read more at Mickey Visit →</a></div>
+      <strong><a href="https://mickeyvisit.com/?p=123548" target="_blank" rel="noopener">Ride change, rare 2027 discounts & a plan to curb guest phone use</a></strong>
+      <span class="sub">Disney's latest wave of announcements bundles an attraction change, new rare 2027 discounts and perks, and a stated goal of reducing how much guests stare at their phones in the parks.</span>
+      <span class="note">Mickey Visit</span><span class="note">Nov 2026</span>
+      <div class="readmore"><a href="https://mickeyvisit.com/?p=123548" target="_blank" rel="noopener">Read more at Mickey Visit →</a></div>
     </div>
   </div>
 </section>
 
+<!-- ============ EPCOT FESTIVALS ============ -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🎉 EPCOT Festivals</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">EPCOT Festivals</span><span class="divider-line"></span></div>
+
   <div class="cards-grid">
     <div class="card card-orange">
-      <strong><a href="https://www.disneytouristblog.com/full-food-menus-for-2026-epcot-festival-of-holidays-figment-christmas-popcorn-bucket-and-98-new-items/" target="_blank" rel="noopener">Festival of the Holidays returns Nov 27 with 98 new items</a></strong>
-      <span class="sub">The 2026 EPCOT International Festival of the Holidays serves 186 food &amp; beverage offerings across 20 Holiday Kitchens, including 98 brand-new items. Two new booths join the lineup — a Diwali Holiday Kitchen (Pani Puri, Thandai Milkshake) and Season's Eatings (Holly Jolly Bánh Mì). Runs through roughly Dec 30.</span>
-      <span class="note">Disney Tourist Blog · Nov 12, 2026</span>
+      <strong><a href="https://www.disneytouristblog.com/full-food-menus-for-2026-epcot-festival-of-holidays-figment-christmas-popcorn-bucket-and-98-new-items/" target="_blank" rel="noopener">Festival of the Holidays: full menus, 98 new items & a Figment bucket</a></strong>
+      <span class="sub">The 2026 EPCOT International Festival of the Holidays returns with Holiday Kitchens around World Showcase, roughly 98 new menu items, and a Figment Christmas popcorn bucket. Disney Tourist Blog has the full food lineup.</span>
+      <span class="note">Disney Tourist Blog</span><span class="note">2026</span>
       <div class="readmore"><a href="https://www.disneytouristblog.com/full-food-menus-for-2026-epcot-festival-of-holidays-figment-christmas-popcorn-bucket-and-98-new-items/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></div>
     </div>
+
     <div class="card card-yellow">
-      <strong><a href="https://www.disneytouristblog.com/full-food-menus-for-2026-epcot-festival-of-holidays-figment-christmas-popcorn-bucket-and-98-new-items/" target="_blank" rel="noopener">New Figment "Holiday Sweater" popcorn bucket &amp; Cookie Stroll</a></strong>
-      <span class="sub">A new Figment Holiday Sweater popcorn bucket filled with jelly-doughnut popcorn is selling at Holiday Hearth Desserts (limit two per transaction, while supplies last) — the first Figment bucket in his Christmas sweater. The popular Holiday Cookie Stroll also returns for 2026.</span>
-      <span class="note">Disney Tourist Blog · Nov 12, 2026</span>
-      <div class="readmore"><a href="https://www.disneytouristblog.com/full-food-menus-for-2026-epcot-festival-of-holidays-figment-christmas-popcorn-bucket-and-98-new-items/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></div>
+      <strong><a href="https://mickeyvisit.com/?p=123772" target="_blank" rel="noopener">EPCOT announces 8 changes for this year's Christmas celebration</a></strong>
+      <span class="sub">Mickey Visit details eight changes to EPCOT's holiday season — covering entertainment, the Candlelight Processional, food booths and merch — versus prior years.</span>
+      <span class="note">Mickey Visit</span><span class="note">2026</span>
+      <div class="readmore"><a href="https://mickeyvisit.com/?p=123772" target="_blank" rel="noopener">Read more at Mickey Visit →</a></div>
     </div>
   </div>
 </section>
 
+<!-- ============ DINING ============ -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🍽️ Dining</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Dining</span><span class="divider-line"></span></div>
+
   <div class="cards-grid">
     <div class="card card-yellow">
-      <strong><a href="https://www.disneyfoodblog.com/2026/11/01/menu-change-roundup-10-disney-world-restaurants-changed-this-week/" target="_blank" rel="noopener">10 Disney World restaurants changed menus this week</a></strong>
-      <span class="sub">Magic Kingdom saw the biggest shuffle: Pecos Bill swapped in salsa-verde chicken bowls, Columbia Harbour House added shrimp &amp; fish platters and a plant-based crab-cake sandwich, and The Plaza Restaurant added a Traditional Meatloaf ($27). Fort Wilderness, Sanaa and others added allergy-friendly kids' items.</span>
-      <span class="note">Disney Food Blog · Nov 1, 2026</span>
+      <strong><a href="https://www.disneyfoodblog.com/2026/11/01/menu-change-roundup-10-disney-world-restaurants-changed-this-week/" target="_blank" rel="noopener">10 Disney World restaurants changed their menus this week</a></strong>
+      <span class="sub">Disney Food Blog's latest menu-change roundup tracks ten restaurants across the resort that quietly swapped dishes, prices or offerings heading into the holidays.</span>
+      <span class="note">Disney Food Blog</span><span class="note">Nov 1</span>
       <div class="readmore"><a href="https://www.disneyfoodblog.com/2026/11/01/menu-change-roundup-10-disney-world-restaurants-changed-this-week/" target="_blank" rel="noopener">Read more at Disney Food Blog →</a></div>
     </div>
+
     <div class="card card-orange">
-      <strong><a href="https://www.disneyfoodblog.com/2026/11/01/menu-change-roundup-10-disney-world-restaurants-changed-this-week/" target="_blank" rel="noopener">Bars &amp; lounges: new cocktails and small price bumps</a></strong>
-      <span class="sub">Morimoto Asia added the "Orochi's Ember" cocktail ($20, or $35 with a souvenir cup) at Disney Springs, Hollywood Brown Derby dropped its Reposado Espresso Martini, and Citricos nudged its Mezcal Paloma Sour and Citrus Blossom Martini from $18.50 to $19.</span>
-      <span class="note">Disney Food Blog · Nov 1, 2026</span>
-      <div class="readmore"><a href="https://www.disneyfoodblog.com/2026/11/01/menu-change-roundup-10-disney-world-restaurants-changed-this-week/" target="_blank" rel="noopener">Read more at Disney Food Blog →</a></div>
+      <strong><a href="https://mickeyvisit.com/?p=119308" target="_blank" rel="noopener">Big dining changes: new openings and closures across resorts</a></strong>
+      <span class="sub">Mickey Visit rounds up the latest restaurant openings, closures and menu overhauls happening across Walt Disney World and Disneyland resorts.</span>
+      <span class="note">Mickey Visit</span><span class="note">2026</span>
+      <div class="readmore"><a href="https://mickeyvisit.com/?p=119308" target="_blank" rel="noopener">Read more at Mickey Visit →</a></div>
     </div>
   </div>
 </section>
 
+<!-- ============ DVC UPDATES ============ -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🏡 DVC Updates</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">DVC Updates</span><span class="divider-line"></span></div>
+
   <div class="cards-grid">
     <div class="card card-lavender">
-      <strong><a href="https://mickeyvisit.com/disney-announcements-november-17-2026/" target="_blank" rel="noopener">Disney Lakeshore Lodge on track to open in 2027</a></strong>
-      <span class="sub">The newest Disney Vacation Club resort, Disney Lakeshore Lodge, was reaffirmed for a 2027 opening on the Nov 17 earnings call — one of several new Experiences projects Disney highlighted as it leans into its parks and resorts pipeline.</span>
-      <span class="note">Mickey Visit · Nov 17, 2026</span>
-      <div class="readmore"><a href="https://mickeyvisit.com/disney-announcements-november-17-2026/" target="_blank" rel="noopener">Read more at Mickey Visit →</a></div>
-    </div>
-    <div class="card card-purple">
       <strong><a href="https://disneyblog.com/news/2027-membership-magic-beyond-returns-with-new-ticket-savings/" target="_blank" rel="noopener">2027 Membership Magic Beyond returns with new ticket savings</a></strong>
-      <span class="sub">DVC's member-perks program, Membership Magic Beyond, is back for the 2027 member year with refreshed discounts and new ticket-savings offers for eligible members. Worth a look before booking 2027 trips.</span>
-      <span class="note">DisneyBlog · Membership year 2027</span>
-      <div class="readmore"><a href="https://disneyblog.com/news/2027-membership-magic-beyond-returns-with-new-ticket-savings/" target="_blank" rel="noopener">Read more at DisneyBlog →</a></div>
+      <span class="sub">DVC's member-perk program Membership Magic Beyond is back for 2027 with refreshed ticket discounts and member benefits. The Disney Blog has the details on what members get.</span>
+      <span class="note">The Disney Blog</span><span class="note">2026</span>
+      <div class="readmore"><a href="https://disneyblog.com/news/2027-membership-magic-beyond-returns-with-new-ticket-savings/" target="_blank" rel="noopener">Read more at The Disney Blog →</a></div>
+    </div>
+
+    <div class="card card-purple">
+      <strong><a href="https://mickeyvisit.com/disney-vacation-club-discounts-october-27-2026/" target="_blank" rel="noopener">DVC reveals limited-time discounts for new buyers & current owners</a></strong>
+      <span class="sub">Disney Vacation Club rolled out limited-time direct-purchase incentives for prospective buyers and add-on pricing for current owners. Mickey Visit covers the resorts and terms.</span>
+      <span class="note">Mickey Visit</span><span class="note">Oct 27</span>
+      <div class="readmore"><a href="https://mickeyvisit.com/disney-vacation-club-discounts-october-27-2026/" target="_blank" rel="noopener">Read more at Mickey Visit →</a></div>
+    </div>
+
+    <div class="card card-lavender">
+      <strong><a href="https://blogmickey.com/2026/08/dvc-members-can-stay-at-lakeshore-lodge-before-it-opens-heres-how/" target="_blank" rel="noopener">How DVC members can stay at Lakeshore Lodge before it opens</a></strong>
+      <span class="sub">Blog Mickey explains the booking path for DVC members to be among the first to stay at the new Lakeshore Lodge resort ahead of its official opening.</span>
+      <span class="note">Blog Mickey</span><span class="note">2026</span>
+      <div class="readmore"><a href="https://blogmickey.com/2026/08/dvc-members-can-stay-at-lakeshore-lodge-before-it-opens-heres-how/" target="_blank" rel="noopener">Read more at Blog Mickey →</a></div>
     </div>
   </div>
 </section>
 
+<!-- ============ CRUISE FLEET ============ -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🚢 Cruise Fleet</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Cruise Fleet</span><span class="divider-line"></span></div>
+
   <div class="cards-grid">
     <div class="card card-lblue">
-      <strong><a href="https://disneycruise.disney.go.com/special-offers/" target="_blank" rel="noopener">Current DCL offer: 20% off fare + $250 onboard credit</a></strong>
-      <span class="sub">Disney Cruise Line is running a limited-time deal of 20% off the voyage fare plus a $250 onboard credit on select sailings, alongside special U.S. military rates that also include a $250 onboard credit tied to America's 250th anniversary.</span>
-      <span class="note">Disney Cruise Line · Current offer</span>
-      <div class="readmore"><a href="https://disneycruise.disney.go.com/special-offers/" target="_blank" rel="noopener">Read more at DisneyCruise.com →</a></div>
-    </div>
-    <div class="card card-cyan">
-      <strong><a href="https://disneyparksblog.com/dcl/new-disney-cruise-line-itineraries-coming-to-california-and-texas/" target="_blank" rel="noopener">Expanded sailings coming to California &amp; Texas</a></strong>
-      <span class="sub">Disney Cruise Line is expanding its lineup with new itineraries and more sailings out of California and Texas (plus Florida) for 2026–2027, giving the growing fleet — including the newest ship, Disney Destiny — more homeports to sail from.</span>
-      <span class="note">Disney Parks Blog · Fall 2026</span>
+      <strong><a href="https://disneyparksblog.com/dcl/new-disney-cruise-line-itineraries-coming-to-california-and-texas/" target="_blank" rel="noopener">New DCL itineraries: expanded California & Texas sailings</a></strong>
+      <span class="sub">Disney Cruise Line is expanding sailings out of California and Texas, adding more departures and destinations for the season ahead. Disney Parks Blog has the ports and dates.</span>
+      <span class="note">Disney Parks Blog</span><span class="note">2026</span>
       <div class="readmore"><a href="https://disneyparksblog.com/dcl/new-disney-cruise-line-itineraries-coming-to-california-and-texas/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a></div>
     </div>
+
+    <div class="card card-cyan">
+      <strong><a href="https://disneyexperiences.com/dcl-press/release/disney-cruise-line-sets-sail-for-a-blockbuster-summer-2027-with-a-new-ship-in-europe-new-destinations-" target="_blank" rel="noopener">A blockbuster summer 2027: new ship in Europe, new destinations</a></strong>
+      <span class="sub">Disney Cruise Line's official press release lays out its summer 2027 lineup, including a new ship sailing in Europe and fresh destinations across the global fleet.</span>
+      <span class="note">Disney Experiences (official)</span><span class="note">2026</span>
+      <div class="readmore"><a href="https://disneyexperiences.com/dcl-press/release/disney-cruise-line-sets-sail-for-a-blockbuster-summer-2027-with-a-new-ship-in-europe-new-destinations-" target="_blank" rel="noopener">Read more at Disney Experiences →</a></div>
+    </div>
+
+    <div class="card card-lblue">
+      <strong><a href="https://www.travelpulse.com/news/cruise/disney-cruise-line-takes-delivery-of-disney-destiny" target="_blank" rel="noopener">Disney Cruise Line takes delivery of the Disney Destiny</a></strong>
+      <span class="sub">The heroes-and-villains-themed Disney Destiny has joined the fleet, expanding DCL's Wish-class ships. TravelPulse covers the delivery and what's aboard.</span>
+      <span class="note">TravelPulse</span><span class="note">2026</span>
+      <div class="readmore"><a href="https://www.travelpulse.com/news/cruise/disney-cruise-line-takes-delivery-of-disney-destiny" target="_blank" rel="noopener">Read more at TravelPulse →</a></div>
+    </div>
   </div>
 </section>
 
+<!-- ============ MOVIES & ENTERTAINMENT ============ -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🎬 Movies &amp; Entertainment</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Movies & Entertainment</span><span class="divider-line"></span></div>
+
   <div class="cards-grid">
     <div class="card card-green">
-      <strong><a href="https://ppc.land/disney-passes-4-billion-at-2026-box-office-ahead-of-seven-film-fall-slate/" target="_blank" rel="noopener">Disney crosses $4 billion at the 2026 box office</a></strong>
-      <span class="sub">The Walt Disney Company passed $4 billion at the global box office for 2026, heading into a seven-film fall slate — a strong theatrical year to pair with the Experiences growth driving the company's results.</span>
-      <span class="note">PPC Land · Fall 2026</span>
-      <div class="readmore"><a href="https://ppc.land/disney-passes-4-billion-at-2026-box-office-ahead-of-seven-film-fall-slate/" target="_blank" rel="noopener">Read more at PPC Land →</a></div>
+      <strong><a href="https://thewaltdisneycompany.com/news/zootopia-2-1-billion/" target="_blank" rel="noopener">'Zootopia 2' surpasses $1 billion at the global box office</a></strong>
+      <span class="sub">Walt Disney Animation's Zootopia 2 crossed $1 billion worldwide after a near-record opening, giving Disney a major theatrical win to close out 2026.</span>
+      <span class="note">The Walt Disney Company</span><span class="note">2026</span>
+      <div class="readmore"><a href="https://thewaltdisneycompany.com/news/zootopia-2-1-billion/" target="_blank" rel="noopener">Read more at Disney →</a></div>
     </div>
+
     <div class="card card-lime">
-      <strong><a href="https://www.laughingplace.com/disney-entertainment/everything-coming-to-disney-plus-november-2026/" target="_blank" rel="noopener">What's new on Disney+ in November 2026</a></strong>
-      <span class="sub">Disney+ refreshed its catalog for November 2026 with new originals, library additions and seasonal titles — the full month-by-month list is worth a scan for anything to queue up over the holidays.</span>
-      <span class="note">Laughing Place · November 2026</span>
+      <strong><a href="https://www.laughingplace.com/disney-entertainment/everything-coming-to-disney-plus-november-2026/" target="_blank" rel="noopener">Everything coming to Disney+ in November 2026</a></strong>
+      <span class="sub">Laughing Place's full list of new titles, originals and library additions arriving on Disney+ this month — a quick way to plan your streaming queue.</span>
+      <span class="note">Laughing Place</span><span class="note">Nov 2026</span>
       <div class="readmore"><a href="https://www.laughingplace.com/disney-entertainment/everything-coming-to-disney-plus-november-2026/" target="_blank" rel="noopener">Read more at Laughing Place →</a></div>
     </div>
+
+    <div class="card card-green">
+      <strong><a href="https://www.hollywoodreporter.com/movies/movie-news/zootopia-2-rules-thanksgiving-box-office-1236437850/" target="_blank" rel="noopener">Box office: 'Zootopia 2' rules Thanksgiving with a near-record opening</a></strong>
+      <span class="sub">The Hollywood Reporter recaps Zootopia 2's blockbuster debut — among the biggest animated openings ever — as it dominates the Thanksgiving-season box office.</span>
+      <span class="note">The Hollywood Reporter</span><span class="note">2026</span>
+      <div class="readmore"><a href="https://www.hollywoodreporter.com/movies/movie-news/zootopia-2-rules-thanksgiving-box-office-1236437850/" target="_blank" rel="noopener">Read more at THR →</a></div>
+    </div>
   </div>
 </section>
 
+<!-- ============ DEALS & DISCOUNTS ============ -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">🏷️ Deals &amp; Discounts</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Deals & Discounts</span><span class="divider-line"></span></div>
+
   <div class="cards-grid">
     <div class="card card-yellow">
-      <strong><a href="https://disneyblog.com/news/target-offers-up-to-15-off-disney-gift-cards-this-week/" target="_blank" rel="noopener">Target: up to 15% off Disney gift cards</a></strong>
-      <span class="sub">Target rolled out a surprise discount of up to 15% off Disney gift cards ahead of Black Friday — one of the better stackable ways to shave money off park tickets, dining and merch.</span>
-      <span class="note">DisneyBlog · Nov 2026</span>
-      <div class="readmore"><a href="https://disneyblog.com/news/target-offers-up-to-15-off-disney-gift-cards-this-week/" target="_blank" rel="noopener">Read more at DisneyBlog →</a></div>
+      <strong><a href="https://mickeyvisit.com/disney-offering-new-discounts-black-friday-november-18-2026/" target="_blank" rel="noopener">Disney announces a wave of new discounts ahead of Black Friday</a></strong>
+      <span class="sub">Mickey Visit's Nov 18 roundup of the fresh public, passholder and Visa offers Disney rolled out going into Black Friday week — room discounts, ticket deals and more.</span>
+      <span class="note">Mickey Visit</span><span class="note">Nov 18</span>
+      <div class="readmore"><a href="https://mickeyvisit.com/disney-offering-new-discounts-black-friday-november-18-2026/" target="_blank" rel="noopener">Read more at Mickey Visit →</a></div>
     </div>
+
     <div class="card card-orange">
-      <strong><a href="https://mickeyvisit.com/?p=123040" target="_blank" rel="noopener">Sam's Club card deal sold out — new discounts live now</a></strong>
-      <span class="sub">The pre-Black-Friday Sam's Club discounted Disney gift card sold out quickly, but Mickey Visit is tracking replacement gift-card discounts that are available right now from other retailers.</span>
-      <span class="note">Mickey Visit · Nov 2026</span>
-      <div class="readmore"><a href="https://mickeyvisit.com/?p=123040" target="_blank" rel="noopener">Read more at Mickey Visit →</a></div>
+      <strong><a href="https://www.wdwmagic.com/resorts/walt-disney-world-resorts-information/news/10sep2026-disney-visa-cardmembers-can-save-up-to-30-on-disney-world-rooms-this-spring.htm" target="_blank" rel="noopener">Disney Visa: save up to 30% on Disney World rooms, spring 2027</a></strong>
+      <span class="sub">Disney Visa cardmembers can book select Walt Disney World resort stays in spring 2027 at up to 30% off. Public (non-cardmember) 2027 room discounts have also been released.</span>
+      <span class="note">WDWMAGIC</span><span class="note">2026</span>
+      <div class="readmore"><a href="https://www.wdwmagic.com/resorts/walt-disney-world-resorts-information/news/10sep2026-disney-visa-cardmembers-can-save-up-to-30-on-disney-world-rooms-this-spring.htm" target="_blank" rel="noopener">Read more at WDWMAGIC →</a></div>
     </div>
+
     <div class="card card-lime">
-      <strong><a href="https://disneyworld.disney.go.com/special-offers/passholder-holiday-2026-room-offer/" target="_blank" rel="noopener">Passholder &amp; Florida Resident: up to 30% off rooms</a></strong>
-      <span class="sub">Annual Passholders and Florida Residents can save up to 30% on select Walt Disney World resort stays through the 2026 holiday season — one of the deeper room discounts currently on Disney's official offers page.</span>
-      <span class="note">Walt Disney World · Holiday 2026</span>
-      <div class="readmore"><a href="https://disneyworld.disney.go.com/special-offers/passholder-holiday-2026-room-offer/" target="_blank" rel="noopener">Read more at DisneyWorld.com →</a></div>
+      <strong><a href="https://www.disneytouristblog.com/35-percent-off-disney-world-resort-discounts-winter-spring-2027-annual-passholders/" target="_blank" rel="noopener">Up to 35% off WDW rooms for Annual Passholders (winter/spring 2027)</a></strong>
+      <span class="sub">Annual Passholders can save up to 35% on select Disney World resort stays this winter and spring 2027. Disney Tourist Blog lists eligible resorts and dates.</span>
+      <span class="note">Disney Tourist Blog</span><span class="note">2026</span>
+      <div class="readmore"><a href="https://www.disneytouristblog.com/35-percent-off-disney-world-resort-discounts-winter-spring-2027-annual-passholders/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></div>
     </div>
+
     <div class="card card-yellow">
-      <strong><a href="https://blogmickey.com/?p=203621" target="_blank" rel="noopener">Disney+ subscribers: free Park Hopper &amp; room discount</a></strong>
-      <span class="sub">Disney+ subscribers can grab a free Park Hopper upgrade plus a room discount for fall and holiday-season Walt Disney World stays — a perk Disney has been leaning on to tie streaming to park visits.</span>
-      <span class="note">BlogMickey · Fall 2026</span>
-      <div class="readmore"><a href="https://blogmickey.com/?p=203621" target="_blank" rel="noopener">Read more at BlogMickey →</a></div>
+      <strong><a href="https://disneyblog.com/news/sams-club-offers-discounted-disney-gift-cards-ahead-of-black-friday/" target="_blank" rel="noopener">Sam's Club offers discounted Disney gift cards ahead of Black Friday</a></strong>
+      <span class="sub">Sam's Club is running a discounted Disney gift card deal going into Black Friday — these sell out fast, so grab them while they last to stretch your park/dining budget.</span>
+      <span class="note">The Disney Blog</span><span class="note">Nov 2026</span>
+      <div class="readmore"><a href="https://disneyblog.com/news/sams-club-offers-discounted-disney-gift-cards-ahead-of-black-friday/" target="_blank" rel="noopener">Read more at The Disney Blog →</a></div>
     </div>
+
     <div class="card card-orange">
-      <strong><a href="https://www.southwest.com/html/offers/nationwide_sale_NonstopConnect_261117.html" target="_blank" rel="noopener">Southwest nationwide fare sale (incl. Orlando/MCO)</a></strong>
-      <span class="sub">Southwest launched a nationwide fare sale on Nov 17 covering nonstop and connecting routes — useful for booking Orlando (MCO) flights for an upcoming Disney trip. Check blackout dates and book windows before purchasing.</span>
-      <span class="note">Southwest · Nov 17, 2026</span>
-      <div class="readmore"><a href="https://www.southwest.com/html/offers/nationwide_sale_NonstopConnect_261117.html" target="_blank" rel="noopener">Read more at Southwest.com →</a></div>
+      <strong><a href="https://slickdeals.net/f/19240471-500-disney-physical-gift-card-at-bj-s-for-474" target="_blank" rel="noopener">BJ's: $500 Disney physical gift card for $474</a></strong>
+      <span class="sub">A Slickdeals listing has BJ's Wholesale selling a $500 physical Disney gift card for about $474 (roughly 5% off) — a simple, stackable way to save on a Disney vacation.</span>
+      <span class="note">Slickdeals / BJ's</span><span class="note">2026</span>
+      <div class="readmore"><a href="https://slickdeals.net/f/19240471-500-disney-physical-gift-card-at-bj-s-for-474" target="_blank" rel="noopener">Read more at Slickdeals →</a></div>
     </div>
+
     <div class="card card-lime">
-      <strong><a href="https://disneytouristblog.com/save-233-with-new-costco-disneyland-2-day-park-hopper-ticket-deal-with-lightning-lanes-for-late-2026/" target="_blank" rel="noopener">Costco: save $233 on a Disneyland 2-day Park Hopper</a></strong>
-      <span class="sub">Costco is offering a Disneyland 2-Day Park Hopper ticket package with Lightning Lanes that Disney Tourist Blog pegs at about $233 in savings for late-2026 travel — a West Coast option if a Disneyland trip is on the table.</span>
-      <span class="note">Disney Tourist Blog · Late 2026</span>
-      <div class="readmore"><a href="https://disneytouristblog.com/save-233-with-new-costco-disneyland-2-day-park-hopper-ticket-deal-with-lightning-lanes-for-late-2026/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></div>
+      <strong><a href="https://disneyblog.com/news/target-offers-up-to-15-off-disney-gift-cards-this-week/" target="_blank" rel="noopener">Target: up to 15% off Disney gift cards (plus RedCard 5% year-round)</a></strong>
+      <span class="sub">Target has run up-to-15%-off Disney gift card promos, and RedCard holders save 5% on Disney gift cards year-round — one of the most reliable ways to trim vacation costs.</span>
+      <span class="note">The Disney Blog</span><span class="note">2026</span>
+      <div class="readmore"><a href="https://disneyblog.com/news/target-offers-up-to-15-off-disney-gift-cards-this-week/" target="_blank" rel="noopener">Read more at The Disney Blog →</a></div>
+    </div>
+
+    <div class="card card-yellow">
+      <strong><a href="https://disneycruise.disney.go.com/special-offers/military-rates/" target="_blank" rel="noopener">Disney Cruise Line: U.S. military rates + $250 onboard credit</a></strong>
+      <span class="sub">DCL continues to offer special U.S. military rates, and eligible 2026 sailings have carried a $250 military onboard credit offer. See the official page for current eligibility.</span>
+      <span class="note">Disney Cruise Line (official)</span><span class="note">2026</span>
+      <div class="readmore"><a href="https://disneycruise.disney.go.com/special-offers/military-rates/" target="_blank" rel="noopener">Read more at Disney Cruise Line →</a></div>
+    </div>
+
+    <div class="card card-orange">
+      <strong><a href="https://www.flyfrontier.com/deals/sales/black-friday-sale" target="_blank" rel="noopener">Airfare to Orlando: Black Friday flight sales (Frontier, JetBlue & more)</a></strong>
+      <span class="sub">Frontier, JetBlue and Southwest have been running Black Friday / winter-travel fare sales with low one-way fares, several covering Orlando (MCO) — handy for booking a Disney trip.</span>
+      <span class="note">Frontier / JetBlue / Southwest</span><span class="note">Nov 2026</span>
+      <div class="readmore"><a href="https://www.flyfrontier.com/deals/sales/black-friday-sale" target="_blank" rel="noopener">Read more at Frontier Airlines →</a></div>
+    </div>
+
+    <div class="card card-lime">
+      <strong><a href="https://www.disneyfoodblog.com/disney-discounts-and-deals/" target="_blank" rel="noopener">Disney Food Blog's running Disney discounts & deals tracker</a></strong>
+      <span class="sub">A continuously updated hub of every current Disney World hotel, ticket and package discount — a good one-stop check when a new offer drops.</span>
+      <span class="note">Disney Food Blog</span><span class="note">Updated Oct 19</span>
+      <div class="readmore"><a href="https://www.disneyfoodblog.com/disney-discounts-and-deals/" target="_blank" rel="noopener">Read more at Disney Food Blog →</a></div>
     </div>
   </div>
+
   <div class="callout">
-    <strong>Also checked this run:</strong> BJ's and Kroger fuel-points Disney gift cards, JetBlue / Spirit / Frontier MCO sales, and the Mousesavers / Chip and Co. roundups turned up no fresh standalone deal worth surfacing beyond the gift-card discounts above. Two more offers remain active: Disney Visa cardmembers have new <a href="https://insidethemagic.net/2026/10/disney-reveals-new-visa-card-perks-ahead-of-the-holiday-season-el1/" target="_blank" rel="noopener">holiday-season card perks</a> (Inside the Magic, Oct 2026), and Disney Cruise Line is giving a <a href="https://disneycruise.disney.go.com/special-offers/military-rates/" target="_blank" rel="noopener">$250 military onboard credit</a> on select sailings.
+    <strong>Sources checked this run:</strong> Disney Visa / disneyrewards.com, Costco, Sam's Club, BJ's, Target RedCard, Kroger fuel points, Disney World room-only &amp; free-dining offers, Disneyland offers, Disney Cruise Line offers, Southwest/JetBlue/Frontier MCO fares, Mousesavers and Mickey Visit roundups. <strong>No fresh public deal found this run for:</strong> Costco Disney gift cards (no active in-store discount confirmed), and Kroger's Disney-specific fuel-points promo (only a general 4x-points-on-third-party-gift-cards offer surfaced). Gift-card percentages shift weekly — verify at the retailer before buying.
   </div>
 </section>
 
+<!-- ============ YOUTUBE & COMMUNITY ============ -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📺 YouTube &amp; Community</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">YouTube & Community</span><span class="divider-line"></span></div>
+
   <div class="callout">
-    <strong>No verified fresh video links to surface this run.</strong> Creators checked for uploads in the last 14 days: DFB Guide / Disney Food Blog, AllEars.Net, DVC Fan, The Tim Tracker, Mammoth Club, Provost Park Pass and Mickey Views. This run's web search returned blog wrappers, podcast pages and mirror sites rather than verifiable direct <em>youtube.com/watch</em> URLs within the window, so no individual video is linked here rather than risk a broken or wrong link. Best landing pages to catch the latest:
-    <div class="readmore"><a href="https://www.disneyfoodblog.com/tag/dfb-youtube/" target="_blank" rel="noopener">DFB Guide video archive →</a> &nbsp;·&nbsp; <a href="https://www.youtube.com/@AllEarsNet/videos" target="_blank" rel="noopener">AllEars.Net on YouTube →</a> &nbsp;·&nbsp; <a href="https://www.youtube.com/@TheTimTracker/videos" target="_blank" rel="noopener">The Tim Tracker on YouTube →</a></div>
+    <strong>Creators checked this run (14-day window):</strong> DFB Guide / Disney Food Blog, AllEars.Net, DVC Fan, Tim Tracker, Mammoth Club, Provost Park Pass, and Mickey Views. This run did not surface verifiable direct video URLs with confirmed upload dates inside the 14-day window for these channels (search returned channel/aggregator pages rather than dated individual videos), so individual video cards are held rather than linked to an unverifiable URL. The channel hubs below are the reliable way to catch their newest uploads.
+  </div>
+
+  <div class="cards-grid">
+    <div class="card card-cyan">
+      <strong><a href="https://www.youtube.com/@DisneyFoodBlog/videos" target="_blank" rel="noopener">DFB Guide — latest uploads</a></strong>
+      <span class="sub">The Disney Food Blog YouTube channel: daily parks/food news, festival eats, menu reviews and new-ship coverage. Newest videos appear at the top of the Videos tab.</span>
+      <span class="note">DFB Guide</span>
+      <div class="readmore"><a href="https://www.youtube.com/@DisneyFoodBlog/videos" target="_blank" rel="noopener">Watch on YouTube →</a></div>
+    </div>
+
+    <div class="card card-blue">
+      <strong><a href="https://www.youtube.com/@AllEarsNet/videos" target="_blank" rel="noopener">AllEars.Net — latest uploads</a></strong>
+      <span class="sub">AllEars' YouTube channel: park updates, holiday-season coverage, dining and tips. Check the Videos tab for this week's uploads.</span>
+      <span class="note">AllEars.Net</span>
+      <div class="readmore"><a href="https://www.youtube.com/@AllEarsNet/videos" target="_blank" rel="noopener">Watch on YouTube →</a></div>
+    </div>
+
+    <div class="card card-purple">
+      <strong><a href="https://dvcfan.com/category/the-dvc-show/" target="_blank" rel="noopener">The DVC Show (DVC Fan) — latest episodes</a></strong>
+      <span class="sub">DVC Fan's The DVC Show covers Disney Vacation Club news, incentives, resort updates and member perks. New monthly news episodes post here and on YouTube.</span>
+      <span class="note">DVC Fan</span>
+      <div class="readmore"><a href="https://dvcfan.com/category/the-dvc-show/" target="_blank" rel="noopener">Watch at DVC Fan →</a></div>
+    </div>
+
+    <div class="card card-cyan">
+      <strong><a href="https://www.youtube.com/@TheTimTracker/videos" target="_blank" rel="noopener">The Tim Tracker — latest vlogs</a></strong>
+      <span class="sub">Daily-ish Disney parks vlogs from Tim and Jenn — rides, food, events and holiday-season walkthroughs. Newest vlogs at the top of the Videos tab.</span>
+      <span class="note">Tim Tracker</span>
+      <div class="readmore"><a href="https://www.youtube.com/@TheTimTracker/videos" target="_blank" rel="noopener">Watch on YouTube →</a></div>
+    </div>
   </div>
 </section>
 
+<!-- ============ UPCOMING EVENTS ============ -->
 <section class="section-group">
-  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">📅 Upcoming Events</span><span class="divider-line"></span></div>
+  <div class="section-divider"><span class="divider-accent"></span><span class="divider-label">Upcoming Events</span><span class="divider-line"></span></div>
+
   <div class="cards-grid">
     <div class="card card-green">
-      <strong><a href="https://www.disneytouristblog.com/full-food-menus-for-2026-epcot-festival-of-holidays-figment-christmas-popcorn-bucket-and-98-new-items/" target="_blank" rel="noopener">EPCOT holiday season kicks off Nov 27</a></strong>
-      <span class="sub">The EPCOT International Festival of the Holidays — with its Holiday Kitchens, Cookie Stroll, and the Candlelight Processional — begins Nov 27, 2026 and runs through roughly Dec 30, anchoring Walt Disney World's Christmas-season calendar.</span>
-      <span class="note">Disney Tourist Blog · Nov 12, 2026</span>
-      <div class="readmore"><a href="https://www.disneytouristblog.com/full-food-menus-for-2026-epcot-festival-of-holidays-figment-christmas-popcorn-bucket-and-98-new-items/" target="_blank" rel="noopener">Read more at Disney Tourist Blog →</a></div>
+      <strong><a href="https://mickeyvisit.com/disney-world-reveals-dates-christmas-holiday-parties-june-24-2026/" target="_blank" rel="noopener">Holiday parties & events: full 2026 dates and details</a></strong>
+      <span class="sub">Mickey's Very Merry Christmas Party, Jollywood Nights at Hollywood Studios, and the full slate of 2026 holiday hard-ticket events — dates, pricing and what's included.</span>
+      <span class="note">Mickey Visit</span><span class="note">2026</span>
+      <div class="readmore"><a href="https://mickeyvisit.com/disney-world-reveals-dates-christmas-holiday-parties-june-24-2026/" target="_blank" rel="noopener">Read more at Mickey Visit →</a></div>
     </div>
+
     <div class="card card-lime">
-      <strong><a href="https://mickeyvisit.com/disney-november-ride-closures-october-27-2026/" target="_blank" rel="noopener">Tiana's Bayou Adventure reopens Dec 18</a></strong>
-      <span class="sub">Magic Kingdom's Tiana's Bayou Adventure — closed since Nov 2 for refurbishment — is scheduled to reopen Dec 18, 2026, just in time for the holiday-week crowds.</span>
-      <span class="note">Mickey Visit · Oct 28, 2026</span>
-      <div class="readmore"><a href="https://mickeyvisit.com/disney-november-ride-closures-october-27-2026/" target="_blank" rel="noopener">Read more at Mickey Visit →</a></div>
+      <strong><a href="https://disneyparksblog.com/wdw/epcot-festival-of-the-holidays-dates-details/" target="_blank" rel="noopener">EPCOT Festival of the Holidays & Candlelight Processional</a></strong>
+      <span class="sub">The holiday festival and the Candlelight Processional run through the Christmas season at EPCOT, with celebrity narrators, Holiday Kitchens and dining packages. Disney Parks Blog has the dates.</span>
+      <span class="note">Disney Parks Blog (official)</span><span class="note">2026</span>
+      <div class="readmore"><a href="https://disneyparksblog.com/wdw/epcot-festival-of-the-holidays-dates-details/" target="_blank" rel="noopener">Read more at Disney Parks Blog →</a></div>
+    </div>
+
+    <div class="card card-green">
+      <strong><a href="https://mickeyvisit.com/?p=118794" target="_blank" rel="noopener">2026 Candlelight Processional: celebrity lineup & dining packages</a></strong>
+      <span class="sub">Mickey Visit details the 2026 Candlelight Processional celebrity narrator lineup, dining-package pricing and booking windows for the EPCOT holiday tradition.</span>
+      <span class="note">Mickey Visit</span><span class="note">2026</span>
+      <div class="readmore"><a href="https://mickeyvisit.com/?p=118794" target="_blank" rel="noopener">Read more at Mickey Visit →</a></div>
     </div>
   </div>
 </section>
 
 </main>
-<footer>Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">Thu, Nov 19 at 11:28 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
+<footer>Generated on Friday, November 20, 2026 at 3:36 AM ET · Lisa's Hub · Last updated <span class="timestamp-badge" id="updated-badge">Fri, Nov 20 at 3:36 AM ET</span><div class="footer-clock" id="footer-clock"></div></footer>
 <script>
 function updateClock(){const now=new Date();const dateStr=now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});const timeStr=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});const combined=dateStr+' · '+timeStr;const hDate=document.getElementById('header-date');const hTime=document.getElementById('header-time');const footer=document.getElementById('footer-clock');if(hDate)hDate.textContent=dateStr+' · ';if(hTime)hTime.textContent=timeStr;if(footer)footer.textContent=combined;const badge=document.getElementById('updated-badge');if(badge&&badge.textContent.trim()==='DYNAMIC'+'_TIMESTAMP'){badge.textContent='…';var pg=(location.pathname.split('/').pop()||'index.html');fetch('https://api.github.com/repos/lisaprocz-rgb/crispy-octo-goggles/commits?path='+encodeURIComponent(pg)+'&per_page=1').then(function(r){return r.json();}).then(function(d){var t=new Date(d[0].commit.committer.date);var ds=t.toLocaleDateString('en-US',{timeZone:'America/New_York',weekday:'short',month:'short',day:'numeric'});var tm=t.toLocaleTimeString('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit',hour12:true});badge.textContent=ds+' at '+tm+' ET';}).catch(function(){badge.textContent='unavailable';});}}
 updateClock();setInterval(updateClock,1000);
